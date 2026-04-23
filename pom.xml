@@ -9,8 +9,19 @@
     <version>6-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>DrakesCraft-Labs</name>
-    <description>Ecosistema unificado de Slimefun Addons para 1.21.11</description>
+    <name>DrakesCraft-Labs | Unified Slimefun Ecosystem</name>
+    <description>The ultimate laboratory for Slimefun 4 addons, optimized for Minecraft 1.21.11. Featuring a unified reactor, synchronized dependencies, and high-performance core patches for a premium experience.</description>
+    <url>https://github.com/DrakesCraft-Labs/drakes-slimefun-labs</url>
+
+    <organization>
+        <name>DrakesCraft Labs</name>
+        <url>https://github.com/DrakesCraft-Labs</url>
+    </organization>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues</url>
+    </issueManagement>
 
     <properties>
         <java.version>21</java.version>
