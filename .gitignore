@@ -28,3 +28,6 @@ Desktop.ini
 
 # Submódulos obsoletos / fantasmas
 wiki_temp/
+
+# Backups de Manager
+**/*.bak

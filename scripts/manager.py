@@ -89,7 +89,7 @@ def repair(dry_run=False):
     # Transformaciones Maestras
     transformations = [
         # 1. Asegurar GroupID del Parent
-        (r"(<parent>[\s\S]*?<groupId>).*?(</groupId>)", r"\g<1>com.github.drakescraft-labs\g<2>"),
+        (r"(<parent>[\s\S]*?<groupId>).*?(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
         # 2. Asegurar ArtifactID del Parent
         (r"(<parent>[\s\S]*?<artifactId>).*?(</artifactId>)", r"\g<1>drakes-slimefun-labs\g<2>"),
         # 3. Forzar Versión 11-SNAPSHOT
@@ -136,7 +136,7 @@ def sync_docs(status):
             # Sincronizar Resumen de Flota
             content = re.sub(r"- \*\*Reactor Maven\*\*: \d+ Módulos", f"- **Reactor Maven**: {total_maven} Módulos", content)
             content = re.sub(r"- \*\*Reactor Gradle\*\*: \d+ Módulos", f"- **Reactor Gradle**: {total_gradle} Módulos", content)
-            content = re.sub(r"- \*\*Identidad com.github.drakescraft-labs\*\*: .*", f"- **Identidad com.github.drakescraft-labs**: Implementada en el core y {len(status['SURGICAL'])} addons ({perc:.1f}%).", content)
+            content = re.sub(r"- \*\*Identidad com.github.drakescraft_labs\*\*: .*", f"- **Identidad com.github.drakescraft_labs**: Implementada en el core y {len(status['SURGICAL'])} addons ({perc:.1f}%).", content)
 
             with open(path, 'w', encoding='utf-8') as f:
                 f.write(content)

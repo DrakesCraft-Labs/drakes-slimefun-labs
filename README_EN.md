@@ -19,37 +19,37 @@ This repository is not a single plugin. It is a consolidation, porting, validati
 
 | Resource | Local Mirror (`.md`) | GitHub Wiki | Purpose |
 | :--- | :--- | :--- | :--- |
-| Documentation home | [English Home](docs/en/home.md) | [English Home](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Home-EN) | General English entry point. |
-| Operational checklist | [Migration Checklist](docs/en/migration-checklist.md) | [Migration Checklist](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Migration-Checklist) | Executive status and priorities. |
-| Remaining modules | [Pending Modules](docs/en/pending-modules.md) | [Pending Modules](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Pending-Modules) | What is still outside the reactor or blocked. |
-| Project backlog | Not applicable | [Slimefun 1.21.11 Migration Backlog](https://github.com/orgs/DrakesCraft-Labs/projects/1/views/1) | Operational board for integration, technical port work, and smoke-test tracking. |
-| Roadmap | [Stabilization Roadmap](docs/en/stabilization-roadmap.md) | [Stabilization Roadmap](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Stabilization-Roadmap) | Suggested closure order. |
-| Daily handoff | [Tomorrow Handoff](docs/en/tomorrow-handoff.md) | [Tomorrow Handoff](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff-EN) | Session continuity. |
-| Architecture | [Ecosystem Architecture](docs/en/ecosystem-architecture.md) | [Ecosystem Architecture](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Ecosystem-Architecture) | Explains the Drake stack and workspace layout. |
-| Technical reference | [Technical Reference (Paper 1.21.1)](docs/en/technical-reference-paper-1.21.1.md) | [Technical Reference (Paper 1.21.1)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Technical-Reference-(Paper-1.21.1)) | API findings, compatibility notes, and port criteria. |
-| Smoke test | [Smoke Test Guide](docs/en/smoke-test-guide.md) | [Smoke Test Guide](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Smoke-Test-Guide) | Basic runtime validation. |
-| Dev setup | [Development Setup](docs/en/development-setup.md) | [Development Setup](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Development-Setup) | Local environment preparation. |
-| Development standards | [Development Standards](docs/en/development-standards.md) | [Development Standards](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Development-Standards) | Conventions and quality criteria. |
-| AI guide | [AI Instructions](docs/en/ai-instructions.md) | [AI Instructions](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/AI-Instructions) | Context and rules for assisted sessions. |
-| Addon template guide | [New Addon Template](docs/en/new-addon-template.md) | [New Addon Template](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN) | English explanation for the base template. |
-| Release/CI strategy | [Release and CI Strategy](docs/en/release-and-ci-strategy.md) | [Release and CI Strategy](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Release-and-CI-Strategy) | Publication and automation policy. |
+| Documentation home | [English Home](docs/en/home.md) | [English Home](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Home-EN) | General English entry point. |
+| Operational checklist | [Migration Checklist](docs/en/migration-checklist.md) | [Migration Checklist](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Migration-Checklist) | Executive status and priorities. |
+| Remaining modules | [Pending Modules](docs/en/pending-modules.md) | [Pending Modules](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Pending-Modules) | What is still outside the reactor or blocked. |
+| Project backlog | Not applicable | [Slimefun 1.21.11 Migration Backlog](https://github.com/orgs/drakescraft_labs/projects/1/views/1) | Operational board for integration, technical port work, and smoke-test tracking. |
+| Roadmap | [Stabilization Roadmap](docs/en/stabilization-roadmap.md) | [Stabilization Roadmap](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Stabilization-Roadmap) | Suggested closure order. |
+| Daily handoff | [Tomorrow Handoff](docs/en/tomorrow-handoff.md) | [Tomorrow Handoff](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff-EN) | Session continuity. |
+| Architecture | [Ecosystem Architecture](docs/en/ecosystem-architecture.md) | [Ecosystem Architecture](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Ecosystem-Architecture) | Explains the Drake stack and workspace layout. |
+| Technical reference | [Technical Reference (Paper 1.21.1)](docs/en/technical-reference-paper-1.21.1.md) | [Technical Reference (Paper 1.21.1)](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Technical-Reference-(Paper-1.21.1)) | API findings, compatibility notes, and port criteria. |
+| Smoke test | [Smoke Test Guide](docs/en/smoke-test-guide.md) | [Smoke Test Guide](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Smoke-Test-Guide) | Basic runtime validation. |
+| Dev setup | [Development Setup](docs/en/development-setup.md) | [Development Setup](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Development-Setup) | Local environment preparation. |
+| Development standards | [Development Standards](docs/en/development-standards.md) | [Development Standards](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Development-Standards) | Conventions and quality criteria. |
+| AI guide | [AI Instructions](docs/en/ai-instructions.md) | [AI Instructions](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/AI-Instructions) | Context and rules for assisted sessions. |
+| Addon template guide | [New Addon Template](docs/en/new-addon-template.md) | [New Addon Template](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN) | English explanation for the base template. |
+| Release/CI strategy | [Release and CI Strategy](docs/en/release-and-ci-strategy.md) | [Release and CI Strategy](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Release-and-CI-Strategy) | Publication and automation policy. |
 | Actual local template | [Template README](templates/slimefun-addon/README.md) | Not applicable | Local baseline for new addons in this stack. |
 
 ## Executive Status (The Great Work)
 
 > [!IMPORTANT]
-> Main working branch: `1.21-latin` | Unified Identity: `com.github.drakescraft-labs`
+> Main working branch: `1.21-latin` | Unified Identity: `com.github.drakescraft_labs`
 
 The lab currently covers a universe of **89 addons** plus base modules. We have achieved a high-performance hybrid architecture.
 
 | Metric | Value | Status |
 | :--- | :--- | :--- |
-| **MAVEN REACTOR** | `80` | 🛡️ Unified under `com.github.drakescraft-labs` |
+| **MAVEN REACTOR** | `80` | 🛡️ Unified under `com.github.drakescraft_labs` |
 | **GRADLE REACTOR** | `9` | 🐘 Modernized with Java 21 |
 | **Structural Progress** | **100%** | **89/89 Addons Integrated** |
 | **Surgical Progress** | **67.4%** | **60/89 Addons with Rebrand** |
-| **Unified Base** | `com.github.drakescraft-labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
-| **Slimefun Core** | `com.github.drakescraft-labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
+| **Unified Base** | `com.github.drakescraft_labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
+| **Slimefun Core** | `com.github.drakescraft_labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
 | **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Full Hybrid CI |
 
 ### How to interpret this status
@@ -138,7 +138,7 @@ Managing this universe of 89 modules is centralized in `scripts/manager.py`. Thi
 The ecosystem uses the **Drake Framework** as its technical consolidation base:
 
 - **Hybrid Reactor**: Unification of Maven (80 modules) and Gradle (9 modules).
-- **Unified Identity**: Massive shift to the `com.github.drakescraft-labs` namespace.
+- **Unified Identity**: Massive shift to the `com.github.drakescraft_labs` namespace.
 - **Unified Engine**: A single GitHub Actions CI engine controlling everything.
 
 For deeper context:
@@ -291,32 +291,32 @@ The ecosystem uses the **Drake Framework** as its technical consolidation base:
 For deeper context:
 
 - [Ecosystem Architecture](docs/en/ecosystem-architecture.md)
-- [Ecosystem Architecture on the Wiki](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Ecosystem-Architecture)
+- [Ecosystem Architecture on the Wiki](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Ecosystem-Architecture)
 - [Technical Reference (Paper 1.21.1)](docs/en/technical-reference-paper-1.21.1.md)
-- [Technical Reference (Paper 1.21.1) on the Wiki](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Technical-Reference-(Paper-1.21.1))
+- [Technical Reference (Paper 1.21.1) on the Wiki](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Technical-Reference-(Paper-1.21.1))
 
 ## Supporting Documentation
 
 | Topic | Local Mirror | GitHub Wiki |
 | :--- | :--- | :--- |
-| Status and priorities | [Migration Checklist](docs/en/migration-checklist.md) | [Migration Checklist](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Migration-Checklist) |
-| Detailed backlog | [Pending Modules](docs/en/pending-modules.md) | [Pending Modules](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Pending-Modules) |
-| Operational roadmap | [Stabilization Roadmap](docs/en/stabilization-roadmap.md) | [Stabilization Roadmap](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Stabilization-Roadmap) |
-| Smoke test | [Smoke Test Guide](docs/en/smoke-test-guide.md) | [Smoke Test Guide](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Smoke-Test-Guide) |
-| Handoff | [Tomorrow Handoff](docs/en/tomorrow-handoff.md) | [Tomorrow Handoff](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff-EN) |
-| Local setup | [Development Setup](docs/en/development-setup.md) | [Development Setup](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Development-Setup) |
-| Standards | [Development Standards](docs/en/development-standards.md) | [Development Standards](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Development-Standards) |
-| AI guide | [AI Instructions](docs/en/ai-instructions.md) | [AI Instructions](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/AI-Instructions) |
-| AI start prompt | [AI Start Prompt](docs/en/ai-start-prompt.md) | [AI Start Prompt](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/AI-Start-Prompt-EN) |
-| Addon template guide | [New Addon Template](docs/en/new-addon-template.md) | [New Addon Template](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN) |
-| Release/CI strategy | [Release and CI Strategy](docs/en/release-and-ci-strategy.md) | [Release and CI Strategy](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Release-and-CI-Strategy) |
+| Status and priorities | [Migration Checklist](docs/en/migration-checklist.md) | [Migration Checklist](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Migration-Checklist) |
+| Detailed backlog | [Pending Modules](docs/en/pending-modules.md) | [Pending Modules](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Pending-Modules) |
+| Operational roadmap | [Stabilization Roadmap](docs/en/stabilization-roadmap.md) | [Stabilization Roadmap](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Stabilization-Roadmap) |
+| Smoke test | [Smoke Test Guide](docs/en/smoke-test-guide.md) | [Smoke Test Guide](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Smoke-Test-Guide) |
+| Handoff | [Tomorrow Handoff](docs/en/tomorrow-handoff.md) | [Tomorrow Handoff](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff-EN) |
+| Local setup | [Development Setup](docs/en/development-setup.md) | [Development Setup](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Development-Setup) |
+| Standards | [Development Standards](docs/en/development-standards.md) | [Development Standards](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Development-Standards) |
+| AI guide | [AI Instructions](docs/en/ai-instructions.md) | [AI Instructions](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/AI-Instructions) |
+| AI start prompt | [AI Start Prompt](docs/en/ai-start-prompt.md) | [AI Start Prompt](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/AI-Start-Prompt-EN) |
+| Addon template guide | [New Addon Template](docs/en/new-addon-template.md) | [New Addon Template](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN) |
+| Release/CI strategy | [Release and CI Strategy](docs/en/release-and-ci-strategy.md) | [Release and CI Strategy](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/Release-and-CI-Strategy) |
 
 ## New Addon Template
 
 For new modules aligned with the current stack:
 
 - guide: [New Addon Template](docs/en/new-addon-template.md)
-- public wiki: [New Addon Template](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN)
+- public wiki: [New Addon Template](https://github.com/drakescraft_labs/drakes-slimefun-labs/wiki/New-Addon-Template-EN)
 - actual local base: [templates/slimefun-addon/README.md](templates/slimefun-addon/README.md)
 
 ## Credits

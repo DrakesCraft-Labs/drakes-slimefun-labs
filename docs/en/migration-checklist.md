@@ -5,7 +5,7 @@
 - **Structural Integration**: **100% (89/89)**.
 - **Maven Reactor**: 80 Active modules.
 - **Gradle Reactor**: 9 Active modules.
-- **Identity com.github.drakescraft-labs**: Implemented in core and 60 addons.
+- **Identity com.github.drakescraft_labs**: Implemented in core and 60 addons.
 
 ## 🧬 Status by Layer
 

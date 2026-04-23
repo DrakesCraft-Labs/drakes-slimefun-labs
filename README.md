@@ -39,18 +39,18 @@ Este repo no representa un único plugin. Es un laboratorio de consolidación, p
 ## Estado Ejecutivo (La Gran Obra)
 
 > [!IMPORTANT]
-> Rama de trabajo principal: `1.21-latin` | Identidad Unificada: `com.github.drakescraft-labs`
+> Rama de trabajo principal: `1.21-latin` | Identidad Unificada: `com.github.drakescraft_labs`
 
 El laboratorio cubre actualmente un universo de **89 addons** más los módulos base. Hemos logrado una arquitectura híbrida de alto rendimiento.
 
 | Métrica | Valor | Estado |
 | :--- | :--- | :--- |
-| **REACTOR MAVEN** | `80` | 🛡️ Unificados bajo `com.github.drakescraft-labs` |
+| **REACTOR MAVEN** | `80` | 🛡️ Unificados bajo `com.github.drakescraft_labs` |
 | **REACTOR GRADLE** | `8` | 🐘 Modernizados con Java 21 |
 | **Progreso Estructural** | **100%** | **89/89 Addons Integrados** |
 | **Progreso Quirúrgico** | **67.4%** | **60/89 Addons con Rebrand** |
-| **Base Unificada** | `com.github.drakescraft-labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
-| **Core Slimefun** | `com.github.drakescraft-labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
+| **Base Unificada** | `com.github.drakescraft_labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
+| **Core Slimefun** | `com.github.drakescraft_labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
 | **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Full CI Híbrido |
 
 ### Cómo interpretar este estado

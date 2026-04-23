@@ -4,7 +4,7 @@ Este repositorio contiene el ecosistema unificado de Slimefun preparado para **P
 
 ## 🧬 Identidad Unificada
 A partir de la v15.0, todos los módulos deben usar la identidad oficial de DrakesLab:
-- **GroupId**: `com.github.drakescraft-labs`
+- **GroupId**: `com.github.drakescraft_labs`
 - **Parent**: `drakes-slimefun-labs`
 - **Estandarización**: Todos los addons heredan versiones y dependencias del reactor central.
 

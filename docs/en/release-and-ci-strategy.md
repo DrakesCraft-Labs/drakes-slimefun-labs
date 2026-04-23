@@ -16,10 +16,10 @@ As of v15.0, we have consolidated all automation into a single, high-performance
 
 ### Automated Deployment (Continuous Delivery)
 The **Unified Engine** automatically deploys the following critical modules to **GitHub Packages** upon every successful push to `1.21-latin`:
-- `com.github.drakescraft-labs:dough-core`
-- `com.github.drakescraft-labs:slimefun-core`
-- `com.github.drakescraft-labs:sefilib-core`
-- `com.github.drakescraft-labs:infinitylib-core`
+- `com.github.drakescraft_labs:dough-core`
+- `com.github.drakescraft_labs:slimefun-core`
+- `com.github.drakescraft_labs:sefilib-core`
+- `com.github.drakescraft_labs:infinitylib-core`
 
 ### Manual Release Candidates
 Individual addons are not automatically released as stable versions. Instead:
@@ -35,7 +35,7 @@ Individual addons are not automatically released as stable versions. Instead:
 ## ✅ Quality Gate Standards
 A module is considered "Surgical Ready" and eligible for stable distribution when:
 - It successfully passes the **Unified Engine** build.
-- It uses the `com.github.drakescraft-labs` unified identity.
+- It uses the `com.github.drakescraft_labs` unified identity.
 - No legacy API warnings or dependency conflicts are present.
 - It has been smoke-tested in a real Minecraft server environment.
 

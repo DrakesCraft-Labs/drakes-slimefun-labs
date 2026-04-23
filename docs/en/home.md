@@ -21,7 +21,7 @@
 
 - [[Migration Checklist]]
 - [[Pending Modules]]
-- [GitHub project backlog](https://github.com/orgs/DrakesCraft-Labs/projects/1/views/1)
+- [GitHub project backlog](https://github.com/orgs/drakescraft_labs/projects/1/views/1)
 - [[Stabilization Roadmap]]
 - [[Technical Reference (Paper 1.21.1)]]
 - [[Smoke Test Guide]]

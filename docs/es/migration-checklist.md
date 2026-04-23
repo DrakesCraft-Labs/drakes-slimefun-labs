@@ -6,7 +6,7 @@
 - **Estandarización de Padres**: **100% (11-SNAPSHOT)**.
 - **Reactor Maven**: 80 Módulos activos.
 - **Reactor Gradle**: 8 Módulos activos.
-- **Identidad com.github.drakescraft-labs**: Implementada en el core y 64 addons (71.9%).
+- **Identidad com.github.drakescraft_labs**: Implementada en el core y 64 addons (71.9%).
 
 ## 🧬 Estado por Capas
 

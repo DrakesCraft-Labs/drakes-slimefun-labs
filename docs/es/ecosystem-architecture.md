@@ -5,7 +5,7 @@
 
 ## 🧬 Identidad y Namespace
 A partir de la v15.0, el ecosistema utiliza un namespace unificado para evitar colisiones y asegurar la resolución de dependencias en GitHub Packages:
-- **Namespace Maestro**: `com.github.drakescraft-labs`
+- **Namespace Maestro**: `com.github.drakescraft_labs`
 - **Prefijo de Versión**: `Drake-1.21.1`
 
 ## 🏗️ Reactor Híbrido (Hybrid Build System)
@@ -34,7 +34,7 @@ Contamos con un único workflow maestro (`unified-engine.yml`) que:
 - Despliega automáticamente los módulos core (`Dough`, `Slimefun`, `SefiLib`, `InfinityLib`) si el build es exitoso.
 
 ## 📂 Organización del Workspace
-- `sources/dough-core`: Librería base unificada (`com.github.drakescraft-labs`).
+- `sources/dough-core`: Librería base unificada (`com.github.drakescraft_labs`).
 - `sources/slimefun-core`: Núcleo Slimefun adaptado.
 - `sources/repos-to-port`: Batch prioritario estabilizado.
 - `sources/batch-2-expansion`: Librerías y expansiones activas.

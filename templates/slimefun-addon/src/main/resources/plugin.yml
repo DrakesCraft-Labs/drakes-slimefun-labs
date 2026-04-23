@@ -3,7 +3,7 @@ version: 1.21.11-Drake
 main: dev.drake.template.TemplateAddon
 api-version: "1.21"
 authors:
-  - DrakesCraft-Labs
+  - drakescraft_labs
 depend:
   - Slimefun
 description: Plantilla base para addons nuevos sobre Slimefun 6 / Drake Framework.

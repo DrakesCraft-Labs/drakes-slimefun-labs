@@ -1,7 +1,7 @@
 # 🏛️ Tomorrow-Handoff (v16.0)
 
 ## 📊 Estado de la Gran Obra
-- **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft-labs`
+- **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft_labs`
 - **Integración Estructural**: **100% (89/89 addons)**.
 - **Reactor Maven**: 80 módulos (Core + 78 Addons).
 - **Reactor Gradle**: 9 módulos (Galactifun, Bump, etc.).
@@ -21,7 +21,7 @@
 - **Dough-Core**: Se detectó que varios addons (`ExtraUtils`, `LiteXpansion`) usaban paquetes de Drake pero no tenían la dependencia explícita. Corregido.
 - **Lombok**: `InfinityExpansion` fallaba por falta de anotaciones. Se inyectó Lombok v1.18.34.
 - **Paper-API**: Migración masiva de 17 módulos de Spigot-API a Paper-API 1.21.1.
-- **Rebranding de Sombras**: Sincronización de 19 módulos para usar el namespace `com.github.drakescraft-labs` en sus dependencias sombreadas (relocations).
+- **Rebranding de Sombras**: Sincronización de 19 módulos para usar el namespace `com.github.drakescraft_labs` en sus dependencias sombreadas (relocations).
 - **Lección Aprendida**: Aunque las versiones se definan en el `parent`, los addons DEBEN declarar la dependencia explícitamente para que Maven las incluya en el classpath de compilación.
 
 ## 🎯 Siguiente Ruta Recomendada (Fase Quirúrgica)

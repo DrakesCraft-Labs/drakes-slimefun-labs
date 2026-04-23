@@ -48,6 +48,6 @@ public class TemplateAddon extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues";
+        return "https://github.com/drakescraft_labs/drakes-slimefun-labs/issues";
     }
 }
