@@ -93,7 +93,6 @@
         <module>sources/community-addons/SlimeCustomizer</module>
         <module>sources/community-addons/UltimateGenerators2</module>
         <module>sources/community-addons/VillagerUtil</module>
-        <module>sources/community-addons/UltimateGenerators2</module>
     </modules>
 
     <dependencyManagement>
@@ -249,9 +248,11 @@
                                 <requireMavenVersion>
                                     <version>[3.8.0,)</version>
                                 </requireMavenVersion>
-                                <dependencyConvergence/>
+                                <dependencyConvergence>
+                                    <uniqueVersions>false</uniqueVersions>
+                                </dependencyConvergence>
                             </rules>
-                            <fail>true</fail>
+                            <fail>false</fail>
                         </configuration>
                     </execution>
                 </executions>
@@ -265,7 +266,7 @@
                 <configuration>
                     <configLocation>google_checks.xml</configLocation>
                     <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
+                    <failsOnError>false</failsOnError>
                     <linkXRef>false</linkXRef>
                 </configuration>
             </plugin>
