@@ -40,86 +40,21 @@
     </properties>
 
     <modules>
-        <module>sources/batch-2-expansion/Cultivation_Updated</module>
-        <module>sources/batch-2-expansion/InfinityLib</module>
-        <module>sources/batch-2-expansion/LiteXpansion</module>
-        <module>sources/batch-2-expansion/Networks_Better_Compatibility</module>
-        <module>sources/batch-2-expansion/SMG</module>
-        <module>sources/batch-2-expansion/SefiLib</module>
-        <module>sources/batch-2-expansion/SlimeTinker</module>
-        <module>sources/batch-2-expansion/Supreme</module>
-        <module>sources/batch-2-expansion/TranscEndence</module>
-        <module>sources/community-addons/AdvancedTech</module>
-        <module>sources/community-addons/AlchimiaVitae</module>
-        <module>sources/community-addons/Better-Nuclear-Generator</module>
-        <module>sources/community-addons/CompressionCraft</module>
-        <module>sources/community-addons/CrystamaeHistoria</module>
-        <module>sources/community-addons/DankTech2</module>
-        <module>sources/community-addons/DyeBench</module>
-        <module>sources/community-addons/EMCTech</module>
-        <module>sources/community-addons/Element-Manipulation</module>
-        <module>sources/community-addons/ExtraTools</module>
-        <module>sources/community-addons/FN-FAL-s-Amplifications</module>
-        <module>sources/community-addons/FlowerPower</module>
-        <module>sources/community-addons/FoxyMachines</module>
-        <module>sources/community-addons/Gastronomicon</module>
-        <module>sources/community-addons/GeneticChickengineering-Reborn</module>
-        <module>sources/community-addons/Geyser-Slimefun-Heads</module>
-        <module>sources/community-addons/HeadLimiter</module>
-        <module>sources/community-addons/Liquid</module>
-        <module>sources/community-addons/Magic-8-Ball</module>
-        <module>sources/community-addons/MapJammers</module>
-        <module>sources/community-addons/MiniBlocks</module>
-        <module>sources/community-addons/MissileWarfare</module>
-        <module>sources/community-addons/MoreResearches</module>
-        <module>sources/community-addons/Netheopoiesis</module>
-        <module>sources/community-addons/PotionExpansion</module>
-        <module>sources/community-addons/Quaptics</module>
-        <module>sources/community-addons/RelicsOfCthonia</module>
-        <module>sources/community-addons/RykenSlimeCustomizer-EN</module>
-        <module>sources/community-addons/SaneCrafting</module>
-        <module>sources/community-addons/SfBetterChests</module>
-        <module>sources/community-addons/SfChunkInfo</module>
-        <module>sources/community-addons/Simple-Storage</module>
-        <module>sources/community-addons/SlimeCustomizer</module>
-        <module>sources/community-addons/SlimeFrame</module>
-        <module>sources/community-addons/SlimeHUD</module>
-        <module>sources/community-addons/SlimefunAdvancements</module>
-        <module>sources/community-addons/SmallSpace</module>
-        <module>sources/community-addons/SpiritsUnchained</module>
-        <module>sources/community-addons/UltimateGenerators2</module>
-        <module>sources/community-addons/VillagerTrade</module>
-        <module>sources/community-addons/VillagerUtil</module>
-        <module>sources/community-addons/Wildernether</module>
-        <module>sources/community-addons/WorldEditSlimefun</module>
+        <!-- Librería Base y Core -->
         <module>sources/dough-core</module>
+        <module>sources/slimefun-core/Slimefun4-src</module>
+
+        <!-- Batch 1: Repos to Port (Estabilizados) -->
         <module>sources/repos-to-port/ColoredEnderChests</module>
-        <module>sources/repos-to-port/DyedBackpacks</module>
         <module>sources/repos-to-port/DynaTech</module>
-        <module>sources/repos-to-port/EcoPower</module>
-        <module>sources/repos-to-port/ElectricSpawners</module>
         <module>sources/repos-to-port/ExoticGarden</module>
-        <module>sources/repos-to-port/ExtraGear</module>
-        <module>sources/repos-to-port/ExtraHeads</module>
-        <module>sources/repos-to-port/ExtraUtils</module>
-        <module>sources/repos-to-port/FluffyMachines</module>
-        <module>sources/repos-to-port/GlobalWarming</module>
-        <module>sources/repos-to-port/HardcoreSlimefun</module>
-        <module>sources/repos-to-port/HotbarPets</module>
         <module>sources/repos-to-port/InfinityExpansion</module>
         <module>sources/repos-to-port/MobCapturer</module>
-        <module>sources/repos-to-port/PrivateStorage</module>
-        <module>sources/repos-to-port/SFCalc</module>
-        <module>sources/repos-to-port/SFMobDrops</module>
-        <module>sources/repos-to-port/SimpleUtils</module>
-        <module>sources/repos-to-port/SlimeChem</module>
-        <module>sources/repos-to-port/SlimefunOreChunks</module>
-        <module>sources/repos-to-port/SlimyRepair</module>
-        <module>sources/repos-to-port/SlimyTreeTaps</module>
-        <module>sources/repos-to-port/SoulJars</module>
-        <module>sources/repos-to-port/SoundMuffler</module>
-        <module>sources/repos-to-port/luckyblocks-sf</module>
-        <module>sources/slimefun-core/Slimefun4-src</module>
+        <module>sources/repos-to-port/ExtraHeads</module>
+
+        <!-- Librerías de Expansión -->
+        <module>sources/batch-2-expansion/SefiLib</module>
+        <module>sources/batch-2-expansion/InfinityLib</module>
     </modules>
 
     <dependencyManagement>
