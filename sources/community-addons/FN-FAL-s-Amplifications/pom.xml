@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>FNAmplifications-drake</artifactId>
+    <groupId>ne.fnfal113</groupId>
+    <artifactId>FNAmplifications</artifactId>
     <version>Unoffical-4.2.4</version>
     <packaging>jar</packaging>
 

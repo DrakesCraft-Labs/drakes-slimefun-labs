@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>MissileWarfare-drake</artifactId>
-    <version>1.8-SNAPSHOT.13</version>
+    <groupId>me.kaiyan.missilewarfare</groupId>
+    <artifactId>MissileWarfare</artifactId>
+    <version>1.9-SNAPSHOT.13</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

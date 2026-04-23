@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>ExtraHeads-drake</artifactId>
+    <groupId>io.github.thebusybiscuit</groupId>
+    <artifactId>ExtraHeads</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.8-SNAPSHOT</version>
+            <version>2.11.9-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

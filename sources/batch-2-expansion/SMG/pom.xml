@@ -7,12 +7,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SimpleMaterialGenerators-drake</artifactId>
+    <groupId>me.waleks</groupId>
+    <artifactId>SimpleMaterialGenerators</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -33,7 +33,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

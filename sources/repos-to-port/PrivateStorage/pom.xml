@@ -6,11 +6,11 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>PrivateStorage-drake</artifactId>
+    <groupId>io.github.thebusybiscuit</groupId>
+    <artifactId>PrivateStorage</artifactId>
     <version>1.21.11-Drake</version>
 
     <properties>

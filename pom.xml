@@ -6,7 +6,7 @@
 
     <groupId>dev.drake</groupId>
     <artifactId>drakes-slimefun-labs</artifactId>
-    <version>8-SNAPSHOT</version>
+    <version>9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>drakes-slimefun-labs</name>
@@ -32,8 +32,8 @@
         
         <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
         <slimefun.version>RC-37</slimefun.version>
-        <slimefun.drake.version>8.0-Drake-1.21.11-SNAPSHOT</slimefun.drake.version>
-        <dough.version>1.3.1-DRAKE-v8-SNAPSHOT</dough.version>
+        <slimefun.drake.version>9.0-Drake-1.21.11-SNAPSHOT</slimefun.drake.version>
+        <dough.version>1.3.1-DRAKE-v9-SNAPSHOT</dough.version>
     </properties>
 
     <modules>
@@ -217,7 +217,7 @@
             </dependency>
             <dependency>
                 <groupId>io.github.sefiraat</groupId>
-                <artifactId>Networks-drake</artifactId>
+                <artifactId>Networks</artifactId>
                 <version>1.6</version>
                 <scope>provided</scope>
             </dependency>

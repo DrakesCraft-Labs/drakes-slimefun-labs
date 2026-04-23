@@ -8,12 +8,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimefunLuckyBlocks-drake</artifactId>
+    <groupId>io.github.thebusybiscuit</groupId>
+    <artifactId>SlimefunLuckyBlocks</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>EMCTech-drake</artifactId>
+    <groupId>io.github.sefiraat</groupId>
+    <artifactId>EMCTech</artifactId>
     <version>MODIFIED</version>
 
     <build>
@@ -131,7 +131,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <version>b8f7dc</version>
             <scope>provided</scope>
         </dependency>
@@ -169,18 +170,18 @@
         <!-- Supported Plugins -->
         <dependency>
             <groupId>dev.sefiraat</groupId>
-            <artifactId>Networks-drake</artifactId>
+            <artifactId>networks</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Sefiraat</groupId>
-            <artifactId>DankTech2-drake</artifactId>
+            <artifactId>DankTech2</artifactId>
             <version>d2465ae845</version>
         </dependency>
         <dependency>
             <groupId>com.github.Mooy1</groupId>
-            <artifactId>InfinityExpansion-drake</artifactId>
+            <artifactId>InfinityExpansion</artifactId>
             <version>1e83e7afa0</version>
         </dependency>
         <dependency>

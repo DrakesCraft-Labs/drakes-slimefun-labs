@@ -7,12 +7,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Quaptics-drake</artifactId>
+    <groupId>org.metamechanists</groupId>
+    <artifactId>Quaptics</artifactId>
     <version>0</version>
 
     <name>Quaptics</name>
@@ -100,14 +100,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>org.metamechanists</groupId>
             <artifactId>MetaLib</artifactId>
             <version>46</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>org.metamechanists</groupId>
             <artifactId>DisplayModelLib</artifactId>
             <version>3</version>
             <scope>compile</scope>
@@ -128,7 +128,8 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <version>ddb7ebd134</version>
             <scope>provided</scope>
         </dependency>

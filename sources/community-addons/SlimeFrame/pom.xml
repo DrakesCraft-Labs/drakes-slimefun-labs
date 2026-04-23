@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeFrame-drake</artifactId>
+    <groupId>me.voper</groupId>
+    <artifactId>SlimeFrame</artifactId>
     <version>1.7.0</version>
 
     <properties>
@@ -159,7 +159,8 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <version>RC-34</version>
             <scope>provided</scope>
         </dependency>

@@ -7,7 +7,7 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
@@ -104,7 +104,7 @@
         <plugins>
             <plugin>
                 <!-- Compiler plugin -->
-                <groupId>dev.drake.addon</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
 
@@ -119,7 +119,7 @@
 
             <plugin>
                 <!-- Attach sources -->
-                <groupId>dev.drake.addon</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.3.1</version>
 
@@ -135,7 +135,7 @@
 
             <plugin>
                 <!-- Plugin for Unit Tests -->
-                <groupId>dev.drake.addon</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.3.1</version>
 
@@ -180,7 +180,7 @@
 
             <plugin>
                 <!-- Dependency shading -->
-                <groupId>dev.drake.addon</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
 
@@ -221,7 +221,7 @@
 
             <plugin>
                 <!-- Javadocs -->
-                <groupId>dev.drake.addon</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.7.0</version>
 

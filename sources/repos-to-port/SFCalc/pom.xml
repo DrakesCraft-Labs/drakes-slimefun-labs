@@ -7,17 +7,17 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>SFCalc-drake</artifactId>
+    <artifactId>SFCalc</artifactId>
     <version>UNOFFICIAL-1.21</version>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
 

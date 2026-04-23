@@ -8,12 +8,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeCustomizer-drake</artifactId>
+    <groupId>io.ncbpfluffybear</groupId>
+    <artifactId>SlimeCustomizer</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -76,7 +76,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>ExtraUtils-drake</artifactId>
+            <artifactId>ExtraUtils</artifactId>
             <version>73e76ac06c</version>
             <scope>compile</scope>
         </dependency>

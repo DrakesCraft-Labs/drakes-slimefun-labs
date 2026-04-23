@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>WorldEditSlimefun-drake</artifactId>
+    <groupId>dev.j3fftw</groupId>
+    <artifactId>WorldEditSlimefun</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
@@ -108,7 +108,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <version>RC-37</version>
             <scope>provided</scope>
         </dependency>

@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>LiteXpansion-drake</artifactId>
+    <groupId>dev.j3fftw</groupId>
+    <artifactId>LiteXpansion</artifactId>
     <version>MODIFIED</version>
 
     <repositories>
@@ -66,7 +66,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>ExtraUtils-drake</artifactId>
+            <artifactId>extrautils</artifactId>
             <version>73e76ac06c</version>
         </dependency>
     </dependencies>

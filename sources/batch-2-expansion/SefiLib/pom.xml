@@ -7,11 +7,11 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>dev.sefiraat</groupId>
     <artifactId>sefilib-core</artifactId>
     <version>0.3.1-DRAKE-SNAPSHOT</version>
     <name>SefiLib</name>

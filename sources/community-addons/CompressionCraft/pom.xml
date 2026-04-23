@@ -7,12 +7,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>8-SNAPSHOT</version>
+        <version>9-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>CompressionCraft-drake</artifactId>
+    <groupId>me.jasperchasetoq</groupId>
+    <artifactId>CompressionCraft</artifactId>
 
     <version>UNOFFICIAL</version>
 
@@ -110,7 +110,8 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
+            <groupId>com.github.Slimefun</groupId>
+            <artifactId>Slimefun4</artifactId>
             <version>RC-32</version>
             <scope>provided</scope>
             <exclusions>
