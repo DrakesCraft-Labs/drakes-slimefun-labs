@@ -17,6 +17,7 @@
     <name>UltimateGenerators2</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <kotlin.version>2.1.10</kotlin.version>
     </properties>
 

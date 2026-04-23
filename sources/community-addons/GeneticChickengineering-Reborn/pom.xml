@@ -15,6 +15,7 @@
     <version>1.1.DEV</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 

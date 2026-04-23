@@ -7,13 +7,21 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
+        
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>io.github.sefiraat</groupId>
     <artifactId>Networks</artifactId>
-    <version>1.11-SNAPSHOT</version>
+    
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
     <name>Networks</name>
 
     <build>
@@ -44,7 +52,11 @@
         <dependency>
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityExpansion</artifactId>
-            <version>1.20.6-Drake-SNAPSHOT</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -36,6 +36,7 @@
         <dough.version>1.3.1-DRAKE-v11-SNAPSHOT</dough.version>
         <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
         <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <modules>

@@ -26,6 +26,6 @@ jobs:
           settings-path: ${{ github.workspace }}
       
       - name: Build Foundation
-        run: mvn -B clean deploy -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/InfinityLib,sources/batch-2-expansion/SefiLib -am -s ${{ github.workspace }}/settings.xml
+        run: mvn -B clean deploy -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/InfinityLib,sources/batch-2-expansion/SefiLib -am -Dmaven.deploy.skip=false -s ${{ github.workspace }}/settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

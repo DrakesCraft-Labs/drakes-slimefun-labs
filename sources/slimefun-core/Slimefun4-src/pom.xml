@@ -22,6 +22,7 @@
     <url>https://github.com/Slimefun/Slimefun4</url>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spigot.version>1.21.1</spigot.version>

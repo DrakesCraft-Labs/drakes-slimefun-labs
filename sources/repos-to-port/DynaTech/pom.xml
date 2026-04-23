@@ -7,13 +7,21 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
+        
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.profelements</groupId>
     <artifactId>DynaTech</artifactId>
-    <version>1.21-Drake-v7</version>
+    
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
     <name>DynaTech</name><description>Advanced technical machinery for Slimefun 4. Featuring high-tier generators, automated farms, and unique utilities for the ultimate factory experience.</description>
 
     <dependencies>
@@ -30,7 +38,11 @@
         <dependency>
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityExpansion</artifactId>
-            <version>1.20.6-Drake-SNAPSHOT</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -53,25 +65,41 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.2</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
             <artifactId>extrautils</artifactId>
-            <version>73e76ac</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.thebusybiscuit</groupId>
             <artifactId>ExoticGarden</artifactId>
-            <version>${slimefun.drake.version}</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -82,7 +110,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
                 <configuration>
                     <relocations>
                         <relocation>

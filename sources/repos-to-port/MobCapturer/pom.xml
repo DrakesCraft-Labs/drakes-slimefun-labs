@@ -6,13 +6,21 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
+        
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>MobCapturer</artifactId>
-    <version>${slimefun.drake.version}</version>
+    
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
 
     <repositories>
         <repository>
@@ -25,28 +33,44 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>${paper.version}</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>dev.drake</groupId>
             <artifactId>slimefun-core</artifactId>
-            <version>${slimefun.drake.version}</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.2</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>net.guizhanss</groupId>
             <artifactId>guizhanlib-all</artifactId>
-            <version>2.2.0</version>
+            
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -62,7 +86,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.2</version>
+                
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
                 <executions>
                     <execution>
                         <phase>package</phase>
