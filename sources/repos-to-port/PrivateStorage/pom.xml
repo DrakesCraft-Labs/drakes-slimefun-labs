@@ -6,7 +6,7 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>7-SNAPSHOT</version>
+        <version>8-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
     <groupId>io.github.thebusybiscuit</groupId>
