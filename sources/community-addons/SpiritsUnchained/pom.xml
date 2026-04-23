@@ -128,7 +128,7 @@
 
         <dependency>
             <groupId>dev.sefiraat</groupId>
-            <artifactId>SefiLib</artifactId>
+            <artifactId>sefilib-core</artifactId>
             <version>0.1.4.5</version>
             <scope>compile</scope>
         </dependency>

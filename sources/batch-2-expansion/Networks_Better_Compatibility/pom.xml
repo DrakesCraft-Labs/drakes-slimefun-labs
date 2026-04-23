@@ -39,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>dev.sefiraat</groupId>
-            <artifactId>SefiLib</artifactId>
+            <artifactId>sefilib-core</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -211,7 +211,7 @@
             </dependency>
             <dependency>
                 <groupId>dev.sefiraat</groupId>
-                <artifactId>SefiLib</artifactId>
+                <artifactId>sefilib-core</artifactId>
                 <version>0.3.0</version>
                 <scope>provided</scope>
             </dependency>

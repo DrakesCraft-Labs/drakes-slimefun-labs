@@ -128,7 +128,7 @@
 
         <dependency>
             <groupId>io.github.mooy1</groupId>
-            <artifactId>InfinityLib</artifactId>
+            <artifactId>infinitylib-core</artifactId>
             <version>1.3.9</version>
             <scope>compile</scope>
         </dependency>

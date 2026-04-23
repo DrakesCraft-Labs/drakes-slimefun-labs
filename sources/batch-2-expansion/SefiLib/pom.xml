@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>dev.sefiraat</groupId>
-    <artifactId>SefiLib</artifactId>
+    <artifactId>sefilib-core</artifactId>
     <version>0.3.1-DRAKE-SNAPSHOT</version>
     <name>SefiLib</name>
 
