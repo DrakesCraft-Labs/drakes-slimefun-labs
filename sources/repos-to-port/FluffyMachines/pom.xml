@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>io.ncbpfluffybear</groupId>
-    <artifactId>FluffyMachines</artifactId>
+    <artifactId>FluffyMachines-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -60,7 +60,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.13.0</version>
             </plugin>
 
@@ -161,7 +161,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>extrautils</artifactId>
+            <artifactId>ExtraUtils-drake</artifactId>
             <version>73e76ac06c</version>
         </dependency>
     </dependencies>

@@ -4,12 +4,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.schntgaispock.wildernether</groupId>
-    <artifactId>Wildernether</artifactId>
+    <artifactId>Wildernether-drake</artifactId>
     <version>1.2.1</version>
 
     <properties>
@@ -110,7 +110,7 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>infinitylib-core</artifactId>
             <version>1.3.9</version>
             <scope>compile</scope>
@@ -118,7 +118,7 @@
 
         <dependency>
             <groupId>com.github.SchnTgaiSpock</groupId>
-            <artifactId>Gastronomicon</artifactId>
+            <artifactId>Gastronomicon-drake</artifactId>
             <version>v1.1.0</version>
             <scope>provided</scope>
         </dependency>
@@ -151,7 +151,7 @@
 
         <dependency>
             <groupId>com.github.schntgaispock</groupId>
-            <artifactId>SlimeHUD</artifactId>
+            <artifactId>SlimeHUD-drake</artifactId>
             <version>1.3.0</version>
             <scope>provided</scope>
         </dependency>

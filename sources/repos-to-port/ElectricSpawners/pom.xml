@@ -6,11 +6,11 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ElectricSpawners</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ElectricSpawners-drake</artifactId>
     <version>1.21.11-Drake</version>
 
     <properties>
@@ -105,7 +105,7 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
         </dependency>

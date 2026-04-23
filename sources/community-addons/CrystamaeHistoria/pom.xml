@@ -8,12 +8,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>io.github.thebusybiscuit.crystamaehistoria</groupId>
-    <artifactId>CrystamaeHistoria</artifactId>
+    <artifactId>CrystamaeHistoria-drake</artifactId>
     <version>1.0.1</version>
 
     <properties>
@@ -39,7 +39,7 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -53,14 +53,14 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>infinitylib-core</artifactId>
             <version>1.3.10</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>io.github.thebusybiscuit</groupId>
-            <artifactId>ExoticGarden</artifactId>
+            <groupId>dev.drake.addon</groupId>
+            <artifactId>ExoticGarden-drake</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -71,7 +71,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.sefiraat</groupId>
-            <artifactId>Networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -7,12 +7,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>dev.walshy</groupId>
-    <artifactId>SFMobDrops</artifactId>
+    <artifactId>SFMobDrops-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
@@ -25,7 +25,7 @@
         <!-- Spigot/Paper -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <scope>provided</scope>
         </dependency>
 

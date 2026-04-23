@@ -8,12 +8,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.ncbpfluffybear</groupId>
-    <artifactId>SlimyRepair</artifactId>
+    <artifactId>SlimyRepair-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

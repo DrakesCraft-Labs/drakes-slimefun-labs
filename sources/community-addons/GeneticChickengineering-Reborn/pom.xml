@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>net.guizhanss</groupId>
-    <artifactId>GeneticChickengineering-Reborn</artifactId>
+    <artifactId>GeneticChickengineering-Reborn-drake</artifactId>
     <version>1.1.DEV</version>
 
     <properties>
@@ -107,7 +107,7 @@
 
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <scope>provided</scope>
         </dependency>
 

@@ -7,12 +7,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>9-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.sfiguz7</groupId>
-    <artifactId>ExtraTools</artifactId>
+    <artifactId>ExtraTools-drake</artifactId>
     <version>1.2</version>
 
     <properties>
@@ -38,7 +38,7 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <artifactId>paper-api-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
