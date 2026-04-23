@@ -32,7 +32,7 @@
         <!-- Slimefun -->
         <dependency>
             <groupId>dev.drake</groupId>
-            <artifactId>Slimefun</artifactId>
+            <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
         </dependency>
 

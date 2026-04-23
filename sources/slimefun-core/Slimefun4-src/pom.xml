@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>Slimefun</artifactId>
+    <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
     <name>Slimefun</name>
     <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.11 environment.</description>
