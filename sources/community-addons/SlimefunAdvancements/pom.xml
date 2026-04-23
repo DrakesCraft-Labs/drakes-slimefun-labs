@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>me.char321</groupId>
-    <artifactId>sfadvancements</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>sfadvancements-drake</artifactId>
     <version>MODIFIED</version>
     <packaging>jar</packaging>
 

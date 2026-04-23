@@ -10,20 +10,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>MobCapturer-drake</artifactId>
+    <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
-
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>MobCapturer</artifactId>
-    <version>${slimefun.drake.version}</version>
-
-    <repositories>
-        <repository>
-            <id>guizhan-repo</id>
-            <url>https://repo.guizhanss.net/repository/maven-public/</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
@@ -53,6 +46,7 @@
             <version>2.2.0</version>
             <scope>compile</scope>
         </dependency>
+        
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -77,11 +71,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>io.github.thebusybiscuit.mobcapturer.libs.bstats</shadedPattern>
+                                    <shadedPattern>dev.drake.mobcapturer.libs.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>io.github.thebusybiscuit.mobcapturer.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>dev.drake.mobcapturer.libs.guizhanlib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

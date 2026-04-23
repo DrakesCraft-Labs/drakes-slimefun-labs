@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.lz5509.geyserheads</groupId>
-    <artifactId>GeyserHeads</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>GeyserHeads-drake</artifactId>
     <version>1.2</version>
 
     <properties>

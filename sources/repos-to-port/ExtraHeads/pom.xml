@@ -14,9 +14,9 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ExtraHeads</artifactId>
-    <version>${slimefun.drake.version}</version>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ExtraHeads-drake</artifactId>
+    <version>11.0-Drake-1.21.1-SNAPSHOT</version>
 
     <repositories>
         <repository>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.11-SNAPSHOT</version>
+            <version>2.11.5</version>
             <scope>provided</scope>
         </dependency>
 
@@ -85,11 +85,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>io.github.thebusybiscuit.extraheads.libs.bstats</shadedPattern>
+                                    <shadedPattern>dev.drake.extraheads.libs.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>io.github.thebusybiscuit.extraheads.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>dev.drake.extraheads.libs.guizhanlib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

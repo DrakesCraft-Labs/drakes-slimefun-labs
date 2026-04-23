@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.kaiyan.missilewarfare</groupId>
-    <artifactId>MissileWarfare</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>MissileWarfare-drake</artifactId>
     <version>1.11-SNAPSHOT.13</version>
 
     <properties>

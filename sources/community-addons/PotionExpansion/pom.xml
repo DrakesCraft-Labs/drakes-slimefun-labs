@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.epicplayera10</groupId>
-    <artifactId>PotionExpansion</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>PotionExpansion-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

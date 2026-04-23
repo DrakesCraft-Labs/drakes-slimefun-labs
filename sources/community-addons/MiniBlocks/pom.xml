@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.EzCoins</groupId>
-    <artifactId>MiniBlocks</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>MiniBlocks-drake</artifactId>
 
     <version>UNOFFICIAL</version>
 

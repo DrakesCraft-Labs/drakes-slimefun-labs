@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>net.guizhanss</groupId>
-    <artifactId>VillagerTrade</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>VillagerTrade-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 

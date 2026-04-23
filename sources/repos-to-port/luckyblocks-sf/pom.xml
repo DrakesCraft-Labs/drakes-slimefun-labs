@@ -12,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>SlimefunLuckyBlocks</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SlimefunLuckyBlocks-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

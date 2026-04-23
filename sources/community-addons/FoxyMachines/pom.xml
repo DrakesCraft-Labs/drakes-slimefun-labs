@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>me.gallowsdove</groupId>
-    <artifactId>FoxyMachines</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>FoxyMachines-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>

@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.mooy1</groupId>
-    <artifactId>SimpleUtils</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SimpleUtils-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>

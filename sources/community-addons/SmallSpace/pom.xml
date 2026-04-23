@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.CAPS123987</groupId>
-    <artifactId>SmallSpace</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SmallSpace-drake</artifactId>
     <version>MODED</version>
 
     <properties>

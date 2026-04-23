@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -11,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ColoredEnderChests</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ColoredEnderChests-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
@@ -22,7 +23,34 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <!-- Apache Commons Lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 
+        <!-- Paper API -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Slimefun -->
+        <dependency>
+            <groupId>dev.drake</groupId>
+            <artifactId>slimefun-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Dough -->
+        <dependency>
+            <groupId>dev.drake.dough</groupId>
+            <artifactId>dough-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>${project.name} v${project.version}</finalName>
@@ -33,14 +61,14 @@
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
-
                 <includes>
                     <include>*</include>
                 </includes>
             </resource>
+
             <resource>
                 <directory>${basedir}</directory>
-
+                <filtering>false</filtering>
                 <includes>
                     <include>LICENSE</include>
                 </includes>
@@ -52,28 +80,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.2</version>
-
-                <configuration>
-
-                    <!-- Shade dependencies into the output jar -->
-                    <relocations>
-                        <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.coloredenderchests.bstats</shadedPattern>
-                        </relocation>
-                    </relocations>
-
-                    <!-- Exclude unneeded metadata files from shaded dependencies -->
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
-
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -85,37 +91,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>dev.drake.dough</groupId>
-            <artifactId>dough-core</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>dev.drake</groupId>
-            <artifactId>slimefun-core</artifactId>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.github.baked-libs</groupId>
-                    <artifactId>dough-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>
-
-

@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.jasperchasetoq</groupId>
-    <artifactId>DyeBench</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>DyeBench-drake</artifactId>
 
     <version>UNOFFICIAL</version>
 

@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.sfiguz7</groupId>
-    <artifactId>ExtraTools</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ExtraTools-drake</artifactId>
     <version>1.2</version>
 
     <properties>

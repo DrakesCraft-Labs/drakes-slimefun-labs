@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>net.guizhanss</groupId>
-    <artifactId>GeneticChickengineering-Reborn</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>GeneticChickengineering-Reborn-drake</artifactId>
     <version>1.1.DEV</version>
 
     <properties>

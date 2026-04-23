@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>DyedBackpacks</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 

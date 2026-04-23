@@ -11,8 +11,8 @@
     </parent>
 
 
-  <groupId>me.vaan</groupId>
-  <artifactId>MapJammer</artifactId>
+  <groupId>dev.drake.addon</groupId>
+  <artifactId>MapJammer-drake</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 

@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.relativobr</groupId>
-    <artifactId>Supreme</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Supreme-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>

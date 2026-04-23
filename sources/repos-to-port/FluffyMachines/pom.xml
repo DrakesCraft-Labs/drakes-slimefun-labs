@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.ncbpfluffybear</groupId>
-    <artifactId>FluffyMachines</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>FluffyMachines-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

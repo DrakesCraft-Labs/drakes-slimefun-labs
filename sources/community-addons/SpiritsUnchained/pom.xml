@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.justahuman</groupId>
-    <artifactId>SpiritsUnchained</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SpiritsUnchained-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <name>SpiritsUnchained</name>

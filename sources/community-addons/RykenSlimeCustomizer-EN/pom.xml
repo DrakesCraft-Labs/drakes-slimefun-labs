@@ -11,8 +11,8 @@
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 
-	<groupId>org.lins.mmmjjkx</groupId>
-	<artifactId>RykenSlimefunCustomizer</artifactId>
+	<groupId>dev.drake.addon</groupId>
+	<artifactId>RykenSlimefunCustomizer-drake</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
 

@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.metamechanists</groupId>
-    <artifactId>Quaptics</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Quaptics-drake</artifactId>
     <version>0</version>
 
     <name>Quaptics</name>

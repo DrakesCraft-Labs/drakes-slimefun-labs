@@ -9,8 +9,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.sfiguz7</groupId>
-    <artifactId>TranscEndence</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>TranscEndence-drake</artifactId>
     <version>DevTest-33</version>
 
     <properties>

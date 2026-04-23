@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.waleks</groupId>
-    <artifactId>SimpleMaterialGenerators</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SimpleMaterialGenerators-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

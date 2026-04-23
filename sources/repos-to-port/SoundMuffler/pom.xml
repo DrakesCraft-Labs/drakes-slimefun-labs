@@ -12,7 +12,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.j3fftw</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SoundMuffler</artifactId>
     <version>11.0-Drake</version>
 

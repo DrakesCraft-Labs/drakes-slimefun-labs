@@ -12,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ExoticGarden</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ExoticGarden-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>
