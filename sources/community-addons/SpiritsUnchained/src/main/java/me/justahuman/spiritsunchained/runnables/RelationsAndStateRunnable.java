@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.runnables;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.spirits.SpiritDefinition;

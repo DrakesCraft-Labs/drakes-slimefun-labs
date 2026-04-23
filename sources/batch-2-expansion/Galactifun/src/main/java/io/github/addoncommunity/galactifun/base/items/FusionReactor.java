@@ -8,10 +8,10 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.base.BaseMats;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.reactors.Reactor;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.reactors.Reactor;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
 
 public final class FusionReactor extends Reactor {
 

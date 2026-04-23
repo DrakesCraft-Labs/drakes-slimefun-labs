@@ -6,7 +6,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
 
 public class DummyItemGroup extends ItemGroup {
 

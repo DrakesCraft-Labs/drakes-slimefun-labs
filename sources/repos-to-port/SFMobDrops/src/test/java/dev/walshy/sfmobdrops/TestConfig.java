@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import dev.walshy.sfmobdrops.drops.MobDrop;
 import dev.walshy.sfmobdrops.drops.Drop;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 public class TestConfig {
 

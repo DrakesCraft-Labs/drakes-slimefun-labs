@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.commands;
 
-import io.github.mooy1.infinitylib.commands.SubCommand;
+import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

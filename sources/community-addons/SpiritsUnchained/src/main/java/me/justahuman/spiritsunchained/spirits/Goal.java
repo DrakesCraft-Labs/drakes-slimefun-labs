@@ -1,8 +1,8 @@
 package me.justahuman.spiritsunchained.spirits;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
 
 import lombok.Getter;
 

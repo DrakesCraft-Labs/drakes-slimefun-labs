@@ -1,12 +1,12 @@
 package io.ncbpfluffybear.fluffymachines;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
 import io.ncbpfluffybear.fluffymachines.items.Barrel;
 import io.ncbpfluffybear.fluffymachines.items.EnderChestExtractionNode;

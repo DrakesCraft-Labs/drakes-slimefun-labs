@@ -1,10 +1,10 @@
 package me.profelements.dynatech.items.misc;
 
-import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.geo.GEOResource;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;
 import me.profelements.dynatech.DynaTech;

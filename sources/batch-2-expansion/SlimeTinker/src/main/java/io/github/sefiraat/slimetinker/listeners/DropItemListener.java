@@ -2,7 +2,7 @@ package io.github.sefiraat.slimetinker.listeners;
 
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;

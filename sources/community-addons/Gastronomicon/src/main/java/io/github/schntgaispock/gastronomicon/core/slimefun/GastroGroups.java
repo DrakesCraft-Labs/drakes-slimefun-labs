@@ -3,8 +3,8 @@ package io.github.schntgaispock.gastronomicon.core.slimefun;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.mooy1.infinitylib.groups.MultiGroup;
-import io.github.mooy1.infinitylib.groups.SubGroup;
+import com.github.drakescraft-labs.infinitylib.groups.MultiGroup;
+import com.github.drakescraft-labs.infinitylib.groups.SubGroup;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

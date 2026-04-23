@@ -1,11 +1,11 @@
-package io.github.thebusybiscuit.slimefun4.core.guide;
+package com.github.drakescraft-labs.slimefun4.core.guide;
 
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import io.github.thebusybiscuit.slimefun4.implementation.guide.SurvivalSlimefunGuide;
+import com.github.drakescraft-labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -19,11 +19,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.test.TestUtilities;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

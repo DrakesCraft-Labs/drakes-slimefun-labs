@@ -3,7 +3,7 @@ package io.github.schntgaispock.gastronomicon.api.loot;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.schntgaispock.gastronomicon.api.loot.LootTable.LootTableBuilder;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 
 public class ItemLootTableBuilder extends LootTableBuilder<ItemStack> {
 

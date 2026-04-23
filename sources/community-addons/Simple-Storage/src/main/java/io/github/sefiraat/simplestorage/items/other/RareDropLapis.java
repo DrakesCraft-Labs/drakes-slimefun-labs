@@ -2,8 +2,8 @@ package io.github.sefiraat.simplestorage.items.other;
 
 import io.github.sefiraat.simplestorage.SimpleStorage;
 import io.github.sefiraat.simplestorage.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 

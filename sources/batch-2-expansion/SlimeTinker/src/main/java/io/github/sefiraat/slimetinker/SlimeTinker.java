@@ -20,7 +20,7 @@ import io.github.sefiraat.slimetinker.managers.DispatchManager;
 import io.github.sefiraat.slimetinker.managers.MemoryManager;
 import io.github.sefiraat.slimetinker.managers.TraitManager;
 import io.github.sefiraat.slimetinker.runnables.RunnableManager;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.updater.BlobBuildUpdater;
 
 import org.bstats.bukkit.Metrics;

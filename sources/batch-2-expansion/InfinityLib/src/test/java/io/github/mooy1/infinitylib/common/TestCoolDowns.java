@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.common;
+package com.github.drakescraft-labs.infinitylib.common;
 
 import java.util.UUID;
 

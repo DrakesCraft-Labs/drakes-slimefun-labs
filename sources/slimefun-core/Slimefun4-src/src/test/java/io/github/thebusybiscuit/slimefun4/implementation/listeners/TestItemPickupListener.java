@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.implementation.listeners;
+package com.github.drakescraft-labs.slimefun4.implementation.listeners;
 
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -17,9 +17,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.implementation.items.altar.AncientPedestal;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.items.altar.AncientPedestal;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

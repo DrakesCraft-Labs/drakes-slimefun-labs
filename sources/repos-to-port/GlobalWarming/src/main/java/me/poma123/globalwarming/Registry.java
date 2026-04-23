@@ -26,13 +26,13 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.api.exceptions.BiomeMapException;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft-labs.slimefun4.api.exceptions.BiomeMapException;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.config.Config;
-import io.github.thebusybiscuit.slimefun4.utils.biomes.BiomeMap;
+import com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeMap;
 
 import me.poma123.globalwarming.api.biomes.BiomeTemperature;
 import me.poma123.globalwarming.api.biomes.BiomeTemperatureDataConverter;

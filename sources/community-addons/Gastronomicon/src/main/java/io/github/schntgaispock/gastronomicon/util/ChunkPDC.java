@@ -7,7 +7,7 @@ import org.bukkit.block.Block;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

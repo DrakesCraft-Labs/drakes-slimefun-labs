@@ -4,7 +4,7 @@ import dev.drake.dough.items.CustomItemStack;
 
 
 import io.github.addoncommunity.slimechem.SlimeChem;
-import io.github.thebusybiscuit.slimefun4.api.items.Category;
+import com.github.drakescraft-labs.slimefun4.api.items.Category;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

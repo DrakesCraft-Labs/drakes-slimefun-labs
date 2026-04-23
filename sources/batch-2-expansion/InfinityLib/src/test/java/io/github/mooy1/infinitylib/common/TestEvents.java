@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.common;
+package com.github.drakescraft-labs.infinitylib.common;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -10,11 +10,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import io.github.mooy1.infinitylib.core.MockAddon;
+import com.github.drakescraft-labs.infinitylib.core.MockAddon;
 
-import static io.github.mooy1.infinitylib.common.Events.addHandler;
-import static io.github.mooy1.infinitylib.common.Events.call;
-import static io.github.mooy1.infinitylib.common.Events.registerListener;
+import static com.github.drakescraft-labs.infinitylib.common.Events.addHandler;
+import static com.github.drakescraft-labs.infinitylib.common.Events.call;
+import static com.github.drakescraft-labs.infinitylib.common.Events.registerListener;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestEvents implements Listener {

@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.slimefun;
 
-import io.github.thebusybiscuit.slimefun4.core.attributes.WitherProof;
+import com.github.drakescraft-labs.slimefun4.core.attributes.WitherProof;
 import javax.annotation.Nonnull;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Wither;

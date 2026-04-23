@@ -7,8 +7,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import io.github.slimefunguguproject.bump.utils.ValidateUtils;
 import io.github.slimefunguguproject.bump.utils.constant.Keys;
-import io.github.thebusybiscuit.slimefun4.core.attributes.ItemAttribute;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft-labs.slimefun4.core.attributes.ItemAttribute;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 /**
  * This {@link ItemAttribute} indicates that this item has cooldown time.

@@ -5,9 +5,9 @@ import javax.annotation.Nonnull;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.core.handlers.ItemConsumptionHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.core.handlers.ItemConsumptionHandler;
+import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import me.voper.slimeframe.implementation.SFrameStacks;
 import me.voper.slimeframe.implementation.groups.Groups;

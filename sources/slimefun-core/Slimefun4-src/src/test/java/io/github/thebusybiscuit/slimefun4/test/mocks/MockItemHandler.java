@@ -1,6 +1,6 @@
-package io.github.thebusybiscuit.slimefun4.test.mocks;
+package com.github.drakescraft-labs.slimefun4.test.mocks;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemHandler;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemHandler;
 
 public class MockItemHandler implements ItemHandler {
 

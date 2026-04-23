@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.mooy1.infinitylib.core.AddonConfig;
+import com.github.drakescraft-labs.infinitylib.core.AddonConfig;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.api.items.GastroTheme;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.GastroFood;

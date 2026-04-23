@@ -2,8 +2,8 @@ package dev.j3fftw.headlimiter;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.palmergames.bukkit.towny.TownyAPI;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;

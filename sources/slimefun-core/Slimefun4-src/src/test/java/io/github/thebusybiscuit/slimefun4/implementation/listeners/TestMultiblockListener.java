@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.implementation.listeners;
+package com.github.drakescraft-labs.slimefun4.implementation.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -16,11 +16,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.api.events.MultiBlockInteractEvent;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlock;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.test.TestUtilities;
+import com.github.drakescraft-labs.slimefun4.api.events.MultiBlockInteractEvent;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlock;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

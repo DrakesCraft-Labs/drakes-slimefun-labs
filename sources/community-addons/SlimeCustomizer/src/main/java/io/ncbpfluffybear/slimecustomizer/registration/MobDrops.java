@@ -1,12 +1,12 @@
 package io.ncbpfluffybear.slimecustomizer.registration;
 
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.slimecustomizer.SlimeCustomizer;
 import io.ncbpfluffybear.slimecustomizer.Utils;
 import io.ncbpfluffybear.slimecustomizer.objects.SCMobDrop;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;

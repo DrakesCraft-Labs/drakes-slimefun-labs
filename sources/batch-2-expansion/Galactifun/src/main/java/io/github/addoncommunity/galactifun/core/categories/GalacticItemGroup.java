@@ -7,10 +7,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.core.WorldSelector;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.FlexItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 /**
  * Category for exploring the universe

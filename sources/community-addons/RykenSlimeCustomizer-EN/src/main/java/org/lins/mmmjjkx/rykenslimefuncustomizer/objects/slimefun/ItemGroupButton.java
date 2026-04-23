@@ -1,13 +1,13 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.slimefun;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideImplementation;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideImplementation;
+import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import java.io.File;
 import java.util.List;
 import java.util.Optional;

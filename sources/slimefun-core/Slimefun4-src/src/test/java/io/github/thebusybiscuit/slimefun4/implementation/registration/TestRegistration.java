@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.implementation.registration;
+package com.github.drakescraft-labs.slimefun4.implementation.registration;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,15 +22,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemState;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.implementation.setup.PostSetup;
-import io.github.thebusybiscuit.slimefun4.implementation.setup.ResearchSetup;
-import io.github.thebusybiscuit.slimefun4.implementation.setup.SlimefunItemSetup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemState;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.FlexItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.setup.PostSetup;
+import com.github.drakescraft-labs.slimefun4.implementation.setup.ResearchSetup;
+import com.github.drakescraft-labs.slimefun4.implementation.setup.SlimefunItemSetup;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

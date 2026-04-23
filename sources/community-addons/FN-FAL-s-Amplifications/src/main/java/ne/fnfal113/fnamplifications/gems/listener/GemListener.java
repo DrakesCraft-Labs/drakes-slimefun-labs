@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.gems.listener;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;
 
 import ne.fnfal113.fnamplifications.gems.abstracts.AbstractGem;

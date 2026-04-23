@@ -6,7 +6,7 @@ import org.apache.commons.lang3.Validate;
 
 /**
  * This data type holds biome temperature data for our
- * {@link io.github.thebusybiscuit.slimefun4.utils.biomes.BiomeMap} file
+ * {@link com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeMap} file
  *
  * @author poma123
  *

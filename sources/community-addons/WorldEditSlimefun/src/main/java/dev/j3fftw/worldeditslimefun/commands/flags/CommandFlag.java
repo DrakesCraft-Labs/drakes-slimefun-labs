@@ -1,7 +1,7 @@
 package dev.j3fftw.worldeditslimefun.commands.flags;
 
 import co.aikar.commands.BukkitCommandCompletionContext;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 

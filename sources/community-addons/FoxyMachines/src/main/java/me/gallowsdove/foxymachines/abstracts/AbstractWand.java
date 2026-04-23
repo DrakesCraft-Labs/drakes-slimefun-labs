@@ -1,14 +1,14 @@
 package me.gallowsdove.foxymachines.abstracts;
 
-import io.github.mooy1.infinitylib.core.AddonConfig;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
-import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
-import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
-import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft-labs.infinitylib.core.AddonConfig;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft-labs.slimefun4.core.attributes.Rechargeable;
+import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
 import me.gallowsdove.foxymachines.FoxyMachines;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.utils.AuraSkillsCompat;

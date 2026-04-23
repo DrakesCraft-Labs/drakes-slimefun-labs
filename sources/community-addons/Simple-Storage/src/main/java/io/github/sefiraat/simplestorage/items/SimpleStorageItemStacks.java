@@ -1,12 +1,12 @@
 package io.github.sefiraat.simplestorage.items;
 
-import io.github.mooy1.infinitylib.machines.MachineLore;
+import com.github.drakescraft-labs.infinitylib.machines.MachineLore;
 import io.github.sefiraat.simplestorage.SimpleStorage;
 import io.github.sefiraat.simplestorage.items.machines.DiePress;
 import io.github.sefiraat.simplestorage.items.machines.Enderator;
 import io.github.sefiraat.simplestorage.items.machines.MetalPressBasic;
 import io.github.sefiraat.simplestorage.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 
 public final class SimpleStorageItemStacks {

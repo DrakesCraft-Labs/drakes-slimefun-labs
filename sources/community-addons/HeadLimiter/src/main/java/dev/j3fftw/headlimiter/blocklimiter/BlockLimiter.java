@@ -15,11 +15,11 @@ import org.bukkit.entity.Player;
 
 import com.google.common.base.Preconditions;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.blocks.ChunkPosition;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 
 import dev.j3fftw.headlimiter.HeadLimiter;
 

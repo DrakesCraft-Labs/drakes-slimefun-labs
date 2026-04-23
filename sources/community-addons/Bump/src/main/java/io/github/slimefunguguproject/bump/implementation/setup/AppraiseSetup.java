@@ -20,7 +20,7 @@ import io.github.slimefunguguproject.bump.api.exceptions.AppraiseTypeKeyConflict
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.utils.ConfigUtils;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.experimental.UtilityClass;
 

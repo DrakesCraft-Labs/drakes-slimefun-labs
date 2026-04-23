@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import javax.annotation.Nullable;
 
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
 import lombok.Getter;
 
 public class Counter<T> {

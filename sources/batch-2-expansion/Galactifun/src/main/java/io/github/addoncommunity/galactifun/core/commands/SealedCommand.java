@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.addoncommunity.galactifun.util.Util;
-import io.github.mooy1.infinitylib.commands.SubCommand;
+import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
 import dev.drake.dough.blocks.BlockPosition;
 
 public final class SealedCommand extends SubCommand {

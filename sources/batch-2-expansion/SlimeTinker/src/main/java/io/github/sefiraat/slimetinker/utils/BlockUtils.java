@@ -1,8 +1,8 @@
 package io.github.sefiraat.slimetinker.utils;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;

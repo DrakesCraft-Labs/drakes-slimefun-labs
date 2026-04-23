@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;

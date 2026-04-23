@@ -6,9 +6,9 @@ import javax.annotation.Nonnull;
 
 import org.bukkit.block.Block;
 
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 public abstract class OwnedBlockMenuPreset extends BlockMenuPreset {
 

@@ -1,6 +1,6 @@
 package me.profelements.dynatech.tasks;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import me.profelements.dynatech.DynaTech;
 import me.profelements.dynatech.items.misc.ItemBand;

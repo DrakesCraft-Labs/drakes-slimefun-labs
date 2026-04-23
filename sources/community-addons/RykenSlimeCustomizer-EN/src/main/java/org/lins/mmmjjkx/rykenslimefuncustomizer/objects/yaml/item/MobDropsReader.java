@@ -1,7 +1,7 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.yaml.item;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.collections.Pair;
 import java.util.List;
 import net.kyori.adventure.text.Component;

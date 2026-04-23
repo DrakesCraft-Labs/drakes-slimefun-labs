@@ -1,9 +1,9 @@
 package io.ncbpfluffybear.flowerpower;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.flowerpower.items.InfinityApple;
 import io.ncbpfluffybear.flowerpower.items.InfinityBandage;
 import io.ncbpfluffybear.flowerpower.items.RecallCharm;

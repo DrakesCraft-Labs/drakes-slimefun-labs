@@ -2,8 +2,8 @@ package dev.sefiraat.netheopoiesis.api.plant.netheos;
 
 import dev.sefiraat.netheopoiesis.Registry;
 import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.RandomizedSet;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.collections.RandomizedSet;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

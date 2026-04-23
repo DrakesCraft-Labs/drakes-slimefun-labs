@@ -1,9 +1,9 @@
 package dev.sefiraat.sefilib.slimefun.blocks;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * A simple ticking block that does not have a GUI.
  * Override onFirstTick for Caching or other actions normally
- * undertaken in {@link me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset}'s onNewInstance
+ * undertaken in {@link com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset}'s onNewInstance
  */
 public abstract class SimpleTickingBlock<T extends SefiBlock<T>> extends SefiBlock<T> {
 

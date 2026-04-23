@@ -9,7 +9,7 @@ import com.github.relativobr.supreme.machine.tech.TechMutation;
 import com.github.relativobr.supreme.machine.tech.TechRobotic;
 import com.github.relativobr.supreme.util.ItemGroups;
 import com.github.relativobr.supreme.util.SupremeOptions;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 
 public class SetupTechMachines {
 

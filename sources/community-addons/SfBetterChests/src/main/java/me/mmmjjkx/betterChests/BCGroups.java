@@ -1,7 +1,7 @@
 package me.mmmjjkx.betterChests;
 
-import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
 import me.mmmjjkx.betterChests.items.BCItemStacks;
 import org.bukkit.NamespacedKey;
 

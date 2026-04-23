@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.utils.biomes;
+package com.github.drakescraft-labs.slimefun4.utils.biomes;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import com.google.gson.JsonElement;
 
-import io.github.thebusybiscuit.slimefun4.api.exceptions.BiomeMapException;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.exceptions.BiomeMapException;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

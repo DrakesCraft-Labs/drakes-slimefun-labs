@@ -1,6 +1,6 @@
 package org.metamechanists.quaptics.items;
 
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
 import org.metamechanists.quaptics.implementation.Settings;

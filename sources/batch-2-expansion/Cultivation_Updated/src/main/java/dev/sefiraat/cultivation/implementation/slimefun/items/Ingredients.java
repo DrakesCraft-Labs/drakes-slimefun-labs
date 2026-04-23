@@ -6,7 +6,7 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.ByProduct;
 import dev.sefiraat.cultivation.api.slimefun.items.produce.ProduceCore;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

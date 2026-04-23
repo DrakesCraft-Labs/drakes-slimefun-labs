@@ -17,10 +17,10 @@ import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.workstations.manual.Fermenter;
 import io.github.schntgaispock.gastronomicon.util.ChunkPDC;
 import io.github.schntgaispock.gastronomicon.util.item.GastroKeys;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 
 public class FermenterRefillListener implements Listener {
 

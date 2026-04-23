@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
 
 import io.github.slimefunguguproject.bump.core.handlers.BowUseHandler;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 
 /**
  * This {@link Listener} will call {@link BowUseHandler}

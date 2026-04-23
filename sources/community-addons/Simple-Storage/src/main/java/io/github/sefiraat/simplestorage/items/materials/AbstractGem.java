@@ -1,11 +1,11 @@
 package io.github.sefiraat.simplestorage.items.materials;
 
-import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.geo.GEOResource;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

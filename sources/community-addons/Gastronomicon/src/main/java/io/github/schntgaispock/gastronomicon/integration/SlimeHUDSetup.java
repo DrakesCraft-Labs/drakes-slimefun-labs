@@ -10,10 +10,10 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.items.workstations.ma
 import io.github.schntgaispock.gastronomicon.util.ChunkPDC;
 import io.github.schntgaispock.gastronomicon.util.item.GastroKeys;
 import io.github.schntgaispock.slimehud.SlimeHUD;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import lombok.experimental.UtilityClass;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 @UtilityClass
 public class SlimeHUDSetup {

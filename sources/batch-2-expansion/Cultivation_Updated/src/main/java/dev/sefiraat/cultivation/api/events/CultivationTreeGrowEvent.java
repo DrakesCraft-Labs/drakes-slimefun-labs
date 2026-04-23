@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.api.events;
 
 import dev.sefiraat.cultivation.api.slimefun.items.trees.TreeDesign;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;

@@ -4,8 +4,8 @@ import com.epicplayera10.potionexpansion.PotionExpansion;
 import com.epicplayera10.potionexpansion.api.effects.PotionSightType;
 import com.epicplayera10.potionexpansion.utils.ItemUtil;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.common.ChatColors;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Color;

@@ -10,11 +10,11 @@ import org.bukkit.inventory.ItemStack;
 import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.worlds.PlanetaryWorld;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import io.github.mooy1.infinitylib.common.Scheduler;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft-labs.infinitylib.common.Scheduler;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.handlers.BlockUseHandler;
+import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 public final class PlanetaryAnalyzer extends SimpleSlimefunItem<BlockUseHandler> {

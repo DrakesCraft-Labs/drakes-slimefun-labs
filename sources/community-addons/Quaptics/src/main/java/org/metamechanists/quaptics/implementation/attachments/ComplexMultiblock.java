@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.implementation.attachments;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

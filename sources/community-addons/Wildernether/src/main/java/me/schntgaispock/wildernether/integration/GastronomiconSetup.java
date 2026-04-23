@@ -12,7 +12,7 @@ import io.github.schntgaispock.gastronomicon.api.recipes.GastroRecipe.RecipeShap
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.schntgaispock.gastronomicon.core.slimefun.recipes.GastroRecipeType;
 import io.github.schntgaispock.gastronomicon.util.item.HeadTextures;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import lombok.experimental.UtilityClass;
 import me.schntgaispock.wildernether.Wildernether;
 import me.schntgaispock.wildernether.slimefun.WildernetherStacks;

@@ -10,7 +10,7 @@ import com.github.relativobr.supreme.setup.MainSetup;
 import com.github.relativobr.supreme.util.CompatibilySupremeLegacyItem;
 import com.github.relativobr.supreme.util.SupremeOptions;
 import com.github.relativobr.supreme.util.SupremePowerSection;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.updater.BlobBuildUpdater;
 import java.util.ArrayList;

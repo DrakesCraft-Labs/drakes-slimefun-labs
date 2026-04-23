@@ -5,7 +5,7 @@ import io.github.sefiraat.simplestorage.utils.Theme;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 import java.util.Map;
 

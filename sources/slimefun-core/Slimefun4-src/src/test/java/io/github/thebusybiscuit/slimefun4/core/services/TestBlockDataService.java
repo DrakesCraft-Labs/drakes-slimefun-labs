@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.core.services;
+package com.github.drakescraft-labs.slimefun4.core.services;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.core.criteria.completer;
 
-import io.github.thebusybiscuit.slimefun4.api.events.MultiBlockInteractEvent;
+import com.github.drakescraft-labs.slimefun4.api.events.MultiBlockInteractEvent;
 import me.char321.sfadvancements.SFAdvancements;
 import me.char321.sfadvancements.api.criteria.Criterion;
 import me.char321.sfadvancements.api.criteria.MultiBlockCriterion;

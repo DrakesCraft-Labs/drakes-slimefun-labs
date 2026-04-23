@@ -1,6 +1,6 @@
 package listeners;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import io.ncbpfluffybear.flowerpower.objects.FPNotPlaceable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

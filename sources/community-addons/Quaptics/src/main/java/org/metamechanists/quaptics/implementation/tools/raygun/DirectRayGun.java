@@ -1,9 +1,9 @@
 package org.metamechanists.quaptics.implementation.tools.raygun;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -83,7 +83,7 @@ public class DirectRayGun extends AbstractRayGun {
                 5));
 
         if (result.getHitEntity() instanceof final LivingEntity livingEntity
-                && Slimefun.getProtectionManager().hasPermission(player, livingEntity.getLocation(), io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction.ATTACK_ENTITY)) {
+                && Slimefun.getProtectionManager().hasPermission(player, livingEntity.getLocation(), com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction.ATTACK_ENTITY)) {
             livingEntity.damage(settings.getDamage());
             livingEntity.setVelocity(Vector.fromJOML(TransformationUtils.getDisplacement(handLocation, livingEntity.getEyeLocation()).mul(0.2F)));
         }

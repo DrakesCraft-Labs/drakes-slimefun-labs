@@ -8,7 +8,7 @@ import dev.sefiraat.sefilib.misc.Chance;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.world.LocationUtils;
 import io.github.bakedlibs.dough.collections.Pair;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;

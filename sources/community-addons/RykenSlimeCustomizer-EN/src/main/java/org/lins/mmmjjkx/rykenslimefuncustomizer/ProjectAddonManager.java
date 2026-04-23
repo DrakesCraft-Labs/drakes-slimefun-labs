@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer;
 
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;

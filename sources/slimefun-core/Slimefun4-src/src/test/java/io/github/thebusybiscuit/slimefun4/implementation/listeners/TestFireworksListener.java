@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.implementation.listeners;
+package com.github.drakescraft-labs.slimefun4.implementation.listeners;
 
 import org.bukkit.Color;
 import org.bukkit.entity.Firework;
@@ -11,9 +11,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.implementation.listeners.entity.FireworksListener;
-import io.github.thebusybiscuit.slimefun4.utils.FireworkUtils;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.listeners.entity.FireworksListener;
+import com.github.drakescraft-labs.slimefun4.utils.FireworkUtils;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

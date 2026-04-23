@@ -1,7 +1,7 @@
 package me.EzCoins.MiniBlocks.core;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import me.EzCoins.MiniBlocks.utils.CustomHead;
 import me.EzCoins.MiniBlocks.utils.MiniBlockUtils;
 import org.bukkit.Material;

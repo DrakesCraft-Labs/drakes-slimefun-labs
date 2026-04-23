@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.utils;
+package com.github.drakescraft-labs.slimefun4.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

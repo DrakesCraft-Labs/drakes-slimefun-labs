@@ -1,6 +1,6 @@
 package me.lucasgithuber.elementmanipulation.drugs;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import me.lucasgithuber.elementmanipulation.machines.DrugsTable;
 import me.lucasgithuber.elementmanipulation.utils.Categories;

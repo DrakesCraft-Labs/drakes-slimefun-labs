@@ -1,10 +1,10 @@
 package com.github.relativobr.supreme.resource.mobtech;
 
 import com.github.relativobr.supreme.util.SupremeItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 

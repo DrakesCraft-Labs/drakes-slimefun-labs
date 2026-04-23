@@ -6,7 +6,7 @@ import com.github.relativobr.supreme.util.SupremeOptions;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import org.bukkit.Material;
 
 public class VirtualGardenMachineRecipe extends MachineRecipe {

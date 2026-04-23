@@ -1,15 +1,15 @@
 package io.github.sefiraat.slimetinker.utils;
 
-import io.github.mooy1.infinitylib.common.StackUtils;
+import com.github.drakescraft-labs.infinitylib.common.StackUtils;
 import io.github.sefiraat.slimetinker.SlimeTinker;
 import io.github.sefiraat.slimetinker.events.friend.TraitPartType;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManager;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.recipes.MoltenResult;
 import io.github.sefiraat.slimetinker.modifiers.Mod;
 import io.github.sefiraat.slimetinker.modifiers.Modifications;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import dev.drake.dough.items.CustomItemStack;
 import net.md_5.bungee.api.ChatColor;

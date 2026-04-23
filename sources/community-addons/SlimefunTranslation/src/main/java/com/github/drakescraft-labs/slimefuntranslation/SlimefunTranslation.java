@@ -1,0 +1,145 @@
+package com.github.drakescraft-labs.slimefuntranslation;
+
+import java.io.File;
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+
+import javax.annotation.Nonnull;
+
+import com.google.common.base.Preconditions;
+
+import org.bukkit.plugin.Plugin;
+
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import dev.drake.dough.updater.BlobBuildUpdater;
+
+import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AbstractAddon;
+import com.github.drakescraft-labs.guizhanlib.updater.GuizhanBuildsUpdater;
+import com.github.drakescraft-labs.slimefuntranslation.core.Registry;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.CommandService;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.ConfigurationService;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.IntegrationService;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.ListenerService;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.TranslationService;
+import com.github.drakescraft-labs.slimefuntranslation.core.services.UserService;
+import com.github.drakescraft-labs.slimefuntranslation.utils.tags.SlimefunTranslationTag;
+
+import org.bstats.bukkit.Metrics;
+
+public final class SlimefunTranslation extends AbstractAddon {
+
+    private ConfigurationService configService;
+    private Registry registry;
+    private UserService userService;
+    private TranslationService translationService;
+    private IntegrationService integrationService;
+    private boolean debugEnabled = false;
+
+    public SlimefunTranslation() {
+        super("ybw0014", "SlimefunTranslation", "master", "auto-update");
+    }
+
+    private static SlimefunTranslation inst() {
+        return getInstance();
+    }
+
+    @Nonnull
+    public static ConfigurationService getConfigService() {
+        return inst().configService;
+    }
+
+    @Nonnull
+    public static Registry getRegistry() {
+        return inst().registry;
+    }
+
+    @Nonnull
+    public static UserService getUserService() {
+        return inst().userService;
+    }
+
+    @Nonnull
+    public static TranslationService getTranslationService() {
+        return inst().translationService;
+    }
+
+    @Nonnull
+    public static IntegrationService getIntegrationService() {
+        return inst().integrationService;
+    }
+
+    public static void debug(@Nonnull String message, @Nonnull Object... args) {
+        Preconditions.checkNotNull(message, "message cannot be null");
+
+        if (inst().debugEnabled) {
+            inst().getLogger().log(Level.INFO, "[DEBUG] " + message, args);
+        }
+    }
+
+    @Override
+    public void enable() {
+        log(Level.INFO, "====================");
+        log(Level.INFO, "Slimefun Translation");
+        log(Level.INFO, "     by ybw0014     ");
+        log(Level.INFO, "====================");
+
+        // check if slimefun has set a server default language
+        if (Slimefun.getLocalization().getDefaultLanguage() == null) {
+            log(Level.SEVERE, "Slimefun has no default language, this will make SlimefunTranslation not working properly, disabling...");
+            getPluginLoader().disablePlugin(this);
+            return;
+        }
+
+        // tags
+        SlimefunTranslationTag.reloadAll();
+
+        // config
+        configService = new ConfigurationService(this);
+
+        // registry
+        registry = new Registry();
+
+        // debug
+        debugEnabled = configService.isDebug();
+
+        // other services
+        userService = new UserService();
+        translationService = new TranslationService(this, getFile());
+        new CommandService(this);
+        new ListenerService(this);
+        integrationService = new IntegrationService(this);
+
+        // metrics
+        setupMetrics();
+    }
+
+    @Override
+    public void disable() {
+        // does nothing
+    }
+
+    private void setupMetrics() {
+        new Metrics(this, 20496);
+    }
+
+    @Override
+    protected void autoUpdate() {
+        if (getPluginVersion().startsWith("Dev")) {
+            new BlobBuildUpdater(this, getFile(), getGithubRepo()).start();
+        } else if (getPluginVersion().startsWith("Build")) {
+            try {
+                // use updater in lib plugin
+                char[] pluginPackage = {
+                    'n', 'e', 't', '.', 'g', 'u', 'i', 'z', 'h', 'a', 'n', 's', 's', '.',
+                    'g', 'u', 'i', 'z', 'h', 'a', 'n', 'l', 'i', 'b', 'p', 'l', 'u', 'g', 'i', 'n'
+                };
+                Class<?> clazz = Class.forName(new String(pluginPackage) + ".updater.GuizhanUpdater");
+                Method updaterStart = clazz.getDeclaredMethod("start", Plugin.class, File.class, String.class, String.class, String.class);
+                updaterStart.invoke(null, this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
+            } catch (Exception ignored) {
+                // use updater in lib
+                GuizhanBuildsUpdater.start(this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
+            }
+        }
+    }
+}

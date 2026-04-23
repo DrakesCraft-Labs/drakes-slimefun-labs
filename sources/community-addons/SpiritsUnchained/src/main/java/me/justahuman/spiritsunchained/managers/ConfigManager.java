@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.managers;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.common.ChatColors;
 import lombok.Getter;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;

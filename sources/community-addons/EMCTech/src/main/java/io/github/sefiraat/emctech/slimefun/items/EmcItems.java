@@ -9,9 +9,9 @@ import io.github.sefiraat.emctech.slimefun.blocks.Materializer;
 import io.github.sefiraat.emctech.slimefun.blocks.NodeMaterializer;
 import io.github.sefiraat.emctech.slimefun.groups.EmcTechItemGroups;
 import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 
 import dev.sefiraat.sefilib.itemstacks.GeneralItemStackUtils;
 

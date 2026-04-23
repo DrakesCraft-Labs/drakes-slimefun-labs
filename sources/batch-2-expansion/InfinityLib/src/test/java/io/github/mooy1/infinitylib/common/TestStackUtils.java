@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.common;
+package com.github.drakescraft-labs.infinitylib.common;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -7,17 +7,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import io.github.thebusybiscuit.slimefun4.core.services.CustomItemDataService;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.setup.SlimefunItemSetup;
+import com.github.drakescraft-labs.slimefun4.core.services.CustomItemDataService;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.setup.SlimefunItemSetup;
 import dev.drake.dough.items.CustomItemStack;
 
-import static io.github.mooy1.infinitylib.common.StackUtils.getId;
-import static io.github.mooy1.infinitylib.common.StackUtils.getIdOrType;
-import static io.github.mooy1.infinitylib.common.StackUtils.isSimilar;
-import static io.github.mooy1.infinitylib.common.StackUtils.itemById;
-import static io.github.mooy1.infinitylib.common.StackUtils.itemByIdOrType;
+import static com.github.drakescraft-labs.infinitylib.common.StackUtils.getId;
+import static com.github.drakescraft-labs.infinitylib.common.StackUtils.getIdOrType;
+import static com.github.drakescraft-labs.infinitylib.common.StackUtils.isSimilar;
+import static com.github.drakescraft-labs.infinitylib.common.StackUtils.itemById;
+import static com.github.drakescraft-labs.infinitylib.common.StackUtils.itemByIdOrType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;

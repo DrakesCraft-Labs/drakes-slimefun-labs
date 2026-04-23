@@ -2,7 +2,7 @@ package me.voper.slimeframe.utils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 import me.voper.slimeframe.SlimeFrame;
 
@@ -10,10 +10,10 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
 
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.persistence.PersistentDataType;

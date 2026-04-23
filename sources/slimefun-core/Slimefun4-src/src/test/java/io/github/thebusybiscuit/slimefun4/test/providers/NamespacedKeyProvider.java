@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.test.providers;
+package com.github.drakescraft-labs.slimefun4.test.providers;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

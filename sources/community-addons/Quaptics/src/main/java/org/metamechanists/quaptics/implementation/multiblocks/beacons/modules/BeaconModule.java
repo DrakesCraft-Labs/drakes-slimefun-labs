@@ -1,9 +1,9 @@
 package org.metamechanists.quaptics.implementation.multiblocks.beacons.modules;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.metamechanists.quaptics.implementation.Settings;

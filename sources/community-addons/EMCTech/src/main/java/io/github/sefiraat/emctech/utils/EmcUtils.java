@@ -13,8 +13,8 @@ import org.bukkit.inventory.ItemStack;
 import io.github.sefiraat.emctech.EmcTech;
 import io.github.sefiraat.emctech.emc.EmcCalculator;
 import io.github.sefiraat.emctech.managers.SupportedPluginManager;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 
 public final class EmcUtils {
 

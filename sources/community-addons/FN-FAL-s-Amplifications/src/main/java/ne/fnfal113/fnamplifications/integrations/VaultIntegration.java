@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.integrations;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 
 import net.milkbowl.vault.economy.Economy;
 

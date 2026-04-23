@@ -3,7 +3,7 @@ package io.github.sefiraat.networks.slimefun;
 import io.github.sefiraat.networks.slimefun.network.NetworkQuantumStorage;
 import io.github.sefiraat.networks.slimefun.tools.NetworkRemote;
 import io.github.sefiraat.networks.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;

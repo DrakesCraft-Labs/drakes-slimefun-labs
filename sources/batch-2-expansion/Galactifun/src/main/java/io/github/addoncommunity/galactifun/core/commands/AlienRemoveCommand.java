@@ -13,7 +13,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import io.github.addoncommunity.galactifun.Galactifun;
-import io.github.mooy1.infinitylib.commands.SubCommand;
+import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
 
 public class AlienRemoveCommand extends SubCommand {
     public AlienRemoveCommand() {

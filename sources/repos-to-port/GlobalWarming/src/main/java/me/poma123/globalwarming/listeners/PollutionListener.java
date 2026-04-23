@@ -16,13 +16,13 @@ import org.bukkit.event.entity.EntityBreedEvent;
 import org.bukkit.event.world.StructureGrowEvent;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.api.events.AsyncMachineOperationFinishEvent;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.reactors.Reactor;
-import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
-import io.github.thebusybiscuit.slimefun4.implementation.operations.FuelOperation;
+import com.github.drakescraft-labs.slimefun4.api.events.AsyncMachineOperationFinishEvent;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.reactors.Reactor;
+import com.github.drakescraft-labs.slimefun4.implementation.operations.CraftingOperation;
+import com.github.drakescraft-labs.slimefun4.implementation.operations.FuelOperation;
 import dev.drake.dough.common.ChatColors;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AGenerator;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AGenerator;
 
 import me.poma123.globalwarming.GlobalWarmingPlugin;
 import me.poma123.globalwarming.TemperatureManager;

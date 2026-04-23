@@ -13,19 +13,19 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.api.items.Relic;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import io.github.mooy1.infinitylib.machines.AbstractMachineBlock;
-import io.github.mooy1.infinitylib.machines.MenuBlock;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineProcessHolder;
-import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
-import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
+import com.github.drakescraft-labs.infinitylib.machines.AbstractMachineBlock;
+import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineProcessHolder;
+import com.github.drakescraft-labs.slimefun4.core.machines.MachineProcessor;
+import com.github.drakescraft-labs.slimefun4.implementation.operations.CraftingOperation;
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
 import it.unimi.dsi.fastutil.ints.IntIntPair;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 public class TechnologicalSalvager extends AbstractMachineBlock implements MachineProcessHolder<CraftingOperation> {
 

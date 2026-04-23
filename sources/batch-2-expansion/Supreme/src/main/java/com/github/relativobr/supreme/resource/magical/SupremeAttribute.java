@@ -3,7 +3,7 @@ package com.github.relativobr.supreme.resource.magical;
 import static com.github.relativobr.supreme.Supreme.getSupremeOptions;
 
 import com.github.relativobr.supreme.util.SupremeItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

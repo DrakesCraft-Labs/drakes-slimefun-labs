@@ -1,7 +1,7 @@
 package ne.fnfal113.relicsofcthonia.slimefun.relics.epic;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import ne.fnfal113.relicsofcthonia.api.OffHandRightClickHandler;
 import ne.fnfal113.relicsofcthonia.api.Rarity;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;

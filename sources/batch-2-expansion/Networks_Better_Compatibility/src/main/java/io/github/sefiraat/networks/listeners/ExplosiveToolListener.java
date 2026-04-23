@@ -1,7 +1,7 @@
 package io.github.sefiraat.networks.listeners;
 
 import io.github.sefiraat.networks.slimefun.network.NetworkQuantumStorage;
-import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
+import com.github.drakescraft-labs.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;

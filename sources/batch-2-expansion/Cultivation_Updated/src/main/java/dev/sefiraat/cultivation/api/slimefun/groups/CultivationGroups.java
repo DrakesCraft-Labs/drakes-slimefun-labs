@@ -6,7 +6,7 @@ import dev.sefiraat.cultivation.implementation.slimefun.groups.PlantCodexFlexGro
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
 import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

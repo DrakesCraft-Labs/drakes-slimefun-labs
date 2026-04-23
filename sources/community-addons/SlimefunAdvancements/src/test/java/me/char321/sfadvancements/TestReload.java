@@ -2,7 +2,7 @@ package me.char321.sfadvancements;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import org.bukkit.Bukkit;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;

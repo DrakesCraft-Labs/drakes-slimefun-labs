@@ -8,7 +8,7 @@ import com.xmooncorp.magic8ball.implementation.setup.ResearchSetup;
 import dev.drake.dough.config.Config;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 
 import javax.annotation.Nonnull;
 import java.util.logging.Level;

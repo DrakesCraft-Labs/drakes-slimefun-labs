@@ -1,7 +1,7 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine;
 
-import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.implementation.operations.CraftingOperation;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
 import javax.annotation.Nonnull;
 import lombok.Getter;
 

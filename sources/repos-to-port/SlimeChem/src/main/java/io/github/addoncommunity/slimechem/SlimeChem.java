@@ -2,8 +2,8 @@ package io.github.addoncommunity.slimechem;
 
 import io.github.addoncommunity.slimechem.implementation.atomic.isotopes.IsotopeLoader;
 import io.github.addoncommunity.slimechem.setup.Registry;
-import io.github.mooy1.infinitylib.PluginUtils;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.infinitylib.PluginUtils;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -1,15 +1,15 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.factories;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.*;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.enchanting.AutoDisenchanter;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.enchanting.AutoEnchanter;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.enchanting.BookBinder;
-import io.github.thebusybiscuit.slimefun4.implementation.items.electric.machines.entities.ProduceCollector;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.*;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.enchanting.AutoDisenchanter;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.enchanting.AutoEnchanter;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.enchanting.BookBinder;
+import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.entities.ProduceCollector;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
 import org.bukkit.inventory.ItemStack;
 import org.lins.mmmjjkx.rykenslimefuncustomizer.objects.customs.machine.sf.*;
 import org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine.SimpleMachineType;

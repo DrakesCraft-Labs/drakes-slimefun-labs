@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.implementation.tools.multiblockwand;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Interaction;
 import org.bukkit.event.EventHandler;
@@ -19,7 +19,7 @@ public class MultiblockWandListener implements Listener {
             return;
         }
 
-        if (!Slimefun.getProtectionManager().hasPermission(event.getPlayer(), clickedEntity.getLocation(), io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction.INTERACT_ENTITY)) {
+        if (!Slimefun.getProtectionManager().hasPermission(event.getPlayer(), clickedEntity.getLocation(), com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction.INTERACT_ENTITY)) {
             return;
         }
 

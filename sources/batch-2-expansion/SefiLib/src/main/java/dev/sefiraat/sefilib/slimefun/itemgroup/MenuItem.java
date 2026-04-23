@@ -1,6 +1,6 @@
 package dev.sefiraat.sefilib.slimefun.itemgroup;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import org.bukkit.inventory.ItemStack;
 

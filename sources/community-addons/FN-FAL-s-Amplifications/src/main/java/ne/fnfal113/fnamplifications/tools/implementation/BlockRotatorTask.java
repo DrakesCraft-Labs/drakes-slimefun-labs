@@ -2,8 +2,8 @@ package ne.fnfal113.fnamplifications.tools.implementation;
 
 import com.google.common.collect.Sets;
 
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;
 
 import ne.fnfal113.fnamplifications.utils.Utils;

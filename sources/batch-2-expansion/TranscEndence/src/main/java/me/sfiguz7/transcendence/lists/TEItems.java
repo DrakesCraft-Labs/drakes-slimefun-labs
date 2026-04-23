@@ -1,11 +1,11 @@
 package me.sfiguz7.transcendence.lists;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.implementation.utils.TranscendenceLoreBuilder;
 import org.bukkit.Material;

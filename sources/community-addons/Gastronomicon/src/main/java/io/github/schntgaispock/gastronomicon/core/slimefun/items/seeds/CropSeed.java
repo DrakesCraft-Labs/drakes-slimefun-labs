@@ -15,7 +15,7 @@ import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.RecipeUtil;
 import io.github.schntgaispock.gastronomicon.util.collections.CollectionUtil;
 import io.github.schntgaispock.gastronomicon.util.item.ItemUtil;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import lombok.Getter;
 
 /**

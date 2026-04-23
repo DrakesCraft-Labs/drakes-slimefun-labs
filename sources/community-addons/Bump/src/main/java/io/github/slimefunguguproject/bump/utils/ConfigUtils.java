@@ -14,10 +14,10 @@ import org.bukkit.inventory.EquipmentSlot;
 
 import io.github.slimefunguguproject.bump.utils.constant.Patterns;
 import io.github.slimefunguguproject.bump.utils.tags.BumpTag;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.common.CommonPatterns;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.common.CommonPatterns;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.experimental.UtilityClass;
 

@@ -2,7 +2,7 @@ package ne.fnfal113.fnamplifications;
 
 import javax.annotation.Nonnull;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import io.github.bakedlibs.dough.updater.BlobBuildUpdater;
 
 import ne.fnfal113.fnamplifications.config.ConfigManager;

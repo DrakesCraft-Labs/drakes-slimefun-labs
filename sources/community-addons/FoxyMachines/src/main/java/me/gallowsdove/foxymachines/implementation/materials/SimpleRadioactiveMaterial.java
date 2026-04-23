@@ -1,9 +1,9 @@
 package me.gallowsdove.foxymachines.implementation.materials;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactive;
-import io.github.thebusybiscuit.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactive;
+import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

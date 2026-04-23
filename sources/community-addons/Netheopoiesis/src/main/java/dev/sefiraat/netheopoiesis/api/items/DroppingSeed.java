@@ -2,9 +2,9 @@ package dev.sefiraat.netheopoiesis.api.items;
 
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
 import io.github.bakedlibs.dough.collections.RandomizedSet;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

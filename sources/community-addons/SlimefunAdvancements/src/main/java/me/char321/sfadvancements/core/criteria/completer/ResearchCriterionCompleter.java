@@ -1,8 +1,8 @@
 package me.char321.sfadvancements.core.criteria.completer;
 
-import io.github.thebusybiscuit.slimefun4.api.events.ResearchUnlockEvent;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.api.events.ResearchUnlockEvent;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
 import me.char321.sfadvancements.SFAdvancements;
 import me.char321.sfadvancements.api.criteria.Criterion;
 import me.char321.sfadvancements.api.criteria.ResearchCriterion;

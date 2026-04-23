@@ -20,8 +20,8 @@ import org.bukkit.inventory.StonecuttingRecipe;
 import io.github.sefiraat.emctech.EmcTech;
 import io.github.sefiraat.emctech.managers.ConfigManager;
 import io.github.sefiraat.emctech.utils.EmcUtils;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 public final class EmcCalculator {
 

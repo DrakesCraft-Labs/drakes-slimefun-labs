@@ -1,16 +1,16 @@
 package io.ncbpfluffybear.fluffymachines.listeners;
 
-import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.core.attributes.RecipeDisplayItem;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import io.ncbpfluffybear.fluffymachines.machines.AutoCraftingTable;
 import io.ncbpfluffybear.fluffymachines.machines.SmartFactory;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import java.util.Optional;
 import javax.annotation.Nullable;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

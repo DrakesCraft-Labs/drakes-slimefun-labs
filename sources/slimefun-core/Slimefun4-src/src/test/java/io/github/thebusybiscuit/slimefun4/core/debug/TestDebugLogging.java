@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.core.debug;
+package com.github.drakescraft-labs.slimefun4.core.debug;
 
 import java.text.MessageFormat;
 import java.util.logging.Handler;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

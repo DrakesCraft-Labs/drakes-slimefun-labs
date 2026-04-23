@@ -15,10 +15,10 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.UnplaceableSolid;
 import io.github.schntgaispock.gastronomicon.util.StringUtil;
 import io.github.schntgaispock.gastronomicon.util.collections.CollectionUtil;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.core.attributes.RecipeDisplayItem;
 import lombok.Getter;
 
 @Getter

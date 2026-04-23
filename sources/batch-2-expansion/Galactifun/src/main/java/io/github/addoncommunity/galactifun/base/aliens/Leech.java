@@ -18,7 +18,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 
 import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.aliens.Alien;
-import io.github.mooy1.infinitylib.common.PersistentType;
+import com.github.drakescraft-labs.infinitylib.common.PersistentType;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 

@@ -1,8 +1,8 @@
 package me.gallowsdove.foxymachines.listeners;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.core.attributes.Rechargeable;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.implementation.tools.PositionSelector;
 import me.gallowsdove.foxymachines.utils.SimpleLocation;

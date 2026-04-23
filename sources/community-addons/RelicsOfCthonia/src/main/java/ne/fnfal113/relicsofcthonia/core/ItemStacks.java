@@ -1,8 +1,8 @@
 package ne.fnfal113.relicsofcthonia.core;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
 
 public class ItemStacks {
 

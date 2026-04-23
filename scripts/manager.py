@@ -288,6 +288,8 @@ def migrate_to_paper(dry_run=False):
 
     log(f"Migración completada. Módulos modernizados: {count}", "SUCCESS")
 
+    log(f"Rebranding completado. Módulos actualizados: {count}", "SUCCESS")
+
 def rebrand_shades(dry_run=False):
     log("Iniciando Rebranding de Sombras...", "INFO")
     
@@ -330,7 +332,113 @@ def rebrand_shades(dry_run=False):
                 else:
                     count += 1
 
-    log(f"Rebranding completado. Módulos actualizados: {count}", "SUCCESS")
+    log(f"Rebranding de POMs completado. Módulos actualizados: {count}", "SUCCESS")
+
+def rebrand_imports(dry_run=False):
+    log("Iniciando Rebranding de Imports en Código Fuente (.java)...", "INFO")
+    
+    # Mapeo de namespaces de librerías y autores originales
+    remap = {
+        r"io\.github\.thebusybiscuit": "com.github.drakescraft-labs",
+        r"io\.github\.seggan": "com.github.drakescraft-labs",
+        r"io\.github\.mooy1": "com.github.drakescraft-labs",
+        r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft-labs.slimefun4.legacy",
+        r"me\.mr_cookie": "com.github.drakescraft-labs",
+        r"me\.pika": "com.github.drakescraft-labs",
+        r"net\.guizhanss": "com.github.drakescraft-labs"
+    }
+    
+    count = 0
+    file_count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        for f in files:
+            if f.endswith(".java"):
+                file_path = os.path.join(root, f)
+                
+                try:
+                    with open(file_path, 'r', encoding='utf-8', errors='ignore') as jf:
+                        content = jf.read()
+                    
+                    new_content = content
+                    for old, new in remap.items():
+                        new_content = re.sub(old, new, new_content)
+                    
+                    if new_content != content:
+                        if not dry_run:
+                            with open(file_path, 'w', encoding='utf-8') as jf:
+                                jf.write(new_content)
+                        count += 1
+                    file_count += 1
+                except Exception as e:
+                    log(f"Error procesando {file_path}: {str(e)}", "ERROR")
+
+    log(f"Rebranding de código completado. Archivos modificados: {count} de {file_count}", "SUCCESS")
+
+def rebrand_folders():
+    log("Iniciando Reestructuración Física de Carpetas...", "INFO")
+    
+    # Definir los mapeos de carpetas (Base Antigua -> Base Nueva)
+    mappings = [
+        (os.path.join("io", "github", "thebusybiscuit"), os.path.join("com", "github", "drakescraft-labs")),
+        (os.path.join("io", "github", "seggan"), os.path.join("com", "github", "drakescraft-labs")),
+        (os.path.join("io", "github", "mooy1"), os.path.join("com", "github", "drakescraft-labs")),
+        (os.path.join("me", "mrCookieSlime"), os.path.join("com", "github", "drakescraft-labs", "slimefun4", "legacy")),
+        (os.path.join("me", "pika"), os.path.join("com", "github", "drakescraft-labs")),
+        (os.path.join("net", "guizhanss"), os.path.join("com", "github", "drakescraft-labs"))
+    ]
+    
+    count = 0
+    import shutil
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "src" in root and "main" in root and "java" in root:
+            java_root = root
+            
+            for old_base, new_base in mappings:
+                old_path = os.path.join(java_root, old_base)
+                new_path = os.path.join(java_root, new_base)
+                
+                if os.path.exists(old_path):
+                    log(f"Reorganizando {old_base} en: {os.path.relpath(java_root, SOURCES_DIR)}", "WARNING")
+                    
+                    # Asegurar que el destino exista
+                    os.makedirs(os.path.dirname(new_path), exist_ok=True)
+                    
+                    # Mover el contenido de forma recursiva y segura
+                    if os.path.exists(new_path):
+                        for item in os.listdir(old_path):
+                            s = os.path.join(old_path, item)
+                            d = os.path.join(new_path, item)
+                            if os.path.isdir(s):
+                                if os.path.exists(d):
+                                    # Combinar directorios
+                                    for subitem in os.listdir(s):
+                                        shutil.move(os.path.join(s, subitem), os.path.join(d, subitem))
+                                    os.rmdir(s)
+                                else:
+                                    shutil.move(s, d)
+                            else:
+                                if os.path.exists(d): os.remove(d)
+                                shutil.move(s, d)
+                        try:
+                            os.rmdir(old_path)
+                            # Limpiar carpetas padres vacías (io/github o me)
+                            parent = os.path.dirname(old_path)
+                            if not os.listdir(parent): os.rmdir(parent)
+                            grandparent = os.path.dirname(parent)
+                            if not os.listdir(grandparent): os.rmdir(grandparent)
+                        except: pass
+                    else:
+                        shutil.move(old_path, new_path)
+                        try:
+                            # Limpiar carpetas padres vacías
+                            parent = os.path.dirname(old_path)
+                            if not os.listdir(parent): os.rmdir(parent)
+                            grandparent = os.path.dirname(parent)
+                            if not os.listdir(grandparent): os.rmdir(grandparent)
+                        except: pass
+                    count += 1
+                
+    log(f"Reestructuración completa. Operaciones realizadas: {count}", "SUCCESS")
 
 def clean_backups():
     log("Iniciando Limpieza de Archivos .bak...", "INFO")
@@ -359,6 +467,10 @@ if __name__ == "__main__":
         migrate_to_paper(dry_run=is_dry)
     elif action == "rebrand-shades":
         rebrand_shades(dry_run=is_dry)
+    elif action == "rebrand-imports":
+        rebrand_imports(dry_run=is_dry)
+    elif action == "rebrand-folders":
+        rebrand_folders()
     elif action == "clean-backups":
         clean_backups()
     else:

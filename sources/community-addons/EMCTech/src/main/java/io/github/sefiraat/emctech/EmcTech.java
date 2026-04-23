@@ -17,8 +17,8 @@ import io.github.sefiraat.emctech.managers.ListenerManager;
 import io.github.sefiraat.emctech.managers.RunnableManager;
 import io.github.sefiraat.emctech.managers.SupportedPluginManager;
 import io.github.sefiraat.emctech.slimefun.items.EmcItems;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
 import co.aikar.commands.PaperCommandManager;
 

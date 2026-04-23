@@ -1,4 +1,4 @@
-package io.github.seggan.slimechem.test;
+package com.github.drakescraft-labs.slimechem.test;
 
 import org.junit.jupiter.api.Assertions;
 

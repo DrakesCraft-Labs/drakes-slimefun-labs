@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.core;
+package com.github.drakescraft-labs.infinitylib.core;
 
 public enum MockAddonTest {
 

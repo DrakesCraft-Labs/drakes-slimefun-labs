@@ -19,7 +19,7 @@ import org.bukkit.potion.PotionEffectType;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.primitives.Ints;
 import io.github.addoncommunity.galactifun.api.items.spacesuit.SpaceSuitStat;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
 
 /**
  * An effect that can be applied by an atmosphere

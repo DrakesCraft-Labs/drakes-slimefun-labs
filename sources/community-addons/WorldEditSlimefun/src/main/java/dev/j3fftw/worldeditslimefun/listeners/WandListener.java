@@ -1,10 +1,10 @@
 package dev.j3fftw.worldeditslimefun.listeners;
 
 import dev.j3fftw.worldeditslimefun.utils.PositionManager;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;

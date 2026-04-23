@@ -1,7 +1,7 @@
 package io.github.schntgaispock.gastronomicon.core.slimefun;
 
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

@@ -1,10 +1,10 @@
-package io.github.thebusybiscuit.slimefun4.utils;
+package com.github.drakescraft-labs.slimefun4.utils;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
 
 class TestMinecraftVersion {
 

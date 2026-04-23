@@ -1,8 +1,8 @@
 package ne.fnfal113.fnamplifications.gears;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 
 import ne.fnfal113.fnamplifications.gears.abstracts.AbstractGears;
 import ne.fnfal113.fnamplifications.utils.Keys;

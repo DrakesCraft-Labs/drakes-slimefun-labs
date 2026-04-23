@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import io.github.mooy1.infinitylib.common.Scheduler;
+import com.github.drakescraft-labs.infinitylib.common.Scheduler;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ParametersAreNonnullByDefault

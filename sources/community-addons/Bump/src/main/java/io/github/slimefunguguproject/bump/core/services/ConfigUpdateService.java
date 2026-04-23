@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import io.github.slimefunguguproject.bump.utils.ConfigUtils;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AddonConfig;
 
 /**
  * This service will update config when there is a new version.

@@ -19,12 +19,12 @@ import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.minimessage.tag.standard.StandardTags;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.mooy1.infinitylib.groups.MultiGroup;
-import io.github.mooy1.infinitylib.groups.SubGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft-labs.infinitylib.groups.MultiGroup;
+import com.github.drakescraft-labs.infinitylib.groups.SubGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.items.CustomItemStack;
 
 import me.apeiros.alchimiavitae.setup.AlchimiaItems;

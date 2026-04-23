@@ -18,13 +18,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
-import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft-labs.slimefun4.utils.NumberUtils;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.implementation.groups.Groups;
@@ -33,10 +33,10 @@ import me.voper.slimeframe.utils.ArmorStandUtils;
 import me.voper.slimeframe.utils.HeadTextures;
 
 import lombok.Getter;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 import net.md_5.bungee.api.ChatColor;
 
 @Getter

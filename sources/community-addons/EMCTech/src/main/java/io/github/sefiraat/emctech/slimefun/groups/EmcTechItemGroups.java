@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import io.github.sefiraat.emctech.EmcTech;
 import io.github.sefiraat.emctech.utils.Keys;
 import io.github.sefiraat.emctech.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 public final class EmcTechItemGroups {
 

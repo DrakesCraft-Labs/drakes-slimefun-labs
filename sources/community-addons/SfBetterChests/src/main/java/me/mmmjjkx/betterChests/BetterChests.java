@@ -2,8 +2,8 @@ package me.mmmjjkx.betterChests;
 
 import io.github.schntgaispock.slimehud.SlimeHUD;
 import io.github.schntgaispock.slimehud.util.HudBuilder;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import me.mmmjjkx.betterChests.items.BCItems;
 import me.mmmjjkx.betterChests.items.chests.SimpleDrawer;
 import me.mmmjjkx.betterChests.items.chests.ie.IEStorageCache;

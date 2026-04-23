@@ -1,7 +1,7 @@
 package me.ncbpfluffybear.slimyrepair;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.collections.Pair;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.updater.BlobBuildUpdater;

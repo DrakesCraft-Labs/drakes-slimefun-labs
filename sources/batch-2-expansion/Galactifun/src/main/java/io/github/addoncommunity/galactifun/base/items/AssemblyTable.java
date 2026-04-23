@@ -13,19 +13,19 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.base.BaseItems;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import io.github.mooy1.infinitylib.machines.CraftingBlock;
-import io.github.mooy1.infinitylib.machines.MachineLayout;
-import io.github.mooy1.infinitylib.machines.MachineRecipeType;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide;
-import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft-labs.infinitylib.machines.CraftingBlock;
+import com.github.drakescraft-labs.infinitylib.machines.MachineLayout;
+import com.github.drakescraft-labs.infinitylib.machines.MachineRecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft-labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 @ParametersAreNonnullByDefault
 public final class AssemblyTable extends CraftingBlock implements EnergyNetComponent {

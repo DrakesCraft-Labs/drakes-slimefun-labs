@@ -1,7 +1,7 @@
 package io.ncbpfluffybear.slimecustomizer;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.collections.Pair;
 import org.bukkit.inventory.ItemStack;
 

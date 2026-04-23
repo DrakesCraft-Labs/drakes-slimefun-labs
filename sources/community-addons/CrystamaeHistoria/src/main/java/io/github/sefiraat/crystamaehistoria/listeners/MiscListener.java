@@ -7,9 +7,9 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.covers.BlockVei
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.api.events.AutoDisenchantEvent;
-import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.events.AutoDisenchantEvent;
+import com.github.drakescraft-labs.slimefun4.api.events.BlockPlacerPlaceEvent;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;

@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria;
 
 import com.google.common.base.Preconditions;
 import de.slikey.effectlib.EffectManager;
-import io.github.mooy1.infinitylib.core.AbstractAddon;
+import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.GetRanks;
 import io.github.sefiraat.crystamaehistoria.commands.OpenSpellCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.OpenStoryCompendium;

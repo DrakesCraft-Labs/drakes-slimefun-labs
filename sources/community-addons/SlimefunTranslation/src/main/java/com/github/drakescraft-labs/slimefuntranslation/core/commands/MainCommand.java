@@ -1,0 +1,27 @@
+package com.github.drakescraft-labs.slimefuntranslation.core.commands;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.PluginCommand;
+
+import com.github.drakescraft-labs.guizhanlib.minecraft.commands.BaseCommand;
+import com.github.drakescraft-labs.slimefuntranslation.core.commands.subcommands.IdCommand;
+import com.github.drakescraft-labs.slimefuntranslation.core.commands.subcommands.SearchCommand;
+import com.github.drakescraft-labs.slimefuntranslation.core.commands.subcommands.TranslationCommand;
+
+public class MainCommand extends BaseCommand {
+    public MainCommand(@Nonnull PluginCommand command) {
+        super(command, (cmd, sender) -> "", "<subcommand>");
+        addSubCommand(new IdCommand(this));
+        addSubCommand(new SearchCommand(this));
+        addSubCommand(new TranslationCommand(this));
+    }
+
+    @Override
+    @ParametersAreNonnullByDefault
+    public void onExecute(CommandSender sender, String[] args) {
+        // we have subcommands so this method doesn't need to do anything
+    }
+}

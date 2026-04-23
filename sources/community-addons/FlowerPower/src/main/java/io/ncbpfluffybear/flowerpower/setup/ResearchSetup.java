@@ -1,7 +1,7 @@
 package io.ncbpfluffybear.flowerpower.setup;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
 import io.ncbpfluffybear.flowerpower.FlowerPowerItems;
 import io.ncbpfluffybear.flowerpower.FlowerPowerPlugin;
 import org.bukkit.NamespacedKey;

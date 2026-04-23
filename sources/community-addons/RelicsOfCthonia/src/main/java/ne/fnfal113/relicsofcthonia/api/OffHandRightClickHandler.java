@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia.api;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemHandler;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;

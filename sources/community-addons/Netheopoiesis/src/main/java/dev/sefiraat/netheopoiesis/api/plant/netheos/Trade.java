@@ -1,7 +1,7 @@
 package dev.sefiraat.netheopoiesis.api.plant.netheos;
 
 import io.github.bakedlibs.dough.collections.Pair;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

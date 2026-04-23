@@ -28,12 +28,12 @@ import org.bukkit.inventory.ItemStack;
 import io.github.slimefunguguproject.bump.api.exceptions.AppraiseTypeKeyConflictException;
 import io.github.slimefunguguproject.bump.core.BumpRegistry;
 import io.github.slimefunguguproject.bump.implementation.Bump;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
 
-import net.guizhanss.guizhanlib.utils.RandomUtil;
-import net.guizhanss.guizhanlib.utils.StringUtil;
+import com.github.drakescraft-labs.guizhanlib.utils.RandomUtil;
+import com.github.drakescraft-labs.guizhanlib.utils.StringUtil;
 
 import lombok.Getter;
 import lombok.experimental.Accessors;

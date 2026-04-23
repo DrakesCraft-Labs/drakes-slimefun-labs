@@ -1,6 +1,6 @@
 package dev.j3fftw.worldeditslimefun.utils;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;

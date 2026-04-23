@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.commands;
 
-import io.github.mooy1.infinitylib.commands.SubCommand;
+import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
 import me.gallowsdove.foxymachines.abstracts.CustomBoss;
 import me.gallowsdove.foxymachines.abstracts.CustomMob;
 import org.bukkit.Bukkit;

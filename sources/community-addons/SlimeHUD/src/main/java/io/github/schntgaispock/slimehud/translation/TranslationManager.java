@@ -1,8 +1,8 @@
 package io.github.schntgaispock.slimehud.translation;
 
 import io.github.schntgaispock.slimehud.SlimeHUD;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import net.guizhanss.slimefuntranslation.api.SlimefunTranslationAPI;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefuntranslation.api.SlimefunTranslationAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

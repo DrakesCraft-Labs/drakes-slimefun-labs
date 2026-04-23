@@ -29,11 +29,11 @@ import io.github.slimefunguguproject.bump.implementation.items.weapons.SkyDevilS
 import io.github.slimefunguguproject.bump.implementation.items.weapons.SkySword;
 import io.github.slimefunguguproject.bump.implementation.items.weapons.SoulSword;
 import io.github.slimefunguguproject.bump.implementation.items.weapons.WitherSkullBow;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.multiblocks.Compressor;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.items.multiblocks.Compressor;
 
 import lombok.experimental.UtilityClass;
 

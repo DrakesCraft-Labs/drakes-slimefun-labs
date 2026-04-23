@@ -1,10 +1,10 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine;
 
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
 import java.util.List;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.interfaces.InventoryBlock;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;

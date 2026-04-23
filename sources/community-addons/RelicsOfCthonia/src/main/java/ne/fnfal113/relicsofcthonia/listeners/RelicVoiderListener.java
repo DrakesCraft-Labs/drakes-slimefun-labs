@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia.listeners;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import ne.fnfal113.relicsofcthonia.slimefun.RelicVoider;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;
 import ne.fnfal113.relicsofcthonia.utils.Utils;

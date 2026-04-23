@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.test.mocks;
+package com.github.drakescraft-labs.slimefun4.test.mocks;
 
 import java.util.Map;
 
@@ -6,9 +6,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.Location;
 
-import io.github.thebusybiscuit.slimefun4.api.network.Network;
-import io.github.thebusybiscuit.slimefun4.api.network.NetworkComponent;
-import io.github.thebusybiscuit.slimefun4.core.networks.NetworkManager;
+import com.github.drakescraft-labs.slimefun4.api.network.Network;
+import com.github.drakescraft-labs.slimefun4.api.network.NetworkComponent;
+import com.github.drakescraft-labs.slimefun4.core.networks.NetworkManager;
 
 public class MockNetwork extends Network {
 

@@ -1,10 +1,10 @@
 package org.metamechanists.quaptics.items.groups;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -17,7 +17,7 @@ import org.metamechanists.quaptics.items.Lore;
 import org.metamechanists.quaptics.items.RecipeTypes;
 import org.metamechanists.quaptics.utils.Colors;
 
-import static io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems.*;
+import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.*;
 
 
 @UtilityClass

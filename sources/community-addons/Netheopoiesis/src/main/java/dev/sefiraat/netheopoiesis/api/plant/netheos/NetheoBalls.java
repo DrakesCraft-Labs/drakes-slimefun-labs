@@ -6,7 +6,7 @@ import dev.sefiraat.netheopoiesis.implementation.Groups;
 import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
 import dev.sefiraat.netheopoiesis.utils.TextUtils;
 import dev.sefiraat.netheopoiesis.utils.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

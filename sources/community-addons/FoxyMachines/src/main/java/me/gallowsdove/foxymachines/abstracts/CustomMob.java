@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.abstracts;
 
-import io.github.mooy1.infinitylib.common.Events;
+import com.github.drakescraft-labs.infinitylib.common.Events;
 import lombok.Getter;
 import me.gallowsdove.foxymachines.FoxyMachines;
 

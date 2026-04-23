@@ -1,7 +1,7 @@
 package me.gallowsdove.foxymachines.listeners;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;

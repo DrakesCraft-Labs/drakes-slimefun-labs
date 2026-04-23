@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.base.Objects;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 
 public class Group {
 

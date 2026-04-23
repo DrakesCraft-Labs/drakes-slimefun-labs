@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.implementation.items;
+package com.github.drakescraft-labs.slimefun4.implementation.items;
 
 import javax.annotation.Nullable;
 
@@ -14,13 +14,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.test.TestUtilities;
-import io.github.thebusybiscuit.slimefun4.test.mocks.MockDamageable;
-import io.github.thebusybiscuit.slimefun4.utils.compatibility.VersionedEnchantment;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft-labs.slimefun4.test.mocks.MockDamageable;
+import com.github.drakescraft-labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 

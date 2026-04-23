@@ -1,7 +1,7 @@
 package me.CAPS123987.Machines;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import me.CAPS123987.Item.Items;
 
 public class HeatSensor extends SlimefunItem {

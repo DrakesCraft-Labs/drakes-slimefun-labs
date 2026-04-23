@@ -14,7 +14,7 @@ import io.github.sefiraat.danktech2.theme.ThemeType;
 import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 
 
 

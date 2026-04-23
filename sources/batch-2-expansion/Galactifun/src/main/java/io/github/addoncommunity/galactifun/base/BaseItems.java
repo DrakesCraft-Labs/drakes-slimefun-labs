@@ -37,15 +37,15 @@ import io.github.addoncommunity.galactifun.base.items.protection.SpaceHeater;
 import io.github.addoncommunity.galactifun.base.items.rockets.ChemicalRocket;
 import io.github.addoncommunity.galactifun.base.items.rockets.IonRocket;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import io.github.mooy1.infinitylib.machines.MachineBlock;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft-labs.infinitylib.machines.MachineBlock;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.utils.HeadTexture;
+import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
 
 /**
  * Holds the base machines and setup

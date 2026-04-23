@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.implementation.weapons;
 
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.utils.Utils;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.common;
+package com.github.drakescraft-labs.infinitylib.common;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -11,12 +11,12 @@ import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.scheduler.BukkitSchedulerMock;
-import io.github.mooy1.infinitylib.core.MockAddon;
+import com.github.drakescraft-labs.infinitylib.core.MockAddon;
 
-import static io.github.mooy1.infinitylib.common.Scheduler.repeat;
-import static io.github.mooy1.infinitylib.common.Scheduler.repeatAsync;
-import static io.github.mooy1.infinitylib.common.Scheduler.run;
-import static io.github.mooy1.infinitylib.common.Scheduler.runAsync;
+import static com.github.drakescraft-labs.infinitylib.common.Scheduler.repeat;
+import static com.github.drakescraft-labs.infinitylib.common.Scheduler.repeatAsync;
+import static com.github.drakescraft-labs.infinitylib.common.Scheduler.run;
+import static com.github.drakescraft-labs.infinitylib.common.Scheduler.runAsync;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

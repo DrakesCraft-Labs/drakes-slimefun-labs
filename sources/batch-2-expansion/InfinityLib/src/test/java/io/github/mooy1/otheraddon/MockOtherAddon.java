@@ -1,12 +1,12 @@
-package io.github.mooy1.otheraddon;
+package com.github.drakescraft-labs.otheraddon;
 
 import java.io.File;
 
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
-import io.github.mooy1.infinitylib.core.Environment;
-import io.github.mooy1.infinitylib.core.MockAddon;
+import com.github.drakescraft-labs.infinitylib.core.Environment;
+import com.github.drakescraft-labs.infinitylib.core.MockAddon;
 
 public final class MockOtherAddon extends MockAddon {
 

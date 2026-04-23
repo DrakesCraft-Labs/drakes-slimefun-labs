@@ -7,7 +7,7 @@ import org.bukkit.event.world.StructureGrowEvent;
 
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.api.trees.TreeStructure;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 
 public class TreeGrowthListener implements Listener {
 

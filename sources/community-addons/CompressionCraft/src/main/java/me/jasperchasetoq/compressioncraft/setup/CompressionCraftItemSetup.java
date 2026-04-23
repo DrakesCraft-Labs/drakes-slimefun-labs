@@ -1,8 +1,8 @@
 package me.jasperchasetoq.compressioncraft.setup;
 
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import me.jasperchasetoq.compressioncraft.CompressionCraft;
 import me.jasperchasetoq.compressioncraft.CompressionCraftItems;
 import me.jasperchasetoq.compressioncraft.CompressionCraftRecipeTypes;

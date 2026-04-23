@@ -30,13 +30,13 @@ import io.github.addoncommunity.galactifun.core.commands.StructureCommand;
 import io.github.addoncommunity.galactifun.core.managers.AlienManager;
 import io.github.addoncommunity.galactifun.core.managers.ProtectionManager;
 import io.github.addoncommunity.galactifun.core.managers.WorldManager;
-import io.github.mooy1.infinitylib.common.Scheduler;
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.mooy1.infinitylib.metrics.bukkit.Metrics;
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.infinitylib.common.Scheduler;
+import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft-labs.infinitylib.metrics.bukkit.Metrics;
+import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.BlobBuildUpdater;
-import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
+import com.github.drakescraft-labs.slimefun4.libraries.paperlib.PaperLib;
 
 
 public final class Galactifun extends AbstractAddon {

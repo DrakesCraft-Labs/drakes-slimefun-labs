@@ -1,10 +1,10 @@
 package ne.fnfal113.relicsofcthonia.core;
 
-import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import ne.fnfal113.relicsofcthonia.RelicsOfCthonia;
 import org.bukkit.NamespacedKey;
 

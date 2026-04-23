@@ -1,17 +1,17 @@
 package me.lucasgithuber.elementmanipulation.machines;
 
-import io.github.mooy1.infinitylib.machines.MachineLayout;
-import io.github.mooy1.infinitylib.machines.MachineRecipeType;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
-import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft-labs.infinitylib.machines.MachineLayout;
+import com.github.drakescraft-labs.infinitylib.machines.MachineRecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft-labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import dev.drake.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
 import me.lucasgithuber.elementmanipulation.category.DrugsGroup;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public final class DrugsTable extends io.github.mooy1.infinitylib.machines.CraftingBlock implements EnergyNetComponent {
+public final class DrugsTable extends com.github.drakescraft-labs.infinitylib.machines.CraftingBlock implements EnergyNetComponent {
 
     public static final int[] INPUT_SLOTS = {
             2,3,4,5,6,7,

@@ -1,14 +1,14 @@
 package me.profelements.dynatech.items.electric;
 
-import io.github.thebusybiscuit.exoticgarden.ExoticGardenRecipeTypes;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotHopperable;
-import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.exoticgarden.ExoticGardenRecipeTypes;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotHopperable;
+import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 import me.profelements.dynatech.items.electric.abstracts.AMachine;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

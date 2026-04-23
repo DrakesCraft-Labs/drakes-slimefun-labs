@@ -1,7 +1,7 @@
 package me.profelements.dynatech.listeners;
 
-import io.github.thebusybiscuit.slimefun4.utils.ChargeUtils;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.utils.ChargeUtils;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import me.profelements.dynatech.DynaTech;
 import me.profelements.dynatech.DynaTechItems;
 import me.profelements.dynatech.items.tools.ElectricalStimulator;

@@ -1,7 +1,7 @@
 package me.char321.sfadvancements.core.criteria.completer;
 
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.core.guide.GuideHistory;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.core.guide.GuideHistory;
 import me.char321.sfadvancements.SFAdvancements;
 import me.char321.sfadvancements.api.criteria.Criterion;
 import me.char321.sfadvancements.api.criteria.SearchCriterion;
@@ -27,7 +27,7 @@ public class SearchCriterionCompleter implements CriterionCompleter {
         try {
             queueField = GuideHistory.class.getDeclaredField("queue");
             queueField.setAccessible(true);
-            getIndexedObject = Class.forName("io.github.thebusybiscuit.slimefun4.core.guide.GuideEntry").getDeclaredMethod("getIndexedObject");
+            getIndexedObject = Class.forName("com.github.drakescraft-labs.slimefun4.core.guide.GuideEntry").getDeclaredMethod("getIndexedObject");
             getIndexedObject.setAccessible(true);
         } catch (ReflectiveOperationException e) {
             e.printStackTrace();

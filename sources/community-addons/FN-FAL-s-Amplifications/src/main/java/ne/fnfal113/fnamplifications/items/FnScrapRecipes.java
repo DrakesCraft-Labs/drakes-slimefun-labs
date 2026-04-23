@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.items;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 
 import ne.fnfal113.fnamplifications.multiblocks.FnScrapRecycler;
 

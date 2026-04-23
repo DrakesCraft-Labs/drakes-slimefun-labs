@@ -1,7 +1,7 @@
 package io.github.sefiraat.slimetinker.items;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
 import org.bukkit.Material;
 
 import javax.annotation.Nonnull;

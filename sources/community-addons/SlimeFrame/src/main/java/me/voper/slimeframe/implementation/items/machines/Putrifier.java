@@ -14,11 +14,11 @@ import org.bukkit.inventory.meta.SuspiciousStewMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.inventory.InvUtils;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.core.attributes.RecipeDisplayItem;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.inventory.InvUtils;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.utils.itemstack.ItemStackWrapper;
 
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.abstracts.AbstractProcessorMachine;
@@ -28,8 +28,8 @@ import me.voper.slimeframe.utils.RandomItemStacks;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 @Accessors(chain = true)
 public class Putrifier extends AbstractProcessorMachine implements RecipeDisplayItem {

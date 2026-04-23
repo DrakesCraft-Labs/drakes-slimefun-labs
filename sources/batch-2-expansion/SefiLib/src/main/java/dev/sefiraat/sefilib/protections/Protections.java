@@ -1,6 +1,6 @@
 package dev.sefiraat.sefilib.protections;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

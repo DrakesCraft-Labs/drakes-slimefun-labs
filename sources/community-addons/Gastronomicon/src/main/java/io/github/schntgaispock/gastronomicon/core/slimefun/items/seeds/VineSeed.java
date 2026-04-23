@@ -7,7 +7,7 @@ import java.util.List;
 import org.bukkit.block.BlockState;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import lombok.Getter;
 
 public class VineSeed extends AbstractSeed {

@@ -1,9 +1,9 @@
 package me.char321.sfadvancements.core;
 
 import io.github.bakedlibs.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.FlexItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
 import me.char321.sfadvancements.SFAdvancements;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

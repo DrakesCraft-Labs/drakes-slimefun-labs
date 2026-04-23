@@ -2,7 +2,7 @@ package me.voper.slimeframe.core.attributes;
 
 import org.bukkit.entity.EntityType;
 
-import io.github.thebusybiscuit.slimefun4.core.attributes.RandomMobDrop;
+import com.github.drakescraft-labs.slimefun4.core.attributes.RandomMobDrop;
 
 /**
  * An extension of the {@link RandomMobDrop} interface that allows for more flexibility

@@ -1,8 +1,8 @@
 package me.lucasgithuber.elementmanipulation;
 
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import me.lucasgithuber.elementmanipulation.elements.Elements;
 import me.lucasgithuber.elementmanipulation.items.Materials;
 import me.lucasgithuber.elementmanipulation.machines.Machines;

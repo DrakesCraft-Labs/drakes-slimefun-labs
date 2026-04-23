@@ -11,8 +11,8 @@ import org.bukkit.block.Block;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 
 import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
 import me.voper.slimeframe.core.managers.CommandsManager;

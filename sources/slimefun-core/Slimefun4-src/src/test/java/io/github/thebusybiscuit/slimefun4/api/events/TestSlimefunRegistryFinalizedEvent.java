@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.api.events;
+package com.github.drakescraft-labs.slimefun4.api.events;
 
 import org.junit.jupiter.api.Assertions;
 
@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.implementation.setup.PostSetup;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.setup.PostSetup;
 
 class TestSlimefunRegistryFinalizedEvent {
 

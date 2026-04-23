@@ -2,9 +2,9 @@ package me.EzCoins.MiniBlocks.core;
 
 import me.EzCoins.MiniBlocks.MiniBlocks;
 
-import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 
 import me.EzCoins.MiniBlocks.utils.GUIHeads;

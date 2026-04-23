@@ -3,11 +3,11 @@ package me.poma123.globalwarming.api.biomes;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.slimefun4.utils.biomes.BiomeDataConverter;
+import com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeDataConverter;
 
 /**
  * This {@link BiomeDataConverter} converts {@link JsonElement} to {@link BiomeTemperature}
- * to be used in our {@link io.github.thebusybiscuit.slimefun4.utils.biomes.BiomeMap}
+ * to be used in our {@link com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeMap}
  *
  * @author poma123
  *

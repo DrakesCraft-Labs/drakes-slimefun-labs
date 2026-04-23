@@ -18,7 +18,7 @@ import lombok.experimental.UtilityClass;
 public final class WikiUtils {
     public static void setupJson() {
         try {
-            Class<?> clazz = Class.forName("net.guizhanss.slimefun4.utils.WikiUtils");
+            Class<?> clazz = Class.forName("com.github.drakescraft-labs.slimefun4.utils.WikiUtils");
             clazz.getMethod("setupJson", Plugin.class).invoke(null, Bump.getInstance());
         } catch (ClassNotFoundException | NoSuchMethodException | NullPointerException
                  | IllegalAccessException | InvocationTargetException e) {

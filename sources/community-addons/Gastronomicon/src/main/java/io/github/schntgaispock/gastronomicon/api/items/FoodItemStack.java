@@ -11,9 +11,9 @@ import org.bukkit.Material;
 import io.github.schntgaispock.gastronomicon.api.food.FoodEffect;
 import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.item.HeadTextures;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
 import lombok.Getter;
 import lombok.ToString;
 

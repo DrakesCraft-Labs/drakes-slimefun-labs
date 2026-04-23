@@ -12,7 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 
-import io.github.thebusybiscuit.slimefun4.utils.biomes.BiomeMap;
+import com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeMap;
 import me.poma123.globalwarming.api.biomes.BiomeTemperature;
 import me.poma123.globalwarming.api.PollutionManager;
 import me.poma123.globalwarming.api.Temperature;

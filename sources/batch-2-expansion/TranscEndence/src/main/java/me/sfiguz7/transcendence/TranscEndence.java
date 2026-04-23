@@ -1,11 +1,11 @@
 package me.sfiguz7.transcendence;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import me.sfiguz7.transcendence.implementation.core.attributes.TERegistry;
 import me.sfiguz7.transcendence.implementation.core.commands.TranscEndenceCommand;
 import me.sfiguz7.transcendence.implementation.items.generators.QuirpScatterer;

@@ -1,9 +1,9 @@
 package dev.j3fftw.worldeditslimefun.tasks;
 
 import dev.j3fftw.worldeditslimefun.WorldEditSlimefun;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.block.Block;
 import org.bukkit.scheduler.BukkitRunnable;
 

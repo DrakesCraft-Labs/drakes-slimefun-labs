@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import dev.sefiraat.sefilib.string.TextUtils;
 import net.md_5.bungee.api.ChatColor;

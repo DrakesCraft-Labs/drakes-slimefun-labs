@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.global;
 
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +39,7 @@ public class RecipeTypeMap {
     }
 
     private enum RecipeTypeExpandIntegration {
-        INFINITY_EXPANSION("io.github.mooy1.infinityexpansion.items.blocks.InfinityWorkbench", "TYPE", true),
+        INFINITY_EXPANSION("com.github.drakescraft-labs.infinityexpansion.items.blocks.InfinityWorkbench", "TYPE", true),
         SLIME_TINKER("io.github.sefiraat.slimetinker.items.workstations.workbench.Workbench", "TYPE", true);
 
         private final String clazz;

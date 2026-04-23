@@ -1,4 +1,4 @@
-package io.github.mooy1.infinitylib.core;
+package com.github.drakescraft-labs.infinitylib.core;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.function.ThrowingSupplier;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.plugin.PluginManagerMock;
-import io.github.mooy1.otheraddon.MockOtherAddon;
+import com.github.drakescraft-labs.otheraddon.MockOtherAddon;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

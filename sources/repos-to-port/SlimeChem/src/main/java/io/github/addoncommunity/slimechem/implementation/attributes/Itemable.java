@@ -1,6 +1,6 @@
 package io.github.addoncommunity.slimechem.implementation.attributes;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 
 import javax.annotation.Nonnull;
 

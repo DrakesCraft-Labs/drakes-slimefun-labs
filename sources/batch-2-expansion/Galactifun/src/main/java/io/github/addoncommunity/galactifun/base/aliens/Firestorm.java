@@ -16,7 +16,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 
 import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.aliens.Alien;
-import io.github.mooy1.infinitylib.common.Events;
+import com.github.drakescraft-labs.infinitylib.common.Events;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 

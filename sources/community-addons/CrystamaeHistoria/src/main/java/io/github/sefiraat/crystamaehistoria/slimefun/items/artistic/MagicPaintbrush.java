@@ -2,9 +2,9 @@ package io.github.sefiraat.crystamaehistoria.slimefun.items.artistic;
 
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
-import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
 import dev.drake.dough.protection.Interaction;
-import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.Tag;

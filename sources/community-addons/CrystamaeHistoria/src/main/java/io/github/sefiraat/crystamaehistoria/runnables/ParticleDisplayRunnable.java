@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.runnables;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.LuminescenceScoop;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

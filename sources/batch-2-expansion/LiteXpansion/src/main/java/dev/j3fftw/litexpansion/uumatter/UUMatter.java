@@ -2,11 +2,11 @@ package dev.j3fftw.litexpansion.uumatter;
 
 import dev.j3fftw.litexpansion.Items;
 import dev.j3fftw.litexpansion.LiteXpansion;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.config.Config;
-import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
+import com.github.drakescraft-labs.slimefun4.utils.NumberUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

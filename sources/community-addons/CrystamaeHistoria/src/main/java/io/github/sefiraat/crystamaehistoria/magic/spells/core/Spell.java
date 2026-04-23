@@ -6,7 +6,7 @@ import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.collections.Pair;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package dev.j3fftw.extrautils.utils;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 public final class Constants {
 

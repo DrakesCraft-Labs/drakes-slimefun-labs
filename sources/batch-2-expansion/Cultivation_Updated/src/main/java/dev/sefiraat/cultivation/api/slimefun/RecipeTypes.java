@@ -8,9 +8,9 @@ import dev.sefiraat.cultivation.implementation.slimefun.machines.KitchenRecipeMa
 import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.entity.LivingEntityDefinition;
 import dev.sefiraat.sefilib.string.Theme;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.WordUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.WordUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;

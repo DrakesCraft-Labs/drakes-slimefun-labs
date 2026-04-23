@@ -1,4 +1,4 @@
-package io.github.seggan.slimechem.test;
+package com.github.drakescraft-labs.slimechem.test;
 
 import io.github.addoncommunity.slimechem.implementation.atomic.Element;
 import io.github.addoncommunity.slimechem.implementation.atomic.isotopes.Isotope;

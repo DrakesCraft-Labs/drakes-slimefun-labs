@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.quivers.listener;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 
 import ne.fnfal113.fnamplifications.quivers.abstracts.AbstractQuiver;
 import ne.fnfal113.fnamplifications.utils.Utils;

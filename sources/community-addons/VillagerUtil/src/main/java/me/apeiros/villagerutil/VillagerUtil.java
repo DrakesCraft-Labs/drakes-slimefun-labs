@@ -2,7 +2,7 @@ package me.apeiros.villagerutil;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
+import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
 
 public class VillagerUtil extends AbstractAddon {
 

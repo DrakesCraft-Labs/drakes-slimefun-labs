@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.machines.implementation;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 public enum DiscDurationsEnum {
 

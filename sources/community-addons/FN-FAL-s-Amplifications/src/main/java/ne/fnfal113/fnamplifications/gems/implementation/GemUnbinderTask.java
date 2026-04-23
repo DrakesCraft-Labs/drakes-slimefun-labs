@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.gems.implementation;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import ne.fnfal113.fnamplifications.gems.RetaliateGem;
 import ne.fnfal113.fnamplifications.gems.abstracts.AbstractGem;
 import ne.fnfal113.fnamplifications.utils.Keys;

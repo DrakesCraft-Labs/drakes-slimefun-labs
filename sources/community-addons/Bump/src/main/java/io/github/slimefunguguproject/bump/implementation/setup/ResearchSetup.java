@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import com.github.drakescraft-labs.slimefun4.api.researches.Research;
 
 import lombok.experimental.UtilityClass;
 

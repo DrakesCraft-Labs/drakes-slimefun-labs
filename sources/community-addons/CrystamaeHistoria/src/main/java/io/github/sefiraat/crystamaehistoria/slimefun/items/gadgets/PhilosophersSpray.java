@@ -1,14 +1,14 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.Displacer;
-import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotConfigurable;
-import io.github.thebusybiscuit.slimefun4.core.attributes.NotHopperable;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
+import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotConfigurable;
+import com.github.drakescraft-labs.slimefun4.core.attributes.NotHopperable;
+import com.github.drakescraft-labs.slimefun4.core.handlers.BlockUseHandler;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;

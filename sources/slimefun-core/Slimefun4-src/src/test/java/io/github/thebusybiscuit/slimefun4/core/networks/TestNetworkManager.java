@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.core.networks;
+package com.github.drakescraft-labs.slimefun4.core.networks;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +16,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
-import io.github.thebusybiscuit.slimefun4.api.network.Network;
-import io.github.thebusybiscuit.slimefun4.api.network.NetworkComponent;
-import io.github.thebusybiscuit.slimefun4.core.networks.cargo.CargoNet;
-import io.github.thebusybiscuit.slimefun4.test.mocks.MockNetwork;
+import com.github.drakescraft-labs.slimefun4.api.network.Network;
+import com.github.drakescraft-labs.slimefun4.api.network.NetworkComponent;
+import com.github.drakescraft-labs.slimefun4.core.networks.cargo.CargoNet;
+import com.github.drakescraft-labs.slimefun4.test.mocks.MockNetwork;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

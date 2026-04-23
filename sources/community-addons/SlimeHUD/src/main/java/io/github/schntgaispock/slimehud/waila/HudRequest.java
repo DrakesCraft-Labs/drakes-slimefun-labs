@@ -1,6 +1,6 @@
 package io.github.schntgaispock.slimehud.waila;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

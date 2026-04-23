@@ -1,8 +1,8 @@
 package me.sfiguz7.transcendence.implementation.items.generators;
 
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AGenerator;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel;
+import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetProvider;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AGenerator;
+import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
 import me.sfiguz7.transcendence.lists.TEItems;
 import me.sfiguz7.transcendence.lists.TERecipeType;
 import org.bukkit.Material;

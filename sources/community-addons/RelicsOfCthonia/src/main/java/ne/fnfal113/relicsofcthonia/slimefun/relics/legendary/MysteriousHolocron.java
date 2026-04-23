@@ -1,9 +1,9 @@
 package ne.fnfal113.relicsofcthonia.slimefun.relics.legendary;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction;
 import ne.fnfal113.relicsofcthonia.api.OffHandRightClickHandler;
 import ne.fnfal113.relicsofcthonia.api.Rarity;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;

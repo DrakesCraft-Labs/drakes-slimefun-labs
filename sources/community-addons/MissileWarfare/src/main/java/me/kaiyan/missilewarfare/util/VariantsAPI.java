@@ -1,6 +1,6 @@
 package me.kaiyan.missilewarfare.util;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import me.kaiyan.missilewarfare.items.MissileClass;
 import me.kaiyan.missilewarfare.missiles.MissileConfig;
 import org.bukkit.Particle;

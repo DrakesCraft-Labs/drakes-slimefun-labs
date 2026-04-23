@@ -1,6 +1,6 @@
 package me.EzCoins.MiniBlocks.utils;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

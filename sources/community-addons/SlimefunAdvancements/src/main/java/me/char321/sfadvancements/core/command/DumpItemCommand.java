@@ -1,9 +1,9 @@
 package me.char321.sfadvancements.core.command;
 
 import io.github.bakedlibs.dough.items.ItemUtils;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 import me.char321.sfadvancements.SFAdvancements;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

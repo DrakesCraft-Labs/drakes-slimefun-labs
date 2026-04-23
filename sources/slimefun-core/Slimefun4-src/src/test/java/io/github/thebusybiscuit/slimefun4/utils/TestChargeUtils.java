@@ -1,4 +1,4 @@
-package io.github.thebusybiscuit.slimefun4.utils;
+package com.github.drakescraft-labs.slimefun4.utils;
 
 import java.util.Collections;
 
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

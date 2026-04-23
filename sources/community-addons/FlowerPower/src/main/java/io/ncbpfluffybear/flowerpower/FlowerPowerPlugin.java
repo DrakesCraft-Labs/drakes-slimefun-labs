@@ -8,7 +8,7 @@ import io.ncbpfluffybear.flowerpower.setup.ResearchSetup;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
 import listeners.Events;
 import utils.Utils;
 

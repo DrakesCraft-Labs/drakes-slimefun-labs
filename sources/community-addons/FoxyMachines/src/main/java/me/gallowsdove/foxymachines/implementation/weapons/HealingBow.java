@@ -1,8 +1,8 @@
 package me.gallowsdove.foxymachines.implementation.weapons;
 
-import io.github.thebusybiscuit.slimefun4.core.handlers.BowShootHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.weapons.SlimefunBow;
+import com.github.drakescraft-labs.slimefun4.core.handlers.BowShootHandler;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.implementation.items.weapons.SlimefunBow;
 import me.gallowsdove.foxymachines.Items;
 import org.bukkit.Effect;
 import org.bukkit.Material;

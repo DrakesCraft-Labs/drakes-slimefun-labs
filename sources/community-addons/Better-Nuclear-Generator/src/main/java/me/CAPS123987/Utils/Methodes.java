@@ -5,9 +5,9 @@ import java.util.Map;
 import org.bukkit.block.BlockFace;
 import org.bukkit.util.Vector;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 
 public class Methodes {
 	public static void areaList(int cornerX1 ,int cornerY1, int cornerZ1,int cornerX2, int cornerY2, int cornerZ2, SlimefunItemStack item, Map<Vector, SlimefunItemStack> list) {

@@ -10,7 +10,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.EntityDefinitions;
 import dev.sefiraat.cultivation.api.utils.GrowthRates;
 import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
-import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

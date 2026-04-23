@@ -1,8 +1,8 @@
 package io.github.sefiraat.simplestorage.utils;
 
 import io.github.sefiraat.simplestorage.items.chests.GuiItems;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.meta.ItemMeta;
 

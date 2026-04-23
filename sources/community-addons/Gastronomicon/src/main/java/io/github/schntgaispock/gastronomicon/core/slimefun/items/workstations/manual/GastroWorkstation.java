@@ -17,8 +17,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.mooy1.infinitylib.core.AddonConfig;
-import io.github.mooy1.infinitylib.machines.MenuBlock;
+import com.github.drakescraft-labs.infinitylib.core.AddonConfig;
+import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.api.events.PlayerGastroFoodCraftEvent;
 import io.github.schntgaispock.gastronomicon.api.recipes.GastroRecipe;
@@ -31,10 +31,10 @@ import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.RecipeUtil;
 import io.github.schntgaispock.gastronomicon.util.collections.Pair;
 import io.github.schntgaispock.gastronomicon.util.item.ItemUtil;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import net.kyori.adventure.text.Component;
 
 @SuppressWarnings("deprecation")

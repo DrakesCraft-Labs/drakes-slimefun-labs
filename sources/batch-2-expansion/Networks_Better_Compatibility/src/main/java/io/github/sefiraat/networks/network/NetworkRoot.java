@@ -1,6 +1,6 @@
 package io.github.sefiraat.networks.network;
 
-import io.github.mooy1.infinityexpansion.items.storage.StorageUnit;
+import com.github.drakescraft-labs.infinityexpansion.items.storage.StorageUnit;
 import io.github.sefiraat.networks.Networks;
 import io.github.sefiraat.networks.network.barrel.InfinityBarrel;
 import io.github.sefiraat.networks.network.barrel.NetworkStorage;
@@ -12,11 +12,11 @@ import io.github.sefiraat.networks.slimefun.network.NetworkGreedyBlock;
 import io.github.sefiraat.networks.slimefun.network.NetworkPowerNode;
 import io.github.sefiraat.networks.slimefun.network.NetworkQuantumStorage;
 import io.github.sefiraat.networks.utils.StackUtils;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -381,7 +381,7 @@ public class NetworkRoot extends NetworkNode {
             return null;
         }
 
-        final io.github.mooy1.infinityexpansion.items.storage.StorageCache cache = storageUnit
+        final com.github.drakescraft-labs.infinityexpansion.items.storage.StorageCache cache = storageUnit
                 .getCache(blockMenu.getLocation());
 
         if (cache == null) {

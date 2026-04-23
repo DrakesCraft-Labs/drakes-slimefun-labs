@@ -1,13 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.blocks.BlockPosition;
 import dev.drake.dough.collections.Pair;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import dev.drake.dough.protection.Interaction;
 import lombok.experimental.UtilityClass;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

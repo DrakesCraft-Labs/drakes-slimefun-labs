@@ -10,8 +10,8 @@ import org.bukkit.inventory.ItemStack;
 import io.github.slimefunguguproject.bump.core.handlers.BowUseHandler;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 
 /**
  * {@link LightBow God's Punishment Bow} will strike lightning at player's pointed block.

@@ -13,8 +13,8 @@ import org.bukkit.entity.Player;
 import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.worlds.PlanetaryWorld;
 import io.github.addoncommunity.galactifun.base.items.knowledge.KnowledgeLevel;
-import io.github.mooy1.infinitylib.commands.SubCommand;
-import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
+import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
+import com.github.drakescraft-labs.slimefun4.libraries.paperlib.PaperLib;
 
 /**
  * Command to teleport to world spawns

@@ -1,7 +1,7 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine;
 
-import io.github.thebusybiscuit.slimefun4.core.machines.MachineOperation;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft-labs.slimefun4.core.machines.MachineOperation;
+import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
 import lombok.Getter;
 
 public class CustomTemplateCraftingOperation implements MachineOperation {

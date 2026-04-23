@@ -2,7 +2,7 @@ package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.sefilib.world.LocationUtils;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

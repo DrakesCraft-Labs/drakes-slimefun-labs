@@ -1,6 +1,6 @@
 package me.sfiguz7.transcendence.implementation.core.attributes;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
 import me.sfiguz7.transcendence.implementation.items.items.Daxi;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.potion.PotionEffectType;

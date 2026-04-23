@@ -1,14 +1,14 @@
 package io.ncbpfluffybear.fluffymachines.multiblocks;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider;
-import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetProvider;
+import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
 import io.ncbpfluffybear.fluffymachines.multiblocks.components.GeneratorCore;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import io.ncbpfluffybear.fluffymachines.utils.FluffyItems;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

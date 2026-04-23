@@ -11,7 +11,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
+import com.github.drakescraft-labs.slimefun4.libraries.dough.items.ItemUtils;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.managers.RelicInventoryManager;

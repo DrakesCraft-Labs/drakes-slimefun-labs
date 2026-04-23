@@ -13,7 +13,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedWeath
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;

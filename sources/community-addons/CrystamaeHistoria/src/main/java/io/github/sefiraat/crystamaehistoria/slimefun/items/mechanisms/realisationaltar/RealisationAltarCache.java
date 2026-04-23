@@ -17,8 +17,8 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoryChunk
 import dev.drake.dough.blocks.BlockPosition;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Chunk;
 import org.bukkit.Color;
 import org.bukkit.Location;

@@ -2,7 +2,7 @@ package com.xmooncorp.magic8ball.implementation;
 
 import com.xmooncorp.magic8ball.Magic8Ball;
 import com.xmooncorp.magic8ball.core.ConfigBasedLocalization;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;

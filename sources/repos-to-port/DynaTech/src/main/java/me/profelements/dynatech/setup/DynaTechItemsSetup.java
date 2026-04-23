@@ -1,12 +1,12 @@
 package me.profelements.dynatech.setup;
 
-import io.github.mooy1.infinityexpansion.items.mobdata.MobData;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobDataCard;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobDataTier;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft-labs.infinityexpansion.items.mobdata.MobData;
+import com.github.drakescraft-labs.infinityexpansion.items.mobdata.MobDataCard;
+import com.github.drakescraft-labs.infinityexpansion.items.mobdata.MobDataTier;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;

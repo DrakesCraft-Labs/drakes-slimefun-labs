@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
 
 @UtilityClass
 public final class GalactifunHead {
