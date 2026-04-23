@@ -86,7 +86,30 @@ def audit():
     print("="*60)
     print(f"PROGRESO: {((len(status['SURGICAL'])/89)*100):.1f}% ({len(status['SURGICAL'])}/89)")
     print("="*60)
+    return status
+
+def sync_readme(status):
+    log("Sincronizando métricas en README.md...", "INFO")
+    readme_path = os.path.join(ROOT_DIR, "README.md")
+    if not os.path.exists(readme_path): return
+    
+    with open(readme_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Actualizar contadores
+    content = re.sub(r"\|\s*\*\*REACTOR MAVEN\*\*\s*\|\s*`\d+`", f"| **REACTOR MAVEN** | `{len(status['STABILIZED']) + len(status['SURGICAL'])}`", content)
+    content = re.sub(r"\|\s*\*\*REACTOR GRADLE\*\*\s*\|\s*`\d+`", f"| **REACTOR GRADLE** | `{len(status['GRADLE'])}`", content)
+    content = re.sub(r"\|\s*\*\*Progreso Quirúrgico\*\*\s*\|\s*\*\*[\d\.]+% \(\d+/89\)\*\*", f"| **Progreso Quirúrgico** | **{((len(status['SURGICAL'])/89)*100):.1f}% ({len(status['SURGICAL'])}/89)**", content)
+    
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    log("Métricas sincronizadas con éxito.", "SUCCESS")
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "audit": audit()
-    else: unify_and_bridge()
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "audit": 
+            res = audit()
+            if "--sync" in sys.argv: sync_readme(res)
+        elif sys.argv[1] == "repair": unify_and_bridge()
+    else:
+        unify_and_bridge()

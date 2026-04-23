@@ -13,7 +13,8 @@
 
 ## 🐍 DrakesLab Manager
 - Usar siempre `python scripts/manager.py audit` para ver el estado real antes de empezar.
-- El comando `python scripts/manager.py` repara automáticamente las identidades XML.
+- **NUEVO**: `python scripts/manager.py audit --sync` actualiza automáticamente las métricas del `README.md`.
+- El comando `python scripts/manager.py` (sin flags) repara automáticamente las identidades XML.
 
 ## 🎯 Siguiente Ruta Recomendada (Fase Quirúrgica)
 1.  **Rebranding Masivo**: Aplicar el estándar `-drake` a los 20 addons que aún están en estado `STABILIZED`.
