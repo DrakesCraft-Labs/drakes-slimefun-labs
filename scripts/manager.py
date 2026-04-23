@@ -134,12 +134,22 @@ def force_parent_version():
                     with open(path, 'r', encoding='utf-8') as f:
                         content = f.read()
                     
-                    # Regex para encontrar el parent y su versión
-                    new_content = re.sub(
-                        r"(<parent>[\s\S]*?<version>).*?(</version>[\s\S]*?</parent>)",
-                        r"\111-SNAPSHOT\2",
-                        content
-                    )
+                    # REPARACIÓN DE EMERGENCIA: Reconstruir bloque corrupto
+                    # Busca el patrón corrupto "I-SNAPSHOT</version>" o similares y restaura el parent completo
+                    pattern = r"<parent>[\s\S]*?</version>"
+                    # Si ya está roto (como vimos en SaneCrafting), el patrón podría ser diferente
+                    if "I-SNAPSHOT</version>" in content:
+                        new_content = content.replace(
+                            "I-SNAPSHOT</version>",
+                            "<parent>\n        <groupId>com.github.drakescraft-labs</groupId>\n        <artifactId>drakes-slimefun-labs</artifactId>\n        <version>11-SNAPSHOT</version>"
+                        )
+                    else:
+                        # Para los que no se rompieron pero necesitan la versión correcta
+                        new_content = re.sub(
+                            r"(<parent>[\s\S]*?<version>).*?(</version>)",
+                            r"\g<1>11-SNAPSHOT\g<2>",
+                            content
+                        )
                     
                     if new_content != content:
                         with open(path, 'w', encoding='utf-8') as f:
