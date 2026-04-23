@@ -13,7 +13,7 @@
 
     <groupId>dev.drake.addon</groupId>
     <artifactId>sefilib-core</artifactId>
-    <version>0.3.1-DRAKE-SNAPSHOT</version>
+    
     <name>SefiLib</name>
 
     <build>

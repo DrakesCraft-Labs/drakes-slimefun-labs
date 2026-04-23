@@ -128,7 +128,7 @@
 
         <dependency>
             <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
-            <version>0.1.4.5</version>
+            
             <scope>compile</scope>
         </dependency>
 

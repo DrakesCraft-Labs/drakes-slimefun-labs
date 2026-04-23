@@ -98,7 +98,7 @@
 
         <dependency>
             <groupId>dev.drake.addon</groupId><artifactId>infinitylib-core</artifactId>
-            <version>1.3.10</version>
+            
             <scope>compile</scope>
         </dependency>
 
