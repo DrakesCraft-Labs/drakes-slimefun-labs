@@ -10,8 +10,8 @@ import org.bukkit.plugin.Plugin;
 
 import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AbstractAddon;
-import com.github.drakescraft_labs.guizhanlib.updater.GuizhanBuildsUpdater;
+import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import com.github.drakescraft_labs.villagertrade.core.Registry;
 import com.github.drakescraft_labs.villagertrade.core.services.CustomItemService;
 import com.github.drakescraft_labs.villagertrade.core.services.LocalizationService;
@@ -113,7 +113,7 @@ public final class VillagerTrade extends AbstractAddon {
         } else if (getPluginVersion().startsWith("Build")) {
             try {
                 // use updater in lib plugin
-                Class<?> clazz = Class.forName("com.github.drakescraft_labs.guizhanlibplugin.updater.GuizhanUpdater");
+                Class<?> clazz = Class.forName("net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater");
                 Method updaterStart = clazz.getDeclaredMethod("start", Plugin.class, File.class, String.class, String.class, String.class);
                 updaterStart.invoke(null, this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
             } catch (Exception ignored) {

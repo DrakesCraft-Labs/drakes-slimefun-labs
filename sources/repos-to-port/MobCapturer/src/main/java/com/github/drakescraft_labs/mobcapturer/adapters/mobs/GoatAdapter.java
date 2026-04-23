@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Goat;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.MinecraftVersionUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 
 public class GoatAdapter extends AnimalsAdapter<Goat> {
 

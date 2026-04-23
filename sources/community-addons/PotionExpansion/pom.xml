@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.github.drakescraft-labs</groupId>
+        <groupId>com.github.drakescraft_labs</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
         <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>

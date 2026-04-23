@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import io.papermc.paper.registry.RegistryAccess;
 import io.papermc.paper.registry.RegistryKey;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.MinecraftVersionUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 
 public class WolfAdapter extends AbstractTameableAdapter<Wolf> implements InventoryAdapter<Wolf> {
 

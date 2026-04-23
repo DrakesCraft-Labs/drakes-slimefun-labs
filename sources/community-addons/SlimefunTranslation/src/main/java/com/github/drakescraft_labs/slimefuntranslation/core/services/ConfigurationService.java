@@ -10,7 +10,7 @@ import com.google.common.base.Preconditions;
 
 import org.bukkit.Material;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 import com.github.drakescraft_labs.slimefuntranslation.utils.ConfigUtils;
 

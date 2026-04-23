@@ -10,7 +10,7 @@ import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.slimefuntranslation.implementation.groups.SearchResultGroup;
 import com.github.drakescraft_labs.slimefuntranslation.utils.constant.Permissions;

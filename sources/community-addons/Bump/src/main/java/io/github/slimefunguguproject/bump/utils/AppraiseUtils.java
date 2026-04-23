@@ -19,7 +19,7 @@ import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 
 import lombok.experimental.UtilityClass;
 

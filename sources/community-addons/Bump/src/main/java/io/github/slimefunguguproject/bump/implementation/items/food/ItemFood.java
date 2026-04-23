@@ -20,7 +20,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
 
-import com.github.drakescraft_labs.guizhanlib.common.Cooldown;
+import net.guizhanss.guizhanlib.common.Cooldown;
 
 /**
  * A {@link ItemFood} is a {@link SlimefunItem} that is based on a non-food item.

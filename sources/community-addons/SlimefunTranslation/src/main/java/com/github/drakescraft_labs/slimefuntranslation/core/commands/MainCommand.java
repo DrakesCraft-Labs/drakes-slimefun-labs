@@ -6,7 +6,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.BaseCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.BaseCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.subcommands.IdCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.subcommands.SearchCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.subcommands.TranslationCommand;

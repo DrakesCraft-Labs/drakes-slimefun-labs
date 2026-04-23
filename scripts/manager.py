@@ -346,7 +346,10 @@ def rebrand_imports(dry_run=False):
         r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft_labs.slimefun4.legacy",
         r"me\.mr_cookie": "com.github.drakescraft_labs",
         r"me\.pika": "com.github.drakescraft_labs",
-        r"net\.guizhanss": "com.github.drakescraft_labs",
+        # net.guizhanss NO se rebrandea en imports (es externa)
+        # Regla de reversión para corregir el error previo
+        r"com\.github\.drakescraft_labs\.guizhanlib": "net.guizhanss.guizhanlib",
+        r"com\.github\.drakescraft-labs\.guizhanlib": "net.guizhanss.guizhanlib",
         # Parche para corregir el error del guion si ya se aplicó
         r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs"
     }

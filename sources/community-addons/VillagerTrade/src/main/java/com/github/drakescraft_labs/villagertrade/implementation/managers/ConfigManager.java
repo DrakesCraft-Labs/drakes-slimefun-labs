@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 import com.github.drakescraft_labs.villagertrade.VillagerTrade;
 import com.github.drakescraft_labs.villagertrade.api.trades.TradeConfiguration;
 import com.github.drakescraft_labs.villagertrade.utils.ConfigUtils;

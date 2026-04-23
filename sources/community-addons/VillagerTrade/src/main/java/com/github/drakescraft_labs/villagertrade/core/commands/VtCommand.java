@@ -10,7 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 import com.github.drakescraft_labs.villagertrade.VillagerTrade;
 import com.github.drakescraft_labs.villagertrade.core.commands.subcommands.AddCommand;
 import com.github.drakescraft_labs.villagertrade.core.commands.subcommands.ConfirmCommand;

@@ -12,7 +12,7 @@ import io.github.slimefunguguproject.bump.core.services.LocalizationService;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 
 /**
  * This is an extended {@link SlimefunItemStack} that loads name and lore

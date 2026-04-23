@@ -13,8 +13,8 @@ import org.bukkit.plugin.Plugin;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.BlobBuildUpdater;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AbstractAddon;
-import com.github.drakescraft_labs.guizhanlib.updater.GuizhanBuildsUpdater;
+import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import com.github.drakescraft_labs.slimefuntranslation.core.Registry;
 import com.github.drakescraft_labs.slimefuntranslation.core.services.CommandService;
 import com.github.drakescraft_labs.slimefuntranslation.core.services.ConfigurationService;

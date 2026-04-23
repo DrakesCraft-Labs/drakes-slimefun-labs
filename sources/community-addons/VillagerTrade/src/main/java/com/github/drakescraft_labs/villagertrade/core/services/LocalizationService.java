@@ -8,8 +8,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.command.CommandSender;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 import com.github.drakescraft_labs.villagertrade.VillagerTrade;
 
 public final class LocalizationService {

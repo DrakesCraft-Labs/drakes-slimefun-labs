@@ -32,8 +32,8 @@ import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
 
-import com.github.drakescraft_labs.guizhanlib.utils.RandomUtil;
-import com.github.drakescraft_labs.guizhanlib.utils.StringUtil;
+import net.guizhanss.guizhanlib.utils.RandomUtil;
+import net.guizhanss.guizhanlib.utils.StringUtil;
 
 import lombok.Getter;
 import lombok.experimental.Accessors;

@@ -28,7 +28,7 @@ import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.InventoryUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.InventoryUtil;
 
 /**
  * A quality identifier can mark available {@link ItemStack}

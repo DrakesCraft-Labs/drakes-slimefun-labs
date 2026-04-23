@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.gcereborn.core.genetics.DNA;
 import com.github.drakescraft_labs.gcereborn.utils.ChickenUtils;
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.InventoryUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.InventoryUtil;
 
 public final class MakeChickenCommand extends AbstractSubCommand implements DnaCompletion {
 

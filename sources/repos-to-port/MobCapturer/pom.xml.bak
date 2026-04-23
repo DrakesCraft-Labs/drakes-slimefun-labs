@@ -78,11 +78,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>com.github.drakescraft-labs.mobcapturer.libs.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft_labs.mobcapturer.libs.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>com.github.drakescraft-labs.mobcapturer.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft_labs.mobcapturer.libs.guizhanlib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

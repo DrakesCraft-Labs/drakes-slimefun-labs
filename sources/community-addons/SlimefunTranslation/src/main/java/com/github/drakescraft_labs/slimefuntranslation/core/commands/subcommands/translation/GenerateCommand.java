@@ -21,7 +21,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.core.services.localization.Language;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.slimefuntranslation.utils.constant.Permissions;

@@ -10,8 +10,8 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.MinecraftVersionUtil;
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.compatibility.EntityTypeX;
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.compatibility.EntityTypeX;
 
 import lombok.experimental.UtilityClass;
 

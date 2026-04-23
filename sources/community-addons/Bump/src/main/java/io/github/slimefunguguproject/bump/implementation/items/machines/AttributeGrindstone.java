@@ -35,7 +35,7 @@ import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.Per
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 
 /**
  * The {@link AttributeGrindstone} can purge the appraisal result from

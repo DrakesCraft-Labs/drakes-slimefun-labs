@@ -22,8 +22,8 @@ import com.github.drakescraft_labs.gcereborn.core.services.LocalizationService;
 import com.github.drakescraft_labs.gcereborn.setup.Items;
 import com.github.drakescraft_labs.gcereborn.setup.Researches;
 import com.github.drakescraft_labs.gcereborn.utils.SimpleProfiler;
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AbstractAddon;
-import com.github.drakescraft_labs.guizhanlib.updater.GuizhanBuildsUpdater;
+import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 
 import org.bstats.bukkit.Metrics;
 
@@ -147,7 +147,7 @@ public class GeneticChickengineering extends AbstractAddon {
         } else if (getPluginVersion().startsWith("Build")) {
             try {
                 // use updater in lib plugin
-                Class<?> clazz = Class.forName("com.github.drakescraft_labs.guizhanlibplugin.updater.GuizhanUpdater");
+                Class<?> clazz = Class.forName("net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater");
                 Method updaterStart = clazz.getDeclaredMethod("start", Plugin.class, File.class, String.class, String.class, String.class);
                 updaterStart.invoke(null, this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
             } catch (Exception ignored) {

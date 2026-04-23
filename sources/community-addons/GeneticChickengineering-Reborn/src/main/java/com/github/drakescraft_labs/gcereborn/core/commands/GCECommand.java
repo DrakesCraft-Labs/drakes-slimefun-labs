@@ -8,7 +8,7 @@ import org.bukkit.command.PluginCommand;
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.core.commands.subcommands.CalcChanceCommand;
 import com.github.drakescraft_labs.gcereborn.core.commands.subcommands.MakeChickenCommand;
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.BaseCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.BaseCommand;
 
 import lombok.Getter;
 

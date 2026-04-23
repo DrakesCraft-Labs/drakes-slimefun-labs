@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.slimefuntranslation.utils.SlimefunItemUtils;
 import com.github.drakescraft_labs.slimefuntranslation.utils.constant.Permissions;

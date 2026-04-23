@@ -8,7 +8,7 @@ import com.google.common.base.Preconditions;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.ConfigurationSection;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.experimental.UtilityClass;
 

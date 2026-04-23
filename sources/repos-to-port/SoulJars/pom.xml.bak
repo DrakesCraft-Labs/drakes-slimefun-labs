@@ -58,7 +58,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.souljars.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.souljars.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

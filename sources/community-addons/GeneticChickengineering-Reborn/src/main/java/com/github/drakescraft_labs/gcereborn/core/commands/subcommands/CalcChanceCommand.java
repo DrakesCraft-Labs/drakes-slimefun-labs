@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.gcereborn.core.genetics.DNA;
 import com.github.drakescraft_labs.gcereborn.core.genetics.Gene;
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 
 public final class CalcChanceCommand extends AbstractSubCommand implements DnaCompletion {
 

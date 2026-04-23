@@ -13,7 +13,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.ToolUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 
-import com.github.drakescraft_labs.guizhanlib.utils.RandomUtil;
+import net.guizhanss.guizhanlib.utils.RandomUtil;
 
 /**
  * A {@link GetgoldSpade getting-gold shovel} will give player old coin

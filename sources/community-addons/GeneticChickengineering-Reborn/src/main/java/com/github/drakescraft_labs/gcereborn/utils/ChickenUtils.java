@@ -27,7 +27,7 @@ import com.github.drakescraft_labs.gcereborn.items.chicken.ChickenTypes;
 import com.github.drakescraft_labs.gcereborn.items.chicken.PocketChicken;
 import com.github.drakescraft_labs.gcereborn.setup.Groups;
 import com.github.drakescraft_labs.gcereborn.setup.RecipeTypes;
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.MinecraftVersionUtil;
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 
 import lombok.experimental.UtilityClass;
 

@@ -17,7 +17,7 @@ import io.github.slimefunguguproject.bump.utils.tags.BumpTag;
 import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.experimental.UtilityClass;
 

@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.slimefunguguproject.bump.api.appraise.AppraiseType;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.Getter;
 import lombok.Setter;

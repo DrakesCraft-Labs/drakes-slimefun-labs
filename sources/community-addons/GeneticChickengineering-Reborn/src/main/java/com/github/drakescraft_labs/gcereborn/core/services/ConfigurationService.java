@@ -3,7 +3,7 @@ package com.github.drakescraft_labs.gcereborn.core.services;
 import javax.annotation.Nonnull;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
 
 import lombok.AccessLevel;
 import lombok.Getter;

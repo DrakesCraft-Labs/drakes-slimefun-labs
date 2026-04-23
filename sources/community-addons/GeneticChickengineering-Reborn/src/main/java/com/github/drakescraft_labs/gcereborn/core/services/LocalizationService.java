@@ -11,8 +11,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
-import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
-import com.github.drakescraft_labs.guizhanlib.slimefun.addon.SlimefunLocalization;
+import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
+import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;

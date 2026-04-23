@@ -20,7 +20,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
-import com.github.drakescraft_labs.guizhanlib.slimefun.machines.MenuBlock;
+import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock;
 
 /**
  * A {@link MenuBlock} that has single input and output slot.

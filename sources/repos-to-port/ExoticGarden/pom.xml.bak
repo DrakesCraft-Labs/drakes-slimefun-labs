@@ -63,7 +63,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.exoticgarden.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.exoticgarden.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

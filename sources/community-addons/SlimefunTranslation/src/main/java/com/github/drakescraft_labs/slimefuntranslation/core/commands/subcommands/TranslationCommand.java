@@ -5,7 +5,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.command.CommandSender;
 
-import com.github.drakescraft_labs.guizhanlib.minecraft.commands.AbstractCommand;
+import net.guizhanss.guizhanlib.minecraft.commands.AbstractCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.AbstractSubCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.subcommands.translation.ExtractCommand;
 import com.github.drakescraft_labs.slimefuntranslation.core.commands.subcommands.translation.GenerateCommand;
