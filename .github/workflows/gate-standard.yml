@@ -1,8 +1,8 @@
 name: "Gate: Standard Addons"
 
 on:
-  push:
-    branches: [1.21-latin]
+  # push:
+    # branches: [1.21-latin]
   workflow_dispatch:
 
 concurrency:
