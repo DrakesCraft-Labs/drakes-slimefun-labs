@@ -11,11 +11,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.mooy1</groupId>
-    <artifactId>SimpleUtils</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SimpleUtils-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.test.skip>true</maven.test.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

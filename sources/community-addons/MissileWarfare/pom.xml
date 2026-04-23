@@ -10,11 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.kaiyan.missilewarfare</groupId>
-    <artifactId>MissileWarfare</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>MissileWarfare-drake</artifactId>
     <version>1.11-SNAPSHOT.13</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

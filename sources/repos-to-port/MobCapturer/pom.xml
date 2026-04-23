@@ -10,8 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>MobCapturer</artifactId>
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>MobCapturer-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>

@@ -11,12 +11,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.jasperchasetoq</groupId>
-    <artifactId>CompressionCraft</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>CompressionCraft-drake</artifactId>
 
     <version>UNOFFICIAL</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
     <!-- UTF-8 is our standard encoding for source files -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 

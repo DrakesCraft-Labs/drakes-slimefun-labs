@@ -9,11 +9,12 @@
         <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
-    <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ElectricSpawners</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ElectricSpawners-drake</artifactId>
     <version>1.21.11-Drake</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -10,9 +10,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
 
-    <groupId>dev.walshy</groupId>
-    <artifactId>HardcoreSlimefun</artifactId>
+
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>HardcoreSlimefun-drake</artifactId>
     <version>1.0</version>
 
     <repositories>

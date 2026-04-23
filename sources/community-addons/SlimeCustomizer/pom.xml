@@ -12,11 +12,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.ncbpfluffybear</groupId>
-    <artifactId>SlimeCustomizer</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SlimeCustomizer-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

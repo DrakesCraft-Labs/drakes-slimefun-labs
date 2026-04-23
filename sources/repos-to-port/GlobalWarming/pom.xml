@@ -10,11 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.poma123</groupId>
-    <artifactId>GlobalWarming</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>GlobalWarming-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

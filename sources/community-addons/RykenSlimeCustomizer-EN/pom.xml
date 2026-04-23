@@ -11,8 +11,8 @@
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 
-	<groupId>org.lins.mmmjjkx</groupId>
-	<artifactId>RykenSlimefunCustomizer</artifactId>
+	<groupId>dev.drake.addon</groupId>
+	<artifactId>RykenSlimefunCustomizer-drake</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
 
@@ -20,6 +20,7 @@
 	<description>An advanced Slimefun simple addon maker</description>
 
 	<properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
 		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

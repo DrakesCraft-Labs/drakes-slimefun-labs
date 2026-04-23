@@ -11,14 +11,18 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <artifactId>SFCalc</artifactId>
     <version>UNOFFICIAL-1.21</version>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>dev.drake.addon</groupId>
+            <artifactId>commons-lang3-drake</artifactId>
         </dependency>
 
         <!-- Paper API -->

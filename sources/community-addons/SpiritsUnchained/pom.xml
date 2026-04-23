@@ -10,13 +10,14 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.justahuman</groupId>
-    <artifactId>SpiritsUnchained</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SpiritsUnchained-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <name>SpiritsUnchained</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

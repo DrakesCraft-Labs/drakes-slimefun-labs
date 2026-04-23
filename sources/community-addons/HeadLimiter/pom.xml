@@ -11,14 +11,15 @@
     </parent>
 
 
-    <groupId>dev.j3fftw.headlimiter</groupId>
-    <artifactId>HeadLimiter</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>HeadLimiter-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <name>HeadLimiter</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

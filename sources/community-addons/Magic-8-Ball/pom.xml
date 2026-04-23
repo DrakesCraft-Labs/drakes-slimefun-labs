@@ -12,11 +12,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.xmooncorp</groupId>
-    <artifactId>Magic8Ball</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Magic8Ball-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

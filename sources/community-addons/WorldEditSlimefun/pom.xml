@@ -11,14 +11,15 @@
     </parent>
 
 
-    <groupId>dev.j3fftw</groupId>
-    <artifactId>WorldEditSlimefun</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>WorldEditSlimefun-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <name>WorldEditSlimefun</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

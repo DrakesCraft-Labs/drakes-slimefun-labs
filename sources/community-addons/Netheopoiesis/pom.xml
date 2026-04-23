@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.sefiraat</groupId>
-    <artifactId>Netheopoiesis</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Netheopoiesis-drake</artifactId>
     <version>MODIFIED</version>
 
     <build>
@@ -81,6 +81,7 @@
     </build>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

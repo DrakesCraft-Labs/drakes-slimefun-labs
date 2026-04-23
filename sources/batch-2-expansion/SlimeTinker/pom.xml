@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.sefiraat</groupId>
-    <artifactId>SlimeTinker</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SlimeTinker-drake</artifactId>
     <version>1.2.DEV</version>
 
     <name>SlimeTinker</name>
@@ -42,6 +42,7 @@
     </scm>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

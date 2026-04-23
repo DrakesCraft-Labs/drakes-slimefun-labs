@@ -13,14 +13,6 @@
 
     <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
-    
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot.version>1.21.1</spigot.version>
-        <spigot.javadocs>https://hub.spigotmc.org/javadocs/spigot/</spigot.javadocs>
-    </properties>
-
     <name>Slimefun</name>
     <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.11 environment.</description>
     <inceptionYear>2013</inceptionYear>
@@ -28,6 +20,14 @@
 
     <!-- Project Info -->
     <url>https://github.com/Slimefun/Slimefun4</url>
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spigot.version>1.21.1</spigot.version>
+        <spigot.javadocs>https://hub.spigotmc.org/javadocs/spigot/</spigot.javadocs>
+    </properties>
 
     <issueManagement>
         <!-- Bug Tracker -->

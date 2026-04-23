@@ -10,11 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.seggan.liquid</groupId>
-    <artifactId>Liquid</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Liquid-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

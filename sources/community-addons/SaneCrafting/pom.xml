@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>metamechanists</groupId>
-    <artifactId>SaneCrafting</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SaneCrafting-drake</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -70,6 +70,7 @@
     <description>Allow Slimefun's Enhanced Crafting Table recipes to be crafted in a regular Crafting Table</description>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

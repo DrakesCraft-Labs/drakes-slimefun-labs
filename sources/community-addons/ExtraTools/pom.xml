@@ -11,11 +11,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.sfiguz7</groupId>
-    <artifactId>ExtraTools</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>ExtraTools-drake</artifactId>
     <version>1.2</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

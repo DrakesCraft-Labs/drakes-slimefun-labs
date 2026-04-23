@@ -11,11 +11,12 @@
     </parent>
 
 
-    <groupId>me.gallowsdove</groupId>
-    <artifactId>FoxyMachines</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>FoxyMachines-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
