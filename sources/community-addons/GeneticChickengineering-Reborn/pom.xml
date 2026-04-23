@@ -52,15 +52,15 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>net.guizhanss.gcereborn.libs.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.gcereborn.libs.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>net.guizhanss.gcereborn.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.gcereborn.libs.guizhanlib</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.sqlite</pattern>
-                                    <shadedPattern>net.guizhanss.gcereborn.libs.sqlite</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.gcereborn.libs.sqlite</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

@@ -76,7 +76,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.electricspawners.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.electricspawners.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

@@ -77,7 +77,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.ecopower.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.ecopower.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

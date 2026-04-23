@@ -74,7 +74,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.privatestorage.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.privatestorage.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

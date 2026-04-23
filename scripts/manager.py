@@ -288,6 +288,60 @@ def migrate_to_paper(dry_run=False):
 
     log(f"Migración completada. Módulos modernizados: {count}", "SUCCESS")
 
+def rebrand_shades(dry_run=False):
+    log("Iniciando Rebranding de Sombras...", "INFO")
+    
+    # Mapeo de namespaces antiguos a nuevos
+    remap = {
+        "io.github.thebusybiscuit": "com.github.drakescraft-labs",
+        "io.github.seggan": "com.github.drakescraft-labs",
+        "me.mr_cookie": "com.github.drakescraft-labs",
+        "io.github.mooy1": "com.github.drakescraft-labs",
+        "me.pika": "com.github.drakescraft-labs",
+        "net.guizhanss": "com.github.drakescraft-labs"
+    }
+    
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            pom_path = os.path.join(root, "pom.xml")
+            
+            with open(pom_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            new_content = content
+            for old, new in remap.items():
+                # Solo rebrandear dentro de <shadedPattern>
+                pattern = rf"<shadedPattern>{old}\.(.*?)</shadedPattern>"
+                replacement = rf"<shadedPattern>{new}.\1</shadedPattern>"
+                new_content = re.sub(pattern, replacement, new_content)
+            
+            if new_content != content:
+                log(f"Rebrandeando sombras en: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
+                if not dry_run:
+                    if validate_xml(new_content):
+                        with open(pom_path + ".bak", 'w', encoding='utf-8') as f:
+                            f.write(content)
+                        with open(pom_path, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
+                        count += 1
+                    else:
+                        log(f"Error de validación rebrandeando en {pom_path}", "ERROR")
+                else:
+                    count += 1
+
+    log(f"Rebranding completado. Módulos actualizados: {count}", "SUCCESS")
+
+def clean_backups():
+    log("Iniciando Limpieza de Archivos .bak...", "INFO")
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        for f in files:
+            if f.endswith(".bak"):
+                os.remove(os.path.join(root, f))
+                count += 1
+    log(f"Limpieza completada. Archivos eliminados: {count}", "SUCCESS")
+
 if __name__ == "__main__":
     action = sys.argv[1] if len(sys.argv) > 1 else "repair"
     is_dry = "--dry-run" in sys.argv
@@ -303,5 +357,9 @@ if __name__ == "__main__":
         inject_lombok(dry_run=is_dry)
     elif action == "migrate-to-paper":
         migrate_to_paper(dry_run=is_dry)
+    elif action == "rebrand-shades":
+        rebrand_shades(dry_run=is_dry)
+    elif action == "clean-backups":
+        clean_backups()
     else:
         log(f"Acción desconocida: {action}", "ERROR")

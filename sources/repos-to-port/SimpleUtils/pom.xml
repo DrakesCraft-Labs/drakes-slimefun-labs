@@ -96,7 +96,7 @@
                     <relocations>
                         <relocation>
                             <pattern>io.github.mooy1.infinitylib</pattern>
-                            <shadedPattern>io.github.mooy1.simpleutils.infinitylib</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.simpleutils.infinitylib</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>

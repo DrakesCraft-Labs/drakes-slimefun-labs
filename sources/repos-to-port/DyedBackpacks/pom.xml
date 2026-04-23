@@ -59,7 +59,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.dyedbackpacks.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.dyedbackpacks.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

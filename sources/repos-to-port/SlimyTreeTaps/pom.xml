@@ -47,7 +47,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.slimytreetaps.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.slimytreetaps.bstats</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>

@@ -56,11 +56,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>net.guizhanss.villagertrade.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.villagertrade.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>net.guizhanss.villagertrade.guizhanlib</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.villagertrade.guizhanlib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

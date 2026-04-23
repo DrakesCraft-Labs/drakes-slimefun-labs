@@ -95,7 +95,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.mooy1.infinitylib.metrics</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.infinitylib.metrics</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>

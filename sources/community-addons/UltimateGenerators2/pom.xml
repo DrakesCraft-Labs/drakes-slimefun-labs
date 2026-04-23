@@ -102,11 +102,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>net.guizhanss.ultimategenerators2.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.ultimategenerators2.libs.guizhanlib</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>net.guizhanss.ultimategenerators2.libs.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.ultimategenerators2.libs.bstats</shadedPattern>
                                 </relocation>
                             </relocations>
                             <filters>

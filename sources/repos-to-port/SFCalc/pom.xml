@@ -89,11 +89,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>io.github.seggan.errorreporter</pattern>
-                                    <shadedPattern>io.github.seggan.sfcalc.errorreporter</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.sfcalc.errorreporter</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>io.github.seggan.sfcalc.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft-labs.sfcalc.bstats</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

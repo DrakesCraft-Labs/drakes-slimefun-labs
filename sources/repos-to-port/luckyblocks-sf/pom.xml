@@ -47,7 +47,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.slimefunluckyblocks.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft-labs.slimefunluckyblocks.bstats</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
