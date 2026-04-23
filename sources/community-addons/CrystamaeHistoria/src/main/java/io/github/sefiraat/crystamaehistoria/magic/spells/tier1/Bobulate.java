@@ -42,7 +42,7 @@ public class Bobulate extends Spell {
     public void fireProjectile(CastInformation castInformation) {
         final Location location = castInformation.getCastLocation();
         final Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        final MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPLASH_POTION, aimLocation);
+        final MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.POTION, aimLocation);
         magicProjectile.setVelocity(location.getDirection(), 1.5);
         magicProjectile.disableGravity();
     }

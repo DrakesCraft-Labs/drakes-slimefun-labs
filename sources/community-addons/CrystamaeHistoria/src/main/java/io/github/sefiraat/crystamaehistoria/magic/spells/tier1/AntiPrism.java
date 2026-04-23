@@ -49,7 +49,7 @@ public class AntiPrism extends Spell {
     public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPLASH_POTION, aimLocation);
+        MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.POTION, aimLocation);
         magicProjectile.setVelocity(location.getDirection(), 0.5);
     }
 
