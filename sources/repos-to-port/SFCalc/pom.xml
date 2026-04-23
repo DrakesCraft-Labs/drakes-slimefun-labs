@@ -7,11 +7,11 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>SFCalc-drake</artifactId>
+    <artifactId>SFCalc</artifactId>
     <version>UNOFFICIAL-1.21</version>
 
     <dependencies>
@@ -24,7 +24,7 @@
         <!-- Paper API -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api-drake</artifactId>
+            <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
 

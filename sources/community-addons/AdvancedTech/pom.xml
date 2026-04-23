@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.pranavverma</groupId>
-    <artifactId>AdvancedTech-drake</artifactId>
+    <artifactId>AdvancedTech</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -51,8 +51,8 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api-drake</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

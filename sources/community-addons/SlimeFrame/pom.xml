@@ -6,19 +6,19 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.voper</groupId>
-    <artifactId>SlimeFrame-drake</artifactId>
+    <artifactId>SlimeFrame</artifactId>
     <version>1.7.0</version>
 
     <properties>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.version>1.19-R0.1-SNAPSHOT</spigot-api.version>
+        <spigot-api.version>1.19-R0.11-SNAPSHOT</spigot-api.version>
         <java.version>16</java.version>
     </properties>
 
@@ -68,7 +68,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
@@ -188,7 +188,7 @@
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
-            <version>0.5.1-SNAPSHOT</version>
+            <version>0.5.11-SNAPSHOT</version>
         </dependency>
 
         <dependency>

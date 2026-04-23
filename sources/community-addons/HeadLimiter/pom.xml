@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
     <groupId>dev.j3fftw.headlimiter</groupId>
-    <artifactId>HeadLimiter-drake</artifactId>
+    <artifactId>HeadLimiter</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
@@ -49,7 +49,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
 
             <plugin>
@@ -98,7 +98,7 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api-drake</artifactId>
+            <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
 

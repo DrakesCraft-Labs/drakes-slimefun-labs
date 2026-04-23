@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
     <groupId>io.github.sefiraat</groupId>
-    <artifactId>EMCTech-drake</artifactId>
+    <artifactId>EMCTech</artifactId>
     <version>MODIFIED</version>
 
     <build>
@@ -61,7 +61,7 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
                     <source>16</source>
@@ -127,7 +127,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -158,7 +158,7 @@
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
-            <version>0.5.1-SNAPSHOT</version>
+            <version>0.5.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.simplix-softworks</groupId>
@@ -170,18 +170,18 @@
         <!-- Supported Plugins -->
         <dependency>
             <groupId>dev.sefiraat</groupId>
-            <artifactId>Networks-drake</artifactId>
+            <artifactId>networks</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Sefiraat</groupId>
-            <artifactId>DankTech2-drake</artifactId>
+            <artifactId>DankTech2</artifactId>
             <version>d2465ae845</version>
         </dependency>
         <dependency>
             <groupId>com.github.Mooy1</groupId>
-            <artifactId>InfinityExpansion-drake</artifactId>
+            <artifactId>InfinityExpansion</artifactId>
             <version>1e83e7afa0</version>
         </dependency>
         <dependency>

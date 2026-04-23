@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
     <groupId>me.justahuman</groupId>
-    <artifactId>MoreResearches-drake</artifactId>
+    <artifactId>MoreResearches</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
@@ -28,7 +28,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <source>16</source>
@@ -104,7 +104,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -125,7 +125,7 @@
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-paper</artifactId>
-            <version>0.5.1-SNAPSHOT</version>
+            <version>0.5.11-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

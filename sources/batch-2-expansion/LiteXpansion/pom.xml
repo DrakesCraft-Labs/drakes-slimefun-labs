@@ -6,13 +6,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
 
     <groupId>dev.j3fftw</groupId>
-    <artifactId>LiteXpansion-drake</artifactId>
+    <artifactId>LiteXpansion</artifactId>
     <version>MODIFIED</version>
 
     <repositories>
@@ -33,7 +33,7 @@
     <dependencies>
         <dependency>
             <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api-drake</artifactId>
+            <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -66,7 +66,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>ExtraUtils-drake</artifactId>
+            <artifactId>extrautils</artifactId>
             <version>73e76ac06c</version>
         </dependency>
     </dependencies>
@@ -98,7 +98,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <source>21</source>

@@ -6,12 +6,12 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>10-SNAPSHOT</version>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <groupId>me.lz5509.geyserheads</groupId>
-    <artifactId>GeyserHeads-drake</artifactId>
+    <artifactId>GeyserHeads</artifactId>
     <version>1.2</version>
 
     <properties>
@@ -93,7 +93,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.17.1-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
