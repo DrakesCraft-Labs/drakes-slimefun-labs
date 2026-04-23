@@ -63,9 +63,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
-            <version>RC-28</version>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>

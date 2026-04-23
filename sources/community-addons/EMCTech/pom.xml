@@ -132,9 +132,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
-            <version>b8f7dc</version>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -151,7 +150,7 @@
             <version>3.0.1u2</version>
         </dependency>
         <dependency>
-            <groupId>dev.sefiraat</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>sefilib-core</artifactId>
             <version>0.2.6</version>
             <scope>compile</scope>
@@ -170,7 +169,7 @@
 
         <!-- Supported Plugins -->
         <dependency>
-            <groupId>dev.sefiraat</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>networks</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>

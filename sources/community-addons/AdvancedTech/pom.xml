@@ -84,9 +84,8 @@
 
 
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
-            <version>experimental-SNAPSHOT</version>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>

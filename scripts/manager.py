@@ -1,67 +1,61 @@
 import os
-import xml.etree.ElementTree as ET
+import re
 import sys
 
 # Configuración
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCES_DIR = os.path.join(ROOT_DIR, "sources")
-NAMESPACE = "{http://maven.apache.org/POM/4.0.0}"
-ET.register_namespace('', "http://maven.apache.org/POM/4.0.0")
-
-# La nueva identidad unificada
 NEW_GROUP_ID = "com.github.drakescraft-labs"
+
+# Mapeo de dependencias (Regex friendly)
+DEP_BRIDGE = [
+    (r"io\.github\.mooy1", "InfinityLib", "infinitylib-core"),
+    (r"dev\.sefiraat", "sefilib-core", "sefilib-core"),
+    (r"(io\.github\.thebusybiscuit|com\.github\.Slimefun)", "(Slimefun4|Slimefun)", "slimefun-core"),
+    (r"io\.github\.thebusybiscuit", "dough-(api|items|common|skins|data|blocks|inventories|protection|recipes|updater)", "dough-core")
+]
 
 def log(msg, level="INFO"):
     print(f"[{level}] {msg}")
 
-def get_all_poms():
-    poms = [os.path.join(ROOT_DIR, "pom.xml")]
-    for root, dirs, files in os.walk(SOURCES_DIR):
-        if "pom.xml" in files:
-            poms.append(os.path.join(root, "pom.xml"))
-    return poms
-
-def unify_identity():
-    """Asegura que todo el ecosistema use el mismo GroupID base."""
-    log(f"Iniciando Unificación de Identidad a {NEW_GROUP_ID}...")
+def unify_and_bridge():
+    log("Iniciando Unificación de Alto Nivel...")
+    poms = []
+    for root, dirs, files in os.walk(ROOT_DIR):
+        if "pom.xml" in files: poms.append(os.path.join(root, "pom.xml"))
     
-    poms = get_all_poms()
     for pom_path in poms:
         changed = False
         with open(pom_path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        
-        new_lines = []
-        in_parent = False
-        for line in lines:
-            # 1. Actualizar Parent GroupID
-            if "<parent>" in line: in_parent = True
-            if "</parent>" in line: in_parent = False
+            content = f.read()
             
-            if in_parent and "<groupId>" in line:
-                current = line.split(">")[1].split("<")[0]
-                if current != NEW_GROUP_ID:
-                    line = line.replace(current, NEW_GROUP_ID)
-                    changed = True
+        # 1. Unificar GroupID (dev.drake -> com.github.drakescraft-labs)
+        if "dev.drake" in content:
+            content = content.replace("dev.drake", NEW_GROUP_ID)
+            changed = True
             
-            # 2. Actualizar GroupID del propio proyecto (si es de dev.drake)
-            if not in_parent and "<groupId>" in line:
-                current = line.split(">")[1].split("<")[0]
-                if "dev.drake" in current:
-                    line = line.replace(current, NEW_GROUP_ID)
-                    changed = True
+        # 2. Puente de Dependencias con Regex
+        for old_gid_pat, old_aid_pat, new_aid in DEP_BRIDGE:
+            # Buscar el bloque <dependency> completo
+            pattern = rf"(?s)<dependency>\s*<groupId>{old_gid_pat}</groupId>\s*<artifactId>{old_aid_pat}</artifactId>.*?</dependency>"
             
-            # 3. Actualizar dependencias internas (para que se encuentren entre sí)
-            if "<groupId>dev.drake" in line:
-                line = line.replace("dev.drake", NEW_GROUP_ID)
+            def replace_dep(match):
+                nonlocal changed
+                dep_block = match.group(0)
+                # Reemplazar GroupID y ArtifactID
+                dep_block = re.sub(rf"<groupId>{old_gid_pat}</groupId>", f"<groupId>{NEW_GROUP_ID}</groupId>", dep_block)
+                dep_block = re.sub(rf"<artifactId>{old_aid_pat}</artifactId>", f"<artifactId>{new_aid}</artifactId>", dep_block)
+                # Quitar versión si existe (para heredar del Parent)
+                dep_block = re.sub(r"\s*<version>.*?</version>", "", dep_block)
                 changed = True
-                
-            new_lines.append(line)
-            
+                return dep_block
+
+            content = re.sub(pattern, replace_dep, content)
+                    
         if changed:
             with open(pom_path, 'w', encoding='utf-8') as f:
-                f.writelines(new_lines)
+                f.write(content)
             log(f"Unificado: {os.path.relpath(pom_path, ROOT_DIR)}")
 
 if __name__ == "__main__":
-    unify_identity()
+    unify_and_bridge()
