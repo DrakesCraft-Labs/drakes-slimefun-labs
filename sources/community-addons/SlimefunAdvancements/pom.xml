@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>sfadvancements-drake</artifactId>
     <version>MODIFIED</version>
     <packaging>jar</packaging>

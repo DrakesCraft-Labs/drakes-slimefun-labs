@@ -341,7 +341,7 @@
 
         <!-- Shaded packages -->
         <dependency>
-            <groupId>dev.drake.dough</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>compile</scope>

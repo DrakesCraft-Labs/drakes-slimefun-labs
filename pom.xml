@@ -135,14 +135,14 @@
 
             <!-- Nuestro Dough-Core (Unificado) -->
             <dependency>
-                <groupId>dev.drake.dough</groupId>
+                <groupId>com.github.drakescraft-labs</groupId>
                 <artifactId>dough-core</artifactId>
                 <version>${dough.version}</version>
             </dependency>
 
             <!-- Slimefun (alias dev.drake, usado por addons ya parcialmente porteados) -->
             <dependency>
-                <groupId>dev.drake</groupId>
+                <groupId>com.github.drakescraft-labs</groupId>
                 <artifactId>slimefun-core</artifactId>
                 <version>${slimefun.drake.version}</version>
                 <scope>provided</scope>

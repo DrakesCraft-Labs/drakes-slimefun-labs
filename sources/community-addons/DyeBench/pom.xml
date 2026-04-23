@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>DyeBench-drake</artifactId>
 
     <version>UNOFFICIAL</version>
@@ -80,7 +80,7 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
         </dependency>

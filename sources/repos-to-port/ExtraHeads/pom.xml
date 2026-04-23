@@ -14,7 +14,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>ExtraHeads-drake</artifactId>
     <version>11.0-Drake-1.21.1-SNAPSHOT</version>
 
@@ -34,7 +34,7 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

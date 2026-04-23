@@ -26,7 +26,7 @@
             <artifactId>paper-api</artifactId>
         </dependency>
                 <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -57,7 +57,7 @@
 
         <!-- Nuestro Dough Core -->
         <dependency>
-            <groupId>dev.drake.dough</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
             <scope>compile</scope>
         </dependency>

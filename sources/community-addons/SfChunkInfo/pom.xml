@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>SfChunkInfo-drake</artifactId>
     <version>Unoffical-1.11-SNAPSHOT.1</version>
 
@@ -32,14 +32,14 @@
 
         <!-- Slimefun -->
         <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <!-- Dough -->
         <dependency>
-            <groupId>dev.drake.dough</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
             <scope>provided</scope>
         </dependency>

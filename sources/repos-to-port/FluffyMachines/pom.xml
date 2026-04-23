@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>FluffyMachines-drake</artifactId>
     <version>1.0.0</version>
 
@@ -113,7 +113,7 @@
         </dependency>
 
                 <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

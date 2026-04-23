@@ -43,7 +43,7 @@
         </dependency>
 
                 <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

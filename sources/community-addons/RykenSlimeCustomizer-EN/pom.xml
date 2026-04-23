@@ -11,7 +11,7 @@
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 
-	<groupId>dev.drake.addon</groupId>
+	<groupId>com.github.drakescraft-labs</groupId>
 	<artifactId>RykenSlimefunCustomizer-drake</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
@@ -126,13 +126,13 @@
 		</dependency>
 
 		<dependency>
-			<groupId>dev.drake</groupId>
+			<groupId>com.github.drakescraft-labs</groupId>
 			<artifactId>slimefun-core</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		
 		<dependency>
-			<groupId>dev.drake.dough</groupId>
+			<groupId>com.github.drakescraft-labs</groupId>
 			<artifactId>dough-core</artifactId>
 			<scope>provided</scope>
 		</dependency>

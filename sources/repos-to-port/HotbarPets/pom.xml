@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>HotbarPets</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
@@ -110,7 +110,7 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
+    <groupId>com.github.drakescraft-labs</groupId>
     <artifactId>FNAmplifications-drake</artifactId>
     <version>Unoffical-4.2.4</version>
     <packaging>jar</packaging>
@@ -120,7 +120,7 @@
         </dependency>
 
                 <dependency>
-            <groupId>dev.drake</groupId>
+            <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

@@ -8,24 +8,22 @@ SOURCES_DIR = os.path.join(ROOT_DIR, "sources")
 NAMESPACE = "{http://maven.apache.org/POM/4.0.0}"
 ET.register_namespace('', "http://maven.apache.org/POM/4.0.0")
 
+# La nueva identidad unificada
+NEW_GROUP_ID = "com.github.drakescraft-labs"
+
 def log(msg, level="INFO"):
     print(f"[{level}] {msg}")
 
 def get_all_poms():
-    poms = []
+    poms = [os.path.join(ROOT_DIR, "pom.xml")]
     for root, dirs, files in os.walk(SOURCES_DIR):
         if "pom.xml" in files:
             poms.append(os.path.join(root, "pom.xml"))
     return poms
 
-def sync_parent():
-    """Sincroniza el groupId del parent en todos los submódulos."""
-    root_pom = os.path.join(ROOT_DIR, "pom.xml")
-    tree = ET.parse(root_pom)
-    root = tree.getroot()
-    
-    new_group_id = root.find(f"{NAMESPACE}groupId").text
-    log(f"Nuevo GroupID raíz detectado: {new_group_id}")
+def unify_identity():
+    """Asegura que todo el ecosistema use el mismo GroupID base."""
+    log(f"Iniciando Unificación de Identidad a {NEW_GROUP_ID}...")
     
     poms = get_all_poms()
     for pom_path in poms:
@@ -36,40 +34,34 @@ def sync_parent():
         new_lines = []
         in_parent = False
         for line in lines:
+            # 1. Actualizar Parent GroupID
             if "<parent>" in line: in_parent = True
             if "</parent>" in line: in_parent = False
             
             if in_parent and "<groupId>" in line:
-                current_group = line.split(">")[1].split("<")[0]
-                if current_group != new_group_id:
-                    indent = line.split("<")[0]
-                    line = f"{indent}<groupId>{new_group_id}</groupId>\n"
+                current = line.split(">")[1].split("<")[0]
+                if current != NEW_GROUP_ID:
+                    line = line.replace(current, NEW_GROUP_ID)
                     changed = True
+            
+            # 2. Actualizar GroupID del propio proyecto (si es de dev.drake)
+            if not in_parent and "<groupId>" in line:
+                current = line.split(">")[1].split("<")[0]
+                if "dev.drake" in current:
+                    line = line.replace(current, NEW_GROUP_ID)
+                    changed = True
+            
+            # 3. Actualizar dependencias internas (para que se encuentren entre sí)
+            if "<groupId>dev.drake" in line:
+                line = line.replace("dev.drake", NEW_GROUP_ID)
+                changed = True
+                
             new_lines.append(line)
             
         if changed:
             with open(pom_path, 'w', encoding='utf-8') as f:
                 f.writelines(new_lines)
-            log(f"Sincronizado: {os.path.relpath(pom_path, ROOT_DIR)}")
-
-def check_health():
-    log("Iniciando escaneo de salud del ecosistema...")
-    poms = get_all_poms()
-    poms.append(os.path.join(ROOT_DIR, "pom.xml"))
-    errors = 0
-    for pom in poms:
-        try:
-            ET.parse(pom)
-        except Exception as e:
-            log(f"Error en {pom}: {e}", "ERROR")
-            errors += 1
-    if errors == 0: log("¡Ecosistema saludable!", "SUCCESS")
+            log(f"Unificado: {os.path.relpath(pom_path, ROOT_DIR)}")
 
 if __name__ == "__main__":
-    cmd = sys.argv[1].lower() if len(sys.argv) > 1 else ""
-    if cmd == "sync":
-        sync_parent()
-    elif cmd == "health":
-        check_health()
-    else:
-        print("Uso: python manager.py [sync|health]")
+    unify_identity()
