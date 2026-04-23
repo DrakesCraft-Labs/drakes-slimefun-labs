@@ -8,7 +8,7 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>6</version>
+        <version>6-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
