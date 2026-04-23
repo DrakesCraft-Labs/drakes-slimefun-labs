@@ -13,7 +13,7 @@
 
     <groupId>io.github.sefiraat</groupId>
     <artifactId>Networks</artifactId>
-    <version>1.6</version>
+    <version>1.6-SNAPSHOT</version>
     <name>Networks</name>
 
     <build>
