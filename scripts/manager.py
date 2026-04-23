@@ -1,97 +1,114 @@
 import os
-import re
 import sys
+import re
 from datetime import datetime
+import xml.etree.ElementTree as ET
 
-# Configuración
+# Configuración de Rutas
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCES_DIR = os.path.join(ROOT_DIR, "sources")
-NEW_GROUP_ID = "com.github.drakescraft-labs"
-
-# Mapeo de reparación total
-REPAIR_BRIDGE = [
-    (r"(io\.github\.mooy1|com\.github\.drakescraft-labs)", "InfinityLib", "infinitylib-core", "${infinitylib.version}"),
-    (r"(dev\.sefiraat|com\.github\.drakescraft-labs)", "sefilib-core", "sefilib-core", "${sefilib.version}"),
-    (r"(io\.github\.thebusybiscuit|com\.github\.Slimefun|com\.github\.drakescraft-labs)", "(Slimefun4|Slimefun|slimefun-core)", "slimefun-core", "${slimefun.drake.version}"),
-    (r"(io\.github\.thebusybiscuit|com\.github\.drakescraft-labs)", "dough-(api|items|common|skins|data|blocks|inventories|protection|recipes|updater|core)", "dough-core", "${dough.version}"),
-    (r"(io\.github\.mooy1|com\.github\.drakescraft-labs)", "InfinityExpansion", "InfinityExpansion", "1.20.6-Drake-SNAPSHOT"),
-    (r"(io\.github\.thebusybiscuit|com\.github\.drakescraft-labs)", "DynaTech", "DynaTech", "1.21.11-Drake")
-]
 
 def log(msg, level="INFO"):
     colors = {"INFO": "\033[94m", "SUCCESS": "\033[92m", "WARNING": "\033[93m", "ERROR": "\033[91m", "RESET": "\033[0m"}
-    print(f"{colors.get(level, '')}[{level}] {msg}{colors['RESET']}")
+    print(f"{colors.get(level, colors['INFO'])}[{level}] {msg}{colors['RESET']}")
 
-def unify_and_bridge():
-    log("Iniciando Sincronización Maestra del Reactor...", "INFO")
-    poms = []
-    for root, dirs, files in os.walk(ROOT_DIR):
-        if "pom.xml" in files: poms.append(os.path.join(root, "pom.xml"))
+def validate_xml(content):
+    """Verifica si el contenido es un XML válido."""
+    try:
+        ET.fromstring(content)
+        return True
+    except ET.ParseError:
+        return False
+
+def safe_replace_pom(path, transformations, dry_run=False):
+    """Aplica transformaciones de forma segura a un POM."""
+    if not os.path.exists(path): return False
     
-    for pom_path in poms:
-        changed = False
-        with open(pom_path, 'r', encoding='utf-8') as f:
-            content = f.read()
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            original_content = f.read()
+        
+        new_content = original_content
+        for pattern, replacement in transformations:
+            new_content = re.sub(pattern, replacement, new_content)
+        
+        if new_content == original_content:
+            return False
+        
+        # VALIDACIÓN CRÍTICA
+        if not validate_xml(new_content):
+            log(f"¡ABORTADO! La transformación rompería el XML en: {os.path.relpath(path, ROOT_DIR)}", "ERROR")
+            return False
+        
+        if dry_run:
+            log(f"[DRY-RUN] Cambios detectados en: {os.path.relpath(path, ROOT_DIR)}", "WARNING")
+            return True
+        
+        # Backup de seguridad
+        with open(path + ".bak", 'w', encoding='utf-8') as f:
+            f.write(original_content)
             
-        # Unificar GroupID si es dev.drake o el antiguo de SF
-        if "dev.drake" in content:
-            content = content.replace("dev.drake", NEW_GROUP_ID)
-            changed = True
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(new_content)
             
-        for gid_pat, aid_pat, target_aid, target_ver in REPAIR_BRIDGE:
-            pattern = rf"(?s)<dependency>\s*<groupId>{gid_pat}</groupId>\s*<artifactId>{aid_pat}</artifactId>.*?</dependency>"
-            
-            def replace_dep(match):
-                nonlocal changed
-                new_block = f"""<dependency>
-            <groupId>{NEW_GROUP_ID}</groupId>
-            <artifactId>{target_aid}</artifactId>
-            <version>{target_ver}</version>
-            <scope>provided</scope>
-        </dependency>"""
-                if match.group(0).strip() != new_block.strip():
-                    changed = True
-                    return new_block
-                return match.group(0)
-
-            content = re.sub(pattern, replace_dep, content)
-                    
-        if changed:
-            with open(pom_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            log(f"Sincronizado: {os.path.relpath(pom_path, ROOT_DIR)}", "SUCCESS")
+        return True
+    except Exception as e:
+        log(f"Error procesando {path}: {str(e)}", "ERROR")
+        return False
 
 def audit():
-    log("Iniciando Auditoría de la Gran Obra (89 Addons)...", "INFO")
-    status = {"SURGICAL": [], "STABILIZED": [], "GRADLE": [], "MISSING": []}
-    for category in ["batch-2-expansion", "community-addons", "repos-to-port"]:
-        cat_path = os.path.join(SOURCES_DIR, category)
-        if not os.path.exists(cat_path): continue
-        for addon in os.listdir(cat_path):
-            rel_path = f"{category}/{addon}"
-            addon_path = os.path.join(cat_path, addon)
-            if not os.path.isdir(addon_path): continue
-            pom_path = os.path.join(addon_path, "pom.xml")
-            if os.path.exists(pom_path):
-                with open(pom_path, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    if "-drake" in content: status["SURGICAL"].append(rel_path)
-                    else: status["STABILIZED"].append(rel_path)
-            elif os.path.exists(os.path.join(addon_path, "build.gradle.kts")) or os.path.exists(os.path.join(addon_path, "build.gradle")):
-                status["GRADLE"].append(rel_path)
-            else: status["MISSING"].append(rel_path)
+    log(f"Iniciando Auditoría Blindada (89 Addons)...", "INFO")
+    status = {"SURGICAL": [], "STABILIZED": [], "GRADLE": [], "LEGACY": []}
     
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            path = os.path.join(root, "pom.xml")
+            rel_path = os.path.relpath(root, SOURCES_DIR)
+            
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            if "-drake" in content: status["SURGICAL"].append(rel_path)
+            else: status["STABILIZED"].append(rel_path)
+        
+        if "build.gradle" in files or "build.gradle.kts" in files:
+            rel_path = os.path.relpath(root, SOURCES_DIR)
+            if rel_path != ".": status["GRADLE"].append(rel_path)
+
     print("\n" + "="*60)
-    print(f"AUDITORIA DE DRAKESLAB - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"ESTADO DEL REACTOR - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("="*60)
-    print(f"PROGRESO: {((len(status['SURGICAL'])/89)*100):.1f}% ({len(status['SURGICAL'])}/89)")
+    perc = (len(status['SURGICAL'])/89)*100
+    print(f"PROGRESO QUIRÚRGICO: {perc:.1f}% ({len(status['SURGICAL'])}/89)")
     print("="*60)
     return status
 
-def sync_all_docs(status):
+def repair(dry_run=False):
+    log("Iniciando Reparación Blindada del Reactor...", "INFO")
+    
+    # Transformaciones Maestras
+    transformations = [
+        # 1. Asegurar GroupID del Parent
+        (r"(<parent>[\s\S]*?<groupId>).*?(</groupId>)", r"\g<1>com.github.drakescraft-labs\g<2>"),
+        # 2. Asegurar ArtifactID del Parent
+        (r"(<parent>[\s\S]*?<artifactId>).*?(</artifactId>)", r"\g<1>drakes-slimefun-labs\g<2>"),
+        # 3. Forzar Versión 11-SNAPSHOT
+        (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
+        # 4. Reparar corrupciones previas (I-SNAPSHOT)
+        (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
+    ]
+    
+    count = 0
+    for root, _, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            if safe_replace_pom(os.path.join(root, "pom.xml"), transformations, dry_run):
+                count += 1
+    
+    log(f"Reparación completada. Módulos afectados: {count}", "SUCCESS")
+
+def sync_docs(status):
     log("Sincronizando métricas en toda la flota de documentos...", "INFO")
     
-    # Archivos a sincronizar
     targets = [
         os.path.join(ROOT_DIR, "README.md"),
         os.path.join(ROOT_DIR, "README_EN.md"),
@@ -107,65 +124,34 @@ def sync_all_docs(status):
     for path in targets:
         if not os.path.exists(path): continue
         
-        with open(path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # Actualizar contadores (Regex flexibles para ES/EN)
-        content = re.sub(r"\|\s*\*\*REACTOR MAVEN\*\*\s*\|\s*`\d+`", f"| **REACTOR MAVEN** | `{total_maven}`", content)
-        content = re.sub(r"\|\s*\*\*REACTOR GRADLE\*\*\s*\|\s*`\d+`", f"| **REACTOR GRADLE** | `{total_gradle}`", content)
-        content = re.sub(r"\|\s*\*\*Progreso Quirúrgico\*\*\s*\|\s*\*\*[\d\.]+% \(\d+/89\)\*\*", f"| **Progreso Quirúrgico** | **{progress_str}**", content)
-        
-        # Sincronizar Resumen de Flota (v16.0)
-        content = re.sub(r"- \*\*Reactor Maven\*\*: \d+ Módulos", f"- **Reactor Maven**: {total_maven} Módulos", content)
-        content = re.sub(r"- \*\*Reactor Gradle\*\*: \d+ Módulos", f"- **Reactor Gradle**: {total_gradle} Módulos", content)
-        content = re.sub(r"- \*\*Identidad com.github.drakescraft-labs\*\*: .*", f"- **Identidad com.github.drakescraft-labs**: Implementada en el core y {len(status['SURGICAL'])} addons ({perc:.1f}%).", content)
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Actualizaciones de Regex
+            content = re.sub(r"\|\s*\*\*REACTOR MAVEN\*\*\s*\|\s*`\d+`", f"| **REACTOR MAVEN** | `{total_maven}`", content)
+            content = re.sub(r"\|\s*\*\*REACTOR GRADLE\*\*\s*\|\s*`\d+`", f"| **REACTOR GRADLE** | `{total_gradle}`", content)
+            content = re.sub(r"\|\s*\*\*Progreso Quirúrgico\*\*\s*\|\s*\*\*[\d\.]+% \(\d+/89\)\*\*", f"| **Progreso Quirúrgico** | **{progress_str}**", content)
+            
+            # Sincronizar Resumen de Flota
+            content = re.sub(r"- \*\*Reactor Maven\*\*: \d+ Módulos", f"- **Reactor Maven**: {total_maven} Módulos", content)
+            content = re.sub(r"- \*\*Reactor Gradle\*\*: \d+ Módulos", f"- **Reactor Gradle**: {total_gradle} Módulos", content)
+            content = re.sub(r"- \*\*Identidad com.github.drakescraft-labs\*\*: .*", f"- **Identidad com.github.drakescraft-labs**: Implementada en el core y {len(status['SURGICAL'])} addons ({perc:.1f}%).", content)
 
-        with open(path, 'w', encoding='utf-8') as f:
-            f.write(content)
-        log(f"Sincronizado: {os.path.relpath(path, ROOT_DIR)}", "SUCCESS")
-
-def force_parent_version():
-    log("Forzando versión del parent (11-SNAPSHOT) en toda la flota...", "INFO")
-    for root, _, files in os.walk(SOURCES_DIR):
-        for file in files:
-            if file == "pom.xml":
-                path = os.path.join(root, file)
-                try:
-                    with open(path, 'r', encoding='utf-8') as f:
-                        content = f.read()
-                    
-                    # REPARACIÓN DE EMERGENCIA: Reconstruir bloque corrupto
-                    # Busca el patrón corrupto "I-SNAPSHOT</version>" o similares y restaura el parent completo
-                    pattern = r"<parent>[\s\S]*?</version>"
-                    # Si ya está roto (como vimos en SaneCrafting), el patrón podría ser diferente
-                    if "I-SNAPSHOT</version>" in content:
-                        new_content = content.replace(
-                            "I-SNAPSHOT</version>",
-                            "<parent>\n        <groupId>com.github.drakescraft-labs</groupId>\n        <artifactId>drakes-slimefun-labs</artifactId>\n        <version>11-SNAPSHOT</version>"
-                        )
-                    else:
-                        # Para los que no se rompieron pero necesitan la versión correcta
-                        new_content = re.sub(
-                            r"(<parent>[\s\S]*?<version>).*?(</version>)",
-                            r"\g<1>11-SNAPSHOT\g<2>",
-                            content
-                        )
-                    
-                    if new_content != content:
-                        with open(path, 'w', encoding='utf-8') as f:
-                            f.write(new_content)
-                        log(f"Versión de parent corregida en: {os.path.relpath(path, SOURCES_DIR)}", "SUCCESS")
-                except:
-                    continue
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            log(f"Sincronizado: {os.path.relpath(path, ROOT_DIR)}", "SUCCESS")
+        except Exception as e:
+            log(f"Error sincronizando {path}: {str(e)}", "ERROR")
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "audit": 
-            res = audit()
-            if "--sync" in sys.argv: sync_all_docs(res)
-        elif sys.argv[1] == "repair": 
-            unify_and_bridge()
-            force_parent_version()
+    action = sys.argv[1] if len(sys.argv) > 1 else "repair"
+    is_dry = "--dry-run" in sys.argv
+    
+    if action == "audit":
+        res = audit()
+        if "--sync" in sys.argv: sync_docs(res)
+    elif action == "repair":
+        repair(dry_run=is_dry)
     else:
-        unify_and_bridge()
-        force_parent_version()
+        log(f"Acción desconocida: {action}", "ERROR")
