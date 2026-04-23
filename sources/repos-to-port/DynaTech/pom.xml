@@ -42,6 +42,26 @@
             <version>${dough.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Soft Dependencies (Batch 1 Partners) -->
+        <dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>ExtraUtils-drake</artifactId>
+            <version>1.20.6-Drake-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>ExoticGarden-drake</artifactId>
+            <version>${slimefun.drake.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>InfinityExpansion-drake</artifactId>
+            <version>1.20.6-Drake-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>

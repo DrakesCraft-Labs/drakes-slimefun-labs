@@ -15,8 +15,8 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <artifactId>SFCalc</artifactId>
-    <version>UNOFFICIAL-1.21</version>
+    <artifactId>SFCalc-drake</artifactId>
+    <version>1.21-Drake-v1</version>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->

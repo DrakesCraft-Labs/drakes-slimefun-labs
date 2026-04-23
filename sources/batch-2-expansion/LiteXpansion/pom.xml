@@ -15,9 +15,9 @@
     </properties>
 
 
-    <groupId>dev.j3fftw</groupId>
-    <artifactId>LiteXpansion</artifactId>
-    <version>MODIFIED</version>
+    <groupId>com.github.drakescraft-labs</groupId>
+    <artifactId>LiteXpansion-drake</artifactId>
+    <version>1.21-Drake-v2</version>
 
     <repositories>
         <repository>
@@ -65,13 +65,13 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.0.0</version>
         </dependency>
 
         <dependency>
-            <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>extrautils</artifactId>
-            <version>73e76ac06c</version>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>ExtraUtils-drake</artifactId>
+            <version>1.20.6-Drake-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

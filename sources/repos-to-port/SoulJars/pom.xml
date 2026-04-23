@@ -12,8 +12,8 @@
     </parent>
 
     <groupId>com.github.drakescraft-labs</groupId>
-    <artifactId>SoulJars</artifactId>
-    <version>1.20.6-Drake-SNAPSHOT</version>
+    <artifactId>SoulJars-drake</artifactId>
+    <version>1.21-Drake-v1</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
