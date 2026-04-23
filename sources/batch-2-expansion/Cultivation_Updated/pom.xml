@@ -274,6 +274,7 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -285,8 +286,8 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>sefilib-core</artifactId>
-            <version>0.2.6</version>
-            <scope>compile</scope>
+            <version>${sefilib.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Tools etc. -->

@@ -35,6 +35,7 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -42,6 +43,7 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
             <scope>provided</scope>
         </dependency>
 

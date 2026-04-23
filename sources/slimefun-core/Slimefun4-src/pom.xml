@@ -344,7 +344,7 @@
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.papermc</groupId>

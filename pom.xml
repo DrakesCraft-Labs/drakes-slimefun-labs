@@ -134,31 +134,27 @@
 
             <!-- Slimefun 4 -->
             <dependency>
-                <groupId>com.github.drakescraft-labs</groupId>
-                <artifactId>slimefun-core</artifactId>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>io.github.baked-libs</groupId>
-                        <artifactId>dough-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
             <!-- Nuestro Dough-Core (Unificado) -->
             <dependency>
-                <groupId>com.github.drakescraft-labs</groupId>
-                <artifactId>dough-core</artifactId>
-                <version>${dough.version}</version>
-            </dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
             <!-- Slimefun (alias com.github.drakescraft-labs, usado por addons ya parcialmente porteados) -->
             <dependency>
-                <groupId>com.github.drakescraft-labs</groupId>
-                <artifactId>slimefun-core</artifactId>
-                <version>${slimefun.drake.version}</version>
-                <scope>provided</scope>
-            </dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
             <!-- ProtocolLib -->
             <dependency>
@@ -225,10 +221,11 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.github.drakescraft-labs</groupId>
-                <artifactId>sefilib-core</artifactId>
-                <scope>provided</scope>
-            </dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>sefilib-core</artifactId>
+            <version>${sefilib.version}</version>
+            <scope>provided</scope>
+        </dependency>
             <dependency>
                 <groupId>io.github.sefiraat</groupId>
                 <artifactId>Networks</artifactId>

@@ -59,7 +59,8 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>dough-core</artifactId>
-            <scope>compile</scope>
+            <version>${dough.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Lombok -->

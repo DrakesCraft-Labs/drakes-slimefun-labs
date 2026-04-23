@@ -70,10 +70,11 @@
           <scope>provided</scope>
       </dependency>
       <dependency>
-          <groupId>com.github.drakescraft-labs</groupId>
-          <artifactId>slimefun-core</artifactId>
-          <scope>provided</scope>
-      </dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
+            <scope>provided</scope>
+        </dependency>
       <dependency>
           <groupId>xyz.jpenilla</groupId>
           <artifactId>squaremap-api</artifactId>

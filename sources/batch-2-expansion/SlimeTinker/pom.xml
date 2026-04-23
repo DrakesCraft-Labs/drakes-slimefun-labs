@@ -138,6 +138,7 @@
         <dependency>
             <groupId>com.github.drakescraft-labs</groupId>
             <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
