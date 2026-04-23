@@ -1,12 +1,6 @@
 name: Strict Quality Gate (God Mode)
 
 on:
-  push:
-    branches:
-      - 1.21-latin
-  pull_request:
-    branches:
-      - 1.21-latin
   workflow_dispatch:
 
 concurrency:

@@ -1,0 +1,28 @@
+name: "Gate: Expansion Addons"
+
+on:
+  push:
+    branches: [1.21-latin]
+  workflow_dispatch:
+
+concurrency:
+  group: gate-expansion-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+          server-id: github
+          settings-path: ${{ github.workspace }}
+      
+      - name: Build Expansion Addons
+        run: mvn -B clean deploy -DskipTests -pl sources/batch-2-expansion/Cultivation_Updated,sources/batch-2-expansion/LiteXpansion,sources/batch-2-expansion/Networks_Better_Compatibility,sources/batch-2-expansion/SlimeTinker,sources/batch-2-expansion/SMG,sources/batch-2-expansion/Supreme,sources/batch-2-expansion/TranscEndence -am -s ${{ github.workspace }}/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
