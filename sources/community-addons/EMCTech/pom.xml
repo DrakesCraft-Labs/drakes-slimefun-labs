@@ -15,7 +15,7 @@
     </properties>
 
 
-    <groupId>io.github.sefiraat</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>EMCTech</artifactId>
     <version>MODIFIED</version>
 
@@ -23,7 +23,7 @@
         <finalName>${project.name} v${project.version}</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
@@ -89,7 +89,6 @@
     </build>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -132,7 +131,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -155,18 +154,19 @@
             <version>3.0.1u2</version>
         </dependency>
         <dependency>
-            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
-            
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>sefilib-core</artifactId>
+            <version>0.2.6</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>co.aikar</groupId>
-            <artifactId>acf-paper</artifactId>
+            <artifactId>acf-paper-drake</artifactId>
             <version>0.5.11-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.simplix-softworks</groupId>
-            <artifactId>SimplixStorage</artifactId>
+            <artifactId>SimplixStorage-drake</artifactId>
             <version>3.2.5</version>
             <scope>compile</scope>
         </dependency>

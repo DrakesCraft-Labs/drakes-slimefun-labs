@@ -16,12 +16,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.thebusybiscuit.crystamaehistoria</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>CrystamaeHistoria</artifactId>
     <version>1.0.1</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,7 +42,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -58,8 +57,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake.addon</groupId><artifactId>infinitylib-core</artifactId>
-            
+            <groupId>io.github.mooy1</groupId>
+            <artifactId>infinitylib-core</artifactId>
+            <version>1.3.10</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -69,17 +69,18 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>sefilib-core</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.github.sefiraat</groupId>
-            <artifactId>Networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.elmakers.mine.bukkit</groupId>
-            <artifactId>EffectLib</artifactId>
+            <artifactId>EffectLib-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

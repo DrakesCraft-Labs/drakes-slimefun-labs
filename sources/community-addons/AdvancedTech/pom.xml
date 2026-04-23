@@ -14,12 +14,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>me.pranavverma</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>AdvancedTech</artifactId>
     <version>1.0.0</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,9 +54,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <version>1.21.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -136,13 +135,13 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-simple-drake</artifactId>
             <version>2.0.7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy</artifactId>
+            <artifactId>byte-buddy-drake</artifactId>
             <version>1.14.5</version>
             <scope>compile</scope>
         </dependency>

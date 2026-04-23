@@ -16,12 +16,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>ExoticGarden</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,7 +58,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.2</version>
 
@@ -112,14 +111,14 @@
             <exclusions>
                 <exclusion>
                     <groupId>io.github.baked-libs</groupId>
-                    <artifactId>dough-api</artifactId>
+                    <artifactId>dough-api-drake</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
+            <artifactId>jsr305-drake</artifactId>
             <scope>provided</scope>
         </dependency>
 

@@ -15,8 +15,8 @@
     </properties>
 
 
-    <groupId>ne.fnfal113</groupId>
-    <artifactId>RelicsOfCthonia</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>RelicsOfCthonia-drake</artifactId>
     <version>Unofficial-2.0.0</version>
     <packaging>jar</packaging>
 
@@ -24,7 +24,6 @@
 
     <description>My Slimefun addon jam 2022 entry which is based on nether theme</description>
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -49,8 +48,8 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.14.0</version>
                 <configuration>
                     <source>21</source>
@@ -121,7 +120,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.20.6-R0.1-SNAPSHOT</version>
+            <version>1.20.6-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

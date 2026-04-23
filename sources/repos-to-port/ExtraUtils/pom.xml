@@ -15,12 +15,11 @@
     </properties>
 
 
-    <groupId>dev.j3fftw</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>ExtraUtils</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,7 +46,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
@@ -62,14 +61,14 @@
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
+            <artifactId>jsr305-drake</artifactId>
             <version>3.0.2</version>
             <scope>provided</scope>
         </dependency>
 
                 <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <artifactId>lombok-drake</artifactId>
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>

@@ -17,7 +17,7 @@
 
     <groupId>dev.drake.addon</groupId>
     <artifactId>sefilib-core</artifactId>
-    
+    <version>0.3.1-DRAKE-SNAPSHOT</version>
     <name>SefiLib</name>
 
     <build>
@@ -27,7 +27,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>

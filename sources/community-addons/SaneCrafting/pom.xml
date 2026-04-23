@@ -15,8 +15,8 @@
     </properties>
 
 
-    <groupId>metamechanists</groupId>
-    <artifactId>SaneCrafting</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SaneCrafting-drake</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -24,8 +24,8 @@
         <finalName>SaneCrafting</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <source>17</source>
@@ -74,7 +74,6 @@
     <description>Allow Slimefun's Enhanced Crafting Table recipes to be crafted in a regular Crafting Table</description>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -96,7 +95,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.19.4-R0.1-SNAPSHOT</version>
+            <version>1.19.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

@@ -16,17 +16,18 @@
     </properties>
 
     <artifactId>SFCalc</artifactId>
+    <version>UNOFFICIAL-1.21</version>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <!-- Paper API -->
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -48,14 +49,15 @@
         <!-- bStats -->
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <!-- ErrorReporter -->
         <dependency>
             <groupId>com.github.seggan</groupId>
-            <artifactId>ErrorReporter-Java</artifactId>
+            <artifactId>ErrorReporter-Java-drake</artifactId>
+            <version>1.1.0</version>
             <scope>compile</scope>
         </dependency>
 
@@ -74,6 +76,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.2</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

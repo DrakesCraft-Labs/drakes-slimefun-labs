@@ -14,8 +14,9 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>ExtraHeads</artifactId>
+    <version>${slimefun.drake.version}</version>
 
     <repositories>
         <repository>
@@ -26,32 +27,37 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
+            <version>${paper.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>dev.drake</groupId>
             <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
+            <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>guizhanlib-all</artifactId>
+            <artifactId>guizhanlib-all-drake</artifactId>
+            <version>2.2.0</version>
             <scope>compile</scope>
         </dependency>
         
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
+            <version>2.11.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -68,6 +74,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.2</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

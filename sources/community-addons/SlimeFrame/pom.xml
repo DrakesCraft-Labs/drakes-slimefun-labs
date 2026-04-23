@@ -14,16 +14,15 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>me.voper</groupId>
-    <artifactId>SlimeFrame</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>SlimeFrame-drake</artifactId>
     <version>1.7.0</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spigot-api.version>1.19-R0.1-SNAPSHOT</spigot-api.version>
+        <spigot-api.version>1.19-R0.11-SNAPSHOT</spigot-api.version>
         <java.version>16</java.version>
     </properties>
 
@@ -72,8 +71,8 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>

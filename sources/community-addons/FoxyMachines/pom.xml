@@ -15,12 +15,11 @@
     </properties>
 
 
-    <groupId>me.gallowsdove</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>FoxyMachines</artifactId>
     <version>MODIFIED</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -71,7 +70,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
@@ -121,7 +120,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19.4-R0.1-SNAPSHOT</version>
+            <version>1.19.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -148,13 +147,13 @@
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
+            <artifactId>jsr305-drake</artifactId>
             <version>3.0.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
+            <artifactId>gson-drake</artifactId>
             <version>2.9.0</version>
             <scope>compile</scope>
         </dependency>

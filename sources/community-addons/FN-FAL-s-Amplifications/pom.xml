@@ -15,7 +15,7 @@
     </properties>
 
 
-    <groupId>ne.fnfal113</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>FNAmplifications</artifactId>
     <version>Unoffical-4.2.4</version>
     <packaging>jar</packaging>
@@ -25,7 +25,6 @@
     <description>Adds different kind of in-game items from machines, utilities to pvp related items! Take part on exploring FN's offering!</description>
     
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -50,7 +49,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
@@ -132,14 +131,14 @@
 
         <dependency>
             <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-updater</artifactId>
+            <artifactId>dough-updater-drake</artifactId>
             <version>1108163a49</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-common</artifactId>
+            <artifactId>dough-common-drake</artifactId>
             <version>1108163a49</version>
             <scope>compile</scope>
         </dependency>

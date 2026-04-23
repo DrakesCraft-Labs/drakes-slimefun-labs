@@ -15,7 +15,7 @@
     </properties>
 
 
-    <groupId>me.char321</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>sfadvancements</artifactId>
     <version>MODIFIED</version>
     <packaging>jar</packaging>
@@ -23,7 +23,6 @@
     <name>Slimefun Advancements</name>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -57,7 +56,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
@@ -152,7 +151,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -199,14 +198,14 @@
 
         <dependency>
             <groupId>com.github.seeseemelk</groupId>
-            <artifactId>MockBukkit-v1.18</artifactId>
+            <artifactId>MockBukkit-v1.18-drake</artifactId>
             <version>1.24.1</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-api</artifactId>
+            <artifactId>dough-api-drake</artifactId>
             <version>1108163a49</version>
             <scope>compile</scope>
         </dependency>

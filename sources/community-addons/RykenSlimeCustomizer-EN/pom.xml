@@ -15,7 +15,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-	<groupId>org.lins.mmmjjkx</groupId>
+	<groupId>dev.drake.addon</groupId>
 	<artifactId>RykenSlimefunCustomizer</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
@@ -24,7 +24,6 @@
 	<description>An advanced Slimefun simple addon maker</description>
 
 	<properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
 		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -34,7 +33,7 @@
 		<finalName>RykenSlimefunCustomizer-${project.version}</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+				<groupId>dev.drake.addon</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.13.0</version>
 				<configuration>
@@ -143,12 +142,12 @@
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
+			<artifactId>lombok-drake</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.tr7zw</groupId>
-			<artifactId>item-nbt-api-plugin</artifactId>
+			<artifactId>item-nbt-api-plugin-drake</artifactId>
 			<version>2.14.1</version>
 			<scope>provided</scope>
 		</dependency>

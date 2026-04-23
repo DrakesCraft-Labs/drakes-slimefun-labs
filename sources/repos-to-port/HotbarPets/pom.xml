@@ -14,12 +14,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>HotbarPets</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,7 +67,7 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.2</version>
 
@@ -122,7 +121,7 @@
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
             <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>

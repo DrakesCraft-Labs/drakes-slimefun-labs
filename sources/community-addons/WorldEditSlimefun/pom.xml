@@ -15,15 +15,14 @@
     </properties>
 
 
-    <groupId>dev.j3fftw</groupId>
-    <artifactId>WorldEditSlimefun</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>WorldEditSlimefun-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <name>WorldEditSlimefun</name>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -36,8 +35,8 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <source>17</source>
@@ -109,7 +108,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.20.4-R0.1-SNAPSHOT</version>
+            <version>1.20.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -14,12 +14,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>me.poma123</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>GlobalWarming</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -66,7 +65,7 @@
         <plugins>
             <!-- Compiler plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
@@ -157,7 +156,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.20.6-R0.1-SNAPSHOT</version>
+            <version>1.20.6-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -170,13 +169,13 @@
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <artifactId>commons-lang3-drake</artifactId>
             <version>3.14.0</version>
             <scope>provided</scope>
         </dependency>

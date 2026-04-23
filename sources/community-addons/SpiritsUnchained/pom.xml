@@ -14,14 +14,13 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>me.justahuman</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SpiritsUnchained</artifactId>
     <version>UNOFFICIAL</version>
 
     <name>SpiritsUnchained</name>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,7 +30,7 @@
         <finalName>SpiritsUnchained</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
@@ -113,7 +112,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -132,14 +131,15 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
-            
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>sefilib-core</artifactId>
+            <version>0.1.4.5</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>

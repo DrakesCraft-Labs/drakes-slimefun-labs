@@ -26,7 +26,6 @@
     <url>https://github.com/Slimefun/Slimefun4</url>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spigot.version>1.21.1</spigot.version>
@@ -109,7 +108,7 @@
         <plugins>
             <plugin>
                 <!-- Compiler plugin -->
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
 
@@ -124,7 +123,7 @@
 
             <plugin>
                 <!-- Attach sources -->
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>dev.drake.addon</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.3.1</version>
 
@@ -450,13 +449,13 @@
                 <exclusion>
                     <!-- We don't need any of the dependencies -->
                     <groupId>*</groupId>
-                    <artifactId>*</artifactId>
+                    <artifactId>*-drake</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.LoneDev6</groupId>
-            <artifactId>itemsadder-api</artifactId>
+            <artifactId>itemsadder-api-drake</artifactId>
             <version>3.6.1</version>
             <scope>provided</scope>
 

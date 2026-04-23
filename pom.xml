@@ -148,20 +148,6 @@
                 <scope>provided</scope>
             </dependency>
 
-            <!-- InfinityLib -->
-            <dependency>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>infinitylib-core</artifactId>
-                <version>${infinitylib.version}</version>
-            </dependency>
-
-            <!-- SefiLib -->
-            <dependency>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>sefilib-core</artifactId>
-                <version>${sefilib.version}</version>
-            </dependency>
-
             <!-- ProtocolLib -->
             <dependency>
                 <groupId>com.github.dmulloy2</groupId>
@@ -227,14 +213,73 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
+                <groupId>dev.sefiraat</groupId>
+                <artifactId>sefilib-core</artifactId>
                 <version>0.3.0</version>
                 <scope>provided</scope>
             </dependency>
+            <!-- Protection Hooks (Usados por Dough-Core) -->
             <dependency>
-                <groupId>io.github.sefiraat</groupId>
-                <artifactId>Networks</artifactId>
-                <version>1.6</version>
+                <groupId>com.sk89q.worldguard</groupId>
+                <artifactId>worldguard-bukkit</artifactId>
+                <version>7.0.7</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.coreprotect</groupId>
+                <artifactId>coreprotect</artifactId>
+                <version>22.2</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Common Libraries -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.11.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.papermc</groupId>
+                <artifactId>paperlib</artifactId>
+                <version>1.0.8</version>
+            </dependency>
+            <dependency>
+                <groupId>org.spigotmc</groupId>
+                <artifactId>spigot-api</artifactId>
+                <version>1.21.1-R0.1-SNAPSHOT</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>me.clip</groupId>
+                <artifactId>placeholderapi</artifactId>
+                <version>2.11.6</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.guizhanss</groupId>
+                <artifactId>guizhanlib-all</artifactId>
+                <version>2.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.seggan</groupId>
+                <artifactId>ErrorReporter-Java</artifactId>
+                <version>1.1.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Addon Inter-dependencies -->
+            <dependency>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>InfinityExpansion-drake</artifactId>
+                <version>${slimefun.drake.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>ExoticGarden-drake</artifactId>
+                <version>${slimefun.drake.version}</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>

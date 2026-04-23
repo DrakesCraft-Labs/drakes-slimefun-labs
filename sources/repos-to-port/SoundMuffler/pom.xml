@@ -16,12 +16,11 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>dev.j3fftw</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SoundMuffler</artifactId>
     <version>11.0-Drake</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,7 +33,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -45,12 +44,12 @@
         </dependency>
         <dependency>
             <groupId>com.github.dmulloy2</groupId>
-            <artifactId>ProtocolLib</artifactId>
+            <artifactId>ProtocolLib-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
+            <artifactId>bstats-bukkit-drake</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>

@@ -15,16 +15,16 @@
     </properties>
 
 
-    <groupId>dev.sefiraat</groupId>
-    <artifactId>Netheopoiesis</artifactId>
+    <groupId>dev.drake.addon</groupId>
+    <artifactId>Netheopoiesis-drake</artifactId>
     <version>MODIFIED</version>
 
     <build>
         <finalName>${project.name} v${project.version}</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.4.1</version>
                 <configuration>
                     <relocations>
@@ -85,7 +85,6 @@
     </build>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,7 +130,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
