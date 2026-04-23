@@ -13,6 +13,10 @@
 
     <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
+    
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
     <name>Slimefun</name>
     <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.11 environment.</description>
     <inceptionYear>2013</inceptionYear>
@@ -22,7 +26,6 @@
     <url>https://github.com/Slimefun/Slimefun4</url>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spigot.version>1.21.1</spigot.version>
@@ -105,8 +108,8 @@
         <plugins>
             <plugin>
                 <!-- Compiler plugin -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
 
                 <configuration>
@@ -120,8 +123,8 @@
 
             <plugin>
                 <!-- Attach sources -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-source-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
                 <version>3.3.1</version>
 
                 <executions>
@@ -136,8 +139,8 @@
 
             <plugin>
                 <!-- Plugin for Unit Tests -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-surefire-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.3.1</version>
 
                 <configuration>
@@ -148,15 +151,15 @@
 
             <plugin>
                 <!-- Sonarcloud Scanner -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>sonar-maven-plugin-drake</artifactId>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.10.0.2594</version>
             </plugin>
 
             <plugin>
                 <!-- Code Coverage Reports -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>jacoco-maven-plugin-drake</artifactId>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
 
                 <executions>
@@ -181,8 +184,8 @@
 
             <plugin>
                 <!-- Dependency shading -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
 
                 <configuration>
@@ -222,8 +225,8 @@
 
             <plugin>
                 <!-- Javadocs -->
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-javadoc-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.7.0</version>
 
                 <configuration>

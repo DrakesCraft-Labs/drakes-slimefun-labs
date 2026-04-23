@@ -10,12 +10,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SmallSpace-drake</artifactId>
+    <groupId>me.CAPS123987</groupId>
+    <artifactId>SmallSpace</artifactId>
     <version>MODED</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

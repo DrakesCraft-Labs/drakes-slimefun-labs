@@ -11,12 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Networks-drake</artifactId>
+    <groupId>io.github.sefiraat</groupId>
+    <artifactId>Networks</artifactId>
     <version>1.11-SNAPSHOT</version>
     <name>Networks</name>
 

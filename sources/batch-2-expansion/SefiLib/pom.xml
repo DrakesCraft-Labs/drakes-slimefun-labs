@@ -11,13 +11,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
     <artifactId>sefilib-core</artifactId>
     <version>0.3.1-DRAKE-SNAPSHOT</version>
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
     <name>SefiLib</name>
 
     <build>

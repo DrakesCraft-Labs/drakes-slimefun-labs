@@ -10,13 +10,9 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
 
-
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>LiteXpansion-drake</artifactId>
+    <groupId>dev.j3fftw</groupId>
+    <artifactId>LiteXpansion</artifactId>
     <version>MODIFIED</version>
 
     <repositories>

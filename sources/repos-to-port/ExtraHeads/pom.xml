@@ -10,12 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>ExtraHeads-drake</artifactId>
+    <groupId>io.github.thebusybiscuit</groupId>
+    <artifactId>ExtraHeads</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>

@@ -10,12 +10,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>MissileWarfare-drake</artifactId>
+    <groupId>me.kaiyan.missilewarfare</groupId>
+    <artifactId>MissileWarfare</artifactId>
     <version>1.11-SNAPSHOT.13</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,8 +66,8 @@
 
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.4.1</version>
                 <configuration>
                     <relocations>

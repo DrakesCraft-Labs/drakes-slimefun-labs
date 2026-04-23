@@ -10,12 +10,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>GeneticChickengineering-Reborn-drake</artifactId>
+    <groupId>net.guizhanss</groupId>
+    <artifactId>GeneticChickengineering-Reborn</artifactId>
     <version>1.1.DEV</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -37,8 +36,8 @@
 
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
                 <executions>
                     <execution>

@@ -11,13 +11,12 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>VillagerTrade-drake</artifactId>
+    <groupId>net.guizhanss</groupId>
+    <artifactId>VillagerTrade</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>16</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -32,8 +31,8 @@
 
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <source>${java.version}</source>
@@ -41,8 +40,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.1</version>
                 <executions>
                     <execution>

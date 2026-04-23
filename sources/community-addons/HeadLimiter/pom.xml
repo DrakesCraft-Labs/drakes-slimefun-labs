@@ -11,15 +11,14 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>HeadLimiter-drake</artifactId>
+    <groupId>dev.j3fftw.headlimiter</groupId>
+    <artifactId>HeadLimiter</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <name>HeadLimiter</name>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -49,13 +48,13 @@
 
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
 
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.3.0</version>
                 <executions>
                     <execution>

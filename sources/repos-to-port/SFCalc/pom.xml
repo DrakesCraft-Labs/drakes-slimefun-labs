@@ -11,11 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
-    <artifactId>SFCalc-drake</artifactId>
+    <artifactId>SFCalc</artifactId>
     <version>UNOFFICIAL-1.21</version>
 
     <dependencies>

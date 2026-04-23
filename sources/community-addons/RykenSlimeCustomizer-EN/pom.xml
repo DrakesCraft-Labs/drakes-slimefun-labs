@@ -11,8 +11,8 @@
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 
-	<groupId>dev.drake.addon</groupId>
-	<artifactId>RykenSlimefunCustomizer-drake</artifactId>
+	<groupId>org.lins.mmmjjkx</groupId>
+	<artifactId>RykenSlimefunCustomizer</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
 
@@ -20,7 +20,6 @@
 	<description>An advanced Slimefun simple addon maker</description>
 
 	<properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
 		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -30,24 +29,24 @@
 		<finalName>RykenSlimefunCustomizer-${project.version}</finalName>
 		<plugins>
 			<plugin>
-				<groupId>dev.drake.addon</groupId>
-				<artifactId>maven-compiler-plugin-drake</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.13.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<annotationProcessorPaths>
 						<path>
-							<groupId>dev.drake.addon</groupId>
-							<artifactId>lombok-drake</artifactId>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
 							<version>1.18.34</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>dev.drake.addon</groupId>
-				<artifactId>maven-shade-plugin-drake</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.6.0</version>
 				<executions>
 					<execution>

@@ -12,12 +12,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeCustomizer-drake</artifactId>
+    <groupId>io.ncbpfluffybear</groupId>
+    <artifactId>SlimeCustomizer</artifactId>
     <version>1.0.0</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,8 +28,8 @@
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.2</version>
                 <configuration>
                     <relocations>

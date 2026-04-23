@@ -10,12 +10,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>GlobalWarming-drake</artifactId>
+    <groupId>me.poma123</groupId>
+    <artifactId>GlobalWarming</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -62,8 +61,8 @@
         <plugins>
             <!-- Compiler plugin -->
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <excludes>
@@ -76,8 +75,8 @@
 
             <!-- Attach sources -->
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-source-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
                 <version>3.2.1</version>
                 <executions>
                     <execution>
@@ -90,8 +89,8 @@
             </plugin>
 
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.2</version>
 
                 <configuration>

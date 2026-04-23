@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeTinker-drake</artifactId>
+    <groupId>dev.sefiraat</groupId>
+    <artifactId>SlimeTinker</artifactId>
     <version>1.2.DEV</version>
 
     <name>SlimeTinker</name>
@@ -42,7 +42,6 @@
     </scm>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,8 +78,8 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
                     <minimizeJar>true</minimizeJar>
@@ -117,8 +116,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <source>21</source>

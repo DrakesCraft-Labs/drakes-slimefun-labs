@@ -11,15 +11,14 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>BetterChests-drake</artifactId>
+    <groupId>me.mmmjjkx</groupId>
+    <artifactId>BetterChests</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>BetterChests</name>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -29,8 +28,8 @@
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <source>${java.version}</source>
@@ -38,8 +37,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.3</version>
                 <executions>
                     <execution>

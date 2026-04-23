@@ -12,12 +12,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>CrystamaeHistoria-drake</artifactId>
+    <groupId>io.github.thebusybiscuit.crystamaehistoria</groupId>
+    <artifactId>CrystamaeHistoria</artifactId>
     <version>1.0.1</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

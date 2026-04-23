@@ -11,12 +11,11 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>InfinityExpansion-drake</artifactId>
+    <groupId>io.github.mooy1</groupId>
+    <artifactId>InfinityExpansion</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

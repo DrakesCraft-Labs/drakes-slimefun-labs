@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>FNAmplifications-drake</artifactId>
+    <groupId>ne.fnfal113</groupId>
+    <artifactId>FNAmplifications</artifactId>
     <version>Unoffical-4.2.4</version>
     <packaging>jar</packaging>
 
@@ -21,7 +21,6 @@
     <description>Adds different kind of in-game items from machines, utilities to pvp related items! Take part on exploring FN's offering!</description>
     
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -46,8 +45,8 @@
 
         <plugins>
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
                     <source>17</source>
@@ -56,8 +55,8 @@
             </plugin>
             
             <plugin>
-                <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.5.1</version>
                 <executions>
                     <execution>

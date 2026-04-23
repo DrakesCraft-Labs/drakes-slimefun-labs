@@ -11,15 +11,14 @@
     </parent>
 
 
-  <groupId>dev.drake.addon</groupId>
-  <artifactId>MapJammer-drake</artifactId>
+  <groupId>me.vaan</groupId>
+  <artifactId>MapJammer</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>MapJammer</name>
 
   <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
     <java.version>21</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -27,8 +26,8 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>dev.drake.addon</groupId>
-        <artifactId>maven-shade-plugin-drake</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.4</version>
         <executions>
           <execution>
@@ -40,8 +39,8 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>dev.drake.addon</groupId>
-        <artifactId>maven-jar-plugin-drake</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
         <version>3.2.0</version> <!-- You can use the latest version -->
           <configuration>
               <finalName>MapJammers</finalName>
