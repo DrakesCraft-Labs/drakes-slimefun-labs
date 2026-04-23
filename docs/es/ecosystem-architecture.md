@@ -1,63 +1,47 @@
-# Arquitectura del Ecosistema
+# 🏛️ Arquitectura del Ecosistema DrakesLab
 
 ## Qué es este laboratorio
+`drakes-slimefun-labs` es un monorepo de consolidación técnica diseñado para portar, estabilizar y documentar el ecosistema Slimefun sobre **Paper 1.21.1** y **Java 21**.
 
-`drakes-slimefun-labs` no es un plugin único. Es un monorepo de consolidación para portar, estabilizar y documentar un ecosistema de addons Slimefun sobre `Paper 1.21.11` y `Java 21`.
+## 🧬 Identidad y Namespace
+A partir de la v15.0, el ecosistema utiliza un namespace unificado para evitar colisiones y asegurar la resolución de dependencias en GitHub Packages:
+- **Namespace Maestro**: `com.github.drakescraft-labs`
+- **Prefijo de Versión**: `Drake-1.21.1`
 
-## Piezas base
+## 🏗️ Reactor Híbrido (Hybrid Build System)
+El laboratorio utiliza un sistema de construcción dual para soportar el 100% de los addons del ecosistema:
 
-### `sources/dough-core`
+### 1. Reactor Maven (80 Módulos)
+Gestiona el núcleo y la gran mayoría de addons mediante el `pom.xml` raíz. Centraliza:
+- Propiedades de versión comunes (`${slimefun.drake.version}`, `${dough.version}`).
+- Gestión de dependencias relocalizadas (`dough-core`).
+- Alineación del Parent POM para addons quirúrgicos.
 
-- grupo: `dev.drake.dough`
-- versión base actual: `1.3.1-DRAKE`
-- función: librería compartida para el stack completo
+### 2. Reactor Gradle Maestro (9 Módulos) 🐘
+Gestiona los addons basados en Gradle (como Galactifun o SlimefunTranslation) mediante el `settings.gradle.kts` raíz.
+- Fuerza el estándar **Java 21** en todos los subproyectos.
+- Conecta los addons a las librerías de DrakesLab publicadas en Maven.
 
-### `sources/slimefun-core/Slimefun4-src`
+## 🐍 DrakesLab Manager
+La integridad del ecosistema se mantiene mediante `scripts/manager.py`. Sus funciones incluyen:
+- **Auditoría**: Seguimiento del estado de los 89 addons.
+- **Hot-Repair**: Sincronización de identidades XML y reparación de puentes de dependencias internas.
 
-- grupo: `dev.drake`
-- artefacto: `Slimefun`
-- versión base actual: `6.0-Drake-1.21.11`
-- función: core adaptado del ecosistema
+## 🚀 CI/CD: Unified Engine
+Contamos con un único workflow maestro (`unified-engine.yml`) que:
+- Ejecuta auditorías de ecosistema.
+- Compila los reactores Maven y Gradle en paralelo.
+- Despliega automáticamente los módulos core (`Dough`, `Slimefun`, `SefiLib`, `InfinityLib`) si el build es exitoso.
 
-## Reactor Maven
+## 📂 Organización del Workspace
+- `sources/dough-core`: Librería base unificada (`com.github.drakescraft-labs`).
+- `sources/slimefun-core`: Núcleo Slimefun adaptado.
+- `sources/repos-to-port`: Batch prioritario estabilizado.
+- `sources/batch-2-expansion`: Librerías y expansiones activas.
+- `sources/community-addons`: Archivo comunitario en proceso de integración.
 
-El `pom.xml` raíz centraliza:
-
-- versiones
-- dependencias
-- módulos activos
-- alineación de parent para addons integrados
-
-Esto permite trabajar addon por addon sin compilar todo el universo del repo.
-
-## Zonas del workspace
-
-- `sources/repos-to-port`: batch prioritario ya estabilizado
-- `sources/batch-2-expansion`: librerías, expansiones y variantes activas
-- `sources/community-addons`: addons comunitarios integrados de forma progresiva
-- `templates/slimefun-addon`: plantilla base para nuevos módulos
-- `wiki_temp`: mirror local editable de la wiki pública
-
-## Variantes Activas
-
-En algunos casos el addon histórico no es la referencia correcta. Hoy las variantes activas adoptadas son:
-
-- `Cultivation_Updated`
-- `Networks_Better_Compatibility`
-
-Las variantes `Cultivation` y `Networks` originales siguen presentes en el repo, pero no deben contarse como activas ni listas.
-
-## Filosofía de cierre
-
-Un addon se considera estabilizado cuando:
-
-- compila correctamente
-- está alineado al parent y a las dependencias Drake
-- no deja errores activos de API conocidos
-- su estado quedó documentado
-
-## Navegación Relacionada
-
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [[Referencia Técnica (Paper 1.21.1)]]
+---
+**Navegación Relacionada**:
+- [Checklist de Migración](migration-checklist.md)
+- [Guía de Porteo 1.21.1](README-PORT-1.21.1.md)
+- [Referencia Técnica](technical-reference-paper-1.21.1.md)

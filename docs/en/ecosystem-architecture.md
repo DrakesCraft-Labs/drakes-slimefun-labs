@@ -1,57 +1,47 @@
-# Ecosystem Architecture
+# 🏛️ DrakesLab Ecosystem Architecture
 
-## What This Lab Is
+## What is this Lab?
+`drakes-slimefun-labs` is a technical consolidation monorepo designed to port, stabilize, and document the Slimefun ecosystem for **Paper 1.21.1** and **Java 21**.
 
-`drakes-slimefun-labs` is not a single plugin. It is a monorepo used to port, stabilize, and document a Slimefun addon ecosystem on top of `Paper 1.21.11` and `Java 21`.
+## 🧬 Unified Identity and Namespace
+As of v15.0, the ecosystem uses a unified namespace to prevent collisions and ensure reliable dependency resolution on GitHub Packages:
+- **Master Namespace**: `com.github.drakescraft-labs`
+- **Version Prefix**: `Drake-1.21.1`
 
-## Base Pieces
+## 🏗️ Hybrid Build System
+The lab uses a dual build system to support 100% of the ecosystem addons:
 
-### `sources/dough-core`
+### 1. Maven Reactor (80 Modules)
+Manages the core and most addons via the root `pom.xml`. It centralizes:
+- Common version properties (`${slimefun.drake.version}`, `${dough.version}`).
+- Relocated dependency management (`dough-core`).
+- Parent POM alignment for surgical addons.
 
-- group: `dev.drake.dough`
-- current base version: `1.3.1-DRAKE`
-- function: shared library for the full stack
+### 2. Master Gradle Reactor (9 Modules) 🐘
+Manages Gradle-based addons (such as Galactifun or SlimefunTranslation) via the root `settings.gradle.kts`.
+- Forces **Java 21** standards across all subprojects.
+- Connects addons to DrakesLab libraries published on Maven.
 
-### `sources/slimefun-core/Slimefun4-src`
+## 🐍 DrakesLab Manager
+Ecosystem integrity is maintained via `scripts/manager.py`. Its functions include:
+- **Audit**: Real-time tracking of all 89 addons.
+- **Hot-Repair**: XML identity synchronization and internal dependency bridge repair.
 
-- group: `dev.drake`
-- artifact: `Slimefun`
-- current base version: `6.0-Drake-1.21.11`
-- function: adapted ecosystem core
+## 🚀 CI/CD: Unified Engine
+A single master workflow (`unified-engine.yml`) handles:
+- Ecosystem-wide audits.
+- Parallel Maven and Gradle reactor builds.
+- Automated deployment of core modules (`Dough`, `Slimefun`, `SefiLib`, `InfinityLib`) upon successful builds.
 
-## Maven Reactor
+## 📂 Workspace Layout
+- `sources/dough-core`: Unified base library (`com.github.drakescraft-labs`).
+- `sources/slimefun-core`: Adapted Slimefun core.
+- `sources/repos-to-port`: Stabilized priority batch.
+- `sources/batch-2-expansion`: Active libraries and expansions.
+- `sources/community-addons`: Community archive under integration.
 
-The root `pom.xml` centralizes:
-
-- versions
-- dependencies
-- active modules
-- parent alignment for integrated addons
-
-This makes it possible to work addon by addon without compiling the entire repository universe.
-
-## Workspace Zones
-
-- `sources/repos-to-port`: prioritized batch already stabilized
-- `sources/batch-2-expansion`: libraries, expansions, and active variants
-- `sources/community-addons`: community addons integrated progressively
-- `templates/slimefun-addon`: base template for new modules
-- `wiki_temp`: editable local mirror of the public wiki
-
-## Active Variants
-
-In some cases the historical addon is not the correct current target. The active adopted variants today are:
-
-- `Cultivation_Updated`
-- `Networks_Better_Compatibility`
-
-The original `Cultivation` and `Networks` variants still exist in the repository, but they must not be counted as active or ready.
-
-## Closure Philosophy
-
-An addon is considered stabilized when:
-
-- it compiles correctly
-- it is aligned with the reactor parent and Drake dependencies
-- it no longer has known active API failures
-- its status has been documented
+---
+**Related Navigation**:
+- [Migration Checklist](migration-checklist.md)
+- [Porting Guide 1.21.1](../docs/README-PORT-1.21.1.md)
+- [Technical Reference](technical-reference-paper-1.21.1.md)

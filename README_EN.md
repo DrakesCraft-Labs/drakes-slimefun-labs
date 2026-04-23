@@ -35,19 +35,29 @@ This repository is not a single plugin. It is a consolidation, porting, validati
 | Release/CI strategy | [Release and CI Strategy](docs/en/release-and-ci-strategy.md) | [Release and CI Strategy](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Release-and-CI-Strategy) | Publication and automation policy. |
 | Actual local template | [Template README](templates/slimefun-addon/README.md) | Not applicable | Local baseline for new addons in this stack. |
 
-## Executive Status
+## Executive Status (The Great Work)
 
 > [!IMPORTANT]
-> Main working branch: `1.21-latin`
+> Main working branch: `1.21-latin` | Unified Identity: `com.github.drakescraft-labs`
 
-The lab currently covers a universe of `87 addons` plus `2 base modules`.
-The root `pom.xml` acts as a unified reactor and currently declares `60 active modules` (`58 addons + 2 base`).
+The lab currently covers a universe of **89 addons** plus base modules. We have achieved a high-performance hybrid architecture.
 
-| Metric | Value |
-| :--- | :--- |
-| Ready in reactor | `60` |
-| Active modules with confirmed failures | `0` |
-| Addons outside the reactor | `29` |
+| Metric | Value | Status |
+| :--- | :--- | :--- |
+| **SURGICAL** (Ready + Rebrand) | `60` | 💎 Full 1.21.1 Stability |
+| **STABILIZED** (Maven OK) | `18` | ⚙️ Unified Maven Reactor |
+| **GRADLE REBELS** | `9` | 🐘 Master Gradle Reactor |
+| **Total Progress** | **67.4%** | **89 Tracked Addons** |
+| **Unified Base** | `com.github.drakescraft-labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
+| **Slimefun Core** | `com.github.drakescraft-labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
+| **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Parallel Maven + Gradle |
+
+### How to interpret this status
+
+- **SURGICAL**: The module compiles, is integrated into the reactor, and uses the official `-drake` identity.
+- **STABILIZED**: The module is in the Maven reactor, is stable, but does not yet have final rebranding.
+- **GRADLE REBELS**: Addons using Gradle, now managed by a **Master Gradle Reactor** with Java 21.
+- **DrakesLab Manager**: The ecosystem is managed via `scripts/manager.py` (Python 3.12).
 | Real operational backlog | `29 addons` |
 | Unified base | `dev.drake.dough:dough-core:1.3.1-DRAKE` |
 | Core | `dev.drake:Slimefun:6.0-Drake-1.21.11` |

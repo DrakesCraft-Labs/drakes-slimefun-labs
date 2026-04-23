@@ -1,99 +1,43 @@
-# Release and CI Strategy
+# 🚀 Release and CI Strategy: DrakesLab Standard
 
 ## Goal
+Define a clear policy for artifact publication and automation in `drakes-slimefun-labs`, leveraging the **Unified Engine** to maintain high-quality standards across the 89-addon ecosystem.
 
-Define a clear policy for artifact publication and automation in `drakes-slimefun-labs` without confusing the migration lab with a single stable monolithic distribution.
+## 🏗️ Unified CI Architecture
+As of v15.0, we have consolidated all automation into a single, high-performance engine: **DrakesLab Unified Engine** (`unified-engine.yml`).
 
-## Current state
+### Core Capabilities:
+- **Parallel Processing**: Builds both Maven and Gradle reactors simultaneously.
+- **Ecosystem Audit**: Automatically runs `manager.py audit` to track migration progress.
+- **Strict Quality**: Forces **Java 21** and **Paper 1.21.1** standards.
+- **Smart Caching**: Aggressive dependency caching for sub-3-minute full builds.
 
-This repository is a large staged `Maven reactor`.
+## 📦 Deployment Policy
 
-That means:
+### Automated Deployment (Continuous Delivery)
+The **Unified Engine** automatically deploys the following critical modules to **GitHub Packages** upon every successful push to `1.21-latin`:
+- `com.github.drakescraft-labs:dough-core`
+- `com.github.drakescraft-labs:slimefun-core`
+- `com.github.drakescraft-labs:sefilib-core`
+- `com.github.drakescraft-labs:infinitylib-core`
 
-- not every module has the same runtime validation level
-- some modules still carry version labels such as `UNOFFICIAL`, `MODIFIED`, or similar
-- the fact that a module builds does not automatically mean it should be published as a stable release
+### Manual Release Candidates
+Individual addons are not automatically released as stable versions. Instead:
+1. **Workflow Artifacts**: Every build generates downloadable `.jar` files for all 89 addons.
+2. **Smoke Testing**: Developers must manually validate artifacts in a live environment.
+3. **Draft Releases**: Stable batches or high-priority addons (like `InfinityExpansion` or `DynaTech`) are published as manual releases after runtime confirmation.
 
-## Main decision
+## 🛠️ Recommended Developer Workflow
+1. **Local Validation**: Run `python scripts/manager.py` to sync identities.
+2. **Isolated Build**: Use `mvn -pl <path> -am clean install` for fast local testing.
+3. **CI Validation**: Push to `1.21-latin` and monitor the **Unified Engine** for regressions.
 
-The project should not publish one massive release containing every reactor `.jar` as if it were a single production-ready product.
+## ✅ Quality Gate Standards
+A module is considered "Surgical Ready" and eligible for stable distribution when:
+- It successfully passes the **Unified Engine** build.
+- It uses the `com.github.drakescraft-labs` unified identity.
+- No legacy API warnings or dependency conflicts are present.
+- It has been smoke-tested in a real Minecraft server environment.
 
-Instead, the recommended strategy is:
-
-1. use CI to validate curated groups of stable modules
-2. keep downloadable workflow artifacts for fast review
-3. publish manual or semi-manual releases only for selected stacks or modules
-
-## What does make sense to publish
-
-### Base stack releases
-
-Good candidates:
-
-- `dough-core`
-- Drake `Slimefun` core
-
-### Clearly scoped library or addon releases
-
-Good candidates:
-
-- `InfinityLib`
-- `InfinityExpansion`
-- `SimpleUtils`
-- `ExoticGarden`
-
-### Curated batch releases
-
-Only if documented carefully:
-
-- a build-validated and smoke-tested addon batch
-- a family of modules with a shared dependency line
-
-## What should not be done yet
-
-- a single release bundling dozens of unrelated `.jar` files
-- one global tag that suggests uniform stability across the whole reactor
-- automatic release publication on every `push` without filtering
-
-## Recommended CI
-
-The first automation layer should be conservative.
-
-Goal of the first workflow:
-
-- use `Java 21`
-- run isolated builds with `-pl` and `-am`
-- work only on stable curated groups
-- upload downloadable artifacts
-
-## Recommended current workflow
-
-`ci-curated-modules.yml`
-
-Planned groups:
-
-- `core-stack`
-- `ecosystem-libs`
-- `validated-addons`
-
-This makes it possible to:
-
-- validate the critical stack without building everything
-- catch regressions in representative modules
-- provide useful artifacts without overgrowing the pipeline
-
-## Release policy
-
-A release should happen when:
-
-- the module or group has consistent validated builds
-- its version and naming are reasonable for public consumption
-- there is no known active API or dependency blocker
-- if the module needs it, it already passed basic runtime validation
-
-## Suggested next steps
-
-1. maintain and tune the curated CI
-2. review naming/versioning for real release candidates
-3. create manual draft releases for genuinely stable modules
-4. only then evaluate automated releases
+---
+**Maintained by DrakesLab Core Team.**

@@ -36,30 +36,29 @@ Este repo no representa un único plugin. Es un laboratorio de consolidación, p
 | Estrategia de releases/CI | [Estrategia de Releases y CI](docs/es/release-and-ci-strategy.md) | [Estrategia de Releases y CI](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Estrategia-de-Releases-y-CI) | Política de publicación y automatización. |
 | Template real | [Template README](templates/slimefun-addon/README.md) | No aplica | Base local para crear nuevos addons del stack. |
 
-## Estado Ejecutivo
+## Estado Ejecutivo (La Gran Obra)
 
 > [!IMPORTANT]
-> Rama de trabajo principal: `1.21-latin`
+> Rama de trabajo principal: `1.21-latin` | Identidad Unificada: `com.github.drakescraft-labs`
 
-El laboratorio cubre actualmente un universo de `87 addons` más `2 módulos base`.
-El `pom.xml` raíz funciona como reactor unificado y hoy declara `60 módulos` activos (`58 addons + 2 base`).
+El laboratorio cubre actualmente un universo de **89 addons** más los módulos base. Hemos logrado una arquitectura híbrida de alto rendimiento.
 
-| Métrica | Valor |
-| :--- | :--- |
-| Módulos listos en reactor | `60` |
-| Módulos activos con fallo confirmado | `0` |
-| Addons fuera del reactor | `29` |
-| Backlog operativo real | `29 addons` |
-| Base unificada | `dev.drake.dough:dough-core:1.3.1-DRAKE-v7-SNAPSHOT` |
-| Core | `dev.drake:slimefun-core:7.0-Drake-1.21.11-SNAPSHOT` |
-| Maven Registry | [GitHub Packages](https://github.com/orgs/DrakesCraft-Labs/packages) |
+| Métrica | Valor | Estado |
+| :--- | :--- | :--- |
+| **SURGICAL** (Listo + Rebrand) | `60` | 💎 Estabilidad Total 1.21.1 |
+| **STABILIZED** (Maven OK) | `18` | ⚙️ Reactor Maven Unificado |
+| **GRADLE REBELS** | `9` | 🐘 Reactor Gradle Maestro |
+| **Progreso Total** | **67.4%** | **89 Addons Trackeados** |
+| **Base Unificada** | `com.github.drakescraft-labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
+| **Core Slimefun** | `com.github.drakescraft-labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
+| **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Maven + Gradle en paralelo |
 
 ### Cómo interpretar este estado
 
-- `Listo en reactor` significa que el módulo compila hoy dentro del build unificado para `1.21.11`.
-- `Activo con fallo confirmado` significa que el addon ya está integrado al `pom.xml` raíz, pero todavía no se puede marcar como listo.
-- `Fuera del reactor` significa que el addon está presente en el repo, pero todavía no fue incorporado al build unificado.
-- `Backlog operativo real` es la suma de lo que sigue roto dentro del reactor y lo que aún no se integró.
+- **SURGICAL**: El módulo compila, está integrado al reactor y usa la identidad `-drake` oficial.
+- **STABILIZED**: El módulo está en el reactor de Maven, es estable, pero aún no tiene el rebranding final.
+- **GRADLE REBELS**: Addons que usan Gradle, ahora gestionados por un **Reactor Maestro de Gradle** con Java 21.
+- **DrakesLab Manager**: El ecosistema se gestiona mediante `scripts/manager.py` (Python 3.12).
 
 ## Qué Es Este Repo y Qué No Es
 
