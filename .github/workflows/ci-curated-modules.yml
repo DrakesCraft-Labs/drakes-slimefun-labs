@@ -1,7 +1,7 @@
 name: Curated Maven CI
 
 on:
-  # push:
+  push:
     branches:
       - 1.21-latin
   pull_request:
