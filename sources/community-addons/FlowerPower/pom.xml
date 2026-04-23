@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>me.ncbpfluffybear</groupId>
-    <artifactId>FlowerPower</artifactId>
+    <artifactId>FlowerPower-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

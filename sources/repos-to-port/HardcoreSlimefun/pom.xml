@@ -12,7 +12,7 @@
 
 
     <groupId>dev.walshy</groupId>
-    <artifactId>HardcoreSlimefun</artifactId>
+    <artifactId>HardcoreSlimefun-drake</artifactId>
     <version>1.0</version>
 
     <repositories>

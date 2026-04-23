@@ -12,7 +12,7 @@
 
 
     <groupId>io.github.sefiraat</groupId>
-    <artifactId>EMCTech</artifactId>
+    <artifactId>EMCTech-drake</artifactId>
     <version>MODIFIED</version>
 
     <build>
@@ -170,18 +170,18 @@
         <!-- Supported Plugins -->
         <dependency>
             <groupId>dev.sefiraat</groupId>
-            <artifactId>networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.Sefiraat</groupId>
-            <artifactId>DankTech2</artifactId>
+            <artifactId>DankTech2-drake</artifactId>
             <version>d2465ae845</version>
         </dependency>
         <dependency>
             <groupId>com.github.Mooy1</groupId>
-            <artifactId>InfinityExpansion</artifactId>
+            <artifactId>InfinityExpansion-drake</artifactId>
             <version>1e83e7afa0</version>
         </dependency>
         <dependency>

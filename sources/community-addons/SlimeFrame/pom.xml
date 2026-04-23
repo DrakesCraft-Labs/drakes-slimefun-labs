@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.voper</groupId>
-    <artifactId>SlimeFrame</artifactId>
+    <artifactId>SlimeFrame-drake</artifactId>
     <version>1.7.0</version>
 
     <properties>

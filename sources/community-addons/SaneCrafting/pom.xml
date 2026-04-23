@@ -12,7 +12,7 @@
 
 
     <groupId>metamechanists</groupId>
-    <artifactId>SaneCrafting</artifactId>
+    <artifactId>SaneCrafting-drake</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 

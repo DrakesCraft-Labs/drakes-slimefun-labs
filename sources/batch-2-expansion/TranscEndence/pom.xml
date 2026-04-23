@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>me.sfiguz7</groupId>
-    <artifactId>TranscEndence</artifactId>
+    <artifactId>TranscEndence-drake</artifactId>
     <version>DevTest-33</version>
 
     <properties>

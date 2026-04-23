@@ -12,7 +12,7 @@
 
 
     <groupId>me.mmmjjkx</groupId>
-    <artifactId>BetterChests</artifactId>
+    <artifactId>BetterChests-drake</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -96,13 +96,13 @@
 
         <dependency>
             <groupId>com.github.Sefiraat</groupId>
-            <artifactId>Networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <version>3de3c9d608</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.schntgaispock</groupId>
-            <artifactId>SlimeHUD</artifactId>
+            <artifactId>SlimeHUD-drake</artifactId>
             <version>v1.2.7</version>
             <scope>provided</scope>
         </dependency>

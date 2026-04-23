@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.pranavverma</groupId>
-    <artifactId>AdvancedTech</artifactId>
+    <artifactId>AdvancedTech-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>me.profelements</groupId>
-    <artifactId>DynaTech</artifactId>
+    <artifactId>DynaTech-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>DynaTech</name><description>Advanced technical machinery for Slimefun 4. Featuring high-tier generators, automated farms, and unique utilities for the ultimate factory experience.</description>
 
@@ -29,7 +29,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.mooy1</groupId>
-            <artifactId>InfinityExpansion</artifactId>
+            <artifactId>InfinityExpansion-drake</artifactId>
             <version>1.20.6-Drake-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
@@ -65,13 +65,13 @@
         </dependency>
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>extrautils</artifactId>
+            <artifactId>ExtraUtils-drake</artifactId>
             <version>73e76ac</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.thebusybiscuit</groupId>
-            <artifactId>ExoticGarden</artifactId>
+            <artifactId>ExoticGarden-drake</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>

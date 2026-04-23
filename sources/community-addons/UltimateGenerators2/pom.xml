@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>net.guizhanss</groupId>
-    <artifactId>UltimateGenerators2</artifactId>
+    <artifactId>UltimateGenerators2-drake</artifactId>
     <version>1.1.DEV</version>
     <name>UltimateGenerators2</name>
 

@@ -12,7 +12,7 @@
 	</parent>
 
 	<groupId>org.lins.mmmjjkx</groupId>
-	<artifactId>RykenSlimefunCustomizer</artifactId>
+	<artifactId>RykenSlimefunCustomizer-drake</artifactId>
 	<version>20</version>
 	<packaging>jar</packaging>
 

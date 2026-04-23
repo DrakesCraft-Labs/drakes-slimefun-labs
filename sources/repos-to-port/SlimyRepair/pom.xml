@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>me.ncbpfluffybear</groupId>
-    <artifactId>SlimyRepair</artifactId>
+    <artifactId>SlimyRepair-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

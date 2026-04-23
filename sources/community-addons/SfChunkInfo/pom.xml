@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>me.fnfal113</groupId>
-    <artifactId>SfChunkInfo</artifactId>
+    <artifactId>SfChunkInfo-drake</artifactId>
     <version>Unoffical-1.7-SNAPSHOT.1</version>
 
     <properties>

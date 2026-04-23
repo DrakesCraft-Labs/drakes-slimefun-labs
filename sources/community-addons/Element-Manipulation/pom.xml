@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>me.ncbpfluffybear.elementmanipulation</groupId>
-    <artifactId>Element-Manipulation</artifactId>
+    <artifactId>Element-Manipulation-drake</artifactId>
     <version>1.1.1</version>
 
     <properties>

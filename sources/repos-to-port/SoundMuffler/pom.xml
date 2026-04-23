@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>dev.j3fftw</groupId>
-    <artifactId>SoundMuffler</artifactId>
+    <artifactId>SoundMuffler-drake</artifactId>
     <version>1.0-Drake</version>
 
     <properties>

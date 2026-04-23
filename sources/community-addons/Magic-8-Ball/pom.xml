@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>com.xmooncorp</groupId>
-    <artifactId>Magic8Ball</artifactId>
+    <artifactId>Magic8Ball-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>

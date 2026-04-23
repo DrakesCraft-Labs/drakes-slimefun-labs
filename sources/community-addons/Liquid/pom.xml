@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>io.github.seggan.liquid</groupId>
-    <artifactId>Liquid</artifactId>
+    <artifactId>Liquid-drake</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>

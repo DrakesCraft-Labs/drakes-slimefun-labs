@@ -12,7 +12,7 @@
 
 
     <groupId>dev.j3fftw</groupId>
-    <artifactId>WorldEditSlimefun</artifactId>
+    <artifactId>WorldEditSlimefun-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 

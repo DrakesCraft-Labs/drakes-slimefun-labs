@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>io.github.sefiraat.simplestorage</groupId>
-    <artifactId>SimpleStorage</artifactId>
+    <artifactId>SimpleStorage-drake</artifactId>
     <version>MODIFIED</version>
 
     <properties>

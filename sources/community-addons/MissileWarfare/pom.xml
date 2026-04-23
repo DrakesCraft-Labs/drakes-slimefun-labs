@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.kaiyan.missilewarfare</groupId>
-    <artifactId>MissileWarfare</artifactId>
+    <artifactId>MissileWarfare-drake</artifactId>
     <version>1.7-SNAPSHOT.13</version>
 
     <properties>

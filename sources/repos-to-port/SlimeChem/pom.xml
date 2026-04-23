@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>io.github.addoncommunity</groupId>
-    <artifactId>SlimeChem</artifactId>
+    <artifactId>SlimeChem-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>SlimeChem</name>
 

@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>MobCapturer</artifactId>
+    <artifactId>MobCapturer-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>

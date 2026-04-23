@@ -217,7 +217,7 @@
             </dependency>
             <dependency>
                 <groupId>io.github.sefiraat</groupId>
-                <artifactId>Networks</artifactId>
+                <artifactId>Networks-drake</artifactId>
                 <version>1.6</version>
                 <scope>provided</scope>
             </dependency>

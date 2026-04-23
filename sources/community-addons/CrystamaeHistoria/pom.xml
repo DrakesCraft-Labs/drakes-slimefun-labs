@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>io.github.thebusybiscuit.crystamaehistoria</groupId>
-    <artifactId>CrystamaeHistoria</artifactId>
+    <artifactId>CrystamaeHistoria-drake</artifactId>
     <version>1.0.1</version>
 
     <properties>
@@ -60,7 +60,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.thebusybiscuit</groupId>
-            <artifactId>ExoticGarden</artifactId>
+            <artifactId>ExoticGarden-drake</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -71,7 +71,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.sefiraat</groupId>
-            <artifactId>Networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

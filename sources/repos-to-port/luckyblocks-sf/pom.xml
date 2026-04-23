@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>SlimefunLuckyBlocks</artifactId>
+    <artifactId>SlimefunLuckyBlocks-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ExoticGarden</artifactId>
+    <artifactId>ExoticGarden-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

@@ -12,7 +12,7 @@
 
 
     <groupId>dev.j3fftw</groupId>
-    <artifactId>LiteXpansion</artifactId>
+    <artifactId>LiteXpansion-drake</artifactId>
     <version>MODIFIED</version>
 
     <repositories>
@@ -66,7 +66,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>extrautils</artifactId>
+            <artifactId>ExtraUtils-drake</artifactId>
             <version>73e76ac06c</version>
         </dependency>
     </dependencies>

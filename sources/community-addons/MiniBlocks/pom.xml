@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.EzCoins</groupId>
-    <artifactId>MiniBlocks</artifactId>
+    <artifactId>MiniBlocks-drake</artifactId>
 
     <version>UNOFFICIAL</version>
 

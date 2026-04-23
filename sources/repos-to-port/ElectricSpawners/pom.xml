@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
     <groupId>io.github.thebusybiscuit</groupId>
-    <artifactId>ElectricSpawners</artifactId>
+    <artifactId>ElectricSpawners-drake</artifactId>
     <version>1.21.11-Drake</version>
 
     <properties>

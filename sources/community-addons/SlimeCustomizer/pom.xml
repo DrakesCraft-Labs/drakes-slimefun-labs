@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>io.ncbpfluffybear</groupId>
-    <artifactId>SlimeCustomizer</artifactId>
+    <artifactId>SlimeCustomizer-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -76,7 +76,7 @@
 
         <dependency>
             <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>ExtraUtils</artifactId>
+            <artifactId>ExtraUtils-drake</artifactId>
             <version>73e76ac06c</version>
             <scope>compile</scope>
         </dependency>

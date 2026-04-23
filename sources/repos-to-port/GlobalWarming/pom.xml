@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.poma123</groupId>
-    <artifactId>GlobalWarming</artifactId>
+    <artifactId>GlobalWarming-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

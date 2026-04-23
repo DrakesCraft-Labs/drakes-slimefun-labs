@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>me.sfiguz7.danktech2</groupId>
-    <artifactId>DankTech2</artifactId>
+    <artifactId>DankTech2-drake</artifactId>
     <version>1.0.1</version>
 
     <properties>

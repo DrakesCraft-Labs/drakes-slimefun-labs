@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.epicplayera10</groupId>
-    <artifactId>PotionExpansion</artifactId>
+    <artifactId>PotionExpansion-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>

@@ -12,7 +12,7 @@
 
 
     <groupId>dev.j3fftw.headlimiter</groupId>
-    <artifactId>HeadLimiter</artifactId>
+    <artifactId>HeadLimiter-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
