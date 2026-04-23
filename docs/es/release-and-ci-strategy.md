@@ -55,32 +55,16 @@ Solo si se documentan bien:
 - una etiqueta global que sugiera estabilidad homogénea de todo el reactor
 - automatizar publicación de releases para cada `push` sin filtro
 
-## CI recomendado
+## Nueva Arquitectura de CI (Modular Gates)
 
-La automatización inicial debe ser conservadora.
+A partir de la v7, el CI se ha dividido en **4 Gates (Puertas de Calidad)** paralelas para aislar fallos y asegurar el núcleo:
 
-Objetivo del primer workflow:
+*   **Gate: Foundation** 🧱: Valida y publica el stack crítico (`slimefun-core`, `dough-core`, librerías base).
+*   **Gate: Standard Addons** 📦: Addons oficiales y estables.
+*   **Gate: Expansion Addons** 🌌: Expansiones de gran tamaño y complejidad.
+*   **Gate: Community Addons** 👥: Addons externos integrados progresivamente.
 
-- usar `Java 21`
-- ejecutar builds aislados con `-pl` y `-am`
-- trabajar sobre grupos estables y curados
-- subir artifacts descargables
-
-## Workflow actual recomendado
-
-`ci-curated-modules.yml`
-
-Grupos previstos:
-
-- `core-stack`
-- `ecosystem-libs`
-- `validated-addons`
-
-Esto permite:
-
-- validar el stack crítico sin compilar todo
-- detectar regresiones en módulos representativos
-- ofrecer artifacts útiles sin sobredimensionar el pipeline
+Esto permite que un fallo en un addon de la comunidad no bloquee el despliegue del núcleo o de los addons oficiales.
 
 ## Política de releases
 

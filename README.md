@@ -26,6 +26,7 @@ Este repo no representa un único plugin. Es un laboratorio de consolidación, p
 | Roadmap | [Roadmap de Estabilización](docs/es/stabilization-roadmap.md) | [Roadmap de Estabilización](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Roadmap-de-Estabilizaci%C3%B3n) | Orden sugerido de cierre. |
 | Handoff diario | [Tomorrow-Handoff](docs/es/tomorrow-handoff.md) | [Tomorrow-Handoff](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff) | Continuidad entre sesiones. |
 | Arquitectura | [Arquitectura del Ecosistema](docs/es/ecosystem-architecture.md) | [Arquitectura del Ecosistema](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Arquitectura-del-Ecosistema) | Explica el stack Drake y la organización del workspace. |
+| CI Modular | [CI Architecture](CI_ARCHITECTURE.md) | [CI Architecture](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/CI-Architecture) | Funcionamiento de los 4 Gates paralelos y v7. |
 | Referencia técnica 1.21.1 | [Referencia Técnica (Paper 1.21.1)](docs/es/technical-reference-paper-1.21.1.md) | [Referencia Técnica (Paper 1.21.1)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Referencia-T%C3%A9cnica-(Paper-1.21.1)) | Hallazgos de API, compatibilidad y criterios de port. |
 | Smoke test | [Guía de Smoke Test](docs/es/smoke-test-guide.md) | [Guía de Smoke Test](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Gu%C3%ADa-de-Smoke-Test) | Validación de runtime básica. |
 | Dev setup | [Dev-Setup](docs/es/development-setup.md) | [Dev-Setup](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Dev-Setup) | Preparación del entorno de trabajo. |
@@ -49,8 +50,8 @@ El `pom.xml` raíz funciona como reactor unificado y hoy declara `60 módulos` a
 | Módulos activos con fallo confirmado | `0` |
 | Addons fuera del reactor | `29` |
 | Backlog operativo real | `29 addons` |
-| Base unificada | `dev.drake.dough:dough-core:1.3.1-DRAKE` |
-| Core | `dev.drake:Slimefun:6.0-Drake-1.21.11` |
+| Base unificada | `dev.drake.dough:dough-core:1.3.1-DRAKE-v7-SNAPSHOT` |
+| Core | `dev.drake:slimefun-core:7.0-Drake-1.21.11-SNAPSHOT` |
 | Maven Registry | [GitHub Packages](https://github.com/orgs/DrakesCraft-Labs/packages) |
 
 ### Cómo interpretar este estado
