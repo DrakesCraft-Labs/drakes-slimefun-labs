@@ -13,7 +13,7 @@
 
     <groupId>dev.drake.dough</groupId>
     <artifactId>dough-core</artifactId>
-    <version>1.3.1-DRAKE-SNAPSHOT</version>
+    <version>1.3.1-DRAKE-v7-SNAPSHOT</version>
     <name>dough-core</name>
     <description>A highly optimized, high-performance fork of the Dough library. Re-engineered for the DrakesCraft ecosystem with enhanced protection hooks and improved skin caching for 1.21.11.</description>
 

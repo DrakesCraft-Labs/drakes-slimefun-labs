@@ -13,7 +13,7 @@
 
     <groupId>io.github.addoncommunity</groupId>
     <artifactId>SlimeChem</artifactId>
-    <version>1.21-Drake</version>
+    <version>1.21-Drake-v7</version>
     <name>SlimeChem</name>
 
     <dependencies>

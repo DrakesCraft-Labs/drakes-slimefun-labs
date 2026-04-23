@@ -13,7 +13,7 @@
 
     <groupId>me.profelements</groupId>
     <artifactId>DynaTech</artifactId>
-    <version>1.21-Drake</version>
+    <version>1.21-Drake-v7</version>
     <name>DynaTech</name><description>Advanced technical machinery for Slimefun 4. Featuring high-tier generators, automated farms, and unique utilities for the ultimate factory experience.</description>
 
     <dependencies>
