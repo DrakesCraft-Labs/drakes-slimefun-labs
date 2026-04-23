@@ -320,6 +320,10 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
+            <id>bstats-repo</id>
+            <url>https://repo.codemc.org/repository/maven-public/</url>
+        </repository>
+        <repository>
             <id>enginehub-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
