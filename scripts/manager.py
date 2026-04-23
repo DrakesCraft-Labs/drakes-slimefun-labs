@@ -194,7 +194,99 @@ def inject_dough(dry_run=False):
                     else:
                         count += 1
 
-    log(f"Inyección completada. Módulos alimentados: {count}", "SUCCESS")
+    log(f"Inyección de Dough completada. Módulos alimentados: {count}", "SUCCESS")
+
+def inject_lombok(dry_run=False):
+    log("Iniciando Inyección Masiva de Lombok...", "INFO")
+    
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            pom_path = os.path.join(root, "pom.xml")
+            
+            # 1. ¿Usa Lombok en el código?
+            needs_lombok = False
+            for r, d, f in os.walk(root):
+                for file in f:
+                    if file.endswith(".java"):
+                        with open(os.path.join(r, file), 'r', encoding='utf-8', errors='ignore') as jf:
+                            code = jf.read()
+                            if any(x in code for x in ["@Getter", "@Setter", "@UtilityClass", "@NoArgsConstructor", "@AllArgsConstructor", "@Data"]):
+                                needs_lombok = True
+                                break
+                if needs_lombok: break
+            
+            if needs_lombok:
+                with open(pom_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                if "lombok" not in content.lower():
+                    log(f"Inyectando Lombok en: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
+                    
+                    dependency_block = """
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>"""
+                    
+                    new_content = content.replace("</dependencies>", dependency_block)
+                    
+                    if not dry_run:
+                        if validate_xml(new_content):
+                            with open(pom_path + ".bak", 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            with open(pom_path, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            count += 1
+                        else:
+                            log(f"Error de validación inyectando en {pom_path}", "ERROR")
+                    else:
+                        count += 1
+
+    log(f"Inyección de Lombok completada. Módulos alimentados: {count}", "SUCCESS")
+
+def migrate_to_paper(dry_run=False):
+    log("Iniciando Migración Masiva a Paper-API...", "INFO")
+    
+    # Patrón para detectar spigot-api y capturar su bloque entero
+    spigot_pattern = r"<(dependency)>\s*<groupId>org\.spigotmc</groupId>\s*<artifactId>spigot-api</artifactId>[\s\S]*?</\1>"
+    
+    paper_replacement = """<dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>${paper.version}</version>
+            <scope>provided</scope>
+        </dependency>"""
+    
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            pom_path = os.path.join(root, "pom.xml")
+            
+            with open(pom_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            if "spigot-api" in content:
+                log(f"Migrando a Paper-API: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
+                new_content = re.sub(spigot_pattern, paper_replacement, content)
+                
+                if new_content != content:
+                    if not dry_run:
+                        if validate_xml(new_content):
+                            with open(pom_path + ".bak", 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            with open(pom_path, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            count += 1
+                        else:
+                            log(f"Error de validación migrando en {pom_path}", "ERROR")
+                    else:
+                        count += 1
+
+    log(f"Migración completada. Módulos modernizados: {count}", "SUCCESS")
 
 if __name__ == "__main__":
     action = sys.argv[1] if len(sys.argv) > 1 else "repair"
@@ -207,5 +299,9 @@ if __name__ == "__main__":
         repair(dry_run=is_dry)
     elif action == "inject-dough":
         inject_dough(dry_run=is_dry)
+    elif action == "inject-lombok":
+        inject_lombok(dry_run=is_dry)
+    elif action == "migrate-to-paper":
+        migrate_to_paper(dry_run=is_dry)
     else:
         log(f"Acción desconocida: {action}", "ERROR")
