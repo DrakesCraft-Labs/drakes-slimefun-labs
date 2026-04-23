@@ -14,7 +14,7 @@
     <groupId>me.profelements</groupId>
     <artifactId>DynaTech</artifactId>
     <version>1.21-Drake</version>
-    <name>DynaTech</name>
+    <name>DynaTech | DrakesLab Port</name><description>Advanced technical machinery for Slimefun 4. Featuring high-tier generators, automated farms, and unique utilities for the ultimate factory experience.</description>
 
     <dependencies>
         <dependency>
