@@ -13,7 +13,7 @@
 
     <groupId>dev.drake.dough</groupId>
     <artifactId>dough-core</artifactId>
-    <version>1.3.1-DRAKE-SNAPSHOT</version>
+    <version>1.3.1-DRAKE-SNAPSHOT-SNAPSHOT</version>
     <name>Dough Core (DrakesLab Port)</name>
 
     <dependencies>

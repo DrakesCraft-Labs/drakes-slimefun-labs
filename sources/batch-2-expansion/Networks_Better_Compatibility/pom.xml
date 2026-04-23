@@ -13,7 +13,7 @@
 
     <groupId>io.github.sefiraat</groupId>
     <artifactId>Networks</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT-SNAPSHOT</version>
     <name>Networks</name>
 
     <build>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityExpansion</artifactId>
-            <version>1.20.6-Drake</version>
+            <version>1.20.6-Drake-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
