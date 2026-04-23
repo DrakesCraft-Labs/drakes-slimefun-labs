@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>RelicsOfCthonia-drake</artifactId>
+    <groupId>ne.fnfal113</groupId>
+    <artifactId>RelicsOfCthonia</artifactId>
     <version>Unofficial-2.0.0</version>
     <packaging>jar</packaging>
 

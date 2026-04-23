@@ -15,8 +15,8 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeChem-drake</artifactId>
+    <groupId>io.github.addoncommunity</groupId>
+    <artifactId>SlimeChem</artifactId>
     <version>1.21-Drake-v7</version>
     <name>SlimeChem</name>
 

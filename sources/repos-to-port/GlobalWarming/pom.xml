@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>GlobalWarming-drake</artifactId>
+    <groupId>me.poma123</groupId>
+    <artifactId>GlobalWarming</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <properties>

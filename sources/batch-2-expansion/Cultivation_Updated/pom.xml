@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Cultivation-drake</artifactId>
+    <groupId>dev.sefiraat</groupId>
+    <artifactId>Cultivation</artifactId>
     <version>2.5</version>
 
     <name>Cultivation</name>

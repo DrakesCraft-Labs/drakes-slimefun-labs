@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeFrame-drake</artifactId>
+    <groupId>me.voper</groupId>
+    <artifactId>SlimeFrame</artifactId>
     <version>1.7.0</version>
 
     <properties>

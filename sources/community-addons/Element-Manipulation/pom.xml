@@ -12,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Element-Manipulation-drake</artifactId>
+    <groupId>me.ncbpfluffybear.elementmanipulation</groupId>
+    <artifactId>Element-Manipulation</artifactId>
     <version>1.1.1</version>
 
     <properties>

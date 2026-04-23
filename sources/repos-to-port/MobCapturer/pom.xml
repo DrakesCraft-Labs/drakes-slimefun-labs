@@ -14,8 +14,8 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>MobCapturer-drake</artifactId>
+    <groupId>io.github.thebusybiscuit</groupId>
+    <artifactId>MobCapturer</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>

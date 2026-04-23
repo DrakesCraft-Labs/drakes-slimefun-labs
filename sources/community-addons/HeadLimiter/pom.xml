@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>HeadLimiter-drake</artifactId>
+    <groupId>dev.j3fftw.headlimiter</groupId>
+    <artifactId>HeadLimiter</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 

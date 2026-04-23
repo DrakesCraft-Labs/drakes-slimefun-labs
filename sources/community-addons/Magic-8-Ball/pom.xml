@@ -12,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Magic8Ball-drake</artifactId>
+    <groupId>com.xmooncorp</groupId>
+    <artifactId>Magic8Ball</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>

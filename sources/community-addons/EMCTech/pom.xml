@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>EMCTech-drake</artifactId>
+    <groupId>io.github.sefiraat</groupId>
+    <artifactId>EMCTech</artifactId>
     <version>MODIFIED</version>
 
     <build>

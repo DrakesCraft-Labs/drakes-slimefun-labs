@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>ExtraUtils-drake</artifactId>
+    <groupId>dev.j3fftw</groupId>
+    <artifactId>ExtraUtils</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>

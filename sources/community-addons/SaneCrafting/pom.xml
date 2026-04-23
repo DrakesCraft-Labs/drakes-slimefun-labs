@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SaneCrafting-drake</artifactId>
+    <groupId>metamechanists</groupId>
+    <artifactId>SaneCrafting</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 

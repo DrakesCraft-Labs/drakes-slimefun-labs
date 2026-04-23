@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>Liquid-drake</artifactId>
+    <groupId>io.github.seggan.liquid</groupId>
+    <artifactId>Liquid</artifactId>
     <version>UNOFFICIAL</version>
 
     <properties>

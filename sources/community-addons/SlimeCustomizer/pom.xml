@@ -12,8 +12,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeCustomizer-drake</artifactId>
+    <groupId>io.ncbpfluffybear</groupId>
+    <artifactId>SlimeCustomizer</artifactId>
     <version>1.0.0</version>
 
     <properties>

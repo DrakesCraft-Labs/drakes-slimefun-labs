@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>BetterChests-drake</artifactId>
+    <groupId>me.mmmjjkx</groupId>
+    <artifactId>BetterChests</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 

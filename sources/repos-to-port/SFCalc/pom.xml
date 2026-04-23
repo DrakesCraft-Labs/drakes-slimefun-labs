@@ -21,8 +21,8 @@
     <dependencies>
         <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
-            <artifactId>commons-lang3-drake</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <!-- Paper API -->

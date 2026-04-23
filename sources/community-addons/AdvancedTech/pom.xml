@@ -10,8 +10,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>AdvancedTech-drake</artifactId>
+    <groupId>me.pranavverma</groupId>
+    <artifactId>AdvancedTech</artifactId>
     <version>1.0.0</version>
 
     <properties>

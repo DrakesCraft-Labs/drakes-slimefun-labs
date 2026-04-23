@@ -11,8 +11,8 @@
     </parent>
 
 
-    <groupId>dev.drake.addon</groupId>
-    <artifactId>WorldEditSlimefun-drake</artifactId>
+    <groupId>dev.j3fftw</groupId>
+    <artifactId>WorldEditSlimefun</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
