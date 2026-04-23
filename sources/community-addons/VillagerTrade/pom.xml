@@ -6,7 +6,7 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        <version>6-SNAPSHOT</version>
+        <version>7-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
@@ -135,7 +135,7 @@
         <dependency>
             <groupId>net.guizhanss</groupId>
             <artifactId>GuizhanLib-api</artifactId>
-            <version>1.6-SNAPSHOT.1</version>
+            <version>1.7-SNAPSHOT.1</version>
             <scope>compile</scope>
         </dependency>
 
