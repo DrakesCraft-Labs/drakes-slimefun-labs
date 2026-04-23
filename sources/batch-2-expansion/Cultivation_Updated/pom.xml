@@ -267,7 +267,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.20.6-R0.11-SNAPSHOT</version>
+            <version>1.20.6-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -283,8 +283,7 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>dev.sefiraat</groupId>
-            <artifactId>sefilib-core</artifactId>
+            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
             <version>0.2.6</version>
             <scope>compile</scope>
         </dependency>

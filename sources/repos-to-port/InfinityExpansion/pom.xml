@@ -36,9 +36,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>infinitylib-core</artifactId>
-            <version>1.3.10</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

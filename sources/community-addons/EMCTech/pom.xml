@@ -127,7 +127,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.19-R0.11-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -150,8 +150,7 @@
             <version>3.0.1u2</version>
         </dependency>
         <dependency>
-            <groupId>dev.sefiraat</groupId>
-            <artifactId>sefilib-core</artifactId>
+            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
             <version>0.2.6</version>
             <scope>compile</scope>
         </dependency>

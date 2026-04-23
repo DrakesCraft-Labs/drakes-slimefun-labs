@@ -38,8 +38,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.sefiraat</groupId>
-            <artifactId>sefilib-core</artifactId>
+            <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

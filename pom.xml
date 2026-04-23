@@ -30,10 +30,12 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         
-        <paper.version>1.21.1-R0.11-SNAPSHOT</paper.version>
+        <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
         <slimefun.version>RC-37</slimefun.version>
-        <slimefun.drake.version>11.0-Drake-1.21.111-SNAPSHOT</slimefun.drake.version>
+        <slimefun.drake.version>11.0-Drake-1.21.1-SNAPSHOT</slimefun.drake.version>
         <dough.version>1.3.1-DRAKE-v11-SNAPSHOT</dough.version>
+        <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
+        <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
     </properties>
 
     <modules>
@@ -145,6 +147,20 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- InfinityLib -->
+            <dependency>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>infinitylib-core</artifactId>
+                <version>${infinitylib.version}</version>
+            </dependency>
+
+            <!-- SefiLib -->
+            <dependency>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>sefilib-core</artifactId>
+                <version>${sefilib.version}</version>
+            </dependency>
+
             <!-- ProtocolLib -->
             <dependency>
                 <groupId>com.github.dmulloy2</groupId>
@@ -210,8 +226,7 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>dev.sefiraat</groupId>
-                <artifactId>sefilib-core</artifactId>
+                <groupId>dev.drake.addon</groupId><artifactId>sefilib-core</artifactId>
                 <version>0.3.0</version>
                 <scope>provided</scope>
             </dependency>
