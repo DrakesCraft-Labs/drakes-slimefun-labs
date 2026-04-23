@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.sefiraat</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>Networks-drake</artifactId>
     <version>1.8-SNAPSHOT</version>
     <name>Networks</name>

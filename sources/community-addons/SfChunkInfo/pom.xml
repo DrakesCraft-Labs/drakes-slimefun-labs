@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.fnfal113</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SfChunkInfo-drake</artifactId>
     <version>Unoffical-1.8-SNAPSHOT.1</version>
 

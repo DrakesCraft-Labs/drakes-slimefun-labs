@@ -12,7 +12,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit.crystamaehistoria</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>CrystamaeHistoria-drake</artifactId>
     <version>1.0.1</version>
 

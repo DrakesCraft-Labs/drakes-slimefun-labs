@@ -9,7 +9,7 @@
         <version>8-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>PrivateStorage-drake</artifactId>
     <version>1.21.11-Drake</version>
 

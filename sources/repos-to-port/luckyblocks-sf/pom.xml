@@ -12,7 +12,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.thebusybiscuit</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SlimefunLuckyBlocks-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 

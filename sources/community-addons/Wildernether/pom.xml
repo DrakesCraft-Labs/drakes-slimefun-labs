@@ -8,7 +8,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.schntgaispock.wildernether</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>Wildernether-drake</artifactId>
     <version>1.2.1</version>
 

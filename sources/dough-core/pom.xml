@@ -20,7 +20,7 @@
     <dependencies>
         <!-- Paper API -->
         <dependency>
-            <groupId>io.papermc.paper</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>paper-api</artifactId>
         </dependency>
 

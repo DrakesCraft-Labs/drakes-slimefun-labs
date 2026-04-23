@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>me.justahuman</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>MoreResearches-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>

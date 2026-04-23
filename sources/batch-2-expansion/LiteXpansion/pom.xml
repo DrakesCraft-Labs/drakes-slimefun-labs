@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>dev.j3fftw</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>LiteXpansion-drake</artifactId>
     <version>MODIFIED</version>
 

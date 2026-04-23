@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>ne.fnfal113</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>FNAmplifications-drake</artifactId>
     <version>Unoffical-4.2.4</version>
     <packaging>jar</packaging>

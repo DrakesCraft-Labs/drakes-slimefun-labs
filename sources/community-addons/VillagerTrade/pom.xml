@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>net.guizhanss</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>VillagerTrade-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
@@ -132,7 +132,7 @@
         </dependency>
 
         <dependency>
-            <groupId>net.guizhanss</groupId>
+            <groupId>dev.drake.addon</groupId>
             <artifactId>GuizhanLib-api</artifactId>
             <version>1.8-SNAPSHOT.1</version>
             <scope>compile</scope>

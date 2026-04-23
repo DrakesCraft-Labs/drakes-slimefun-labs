@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.jasperchasetoq</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>CompressionCraft-drake</artifactId>
 
     <version>UNOFFICIAL</version>

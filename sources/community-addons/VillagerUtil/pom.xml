@@ -12,7 +12,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>me.apeiros</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>VillagerUtil-drake</artifactId>
     <version>MODIFIED</version>
 

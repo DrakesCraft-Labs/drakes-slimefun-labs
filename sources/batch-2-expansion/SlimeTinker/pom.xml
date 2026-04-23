@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.sefiraat</groupId>
+    <groupId>dev.drake.addon</groupId>
     <artifactId>SlimeTinker-drake</artifactId>
     <version>1.2.DEV</version>
 
