@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>drakes-slimefun-labs</artifactId>
     <version>11-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -142,7 +142,7 @@
 
             <!-- Slimefun 4 -->
             <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -150,7 +150,7 @@
 
             <!-- Nuestro Dough-Core (Unificado) -->
             <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>
@@ -222,7 +222,7 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-core</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>
