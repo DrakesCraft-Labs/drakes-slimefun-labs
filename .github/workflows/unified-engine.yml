@@ -53,6 +53,9 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Grant execution permission for gradlew
+        run: chmod +x gradlew
+
       - name: Build Gradle Modules
         run: ./gradlew build -x test
         env:

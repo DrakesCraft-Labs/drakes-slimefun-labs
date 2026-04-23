@@ -110,9 +110,8 @@
         <module>sources/community-addons/AdvancedTech</module>
         <module>sources/community-addons/Better-Nuclear-Generator</module>
         <module>sources/community-addons/CompressionCraft</module>
-        <module>sources/community-addons/CustomItemGenerators</module>
         <module>sources/community-addons/EMCTech</module>
-        <module>sources/community-addons/FastMachines</module>
+        <!-- Batch 2 & Community (Active) -->
         <module>sources/community-addons/Gastronomicon</module>
         <module>sources/community-addons/Geyser-Slimefun-Heads</module>
         <module>sources/community-addons/MoreResearches</module>
@@ -157,13 +156,6 @@
             <scope>provided</scope>
         </dependency>
 
-            <!-- Slimefun (alias com.github.drakescraft-labs, usado por addons ya parcialmente porteados) -->
-            <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
-            <artifactId>slimefun-core</artifactId>
-            <version>${slimefun.drake.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
             <!-- ProtocolLib -->
             <dependency>
