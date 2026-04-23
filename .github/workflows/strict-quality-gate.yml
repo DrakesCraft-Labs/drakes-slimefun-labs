@@ -1,0 +1,58 @@
+name: Strict Quality Gate (God Mode)
+
+on:
+  push:
+    branches:
+      - 1.21-latin
+  pull_request:
+    branches:
+      - 1.21-latin
+  workflow_dispatch:
+
+concurrency:
+  group: strict-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Strict Validation (All Modules)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: maven
+          server-id: github
+          settings-path: ${{ github.workspace }}
+
+      - name: Full Reactor Compilation & Enforcer Check
+        run: mvn -B clean verify -DskipTests -s ${{ github.workspace }}/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Checkstyle Validation
+        if: success()
+        run: mvn -B checkstyle:check -s ${{ github.workspace }}/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Analyze Dependencies
+        if: success()
+        run: mvn -B dependency:analyze-only -DfailOnWarning=false -s ${{ github.workspace }}/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to GitHub Packages (Continuous Delivery)
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/1.21-latin'
+        run: mvn -B deploy -DskipTests -s ${{ github.workspace }}/settings.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

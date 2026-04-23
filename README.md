@@ -22,7 +22,7 @@ Este repo no representa un único plugin. Es un laboratorio de consolidación, p
 | Portada de documentación | [Home](docs/es/home.md) | [Home](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki) | Punto de entrada general. |
 | Checklist operativo | [Checklist de Migración](docs/es/migration-checklist.md) | [Checklist de Migración](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Checklist-de-Migraci%C3%B3n) | Estado resumido y prioridades. |
 | Módulos faltantes | [Módulos Pendientes](docs/es/pending-modules.md) | [Módulos Pendientes](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/M%C3%B3dulos-Pendientes) | Qué sigue fuera del reactor o con bloqueo activo. |
-| Project backlog | No aplica | [Slimefun 1.21.11 Migration Backlog](https://github.com/orgs/DrakesCraft-Labs/projects/1/views/1) | Tablero operativo para priorizar integración, port técnico y smoke tests. |
+| Project backlog | [Slimefun 1.21.11 Migration Backlog](https://github.com/orgs/DrakesCraft-Labs/projects/1/views/1) | Tablero operativo público para priorizar integración, port técnico y smoke tests. |
 | Roadmap | [Roadmap de Estabilización](docs/es/stabilization-roadmap.md) | [Roadmap de Estabilización](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Roadmap-de-Estabilizaci%C3%B3n) | Orden sugerido de cierre. |
 | Handoff diario | [Tomorrow-Handoff](docs/es/tomorrow-handoff.md) | [Tomorrow-Handoff](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Tomorrow-Handoff) | Continuidad entre sesiones. |
 | Arquitectura | [Arquitectura del Ecosistema](docs/es/ecosystem-architecture.md) | [Arquitectura del Ecosistema](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/wiki/Arquitectura-del-Ecosistema) | Explica el stack Drake y la organización del workspace. |
@@ -51,6 +51,7 @@ El `pom.xml` raíz funciona como reactor unificado y hoy declara `60 módulos` a
 | Backlog operativo real | `29 addons` |
 | Base unificada | `dev.drake.dough:dough-core:1.3.1-DRAKE` |
 | Core | `dev.drake:Slimefun:6.0-Drake-1.21.11` |
+| Maven Registry | [GitHub Packages](https://github.com/orgs/DrakesCraft-Labs/packages) |
 
 ### Cómo interpretar este estado
 
@@ -120,6 +121,16 @@ El repo incluye una workflow conservadora de GitHub Actions para validar grupos 
 
 - workflow: `.github/workflows/ci-curated-modules.yml`
 - estrategia: [Estrategia de Releases y CI](docs/es/release-and-ci-strategy.md)
+
+### God Mode CI (Calidad Estricta)
+
+Para asegurar la integridad del monorepo, usamos un gatekeeper estricto:
+
+- workflow: `.github/workflows/strict-quality-gate.yml`
+- controles: 
+  - **Maven Enforcer**: Falla si las dependencias no convergen o se usa una versión de Java distinta a la 21.
+  - **Checkstyle**: Valida que el código siga los estándares de estilo de Google.
+  - **Full Reactor Build**: Compila los 60+ módulos simultáneamente para detectar colisiones de classpath.
 
 ### Criterio operativo antes de tocar código
 
