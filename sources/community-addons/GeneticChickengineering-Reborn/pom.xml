@@ -12,7 +12,7 @@
 
     <groupId>net.guizhanss</groupId>
     <artifactId>GeneticChickengineering-Reborn</artifactId>
-    <version>UNOFFICIAL</version>
+    <version>1.1.DEV</version>
 
     <properties>
         <java.version>21</java.version>
@@ -81,6 +81,30 @@
 
     <dependencies>
         <!-- Paper API -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>

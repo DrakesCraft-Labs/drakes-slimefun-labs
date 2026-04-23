@@ -17,6 +17,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.VanillaInventoryDropHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.papermc.lib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.utils.PaperLibUtils;
 import io.papermc.lib.features.blockstatesnapshot.BlockStateSnapshotResult;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -83,7 +84,7 @@ public class EnhancedFurnace extends SimpleSlimefunItem<BlockTicker> {
                     // The Furnace has been destroyed, we can clear the block data
                     BlockStorage.clearBlockInfo(b);
                 } else {
-                    BlockStateSnapshotResult result = PaperLib.getBlockState(b, false);
+                    BlockStateSnapshotResult result = PaperLibUtils.getBlockState(b, false);
                     BlockState state = result.getState();
 
                     // Check if the BlockState is a Furnace and cooking something

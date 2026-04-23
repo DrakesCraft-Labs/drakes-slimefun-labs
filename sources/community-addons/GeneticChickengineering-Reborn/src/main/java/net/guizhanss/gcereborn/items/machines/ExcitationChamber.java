@@ -27,8 +27,8 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import net.guizhanss.gcereborn.GeneticChickengineering;
 import net.guizhanss.gcereborn.items.GCEItems;
 import net.guizhanss.gcereborn.utils.ChickenUtils;
-import net.guizhanss.gcereborn.utils.GuiItems;
 import net.guizhanss.gcereborn.utils.PocketChickenData;
+import net.guizhanss.gcereborn.items.chicken.ChickenTypes;
 import net.guizhanss.gcereborn.utils.SimpleProfiler;
 
 public class ExcitationChamber extends AbstractMachine {
@@ -87,40 +87,40 @@ public class ExcitationChamber extends AbstractMachine {
 
     @Override
     protected void tick(@Nonnull Block b) {
-        long start = System.nanoTime();
+        long __start = System.nanoTime();
         try {
             super.tick(b);
             BlockMenu inv = BlockStorage.getInventory(b);
             MachineProcessor<CraftingOperation> processor = getMachineProcessor();
             if (processor.getOperation(b) != null) {
                 ItemStack chicken = inv.getItemInSlot(getInputSlots()[0]);
-                PocketChickenData data = PocketChickenData.fromItem(chicken);
+                var data = PocketChickenData.fromItem(chicken);
                 if (data == null || !data.isAdult()) {
                     processor.endOperation(b);
                     inv.replaceExistingItem(INFO_SLOT, GuiItems.BLACK_PANE);
                 }
             }
         } finally {
-            SimpleProfiler.record("ExcitationChamber.tick", System.nanoTime() - start);
+            SimpleProfiler.record("ExcitationChamber.tick", System.nanoTime() - __start);
         }
     }
 
     @Override
     @Nullable
     protected MachineRecipe findNextRecipe(@Nonnull BlockMenu menu) {
-        long start = System.nanoTime();
+        long __start = System.nanoTime();
         try {
             var config = GeneticChickengineering.getConfigService();
-            for (int slot : getInputSlots()) {
-                ItemStack chicken = menu.getItemInSlot(slot);
-                PocketChickenData data = PocketChickenData.fromItem(chicken);
-                if (data == null || !data.isAdult()) {
-                    continue;
-                }
+        for (int slot : getInputSlots()) {
+            ItemStack chicken = menu.getItemInSlot(slot);
+            PocketChickenData data = PocketChickenData.fromItem(chicken);
+            if (data == null || !data.isAdult()) {
+                continue;
+            }
 
-                // Set the progress bar to always be the resource, since players
-                // can abort the recipe if they know the egg is coming
-                ItemStack resourceIcon = data.getResource();
+            // Set the progress bar to always be the resource, since players
+            // can abort the recipe if they know the egg is coming
+            ItemStack resourceIcon = data.getResource();
 
                 ItemStack chickResource;
                 if (ThreadLocalRandom.current().nextInt(100) < config.getResourceFailRate()) {
@@ -142,36 +142,35 @@ public class ExcitationChamber extends AbstractMachine {
              *  Tier 5 | 17-19 sec | 8-9 sec
              *  Tier 6 | 20 sec    | 10 sec
              */
-                int speed = (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed();
-                MachineRecipe recipe = new MachineRecipe(
-                    config.isTest() ? 1 : speed,
-                    new ItemStack[] {chicken},
-                    new ItemStack[] {chickResource}
-                );
-                if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
+            int speed = (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed();
+            MachineRecipe recipe = new MachineRecipe(
+                config.isTest() ? 1 : speed,
+                new ItemStack[] {chicken},
+                new ItemStack[] {chickResource}
+            );
+            if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
+                continue;
+            }
+
+            if (config.isPainEnabled()) {
+                if (!(data.getHealth() > 0.25) && !config.isPainDeathEnabled()) {
+                    continue;
+                }
+                ChickenUtils.possiblyHarm(chicken);
+                if (ChickenUtils.getHealth(chicken) <= 0d) {
+                    ItemUtils.consumeItem(chicken, false);
+                    if (config.isSoundsEnabled()) {
+                        GeneticChickengineering.getScheduler().run(() ->
+                            menu.getLocation().getWorld().playSound(menu.getLocation(), Sound.ENTITY_CHICKEN_DEATH, 1f, 1f)
+                        );
+                    }
                     continue;
                 }
 
-                if (config.isPainEnabled()) {
-                    if (data.getHealth() <= 0.25D && !config.isPainDeathEnabled()) {
-                        continue;
-                    }
-                    ChickenUtils.possiblyHarm(chicken);
-                    if (ChickenUtils.getHealth(chicken) <= 0D) {
-                        ItemUtils.consumeItem(chicken, false);
-                        if (config.isSoundsEnabled()) {
-                            GeneticChickengineering.getScheduler().run(() ->
-                                menu.getLocation().getWorld().playSound(menu.getLocation(), Sound.ENTITY_CHICKEN_DEATH, 1F, 1F)
-                            );
-                        }
-                        continue;
-                    }
-                }
-
                 return recipe;
-            }
+        }
         } finally {
-            SimpleProfiler.record("ExcitationChamber.findNextRecipe", System.nanoTime() - start);
+            SimpleProfiler.record("ExcitationChamber.findNextRecipe", System.nanoTime() - __start);
         }
         return null;
     }

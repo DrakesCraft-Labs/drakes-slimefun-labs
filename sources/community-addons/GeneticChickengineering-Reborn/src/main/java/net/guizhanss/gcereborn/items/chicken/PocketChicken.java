@@ -68,7 +68,29 @@ public class PocketChicken extends SimpleSlimefunItem<ItemUseHandler> implements
             PersistentDataAPI.setString(entity, Keys.CHICKEN_DNA, dss);
 
             if (e.getPlayer().getGameMode() != GameMode.CREATIVE) {
-                ItemUtils.consumeItem(e.getItem(), false);
+                // Try to consume the actual item from the player's inventory (main/off hand).
+                // This is more robust than relying on the event item reference which
+                // in some contexts may be a copy and not mutate the inventory.
+                var player = e.getPlayer();
+                ItemStack main = player.getInventory().getItemInMainHand();
+                ItemStack off = player.getInventory().getItemInOffHand();
+                ItemStack used = e.getItem();
+
+                try {
+                    if (ItemUtils.canStack(main, used)) {
+                        ItemUtils.consumeItem(main, false);
+                        player.getInventory().setItemInMainHand(main);
+                    } else if (ItemUtils.canStack(off, used)) {
+                        ItemUtils.consumeItem(off, false);
+                        player.getInventory().setItemInOffHand(off);
+                    } else {
+                        // Fallback: consume the event item (best-effort)
+                        ItemUtils.consumeItem(used, false);
+                    }
+                } catch (Exception ex) {
+                    // As a last resort, attempt to consume the provided item instance.
+                    ItemUtils.consumeItem(used, false);
+                }
             }
 
             if (GeneticChickengineering.getConfigService().isDisplayResources() && dna.isKnown()) {

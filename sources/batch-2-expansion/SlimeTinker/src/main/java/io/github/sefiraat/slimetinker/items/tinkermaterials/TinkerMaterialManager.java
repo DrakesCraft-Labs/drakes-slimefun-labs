@@ -49,6 +49,7 @@ public class TinkerMaterialManager {
     public static final int AMOUNT_KIT = AMOUNT_INGOT * 3;
     public static final int AMOUNT_BUCKET = AMOUNT_BLOCK * 9;
     public static final int AMOUNT_SHOVELHEAD = AMOUNT_INGOT;
+    public static final int AMOUNT_SPEARHEAD = AMOUNT_INGOT;
     public static final int AMOUNT_PICKAXEHEAD = AMOUNT_INGOT * 3;
     public static final int AMOUNT_AXEHEAD = AMOUNT_INGOT * 3;
     public static final int AMOUNT_HOEHEAD = AMOUNT_INGOT * 2;

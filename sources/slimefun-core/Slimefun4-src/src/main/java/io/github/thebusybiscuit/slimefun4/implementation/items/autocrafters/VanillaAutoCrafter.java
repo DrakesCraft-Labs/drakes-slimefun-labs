@@ -36,6 +36,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.tasks.AsyncRecipeChoiceTask;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.papermc.lib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.utils.PaperLibUtils;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 
@@ -60,7 +61,7 @@ public class VanillaAutoCrafter extends AbstractAutoCrafter {
 
     @Override
     public @Nullable AbstractRecipe getSelectedRecipe(@Nonnull Block b) {
-        BlockState state = PaperLib.getBlockState(b, false).getState();
+        BlockState state = PaperLibUtils.getBlockState(b, false).getState();
 
         if (state instanceof Skull skull) {
             // Read the stored value from persistent data storage

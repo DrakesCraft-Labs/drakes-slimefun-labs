@@ -4,9 +4,9 @@ package io.github.sefiraat.slimetinker.utils;
 public final class SkullTextures {
 
     private SkullTextures() {
+
         throw new UnsupportedOperationException("Utility Class");
     }
-
     public static final String CAT_MAIN = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjRhZTU1ZDI5MGZiOGQzOTg2M2IzODU2Y2JmZmRlZTNiOTA2ZDkxNjY3NzVmNDgwMzE2NzU4OWY3NDVhMTg3ZCJ9fX0=";
     public static final String CAT_MATERIALS = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg2Y2Q1MjljOWRjNTQ4ODRmNTRmMzdhZWNhMzBmNThhYTk5M2U2YjM1OTFkYTA1MmQ4Nzc1ZjFjNzkzOTAifX19";
     public static final String CAT_CASTS = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWIxMmYyOTM1NGU5ZjcyYzRhZDhjNmZiODliOTIxOGJmMjRiODU0ZTNjOGRiNmRkZDQ1ZGJlMDE1OSJ9fX0=";
@@ -51,6 +51,7 @@ public final class SkullTextures {
     public static final String ALLOY_PURPLE_DEEP = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRmNmIxNzc0Mzc2ZTk3ODllNjhkOTcyN2EwNDQxOGViMDM2YmM2ZjE2Yzc0MjBhMGU5MzhiZGYwZThmNWUzYSJ9fX0=";
     public static final String ALLOY_PINK = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc3MzJjYWViODhjY2U4ZDE4NTkzZGYwZmZhMzQzMzA1MzQxNzQxYmU2NDdhYWM0MmU0Y2U0ZDI1MDY3NTc2NSJ9fX0=";
 
+    public static final String PART_SPEAR_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzRhNzNhYzhjMTUyZDgwZGJlNTYyNGQ5YWQ0MzFjNTA2MzhjMzU4Mjk2OGE1YmZmZmRkYjVhY2RmYzZjOGI5YSJ9fX0=";
     public static final String PART_SHOVEL_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMThkN2QxOWEzZmQ4ZTI2NTI0YWFiMzJmOTQ0ZGM3ZDJmNTYwZTFkOGZlMTc4ZTg5M2NlZWE3NGNmY2YifX19";
     public static final String PART_PICKAXE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjZlYTIxMzU4Mzg0NjE1MzQzNzJmMmRhNmM4NjJkMjFjZDVmM2QyYzcxMTlmMmJiNjc0YmJkNDI3OTEifX19";
     public static final String PART_AXE_HEAD = "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRiYTQ5Mzg0ZGJhN2I3YWNkYjRmNzBlOTM2MWU2ZDU3Y2JiY2JmNzIwY2Y0ZjE2YzJiYjgzZTQ1NTcifX19";

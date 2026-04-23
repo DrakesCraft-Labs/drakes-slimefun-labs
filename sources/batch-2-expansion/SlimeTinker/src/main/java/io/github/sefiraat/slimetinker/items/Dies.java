@@ -14,10 +14,21 @@ import org.bukkit.inventory.ItemStack;
 public final class Dies {
 
     private Dies() {
+
         throw new UnsupportedOperationException("Utility Class");
     }
 
     public static final String DIE_DESC = "A die to create a cast from";
+
+    public static final SlimefunItemStack DIE_SPEAR_HEAD =
+        ThemeUtils.themedItemStack(
+          "DIE_SHOVEL_HEAD",
+          SkullTextures.PART_SPEAR_HEAD,
+          ThemeItemType.CAST,
+          "Die: Stone Spear Head",
+          ThemeUtils.PASSIVE + DIE_DESC
+        );
+
     public static final SlimefunItemStack DIE_SHOVEL_HEAD =
         ThemeUtils.themedItemStack(
             "DIE_SHOVEL_HEAD",
@@ -114,6 +125,11 @@ public final class Dies {
             "Die: Repair Kit",
             ThemeUtils.PASSIVE + DIE_DESC
         );
+    protected static final ItemStack[] RECIPE_DIE_SPEAR_HEAD = new ItemStack[]{
+      null,null,new ItemStack(Material.COBBLESTONE),
+      null,null,null,
+        null,null,null
+    };
     protected static final ItemStack[] RECIPE_DIE_SHOVEL_HEAD = new ItemStack[]{
         null, new ItemStack(Material.COBBLESTONE), null,
         null, null, null,
@@ -176,6 +192,7 @@ public final class Dies {
     };
 
     public static void set(SlimeTinker p) {
+        new UnplaceableBlock(ItemGroups.CASTS, DIE_SPEAR_HEAD, Workbench.TYPE, RECIPE_DIE_SPEAR_HEAD).register(p);
         new UnplaceableBlock(ItemGroups.CASTS, DIE_SHOVEL_HEAD, Workbench.TYPE, RECIPE_DIE_SHOVEL_HEAD).register(p);
         new UnplaceableBlock(ItemGroups.CASTS, DIE_PICKAXE_HEAD, Workbench.TYPE, RECIPE_DIE_PICKAXE_HEAD).register(p);
         new UnplaceableBlock(ItemGroups.CASTS, DIE_AXE_HEAD, Workbench.TYPE, RECIPE_DIE_AXE_HEAD).register(p);

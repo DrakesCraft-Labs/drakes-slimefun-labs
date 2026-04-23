@@ -26,6 +26,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.VanillaInventoryDropHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.multiblocks.Smeltery;
 import io.papermc.lib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.utils.PaperLibUtils;
 
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 
@@ -114,7 +115,7 @@ public class IgnitionChamber extends SlimefunItem {
             Block block = b.getRelative(face);
 
             if (block.getType() == Material.DROPPER && BlockStorage.check(block) instanceof IgnitionChamber) {
-                BlockState state = PaperLib.getBlockState(b.getRelative(face), false).getState();
+                BlockState state = PaperLibUtils.getBlockState(b.getRelative(face), false).getState();
 
                 if (state instanceof Dropper dropper) {
                     return dropper.getInventory();

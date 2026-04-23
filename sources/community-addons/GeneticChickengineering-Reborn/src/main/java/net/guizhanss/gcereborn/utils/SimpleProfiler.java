@@ -11,7 +11,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * Small optional profiler for timing hot methods during runtime investigations.
+ * Very small profiler to record nanos per key and periodically report averages.
  */
 public final class SimpleProfiler {
 
@@ -21,11 +21,12 @@ public final class SimpleProfiler {
     private SimpleProfiler() {}
 
     public static void record(String key, long nanos) {
-        totals.computeIfAbsent(key, ignored -> new AtomicLong()).addAndGet(nanos);
-        counts.computeIfAbsent(key, ignored -> new AtomicLong()).incrementAndGet();
+        totals.computeIfAbsent(key, k -> new AtomicLong()).addAndGet(nanos);
+        counts.computeIfAbsent(key, k -> new AtomicLong()).incrementAndGet();
     }
 
     public static void startReporter(Plugin plugin) {
+        // Report every 60 seconds asynchronously
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -44,22 +45,21 @@ public final class SimpleProfiler {
         }
 
         List<Map.Entry<String, AtomicLong>> entries = new ArrayList<>(totals.entrySet());
-        entries.sort(Comparator.comparingLong(entry -> -entry.getValue().get()));
+        entries.sort(Comparator.comparingLong(e -> -e.getValue().get()));
 
-        StringBuilder report = new StringBuilder("[SimpleProfiler] Report:\n");
-        for (Map.Entry<String, AtomicLong> entry : entries) {
-            String key = entry.getKey();
-            long total = entry.getValue().getAndSet(0L);
-            AtomicLong count = counts.get(key);
-            long invocations = count == null ? 0L : count.getAndSet(0L);
-            if (invocations == 0L) {
-                continue;
-            }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[SimpleProfiler] Report:\n");
 
-            double avgMicros = (total / (double) invocations) / 1000.0D;
-            report.append(String.format(" - %s: count=%d avg=%.3fµs total=%,dns%n", key, invocations, avgMicros, total));
+        for (Map.Entry<String, AtomicLong> e : entries) {
+            String key = e.getKey();
+            long total = e.getValue().getAndSet(0L);
+            AtomicLong cnt = counts.get(key);
+            long c = cnt == null ? 0L : cnt.getAndSet(0L);
+            if (c == 0) continue;
+            double avgMicros = (total / (double) c) / 1000.0;
+            sb.append(String.format(" - %s: count=%d avg=%.3fµs total=%,dns\n", key, c, avgMicros, total));
         }
 
-        plugin.getLogger().info(report.toString());
+        plugin.getLogger().info(sb.toString());
     }
 }

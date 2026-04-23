@@ -31,6 +31,7 @@ import io.github.thebusybiscuit.slimefun4.core.services.sounds.SoundEffect;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.compatibility.VersionedParticle;
 import io.papermc.lib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.utils.PaperLibUtils;
 
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel;
 
@@ -268,7 +269,7 @@ class MiningTask implements Runnable {
         // Check if there is enough fuel to run
         if (fuelLevel > 0) {
             if (chest.getType() == Material.CHEST) {
-                BlockState state = PaperLib.getBlockState(chest, false).getState();
+                BlockState state = PaperLibUtils.getBlockState(chest, false).getState();
 
                 if (state instanceof Chest chestState) {
                     Inventory inv = chestState.getBlockInventory();
@@ -299,7 +300,7 @@ class MiningTask implements Runnable {
      */
     private void consumeFuel() {
         if (chest.getType() == Material.CHEST) {
-            BlockState state = PaperLib.getBlockState(chest, false).getState();
+            BlockState state = PaperLibUtils.getBlockState(chest, false).getState();
 
             if (state instanceof Chest chestState) {
                 Inventory inv = chestState.getBlockInventory();

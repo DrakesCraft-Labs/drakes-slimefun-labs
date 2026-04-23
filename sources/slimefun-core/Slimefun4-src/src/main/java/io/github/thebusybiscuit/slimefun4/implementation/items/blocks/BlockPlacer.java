@@ -36,6 +36,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.VanillaInventoryDropHandler;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import io.papermc.lib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.utils.PaperLibUtils;
 import io.papermc.lib.features.blockstatesnapshot.BlockStateSnapshotResult;
 
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -220,7 +221,7 @@ public class BlockPlacer extends SlimefunItem {
                     ItemMeta meta = item.getItemMeta();
 
                     if (meta.hasDisplayName()) {
-                        BlockStateSnapshotResult blockState = PaperLib.getBlockState(facedBlock, false);
+                        BlockStateSnapshotResult blockState = PaperLibUtils.getBlockState(facedBlock, false);
 
                         if (blockState.getState() instanceof Nameable nameable) {
                             nameable.setCustomName(meta.getDisplayName());

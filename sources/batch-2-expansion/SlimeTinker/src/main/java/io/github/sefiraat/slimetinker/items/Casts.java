@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 public final class Casts {
 
     private Casts() {
+
         throw new UnsupportedOperationException("Utility Class");
     }
 
@@ -66,6 +67,17 @@ public final class Casts {
             "",
             ThemeUtils.CLICK_INFO + INPUT_DESC + ChatColor.WHITE + TinkerMaterialManager.AMOUNT_GEM + UNIT_DESC,
             ThemeUtils.CLICK_INFO + OUTPUT_DESC + ChatColor.WHITE + "1 Gem"
+        );
+    public static final SlimefunItemStack CAST_SPEARHEAD =
+        ThemeUtils.themedItemStack(
+          "CAST_SPEARHEAD",
+          Material.ORANGE_CARPET,
+          ThemeItemType.CAST,
+          "Cast: Spear Head",
+          ThemeUtils.PASSIVE + CAST_DESC,
+          "",
+          ThemeUtils.CLICK_INFO + INPUT_DESC + ChatColor.WHITE + TinkerMaterialManager.AMOUNT_SPEARHEAD + UNIT_DESC,
+            ThemeUtils.CLICK_INFO + OUTPUT_DESC + ChatColor.WHITE + "1 Spear Head"
         );
     public static final SlimefunItemStack CAST_SHOVELHEAD =
         ThemeUtils.themedItemStack(
@@ -218,6 +230,11 @@ public final class Casts {
         new ItemStack(Material.GOLD_INGOT, 2), new ItemStack(Material.DIAMOND), null,
         null, null, null,
         null, null, null
+    };
+    protected static final ItemStack[] RECIPE_CAST_SPEAR_HEAD = new ItemStack[]{
+      new SlimefunItemStack(SlimefunItems.BRASS_INGOT,2), Dies.DIE_SPEAR_HEAD,null,
+      null,null,null,
+      null,null,null
     };
     protected static final ItemStack[] RECIPE_CAST_SHOVEL_HEAD = new ItemStack[]{
         new SlimefunItemStack(SlimefunItems.BRASS_INGOT, 2), Dies.DIE_SHOVEL_HEAD, null,

@@ -47,26 +47,27 @@ public class PrivateCoop extends AbstractMachine {
 
     @Override
     protected void tick(@Nonnull Block b) {
-        long start = System.nanoTime();
+        long __start = System.nanoTime();
         try {
             super.tick(b);
 
             MachineProcessor<CraftingOperation> processor = getMachineProcessor();
             if (processor.getOperation(b) != null) {
-                if (ThreadLocalRandom.current().nextDouble() < 0.25D) {
+                if (ThreadLocalRandom.current().nextDouble() < 0.25) {
                     Location l = b.getLocation().toCenterLocation();
                     if (GeneticChickengineering.getConfigService().isParticlesEnabled()) {
                         l.getWorld().spawnParticle(Particle.HEART, l.add(0, 0.5, 0), 2, 0.2, 0, 0.2);
                     }
                 }
                 BlockMenu inv = BlockStorage.getInventory(b);
+                // Check if parent chickens have been removed
                 if (this.getParents(inv).size() != 2) {
                     processor.endOperation(b);
                     inv.replaceExistingItem(INFO_SLOT, GuiItems.BLACK_PANE);
                 }
             }
         } finally {
-            SimpleProfiler.record("PrivateCoop.tick", System.nanoTime() - start);
+            SimpleProfiler.record("PrivateCoop.tick", System.nanoTime() - __start);
         }
     }
 
@@ -82,7 +83,7 @@ public class PrivateCoop extends AbstractMachine {
                 // a length of two anyway, saving some time
                 return parents;
             }
-            PocketChickenData data = PocketChickenData.fromItem(parent);
+            var data = PocketChickenData.fromItem(parent);
             if (data != null && data.isAdult()) {
                 parents.add(parent);
             }

@@ -76,17 +76,34 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         JsonObject attributes = json.getAsJsonObject("_attributes");
 
         for (Map.Entry<String, JsonElement> entry : attributes.entrySet()) {
-            AttributeInstance instance = entity.getAttribute(Attribute.valueOf(entry.getKey()));
+            Attribute attribute = null;
+            try {
+                attribute = Attribute.valueOf(entry.getKey());
+            } catch (IllegalArgumentException ex) {
+                for (Attribute a : Attribute.values()) {
+                    if (a.toString().equals(entry.getKey())) {
+                        attribute = a;
+                        break;
+                    }
+                }
+            }
+
+            if (attribute == null) {
+                GeneticChickengineering.debug("Unknown attribute in MobAdapter.apply: {0}", entry.getKey());
+                continue;
+            }
+
+            AttributeInstance instance = entity.getAttribute(attribute);
 
             if (instance != null) {
                 for (AttributeModifier modifier : new ArrayList<>(instance.getModifiers())) {
                     instance.removeModifier(modifier);
                 }
 
-                JsonObject attribute = entry.getValue().getAsJsonObject();
-                instance.setBaseValue(attribute.get("base").getAsDouble());
+                JsonObject attributeJson = entry.getValue().getAsJsonObject();
+                instance.setBaseValue(attributeJson.get("base").getAsDouble());
 
-                JsonArray modifiers = attribute.getAsJsonArray("modifiers");
+                JsonArray modifiers = attributeJson.getAsJsonArray("modifiers");
 
                 for (JsonElement modifier : modifiers) {
                     JsonObject obj = modifier.getAsJsonObject();
@@ -184,7 +201,8 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 }
 
                 obj.add("modifiers", modifiers);
-                attributes.add(attribute.toString(), obj);
+                // Use the enum name to ensure stable serialization across server versions
+                attributes.add(attribute.name(), obj);
             }
         }
 

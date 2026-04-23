@@ -290,7 +290,15 @@ public final class ChickenUtils {
             double oldHealth = json.get("_health").getAsDouble();
             double newHealth = Math.max(0d, Math.min(oldHealth - damage, 4d));
             json.addProperty("_health", newHealth);
-            setPocketChicken(chicken, json, getDNA(chicken));
+            // Update the persistent data for health. Only recompute and set
+            // the lore when explicitly enabled in config to avoid expensive
+            // MessageFormat/localization calls in hot paths.
+            PersistentDataAPI.set(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER, json);
+            if (GeneticChickengineering.getConfigService().isLiveLoreEnabled()) {
+                setPocketChicken(chicken, json, getDNA(chicken));
+            } else {
+                chicken.setItemMeta(meta);
+            }
             return true;
         }
         return false;

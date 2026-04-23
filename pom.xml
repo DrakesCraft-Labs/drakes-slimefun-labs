@@ -93,6 +93,7 @@
         <module>sources/community-addons/SlimeCustomizer</module>
         <module>sources/community-addons/UltimateGenerators2</module>
         <module>sources/community-addons/VillagerUtil</module>
+        <module>sources/community-addons/UltimateGenerators2</module>
     </modules>
 
     <dependencyManagement>

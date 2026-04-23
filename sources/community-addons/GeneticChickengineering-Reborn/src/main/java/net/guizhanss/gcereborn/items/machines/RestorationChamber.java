@@ -36,13 +36,13 @@ public class RestorationChamber extends AbstractMachine {
     @Override
     @Nullable
     protected MachineRecipe findNextRecipe(@Nonnull BlockMenu menu) {
-        long start = System.nanoTime();
+        long __start = System.nanoTime();
         try {
             var config = GeneticChickengineering.getConfigService();
             ItemStack chicken = null;
             ItemStack seed = null;
             for (int slot : getInputSlots()) {
-                ItemStack item = menu.getItemInSlot(slot);
+            ItemStack item = menu.getItemInSlot(slot);
 
                 if (item == null || item.getType() == Material.AIR) {
                     continue;
@@ -59,35 +59,35 @@ public class RestorationChamber extends AbstractMachine {
                 return null;
             }
 
-            PocketChickenData data = PocketChickenData.fromItem(chicken);
-            double health = data != null ? data.getHealth() : ChickenUtils.getHealth(chicken);
-            int seedAmount = seed.getAmount();
-            int toConsume = 0;
-            while (seedAmount > 0 && health < 4D) {
-                seedAmount--;
-                toConsume++;
-                health += 0.25D;
-            }
+        PocketChickenData data = PocketChickenData.fromItem(chicken);
+        double health = data != null ? data.getHealth() : ChickenUtils.getHealth(chicken);
+        int seedAmount = seed.getAmount();
+        int toConsume = 0;
+        while (seedAmount > 0 && health < 4d) {
+            seedAmount--;
+            toConsume++;
+            health = health + 0.25;
+        }
             if (toConsume == 0) {
                 return null;
             }
-            ItemStack recipeSeeds = seed.clone();
-            recipeSeeds.setAmount(toConsume);
-            ItemStack recipeChick = chicken.clone();
-            ChickenUtils.heal(recipeChick, toConsume * 0.25D);
-            MachineRecipe recipe = new MachineRecipe(
-                config.isTest() ? 1 : config.getHealRate() * toConsume,
-                new ItemStack[] {recipeSeeds, chicken.clone()},
-                new ItemStack[] {recipeChick}
-            );
-            if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
-                return null;
-            }
+        ItemStack recipeSeeds = seed.clone();
+        recipeSeeds.setAmount(toConsume);
+        ItemStack recipeChick = chicken.clone();
+        ChickenUtils.heal(recipeChick, toConsume * 0.25);
+        MachineRecipe recipe = new MachineRecipe(
+            config.isTest() ? 1 : config.getHealRate() * toConsume,
+            new ItemStack[] {recipeSeeds, chicken.clone()},
+            new ItemStack[] {recipeChick}
+        );
+        if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
+            return null;
+        }
             ItemUtils.consumeItem(chicken, false);
             ItemUtils.consumeItem(seed, toConsume, false);
             return recipe;
         } finally {
-            SimpleProfiler.record("RestorationChamber.findNextRecipe", System.nanoTime() - start);
+            SimpleProfiler.record("RestorationChamber.findNextRecipe", System.nanoTime() - __start);
         }
     }
 }

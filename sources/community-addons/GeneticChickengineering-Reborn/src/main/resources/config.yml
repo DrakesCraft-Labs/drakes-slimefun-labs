@@ -42,17 +42,19 @@ options:
   # Whether to enable growth chamber
   # This will allow chicken breeding to be fully automated, which decreases the difficulty.
   # (private coop -> growth chamber -> excitation chamber)
-  enable-growth-chamber: false
+  enable-growth-chamber: true
   # The time for growth chamber to raise a baby chicken to an adult chicken (in seconds)
   # Default: 60, Range: 1 ~ 600
   growth-chamber-time: 60
-  # Enable particle effects (hearts, clouds, etc.). Disable if many machines are active.
+  # Enable particle effects (hearts, clouds, etc.) — may cause lag when many machines active
   enable-particles: true
-  # Enable sound effects for machine/chicken events. Disable if you want less noise or event overhead.
+  # Enable sound effects (chicken death, egg sounds, etc.) — may cause lag when many events
   enable-sounds: true
-  # Recompute chicken lore aggressively on runtime mutations. Kept off by default for performance.
+  # Update pocket-chicken lore immediately on damage. This forces expensive localization
+  # and lore recomputation; disable to improve performance (lore will update when items are
+  # recreated or on UI open).
   live-lore: false
-  # Emit periodic timing reports for hot methods. Useful for profiling suspected lag.
+  # Enable the simple profiler which logs average timing for hot methods every 60s.
   enable-profiler: false
 
 # The permission nodes are just here for reference. Changing them will not affect the plugin.

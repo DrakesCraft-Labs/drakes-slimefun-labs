@@ -10,21 +10,23 @@ import org.bukkit.inventory.meta.ItemMeta;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import net.guizhanss.gcereborn.core.genetics.DNA;
-import net.guizhanss.gcereborn.items.chicken.ChickenTypes;
 import net.guizhanss.gcereborn.items.chicken.PocketChicken;
+import net.guizhanss.gcereborn.items.chicken.ChickenTypes;
 
 /**
- * Lightweight view of a pocket chicken's stored data to avoid repeated PDC and ItemMeta reads
- * in hot machine paths.
+ * Lightweight view of a pocket chicken's stored data to avoid repeated PDC/ItemMeta
+ * reads when inspecting the same ItemStack multiple times in hot paths.
  */
 public final class PocketChickenData {
 
+    private final ItemStack item;
     private final JsonObject adapter;
     private final DNA dna;
     private final double health;
     private final boolean adult;
 
-    private PocketChickenData(JsonObject adapter, DNA dna, double health, boolean adult) {
+    private PocketChickenData(ItemStack item, JsonObject adapter, DNA dna, double health, boolean adult) {
+        this.item = item;
         this.adapter = adapter;
         this.dna = dna;
         this.health = health;
@@ -32,13 +34,13 @@ public final class PocketChickenData {
     }
 
     @Nullable
-    public static PocketChickenData fromItem(@Nullable ItemStack item) {
+    public static PocketChickenData fromItem(ItemStack item) {
         if (item == null || item.getType().isAir()) {
             return null;
         }
 
         ItemMeta meta = item.getItemMeta();
-        if (meta == null || !PersistentDataAPI.hasIntArray(meta, Keys.POCKET_CHICKEN_DNA)) {
+        if (!PersistentDataAPI.hasIntArray(meta, Keys.POCKET_CHICKEN_DNA)) {
             return null;
         }
 
@@ -57,11 +59,11 @@ public final class PocketChickenData {
             }
         }
 
-        return new PocketChickenData(adapter, dna, health, adult);
+        return new PocketChickenData(item, adapter, dna, health, adult);
     }
 
-    public JsonObject getAdapter() {
-        return adapter;
+    public DNA getDNA() {
+        return dna;
     }
 
     public double getHealth() {
@@ -70,14 +72,6 @@ public final class PocketChickenData {
 
     public boolean isAdult() {
         return adult;
-    }
-
-    public boolean isKnown() {
-        return dna.isKnown();
-    }
-
-    public int[] getState() {
-        return dna.getState();
     }
 
     public int getResourceTier() {
@@ -90,12 +84,25 @@ public final class PocketChickenData {
 
     public int getDNAStrength() {
         int[] state = dna.getState();
-        int strength = 6 - dna.getTier();
+        int str = 6 - dna.getTier();
         for (int i = 0; i < 6; i++) {
             if (state[i] == 1) {
-                strength--;
+                str--;
             }
         }
-        return strength;
+        return str;
     }
+
+    public JsonObject getAdapter() {
+        return adapter;
+    }
+
+    public boolean isKnown() {
+        return dna.isKnown();
+    }
+
+    public int[] getState() {
+        return dna.getState();
+    }
+
 }

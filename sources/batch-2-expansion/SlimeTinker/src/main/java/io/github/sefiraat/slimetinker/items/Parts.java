@@ -18,10 +18,19 @@ import org.bukkit.inventory.ItemStack;
 public final class Parts {
 
     private Parts() {
+
         throw new UnsupportedOperationException("Utility Class");
     }
 
     public static final String DESC_ERROR = "Error";
+
+    public static final SlimefunItemStack PART_SPEAR_HEAD_DUMMY = ThemeUtils.themedItemStack(
+      "PART_SPEAR_HEAD_DUMMY",
+        SkullTextures.PART_SPEAR_HEAD,
+        ThemeItemType.CAST,
+        "Part: Spear Head",
+        ThemeUtils.PASSIVE + "A cast spear head."
+    );
 
     public static final SlimefunItemStack PART_SHOVEL_HEAD_DUMMY = ThemeUtils.themedItemStack(
         "PART_SHOVEL_HEAD_DUMMY",
@@ -158,7 +167,13 @@ public final class Parts {
         DESC_ERROR,
         ThemeUtils.PASSIVE + DESC_ERROR
     );
-
+public static final SlimefunItemStack PART_SPEAR_HEAD = ThemeUtils.themedItemStack(
+  "PART_SPEAR_HEAD",
+  SkullTextures.PART_SPEAR_HEAD,
+  ThemeItemType.PART,
+  DESC_ERROR,
+  ThemeUtils.PASSIVE + DESC_ERROR
+);
     public static final SlimefunItemStack PART_SHOVEL_HEAD = ThemeUtils.themedItemStack(
         "PART_SHOVEL_HEAD",
         SkullTextures.PART_SHOVEL_HEAD,
@@ -252,6 +267,7 @@ public final class Parts {
     );
 
     // Statics for Recipes
+    public static final PartTemplate SPEAR_HEAD = new PartTemplate(ItemGroups.DUMMY,PART_SPEAR_HEAD, DummySmeltery.TYPE,new ItemStack[9],"Spear Head");
     public static final PartTemplate SHOVEL_HEAD = new PartTemplate(ItemGroups.DUMMY, PART_SHOVEL_HEAD, DummySmeltery.TYPE, new ItemStack[9], "Shovel Head");
     public static final PartTemplate PICKAXE_HEAD = new PartTemplate(ItemGroups.DUMMY, PART_PICKAXE_HEAD, DummySmeltery.TYPE, new ItemStack[9], "Pickaxe Head");
     public static final PartTemplate AXE_HEAD = new PartTemplate(ItemGroups.DUMMY, PART_AXE_HEAD, DummySmeltery.TYPE, new ItemStack[9], "Axe Head");
@@ -268,6 +284,7 @@ public final class Parts {
     public static void set(SlimeTinker p) {
 
         // Dummies for the recipe book
+        new UnplaceableBlock(ItemGroups.PARTS,PART_SPEAR_HEAD_DUMMY,DummySmeltery.TYPE,ItemUtils.getMiddleOnlyRecipe(Casts.CAST_SPEARHEAD)).register(p);
         new UnplaceableBlock(ItemGroups.PARTS, PART_SHOVEL_HEAD_DUMMY, DummySmeltery.TYPE, ItemUtils.getMiddleOnlyRecipe(Casts.CAST_SHOVELHEAD)).register(p);
         new UnplaceableBlock(ItemGroups.PARTS, PART_PICKAXE_HEAD_DUMMY, DummySmeltery.TYPE, ItemUtils.getMiddleOnlyRecipe(Casts.CAST_PICKAXEHEAD)).register(p);
         new UnplaceableBlock(ItemGroups.PARTS, PART_AXE_HEAD_DUMMY, DummySmeltery.TYPE, ItemUtils.getMiddleOnlyRecipe(Casts.CAST_AXEHEAD)).register(p);
@@ -292,6 +309,7 @@ public final class Parts {
         new UnplaceableBlock(ItemGroups.PARTS, PART_REPAIR_KIT_DUMMY, DummySmeltery.TYPE, ItemUtils.getMiddleOnlyRecipe(Casts.CAST_REPAIRKIT)).register(p);
 
         // Real ones, not in recipe book due to the variations
+        SPEAR_HEAD.register(p);
         SHOVEL_HEAD.register(p);
         PICKAXE_HEAD.register(p);
         AXE_HEAD.register(p);

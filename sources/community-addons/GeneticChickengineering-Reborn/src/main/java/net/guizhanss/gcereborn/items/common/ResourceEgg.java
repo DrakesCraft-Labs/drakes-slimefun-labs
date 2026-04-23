@@ -71,7 +71,9 @@ public class ResourceEgg extends SimpleSlimefunItem<ItemUseHandler> implements N
             if (place.isReplaceable()) {
                 if (resource == Material.WATER && !allowInNether && place.getWorld().getEnvironment() == World.Environment.NETHER) {
                     place.getWorld().spawnParticle(Particle.CLOUD, place.getLocation().add(0.5, 0, 0.5), 5);
-                    place.getWorld().playSound(place.getLocation().toCenterLocation(), Sound.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
+                    if (GeneticChickengineering.getConfigService().isSoundsEnabled()) {
+                        place.getWorld().playSound(place.getLocation().toCenterLocation(), Sound.BLOCK_LAVA_EXTINGUISH, 1F, 1F);
+                    }
                 } else {
                     place.setType(resource);
                 }
