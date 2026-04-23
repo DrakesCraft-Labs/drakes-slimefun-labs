@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.apeiros</groupId>
     <artifactId>VillagerUtil</artifactId>
     <version>MODIFIED</version>

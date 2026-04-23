@@ -10,6 +10,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
 
     <groupId>ne.fnfal113</groupId>
     <artifactId>RelicsOfCthonia</artifactId>

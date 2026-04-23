@@ -10,6 +10,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.voper</groupId>
     <artifactId>SlimeFrame</artifactId>
     <version>1.7.0</version>

@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>dev.j3fftw</groupId>
     <artifactId>SoundMuffler</artifactId>
     <version>11.0-Drake</version>

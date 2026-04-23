@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>com.xmooncorp</groupId>
     <artifactId>Magic8Ball</artifactId>
     <version>UNOFFICIAL</version>

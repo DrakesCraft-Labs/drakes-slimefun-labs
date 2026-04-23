@@ -9,6 +9,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.sfiguz7</groupId>
     <artifactId>TranscEndence</artifactId>
     <version>DevTest-33</version>

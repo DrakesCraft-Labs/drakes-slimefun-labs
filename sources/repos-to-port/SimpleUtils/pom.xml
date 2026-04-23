@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>io.github.mooy1</groupId>
     <artifactId>SimpleUtils</artifactId>
     <version>MODIFIED</version>

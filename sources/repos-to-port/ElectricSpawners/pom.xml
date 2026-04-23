@@ -9,6 +9,10 @@
         <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
+
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>ElectricSpawners</artifactId>
     <version>1.21.11-Drake</version>

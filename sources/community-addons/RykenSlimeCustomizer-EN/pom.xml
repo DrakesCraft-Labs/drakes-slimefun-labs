@@ -11,6 +11,10 @@
 		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
 	<groupId>org.lins.mmmjjkx</groupId>
 	<artifactId>RykenSlimefunCustomizer</artifactId>
 	<version>20</version>

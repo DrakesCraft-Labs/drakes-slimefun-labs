@@ -7,21 +7,16 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>io.github.addoncommunity</groupId>
-    <artifactId>SlimeChem</artifactId>
-    
-
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
+
+    <groupId>io.github.addoncommunity</groupId>
+    <artifactId>SlimeChem</artifactId>
     <name>SlimeChem</name>
 
     <dependencies>
@@ -32,11 +27,6 @@
                 <dependency>
             <groupId>dev.drake</groupId>
             <artifactId>slimefun-core</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
 
@@ -47,11 +37,6 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>compile</scope>
         </dependency>
                         <dependency>
@@ -62,11 +47,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
 
@@ -81,11 +61,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -96,11 +71,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
                 <configuration>
                     <relocations>
                         <relocation>

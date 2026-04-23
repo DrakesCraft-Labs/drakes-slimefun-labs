@@ -10,6 +10,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.pranavverma</groupId>
     <artifactId>AdvancedTech</artifactId>
     <version>1.0.0</version>

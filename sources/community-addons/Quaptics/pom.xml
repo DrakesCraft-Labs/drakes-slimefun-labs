@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>org.metamechanists</groupId>
     <artifactId>Quaptics</artifactId>
     <version>0</version>

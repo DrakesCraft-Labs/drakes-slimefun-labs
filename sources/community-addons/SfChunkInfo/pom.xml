@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.fnfal113</groupId>
     <artifactId>SfChunkInfo</artifactId>
     <version>Unoffical-1.11-SNAPSHOT.1</version>

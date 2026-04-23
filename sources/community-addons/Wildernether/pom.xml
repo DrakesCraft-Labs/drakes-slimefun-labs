@@ -8,6 +8,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.schntgaispock.wildernether</groupId>
     <artifactId>Wildernether</artifactId>
     <version>1.2.1</version>

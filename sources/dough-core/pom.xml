@@ -7,21 +7,16 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>dev.drake.dough</groupId>
-    <artifactId>dough-core</artifactId>
-    
-
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
+
+    <groupId>dev.drake.dough</groupId>
+    <artifactId>dough-core</artifactId>
     <name>dough-core</name>
     <description>A highly optimized, high-performance fork of the Dough library. Re-engineered for the DrakesCraft ecosystem with enhanced protection hooks and improved skin caching for 1.21.11.</description>
 
@@ -36,11 +31,6 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
 
@@ -48,11 +38,6 @@
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
 
@@ -60,32 +45,17 @@
         <dependency>
             <groupId>io.papermc</groupId>
             <artifactId>paperlib</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
         </dependency>
 
         <!-- Protection Hooks (Optional/Provided) -->
         <dependency>
             <groupId>com.sk89q.worldguard</groupId>
             <artifactId>worldguard-bukkit</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.coreprotect</groupId>
             <artifactId>coreprotect</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -97,11 +67,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
                 <executions>
                     <execution>
                         <phase>package</phase>

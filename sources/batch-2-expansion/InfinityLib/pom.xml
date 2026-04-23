@@ -7,13 +7,13 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        
+        <version>11-SNAPSHOT</version>
+        <relativePath>../../../pom.xml</relativePath>
+    </parent>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
-        <relativePath>../../../pom.xml</relativePath>
-    </parent>
 
     <groupId>dev.drake.addon</groupId>
     <artifactId>infinitylib-core</artifactId>
@@ -40,22 +40,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
         </dependency>
 
         <!-- Test Dependencies -->
@@ -77,11 +67,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>templating-maven-plugin</artifactId>
-                
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
                 <executions>
                     <execution>
                         <id>filter-src</id>
@@ -94,11 +79,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
                 <configuration>
                     <relocations>
                         <relocation>

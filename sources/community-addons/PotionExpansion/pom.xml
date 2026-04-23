@@ -10,6 +10,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>com.epicplayera10</groupId>
     <artifactId>PotionExpansion</artifactId>
     <version>1.0.0</version>

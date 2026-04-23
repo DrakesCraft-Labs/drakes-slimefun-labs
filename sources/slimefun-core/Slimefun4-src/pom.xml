@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
     <name>Slimefun</name>

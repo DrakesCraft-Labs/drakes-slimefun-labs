@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>ExoticGarden</artifactId>
     <version>${slimefun.drake.version}</version>

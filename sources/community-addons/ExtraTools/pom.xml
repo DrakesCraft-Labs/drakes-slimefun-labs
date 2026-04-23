@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.sfiguz7</groupId>
     <artifactId>ExtraTools</artifactId>
     <version>1.2</version>

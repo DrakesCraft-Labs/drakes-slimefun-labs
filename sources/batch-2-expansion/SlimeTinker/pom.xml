@@ -11,6 +11,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>dev.sefiraat</groupId>
     <artifactId>SlimeTinker</artifactId>
     <version>1.2.DEV</version>

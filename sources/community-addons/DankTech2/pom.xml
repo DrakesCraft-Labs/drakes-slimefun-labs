@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>me.sfiguz7.danktech2</groupId>
     <artifactId>DankTech2</artifactId>
     <version>1.0.1</version>

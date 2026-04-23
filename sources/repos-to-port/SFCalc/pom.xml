@@ -7,20 +7,15 @@
     <parent>
         <groupId>dev.drake</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
-        
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
+        <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>SFCalc</artifactId>
-    
-
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
+
+    <artifactId>SFCalc</artifactId>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->
@@ -61,11 +56,6 @@
         <dependency>
             <groupId>com.github.seggan</groupId>
             <artifactId>ErrorReporter-Java</artifactId>
-            
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
             <scope>compile</scope>
         </dependency>
 
@@ -84,11 +74,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                
-
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
                 <executions>
                     <execution>
                         <phase>package</phase>

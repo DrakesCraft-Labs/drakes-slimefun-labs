@@ -10,6 +10,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
 
     <groupId>me.mmmjjkx</groupId>
     <artifactId>BetterChests</artifactId>

@@ -12,6 +12,10 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
+    </properties>
+
     <groupId>io.github.thebusybiscuit.alchimiavitae</groupId>
     <artifactId>AlchimiaVitae</artifactId>
     <version>1.1.1</version>
