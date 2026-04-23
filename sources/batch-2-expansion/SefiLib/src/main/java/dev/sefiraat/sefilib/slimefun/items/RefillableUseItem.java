@@ -1,12 +1,12 @@
 package dev.sefiraat.sefilib.slimefun.items;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.items.LimitedUseItem;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.items.LimitedUseItem;
 import dev.drake.dough.common.ChatColors;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
-import com.github.drakescraft-labs.slimefun4.utils.PatternUtils;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.utils.PatternUtils;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

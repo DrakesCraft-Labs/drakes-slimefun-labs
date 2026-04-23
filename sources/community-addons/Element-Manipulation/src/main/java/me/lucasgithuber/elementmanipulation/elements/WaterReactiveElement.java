@@ -1,11 +1,11 @@
 package me.lucasgithuber.elementmanipulation.elements;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemDropHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemDropHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;

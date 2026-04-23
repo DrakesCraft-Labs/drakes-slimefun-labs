@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.storage.backend;
+package com.github.drakescraft_labs.slimefun4.storage.backend;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,14 +24,14 @@ import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
-import com.github.drakescraft-labs.slimefun4.api.gps.Waypoint;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.storage.backend.legacy.LegacyStorage;
-import com.github.drakescraft-labs.slimefun4.storage.data.PlayerData;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
-import com.github.drakescraft-labs.slimefun4.utils.FileUtils;
+import com.github.drakescraft_labs.slimefun4.api.gps.Waypoint;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.storage.backend.legacy.LegacyStorage;
+import com.github.drakescraft_labs.slimefun4.storage.data.PlayerData;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.utils.FileUtils;
 
 class TestLegacyBackend {
 

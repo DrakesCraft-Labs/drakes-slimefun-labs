@@ -1,8 +1,8 @@
 package me.lucasgithuber.elementmanipulation.utils;
 
-import com.github.drakescraft-labs.infinitylib.groups.MultiGroup;
-import com.github.drakescraft-labs.infinitylib.groups.SubGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.infinitylib.groups.MultiGroup;
+import com.github.drakescraft_labs.infinitylib.groups.SubGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;

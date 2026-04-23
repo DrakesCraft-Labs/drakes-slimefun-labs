@@ -7,9 +7,9 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
 
 public class ChildGroup extends ItemGroup {
 

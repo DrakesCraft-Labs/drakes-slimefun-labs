@@ -1,12 +1,12 @@
 package io.ncbpfluffybear.slimecustomizer.objects;
 
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.core.guide.GuideHistory;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.core.guide.GuideHistory;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
-import com.github.drakescraft-labs.slimefun4.utils.itemstack.ItemStackWrapper;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.ChatColor;

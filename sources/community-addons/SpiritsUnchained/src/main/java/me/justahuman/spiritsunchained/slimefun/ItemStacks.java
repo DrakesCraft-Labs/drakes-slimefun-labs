@@ -1,11 +1,11 @@
 package me.justahuman.spiritsunchained.slimefun;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
-import com.github.drakescraft-labs.slimefun4.utils.itemstack.ColoredFireworkStar;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar;
 
 import me.justahuman.spiritsunchained.utils.SpiritUtils;
 import org.bukkit.Color;

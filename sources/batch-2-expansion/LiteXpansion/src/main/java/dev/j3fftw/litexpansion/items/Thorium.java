@@ -1,10 +1,10 @@
 package dev.j3fftw.litexpansion.items;
 
 import dev.j3fftw.litexpansion.Items;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactive;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactive;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

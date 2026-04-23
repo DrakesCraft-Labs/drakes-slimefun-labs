@@ -1,13 +1,13 @@
 package me.gallowsdove.foxymachines.implementation.consumables;
 
-import com.github.drakescraft-labs.infinitylib.common.Scheduler;
-import com.github.drakescraft-labs.infinitylib.core.AddonConfig;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemDropHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemDropHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.FoxyMachines;
 import me.gallowsdove.foxymachines.Items;
 import org.bukkit.ChatColor;

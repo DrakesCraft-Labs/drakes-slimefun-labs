@@ -1,7 +1,7 @@
 package me.profelements.dynatech.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.profelements.dynatech.DynaTech;
 import me.profelements.dynatech.items.tools.InventoryFilter;
 import org.bukkit.Material;

@@ -24,7 +24,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
 import dev.drake.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
 /**
  * Utilities

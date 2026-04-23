@@ -12,7 +12,7 @@ import io.github.sefiraat.slimetinker.utils.GeneralUtils;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.Keys;
 import io.github.sefiraat.slimetinker.utils.WorldUtils;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import dev.drake.dough.protection.Interaction;
 import org.bukkit.Color;

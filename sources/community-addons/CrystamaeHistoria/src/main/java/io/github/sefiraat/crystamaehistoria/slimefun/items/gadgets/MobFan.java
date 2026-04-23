@@ -1,17 +1,17 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets;
 
-import com.github.drakescraft-labs.infinitylib.machines.TickingMenuBlock;
+import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockPlaceHandler;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.GameMode;
 import org.bukkit.Location;

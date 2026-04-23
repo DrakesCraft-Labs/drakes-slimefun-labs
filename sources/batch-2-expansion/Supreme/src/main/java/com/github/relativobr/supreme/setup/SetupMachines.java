@@ -17,7 +17,7 @@ import com.github.relativobr.supreme.machine.multiblock.ElectricGearFabricator;
 import com.github.relativobr.supreme.machine.multiblock.ElectricMagicalFabricator;
 import com.github.relativobr.supreme.util.ItemGroups;
 import com.github.relativobr.supreme.util.SupremeOptions;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 public class SetupMachines {
 

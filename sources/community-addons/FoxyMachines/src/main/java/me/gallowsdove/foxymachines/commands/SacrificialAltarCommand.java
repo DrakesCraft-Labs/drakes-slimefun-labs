@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.commands;
 
-import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
+import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

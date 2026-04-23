@@ -1,7 +1,7 @@
 package io.github.sefiraat.slimetinker.listeners;
 
 import io.github.sefiraat.slimetinker.utils.BlockUtils;
-import com.github.drakescraft-labs.slimefun4.api.events.BlockPlacerPlaceEvent;
+import com.github.drakescraft_labs.slimefun4.api.events.BlockPlacerPlaceEvent;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

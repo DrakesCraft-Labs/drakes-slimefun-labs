@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.items.workstations.tooltable;
 
-import com.github.drakescraft-labs.infinitylib.machines.TickingMenuBlock;
+import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.slimetinker.items.Guide;
 import io.github.sefiraat.slimetinker.items.templates.ToolDefinition;
 import io.github.sefiraat.slimetinker.utils.GUIItems;
@@ -8,12 +8,12 @@ import io.github.sefiraat.slimetinker.utils.Ids;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;
 import io.github.sefiraat.slimetinker.utils.Keys;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Breedable;

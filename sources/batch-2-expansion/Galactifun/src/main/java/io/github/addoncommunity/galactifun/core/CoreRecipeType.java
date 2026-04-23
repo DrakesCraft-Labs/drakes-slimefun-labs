@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 
 import io.github.addoncommunity.galactifun.Galactifun;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.items.CustomItemStack;
 
 // TODO find a better place for these, maybe make an AlienDrop and WorldGenBlock class which extend SlimefunItem

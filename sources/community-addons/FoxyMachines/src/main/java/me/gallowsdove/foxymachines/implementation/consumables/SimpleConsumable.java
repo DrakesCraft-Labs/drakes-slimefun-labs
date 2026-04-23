@@ -1,10 +1,10 @@
 package me.gallowsdove.foxymachines.implementation.consumables;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import me.gallowsdove.foxymachines.Items;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;

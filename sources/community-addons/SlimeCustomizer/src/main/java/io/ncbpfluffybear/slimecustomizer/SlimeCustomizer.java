@@ -1,11 +1,11 @@
 package io.ncbpfluffybear.slimecustomizer;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.collections.Pair;
 import dev.drake.dough.updater.BlobBuildUpdater;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import io.ncbpfluffybear.slimecustomizer.objects.SCMenu;
 import io.ncbpfluffybear.slimecustomizer.objects.WindowsExplorerStringComparator;
 import io.ncbpfluffybear.slimecustomizer.registration.Categories;
@@ -15,7 +15,7 @@ import io.ncbpfluffybear.slimecustomizer.registration.Machines;
 import io.ncbpfluffybear.slimecustomizer.registration.MobDrops;
 import io.ncbpfluffybear.slimecustomizer.registration.SolarGenerators;
 import lombok.SneakyThrows;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.items.CustomItemStack;
 import org.bstats.bukkit.Metrics;

@@ -1,10 +1,10 @@
 package org.metamechanists.sanecrafting.patches;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.VanillaItem;
-import com.github.drakescraft-labs.slimefun4.implementation.items.multiblocks.EnhancedCraftingTable;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.VanillaItem;
+import com.github.drakescraft_labs.slimefun4.implementation.items.multiblocks.EnhancedCraftingTable;
 import lombok.experimental.UtilityClass;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;

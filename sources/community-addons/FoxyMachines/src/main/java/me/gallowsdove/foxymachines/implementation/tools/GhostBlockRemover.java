@@ -1,10 +1,10 @@
 package me.gallowsdove.foxymachines.implementation.tools;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.EntityInteractHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.EntityInteractHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.implementation.materials.GhostBlock;
 import org.bukkit.Material;

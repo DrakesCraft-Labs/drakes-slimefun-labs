@@ -19,17 +19,17 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.sefiraat.networks.network.NodeType;
 import io.github.sefiraat.networks.slimefun.network.NetworkObject;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockPlaceHandler;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 public abstract class OwnedVariableTickRateNode extends NetworkObject {
     private final int ticksRequired;

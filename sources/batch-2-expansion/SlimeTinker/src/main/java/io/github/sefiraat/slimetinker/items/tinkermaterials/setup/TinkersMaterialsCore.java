@@ -4,7 +4,7 @@ import io.github.sefiraat.slimetinker.items.Materials;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterial;
 import io.github.sefiraat.slimetinker.utils.Ids;
 import io.github.sefiraat.slimetinker.utils.SkullTextures;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

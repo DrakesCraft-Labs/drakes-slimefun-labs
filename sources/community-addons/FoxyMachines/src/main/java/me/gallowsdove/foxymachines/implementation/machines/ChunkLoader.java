@@ -1,15 +1,15 @@
 package me.gallowsdove.foxymachines.implementation.machines;
 
-import com.github.drakescraft-labs.infinitylib.common.Scheduler;
-import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.gallowsdove.foxymachines.FoxyMachines;
 import me.gallowsdove.foxymachines.Items;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

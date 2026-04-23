@@ -1,15 +1,15 @@
 package io.github.sefiraat.simplestorage.items.chests;
 
-import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
+import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.simplestorage.utils.Utils;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;

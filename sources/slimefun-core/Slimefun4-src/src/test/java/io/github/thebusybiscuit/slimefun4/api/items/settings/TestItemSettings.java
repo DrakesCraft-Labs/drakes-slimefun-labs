@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.api.items.settings;
+package com.github.drakescraft_labs.slimefun4.api.items.settings;
 
 import java.util.Optional;
 
@@ -10,10 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemSetting;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

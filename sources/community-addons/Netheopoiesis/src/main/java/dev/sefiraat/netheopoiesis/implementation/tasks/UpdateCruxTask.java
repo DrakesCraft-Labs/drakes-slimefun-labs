@@ -1,9 +1,9 @@
 package dev.sefiraat.netheopoiesis.implementation.tasks;
 
 import dev.sefiraat.netheopoiesis.utils.Keys;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.block.Block;
 import org.bukkit.scheduler.BukkitRunnable;
 

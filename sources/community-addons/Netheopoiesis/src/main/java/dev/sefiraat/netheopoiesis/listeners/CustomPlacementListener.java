@@ -1,7 +1,7 @@
 package dev.sefiraat.netheopoiesis.listeners;
 
 import dev.sefiraat.netheopoiesis.api.interfaces.CustomPlacementBlock;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

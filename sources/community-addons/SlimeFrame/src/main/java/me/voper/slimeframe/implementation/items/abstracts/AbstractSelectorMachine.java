@@ -10,15 +10,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.inventory.InvUtils;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
-import com.github.drakescraft-labs.slimefun4.utils.itemstack.ItemStackWrapper;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper;
 
 import me.voper.slimeframe.implementation.items.machines.MachineDesign;
 import me.voper.slimeframe.utils.MachineUtils;
@@ -27,10 +27,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 @Getter
 @Setter

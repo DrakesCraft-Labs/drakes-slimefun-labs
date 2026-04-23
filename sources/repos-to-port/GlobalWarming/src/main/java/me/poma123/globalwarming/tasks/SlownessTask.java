@@ -12,8 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 
 import me.poma123.globalwarming.GlobalWarmingPlugin;
 import me.poma123.globalwarming.api.Temperature;

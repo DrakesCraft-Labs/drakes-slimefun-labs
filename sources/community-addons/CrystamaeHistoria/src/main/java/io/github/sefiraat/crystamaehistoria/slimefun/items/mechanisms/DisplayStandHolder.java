@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms;
 
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;

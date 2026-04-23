@@ -21,12 +21,12 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.GastroResearch;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.SimpleGastroFood;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.workstations.manual.MultiStove.Temperature;
 import io.github.schntgaispock.gastronomicon.core.slimefun.recipes.GastroRecipeType;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
 import lombok.ToString;
 
 @ToString

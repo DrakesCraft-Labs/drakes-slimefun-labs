@@ -1,13 +1,13 @@
 package io.ncbpfluffybear.slimecustomizer.registration;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.LockedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SeasonalItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.LockedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SeasonalItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.slimecustomizer.Registry;
 import io.ncbpfluffybear.slimecustomizer.SlimeCustomizer;
 import io.ncbpfluffybear.slimecustomizer.Utils;

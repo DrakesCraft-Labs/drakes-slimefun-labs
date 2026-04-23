@@ -191,11 +191,11 @@
                     <relocations>
                         <relocation>
                             <pattern>io.papermc.lib</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.slimefun4.libraries.paperlib</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.paperlib</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>org.apache.commons.lang</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.slimefun4.libraries.commons.lang</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.commons.lang</shadedPattern>
                         </relocation>
                     </relocations>
 

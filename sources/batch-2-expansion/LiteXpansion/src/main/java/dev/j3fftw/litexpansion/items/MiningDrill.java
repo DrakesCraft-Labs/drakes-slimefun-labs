@@ -1,11 +1,11 @@
 package dev.j3fftw.litexpansion.items;
 
 import dev.j3fftw.litexpansion.Items;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Rechargeable;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

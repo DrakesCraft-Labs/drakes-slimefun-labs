@@ -1,0 +1,51 @@
+package com.github.drakescraft_labs.slimefun4.utils.itemstack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
+import org.bukkit.FireworkEffect.Type;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkEffectMeta;
+
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
+
+/**
+ * This simple {@link ItemStack} implementation allows us to obtain
+ * a colored {@code Material.FIREWORK_STAR} {@link ItemStack} quickly.
+ * 
+ * @author TheBusyBiscuit
+ *
+ */
+public class ColoredFireworkStar extends CustomItemStack {
+
+    @ParametersAreNonnullByDefault
+    public ColoredFireworkStar(Color color, String name, String... lore) {
+        super(Material.FIREWORK_STAR, im -> {
+            if (name != null) {
+                im.setDisplayName(ChatColors.color(name));
+            }
+
+            ((FireworkEffectMeta) im).setEffect(FireworkEffect.builder().with(Type.BURST).withColor(color).build());
+
+            if (lore.length > 0) {
+                List<String> lines = new ArrayList<>();
+
+                for (String line : lore) {
+                    lines.add(ChatColors.color(line));
+                }
+
+                im.setLore(lines);
+            }
+
+            im.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+        });
+    }
+
+}

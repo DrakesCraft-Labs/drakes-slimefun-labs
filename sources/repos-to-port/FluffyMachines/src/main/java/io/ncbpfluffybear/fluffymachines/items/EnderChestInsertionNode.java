@@ -1,15 +1,15 @@
 package io.ncbpfluffybear.fluffymachines.items;
 
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockPlaceHandler;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockUseHandler;
-import com.github.drakescraft-labs.slimefun4.libraries.paperlib.PaperLib;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
+import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

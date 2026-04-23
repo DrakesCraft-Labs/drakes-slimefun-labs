@@ -1,14 +1,14 @@
-package com.github.drakescraft-labs.slimefun4.api.events;
+package com.github.drakescraft_labs.slimefun4.api.events;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.block.BlockMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.listeners.BlockListener;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.listeners.BlockListener;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;

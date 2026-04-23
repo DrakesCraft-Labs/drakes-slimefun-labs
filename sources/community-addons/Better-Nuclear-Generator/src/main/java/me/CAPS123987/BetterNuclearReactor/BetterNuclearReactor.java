@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import me.CAPS123987.Item.Graphite;
 import me.CAPS123987.Machines.HeatSensor;
 import me.CAPS123987.Machines.ReactorStop;
@@ -15,11 +15,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Team;
 import org.bukkit.util.Vector;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 import me.CAPS123987.Cargo.ReactorInput;
 import me.CAPS123987.Cargo.ReactorOutput;
 import me.CAPS123987.IIIDmultiblock.ReactorCore;

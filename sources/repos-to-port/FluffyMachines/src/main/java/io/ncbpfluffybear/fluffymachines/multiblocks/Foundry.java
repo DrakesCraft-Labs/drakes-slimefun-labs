@@ -1,14 +1,14 @@
 package io.ncbpfluffybear.fluffymachines.multiblocks;
 
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.fluffymachines.multiblocks.components.SuperheatedFurnace;
 import io.ncbpfluffybear.fluffymachines.utils.FluffyItems;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import java.util.Objects;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

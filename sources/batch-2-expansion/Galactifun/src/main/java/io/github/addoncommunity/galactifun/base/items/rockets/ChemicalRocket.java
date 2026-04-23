@@ -6,10 +6,10 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.api.items.Rocket;
 import io.github.addoncommunity.galactifun.api.universe.attributes.atmosphere.Gas;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 public final class ChemicalRocket extends Rocket {
 

@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.items;
+package com.github.drakescraft_labs.slimefun4.implementation.items;
 
 import java.util.Optional;
 
@@ -13,13 +13,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.exceptions.UnregisteredItemException;
-import com.github.drakescraft-labs.slimefun4.api.exceptions.WrongItemStackException;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.api.exceptions.UnregisteredItemException;
+import com.github.drakescraft_labs.slimefun4.api.exceptions.WrongItemStackException;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

@@ -6,12 +6,12 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.core.slimefun.recipes.GastroRecipeType;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetComponent;
-import com.github.drakescraft-labs.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 @Getter
 public class Refrigerator extends GastroWorkstation implements EnergyNetComponent {

@@ -8,7 +8,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.utils.FoodLevelUtils;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 /**
  * Sprite.

@@ -3,8 +3,8 @@ package me.schntgaispock.wildernether.slimefun;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.schntgaispock.wildernether.Wildernether;
 import me.schntgaispock.wildernether.slimefun.items.BlackstoneStove.Mode;
 import me.schntgaispock.wildernether.slimefun.recipes.RecipeCollection;

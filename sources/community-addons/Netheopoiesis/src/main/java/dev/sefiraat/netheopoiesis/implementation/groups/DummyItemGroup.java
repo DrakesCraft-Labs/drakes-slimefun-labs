@@ -1,6 +1,6 @@
 package dev.sefiraat.netheopoiesis.implementation.groups;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

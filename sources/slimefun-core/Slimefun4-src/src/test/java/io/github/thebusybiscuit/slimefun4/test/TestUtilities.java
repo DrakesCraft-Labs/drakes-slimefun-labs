@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.test;
+package com.github.drakescraft_labs.slimefun4.test;
 
 import static org.mockito.Mockito.when;
 
@@ -29,15 +29,15 @@ import org.mockito.Mockito;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.block.BlockMock;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.events.SlimefunBlockPlaceEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.VanillaItem;
-import com.github.drakescraft-labs.slimefun4.test.mocks.MockSlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.events.SlimefunBlockPlaceEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.VanillaItem;
+import com.github.drakescraft_labs.slimefun4.test.mocks.MockSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 public final class TestUtilities {
 

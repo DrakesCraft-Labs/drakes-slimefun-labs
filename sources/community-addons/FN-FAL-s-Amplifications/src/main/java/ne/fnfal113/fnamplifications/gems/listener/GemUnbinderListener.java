@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.gems.listener;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import ne.fnfal113.fnamplifications.gems.abstracts.AbstractGem;
 import ne.fnfal113.fnamplifications.gems.abstracts.AbstractGemUnbinder;
 import ne.fnfal113.fnamplifications.gems.implementation.GemUnbinderTask;

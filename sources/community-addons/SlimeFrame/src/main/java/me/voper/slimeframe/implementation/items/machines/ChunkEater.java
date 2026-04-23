@@ -16,12 +16,12 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.abstracts.AbstractMachine;
@@ -31,9 +31,9 @@ import me.voper.slimeframe.utils.Cuboid;
 import me.voper.slimeframe.utils.MachineUtils;
 import me.voper.slimeframe.utils.Utils;
 
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import net.md_5.bungee.api.ChatColor;
 
 @ParametersAreNonnullByDefault

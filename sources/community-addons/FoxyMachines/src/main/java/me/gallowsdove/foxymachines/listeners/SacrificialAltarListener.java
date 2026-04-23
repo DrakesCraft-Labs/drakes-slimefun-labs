@@ -1,8 +1,8 @@
 package me.gallowsdove.foxymachines.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import me.gallowsdove.foxymachines.Items;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;

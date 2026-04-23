@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.CrystaRecipeTypes;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;

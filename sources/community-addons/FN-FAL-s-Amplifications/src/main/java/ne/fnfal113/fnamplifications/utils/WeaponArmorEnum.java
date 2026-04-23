@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.utils;
 
-import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import org.bukkit.Material;
 
 /**

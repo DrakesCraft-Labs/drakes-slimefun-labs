@@ -12,13 +12,13 @@ import io.github.slimefunguguproject.bump.core.attributes.CooldownItem;
 import io.github.slimefunguguproject.bump.core.attributes.CostHungerItem;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemSetting;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.settings.IntRangeSetting;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.settings.IntRangeSetting;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 
 /**
  * A {@link BumpSword} is a {@link SlimefunItem} with an {@link ItemSetting} of hunger cost and cooldown

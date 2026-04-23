@@ -1,7 +1,7 @@
 package me.mmmjjkx.betterChests.items;
 
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import me.mmmjjkx.betterChests.BetterChests;
 import me.mmmjjkx.betterChests.utils.ItemStackBuilder;
 import org.bukkit.Material;

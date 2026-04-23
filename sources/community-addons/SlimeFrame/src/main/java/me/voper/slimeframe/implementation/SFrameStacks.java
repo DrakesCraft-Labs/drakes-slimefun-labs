@@ -17,13 +17,13 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.implementation.items.components.PrimeComponents;

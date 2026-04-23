@@ -6,7 +6,7 @@ import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

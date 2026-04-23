@@ -1,9 +1,9 @@
 package me.sfiguz7.transcendence.implementation.items.multiblocks;
 
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.lists.TEItems;
 import org.bukkit.Bukkit;
@@ -21,7 +21,7 @@ import java.util.List;
 
 import static me.sfiguz7.transcendence.lists.TEItems.NANOBOT_CRAFTER;
 
-public class NanobotCrafter extends com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine {
+public class NanobotCrafter extends com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine {
 
     public NanobotCrafter() {
         super(TEItems.transcendence, NANOBOT_CRAFTER, new ItemStack[] {

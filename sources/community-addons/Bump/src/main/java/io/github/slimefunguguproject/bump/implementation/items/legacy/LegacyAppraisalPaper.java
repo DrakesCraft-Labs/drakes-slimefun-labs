@@ -12,11 +12,11 @@ import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
 import io.github.slimefunguguproject.bump.implementation.items.tools.QualityIdentifier;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.items.LimitedUseItem;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.items.LimitedUseItem;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 /**
  * This class is used to upgrade legacy appraisal papers in player's inventory

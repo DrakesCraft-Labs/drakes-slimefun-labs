@@ -8,23 +8,23 @@ import org.bukkit.inventory.ItemStack;
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroGroups;
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.schntgaispock.gastronomicon.util.collections.CollectionUtil;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineProcessHolder;
-import com.github.drakescraft-labs.slimefun4.core.machines.MachineProcessor;
-import com.github.drakescraft-labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.operations.CraftingOperation;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineProcessHolder;
+import com.github.drakescraft_labs.slimefun4.core.machines.MachineProcessor;
+import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 @Getter
 @SuppressWarnings("deprecation")

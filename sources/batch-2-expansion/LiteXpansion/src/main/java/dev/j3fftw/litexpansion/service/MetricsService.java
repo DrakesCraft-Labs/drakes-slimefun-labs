@@ -2,9 +2,9 @@ package dev.j3fftw.litexpansion.service;
 
 import dev.j3fftw.litexpansion.LiteXpansion;
 import dev.j3fftw.litexpansion.utils.Reflections;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
 import org.bstats.charts.SimplePie;

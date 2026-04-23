@@ -1,10 +1,10 @@
 package io.ncbpfluffybear.fluffymachines.objects;
 
 
-import com.github.drakescraft-labs.slimefun4.core.attributes.ItemAttribute;
-import com.github.drakescraft-labs.slimefun4.core.services.holograms.HologramsService;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.HologramProjector;
+import com.github.drakescraft_labs.slimefun4.core.attributes.ItemAttribute;
+import com.github.drakescraft_labs.slimefun4.core.services.holograms.HologramsService;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.HologramProjector;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -14,7 +14,7 @@ import org.bukkit.util.Vector;
 
 /**
  * This {@link ItemAttribute} manages holograms.
- * Modified version of {@link com.github.drakescraft-labs.slimefun4.core.attributes.HologramOwner}
+ * Modified version of {@link com.github.drakescraft_labs.slimefun4.core.attributes.HologramOwner}
  * Didn't extend because all methods are being modified
  *
  * @author TheBusyBiscuit

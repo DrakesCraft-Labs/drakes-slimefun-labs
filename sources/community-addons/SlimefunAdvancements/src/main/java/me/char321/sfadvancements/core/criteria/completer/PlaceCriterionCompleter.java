@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.core.criteria.completer;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.char321.sfadvancements.SFAdvancements;
 import me.char321.sfadvancements.api.criteria.Criterion;
 import me.char321.sfadvancements.api.criteria.PlaceCriterion;

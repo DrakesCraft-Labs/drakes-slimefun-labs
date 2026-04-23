@@ -1,9 +1,9 @@
 package me.char321.sfadvancements.core.gui;
 
 import io.github.bakedlibs.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuide;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 import me.char321.sfadvancements.SFAdvancements;
 import me.char321.sfadvancements.api.Advancement;
 import me.char321.sfadvancements.api.AdvancementGroup;

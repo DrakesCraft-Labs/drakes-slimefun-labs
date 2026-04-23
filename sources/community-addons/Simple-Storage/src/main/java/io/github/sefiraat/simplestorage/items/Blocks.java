@@ -5,7 +5,7 @@ import io.github.sefiraat.simplestorage.categories.Categories;
 import io.github.sefiraat.simplestorage.items.chests.NetworkChest;
 import io.github.sefiraat.simplestorage.items.chests.SimpleChest;
 import io.github.sefiraat.simplestorage.items.machines.Enderator;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 public final class Blocks {
 

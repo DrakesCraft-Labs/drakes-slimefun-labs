@@ -1,7 +1,7 @@
 package io.ncbpfluffybear.fluffymachines;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import dev.drake.dough.collections.Pair;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.updater.BlobBuildUpdater;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import javax.annotation.Nonnull;
 import lombok.SneakyThrows;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

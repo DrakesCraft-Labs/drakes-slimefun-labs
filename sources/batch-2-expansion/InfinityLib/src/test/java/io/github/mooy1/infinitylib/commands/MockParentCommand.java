@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.commands;
+package com.github.drakescraft_labs.infinitylib.commands;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

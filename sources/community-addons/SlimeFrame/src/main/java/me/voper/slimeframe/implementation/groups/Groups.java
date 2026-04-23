@@ -2,7 +2,7 @@ package me.voper.slimeframe.implementation.groups;
 
 import org.bukkit.Material;
 
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.utils.Colors;

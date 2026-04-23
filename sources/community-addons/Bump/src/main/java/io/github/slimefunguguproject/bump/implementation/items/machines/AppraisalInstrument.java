@@ -20,13 +20,13 @@ import io.github.slimefunguguproject.bump.implementation.items.tools.QualityIden
 import io.github.slimefunguguproject.bump.utils.AppraiseUtils;
 import io.github.slimefunguguproject.bump.utils.GuiItems;
 import io.github.slimefunguguproject.bump.utils.ValidateUtils;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 /**
  * This implements the {@link AppraisalInstrument}.

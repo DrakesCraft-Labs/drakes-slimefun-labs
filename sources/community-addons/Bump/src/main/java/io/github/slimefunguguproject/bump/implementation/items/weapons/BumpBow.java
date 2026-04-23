@@ -10,13 +10,13 @@ import org.bukkit.inventory.ItemStack;
 import io.github.slimefunguguproject.bump.core.attributes.CostHungerItem;
 import io.github.slimefunguguproject.bump.core.handlers.BowUseHandler;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemSetting;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.settings.IntRangeSetting;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.DamageableItem;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.settings.IntRangeSetting;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.DamageableItem;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 
 /**
  * A {@link BumpBow} is a {@link SlimefunItem} which has an {@link ItemSetting} of damageable

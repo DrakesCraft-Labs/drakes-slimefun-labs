@@ -3,8 +3,8 @@ package dev.sefiraat.netheopoiesis.implementation;
 import dev.sefiraat.netheopoiesis.utils.ItemStackUtils;
 import dev.sefiraat.netheopoiesis.utils.Skulls;
 import dev.sefiraat.netheopoiesis.utils.Theme;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import org.bukkit.Color;
 import org.bukkit.Material;
 

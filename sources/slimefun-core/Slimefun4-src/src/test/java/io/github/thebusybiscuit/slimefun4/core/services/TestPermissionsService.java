@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.core.services;
+package com.github.drakescraft_labs.slimefun4.core.services;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -16,9 +16,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

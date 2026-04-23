@@ -1,14 +1,14 @@
 package me.gallowsdove.foxymachines.implementation.tools;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Rechargeable;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
 import me.gallowsdove.foxymachines.utils.SimpleLocation;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;

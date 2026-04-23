@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.items.autocrafters;
+package com.github.drakescraft_labs.slimefun4.implementation.items.autocrafters;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

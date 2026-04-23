@@ -1,7 +1,7 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import org.bukkit.Location;
 import org.bukkit.block.Biome;

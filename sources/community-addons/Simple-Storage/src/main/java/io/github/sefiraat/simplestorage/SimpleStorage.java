@@ -1,6 +1,6 @@
 package io.github.sefiraat.simplestorage;
 
-import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.simplestorage.categories.Categories;
 import io.github.sefiraat.simplestorage.configuration.ManagerConfiguration;
 import io.github.sefiraat.simplestorage.items.Blocks;

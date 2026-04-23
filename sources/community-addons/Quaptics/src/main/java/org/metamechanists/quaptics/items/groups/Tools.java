@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.items.groups;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -12,10 +12,10 @@ import org.metamechanists.quaptics.implementation.tools.raygun.ModulatedRayGun;
 import org.metamechanists.quaptics.implementation.tools.targetingwand.TargetingWand;
 import org.metamechanists.quaptics.items.Groups;
 
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.BILLON_INGOT;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.HARDENED_METAL_INGOT;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.HOLOGRAM_PROJECTOR;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.POWER_CRYSTAL;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.BILLON_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.HARDENED_METAL_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.HOLOGRAM_PROJECTOR;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.POWER_CRYSTAL;
 import static org.metamechanists.quaptics.implementation.tools.multiblockwand.MultiblockWand.MULTIBLOCK_WAND;
 import static org.metamechanists.quaptics.implementation.tools.raygun.DirectRayGun.RAY_GUN_3;
 import static org.metamechanists.quaptics.implementation.tools.raygun.DirectRayGun.RAY_GUN_3_SETTINGS;

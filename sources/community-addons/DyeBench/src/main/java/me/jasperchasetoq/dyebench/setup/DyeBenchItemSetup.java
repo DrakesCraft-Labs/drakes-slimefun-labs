@@ -1,7 +1,7 @@
 package me.jasperchasetoq.dyebench.setup;
 
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.jasperchasetoq.dyebench.DyeBench;
 import me.jasperchasetoq.dyebench.DyeBenchItems;
 import me.jasperchasetoq.dyebench.implemention.items.machines.TheDyeBench;

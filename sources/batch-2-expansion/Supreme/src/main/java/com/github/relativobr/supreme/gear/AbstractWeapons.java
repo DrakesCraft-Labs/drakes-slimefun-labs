@@ -5,10 +5,10 @@ import com.github.relativobr.supreme.machine.multiblock.MultiBlockGearFabricator
 import com.github.relativobr.supreme.util.EnchantsAndEffectsUtil;
 import com.github.relativobr.supreme.util.ItemGroups;
 import com.github.relativobr.supreme.util.ItemTier;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Soulbound;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Soulbound;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.inventory.ItemStack;

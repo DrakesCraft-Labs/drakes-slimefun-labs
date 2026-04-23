@@ -6,7 +6,7 @@ import io.github.sefiraat.danktech2.slimefun.packs.DankPack;
 import io.github.sefiraat.danktech2.slimefun.packs.TrashPack;
 import io.github.sefiraat.danktech2.theme.ThemeType;
 import io.github.sefiraat.danktech2.utils.Skulls;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

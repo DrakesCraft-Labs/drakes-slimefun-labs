@@ -1,7 +1,7 @@
 package me.voper.slimeframe.implementation.items.resources;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.core.attributes.NotPlaceable;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 
 import me.voper.slimeframe.core.attributes.FreezingItem;
 import me.voper.slimeframe.implementation.SFrameStacks;

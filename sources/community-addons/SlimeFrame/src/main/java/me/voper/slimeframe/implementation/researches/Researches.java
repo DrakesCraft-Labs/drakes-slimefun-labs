@@ -7,9 +7,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.managers.SettingsManager;

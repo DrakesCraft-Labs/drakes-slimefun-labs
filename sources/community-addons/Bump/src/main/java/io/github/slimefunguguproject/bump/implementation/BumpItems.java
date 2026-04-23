@@ -9,8 +9,8 @@ import io.github.slimefunguguproject.bump.implementation.items.machines.Attribut
 import io.github.slimefunguguproject.bump.implementation.items.tools.QualityIdentifier;
 import io.github.slimefunguguproject.bump.utils.AppraiseUtils;
 import io.github.slimefunguguproject.bump.utils.Utils;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 
 import lombok.experimental.UtilityClass;
 

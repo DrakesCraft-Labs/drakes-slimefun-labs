@@ -1,9 +1,9 @@
 package me.profelements.dynatech;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import me.profelements.dynatech.items.backpacks.PicnicBasket;
 import me.profelements.dynatech.items.misc.DimensionalHomeDimension;
 import me.profelements.dynatech.items.tools.ElectricalStimulator;

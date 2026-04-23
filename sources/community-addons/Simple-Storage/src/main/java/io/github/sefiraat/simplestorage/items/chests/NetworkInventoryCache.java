@@ -1,6 +1,6 @@
 package io.github.sefiraat.simplestorage.items.chests;
 
-import com.github.drakescraft-labs.infinitylib.common.StackUtils;
+import com.github.drakescraft_labs.infinitylib.common.StackUtils;
 import io.github.sefiraat.simplestorage.SimpleStorage;
 import io.github.sefiraat.simplestorage.items.SimpleStorageItemStacks;
 import io.github.sefiraat.simplestorage.items.Skulls;
@@ -9,10 +9,10 @@ import io.github.sefiraat.simplestorage.items.chests.network.NetworkElement.Netw
 import io.github.sefiraat.simplestorage.items.chests.network.RemovalSet;
 import io.github.sefiraat.simplestorage.runnables.RunnableHighlight;
 import io.github.sefiraat.simplestorage.utils.Theme;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.machines;
+package com.github.drakescraft_labs.infinitylib.machines;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import com.github.drakescraft-labs.infinitylib.core.MockAddon;
-import com.github.drakescraft-labs.infinitylib.groups.SubGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.infinitylib.core.MockAddon;
+import com.github.drakescraft_labs.infinitylib.groups.SubGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

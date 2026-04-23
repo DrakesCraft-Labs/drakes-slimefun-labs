@@ -1,13 +1,13 @@
 package ne.fnfal113.fnamplifications.multiblocks;
 
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft-labs.slimefun4.libraries.paperlib.PaperLib;
+import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 
 import ne.fnfal113.fnamplifications.FNAmplifications;
 import ne.fnfal113.fnamplifications.items.FNAmpItems;

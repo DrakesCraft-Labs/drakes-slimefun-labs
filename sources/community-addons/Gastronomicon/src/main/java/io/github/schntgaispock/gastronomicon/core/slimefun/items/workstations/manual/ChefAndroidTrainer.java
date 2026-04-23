@@ -11,24 +11,24 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import com.github.drakescraft-labs.infinitylib.core.AddonConfig;
-import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
+import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroGroups;
 import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.GastroFood;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.SimpleGastroFood;
 import io.github.schntgaispock.gastronomicon.util.item.GastroKeys;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 @Getter
 public class ChefAndroidTrainer extends MenuBlock {

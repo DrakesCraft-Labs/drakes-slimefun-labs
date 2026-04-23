@@ -21,11 +21,11 @@ import io.github.slimefunguguproject.bump.implementation.setup.ResearchSetup;
 import io.github.slimefunguguproject.bump.implementation.tasks.WeaponProjectileTask;
 import io.github.slimefunguguproject.bump.utils.WikiUtils;
 import io.github.slimefunguguproject.bump.utils.tags.BumpTag;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
-import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AbstractAddon;
-import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AddonConfig;
-import com.github.drakescraft-labs.guizhanlib.updater.GuizhanBuildsUpdater;
+import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AbstractAddon;
+import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.guizhanlib.updater.GuizhanBuildsUpdater;
 
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
@@ -164,7 +164,7 @@ public final class Bump extends AbstractAddon {
     protected void autoUpdate() {
         try {
             // use updater in lib plugin
-            Class<?> clazz = Class.forName("com.github.drakescraft-labs.guizhanlibplugin.updater.GuizhanUpdater");
+            Class<?> clazz = Class.forName("com.github.drakescraft_labs.guizhanlibplugin.updater.GuizhanUpdater");
             Method updaterStart = clazz.getDeclaredMethod("start", Plugin.class, File.class, String.class, String.class, String.class);
             updaterStart.invoke(null, this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
         } catch (Exception ignored) {

@@ -1,7 +1,7 @@
 package ne.fnfal113.relicsofcthonia.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.core.attributes.PiglinBarterDrop;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.core.attributes.PiglinBarterDrop;
 import ne.fnfal113.relicsofcthonia.RelicsOfCthonia;
 import ne.fnfal113.relicsofcthonia.RelicsRegistry;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;

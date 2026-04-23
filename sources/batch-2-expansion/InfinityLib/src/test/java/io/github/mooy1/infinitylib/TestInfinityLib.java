@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib;
+package com.github.drakescraft_labs.infinitylib;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,12 +14,12 @@ class TestInfinityLib {
 
     @Test
     void testPackage() {
-        assertEquals("com.github.drakescraft-labs.infinitylib", InfinityLib.PACKAGE);
+        assertEquals("com.github.drakescraft_labs.infinitylib", InfinityLib.PACKAGE);
     }
 
     @Test
     void testAddonPackage() {
-        assertEquals("com.github.drakescraft-labs", InfinityLib.ADDON_PACKAGE);
+        assertEquals("com.github.drakescraft_labs", InfinityLib.ADDON_PACKAGE);
     }
 
 }

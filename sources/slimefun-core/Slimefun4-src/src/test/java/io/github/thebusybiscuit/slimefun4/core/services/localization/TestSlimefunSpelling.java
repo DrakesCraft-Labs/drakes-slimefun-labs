@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.core.services.localization;
+package com.github.drakescraft_labs.slimefun4.core.services.localization;
 
 import java.io.IOException;
 import java.util.regex.Pattern;

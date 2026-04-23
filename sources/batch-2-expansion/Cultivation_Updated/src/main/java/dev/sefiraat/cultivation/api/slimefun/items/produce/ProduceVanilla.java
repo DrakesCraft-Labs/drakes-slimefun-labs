@@ -4,7 +4,7 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.sefilib.string.Theme;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

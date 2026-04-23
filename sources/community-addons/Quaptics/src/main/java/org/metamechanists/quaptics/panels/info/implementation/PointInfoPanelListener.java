@@ -1,6 +1,6 @@
 package org.metamechanists.quaptics.panels.info.implementation;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Interaction;
 import org.bukkit.event.EventHandler;

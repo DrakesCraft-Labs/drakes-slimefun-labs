@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.tasks;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.utils.QuestUtils;
 import org.bukkit.Bukkit;

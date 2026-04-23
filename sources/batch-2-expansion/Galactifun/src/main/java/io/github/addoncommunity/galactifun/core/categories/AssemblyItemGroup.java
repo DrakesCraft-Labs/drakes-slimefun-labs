@@ -12,14 +12,14 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.addoncommunity.galactifun.base.BaseItems;
 import io.github.addoncommunity.galactifun.base.items.AssemblyTable;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.FlexItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuide;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 
 /**

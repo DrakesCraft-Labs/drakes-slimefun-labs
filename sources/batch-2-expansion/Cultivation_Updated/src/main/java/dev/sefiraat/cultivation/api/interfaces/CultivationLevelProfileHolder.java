@@ -2,7 +2,7 @@ package dev.sefiraat.cultivation.api.interfaces;
 
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 

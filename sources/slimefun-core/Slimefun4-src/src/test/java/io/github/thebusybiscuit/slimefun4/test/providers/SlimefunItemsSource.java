@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.test.providers;
+package com.github.drakescraft_labs.slimefun4.test.providers;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

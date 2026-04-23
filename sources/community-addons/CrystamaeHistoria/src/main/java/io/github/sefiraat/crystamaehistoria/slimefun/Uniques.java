@@ -10,7 +10,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefacti
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;

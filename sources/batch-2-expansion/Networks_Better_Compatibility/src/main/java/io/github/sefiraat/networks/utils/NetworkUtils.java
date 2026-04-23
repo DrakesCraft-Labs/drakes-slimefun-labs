@@ -12,8 +12,8 @@ import io.github.sefiraat.networks.slimefun.network.NetworkDirectional;
 import io.github.sefiraat.networks.slimefun.network.NetworkPusher;
 import io.github.sefiraat.networks.slimefun.tools.NetworkConfigurator;
 import io.github.sefiraat.networks.utils.datatypes.DataTypeMethods;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

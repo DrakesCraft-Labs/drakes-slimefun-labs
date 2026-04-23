@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.runnables;
 
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.justahuman.spiritsunchained.utils.PlayerUtils;
 import me.justahuman.spiritsunchained.utils.SpiritUtils;
 import org.bukkit.Bukkit;

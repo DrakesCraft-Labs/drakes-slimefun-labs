@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.commands;
+package com.github.drakescraft_labs.infinitylib.commands;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft-labs.infinitylib.core.MockAddon;
+import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft_labs.infinitylib.core.MockAddon;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

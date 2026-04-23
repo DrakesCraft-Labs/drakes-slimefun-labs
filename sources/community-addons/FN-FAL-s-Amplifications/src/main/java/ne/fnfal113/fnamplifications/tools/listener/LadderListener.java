@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.tools.listener;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import ne.fnfal113.fnamplifications.tools.AutoLadder;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

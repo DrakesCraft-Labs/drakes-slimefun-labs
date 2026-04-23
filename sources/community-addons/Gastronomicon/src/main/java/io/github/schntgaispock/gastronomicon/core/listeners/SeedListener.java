@@ -25,8 +25,8 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.items.seeds.AbstractS
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.seeds.DuplicatingSeed;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.seeds.FruitingSeed;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.seeds.VineSeed;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 public class SeedListener implements Listener {
 

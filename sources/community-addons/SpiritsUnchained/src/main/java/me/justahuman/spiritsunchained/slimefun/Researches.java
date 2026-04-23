@@ -1,7 +1,7 @@
 package me.justahuman.spiritsunchained.slimefun;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import me.justahuman.spiritsunchained.utils.Keys;
 import me.justahuman.spiritsunchained.utils.SpiritUtils;
 

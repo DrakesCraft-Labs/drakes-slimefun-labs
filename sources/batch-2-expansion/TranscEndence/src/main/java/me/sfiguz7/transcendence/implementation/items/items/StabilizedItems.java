@@ -1,8 +1,8 @@
 package me.sfiguz7.transcendence.implementation.items.items;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import me.sfiguz7.transcendence.lists.TEItems;
 import me.sfiguz7.transcendence.lists.TERecipeType;
 import org.bukkit.inventory.ItemStack;

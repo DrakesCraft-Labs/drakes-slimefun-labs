@@ -1,10 +1,10 @@
 package com.github.relativobr.supreme.util;
 
 import com.github.relativobr.supreme.Supreme;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

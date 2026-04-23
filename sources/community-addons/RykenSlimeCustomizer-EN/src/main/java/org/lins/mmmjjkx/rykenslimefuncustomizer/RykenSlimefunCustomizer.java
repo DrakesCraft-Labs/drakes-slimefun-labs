@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;

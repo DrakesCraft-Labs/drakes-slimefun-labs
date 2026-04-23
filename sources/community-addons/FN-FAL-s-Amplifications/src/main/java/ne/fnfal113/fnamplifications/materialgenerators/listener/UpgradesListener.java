@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.materialgenerators.listener;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import ne.fnfal113.fnamplifications.materialgenerators.implementations.CustomMaterialGenerator;
 import ne.fnfal113.fnamplifications.materialgenerators.upgrades.abstracts.AbstractUpgrades;
 import org.bukkit.Material;

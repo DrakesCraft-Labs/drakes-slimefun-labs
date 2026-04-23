@@ -2,9 +2,9 @@ package dev.walshy.hardcoreslimefun.events;
 
 import dev.walshy.hardcoreslimefun.utils.Config;
 import dev.walshy.hardcoreslimefun.utils.Utils;
-import com.github.drakescraft-labs.slimefun4.api.events.ResearchUnlockEvent;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.events.ResearchUnlockEvent;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;

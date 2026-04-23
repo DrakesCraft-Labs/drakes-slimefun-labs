@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.api.profiles;
+package com.github.drakescraft_labs.slimefun4.api.profiles;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.event.Event;
@@ -8,11 +8,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.github.drakescraft-labs.slimefun4.api.events.AsyncProfileLoadEvent;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
-import com.github.drakescraft-labs.slimefun4.test.mocks.MockProfile;
+import com.github.drakescraft_labs.slimefun4.api.events.AsyncProfileLoadEvent;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.test.mocks.MockProfile;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

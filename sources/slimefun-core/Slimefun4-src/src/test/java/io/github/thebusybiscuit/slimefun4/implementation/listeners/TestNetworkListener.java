@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.listeners;
+package com.github.drakescraft_labs.slimefun4.implementation.listeners;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,9 +14,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import com.github.drakescraft-labs.slimefun4.api.network.Network;
-import com.github.drakescraft-labs.slimefun4.core.networks.NetworkManager;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.network.Network;
+import com.github.drakescraft_labs.slimefun4.core.networks.NetworkManager;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

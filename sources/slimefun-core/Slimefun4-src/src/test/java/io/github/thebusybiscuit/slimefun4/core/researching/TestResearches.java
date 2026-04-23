@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.core.researching;
+package com.github.drakescraft_labs.slimefun4.core.researching;
 
 import java.util.Optional;
 
@@ -14,13 +14,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.events.PlayerPreResearchEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideImplementation;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.api.events.PlayerPreResearchEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideImplementation;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

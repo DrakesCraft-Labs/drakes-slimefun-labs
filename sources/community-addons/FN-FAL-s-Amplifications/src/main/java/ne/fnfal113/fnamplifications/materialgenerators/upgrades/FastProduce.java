@@ -1,11 +1,11 @@
 package ne.fnfal113.fnamplifications.materialgenerators.upgrades;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import ne.fnfal113.fnamplifications.materialgenerators.implementations.CustomMaterialGenerator;
 import ne.fnfal113.fnamplifications.materialgenerators.upgrades.abstracts.AbstractUpgrades;
 import ne.fnfal113.fnamplifications.utils.Utils;

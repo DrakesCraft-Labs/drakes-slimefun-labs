@@ -2,7 +2,7 @@ package ne.fnfal113.fnamplifications.items;
 
 import org.bukkit.plugin.Plugin;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 
 import ne.fnfal113.fnamplifications.FNAmplifications;
 import ne.fnfal113.fnamplifications.gears.implementation.RegisterGears;

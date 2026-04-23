@@ -1,6 +1,6 @@
 package org.metamechanists.sanecrafting;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bstats.bukkit.Metrics;
@@ -11,7 +11,7 @@ import org.metamechanists.sanecrafting.patches.CraftingTablePatch;
 import org.metamechanists.sanecrafting.patches.RecipeBookResearchPatch;
 import org.metamechanists.sanecrafting.patches.RecipeLorePatch;
 import org.metamechanists.sanecrafting.patches.UsableInWorkbenchPatch;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 
 
 public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {

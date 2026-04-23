@@ -1,13 +1,13 @@
 package me.justahuman.moreresearches;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import net.md_5.bungee.api.chat.ClickEvent;

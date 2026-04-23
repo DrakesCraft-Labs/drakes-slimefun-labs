@@ -1,10 +1,10 @@
 package io.github.sefiraat.networks.network;
 
 import io.github.sefiraat.networks.utils.StackUtils;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.backpacks.SlimefunBackpack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.backpacks.SlimefunBackpack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.inventory.ItemStack;
 

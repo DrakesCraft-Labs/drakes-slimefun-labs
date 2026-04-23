@@ -3,7 +3,7 @@ package io.github.addoncommunity.slimechem.implementation.atomic;
 import io.github.addoncommunity.slimechem.implementation.attributes.Ingredient;
 import io.github.addoncommunity.slimechem.utils.SubNum;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

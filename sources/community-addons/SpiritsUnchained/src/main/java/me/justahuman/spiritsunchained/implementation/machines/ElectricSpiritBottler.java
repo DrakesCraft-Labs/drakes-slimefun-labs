@@ -1,18 +1,18 @@
 package me.justahuman.spiritsunchained.implementation.machines;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetComponent;
-import com.github.drakescraft-labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.core.networks.energy.EnergyNetComponentType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.protection.Interaction;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.slimefun.ItemStacks;
@@ -21,11 +21,11 @@ import me.justahuman.spiritsunchained.utils.ParticleUtils;
 import me.justahuman.spiritsunchained.utils.SpiritUtils;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
-import com.github.drakescraft-labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

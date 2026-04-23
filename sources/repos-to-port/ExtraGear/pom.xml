@@ -58,7 +58,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats.bukkit</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.extragear.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.extragear.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

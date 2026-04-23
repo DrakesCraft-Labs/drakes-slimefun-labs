@@ -1,13 +1,13 @@
 package me.lucasgithuber.elementmanipulation.misc;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import me.lucasgithuber.elementmanipulation.machines.JunctionTable;
 import me.lucasgithuber.elementmanipulation.utils.Categories;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import me.lucasgithuber.elementmanipulation.utils.RecipeTypes;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.enchantments.Enchantment;

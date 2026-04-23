@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.universe.attributes.atmosphere.AtmosphericEffect;
 import io.github.addoncommunity.galactifun.api.worlds.PlanetaryWorld;
-import com.github.drakescraft-labs.infinitylib.commands.SubCommand;
+import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
 
 public final class EffectsCommand extends SubCommand {
 

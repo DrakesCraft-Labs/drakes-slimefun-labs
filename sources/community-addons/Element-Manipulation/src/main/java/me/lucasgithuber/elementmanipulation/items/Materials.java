@@ -1,7 +1,7 @@
     package me.lucasgithuber.elementmanipulation.items;
 
-    import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-    import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+    import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+    import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
     import lombok.Getter;
     import me.lucasgithuber.elementmanipulation.ElementManipulation;
     import me.lucasgithuber.elementmanipulation.machines.JunctionTable;

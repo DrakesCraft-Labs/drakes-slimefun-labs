@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.items.groups;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -12,7 +12,7 @@ import org.metamechanists.quaptics.implementation.multiblocks.reactor.ReactorCon
 import org.metamechanists.quaptics.implementation.multiblocks.reactor.ReactorRing;
 import org.metamechanists.quaptics.items.Groups;
 
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.*;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.*;
 import static org.metamechanists.quaptics.implementation.blocks.concentrators.EnergyConcentrator.ENERGY_CONCENTRATOR_1;
 import static org.metamechanists.quaptics.implementation.blocks.concentrators.EnergyConcentrator.ENERGY_CONCENTRATOR_1_SETTINGS;
 import static org.metamechanists.quaptics.implementation.blocks.concentrators.EnergyConcentrator.ENERGY_CONCENTRATOR_2;

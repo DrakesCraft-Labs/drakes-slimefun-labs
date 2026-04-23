@@ -11,7 +11,7 @@ import io.github.addoncommunity.galactifun.api.items.Rocket;
 import io.github.addoncommunity.galactifun.api.universe.attributes.atmosphere.Gas;
 import io.github.addoncommunity.galactifun.base.items.AssemblyTable;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 
 public final class IonRocket extends Rocket {
 

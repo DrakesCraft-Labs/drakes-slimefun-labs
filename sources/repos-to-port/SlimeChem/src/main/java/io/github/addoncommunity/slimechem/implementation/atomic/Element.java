@@ -7,11 +7,11 @@ import io.github.addoncommunity.slimechem.lists.Constants;
 import io.github.addoncommunity.slimechem.utils.SubNum;
 import io.github.addoncommunity.slimechem.utils.Util;
 import io.github.addoncommunity.slimechem.implementation.subatomic.Nucleon;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 
 import javax.annotation.Nonnull;

@@ -67,7 +67,7 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>com.github.drakescraft-labs.slimefunorechunks.bstats</shadedPattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefunorechunks.bstats</shadedPattern>
                         </relocation>
                     </relocations>
 

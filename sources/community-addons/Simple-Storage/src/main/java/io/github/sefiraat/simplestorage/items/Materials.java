@@ -12,11 +12,11 @@ import io.github.sefiraat.simplestorage.items.other.RareDropCoal;
 import io.github.sefiraat.simplestorage.items.other.RareDropLapis;
 import io.github.sefiraat.simplestorage.items.other.RareDropQuartz;
 import io.github.sefiraat.simplestorage.items.other.RareDropRedstone;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
 import org.bukkit.inventory.ItemStack;
 
 public final class Materials {

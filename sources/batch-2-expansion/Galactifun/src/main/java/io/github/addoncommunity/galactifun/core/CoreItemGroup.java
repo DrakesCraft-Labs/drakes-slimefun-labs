@@ -8,9 +8,9 @@ import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.base.GalactifunHead;
 import io.github.addoncommunity.galactifun.core.categories.AssemblyItemGroup;
 import io.github.addoncommunity.galactifun.core.categories.GalacticItemGroup;
-import com.github.drakescraft-labs.infinitylib.groups.MultiGroup;
-import com.github.drakescraft-labs.infinitylib.groups.SubGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.infinitylib.groups.MultiGroup;
+import com.github.drakescraft_labs.infinitylib.groups.SubGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 
 /**

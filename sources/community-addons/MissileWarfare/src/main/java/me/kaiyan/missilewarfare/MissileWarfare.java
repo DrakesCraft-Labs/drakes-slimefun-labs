@@ -1,6 +1,6 @@
 package me.kaiyan.missilewarfare;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.config.Config;
 import me.kaiyan.missilewarfare.items.CustomItems;
 import me.kaiyan.missilewarfare.listeners.ExplosionEventListener;

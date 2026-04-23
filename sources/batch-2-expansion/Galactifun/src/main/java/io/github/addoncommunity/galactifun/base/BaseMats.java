@@ -17,12 +17,12 @@ import io.github.addoncommunity.galactifun.base.items.DiamondAnvil;
 import io.github.addoncommunity.galactifun.base.items.MoonCheese;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
 import io.github.addoncommunity.galactifun.core.CoreRecipeType;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.HeatedPressureChamber;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.HeatedPressureChamber;
 import dev.drake.dough.items.CustomItemStack;
 
 /**

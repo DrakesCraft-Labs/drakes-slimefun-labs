@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.utils;
 
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;

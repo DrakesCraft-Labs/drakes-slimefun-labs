@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.events.BlockPlacerPlaceEvent;
+import com.github.drakescraft_labs.slimefun4.api.events.BlockPlacerPlaceEvent;
 import ne.fnfal113.relicsofcthonia.RelicsOfCthonia;
 import ne.fnfal113.relicsofcthonia.RelicsRegistry;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;

@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.common;
+package com.github.drakescraft_labs.infinitylib.common;
 
 import java.util.UUID;
 

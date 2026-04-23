@@ -1,10 +1,10 @@
 package me.sfiguz7.extratools.implementation.interfaces;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
-import com.github.drakescraft-labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 

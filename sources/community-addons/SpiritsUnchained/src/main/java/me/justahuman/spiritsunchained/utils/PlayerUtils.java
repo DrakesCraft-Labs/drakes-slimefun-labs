@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.utils;
 
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.managers.ConfigManager;

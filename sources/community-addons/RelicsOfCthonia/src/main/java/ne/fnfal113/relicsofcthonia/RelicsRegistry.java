@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import lombok.experimental.UtilityClass;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;
 import org.bukkit.Material;

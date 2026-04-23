@@ -1,8 +1,8 @@
 package io.ncbpfluffybear.fluffymachines.machines;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import io.ncbpfluffybear.fluffymachines.objects.AutoCrafter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

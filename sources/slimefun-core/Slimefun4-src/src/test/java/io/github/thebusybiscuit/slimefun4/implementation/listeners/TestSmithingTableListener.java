@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.listeners;
+package com.github.drakescraft_labs.slimefun4.implementation.listeners;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
@@ -23,11 +23,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.VanillaItem;
-import com.github.drakescraft-labs.slimefun4.implementation.listeners.crafting.SmithingTableListener;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.VanillaItem;
+import com.github.drakescraft_labs.slimefun4.implementation.listeners.crafting.SmithingTableListener;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
 class TestSmithingTableListener {
 

@@ -6,8 +6,8 @@ import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 
-import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

@@ -1,12 +1,12 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.yaml;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.LockedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SeasonalItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.LockedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SeasonalItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;

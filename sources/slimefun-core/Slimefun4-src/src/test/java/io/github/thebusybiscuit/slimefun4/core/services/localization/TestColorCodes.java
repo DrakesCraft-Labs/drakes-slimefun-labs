@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.core.services.localization;
+package com.github.drakescraft_labs.slimefun4.core.services.localization;
 
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;

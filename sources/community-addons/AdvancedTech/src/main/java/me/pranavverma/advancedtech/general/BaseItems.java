@@ -1,15 +1,15 @@
 package me.pranavverma.advancedtech.general;
 
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import lombok.experimental.UtilityClass;
 
 import org.bukkit.Material;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 
 
 

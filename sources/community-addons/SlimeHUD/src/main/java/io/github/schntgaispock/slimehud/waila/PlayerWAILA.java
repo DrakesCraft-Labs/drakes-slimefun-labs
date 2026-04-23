@@ -13,9 +13,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import io.github.schntgaispock.slimehud.SlimeHUD;
 import io.github.schntgaispock.slimehud.util.Util;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 

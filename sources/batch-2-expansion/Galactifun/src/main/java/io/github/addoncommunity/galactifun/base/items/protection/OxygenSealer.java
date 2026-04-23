@@ -19,21 +19,21 @@ import io.github.addoncommunity.galactifun.base.BaseItems;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
 import io.github.addoncommunity.galactifun.util.BSUtils;
 import io.github.addoncommunity.galactifun.util.Util;
-import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.EnergyNetComponent;
-import com.github.drakescraft-labs.slimefun4.core.attributes.HologramOwner;
-import com.github.drakescraft-labs.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft_labs.slimefun4.core.attributes.HologramOwner;
+import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import dev.drake.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.handlers.BlockTicker;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
 public final class OxygenSealer extends MenuBlock implements EnergyNetComponent, HologramOwner {
 

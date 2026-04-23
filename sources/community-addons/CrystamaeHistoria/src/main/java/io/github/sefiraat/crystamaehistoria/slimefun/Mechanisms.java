@@ -9,8 +9,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismaticg
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;

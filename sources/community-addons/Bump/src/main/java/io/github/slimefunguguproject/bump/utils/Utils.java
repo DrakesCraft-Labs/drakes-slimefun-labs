@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.github.drakescraft-labs.guizhanlib.utils.StringUtil;
+import com.github.drakescraft_labs.guizhanlib.utils.StringUtil;
 
 import lombok.experimental.UtilityClass;
 
@@ -70,7 +70,7 @@ public final class Utils {
      */
     public static String getMaterialName(@Nonnull Material material) {
         try {
-            Class<?> clazz = Class.forName("com.github.drakescraft-labs.guizhanlib.minecraft.helper.MaterialHelper");
+            Class<?> clazz = Class.forName("com.github.drakescraft_labs.guizhanlib.minecraft.helper.MaterialHelper");
             Object result = clazz.getMethod("getName", Material.class).invoke(null, material);
             return String.valueOf(result);
         } catch (ClassNotFoundException | NoSuchMethodException | NullPointerException

@@ -1,10 +1,10 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.core.machines.MachineOperation;
-import com.github.drakescraft-labs.slimefun4.core.machines.MachineProcessor;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.core.machines.MachineOperation;
+import com.github.drakescraft_labs.slimefun4.core.machines.MachineProcessor;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.block.Block;
 import org.jetbrains.annotations.Nullable;
 import org.lins.mmmjjkx.rykenslimefuncustomizer.objects.customs.machine.CustomMachine;

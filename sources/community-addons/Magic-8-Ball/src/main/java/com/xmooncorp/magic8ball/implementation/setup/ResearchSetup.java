@@ -2,8 +2,8 @@ package com.xmooncorp.magic8ball.implementation.setup;
 
 import com.xmooncorp.magic8ball.Magic8Ball;
 import com.xmooncorp.magic8ball.implementation.Items;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 

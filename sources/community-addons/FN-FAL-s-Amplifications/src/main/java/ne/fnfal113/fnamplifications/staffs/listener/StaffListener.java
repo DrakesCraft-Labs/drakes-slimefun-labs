@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.staffs.listener;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import ne.fnfal113.fnamplifications.staffs.abstracts.AbstractStaff;
 import ne.fnfal113.fnamplifications.staffs.handlers.EntityStaffImpl;
 import ne.fnfal113.fnamplifications.utils.Keys;

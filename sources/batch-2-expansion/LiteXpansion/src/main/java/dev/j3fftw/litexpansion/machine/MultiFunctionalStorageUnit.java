@@ -2,7 +2,7 @@ package dev.j3fftw.litexpansion.machine;
 
 import dev.j3fftw.litexpansion.Items;
 import dev.j3fftw.litexpansion.machine.extensions.ChargingStorageUnit;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import org.bukkit.inventory.ItemStack;
 
 public class MultiFunctionalStorageUnit extends ChargingStorageUnit {

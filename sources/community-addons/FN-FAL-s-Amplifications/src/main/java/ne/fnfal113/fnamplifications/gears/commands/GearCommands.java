@@ -1,6 +1,6 @@
 package ne.fnfal113.fnamplifications.gears.commands;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 
 import ne.fnfal113.fnamplifications.gears.abstracts.AbstractGears;
 import ne.fnfal113.fnamplifications.utils.Utils;

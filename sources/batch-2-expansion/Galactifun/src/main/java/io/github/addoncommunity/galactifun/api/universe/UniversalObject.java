@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import io.github.addoncommunity.galactifun.api.universe.attributes.Orbit;
 import io.github.addoncommunity.galactifun.api.universe.types.UniversalType;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 /**
  * Any object in the universe

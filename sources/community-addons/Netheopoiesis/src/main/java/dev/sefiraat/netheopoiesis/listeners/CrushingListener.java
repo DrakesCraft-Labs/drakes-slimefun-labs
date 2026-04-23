@@ -2,7 +2,7 @@ package dev.sefiraat.netheopoiesis.listeners;
 
 import dev.sefiraat.netheopoiesis.api.RecipeTypes;
 import dev.sefiraat.netheopoiesis.api.interfaces.WorldCrushable;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

@@ -1,12 +1,12 @@
 package me.lucasgithuber.elementmanipulation.machines;
 
-import com.github.drakescraft-labs.infinitylib.machines.MachineLore;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import me.lucasgithuber.elementmanipulation.utils.Categories;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;

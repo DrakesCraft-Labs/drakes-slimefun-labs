@@ -1,8 +1,8 @@
 package dev.walshy.sfmobdrops;
 
 import dev.drake.dough.updater.BlobBuildUpdater;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.core.debug.Debug;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.core.debug.Debug;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.entity.LivingEntity;

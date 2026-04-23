@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.items.groups;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -14,9 +14,9 @@ import org.metamechanists.quaptics.implementation.multiblocks.beacons.modules.pl
 import org.metamechanists.quaptics.implementation.multiblocks.beacons.modules.player.WirelessChargerModule;
 import org.metamechanists.quaptics.items.Groups;
 
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.BILLON_INGOT;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.FLASK_OF_KNOWLEDGE;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.REINFORCED_ALLOY_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.BILLON_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.FLASK_OF_KNOWLEDGE;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.REINFORCED_ALLOY_INGOT;
 import static org.metamechanists.quaptics.implementation.blocks.consumers.Charger.CHARGER_4;
 import static org.metamechanists.quaptics.implementation.multiblocks.beacons.modules.player.ExperienceModule.EXPERIENCE_MODULE_1;
 import static org.metamechanists.quaptics.implementation.multiblocks.beacons.modules.player.ExperienceModule.EXPERIENCE_MODULE_1_SETTINGS;

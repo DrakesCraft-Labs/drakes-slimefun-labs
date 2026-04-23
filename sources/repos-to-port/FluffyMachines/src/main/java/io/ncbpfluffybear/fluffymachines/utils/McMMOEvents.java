@@ -1,7 +1,7 @@
 package io.ncbpfluffybear.fluffymachines.utils;
 
 import com.gmail.nossr50.events.skills.abilities.McMMOPlayerAbilityActivateEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

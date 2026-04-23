@@ -28,7 +28,7 @@ import io.github.slimefunguguproject.bump.api.exceptions.TagMisconfigurationExce
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.utils.JsonUtils;
 import io.github.slimefunguguproject.bump.utils.constant.Patterns;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.common.CommonPatterns;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 
 /**
  * The {@link TagParser} is responsible for parsing a JSON file into a {@link BumpTag}.

@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.items.groups;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -13,10 +13,10 @@ import org.metamechanists.quaptics.implementation.blocks.upgraders.Repeater;
 import org.metamechanists.quaptics.implementation.blocks.upgraders.Scatterer;
 import org.metamechanists.quaptics.items.Groups;
 
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.FERROSILICON;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.HARDENED_METAL_INGOT;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.REINFORCED_ALLOY_INGOT;
-import static com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems.URANIUM;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.FERROSILICON;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.HARDENED_METAL_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.REINFORCED_ALLOY_INGOT;
+import static com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems.URANIUM;
 import static org.metamechanists.quaptics.implementation.blocks.upgraders.DiffractionGrating.DIFFRACTION_GRATING_1;
 import static org.metamechanists.quaptics.implementation.blocks.upgraders.DiffractionGrating.DIFFRACTION_GRATING_1_SETTINGS;
 import static org.metamechanists.quaptics.implementation.blocks.upgraders.DiffractionGrating.DIFFRACTION_GRATING_2;

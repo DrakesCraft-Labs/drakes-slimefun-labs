@@ -11,7 +11,7 @@ import static com.github.relativobr.supreme.resource.magical.SupremeCetrus.CETRU
 import static com.github.relativobr.supreme.resource.magical.SupremeCetrus.CETRUS_LUX;
 import static com.github.relativobr.supreme.resource.magical.SupremeCetrus.CETRUS_VENTUS;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public class ItemTier {

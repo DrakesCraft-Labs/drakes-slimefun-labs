@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.utils.tags;
+package com.github.drakescraft_labs.slimefun4.utils.tags;
 
 import javax.annotation.Nonnull;
 
@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.github.drakescraft-labs.slimefun4.api.exceptions.TagMisconfigurationException;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.exceptions.TagMisconfigurationException;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 

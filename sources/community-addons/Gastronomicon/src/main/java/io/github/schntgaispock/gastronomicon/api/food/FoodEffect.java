@@ -22,7 +22,7 @@ import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.core.slimefun.items.food.GastroFood;
 import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.item.ItemUtil;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

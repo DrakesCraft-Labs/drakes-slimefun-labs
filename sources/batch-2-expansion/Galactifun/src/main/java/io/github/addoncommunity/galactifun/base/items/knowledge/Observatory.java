@@ -11,9 +11,9 @@ import io.github.addoncommunity.galactifun.Galactifun;
 import io.github.addoncommunity.galactifun.api.worlds.PlanetaryWorld;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
 import io.github.addoncommunity.galactifun.core.WorldSelector;
-import com.github.drakescraft-labs.infinitylib.common.Scheduler;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 public final class Observatory extends MultiBlockMachine {

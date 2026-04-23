@@ -295,12 +295,13 @@ def rebrand_shades(dry_run=False):
     
     # Mapeo de namespaces antiguos a nuevos
     remap = {
-        "io.github.thebusybiscuit": "com.github.drakescraft-labs",
-        "io.github.seggan": "com.github.drakescraft-labs",
-        "me.mr_cookie": "com.github.drakescraft-labs",
-        "io.github.mooy1": "com.github.drakescraft-labs",
-        "me.pika": "com.github.drakescraft-labs",
-        "net.guizhanss": "com.github.drakescraft-labs"
+        "io.github.thebusybiscuit": "com.github.drakescraft_labs",
+        "io.github.seggan": "com.github.drakescraft_labs",
+        "me.mr_cookie": "com.github.drakescraft_labs",
+        "io.github.mooy1": "com.github.drakescraft_labs",
+        "me.pika": "com.github.drakescraft_labs",
+        "net.guizhanss": "com.github.drakescraft_labs",
+        "com.github.drakescraft-labs": "com.github.drakescraft_labs"
     }
     
     count = 0
@@ -339,13 +340,15 @@ def rebrand_imports(dry_run=False):
     
     # Mapeo de namespaces de librerías y autores originales
     remap = {
-        r"io\.github\.thebusybiscuit": "com.github.drakescraft-labs",
-        r"io\.github\.seggan": "com.github.drakescraft-labs",
-        r"io\.github\.mooy1": "com.github.drakescraft-labs",
-        r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft-labs.slimefun4.legacy",
-        r"me\.mr_cookie": "com.github.drakescraft-labs",
-        r"me\.pika": "com.github.drakescraft-labs",
-        r"net\.guizhanss": "com.github.drakescraft-labs"
+        r"io\.github\.thebusybiscuit": "com.github.drakescraft_labs",
+        r"io\.github\.seggan": "com.github.drakescraft_labs",
+        r"io\.github\.mooy1": "com.github.drakescraft_labs",
+        r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft_labs.slimefun4.legacy",
+        r"me\.mr_cookie": "com.github.drakescraft_labs",
+        r"me\.pika": "com.github.drakescraft_labs",
+        r"net\.guizhanss": "com.github.drakescraft_labs",
+        # Parche para corregir el error del guion si ya se aplicó
+        r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs"
     }
     
     count = 0
@@ -379,12 +382,14 @@ def rebrand_folders():
     
     # Definir los mapeos de carpetas (Base Antigua -> Base Nueva)
     mappings = [
-        (os.path.join("io", "github", "thebusybiscuit"), os.path.join("com", "github", "drakescraft-labs")),
-        (os.path.join("io", "github", "seggan"), os.path.join("com", "github", "drakescraft-labs")),
-        (os.path.join("io", "github", "mooy1"), os.path.join("com", "github", "drakescraft-labs")),
-        (os.path.join("me", "mrCookieSlime"), os.path.join("com", "github", "drakescraft-labs", "slimefun4", "legacy")),
-        (os.path.join("me", "pika"), os.path.join("com", "github", "drakescraft-labs")),
-        (os.path.join("net", "guizhanss"), os.path.join("com", "github", "drakescraft-labs"))
+        (os.path.join("io", "github", "thebusybiscuit"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("io", "github", "seggan"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("io", "github", "mooy1"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("me", "mrCookieSlime"), os.path.join("com", "github", "drakescraft_labs", "slimefun4", "legacy")),
+        (os.path.join("me", "pika"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("net", "guizhanss"), os.path.join("com", "github", "drakescraft_labs")),
+        # Parche para carpetas con guion
+        (os.path.join("com", "github", "drakescraft-labs"), os.path.join("com", "github", "drakescraft_labs"))
     ]
     
     count = 0

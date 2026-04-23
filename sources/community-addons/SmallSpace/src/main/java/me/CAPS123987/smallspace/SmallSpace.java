@@ -30,14 +30,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 import org.bukkit.plugin.Plugin;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.config.Config;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import me.CAPS123987.cargo.SpaceInterface;
 import me.CAPS123987.cargo.ExportBus;
 import me.CAPS123987.cargo.ImportBus;
@@ -47,8 +47,8 @@ import me.CAPS123987.implementation.Teleporterss;
 import me.CAPS123987.items.Items;
 import me.CAPS123987.machines.BlockAssigner;
 import me.CAPS123987.tabCompleater.*;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 
 
 public class SmallSpace extends JavaPlugin implements SlimefunAddon, Listener {

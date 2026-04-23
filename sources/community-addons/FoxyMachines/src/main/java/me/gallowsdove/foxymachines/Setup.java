@@ -1,12 +1,12 @@
 package me.gallowsdove.foxymachines;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.armor.SlimefunArmorPiece;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.armor.SlimefunArmorPiece;
 import dev.drake.dough.items.CustomItemStack;
 import me.gallowsdove.foxymachines.implementation.consumables.CustomMobSpawnEgg;
 import me.gallowsdove.foxymachines.implementation.consumables.SimpleConsumable;

@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.utils;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nonnull;

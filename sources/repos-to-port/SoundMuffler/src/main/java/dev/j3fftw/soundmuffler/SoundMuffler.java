@@ -2,9 +2,9 @@ package dev.j3fftw.soundmuffler;
 
 import dev.drake.dough.items.CustomItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.api.items.Category;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.items.Category;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;

@@ -5,7 +5,7 @@ import io.github.sefiraat.networks.slimefun.groups.DummyItemGroup;
 import io.github.sefiraat.networks.slimefun.groups.MainFlexGroup;
 import io.github.sefiraat.networks.utils.Keys;
 import io.github.sefiraat.networks.utils.Theme;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;

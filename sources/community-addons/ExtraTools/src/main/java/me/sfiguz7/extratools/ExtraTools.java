@@ -1,7 +1,7 @@
 package me.sfiguz7.extratools;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 
 import me.sfiguz7.extratools.implementation.machines.CobblestoneGenerator;
 import me.sfiguz7.extratools.implementation.machines.ConcreteFactory;

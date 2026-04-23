@@ -1,11 +1,11 @@
 package io.ncbpfluffybear.fluffymachines.utils;
 
 import dev.j3fftw.extrautils.utils.LoreBuilderDynamic;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
-import com.github.drakescraft-labs.slimefun4.utils.itemstack.ColoredFireworkStar;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar;
 import io.ncbpfluffybear.fluffymachines.items.FireproofRune;
 import io.ncbpfluffybear.fluffymachines.items.MiniBarrel;
 import io.ncbpfluffybear.fluffymachines.items.tools.FluffyWrench;

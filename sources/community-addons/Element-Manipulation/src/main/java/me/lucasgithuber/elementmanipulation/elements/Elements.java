@@ -1,7 +1,7 @@
 package me.lucasgithuber.elementmanipulation.elements;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import me.lucasgithuber.elementmanipulation.elements.WaterReactiveElement;
 import me.lucasgithuber.elementmanipulation.utils.Categories;

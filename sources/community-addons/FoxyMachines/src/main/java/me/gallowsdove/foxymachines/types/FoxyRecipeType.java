@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.types;
 
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.items.CustomItemStack;
 import me.gallowsdove.foxymachines.FoxyMachines;
 import org.bukkit.Material;

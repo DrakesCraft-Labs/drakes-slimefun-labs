@@ -16,15 +16,15 @@ import io.github.addoncommunity.galactifun.base.BaseItems;
 import io.github.addoncommunity.galactifun.base.BaseMats;
 import io.github.addoncommunity.galactifun.base.items.DiamondAnvil;
 import io.github.addoncommunity.galactifun.core.CoreItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.electric.generators.CombustionGenerator;
-import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.Freezer;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.generators.CombustionGenerator;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.Freezer;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
 
 public enum Gas {
     OXYGEN("5b3ad76aadb80ecf4b4cdbe76b8704b0f2dc090b49b65c36d87ed879f1065ef2"),

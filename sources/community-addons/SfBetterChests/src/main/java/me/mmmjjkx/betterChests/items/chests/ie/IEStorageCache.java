@@ -1,13 +1,13 @@
 package me.mmmjjkx.betterChests.items.chests.ie;
 
-import com.github.drakescraft-labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.ItemUtils;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import me.mmmjjkx.betterChests.BetterChests;
 import me.mmmjjkx.betterChests.utils.ItemStackBuilder;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

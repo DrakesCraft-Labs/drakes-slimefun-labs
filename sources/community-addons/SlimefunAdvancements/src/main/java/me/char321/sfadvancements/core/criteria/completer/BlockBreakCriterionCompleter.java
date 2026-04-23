@@ -1,10 +1,10 @@
 package me.char321.sfadvancements.core.criteria.completer;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import me.char321.sfadvancements.api.criteria.BlockBreakCriterion;
 import me.char321.sfadvancements.api.criteria.Criterion;
 import me.char321.sfadvancements.util.Utils;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

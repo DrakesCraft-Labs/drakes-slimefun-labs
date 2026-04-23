@@ -1,6 +1,6 @@
 package me.sfiguz7.transcendence.implementation.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.implementation.items.UnstableItem;
 import org.bukkit.ChatColor;

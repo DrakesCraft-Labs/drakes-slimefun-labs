@@ -1,7 +1,7 @@
 package me.EzCoins.MiniBlocks.core;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import me.EzCoins.MiniBlocks.MiniBlocks;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

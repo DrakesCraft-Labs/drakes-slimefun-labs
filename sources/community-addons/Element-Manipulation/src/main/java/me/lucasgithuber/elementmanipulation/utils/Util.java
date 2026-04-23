@@ -1,6 +1,6 @@
 package me.lucasgithuber.elementmanipulation.utils;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 

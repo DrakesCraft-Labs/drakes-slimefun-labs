@@ -12,7 +12,7 @@ import com.github.relativobr.supreme.resource.mobtech.BeeTech;
 import com.github.relativobr.supreme.resource.mobtech.IronGolemTech;
 import com.github.relativobr.supreme.resource.mobtech.ZombieTech;
 import com.github.relativobr.supreme.util.SupremeOptions;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 public class SetupTechComponents {
 

@@ -1,6 +1,6 @@
 package com.xmooncorp.magic8ball.implementation.resources;
 
-import com.github.drakescraft-labs.slimefun4.api.geo.GEOResource;
+import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.block.Biome;

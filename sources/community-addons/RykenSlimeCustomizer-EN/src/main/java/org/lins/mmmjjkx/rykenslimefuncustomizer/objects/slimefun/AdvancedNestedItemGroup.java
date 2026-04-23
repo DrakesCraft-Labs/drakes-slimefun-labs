@@ -1,15 +1,15 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.slimefun;
 
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.core.guide.GuideHistory;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuide;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
-import com.github.drakescraft-labs.slimefun4.core.services.sounds.SoundEffect;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.core.guide.GuideHistory;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft_labs.slimefun4.core.services.sounds.SoundEffect;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

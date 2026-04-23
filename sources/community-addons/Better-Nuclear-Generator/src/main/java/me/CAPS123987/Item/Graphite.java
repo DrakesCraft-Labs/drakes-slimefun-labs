@@ -1,8 +1,8 @@
 package me.CAPS123987.Item;
 
-import com.github.drakescraft-labs.slimefun4.api.geo.GEOResource;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import me.CAPS123987.BetterNuclearReactor.BetterNuclearReactor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World.Environment;

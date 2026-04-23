@@ -1,17 +1,17 @@
 package dev.j3fftw.litexpansion.machine.extensions;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.items.backpacks.SlimefunBackpack;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.items.backpacks.SlimefunBackpack;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft-labs.slimefun4.libraries.paperlib.PaperLib;
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

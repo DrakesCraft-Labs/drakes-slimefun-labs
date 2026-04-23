@@ -1,10 +1,10 @@
 package me.justahuman.spiritsunchained;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import lombok.Getter;
 import me.justahuman.spiritsunchained.managers.CommandManager;
 import me.justahuman.spiritsunchained.managers.ConfigManager;

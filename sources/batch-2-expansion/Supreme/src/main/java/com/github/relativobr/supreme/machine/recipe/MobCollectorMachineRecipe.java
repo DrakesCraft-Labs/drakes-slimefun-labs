@@ -4,15 +4,15 @@ import static com.github.relativobr.supreme.Supreme.getSupremeOptions;
 
 import com.github.relativobr.supreme.Supreme;
 import com.github.relativobr.supreme.util.SupremeOptions;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-import com.github.drakescraft-labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;

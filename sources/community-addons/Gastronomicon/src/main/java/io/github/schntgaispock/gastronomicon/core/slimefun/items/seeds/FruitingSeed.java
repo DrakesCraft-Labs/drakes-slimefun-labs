@@ -12,8 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.util.RecipeUtil;
 import io.github.schntgaispock.gastronomicon.util.item.ItemUtil;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import lombok.Getter;
 
 /**

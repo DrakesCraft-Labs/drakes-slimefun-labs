@@ -8,7 +8,7 @@ import dev.sefiraat.netheopoiesis.implementation.groups.PurificationFlexGroup;
 import dev.sefiraat.netheopoiesis.implementation.groups.TradesFlexGroup;
 import dev.sefiraat.netheopoiesis.utils.Keys;
 import dev.sefiraat.netheopoiesis.utils.Theme;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

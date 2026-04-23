@@ -1,8 +1,8 @@
 package dev.sefiraat.netheopoiesis.implementation.flora;
 
 import dev.sefiraat.netheopoiesis.api.items.NetherSeed;
-import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;

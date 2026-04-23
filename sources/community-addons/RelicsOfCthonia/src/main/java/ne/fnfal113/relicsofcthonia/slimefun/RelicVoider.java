@@ -1,10 +1,10 @@
 package ne.fnfal113.relicsofcthonia.slimefun;
 
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import ne.fnfal113.relicsofcthonia.RelicsOfCthonia;
 import ne.fnfal113.relicsofcthonia.api.Rarity;
 import ne.fnfal113.relicsofcthonia.core.Keys;

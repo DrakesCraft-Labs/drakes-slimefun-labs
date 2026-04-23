@@ -9,7 +9,7 @@ import io.github.sefiraat.networks.network.SupportedRecipes;
 import io.github.sefiraat.networks.slimefun.NetworkSlimefunItems;
 import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
 import io.github.sefiraat.networks.slimefun.network.NetworkController;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 
 
 

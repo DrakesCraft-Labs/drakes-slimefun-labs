@@ -12,7 +12,7 @@ import com.google.common.base.Preconditions;
 
 import io.github.slimefunguguproject.bump.implementation.Bump;
 
-import com.github.drakescraft-labs.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.guizhanlib.slimefun.addon.AddonConfig;
 
 /**
  * This service manages all sounds used in Bump.

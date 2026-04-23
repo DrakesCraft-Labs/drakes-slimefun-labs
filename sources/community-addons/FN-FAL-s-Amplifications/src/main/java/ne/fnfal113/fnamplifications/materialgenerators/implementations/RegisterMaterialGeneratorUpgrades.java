@@ -1,7 +1,7 @@
 package ne.fnfal113.fnamplifications.materialgenerators.implementations;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import ne.fnfal113.fnamplifications.items.FNAmpItems;
 import ne.fnfal113.fnamplifications.materialgenerators.upgrades.FastProduce;
 import ne.fnfal113.fnamplifications.materialgenerators.upgrades.RepairItem;

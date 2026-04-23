@@ -10,7 +10,7 @@ import javax.annotation.OverridingMethodsMustInvokeSuper;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.updater.BlobBuildUpdater;
 
 public abstract class SimpleSlimefunAddon extends JavaPlugin implements SlimefunAddon {

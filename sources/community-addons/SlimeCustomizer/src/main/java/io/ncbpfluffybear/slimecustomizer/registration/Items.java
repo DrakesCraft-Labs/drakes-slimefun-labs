@@ -1,12 +1,12 @@
 package io.ncbpfluffybear.slimecustomizer.registration;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.slimecustomizer.SlimeCustomizer;
 import io.ncbpfluffybear.slimecustomizer.Utils;
 import io.ncbpfluffybear.slimecustomizer.objects.CustomSCItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.config.Config;
 import io.ncbpfluffybear.slimecustomizer.objects.NPCustomSCItem;
 import org.bukkit.Material;

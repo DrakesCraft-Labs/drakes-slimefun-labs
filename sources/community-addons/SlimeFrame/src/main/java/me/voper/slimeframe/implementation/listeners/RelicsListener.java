@@ -13,8 +13,8 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.managers.RelicInventoryManager;

@@ -1,6 +1,6 @@
 package dev.j3fftw.litexpansion.items;
 
-import com.github.drakescraft-labs.slimefun4.utils.ChargeUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChargeUtils;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;

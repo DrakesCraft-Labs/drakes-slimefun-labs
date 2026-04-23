@@ -1,9 +1,9 @@
 package me.gallowsdove.foxymachines;
 
-import com.github.drakescraft-labs.infinitylib.common.Events;
-import com.github.drakescraft-labs.infinitylib.common.Scheduler;
-import com.github.drakescraft-labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft-labs.infinitylib.metrics.bukkit.Metrics;
+import com.github.drakescraft_labs.infinitylib.common.Events;
+import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import com.github.drakescraft_labs.infinitylib.metrics.bukkit.Metrics;
 import dev.drake.dough.updater.BlobBuildUpdater;
 import lombok.SneakyThrows;
 import me.gallowsdove.foxymachines.abstracts.AbstractWand;

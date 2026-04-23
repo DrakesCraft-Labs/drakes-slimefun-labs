@@ -15,11 +15,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import io.github.schntgaispock.gastronomicon.Gastronomicon;
 import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.item.HeadTextures;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import lombok.Getter;
 import lombok.ToString;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 @Getter
 @ToString

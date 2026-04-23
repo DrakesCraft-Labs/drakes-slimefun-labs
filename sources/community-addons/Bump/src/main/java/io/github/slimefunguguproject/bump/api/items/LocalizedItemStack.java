@@ -10,9 +10,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import io.github.slimefunguguproject.bump.core.services.LocalizationService;
 import io.github.slimefunguguproject.bump.implementation.Bump;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 
-import com.github.drakescraft-labs.guizhanlib.minecraft.utils.ChatUtil;
+import com.github.drakescraft_labs.guizhanlib.minecraft.utils.ChatUtil;
 
 /**
  * This is an extended {@link SlimefunItemStack} that loads name and lore

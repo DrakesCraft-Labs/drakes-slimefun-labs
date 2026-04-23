@@ -3,7 +3,7 @@ package dev.sefiraat.netheopoiesis.listeners;
 import dev.sefiraat.netheopoiesis.api.mobs.MobCapType;
 import dev.sefiraat.netheopoiesis.managers.MobManager;
 import dev.sefiraat.netheopoiesis.utils.Keys;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;

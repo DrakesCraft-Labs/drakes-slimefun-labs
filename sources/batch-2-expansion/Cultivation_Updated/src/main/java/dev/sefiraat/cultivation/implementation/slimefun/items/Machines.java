@@ -10,8 +10,8 @@ import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenM
 import dev.sefiraat.cultivation.implementation.slimefun.machines.PoweredKitchenMachineSimple;
 import dev.sefiraat.cultivation.implementation.slimefun.machines.RightClickKitchenMachine;
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

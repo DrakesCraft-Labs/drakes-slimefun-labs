@@ -2,10 +2,10 @@ package dev.j3fftw.litexpansion.resources;
 
 import dev.j3fftw.litexpansion.Items;
 import dev.j3fftw.litexpansion.LiteXpansion;
-import com.github.drakescraft-labs.slimefun4.api.MinecraftVersion;
-import com.github.drakescraft-labs.slimefun4.api.geo.GEOResource;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.utils.biomes.BiomeMap;
+import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
+import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.utils.biomes.BiomeMap;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.block.Biome;

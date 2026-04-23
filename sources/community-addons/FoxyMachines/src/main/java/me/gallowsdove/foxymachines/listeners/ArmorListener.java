@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.listeners;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.EventHandler;

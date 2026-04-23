@@ -7,10 +7,10 @@ import javax.annotation.Nonnull;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.Validate;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.common.CommonPatterns;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 
 import lombok.experimental.UtilityClass;
 

@@ -2,9 +2,9 @@ package dev.sefiraat.sefilib.entity.display;
 
 import com.google.common.base.Preconditions;
 import dev.sefiraat.sefilib.protections.Protections;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.protection.Interaction;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;

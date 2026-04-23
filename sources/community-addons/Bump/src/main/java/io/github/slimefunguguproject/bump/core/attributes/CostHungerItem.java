@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 
 import io.github.slimefunguguproject.bump.utils.FoodLevelUtils;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemSetting;
-import com.github.drakescraft-labs.slimefun4.core.attributes.ItemAttribute;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.core.attributes.ItemAttribute;
 
 /**
  * This {@link ItemAttribute} indicates that the item will cost hunger when using.

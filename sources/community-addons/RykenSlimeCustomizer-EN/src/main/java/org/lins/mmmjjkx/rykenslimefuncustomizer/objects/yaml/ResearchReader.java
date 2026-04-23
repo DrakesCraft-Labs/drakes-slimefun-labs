@@ -1,8 +1,8 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.yaml;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.bukkit.NamespacedKey;

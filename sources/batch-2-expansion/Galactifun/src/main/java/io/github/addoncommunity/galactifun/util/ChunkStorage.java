@@ -13,7 +13,7 @@ import org.bukkit.block.Block;
 import com.google.common.collect.Iterables;
 import io.github.addoncommunity.galactifun.Galactifun;
 import dev.drake.dough.blocks.BlockPosition;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 /**
  * Class that uses {@link BlockPosition}s to store boolean tags on blocks. To be used instead of {@link BlockStorage}

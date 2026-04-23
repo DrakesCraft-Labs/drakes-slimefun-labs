@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.listeners;
+package com.github.drakescraft_labs.slimefun4.implementation.listeners;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -17,19 +17,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.common.ChatColors;
-import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
-import com.github.drakescraft-labs.slimefun4.api.events.SlimefunBlockBreakEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.electric.EnergyConnector;
-import com.github.drakescraft-labs.slimefun4.implementation.items.electric.machines.ElectricFurnace;
-import com.github.drakescraft-labs.slimefun4.implementation.items.magical.staves.WindStaff;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft_labs.slimefun4.api.events.SlimefunBlockBreakEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.EnergyConnector;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.ElectricFurnace;
+import com.github.drakescraft_labs.slimefun4.implementation.items.magical.staves.WindStaff;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;

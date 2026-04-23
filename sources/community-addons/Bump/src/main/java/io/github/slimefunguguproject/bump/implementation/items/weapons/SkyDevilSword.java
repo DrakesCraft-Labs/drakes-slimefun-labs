@@ -12,7 +12,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.implementation.tasks.WeaponProjectileTask;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 /**
  * {@link SkyDevilSword Heaven-demon Crumble Sword} will fire 3 {@link DragonFireball dragon fireballs}

@@ -1,8 +1,8 @@
 package ne.fnfal113.fnamplifications.machines.implementation;
 
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 import ne.fnfal113.fnamplifications.items.FNAmpItems;
 import ne.fnfal113.fnamplifications.machines.*;

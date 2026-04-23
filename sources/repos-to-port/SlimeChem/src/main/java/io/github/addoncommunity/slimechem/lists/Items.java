@@ -2,13 +2,13 @@ package io.github.addoncommunity.slimechem.lists;
 
 import io.github.addoncommunity.slimechem.implementation.machines.ChemicalCombiner;
 import io.github.addoncommunity.slimechem.implementation.machines.ChemicalDissolver;
-import com.github.drakescraft-labs.infinitylib.presets.LorePreset;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.utils.HeadTexture;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.infinitylib.presets.LorePreset;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.utils.HeadTexture;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import lombok.experimental.UtilityClass;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 
 @UtilityClass

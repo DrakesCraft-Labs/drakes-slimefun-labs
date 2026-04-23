@@ -1,0 +1,76 @@
+package com.github.drakescraft_labs.slimefuntranslation.core.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import me.clip.placeholderapi.PlaceholderAPI;
+
+import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
+import com.github.drakescraft_labs.slimefuntranslation.core.users.User;
+import com.github.drakescraft_labs.slimefuntranslation.integrations.placeholders.SlimefunLoreExpansion;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+
+@Getter
+public final class IntegrationService {
+
+    @Getter(AccessLevel.NONE)
+    private final SlimefunTranslation plugin;
+
+    private final boolean protocolLibEnabled;
+    private final boolean placeholderAPIEnabled;
+
+    public IntegrationService(SlimefunTranslation plugin) {
+        this.plugin = plugin;
+
+        protocolLibEnabled = isEnabled("ProtocolLib");
+        placeholderAPIEnabled = isEnabled("PlaceholderAPI");
+
+        if (protocolLibEnabled) {
+            SlimefunTranslation.log(Level.INFO, "ProtocolLib found, enabling packet listener...");
+            new PacketListenerService();
+        } else {
+            SlimefunTranslation.log(Level.SEVERE, "ProtocolLib not found, this plugin will not be fully functional...");
+        }
+
+        if (placeholderAPIEnabled) {
+            SlimefunTranslation.log(Level.INFO, "PlaceholderAPI found, enabling placeholders...");
+            new SlimefunLoreExpansion().register();
+        } else {
+            SlimefunTranslation.log(Level.SEVERE, "PlaceholderAPI not found, this plugin will not be fully functional...");
+        }
+    }
+
+    private boolean isEnabled(@Nonnull String pluginName) {
+        return plugin.getServer().getPluginManager().isPluginEnabled(pluginName);
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public String applyPlaceholders(User user, String str) {
+        if (!placeholderAPIEnabled) {
+            return str;
+        }
+
+        return PlaceholderAPI.setPlaceholders(user.getPlayer(), str);
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public List<String> applyPlaceholders(User user, List<String> list) {
+        if (!placeholderAPIEnabled) {
+            return list;
+        }
+
+        List<String> result = new ArrayList<>();
+        for (String str : list) {
+            result.add(applyPlaceholders(user, str));
+        }
+        return result;
+    }
+}

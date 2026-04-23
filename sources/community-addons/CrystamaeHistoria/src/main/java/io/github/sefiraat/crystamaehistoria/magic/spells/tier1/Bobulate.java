@@ -10,7 +10,7 @@ import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import dev.drake.dough.protection.Interaction;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;

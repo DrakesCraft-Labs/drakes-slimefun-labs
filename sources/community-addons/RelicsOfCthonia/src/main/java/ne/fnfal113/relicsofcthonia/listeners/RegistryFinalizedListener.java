@@ -1,8 +1,8 @@
 package ne.fnfal113.relicsofcthonia.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.events.SlimefunItemRegistryFinalizedEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.events.SlimefunItemRegistryFinalizedEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

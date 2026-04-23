@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.staveconfigurator;
 
-import com.github.drakescraft-labs.infinitylib.machines.MenuBlock;
+import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstanceStave;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.ChargedPlate;
@@ -11,12 +11,12 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft-labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;

@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.util;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import me.char321.sfadvancements.SFAdvancements;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

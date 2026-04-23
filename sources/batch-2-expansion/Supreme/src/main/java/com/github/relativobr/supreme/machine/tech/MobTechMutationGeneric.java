@@ -1,6 +1,6 @@
 package com.github.relativobr.supreme.machine.tech;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

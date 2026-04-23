@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.common;
+package com.github.drakescraft_labs.infinitylib.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.WorldMock;
 import be.seeseemelk.mockbukkit.persistence.PersistentDataContainerMock;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

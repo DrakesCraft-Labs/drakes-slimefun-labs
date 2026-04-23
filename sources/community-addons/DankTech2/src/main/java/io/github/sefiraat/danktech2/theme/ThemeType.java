@@ -1,6 +1,6 @@
 package io.github.sefiraat.danktech2.theme;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.items.CustomItemStack;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;

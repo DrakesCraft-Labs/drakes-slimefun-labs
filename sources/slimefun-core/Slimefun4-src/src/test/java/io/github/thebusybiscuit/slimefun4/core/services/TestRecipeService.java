@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.core.services;
+package com.github.drakescraft_labs.slimefun4.core.services;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import dev.drake.dough.recipes.RecipeSnapshot;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

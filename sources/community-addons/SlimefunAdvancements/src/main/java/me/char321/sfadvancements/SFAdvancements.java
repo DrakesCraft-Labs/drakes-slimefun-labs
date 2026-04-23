@@ -2,7 +2,7 @@ package me.char321.sfadvancements;
 
 import io.github.bakedlibs.dough.config.Config;
 import io.github.bakedlibs.dough.updater.BlobBuildUpdater;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import me.char321.sfadvancements.api.AdvancementBuilder;
 import me.char321.sfadvancements.api.AdvancementGroup;
 import me.char321.sfadvancements.api.criteria.CriteriaTypes;
@@ -113,7 +113,7 @@ public final class SFAdvancements extends JavaPlugin implements SlimefunAddon {
 
     private void detectCapabilities() {
         try {
-            Class.forName("com.github.drakescraft-labs.slimefun4.api.events.MultiBlockCraftEvent");
+            Class.forName("com.github.drakescraft_labs.slimefun4.api.events.MultiBlockCraftEvent");
             multiBlockCraftEvent = true;
         } catch (ClassNotFoundException e) {
             multiBlockCraftEvent = false;

@@ -1,11 +1,11 @@
 package me.justahuman.spiritsunchained.utils;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.libraries.commons.lang.StringUtils;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft-labs.slimefun4.utils.ChatUtils;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.StringUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.listeners.PlayerArmorListener;
 import me.justahuman.spiritsunchained.managers.ConfigManager;

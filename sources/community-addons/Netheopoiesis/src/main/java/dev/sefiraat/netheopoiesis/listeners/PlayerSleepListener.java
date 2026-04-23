@@ -3,7 +3,7 @@ package dev.sefiraat.netheopoiesis.listeners;
 import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.utils.TimePeriod;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import org.bukkit.ChatColor;
 import org.bukkit.Tag;
 import org.bukkit.World;

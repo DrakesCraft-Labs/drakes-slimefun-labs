@@ -14,12 +14,12 @@ import io.github.schntgaispock.gastronomicon.api.events.PlayerGastroFoodConsumeE
 import io.github.schntgaispock.gastronomicon.api.food.FoodEffect;
 import io.github.schntgaispock.gastronomicon.api.items.FoodItemStack;
 import io.github.schntgaispock.gastronomicon.api.recipes.GastroRecipe;
-import com.github.drakescraft-labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft-labs.slimefun4.api.events.PlayerRightClickEvent;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.researches.Research;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ItemUseHandler;
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.researches.Research;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 

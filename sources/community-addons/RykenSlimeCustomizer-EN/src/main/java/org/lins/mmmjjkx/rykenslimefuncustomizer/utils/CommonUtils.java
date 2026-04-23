@@ -1,7 +1,7 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.utils;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;

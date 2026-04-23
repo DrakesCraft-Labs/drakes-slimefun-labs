@@ -1,10 +1,10 @@
 package me.jasperchasetoq.dyebench;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.api.MachineLevel;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.api.MachineType;
 import me.jasperchasetoq.wolfylibrary.slimefun.utils.ItemLore;

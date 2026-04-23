@@ -1,8 +1,8 @@
 package io.github.addoncommunity.slimechem.utils;
 
 import io.github.addoncommunity.slimechem.implementation.atomic.isotopes.Isotope;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 
 import java.util.List;
 

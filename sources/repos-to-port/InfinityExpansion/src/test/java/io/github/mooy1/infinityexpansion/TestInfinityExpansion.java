@@ -1,11 +1,11 @@
-package com.github.drakescraft-labs.infinityexpansion;
+package com.github.drakescraft_labs.infinityexpansion;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 class TestInfinityExpansion {
 

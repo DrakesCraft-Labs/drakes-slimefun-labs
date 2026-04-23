@@ -6,8 +6,8 @@ import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterial;
 import io.github.sefiraat.slimetinker.items.workstations.smeltery.DummySmelteryMolten;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;
 import io.github.sefiraat.slimetinker.utils.enums.ThemeItemType;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public class Liquid {

@@ -4,7 +4,7 @@ import io.github.sefiraat.simplestorage.items.Skulls;
 import io.github.sefiraat.simplestorage.utils.Theme;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;
-import com.github.drakescraft-labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

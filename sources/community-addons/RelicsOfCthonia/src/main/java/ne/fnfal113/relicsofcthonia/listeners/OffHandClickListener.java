@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia.listeners;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import ne.fnfal113.relicsofcthonia.api.OffHandRightClickHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

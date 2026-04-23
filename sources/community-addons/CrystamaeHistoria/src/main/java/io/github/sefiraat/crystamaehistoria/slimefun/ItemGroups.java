@@ -11,7 +11,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbr
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.DyeColor;

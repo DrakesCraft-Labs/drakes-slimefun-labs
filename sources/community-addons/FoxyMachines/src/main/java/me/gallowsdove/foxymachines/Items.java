@@ -1,15 +1,15 @@
 package me.gallowsdove.foxymachines;
 
-import com.github.drakescraft-labs.infinitylib.machines.MachineLore;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.NestedItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.SubItemGroup;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineTier;
-import com.github.drakescraft-labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft-labs.slimefun4.core.attributes.Radioactivity;
+import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
+import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
-import com.github.drakescraft-labs.slimefun4.utils.itemstack.ColoredFireworkStar;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar;
 import me.gallowsdove.foxymachines.implementation.machines.ElectricGoldRefinery;
 import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
 import me.gallowsdove.foxymachines.implementation.machines.ImprovementForge;

@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.slimefunguguproject.bump.api.appraise.AppraiseType;
 import io.github.slimefunguguproject.bump.implementation.Bump;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import lombok.experimental.UtilityClass;
 

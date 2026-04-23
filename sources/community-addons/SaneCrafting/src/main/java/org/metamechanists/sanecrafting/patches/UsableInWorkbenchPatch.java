@@ -1,7 +1,7 @@
 package org.metamechanists.sanecrafting.patches;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event.Result;
 import org.bukkit.event.EventHandler;

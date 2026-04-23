@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.core;
+package com.github.drakescraft_labs.infinitylib.core;
 
 import java.io.File;
 
@@ -8,7 +8,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 public class MockAddon extends AbstractAddon {
 

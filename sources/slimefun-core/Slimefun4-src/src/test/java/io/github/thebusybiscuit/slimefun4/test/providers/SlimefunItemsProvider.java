@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.test.providers;
+package com.github.drakescraft_labs.slimefun4.test.providers;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 import org.junit.jupiter.params.support.AnnotationConsumer;
 
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 
 public class SlimefunItemsProvider implements ArgumentsProvider, AnnotationConsumer<SlimefunItemsSource> {
 

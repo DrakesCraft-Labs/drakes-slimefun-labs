@@ -8,12 +8,12 @@ import org.bukkit.inventory.ItemStack;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.core.handlers.ToolUseHandler;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft-labs.slimefun4.implementation.items.SimpleSlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.handlers.ToolUseHandler;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 
-import com.github.drakescraft-labs.guizhanlib.utils.RandomUtil;
+import com.github.drakescraft_labs.guizhanlib.utils.RandomUtil;
 
 /**
  * A {@link GetgoldSpade getting-gold shovel} will give player old coin

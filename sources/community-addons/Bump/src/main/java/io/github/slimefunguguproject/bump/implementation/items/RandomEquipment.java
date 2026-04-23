@@ -5,10 +5,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.slimefunguguproject.bump.core.attributes.AppraisableItem;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 /**
  * A {@link RandomEquipment} is an item that is an {@link AppraisableItem}.

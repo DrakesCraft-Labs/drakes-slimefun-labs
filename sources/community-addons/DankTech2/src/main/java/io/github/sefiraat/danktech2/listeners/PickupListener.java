@@ -12,7 +12,7 @@ import io.github.sefiraat.danktech2.utils.ParticleUtils;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentTrashInstanceType;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.entity.Item;

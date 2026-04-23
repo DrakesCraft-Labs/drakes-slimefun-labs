@@ -22,8 +22,8 @@ import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.utils.AppraiseUtils;
 import io.github.slimefunguguproject.bump.utils.Utils;
 import io.github.slimefunguguproject.bump.utils.constant.Strings;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.utils.ChestMenuUtils;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 

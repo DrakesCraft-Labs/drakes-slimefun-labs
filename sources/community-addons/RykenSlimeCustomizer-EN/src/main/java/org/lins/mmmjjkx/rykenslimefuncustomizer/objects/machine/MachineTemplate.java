@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.machine;
 
-import com.github.drakescraft-labs.slimefun4.utils.SlimefunUtils;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import java.util.List;
 import org.bukkit.inventory.ItemStack;
 

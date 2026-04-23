@@ -4,11 +4,11 @@ import com.github.relativobr.supreme.Supreme;
 import com.github.relativobr.supreme.machine.multiblock.MultiBlockCoreFabricator;
 import com.github.relativobr.supreme.machine.multiblock.MultiBlockMagicalFabricator;
 import com.github.relativobr.supreme.machine.tech.TechMutation;
-import com.github.drakescraft-labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.inventory.ItemStack;
 

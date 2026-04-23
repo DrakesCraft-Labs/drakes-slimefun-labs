@@ -1,7 +1,7 @@
 package com.xmooncorp.magic8ball.implementation.setup;
 
 import com.xmooncorp.magic8ball.Magic8Ball;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;

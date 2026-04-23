@@ -7,10 +7,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.slimefunguguproject.bump.implementation.menus.AppraiseTypeMenu;
-import com.github.drakescraft-labs.slimefun4.api.items.groups.FlexItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.player.PlayerProfile;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuide;
-import com.github.drakescraft-labs.slimefun4.core.guide.SlimefunGuideMode;
+import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 
 /**
  * A flex item group that displays apprase types.

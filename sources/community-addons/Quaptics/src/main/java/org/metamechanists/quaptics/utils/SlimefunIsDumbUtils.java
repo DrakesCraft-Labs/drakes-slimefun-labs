@@ -1,8 +1,8 @@
 package org.metamechanists.quaptics.utils;
 
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlock;
-import com.github.drakescraft-labs.slimefun4.core.multiblocks.MultiBlockMachine;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlock;
+import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

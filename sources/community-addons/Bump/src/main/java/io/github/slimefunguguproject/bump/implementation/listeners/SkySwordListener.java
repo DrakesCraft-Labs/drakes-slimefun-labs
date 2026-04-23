@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.items.weapons.SkySword;
 import io.github.slimefunguguproject.bump.utils.constant.Keys;
-import com.github.drakescraft-labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 /**
  * This {@link Listener} is related to {@link SkySword}.

@@ -3,9 +3,9 @@ package com.xmooncorp.magic8ball.implementation.setup;
 import com.xmooncorp.magic8ball.Magic8Ball;
 import com.xmooncorp.magic8ball.implementation.Items;
 import com.xmooncorp.magic8ball.implementation.items.Magic8BallItem;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

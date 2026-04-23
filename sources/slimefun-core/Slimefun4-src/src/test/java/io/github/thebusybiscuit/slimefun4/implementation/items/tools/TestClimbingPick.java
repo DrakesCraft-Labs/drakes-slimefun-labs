@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.slimefun4.implementation.items.tools;
+package com.github.drakescraft_labs.slimefun4.implementation.items.tools;
 
 import java.util.stream.Stream;
 
@@ -18,15 +18,15 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.github.drakescraft-labs.slimefun4.api.events.ClimbingPickLaunchEvent;
-import com.github.drakescraft-labs.slimefun4.api.exceptions.TagMisconfigurationException;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft-labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft-labs.slimefun4.test.TestUtilities;
-import com.github.drakescraft-labs.slimefun4.test.presets.SlimefunItemTest;
-import com.github.drakescraft-labs.slimefun4.utils.compatibility.VersionedEnchantment;
-import com.github.drakescraft-labs.slimefun4.utils.tags.SlimefunTag;
+import com.github.drakescraft_labs.slimefun4.api.events.ClimbingPickLaunchEvent;
+import com.github.drakescraft_labs.slimefun4.api.exceptions.TagMisconfigurationException;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
+import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
+import com.github.drakescraft_labs.slimefun4.test.presets.SlimefunItemTest;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
+import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;

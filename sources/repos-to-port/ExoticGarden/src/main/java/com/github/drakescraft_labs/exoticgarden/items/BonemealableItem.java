@@ -1,0 +1,31 @@
+package com.github.drakescraft_labs.exoticgarden.items;
+
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import org.bukkit.inventory.ItemStack;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+/**
+ * This class has an {@link ItemSetting} to disable bonemeal usage on this {@link SlimefunItem}.
+ *
+ * @author Walshy
+ */
+public class BonemealableItem extends SlimefunItem {
+
+    private final ItemSetting<Boolean> disableBoneMeal = new ItemSetting<>(this, "disable-bonemeal", false);
+
+    @ParametersAreNonnullByDefault
+    public BonemealableItem(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+        super(itemGroup, item, recipeType, recipe);
+
+        addItemSetting(disableBoneMeal);
+    }
+
+    public boolean isBonemealDisabled() {
+        return disableBoneMeal.getValue();
+    }
+}

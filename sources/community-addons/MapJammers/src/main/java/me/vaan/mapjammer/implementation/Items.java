@@ -1,7 +1,7 @@
 package me.vaan.mapjammer.implementation;
 
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.utils.LoreBuilder;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import me.vaan.mapjammer.util.ConfigStorage;
 import org.bukkit.Material;
 

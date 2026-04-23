@@ -1,9 +1,9 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.yaml.item;
 
 import de.tr7zw.nbtapi.NBT;
-import com.github.drakescraft-labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft-labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.collections.Pair;
 import java.io.File;
 import java.util.List;

@@ -92,11 +92,11 @@
                             <relocations>
                                 <relocation>
                                     <pattern>org.bstats</pattern>
-                                    <shadedPattern>com.github.drakescraft-labs.extraheads.libs.bstats</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft_labs.extraheads.libs.bstats</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
-                                    <shadedPattern>com.github.drakescraft-labs.extraheads.libs.guizhanlib</shadedPattern>
+                                    <shadedPattern>com.github.drakescraft_labs.extraheads.libs.guizhanlib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

@@ -1,4 +1,4 @@
-package com.github.drakescraft-labs.infinitylib.machines;
+package com.github.drakescraft_labs.infinitylib.machines;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
-import com.github.drakescraft-labs.infinitylib.core.MockAddon;
-import com.github.drakescraft-labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.infinitylib.core.MockAddon;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
