@@ -140,7 +140,7 @@
             <!-- Slimefun (alias dev.drake, usado por addons ya parcialmente porteados) -->
             <dependency>
                 <groupId>dev.drake</groupId>
-                <artifactId>Slimefun</artifactId>
+                <artifactId>slimefun-core</artifactId>
                 <version>${slimefun.drake.version}</version>
                 <scope>provided</scope>
             </dependency>
