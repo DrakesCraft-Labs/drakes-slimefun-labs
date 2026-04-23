@@ -83,8 +83,7 @@
 
 
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
+            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
             <version>experimental-SNAPSHOT</version>
             <scope>provided</scope>
             <exclusions>

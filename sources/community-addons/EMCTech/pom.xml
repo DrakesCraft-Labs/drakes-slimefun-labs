@@ -131,8 +131,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
+            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
             <version>b8f7dc</version>
             <scope>provided</scope>
         </dependency>

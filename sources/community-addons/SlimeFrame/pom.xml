@@ -159,8 +159,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.Slimefun</groupId>
-            <artifactId>Slimefun4</artifactId>
+            <groupId>dev.drake</groupId><artifactId>slimefun-core</artifactId>
             <version>RC-34</version>
             <scope>provided</scope>
         </dependency>
