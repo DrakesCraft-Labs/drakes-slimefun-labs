@@ -1,61 +1,31 @@
-# Tomorrow-Handoff
+# 🏛️ Tomorrow-Handoff (v16.0)
 
-## Estado Actual
+## 📊 Estado de la Gran Obra
+- **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft-labs`
+- **Integración Estructural**: **100% (89/89 addons)**.
+- **Reactor Maven**: 80 módulos (Core + 78 Addons).
+- **Reactor Gradle**: 9 módulos (Galactifun, Bump, etc.).
+- **Progreso Quirúrgico**: 60/89 addons ya tienen rebranding `-drake`.
 
-- Rama principal de trabajo: `1.21-latin`
-- Stack objetivo: `Paper 1.21.11`, `Java 21`, `Slimefun 6`, `dough-core 1.3.1-DRAKE`
-- Reactor activo: `59` módulos
-- Listos en reactor: `57`
-- Fallos activos en reactor: `2`
-- Fuera del reactor: `30`
-- Backlog operativo real: `32 addons`
+## 🛰️ Infraestructura CI/CD
+- **Unified Engine**: El workflow maestro ya está operativo y valida ambos reactores en paralelo.
+- **GitHub Packages**: Registro purgado de basura antigua. Solo queda el stack premium.
 
-## Último Estado Confirmado
+## 🐍 DrakesLab Manager
+- Usar siempre `python scripts/manager.py audit` para ver el estado real antes de empezar.
+- El comando `python scripts/manager.py` repara automáticamente las identidades XML.
 
-La fuente de verdad humana es `README.md`.
+## 🎯 Siguiente Ruta Recomendada (Fase Quirúrgica)
+1.  **Rebranding Masivo**: Aplicar el estándar `-drake` a los 20 addons que aún están en estado `STABILIZED`.
+2.  **Smoke Testing**: Iniciar pruebas de carga en servidores Paper 1.21.1 reales con el stack completo.
+3.  **Modernización Gradle**: Continuar con la limpieza de los addons de Gradle siguiendo el patrón de Galactifun.
 
-Allí ya quedó documentado:
+## 🛠️ Comandos de Supervivencia
+- **Audit**: `python scripts/manager.py audit`
+- **Build Maven**: `mvn -pl sources/community-addons/AddonName -am -DskipTests package`
+- **Build Gradle**: `./gradlew :sources:batch-2-expansion:Galactifun:build`
 
-- qué addons están listos (ahora `59/59` en el reactor)
-- observaciones especiales por plugin cuando aplican
-
-## Bloqueos Activos
-
-- **Ninguno** en el reactor actual.
-
-## Siguiente Ruta Recomendada
-
-1. Seguir con quick wins fuera del reactor:
-   - `MoreResearches`
-   - `SfBetterChests`
-   - `SlimeHUD`
-   - `SmallSpace`
-   - `Quaptics`
-
-## Recordatorios Operativos
-
-- no compilar el reactor completo salvo necesidad estricta
-- usar builds aislados con `-pl` y `-am`
-- si cambia el estado de un addon, sincronizar `README.md` y wiki
-- no contar variantes históricas como listas si la activa es otra
-- no commitear `build_status.log` salvo instrucción explícita
-
-## Comandos Útiles
-
-Build aislado:
-
-```powershell
-mvn -pl ruta/del/modulo -am -DskipTests package
-```
-
-Smoke test:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\slimefun\smoke-test.ps1
-```
-
-## Enlaces Rápidos
-
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [[Roadmap de Estabilización]]
+## 🔗 Enlaces Estratégicos
+- [Checklist de Migración](migration-checklist.md)
+- [Guía de Porteo 1.21.1](../docs/README-PORT-1.21.1.md)
+- [Estrategia de Releases y CI](release-and-ci-strategy.md)

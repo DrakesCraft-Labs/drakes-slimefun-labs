@@ -44,20 +44,20 @@ The lab currently covers a universe of **89 addons** plus base modules. We have 
 
 | Metric | Value | Status |
 | :--- | :--- | :--- |
-| **SURGICAL** (Ready + Rebrand) | `60` | 💎 Full 1.21.1 Stability |
-| **STABILIZED** (Maven OK) | `18` | ⚙️ Unified Maven Reactor |
-| **GRADLE REBELS** | `9` | 🐘 Master Gradle Reactor |
-| **Total Progress** | **67.4%** | **89 Tracked Addons** |
+| **MAVEN REACTOR** | `80` | 🛡️ Unified under `com.github.drakescraft-labs` |
+| **GRADLE REACTOR** | `9` | 🐘 Modernized with Java 21 |
+| **Structural Progress** | **100%** | **89/89 Addons Integrated** |
+| **Surgical Progress** | **67.4%** | **60/89 Addons with Rebrand** |
 | **Unified Base** | `com.github.drakescraft-labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |
 | **Slimefun Core** | `com.github.drakescraft-labs:slimefun-core` | `11.0-Drake-1.21.1-SNAPSHOT` |
-| **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Parallel Maven + Gradle |
+| **Unified Engine** | `Actions: DrakesLab Unified Engine` | 🚀 Full Hybrid CI |
 
 ### How to interpret this status
 
-- **SURGICAL**: The module compiles, is integrated into the reactor, and uses the official `-drake` identity.
-- **STABILIZED**: The module is in the Maven reactor, is stable, but does not yet have final rebranding.
-- **GRADLE REBELS**: Addons using Gradle, now managed by a **Master Gradle Reactor** with Java 21.
-- **DrakesLab Manager**: The ecosystem is managed via `scripts/manager.py` (Python 3.12).
+- **MAVEN REACTOR**: All 80 Maven modules have synchronized identities and depend on the central reactor.
+- **GRADLE REACTOR**: The 9 "rebels" now operate under the Master Gradle Reactor.
+- **SURGICAL**: 60 addons have already passed the final `-drake` rebranding surgery.
+- **DrakesLab Manager**: The `scripts/manager.py` tool is now the standard for managing this 89-addon universe.
 | Real operational backlog | `29 addons` |
 | Unified base | `dev.drake.dough:dough-core:1.3.1-DRAKE` |
 | Core | `dev.drake:Slimefun:6.0-Drake-1.21.11` |
@@ -124,19 +124,27 @@ mvn -pl sources/community-addons/MapJammers -am -DskipTests compile
 powershell -ExecutionPolicy Bypass -File .\scripts\slimefun\smoke-test.ps1
 ```
 
-### Curated CI
+### DrakesLab Manager (Ecosystem Control) 🐍
 
-The repository includes a conservative GitHub Actions workflow that validates curated groups of stable modules and uploads downloadable artifacts without building the entire reactor:
+Managing this universe of 89 modules is centralized in `scripts/manager.py`. This Python 3.12 tool is the operational heart of the lab.
 
-- workflow: `.github/workflows/ci-curated-modules.yml`
-- strategy: [Release and CI Strategy](docs/en/release-and-ci-strategy.md)
+- **Ecosystem Audit**: `python scripts/manager.py audit`
+  - Generates the real-time status report (Surgical, Stabilized, Gradle).
+- **Identity Repair**: `python scripts/manager.py`
+  - Automatically synchronizes GroupIDs, fixes internal dependencies, and repairs broken library bridges.
 
-### Operational rule before touching code
+## Stack Architecture 🏛️
 
-1. determine whether the issue is `pom.xml`/dependency-related or API/code-related
-2. if the addon already uses `dev.drake.dough.*` but still fails on imports, inspect the `pom.xml` first
-3. prefer small changes with real validation
-4. if the board changes, sync both `README` and wiki
+The ecosystem uses the **Drake Framework** as its technical consolidation base:
+
+- **Hybrid Reactor**: Unification of Maven (80 modules) and Gradle (9 modules).
+- **Unified Identity**: Massive shift to the `com.github.drakescraft-labs` namespace.
+- **Unified Engine**: A single GitHub Actions CI engine controlling everything.
+
+For deeper context:
+- [Ecosystem Architecture](docs/en/ecosystem-architecture.md)
+- [Porting Guide 1.21.1](sources/docs/README-PORT-1.21.1.md)
+- [Technical Reference (Paper 1.21.1)](docs/en/technical-reference-paper-1.21.1.md)
 
 ## Explicit 1.21.11 Inventory
 
@@ -236,41 +244,26 @@ These modules are already part of the unified build, but still have confirmed br
 | :--- | :--- | :--- |
 | - | - | All modules currently active in the reactor are stable at build level. |
 
-### Addons present in the repo but still outside the reactor
+### Ecosystem Addons (Total Integration)
 
-These addons still need integration, review, or closure. As long as they remain here, they must not be counted as ready for `1.21.11`.
+All addons present in the repository have now been linked to one of the two master reactors (Maven or Gradle).
 
-| Addon | Status | Note |
-| :--- | :--- | :--- |
-| `Cultivation` | `Outside reactor` | Old variant; the active one is `Cultivation_Updated`. |
-| `EMC2` | `Outside reactor` | Historical variant; requires triage before spending time on it. |
-| `Galactifun` | `Outside reactor` | Likely a heavier case or one with its own tooling. |
-| `Networks` | `Outside reactor` | Old variant; the active one is `Networks_Better_Compatibility`. |
-| `AdvancedTech` | `Outside reactor` | Pending triage. |
-| `Better-Nuclear-Generator` | `Outside reactor` | Pending triage. |
-| `Bump` | `Outside reactor` | Suspicious of requiring extra build or tooling work. |
-| `CompressionCraft` | `Outside reactor` | Pending integration. |
-| `CustomItemGenerators` | `Outside reactor` | Suspicious of requiring extra build or tooling work. |
-| `EMCTech` | `Outside reactor` | Pending integration. |
-| `FastMachines` | `Outside reactor` | Suspicious of requiring extra build or tooling work. |
-| `Gastronomicon` | `Outside reactor` | Mid-tier candidate. |
-| `Geyser-Slimefun-Heads` | `Outside reactor` | Mid-tier candidate. |
-| `MoreResearches` | `Outside reactor` | Quick win candidate. |
-| `Netheopoiesis` | `Outside reactor` | Pending triage. |
-| `Quaptics` | `Outside reactor` | Quick win candidate. |
-| `RelicsOfCthonia` | `Outside reactor` | Mid-tier candidate. |
-| `SaneCrafting` | `Outside reactor` | Pending integration. |
-| `SfBetterChests` | `Outside reactor` | Quick win candidate. |
-| `SlimeFrame` | `Outside reactor` | Likely a heavy case. |
-| `SlimefunAdvancements` | `Outside reactor` | Likely a heavy case. |
-| `SlimefunTranslation` | `Outside reactor` | Suspicious of requiring extra tooling or conversion work. |
-| `SlimefunWarfare` | `Outside reactor` | Historical variant; triage before integration. |
-| `SlimeHUD` | `Outside reactor` | Quick win candidate. |
-| `SmallSpace` | `Outside reactor` | Quick win candidate. |
-| `SpiritsUnchained` | `Outside reactor` | Pending integration. |
-| `VillagerTrade` | `Outside reactor` | Mid-tier candidate. |
-| `Wildernether` | `Outside reactor` | Mid-tier candidate. |
-| `WorldEditSlimefun` | `Outside reactor` | Mid-tier candidate; current WorldEdit integration should be reviewed. |
+| Addon | Reactor | Status | Observation |
+| :--- | :---: | :--- | :--- |
+| `Galactifun` | 🐘 Gradle | `STABILIZED` | Integrated into the Master Gradle Reactor. |
+| `Bump` | 🐘 Gradle | `STABILIZED` | Integrated into the Master Gradle Reactor. |
+| `SlimefunTranslation` | 🐘 Gradle | `STABILIZED` | Integrated into the Master Gradle Reactor. |
+| `AdvancedTech` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `Better-Nuclear-Generator` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `CompressionCraft` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `EMCTech` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `Gastronomicon` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `Geyser-Slimefun-Heads` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `Quaptics` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `RelicsOfCthonia` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `SlimeFrame` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `SlimefunAdvancements` | 🛡️ Maven | `STABILIZED` | Pending surgical rebranding. |
+| `WorldEditSlimefun` | 🛡️ Maven | `STABILIZED` | Review integration with current WE. |
 
 ## Important Operational Notes
 

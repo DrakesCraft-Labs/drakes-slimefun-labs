@@ -1,44 +1,34 @@
-# Checklist de Migracion
+# 🏁 Checklist de Migración DrakesLab
 
-## Resumen Ejecutivo
+## 📊 Resumen de la Flota (v15.6)
+- **Universo Total**: 89 Addons + Módulos Base.
+- **Integración Estructural**: **100% (89/89)**.
+- **Reactor Maven**: 80 Módulos activos.
+- **Reactor Gradle**: 9 Módulos activos.
+- **Identidad com.github.drakescraft-labs**: Implementada en el core y 60 addons.
 
-- Universo real del repo: `87 addons + 2 modulos base`
-- Reactor activo actual: `59 modulos`
-- Listos en reactor: `59`
-- Activos con fallo confirmado: `0`
-- Fuera del reactor: `30`
-- Pendiente bruto real: `30 addons`
+## 🧬 Estado por Capas
 
-## Regla de Lectura
+### 1. Núcleo y Librerías (FINALIZADO ✅)
+- [x] **Dough-Core**: Relocalizado y estable (`1.3.1-DRAKE`).
+- [x] **Slimefun-Core**: Estabilizado para 1.21.1 (`11.0-Drake`).
+- [x] **InfinityLib / SefiLib**: Alineados al reactor maestro.
 
-- Si una pagina dice `pendientes`, verificar si habla de pendientes del reactor o del repo completo.
-- El tablero principal del reactor no reemplaza el inventario total del repo.
-- Para seguimiento operativo hay que mirar ambos numeros.
+### 2. Reactor Maven (EN PROCESO ⚙️)
+- [x] **Integración**: Los 80 módulos ya están en el `pom.xml` raíz.
+- [x] **Sincronización**: GroupIDs corregidos vía `manager.py`.
+- [/] **Rebranding**: 60/80 addons ya usan el sufijo `-drake`. Falta completar los 20 restantes (`STABILIZED`).
 
-## Estado por Capa
+### 3. Reactor Gradle (ESTABILIZADO 💎)
+- [x] **Reactor Maestro**: `settings.gradle.kts` configurado para 9 addons.
+- [x] **Java 21**: Forzado en todos los proyectos Gradle.
+- [x] **Galactifun / SlimefunTranslation**: Operativos y estables.
 
-### Reactor Actual
+## 🛠️ Herramientas Operativas
+- **DrakesLab Manager**: Usar `python scripts/manager.py audit` para el seguimiento.
+- **Unified Engine**: Verificar el estado de los builds en la pestaña `Actions`.
 
-- Ya incluidos en `pom.xml` raiz
-- Objetivo: dejarlos compilando sin romper el build unificado
-- Fallos activos restantes: `2`
-
-### Fuera del Reactor
-
-- Presentes en `sources/*`, pero aun no incluidos en el build unificado
-- Objetivo: triage, validar `pom.xml` o convertir desde Gradle cuando haga falta
-- Pendientes restantes: `30`
-
-## Prioridad Actual
-
-1. Cerrar primero los fallos activos del reactor.
-2. Incorporar quick wins con `pom.xml` listo.
-3. Dejar para despues variantes viejas o proyectos con Gradle.
-
-## Quick Wins Fuera del Reactor
-
-- `MoreResearches`
-- `SfBetterChests`
-- `SlimeHUD`
-- `SmallSpace`
-- `Quaptics`
+## 🎯 Próximos Objetivos
+1.  **Rebranding Masivo**: Pasar los 20 addons `STABILIZED` a `SURGICAL`.
+2.  **Smoke Tests**: Iniciar pruebas de carga en servidores Paper 1.21.1 reales.
+3.  **Wiki Pública**: Sincronizar esta documentación local con la Wiki de GitHub.
