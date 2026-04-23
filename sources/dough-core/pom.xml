@@ -4,10 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.github.drakescraft-labs</groupId>
-        <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
+    I-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 

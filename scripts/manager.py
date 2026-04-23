@@ -124,11 +124,38 @@ def sync_all_docs(status):
             f.write(content)
         log(f"Sincronizado: {os.path.relpath(path, ROOT_DIR)}", "SUCCESS")
 
+def force_parent_version():
+    log("Forzando versión del parent (11-SNAPSHOT) en toda la flota...", "INFO")
+    for root, _, files in os.walk(SOURCES_DIR):
+        for file in files:
+            if file == "pom.xml":
+                path = os.path.join(root, file)
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    
+                    # Regex para encontrar el parent y su versión
+                    new_content = re.sub(
+                        r"(<parent>[\s\S]*?<version>).*?(</version>[\s\S]*?</parent>)",
+                        r"\111-SNAPSHOT\2",
+                        content
+                    )
+                    
+                    if new_content != content:
+                        with open(path, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
+                        log(f"Versión de parent corregida en: {os.path.relpath(path, SOURCES_DIR)}", "SUCCESS")
+                except:
+                    continue
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "audit": 
             res = audit()
             if "--sync" in sys.argv: sync_all_docs(res)
-        elif sys.argv[1] == "repair": unify_and_bridge()
+        elif sys.argv[1] == "repair": 
+            unify_and_bridge()
+            force_parent_version()
     else:
         unify_and_bridge()
+        force_parent_version()
