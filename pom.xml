@@ -213,6 +213,20 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <!-- Global Test Dependencies for all modules -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.seeseemelk</groupId>
+            <artifactId>MockBukkit-v1.21</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -317,13 +331,6 @@
         <repository>
             <id>mcmmo-repo</id>
             <url>https://nexus.neetgames.com/repository/maven-public</url>
-        </repository>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/DrakesCraft-Labs/drakes-slimefun-labs</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </repository>
     </repositories>
 </project>
