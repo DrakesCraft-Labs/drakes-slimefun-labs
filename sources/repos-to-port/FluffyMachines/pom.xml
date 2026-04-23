@@ -10,15 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>FluffyMachines</artifactId>
+    <artifactId>FluffyMachines-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -64,13 +61,13 @@
         <plugins>
             <plugin>
                 <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.13.0</version>
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.5.2</version>
                 <configuration>
                     <relocations>
@@ -138,14 +135,14 @@
                 </exclusion>
                 <exclusion>
                     <groupId>com.sk89q.worldguard</groupId>
-                    <artifactId>worldguard-legacy-drake</artifactId>
+                    <artifactId>worldguard-legacy</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
             <scope>provided</scope>
         </dependency>

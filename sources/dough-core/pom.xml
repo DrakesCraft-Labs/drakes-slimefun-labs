@@ -24,14 +24,14 @@
     <dependencies>
         <!-- Paper API -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
-            <artifactId>paper-api-drake</artifactId>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
         </dependency>
 
         <!-- Google GSON (already in Paper, but used explicitly in Dough) -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
-            <artifactId>gson-drake</artifactId>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
             <version>2.11.0</version>
             <scope>provided</scope>
         </dependency>

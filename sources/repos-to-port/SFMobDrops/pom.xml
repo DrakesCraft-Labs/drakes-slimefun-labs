@@ -11,15 +11,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>SFMobDrops</artifactId>
+    <artifactId>SFMobDrops-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,7 +25,7 @@
     <dependencies>
         <!-- Spigot/Paper -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -50,14 +47,14 @@
         <!-- bStats -->
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <!-- Annotations -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

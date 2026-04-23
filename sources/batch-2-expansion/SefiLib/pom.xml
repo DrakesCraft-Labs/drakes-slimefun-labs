@@ -27,7 +27,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>

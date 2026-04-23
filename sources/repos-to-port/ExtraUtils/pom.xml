@@ -10,16 +10,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>ExtraUtils</artifactId>
+    <artifactId>ExtraUtils-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,7 +43,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
@@ -61,14 +58,14 @@
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
             <scope>provided</scope>
         </dependency>
 
                 <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-drake</artifactId>
+            <artifactId>lombok</artifactId>
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>

@@ -16,7 +16,7 @@
 
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>LiteXpansion</artifactId>
+    <artifactId>LiteXpansion-drake</artifactId>
     <version>MODIFIED</version>
 
     <repositories>
@@ -36,7 +36,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
@@ -51,13 +51,13 @@
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
             <scope>provided</scope>
         </dependency>
                 <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-drake</artifactId>
+            <artifactId>lombok</artifactId>
             <version>1.18.34</version>
             <scope>provided</scope>
         </dependency>

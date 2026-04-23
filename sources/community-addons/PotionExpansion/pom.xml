@@ -10,15 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>PotionExpansion</artifactId>
+    <artifactId>PotionExpansion-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -39,7 +36,7 @@
         <plugins>
             <plugin>
                 <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.6.0</version>
                 <configuration>
                     <relocations>
@@ -79,14 +76,14 @@
         <!-- Common Libs -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <!-- bStats -->
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>

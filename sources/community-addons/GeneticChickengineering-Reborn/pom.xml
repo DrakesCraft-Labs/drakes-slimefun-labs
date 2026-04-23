@@ -10,15 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>GeneticChickengineering-Reborn</artifactId>
+    <artifactId>GeneticChickengineering-Reborn-drake</artifactId>
     <version>1.1.DEV</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -41,7 +38,7 @@
         <plugins>
             <plugin>
                 <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.6.0</version>
                 <executions>
                     <execution>
@@ -125,7 +122,7 @@
         <!-- GuizhanLib -->
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>GuizhanLib-api-drake</artifactId>
+            <artifactId>GuizhanLib-api</artifactId>
             <version>1.8.1</version>
             <scope>compile</scope>
         </dependency>
@@ -133,7 +130,7 @@
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-drake</artifactId>
+            <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
 

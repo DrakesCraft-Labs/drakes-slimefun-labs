@@ -15,7 +15,7 @@
     </properties>
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>MobCapturer</artifactId>
+    <artifactId>MobCapturer-drake</artifactId>
     <version>${slimefun.drake.version}</version>
 
     <repositories>
@@ -27,7 +27,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
@@ -42,14 +42,14 @@
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <version>3.0.2</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>guizhanlib-all-drake</artifactId>
+            <artifactId>guizhanlib-all</artifactId>
             <version>2.2.0</version>
             <scope>compile</scope>
         </dependency>

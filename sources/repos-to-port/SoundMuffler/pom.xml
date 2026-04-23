@@ -12,15 +12,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>SoundMuffler</artifactId>
+    <artifactId>SoundMuffler-drake</artifactId>
     <version>11.0-Drake</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +30,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -44,12 +41,12 @@
         </dependency>
         <dependency>
             <groupId>com.github.dmulloy2</groupId>
-            <artifactId>ProtocolLib-drake</artifactId>
+            <artifactId>ProtocolLib</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>

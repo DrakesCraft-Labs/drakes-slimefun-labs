@@ -16,13 +16,13 @@
     </properties>
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>DynaTech</artifactId>
+    <artifactId>DynaTech-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>DynaTech</name><description>Advanced technical machinery for Slimefun 4. Featuring high-tier generators, automated farms, and unique utilities for the ultimate factory experience.</description>
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
         </dependency>
 
@@ -53,11 +53,11 @@
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
-            <artifactId>commons-lang-drake</artifactId>
+            <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
 

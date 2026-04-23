@@ -10,10 +10,6 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
 
     <groupId>dev.drake.addon</groupId>
     <artifactId>BetterChests-drake</artifactId>
@@ -23,6 +19,7 @@
     <name>BetterChests</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -41,8 +38,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.5.3</version>
                 <executions>
                     <execution>

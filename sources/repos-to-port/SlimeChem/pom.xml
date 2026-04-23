@@ -16,13 +16,13 @@
     </properties>
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>SlimeChem</artifactId>
+    <artifactId>SlimeChem-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>SlimeChem</name>
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
         </dependency>
                 <dependency>
@@ -65,7 +65,7 @@
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-drake</artifactId>
+            <artifactId>lombok</artifactId>
             <version>1.18.32</version>
             <scope>provided</scope>
         </dependency>
@@ -76,7 +76,7 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin-drake</artifactId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
                     <relocations>

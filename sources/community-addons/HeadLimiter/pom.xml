@@ -10,19 +10,16 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>HeadLimiter</artifactId>
+    <artifactId>HeadLimiter-drake</artifactId>
     <version>UNOFFICIAL</version>
     <packaging>jar</packaging>
 
     <name>HeadLimiter</name>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -53,12 +50,12 @@
         <plugins>
             <plugin>
                 <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.3.0</version>
                 <executions>
                     <execution>
@@ -114,14 +111,14 @@
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.TownyAdvanced</groupId>
-            <artifactId>Towny-drake</artifactId>
+            <artifactId>Towny</artifactId>
             <version>0.97.3.0</version>
             <scope>provided</scope>
         </dependency>

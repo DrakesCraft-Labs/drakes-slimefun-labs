@@ -10,15 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>AdvancedTech</artifactId>
+    <artifactId>AdvancedTech-drake</artifactId>
     <version>1.0.0</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,7 +51,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.21.4-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
@@ -135,13 +132,13 @@
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple-drake</artifactId>
+            <artifactId>slf4j-simple</artifactId>
             <version>2.0.7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.bytebuddy</groupId>
-            <artifactId>byte-buddy-drake</artifactId>
+            <artifactId>byte-buddy</artifactId>
             <version>1.14.5</version>
             <scope>compile</scope>
         </dependency>

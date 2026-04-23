@@ -11,16 +11,13 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
-    <artifactId>CompressionCraft</artifactId>
+    <artifactId>CompressionCraft-drake</artifactId>
 
     <version>UNOFFICIAL</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
     <!-- UTF-8 is our standard encoding for source files -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -63,7 +60,7 @@
         <plugins>
             <plugin>
                 <groupId>dev.drake.addon</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-compiler-plugin-drake</artifactId>
                 <version>3.5.1</version>
                 <configuration>
                     <source>16</source>
@@ -71,8 +68,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
+                <groupId>dev.drake.addon</groupId>
+                <artifactId>maven-shade-plugin-drake</artifactId>
                 <version>3.3.0</version>
                 <configuration>
                     <minimizeJar>true</minimizeJar>

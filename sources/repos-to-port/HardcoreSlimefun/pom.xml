@@ -16,7 +16,7 @@
 
 
     <groupId>dev.drake.addon</groupId>
-    <artifactId>HardcoreSlimefun</artifactId>
+    <artifactId>HardcoreSlimefun-drake</artifactId>
     <version>1.0</version>
 
     <repositories>
@@ -32,7 +32,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>${paper.version}</version>
             <scope>provided</scope>
@@ -53,13 +53,13 @@
 
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <version>3.0.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305-drake</artifactId>
+            <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
         </dependency>
 

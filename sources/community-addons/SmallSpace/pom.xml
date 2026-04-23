@@ -10,15 +10,12 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
-    </properties>
-
     <groupId>dev.drake.addon</groupId>
     <artifactId>SmallSpace-drake</artifactId>
     <version>MODED</version>
 
     <properties>
+        <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,8 +56,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.drake.addon</groupId>
-            <artifactId>spigot-api-drake</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
             <version>1.17.1-R0.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>

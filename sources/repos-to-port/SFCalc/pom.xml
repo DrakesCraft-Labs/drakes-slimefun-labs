@@ -15,19 +15,19 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <artifactId>SFCalc</artifactId>
+    <artifactId>SFCalc-drake</artifactId>
     <version>UNOFFICIAL-1.21</version>
 
     <dependencies>
         <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <!-- Paper API -->
         <dependency>
-            <groupId>dev.drake.addon</groupId>
+            <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -49,14 +49,14 @@
         <!-- bStats -->
         <dependency>
             <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit-drake</artifactId>
+            <artifactId>bstats-bukkit</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <!-- ErrorReporter -->
         <dependency>
             <groupId>com.github.seggan</groupId>
-            <artifactId>ErrorReporter-Java-drake</artifactId>
+            <artifactId>ErrorReporter-Java</artifactId>
             <version>1.1.0</version>
             <scope>compile</scope>
         </dependency>
