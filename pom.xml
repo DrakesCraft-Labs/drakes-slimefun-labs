@@ -237,6 +237,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- bStats: Requerido por casi todos los addons -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+        </dependency>
+
         <!-- Global Test Dependencies for all modules -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

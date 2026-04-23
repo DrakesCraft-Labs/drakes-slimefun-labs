@@ -88,28 +88,47 @@ def audit():
     print("="*60)
     return status
 
-def sync_readme(status):
-    log("Sincronizando métricas en README.md...", "INFO")
-    readme_path = os.path.join(ROOT_DIR, "README.md")
-    if not os.path.exists(readme_path): return
+def sync_all_docs(status):
+    log("Sincronizando métricas en toda la flota de documentos...", "INFO")
     
-    with open(readme_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+    # Archivos a sincronizar
+    targets = [
+        os.path.join(ROOT_DIR, "README.md"),
+        os.path.join(ROOT_DIR, "README_EN.md"),
+        os.path.join(ROOT_DIR, "docs", "es", "migration-checklist.md"),
+        os.path.join(ROOT_DIR, "docs", "en", "migration-checklist.md")
+    ]
     
-    # Actualizar contadores
-    content = re.sub(r"\|\s*\*\*REACTOR MAVEN\*\*\s*\|\s*`\d+`", f"| **REACTOR MAVEN** | `{len(status['STABILIZED']) + len(status['SURGICAL'])}`", content)
-    content = re.sub(r"\|\s*\*\*REACTOR GRADLE\*\*\s*\|\s*`\d+`", f"| **REACTOR GRADLE** | `{len(status['GRADLE'])}`", content)
-    content = re.sub(r"\|\s*\*\*Progreso Quirúrgico\*\*\s*\|\s*\*\*[\d\.]+% \(\d+/89\)\*\*", f"| **Progreso Quirúrgico** | **{((len(status['SURGICAL'])/89)*100):.1f}% ({len(status['SURGICAL'])}/89)**", content)
-    
-    with open(readme_path, 'w', encoding='utf-8') as f:
-        f.write(content)
-    log("Métricas sincronizadas con éxito.", "SUCCESS")
+    total_maven = len(status['STABILIZED']) + len(status['SURGICAL'])
+    total_gradle = len(status['GRADLE'])
+    perc = (len(status['SURGICAL'])/89)*100
+    progress_str = f"{perc:.1f}% ({len(status['SURGICAL'])}/89)"
+
+    for path in targets:
+        if not os.path.exists(path): continue
+        
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Actualizar contadores (Regex flexibles para ES/EN)
+        content = re.sub(r"\|\s*\*\*REACTOR MAVEN\*\*\s*\|\s*`\d+`", f"| **REACTOR MAVEN** | `{total_maven}`", content)
+        content = re.sub(r"\|\s*\*\*REACTOR GRADLE\*\*\s*\|\s*`\d+`", f"| **REACTOR GRADLE** | `{total_gradle}`", content)
+        content = re.sub(r"\|\s*\*\*Progreso Quirúrgico\*\*\s*\|\s*\*\*[\d\.]+% \(\d+/89\)\*\*", f"| **Progreso Quirúrgico** | **{progress_str}**", content)
+        
+        # Sincronizar Resumen de Flota (v16.0)
+        content = re.sub(r"- \*\*Reactor Maven\*\*: \d+ Módulos", f"- **Reactor Maven**: {total_maven} Módulos", content)
+        content = re.sub(r"- \*\*Reactor Gradle\*\*: \d+ Módulos", f"- **Reactor Gradle**: {total_gradle} Módulos", content)
+        content = re.sub(r"- \*\*Identidad com.github.drakescraft-labs\*\*: .*", f"- **Identidad com.github.drakescraft-labs**: Implementada en el core y {len(status['SURGICAL'])} addons ({perc:.1f}%).", content)
+
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        log(f"Sincronizado: {os.path.relpath(path, ROOT_DIR)}", "SUCCESS")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "audit": 
             res = audit()
-            if "--sync" in sys.argv: sync_readme(res)
+            if "--sync" in sys.argv: sync_all_docs(res)
         elif sys.argv[1] == "repair": unify_and_bridge()
     else:
         unify_and_bridge()

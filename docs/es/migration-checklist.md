@@ -1,11 +1,11 @@
 # 🏁 Checklist de Migración DrakesLab
 
-## 📊 Resumen de la Flota (v15.6)
+## 📊 Resumen de la Flota (v16.0)
 - **Universo Total**: 89 Addons + Módulos Base.
 - **Integración Estructural**: **100% (89/89)**.
-- **Reactor Maven**: 80 Módulos activos.
-- **Reactor Gradle**: 9 Módulos activos.
-- **Identidad com.github.drakescraft-labs**: Implementada en el core y 60 addons.
+- **Reactor Maven**: 78 Módulos activos (80 + 4 históricos en espera).
+- **Reactor Gradle**: 5 Módulos activos (Galactifun, Bump, etc.).
+- **Identidad com.github.drakescraft-labs**: Implementada en el core y 60 addons (67.4%).
 
 ## 🧬 Estado por Capas
 
@@ -15,14 +15,14 @@
 - [x] **InfinityLib / SefiLib**: Alineados al reactor maestro.
 
 ### 2. Reactor Maven (EN PROCESO ⚙️)
-- [x] **Integración**: Los 80 módulos ya están en el `pom.xml` raíz.
+- [x] **Integración**: Los 84 módulos ya están bajo control del `pom.xml` raíz.
 - [x] **Sincronización**: GroupIDs corregidos vía `manager.py`.
-- [/] **Rebranding**: 60/80 addons ya usan el sufijo `-drake`. Falta completar los 20 restantes (`STABILIZED`).
+- [/] **Rebranding**: 60/84 addons ya usan el sufijo `-drake`. Falta completar los 24 restantes (`STABILIZED`).
 
 ### 3. Reactor Gradle (ESTABILIZADO 💎)
-- [x] **Reactor Maestro**: `settings.gradle.kts` configurado para 9 addons.
+- [x] **Reactor Maestro**: `settings.gradle.kts` configurado para los 5 addons reales.
 - [x] **Java 21**: Forzado en todos los proyectos Gradle.
-- [x] **Galactifun / SlimefunTranslation**: Operativos y estables.
+- [x] **Galactifun / SlimefunTranslation**: Operativos y estables bajo el Hybrid Engine.
 
 ## 🛠️ Herramientas Operativas
 - **DrakesLab Manager**: Usar `python scripts/manager.py audit` para el seguimiento.
