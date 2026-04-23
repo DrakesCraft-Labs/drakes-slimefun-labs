@@ -17,6 +17,11 @@
 - **REPARACIÓN MAESTRA**: `python scripts/manager.py repair` ahora fuerza la versión `11-SNAPSHOT` del padre y reconstruye bloques dañados.
 - El comando `python scripts/manager.py` (sin flags) repara identidades XML y versiones de padre.
 
+## 🧬 Estabilización de Dependencias (Fase 2)
+- **Dough-Core**: Se detectó que varios addons (`ExtraUtils`, `LiteXpansion`) usaban paquetes de Drake pero no tenían la dependencia explícita. Corregido.
+- **Lombok**: `InfinityExpansion` fallaba por falta de anotaciones. Se inyectó Lombok v1.18.34.
+- **Lección Aprendida**: Aunque las versiones se definan en el `parent`, los addons DEBEN declarar la dependencia explícitamente para que Maven las incluya en el classpath de compilación.
+
 ## 🎯 Siguiente Ruta Recomendada (Fase Quirúrgica)
 1.  **Rebranding Masivo**: Aplicar el estándar `-drake` a los 20 addons que aún están en estado `STABILIZED`.
 2.  **Smoke Testing**: Iniciar pruebas de carga en servidores Paper 1.21.1 reales con el stack completo.

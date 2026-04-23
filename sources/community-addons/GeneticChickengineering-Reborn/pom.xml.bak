@@ -156,12 +156,5 @@
             <version>2024.4</version>
             <scope>provided</scope>
         </dependency>
-    
-        <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
-            <artifactId>dough-core</artifactId>
-            <version>${dough.version}</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>

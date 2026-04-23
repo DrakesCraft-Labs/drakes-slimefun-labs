@@ -165,13 +165,6 @@
             <artifactId>extrautils</artifactId>
             <version>73e76ac06c</version>
         </dependency>
-    
-        <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
-            <artifactId>dough-core</artifactId>
-            <version>${dough.version}</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>
 

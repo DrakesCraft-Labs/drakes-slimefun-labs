@@ -144,6 +144,58 @@ def sync_docs(status):
         except Exception as e:
             log(f"Error sincronizando {path}: {str(e)}", "ERROR")
 
+def inject_dough(dry_run=False):
+    log("Iniciando Inyección Masiva de Dough...", "INFO")
+    
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            pom_path = os.path.join(root, "pom.xml")
+            
+            # 1. ¿Usa Dough en el código?
+            needs_dough = False
+            for r, d, f in os.walk(root):
+                for file in f:
+                    if file.endswith(".java"):
+                        with open(os.path.join(r, file), 'r', encoding='utf-8', errors='ignore') as jf:
+                            if "dev.drake.dough" in jf.read():
+                                needs_dough = True
+                                break
+                if needs_dough: break
+            
+            if needs_dough:
+                with open(pom_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                if "dough-core" not in content:
+                    log(f"Inyectando dough-core en: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
+                    
+                    # Transformación: Inyectar antes de </dependencies>
+                    dependency_block = """
+        <dependency>
+            <groupId>com.github.drakescraft-labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>"""
+                    
+                    new_content = content.replace("</dependencies>", dependency_block)
+                    
+                    if not dry_run:
+                        if validate_xml(new_content):
+                            with open(pom_path + ".bak", 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            with open(pom_path, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            count += 1
+                        else:
+                            log(f"Error de validación inyectando en {pom_path}", "ERROR")
+                    else:
+                        count += 1
+
+    log(f"Inyección completada. Módulos alimentados: {count}", "SUCCESS")
+
 if __name__ == "__main__":
     action = sys.argv[1] if len(sys.argv) > 1 else "repair"
     is_dry = "--dry-run" in sys.argv
@@ -153,5 +205,7 @@ if __name__ == "__main__":
         if "--sync" in sys.argv: sync_docs(res)
     elif action == "repair":
         repair(dry_run=is_dry)
+    elif action == "inject-dough":
+        inject_dough(dry_run=is_dry)
     else:
         log(f"Acción desconocida: {action}", "ERROR")

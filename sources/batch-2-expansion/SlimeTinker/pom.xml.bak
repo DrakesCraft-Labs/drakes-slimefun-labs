@@ -175,12 +175,5 @@
             <version>0.5.11-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-    
-        <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
-            <artifactId>dough-core</artifactId>
-            <version>${dough.version}</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 </project>
