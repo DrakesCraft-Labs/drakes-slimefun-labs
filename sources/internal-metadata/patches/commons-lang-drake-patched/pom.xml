@@ -16,10 +16,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>commons-lang-drake-patched</artifactId>
-            <version>2.6.1-DRAKE-PATCHED</version>
-            <optional>true</optional>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
         </dependency>
     </dependencies>
 
