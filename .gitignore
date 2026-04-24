@@ -31,3 +31,6 @@ wiki_temp/
 
 # Backups de Manager
 **/*.bak
+
+# Maven portable / tooling local (no versionar)
+.tools/

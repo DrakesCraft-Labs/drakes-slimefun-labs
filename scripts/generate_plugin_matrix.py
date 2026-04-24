@@ -56,7 +56,7 @@ GRADLE_FAIL = {
 }
 
 GRADLE_FAIL_NOTE = {
-    "sources/community-addons/Bump": "Errores masivos Java: APIs `MenuBlock`/`ItemGroup` legacy vs paquete Drake, menus Lombok, simbolos Bukkit renombrados (parte corregida con `port_paper_121`).",
+    "sources/community-addons/Bump": "Bloquea `compileJava` del reactor Gradle (~90 errores): `AbstractAddon` de GuizhanLib enlaza `io.github.thebusybiscuit.slimefun4.*`, inexistente en Slimefun Drake (`com.github.drakescraft_labs.slimefun4.*`). Mitigaciones en repo: Lombok Freefair, GuizhanLib 2.x imports, `SlimefunLocalization`. Pendiente: shim/fork de `AbstractAddon` o classpath coherente; APIs 1.21 (`ItemFlag`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`).",
     "sources/community-addons/CustomItemGenerators": "Kotlin: clase base `AbstractAddon` vs `JavaPlugin` (`dataFolder`, `server`, etc.); dependencia `sf4k` y firma `SlimefunAddon`.",
     "sources/community-addons/FastMachines": "Kotlin: extensiones y tipos esperan `SlimefunAddon`/`SlimefunItemStack` del fork; ajustar imports y bridge de addon.",
     "sources/community-addons/SlimefunTranslation": "Java: decenas de errores de API (SlimefunAddon, permisos, traducciones); migracion profunda contra Slimefun4 Drake.",
