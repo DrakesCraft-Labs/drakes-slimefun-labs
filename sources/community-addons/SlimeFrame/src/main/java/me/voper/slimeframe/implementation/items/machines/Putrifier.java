@@ -172,7 +172,7 @@ public class Putrifier extends AbstractProcessorMachine implements RecipeDisplay
         // Regeneration 8s
         createSuspiciousStew(PotionEffectType.REGENERATION, 8, 1);
         // Jump boost 6s
-        createSuspiciousStew(PotionEffectType.JUMP, 6, 1);
+        createSuspiciousStew(PotionEffectType.JUMP_BOOST, 6, 1);
         // Poison 12s
         createSuspiciousStew(PotionEffectType.POISON, 12, 1);
         // Wither 8s

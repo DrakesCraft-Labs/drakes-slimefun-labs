@@ -27,7 +27,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.core.datatypes.MerchantRecipeListDataType;
@@ -148,7 +148,7 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
 
                 merchant.getWorld().playSound(merchant.getLocation(), Sound.ENTITY_VILLAGER_CELEBRATE, 1, 1.4F);
                 merchant.getWorld().spawnParticle(Particle.CRIMSON_SPORE, merchant.getLocation(), 10, 0, offset / 2, 0, 0);
-                merchant.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, merchant.getLocation(), 5, 0.04, 1, 0.04);
+                merchant.getWorld().spawnParticle(Particle.ENCHANT, merchant.getLocation(), 5, 0.04, 1, 0.04);
 
                 e.setCancelled(true);
                 merchant.setHealth(0);

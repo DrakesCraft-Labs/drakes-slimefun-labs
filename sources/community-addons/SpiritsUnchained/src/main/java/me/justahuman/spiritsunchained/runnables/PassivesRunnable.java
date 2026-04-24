@@ -33,7 +33,7 @@ public class PassivesRunnable extends BukkitRunnable {
         }
         //Iron Defense
         if (SpiritUtils.useSpiritItem(player, EntityType.IRON_GOLEM, null)) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 61*20, 0, true));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 61*20, 0, true));
         }
         //Dolphin Swimmer
         final Block headBlock = player.getLocation().getBlock().getRelative(BlockFace.UP);

@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetCompo
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import org.apache.commons.lang.Validate;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;

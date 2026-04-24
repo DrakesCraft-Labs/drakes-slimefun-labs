@@ -91,7 +91,7 @@ public class HeadlessHorseman extends CustomBoss {
         } else if (pattern < 5) {
             pattern = AttackPattern.SHOOT;
             if (mob.getVehicle() instanceof LivingEntity vehicle) {
-                vehicle.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 100));
+                vehicle.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 100, 100));
             }
         } else {
             pattern = AttackPattern.SUMMON;

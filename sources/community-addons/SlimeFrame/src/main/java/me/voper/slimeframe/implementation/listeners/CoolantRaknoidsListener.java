@@ -31,8 +31,8 @@ public class CoolantRaknoidsListener implements Listener {
     private static final List<PotionEffect> RAKNOIDS_POTIONS = List.of(
             new PotionEffect(PotionEffectType.REGENERATION, Integer.MAX_VALUE, 3),
             new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1),
-            new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, Integer.MAX_VALUE, 2),
-            new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 5),
+            new PotionEffect(PotionEffectType.RESISTANCE, Integer.MAX_VALUE, 2),
+            new PotionEffect(PotionEffectType.STRENGTH, Integer.MAX_VALUE, 5),
             new PotionEffect(PotionEffectType.FIRE_RESISTANCE, Integer.MAX_VALUE, 5)
     );
 

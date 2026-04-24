@@ -80,7 +80,7 @@ public class PixieQueen extends CustomBoss {
             pattern = AttackPattern.CHARGE;
         } else if (pattern < 4) {
             pattern = AttackPattern.SHOOT;
-            mob.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 100));
+            mob.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 100, 100));
         } else if (pattern < 6) {
             pattern = AttackPattern.SUMMON;
         } else {

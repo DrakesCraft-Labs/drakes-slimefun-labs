@@ -50,7 +50,7 @@ public class GastronomiconSetup {
             .name("Warped Cactus Ice Cream")
             .texture(HeadTextures.ICE_CREAM_GREEN)
             .hunger(3, 0.75)
-            .effects(FoodEffect.positivePotionEffect(PotionEffectType.CONFUSION, 5))
+            .effects(FoodEffect.positivePotionEffect(PotionEffectType.NAUSEA, 5))
             .build();
 
         new GastroFoodBuilder()

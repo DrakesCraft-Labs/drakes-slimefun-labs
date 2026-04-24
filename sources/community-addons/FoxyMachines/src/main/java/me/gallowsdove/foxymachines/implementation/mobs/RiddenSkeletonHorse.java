@@ -30,7 +30,7 @@ public class RiddenSkeletonHorse extends CustomMob {
         spawned.setCustomNameVisible(false);
         spawned.setRemoveWhenFarAway(false);
         spawned.getAttribute(Attribute.GENERIC_ARMOR).setBaseValue(30);
-        spawned.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 999999999, 4, false, false));
+        spawned.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 999999999, 4, false, false));
     }
 
     @Override

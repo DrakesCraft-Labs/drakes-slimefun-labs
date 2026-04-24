@@ -1068,7 +1068,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_RED_OCHRE)
         .name("PB&J Sandwich")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 90), 0.5))
         .build();
 
     public static final FoodItemStack MARMALADE_SANDWICH = new FoodItemStackBuilder()
@@ -1076,7 +1076,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_ORANGE)
         .name("Marmalade Sandwich")
         .hunger(8)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     public static final FoodItemStack BAKED_BEANS_AND_TOAST = new FoodItemStackBuilder()
@@ -1084,7 +1084,7 @@ public class GastroStacks {
         .texture(HeadTextures.TOAST_ORANGE)
         .name("Baked Beans and Toast")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 90), 0.5))
         .build();
 
     public static final FoodItemStack AVOCADO_TOAST = new FoodItemStackBuilder()
@@ -1092,7 +1092,7 @@ public class GastroStacks {
         .texture(HeadTextures.TOAST_GREEN)
         .name("Avocado Toast")
         .hunger(8)
-        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 90), 0.5))
+        .effects(FoodEffect.chanceOf(FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 90), 0.5))
         .build();
 
     public static final FoodItemStack TUNA_SANDWICH = new FoodItemStackBuilder()
@@ -1100,7 +1100,7 @@ public class GastroStacks {
         .texture(HeadTextures.SANDWICH_RED_GREEN)
         .name("Tuna Sandwich")
         .hunger(8)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 30))
         .build();
 
     public static final FoodItemStack BREAKFAST_SANDWICH = new FoodItemStackBuilder()
@@ -1237,7 +1237,7 @@ public class GastroStacks {
         .texture(HeadTextures.PASTA_GREEN)
         .name("Tuna Casserole")
         .hunger(14, 1)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 1))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 20, 1))
         .build();
 
     public static final FoodItemStack CHICKEN_RAVIOLI = new FoodItemStackBuilder()
@@ -1335,7 +1335,7 @@ public class GastroStacks {
         .texture(HeadTextures.SOUP)
         .name("Split Pea Soup")
         .hunger(10, 1.75)
-        .effects(FoodEffect.removePotionEffect(PotionEffectType.CONFUSION))
+        .effects(FoodEffect.removePotionEffect(PotionEffectType.NAUSEA))
         .build();
 
     public static final FoodItemStack HAM_AND_SPLIT_PEA_SOUP = new FoodItemStackBuilder()
@@ -1343,7 +1343,7 @@ public class GastroStacks {
         .texture(HeadTextures.SOUP)
         .name("Ham and Split Pea Soup")
         .hunger(14, 1.75)
-        .effects(FoodEffect.removePotionEffect(PotionEffectType.CONFUSION))
+        .effects(FoodEffect.removePotionEffect(PotionEffectType.NAUSEA))
         .build();
 
     public static final FoodItemStack LENTIL_SOUP = new FoodItemStackBuilder()
@@ -1529,7 +1529,7 @@ public class GastroStacks {
         .texture(HeadTextures.STEW)
         .name("Butter Chicken")
         .hunger(7)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     // Rice
@@ -1539,7 +1539,7 @@ public class GastroStacks {
         .texture(HeadTextures.STEW)
         .name("Butter Chicken with Naan Bread")
         .hunger(12)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30, 1))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30, 1))
         .build();
 
     public static final FoodItemStack SHRIMP_FRIED_RICE = new FoodItemStackBuilder()
@@ -1554,7 +1554,7 @@ public class GastroStacks {
         .texture(HeadTextures.RICE_BROWN)
         .name("Curry Rice")
         .hunger(10)
-        .effects(FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 30))
+        .effects(FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 30))
         .build();
 
     public static final FoodItemStack RICE_OMELETTE = new FoodItemStackBuilder()
@@ -2128,9 +2128,9 @@ public class GastroStacks {
         .name("Red Wine")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RED_WINE.getItemMeta();
@@ -2146,9 +2146,9 @@ public class GastroStacks {
         .name("Beer")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) BEER.getItemMeta();
@@ -2164,9 +2164,9 @@ public class GastroStacks {
         .name("Apple Cider")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) APPLE_CIDER.getItemMeta();
@@ -2182,9 +2182,9 @@ public class GastroStacks {
         .name("Rice Wine")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 60, 2),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 60, 2),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RICE_WINE.getItemMeta();
@@ -2200,9 +2200,9 @@ public class GastroStacks {
         .name("Vodka")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) VODKA.getItemMeta();
@@ -2218,9 +2218,9 @@ public class GastroStacks {
         .name("Rum")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RUM.getItemMeta();
@@ -2236,9 +2236,9 @@ public class GastroStacks {
         .name("Whiskey")
         .hunger(3, 0.5)
         .effects(
-            FoodEffect.negativePotionEffect(PotionEffectType.CONFUSION, 120, 4),
-            FoodEffect.positivePotionEffect(PotionEffectType.INCREASE_DAMAGE, 45),
-            FoodEffect.positivePotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45))
+            FoodEffect.negativePotionEffect(PotionEffectType.NAUSEA, 120, 4),
+            FoodEffect.positivePotionEffect(PotionEffectType.STRENGTH, 45),
+            FoodEffect.positivePotionEffect(PotionEffectType.RESISTANCE, 45))
         .build();
     static {
         final PotionMeta meta = (PotionMeta) WHISKEY.getItemMeta();

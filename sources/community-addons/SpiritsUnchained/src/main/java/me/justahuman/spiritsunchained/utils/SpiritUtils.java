@@ -1,7 +1,7 @@
 package me.justahuman.spiritsunchained.utils;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import dev.drake.dough.common.ChatColors;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;

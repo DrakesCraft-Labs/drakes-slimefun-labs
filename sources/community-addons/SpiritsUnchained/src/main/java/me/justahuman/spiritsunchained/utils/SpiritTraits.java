@@ -2,7 +2,7 @@ package me.justahuman.spiritsunchained.utils;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -136,7 +136,7 @@ public class SpiritTraits {
         final Location location = player.getLocation();
         player.getWorld().playSound(location, Sound.ENTITY_RABBIT_JUMP, 3, 1);
         ParticleUtils.spawnParticleRadius(location.add(0, 0.5, 0), Particle.COMPOSTER, 3, 20, "");
-        player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 30*20, 1, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 30*20, 1, true));
     }
     public static void Bee_Buddy(Player player) {
         final World world = player.getWorld();
@@ -297,7 +297,7 @@ public class SpiritTraits {
     }
     public static void Crit_hit(Player player) {
         player.getWorld().playSound(player.getLocation(), Sound.ENTITY_VINDICATOR_AMBIENT, 2, 1);
-        player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 30*20, 1, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 30*20, 1, true));
     }
     public static void Mini_Teleport(Player player) {
         if (player.getVehicle() != null) {
@@ -385,8 +385,8 @@ public class SpiritTraits {
     }
     public static void Tank(Player player) {
         player.getWorld().playSound(player.getLocation(), Sound.ENTITY_RAVAGER_ATTACK, 2, 1);
-        player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 15*20, 1, true));
-        player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 15*20, 2, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 15*20, 1, true));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 15*20, 2, true));
     }
     public static void Bullet_Swarm(Player player) {
         final World world = player.getWorld();
@@ -427,7 +427,7 @@ public class SpiritTraits {
             }
             final Location nearbyLocation = nearbyPlayer.getLocation();
             nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 30*20, 0, true));
-            nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 30*20, 3, true));
+            nearbyPlayer.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 30*20, 3, true));
             world.playSound(nearbyLocation, Sound.ENTITY_WARDEN_HEARTBEAT, 3, 1);
             ParticleUtils.spawnParticleRadius(nearbyLocation, Particle.SCULK_SOUL, 2, 30, "");
         }

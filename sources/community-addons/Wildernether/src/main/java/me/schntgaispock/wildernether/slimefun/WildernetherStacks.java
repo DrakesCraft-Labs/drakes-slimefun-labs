@@ -732,10 +732,10 @@ public class WildernetherStacks {
                 "Brew of Celerity"
             ),
             Color.fromRGB(0xfc, 0xf4, 0xfa),
-            new PotionEffect(PotionEffectType.FAST_DIGGING, 10*20, 1),
+            new PotionEffect(PotionEffectType.HASTE, 10*20, 1),
             new PotionEffect(PotionEffectType.SPEED, 10*20, 1),
-            new PotionEffect(PotionEffectType.JUMP, 10*20, 0),
-            new PotionEffect(PotionEffectType.CONFUSION, 10*20, 0)
+            new PotionEffect(PotionEffectType.JUMP_BOOST, 10*20, 0),
+            new PotionEffect(PotionEffectType.NAUSEA, 10*20, 0)
         );
        
     }

@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.WordUtils;
+import org.apache.commons.lang.WordUtils;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

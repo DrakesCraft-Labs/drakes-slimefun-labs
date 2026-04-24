@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import dev.drake.dough.blocks.BlockPosition;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.justahuman.spiritsunchained.spirits.SpiritDefinition;
@@ -146,7 +146,7 @@ public class ElectricSpiritWriter extends SlimefunItem implements EnergyNetCompo
         final EntityType type = definition.getType();
         final int maxTime = 3 * definition.getTier();
 
-        ParticleUtils.spawnParticleRadius(b.getLocation(), Particle.ENCHANTMENT_TABLE, 1.5, 10, "");
+        ParticleUtils.spawnParticleRadius(b.getLocation(), Particle.ENCHANT, 1.5, 10, "");
 
         if (currentProgress < maxTime) {
 

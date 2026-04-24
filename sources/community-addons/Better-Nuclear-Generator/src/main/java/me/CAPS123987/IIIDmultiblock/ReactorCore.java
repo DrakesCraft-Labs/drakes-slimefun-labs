@@ -141,7 +141,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 									
 									AreaEffectCloud Area = (AreaEffectCloud) Loc.getWorld().spawnEntity(Loc, EntityType.AREA_EFFECT_CLOUD);
 									
-									Area.addCustomEffect(new PotionEffect(PotionEffectType.HARM,5,2), true);
+									Area.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE,5,2), true);
 									Area.setDuration(36000);
 									Area.setParticle(Particle.CRIT);
 								}
@@ -377,7 +377,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 								
 								AreaEffectCloud Area = (AreaEffectCloud) AreaLoc.getWorld().spawnEntity(AreaLoc, EntityType.AREA_EFFECT_CLOUD);
 								Area.setRadius(12);							
-								Area.addCustomEffect(new PotionEffect(PotionEffectType.HARM,5,2), true);
+								Area.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE,5,2), true);
 								Area.setDuration(falloutTickTimePer*uranPer);
 								Area.setParticle(Particle.REDSTONE,new DustOptions(Color.GREEN,1));
 							}
@@ -387,7 +387,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 						
 						AreaEffectCloud Area = (AreaEffectCloud) Loc.getWorld().spawnEntity(Loc, EntityType.AREA_EFFECT_CLOUD);
 						Area.setRadius(12);							
-						Area.addCustomEffect(new PotionEffect(PotionEffectType.HARM,5,2), true);
+						Area.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE,5,2), true);
 						Area.setDuration(falloutTickTimePer*uranPer);
 						Area.setParticle(Particle.REDSTONE,new DustOptions(Color.GREEN,1));
 					}

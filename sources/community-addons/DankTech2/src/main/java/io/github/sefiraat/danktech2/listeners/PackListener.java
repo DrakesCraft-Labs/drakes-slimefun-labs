@@ -16,7 +16,7 @@ import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentTrashInstanceType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;

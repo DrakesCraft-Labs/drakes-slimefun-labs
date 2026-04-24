@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetCompo
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.gallowsdove.foxymachines.Items;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -234,15 +234,15 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 }
             case INSTANT_DAMAGE:
                 if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.HARM, 0, 1)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INSTANT_DAMAGE, 0, 1)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.HARM, 0, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INSTANT_DAMAGE, 0, 0)};
                 }
             case INSTANT_HEAL:
                 if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.HEAL, 0, 1)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INSTANT_HEALTH, 0, 1)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.HEAL, 0, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INSTANT_HEALTH, 0, 0)};
                 }
             case INVISIBILITY:
                 if (extended) {
@@ -252,11 +252,11 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 }
             case JUMP:
                 if (extended) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP, 8*60*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP_BOOST, 8*60*20/d, 0)};
                 } else if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP, 90*20/d, 1)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP_BOOST, 90*20/d, 1)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP, 3*60*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.JUMP_BOOST, 3*60*20/d, 0)};
                 }
             case LUCK:
                 return new PotionEffect[] {new PotionEffect(PotionEffectType.LUCK, 5*60*20/d, 0)};
@@ -290,11 +290,11 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 }
             case SLOWNESS:
                 if (extended) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 4*60*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 4*60*20/d, 0)};
                 } else if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 20*20/d, 3)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 20*20/d, 3)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 90*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 90*20/d, 0)};
                 }
             case SPEED:
                 if (extended) {
@@ -306,19 +306,19 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 }
             case STRENGTH:
                 if (extended) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 8*60*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.STRENGTH, 8*60*20/d, 0)};
                 } else if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 90*20/d, 1)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.STRENGTH, 90*20/d, 1)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 3*60*20/d, 0)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.STRENGTH, 3*60*20/d, 0)};
                 }
             case TURTLE_MASTER:
                 if (extended) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 40*20/d, 3), new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40*20/d, 2)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 40*20/d, 3), new PotionEffect(PotionEffectType.RESISTANCE, 40*20/d, 2)};
                 } else if (upgraded) {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 20*20/d, 5), new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20*20/d, 3)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 20*20/d, 5), new PotionEffect(PotionEffectType.RESISTANCE, 20*20/d, 3)};
                 } else {
-                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOW, 20*20/d, 3), new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20*20/d, 2)};
+                    return new PotionEffect[] {new PotionEffect(PotionEffectType.SLOWNESS, 20*20/d, 3), new PotionEffect(PotionEffectType.RESISTANCE, 20*20/d, 2)};
                 }
             case WATER_BREATHING:
                 if (extended) {

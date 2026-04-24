@@ -180,7 +180,7 @@ public class TraitListeners implements Listener {
 
         //Strong Bones
         if(finalHealthPercentage <= 0.5 && notOnCooldown(entity, Keys.strongBones) && isUsed(player, EntityType.SKELETON)) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 45*20, 1, true));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 45*20, 1, true));
             startCooldown(player, Keys.strongBones, 90, "messages.traits.cooldown.strong_bones");
         }
         //Play Dead
@@ -245,9 +245,9 @@ public class TraitListeners implements Listener {
 
         PotionData base = potionMeta.getBasePotionData();
         for (PotionEffect effect : potionMeta.getCustomEffects()) {
-            if (effect.getType() == PotionEffectType.HARM) {
-                effect = new PotionEffect(PotionEffectType.HEAL, effect.getDuration(), effect.getAmplifier(), effect.isAmbient());
-                potionMeta.removeCustomEffect(PotionEffectType.HARM);
+            if (effect.getType() == PotionEffectType.INSTANT_DAMAGE) {
+                effect = new PotionEffect(PotionEffectType.INSTANT_HEALTH, effect.getDuration(), effect.getAmplifier(), effect.isAmbient());
+                potionMeta.removeCustomEffect(PotionEffectType.INSTANT_DAMAGE);
                 potionMeta.addCustomEffect(effect, true);
             }
         }
