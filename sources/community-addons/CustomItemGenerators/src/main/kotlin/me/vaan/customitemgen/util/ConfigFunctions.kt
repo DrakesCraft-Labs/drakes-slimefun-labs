@@ -1,10 +1,10 @@
-package me.vaan.customitemgen.util
+package com.github.drakescraft_labs.customitemgen.util
 
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe
-import me.vaan.customitemgen.CustomItemGenerators
-import me.vaan.customitemgen.data.GenEntry
-import me.vaan.customitemgen.data.Validator
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe
+import com.github.drakescraft_labs.customitemgen.CustomItemGenerators
+import com.github.drakescraft_labs.customitemgen.data.GenEntry
+import com.github.drakescraft_labs.customitemgen.data.Validator
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.configuration.file.FileConfiguration

@@ -1,9 +1,9 @@
-package me.vaan.customitemgen
+package com.github.drakescraft_labs.customitemgen
 
-import io.github.seggan.sf4k.AbstractAddon
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
-import me.vaan.customitemgen.file.DisplayLoader
-import me.vaan.customitemgen.util.getBlock
+import com.github.drakescraft_labs.sf4k.AbstractAddon
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup
+import com.github.drakescraft_labs.customitemgen.file.DisplayLoader
+import com.github.drakescraft_labs.customitemgen.util.getBlock
 import org.bstats.bukkit.Metrics
 import org.bukkit.NamespacedKey
 import org.bukkit.plugin.java.JavaPlugin

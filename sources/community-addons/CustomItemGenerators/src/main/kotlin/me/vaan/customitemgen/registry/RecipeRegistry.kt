@@ -1,7 +1,7 @@
-package me.vaan.customitemgen.registry
+package com.github.drakescraft_labs.customitemgen.registry
 
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun
 
 /**
  * This class will exist until slimefun decides to implement some way to keep track of

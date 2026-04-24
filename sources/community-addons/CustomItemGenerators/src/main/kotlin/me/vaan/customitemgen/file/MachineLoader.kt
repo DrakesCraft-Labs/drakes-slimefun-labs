@@ -1,14 +1,14 @@
-package me.vaan.customitemgen.file
+package com.github.drakescraft_labs.customitemgen.file
 
-import io.github.seggan.sf4k.extensions.getSlimefun
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
-import me.vaan.customitemgen.CustomItemGenerators
-import me.vaan.customitemgen.generator.ItemGenerator
-import me.vaan.customitemgen.data.Options
-import me.vaan.customitemgen.registry.MachineRegistry
-import me.vaan.customitemgen.registry.RecipeRegistry
-import me.vaan.customitemgen.util.*
+import com.github.drakescraft_labs.sf4k.extensions.getSlimefun
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
+import com.github.drakescraft_labs.customitemgen.CustomItemGenerators
+import com.github.drakescraft_labs.customitemgen.generator.ItemGenerator
+import com.github.drakescraft_labs.customitemgen.data.Options
+import com.github.drakescraft_labs.customitemgen.registry.MachineRegistry
+import com.github.drakescraft_labs.customitemgen.registry.RecipeRegistry
+import com.github.drakescraft_labs.customitemgen.util.*
 import org.bstats.charts.AdvancedPie
 import org.bstats.charts.SimplePie
 import org.bukkit.Material

@@ -1,4 +1,4 @@
-package me.vaan.customitemgen.file
+package com.github.drakescraft_labs.customitemgen.file
 
 import org.bukkit.configuration.file.FileConfiguration
 

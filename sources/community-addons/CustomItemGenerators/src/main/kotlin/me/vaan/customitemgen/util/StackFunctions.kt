@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.util
+package com.github.drakescraft_labs.customitemgen.util
 
-import me.vaan.customitemgen.CustomItemGenerators
+import com.github.drakescraft_labs.customitemgen.CustomItemGenerators
 import net.kyori.adventure.text.TextComponent
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextDecoration

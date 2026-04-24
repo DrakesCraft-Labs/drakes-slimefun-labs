@@ -3,7 +3,7 @@ package ne.fnfal113.fnamplifications;
 import javax.annotation.Nonnull;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import io.github.bakedlibs.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.dough.updater.BlobBuildUpdater;
 
 import ne.fnfal113.fnamplifications.config.ConfigManager;
 import ne.fnfal113.fnamplifications.gears.commands.GearCommands;

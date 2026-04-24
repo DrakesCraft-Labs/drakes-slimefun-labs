@@ -1,6 +1,6 @@
 package com.github.drakescraft_labs.sfcalc;
 
-import com.github.drakescraft_labs.errorreporter.ErrorReporter;
+import io.github.seggan.errorreporter.ErrorReporter;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.BlobBuildUpdater;

@@ -4,7 +4,7 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.sefiraat.cultivation.api.interfaces.CultivationHarvestable;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.dough.collections.RandomizedSet;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;

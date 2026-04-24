@@ -16,7 +16,7 @@ import dev.sefiraat.cultivation.implementation.utils.Keys;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.string.Theme;
 import dev.sefiraat.sefilib.world.LocationUtils;
-import io.github.bakedlibs.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;

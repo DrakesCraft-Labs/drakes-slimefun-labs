@@ -64,22 +64,35 @@ def audit():
         if "pom.xml" in files:
             path = os.path.join(root, "pom.xml")
             rel_path = os.path.relpath(root, SOURCES_DIR)
-            
             with open(path, 'r', encoding='utf-8') as f:
                 content = f.read()
-            
             if "-drake" in content: status["SURGICAL"].append(rel_path)
             else: status["STABILIZED"].append(rel_path)
         
-        if "build.gradle" in files or "build.gradle.kts" in files:
+        elif "build.gradle" in files or "build.gradle.kts" in files:
+            fname = "build.gradle" if "build.gradle" in files else "build.gradle.kts"
+            path = os.path.join(root, fname)
             rel_path = os.path.relpath(root, SOURCES_DIR)
-            if rel_path != ".": status["GRADLE"].append(rel_path)
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            if "drake" in content.lower(): status["SURGICAL"].append(rel_path)
+            else: status["GRADLE"].append(rel_path)
 
     print("\n" + "="*60)
     print(f"ESTADO DEL REACTOR - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print("="*60)
-    perc = (len(status['SURGICAL'])/89)*100
-    print(f"PROGRESO QUIRÚRGICO: {perc:.1f}% ({len(status['SURGICAL'])}/89)")
+    total = len(status['SURGICAL']) + len(status['STABILIZED']) + len(status['GRADLE']) + len(status['LEGACY'])
+    perc = (len(status['SURGICAL'])/total)*100 if total > 0 else 0
+    print(f"PROGRESO QUIRÚRGICO: {perc:.1f}% ({len(status['SURGICAL'])}/{total})")
+    print("="*60)
+    if status['STABILIZED']:
+        print(f"\n[!] Módulos Maven Pendientes de Cirugía ({len(status['STABILIZED'])}):")
+        for m in sorted(status['STABILIZED']):
+            print(f"  - {m}")
+    if status['GRADLE']:
+        print(f"\n[GRADLE] Módulos Gradle en el Reactor ({len(status['GRADLE'])}):")
+        for m in sorted(status['GRADLE']):
+            print(f"  - {m}")
     print("="*60)
     return status
 
@@ -96,7 +109,11 @@ def repair(dry_run=False):
         (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
         # 4. Reparar GroupID en Dependencias (CRÍTICO)
         (r"(<groupId>)com\.github\.drakescraft-labs(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
-        # 5. Reparar corrupciones previas (I-SNAPSHOT)
+        # 5. Mapeo de Librerías Internas (artifactId)
+        (r"<artifactId>infinitylib-core</artifactId>", r"<artifactId>infinitylib-drake</artifactId>"),
+        (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
+        (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
+        # 6. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     
@@ -345,13 +362,18 @@ def rebrand_imports(dry_run=False):
         r"io\.github\.thebusybiscuit": "com.github.drakescraft_labs",
         r"io\.github\.seggan": "com.github.drakescraft_labs",
         r"io\.github\.mooy1": "com.github.drakescraft_labs",
+        r"io\.github\.slimefunguguproject": "com.github.drakescraft_labs",
+        r"io\.github\.addoncommunity": "com.github.drakescraft_labs",
+        r"io\.github\.bakedlibs": "com.github.drakescraft_labs",
         r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft_labs.slimefun4.legacy",
         r"me\.mr_cookie": "com.github.drakescraft_labs",
         r"me\.pika": "com.github.drakescraft_labs",
-        # net.guizhanss NO se rebrandea en imports (es externa)
-        # Regla de reversión para corregir el error previo
+        r"me\.vaan": "com.github.drakescraft_labs",
+        # Librerías externas que NO deben rebrandearse en imports
         r"com\.github\.drakescraft_labs\.guizhanlib": "net.guizhanss.guizhanlib",
         r"com\.github\.drakescraft-labs\.guizhanlib": "net.guizhanss.guizhanlib",
+        r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter",
+        r"com\.github\.drakescraft-labs\.errorreporter": "io.github.seggan.errorreporter",
         # Parche para corregir el error del guion si ya se aplicó
         r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs"
     }
@@ -360,7 +382,7 @@ def rebrand_imports(dry_run=False):
     file_count = 0
     for root, dirs, files in os.walk(SOURCES_DIR):
         for f in files:
-            if f.endswith(".java"):
+            if f.endswith(".java") or f.endswith(".kt"):
                 file_path = os.path.join(root, f)
                 
                 try:
@@ -390,6 +412,9 @@ def rebrand_folders():
         (os.path.join("io", "github", "thebusybiscuit"), os.path.join("com", "github", "drakescraft_labs")),
         (os.path.join("io", "github", "seggan"), os.path.join("com", "github", "drakescraft_labs")),
         (os.path.join("io", "github", "mooy1"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("io", "github", "slimefunguguproject"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("io", "github", "addoncommunity"), os.path.join("com", "github", "drakescraft_labs")),
+        (os.path.join("io", "github", "bakedlibs"), os.path.join("com", "github", "drakescraft_labs")),
         (os.path.join("me", "mrCookieSlime"), os.path.join("com", "github", "drakescraft_labs", "slimefun4", "legacy")),
         (os.path.join("me", "pika"), os.path.join("com", "github", "drakescraft_labs")),
         (os.path.join("net", "guizhanss"), os.path.join("com", "github", "drakescraft_labs")),
@@ -400,7 +425,7 @@ def rebrand_folders():
     count = 0
     import shutil
     for root, dirs, files in os.walk(SOURCES_DIR):
-        if "src" in root and "main" in root and "java" in root:
+        if "src" in root and "main" in root and ("java" in root or "kotlin" in root):
             java_root = root
             
             for old_base, new_base in mappings:

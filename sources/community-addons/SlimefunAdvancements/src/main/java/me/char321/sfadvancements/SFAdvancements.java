@@ -1,7 +1,7 @@
 package me.char321.sfadvancements;
 
-import io.github.bakedlibs.dough.config.Config;
-import io.github.bakedlibs.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.dough.config.Config;
+import com.github.drakescraft_labs.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import me.char321.sfadvancements.api.AdvancementBuilder;
 import me.char321.sfadvancements.api.AdvancementGroup;

@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.github.drakescraft_labs</groupId>
-    <artifactId>HotbarPets</artifactId>
+    <artifactId>HotbarPets-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>

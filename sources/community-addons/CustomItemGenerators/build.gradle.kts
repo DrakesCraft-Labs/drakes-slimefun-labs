@@ -4,8 +4,8 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
-group = "me.vaan"
-version = "1.1.0"
+group = "com.github.drakescraft_labs"
+version = "1.21-Drake-v1"
 
 repositories {
     mavenCentral()
@@ -29,7 +29,7 @@ dependencies {
 
 bukkit {
     name = "CustomItemGenerators"
-    main = "me.vaan.customitemgen.CustomItemGenerators"
+    main = "com.github.drakescraft_labs.customitemgen.CustomItemGenerators"
     apiVersion = "1.20"
     version = project.version.toString()
     author = "Vaan1310"

@@ -1,7 +1,7 @@
 package dev.sefiraat.netheopoiesis.utils;
 
-import io.github.bakedlibs.dough.skins.PlayerHead;
-import io.github.bakedlibs.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.dough.skins.PlayerSkin;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

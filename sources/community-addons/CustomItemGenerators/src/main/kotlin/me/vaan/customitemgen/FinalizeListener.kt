@@ -1,7 +1,7 @@
-package me.vaan.customitemgen
+package com.github.drakescraft_labs.customitemgen
 
-import io.github.thebusybiscuit.slimefun4.api.events.SlimefunItemRegistryFinalizedEvent
-import me.vaan.customitemgen.file.MachineLoader
+import com.github.drakescraft_labs.slimefun4.api.events.SlimefunItemRegistryFinalizedEvent
+import com.github.drakescraft_labs.customitemgen.file.MachineLoader
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener

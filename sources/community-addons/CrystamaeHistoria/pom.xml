@@ -57,7 +57,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.mooy1</groupId>
-            <artifactId>infinitylib-core</artifactId>
+            <artifactId>infinitylib-drake</artifactId>
             <version>1.3.10</version>
             <scope>compile</scope>
         </dependency>
@@ -69,13 +69,13 @@
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>sefilib-core</artifactId>
+            <artifactId>sefilib-drake</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.github.sefiraat</groupId>
-            <artifactId>Networks</artifactId>
+            <artifactId>Networks-drake</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

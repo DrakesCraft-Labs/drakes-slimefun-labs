@@ -39,10 +39,10 @@ dependencies {
     testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.10.0")
 }
 
-group = "net.guizhanss"
+group = "com.github.drakescraft_labs"
 description = "FastMachines"
 
-val mainPackage = "net.guizhanss.fastmachines"
+val mainPackage = "com.github.drakescraft_labs.fastmachines"
 
 java {
     disableAutoTargetJvm()

@@ -44,7 +44,7 @@
 
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>infinitylib-core</artifactId>
+            <artifactId>infinitylib-drake</artifactId>
             <version>${infinitylib.version}</version>
             <scope>compile</scope>
         </dependency>

@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.panels.config;
 
 import org.metamechanists.displaymodellib.sefilib.entity.display.DisplayGroup;
-import io.github.bakedlibs.dough.common.ChatColors;
+import com.github.drakescraft_labs.dough.common.ChatColors;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;

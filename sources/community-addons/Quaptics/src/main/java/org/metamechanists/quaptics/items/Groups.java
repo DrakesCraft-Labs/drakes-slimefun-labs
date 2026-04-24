@@ -2,7 +2,7 @@ package org.metamechanists.quaptics.items;
 
 import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
 import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
-import io.github.bakedlibs.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;

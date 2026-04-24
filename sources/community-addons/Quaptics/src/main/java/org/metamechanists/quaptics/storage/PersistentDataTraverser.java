@@ -1,6 +1,6 @@
 package org.metamechanists.quaptics.storage;
 
-import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

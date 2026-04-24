@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.data
+package com.github.drakescraft_labs.customitemgen.data
 
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe
 
 data class GenEntry(
     val recipe: MachineRecipe,

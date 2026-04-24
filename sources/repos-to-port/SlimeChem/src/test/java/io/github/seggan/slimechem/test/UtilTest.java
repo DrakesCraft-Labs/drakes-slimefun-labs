@@ -1,9 +1,9 @@
 package com.github.drakescraft_labs.slimechem.test;
 
-import io.github.addoncommunity.slimechem.implementation.atomic.Element;
-import io.github.addoncommunity.slimechem.lists.Constants;
-import io.github.addoncommunity.slimechem.utils.StringUtil;
-import io.github.addoncommunity.slimechem.utils.Util;
+import com.github.drakescraft_labs.slimechem.implementation.atomic.Element;
+import com.github.drakescraft_labs.slimechem.lists.Constants;
+import com.github.drakescraft_labs.slimechem.utils.StringUtil;
+import com.github.drakescraft_labs.slimechem.utils.Util;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

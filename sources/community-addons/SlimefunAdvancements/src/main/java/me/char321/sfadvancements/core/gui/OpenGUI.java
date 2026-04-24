@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.core.gui;
 
-import io.github.bakedlibs.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;

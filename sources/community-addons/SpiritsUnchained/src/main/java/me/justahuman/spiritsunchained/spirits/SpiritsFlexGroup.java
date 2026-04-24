@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
-import io.github.bakedlibs.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.dough.items.CustomItemStack;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;

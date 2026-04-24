@@ -116,7 +116,7 @@
 
         <dependency>
             <groupId>io.github.mooy1</groupId>
-            <artifactId>infinitylib-core</artifactId>
+            <artifactId>infinitylib-drake</artifactId>
             <version>1.3.9</version>
             <scope>compile</scope>
         </dependency>

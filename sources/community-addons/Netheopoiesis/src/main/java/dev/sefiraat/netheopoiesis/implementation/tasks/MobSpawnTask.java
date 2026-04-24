@@ -5,7 +5,7 @@ import dev.sefiraat.netheopoiesis.api.mobs.MobCapType;
 import dev.sefiraat.netheopoiesis.api.mobs.RandomSpawn;
 import dev.sefiraat.netheopoiesis.managers.MobManager;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
-import io.github.bakedlibs.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.dough.collections.RandomizedSet;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

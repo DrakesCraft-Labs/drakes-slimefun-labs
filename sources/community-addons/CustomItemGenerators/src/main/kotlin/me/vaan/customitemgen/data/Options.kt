@@ -1,4 +1,4 @@
-package me.vaan.customitemgen.data
+package com.github.drakescraft_labs.customitemgen.data
 
 import org.bukkit.inventory.ItemStack
 

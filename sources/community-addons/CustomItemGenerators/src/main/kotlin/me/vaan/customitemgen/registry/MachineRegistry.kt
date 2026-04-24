@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.registry
+package com.github.drakescraft_labs.customitemgen.registry
 
-import me.vaan.customitemgen.generator.ItemGenerator
+import com.github.drakescraft_labs.customitemgen.generator.ItemGenerator
 
 /**
  * Map id to slimefun item generator

@@ -21,7 +21,7 @@ import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
 import dev.sefiraat.sefilib.misc.ParticleUtils;
 import dev.sefiraat.sefilib.string.Theme;
 import dev.sefiraat.sefilib.world.LocationUtils;
-import io.github.bakedlibs.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

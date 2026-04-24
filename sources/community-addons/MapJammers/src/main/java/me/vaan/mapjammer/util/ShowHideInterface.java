@@ -1,4 +1,4 @@
-package me.vaan.mapjammer.util;
+package com.github.drakescraft_labs.mapjammer.util;
 
 import org.bukkit.entity.Player;
 

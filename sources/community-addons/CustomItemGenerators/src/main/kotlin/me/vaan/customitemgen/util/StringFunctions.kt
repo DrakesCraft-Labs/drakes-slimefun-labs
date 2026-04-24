@@ -1,7 +1,7 @@
-package me.vaan.customitemgen.util
+package com.github.drakescraft_labs.customitemgen.util
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun
-import me.vaan.customitemgen.CustomItemGenerators
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun
+import com.github.drakescraft_labs.customitemgen.CustomItemGenerators
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent
 import org.bukkit.Material

@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.data
+package com.github.drakescraft_labs.customitemgen.data
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
 import org.bukkit.block.Block
 
 typealias SFMachine = Pair<SlimefunItem, Block>

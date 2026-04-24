@@ -1,0 +1,41 @@
+package com.github.drakescraft_labs.galactifun.base.items;
+
+import java.util.Arrays;
+import java.util.Locale;
+
+import javax.annotation.Nonnull;
+
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import com.github.drakescraft_labs.galactifun.base.BaseItems;
+import com.github.drakescraft_labs.infinitylib.machines.MachineRecipeType;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
+
+public final class CircuitPress extends AContainer {
+
+    public static final MachineRecipeType TYPE = new MachineRecipeType(
+            BaseItems.CIRCUIT_PRESS.getItemId().toLowerCase(Locale.ROOT),
+            BaseItems.CIRCUIT_PRESS
+    );
+
+    public CircuitPress(ItemGroup category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe) {
+        super(category, item, type, recipe);
+        TYPE.sendRecipesTo((ing, res) -> this.registerRecipe(20, Arrays.copyOf(ing, 2), new ItemStack[] { res }));
+    }
+
+    @Override
+    public ItemStack getProgressBar() {
+        return new ItemStack(Material.PISTON);
+    }
+
+    @Nonnull
+    @Override
+    public String getMachineIdentifier() {
+        return "CIRCUIT_PRESS";
+    }
+
+}

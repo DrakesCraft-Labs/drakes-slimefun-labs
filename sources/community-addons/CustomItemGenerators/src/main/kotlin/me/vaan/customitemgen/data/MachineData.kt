@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.data
+package com.github.drakescraft_labs.customitemgen.data
 
-import me.mrCookieSlime.Slimefun.api.BlockStorage
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage
 import org.bukkit.Location
 
 data class MachineData(

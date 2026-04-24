@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
-import io.github.bakedlibs.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.dough.collections.RandomizedSet;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

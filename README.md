@@ -45,8 +45,8 @@ El laboratorio cubre actualmente un universo de **89 addons** más los módulos 
 
 | Métrica | Valor | Estado |
 | :--- | :--- | :--- |
-| **REACTOR MAVEN** | `80` | 🛡️ Unificados bajo `com.github.drakescraft_labs` |
-| **REACTOR GRADLE** | `8` | 🐘 Modernizados con Java 21 |
+| **REACTOR MAVEN** | `85` | 🛡️ Unificados bajo `com.github.drakescraft_labs` |
+| **REACTOR GRADLE** | `0` | 🐘 Modernizados con Java 21 |
 | **Progreso Estructural** | **100%** | **89/89 Addons Integrados** |
 | **Progreso Quirúrgico** | **67.4%** | **60/89 Addons con Rebrand** |
 | **Base Unificada** | `com.github.drakescraft_labs:dough-core` | `1.3.1-DRAKE-v11-SNAPSHOT` |

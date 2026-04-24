@@ -13,7 +13,7 @@
     </parent>
 
     <groupId>com.github.drakescraft_labs</groupId>
-    <artifactId>SoundMuffler</artifactId>
+    <artifactId>SoundMuffler-drake</artifactId>
     <version>11.0-Drake</version>
 
     <properties>

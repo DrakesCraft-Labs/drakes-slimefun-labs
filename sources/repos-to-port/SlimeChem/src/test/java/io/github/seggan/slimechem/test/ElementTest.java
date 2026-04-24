@@ -1,9 +1,9 @@
 package com.github.drakescraft_labs.slimechem.test;
 
-import io.github.addoncommunity.slimechem.implementation.atomic.Element;
-import io.github.addoncommunity.slimechem.implementation.atomic.isotopes.Isotope;
-import io.github.addoncommunity.slimechem.implementation.atomic.isotopes.IsotopeLoader;
-import io.github.addoncommunity.slimechem.lists.Constants;
+import com.github.drakescraft_labs.slimechem.implementation.atomic.Element;
+import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.Isotope;
+import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.IsotopeLoader;
+import com.github.drakescraft_labs.slimechem.lists.Constants;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

@@ -152,7 +152,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>sefilib-core</artifactId>
+            <artifactId>sefilib-drake</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>
         </dependency>

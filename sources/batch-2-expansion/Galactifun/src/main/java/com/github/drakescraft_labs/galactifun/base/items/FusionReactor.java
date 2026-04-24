@@ -1,0 +1,60 @@
+package com.github.drakescraft_labs.galactifun.base.items;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import org.bukkit.Location;
+import org.bukkit.inventory.ItemStack;
+
+import com.github.drakescraft_labs.galactifun.base.BaseMats;
+import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+import com.github.drakescraft_labs.slimefun4.implementation.items.electric.reactors.Reactor;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
+
+public final class FusionReactor extends Reactor {
+
+    public FusionReactor(SlimefunItemStack item, ItemStack[] recipe) {
+        super(CoreItemGroup.MACHINES, item, AssemblyTable.TYPE, recipe);
+    }
+
+    @Override
+    public void extraTick(@Nonnull Location l) {
+        // do nothing
+    }
+
+    @Nullable
+    @Override
+    public ItemStack getCoolant() {
+        return null;
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getFuelIcon() {
+        return BaseMats.FUSION_PELLET;
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getProgressBar() {
+        return SlimefunItems.LAVA_CRYSTAL;
+    }
+
+    @Override
+    public int getEnergyProduction() {
+        return 32_768; // 65,536 J/s
+    }
+
+    @Override
+    protected void registerDefaultFuelTypes() {
+        registerFuel(new MachineFuel(60 * 60 * 3, BaseMats.FUSION_PELLET, new SlimefunItemStack(SlimefunItems.CARBON, 6)));
+    }
+
+    @Override
+    public int getCapacity() {
+        return 65_536;
+    }
+
+}

@@ -1,6 +1,6 @@
-package me.vaan.customitemgen.events
+package com.github.drakescraft_labs.customitemgen.events
 
-import me.vaan.customitemgen.data.SFMachine
+import com.github.drakescraft_labs.customitemgen.data.SFMachine
 import org.bukkit.event.Cancellable
 import org.bukkit.event.Event
 import org.bukkit.event.HandlerList

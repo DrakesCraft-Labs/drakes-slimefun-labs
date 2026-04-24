@@ -1,0 +1,31 @@
+package com.github.drakescraft_labs.bump.implementation.items.food;
+
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+import com.github.drakescraft_labs.bump.implementation.BumpItems;
+import com.github.drakescraft_labs.bump.utils.FoodLevelUtils;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
+
+/**
+ * Latiao. Spicy stick.
+ *
+ * @author ybw0014
+ */
+public class Latiao extends ConsumableFood {
+
+    public Latiao() {
+        super(BumpItems.LATIAO, RecipeType.COMPRESSOR, new ItemStack[]{
+            SlimefunItems.WHEAT_FLOUR
+        });
+    }
+
+    @Override
+    public void applyFoodEffects(Player p) {
+        FoodLevelUtils.add(p, 2);
+        p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 48, 2));
+    }
+}

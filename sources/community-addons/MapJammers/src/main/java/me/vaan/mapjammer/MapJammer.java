@@ -1,12 +1,12 @@
-package me.vaan.mapjammer;
+package com.github.drakescraft_labs.mapjammer;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
-import me.vaan.mapjammer.implementation.Setup;
-import me.vaan.mapjammer.runnables.CheckPlayers;
-import me.vaan.mapjammer.util.ConfigStorage;
-import me.vaan.mapjammer.util.ShowHideInterface;
+import com.github.drakescraft_labs.mapjammer.implementation.Setup;
+import com.github.drakescraft_labs.mapjammer.runnables.CheckPlayers;
+import com.github.drakescraft_labs.mapjammer.util.ConfigStorage;
+import com.github.drakescraft_labs.mapjammer.util.ShowHideInterface;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.file.FileConfiguration;
