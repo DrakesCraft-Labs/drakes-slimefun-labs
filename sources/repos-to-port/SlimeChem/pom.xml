@@ -15,7 +15,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.addoncommunity</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>SlimeChem-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>SlimeChem</name>
@@ -43,7 +43,7 @@
             <scope>compile</scope>
         </dependency>
                         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>infinitylib-drake</artifactId>
             <version>1.3.10</version>
             <scope>compile</scope>

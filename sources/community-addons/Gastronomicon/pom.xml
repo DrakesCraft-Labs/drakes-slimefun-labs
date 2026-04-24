@@ -115,7 +115,7 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>infinitylib-drake</artifactId>
             <version>1.3.9</version>
             <scope>compile</scope>

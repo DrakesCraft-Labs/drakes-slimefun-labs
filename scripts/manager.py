@@ -107,13 +107,16 @@ def repair(dry_run=False):
         (r"(<parent>[\s\S]*?<artifactId>).*?(</artifactId>)", r"\g<1>drakes-slimefun-labs\g<2>"),
         # 3. Forzar Versión 11-SNAPSHOT
         (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
-        # 4. Reparar GroupID en Dependencias (CRÍTICO)
+        # 4. Reparar GroupID en Dependencias (MASIVO)
+        (r"<groupId>(io\.github\.(thebusybiscuit|mooy1|seggan|sefiraat|slimefunguguproject|addoncommunity|bakedlibs)|me\.(mr_cookie|pika|vaan))</groupId>", r"<groupId>com.github.drakescraft_labs</groupId>"),
         (r"(<groupId>)com\.github\.drakescraft-labs(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
         # 5. Mapeo de Librerías Internas (artifactId)
         (r"<artifactId>infinitylib-core</artifactId>", r"<artifactId>infinitylib-drake</artifactId>"),
         (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
-        # 6. Reparar corrupciones previas (I-SNAPSHOT)
+        # 6. Inyectar Versión en addons internos (-drake) si falta
+        (r"(<artifactId>.*?-drake</artifactId>)(?![\s\S]*?<version>)([\s\S]*?)(</dependency>)", r"\1\2            <version>11-SNAPSHOT</version>\n        \3"),
+        # 7. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     

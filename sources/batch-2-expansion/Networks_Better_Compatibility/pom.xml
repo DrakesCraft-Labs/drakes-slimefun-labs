@@ -15,7 +15,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>io.github.sefiraat</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>Networks-drake</artifactId>
     <version>1.11-SNAPSHOT</version>
     <name>Networks</name>
