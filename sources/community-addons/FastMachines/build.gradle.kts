@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm") version "2.1.10"
-    id("com.gradleup.shadow") version "8.3.5"
+    id("com.gradleup.shadow") version "8.3.10"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
@@ -24,7 +24,7 @@ dependencies {
 
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
-    compileOnlyAndTestImpl("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnlyAndTestImpl("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnlyAndTestImpl("com.github.slimefun:Slimefun4:experimental-SNAPSHOT")
     compileOnly("net.guizhanss:SlimefunTranslation:e6da231617")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")

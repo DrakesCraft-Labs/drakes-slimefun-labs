@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.0-Beta1"
-    id("com.gradleup.shadow") version "8.3.3"
+    id("com.gradleup.shadow") version "8.3.10"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 

@@ -3,6 +3,12 @@ name: "Gate 2: Stable Addons (Quick Wins)"
 on:
   push:
     branches: [ "1.21-latin" ]
+    paths-ignore:
+      - "**/*.md"
+  pull_request:
+    branches: [ "1.21-latin" ]
+    paths-ignore:
+      - "**/*.md"
   workflow_dispatch:
 
 jobs:

@@ -1,6 +1,6 @@
 plugins {
     java
-    id("com.gradleup.shadow") version "8.3.2"
+    id("com.gradleup.shadow") version "8.3.10"
 }
 
 repositories {
@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.apache.commons:commons-lang3:3.14.0")
-    compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
+    implementation("org.apache.commons:commons-lang3:3.20.0")
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:RC-37")
 
     implementation("org.bstats:bstats-bukkit:3.0.2")

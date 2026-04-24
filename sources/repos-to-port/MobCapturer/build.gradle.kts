@@ -2,7 +2,7 @@ plugins {
     id("java")
     id("maven-publish")
     id("io.freefair.lombok") version "8.7.1"
-    id("com.gradleup.shadow") version "8.3.0"
+    id("com.gradleup.shadow") version "8.3.10"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
