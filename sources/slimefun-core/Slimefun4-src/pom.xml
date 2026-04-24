@@ -197,6 +197,10 @@
                             <pattern>org.apache.commons.lang</pattern>
                             <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.commons.lang</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>dev.drake.dough</pattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.dough</shadedPattern>
+                        </relocation>
                     </relocations>
 
                     <!-- Exclude unneeded metadata files from shaded dependencies -->
@@ -344,7 +348,7 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.papermc</groupId>

@@ -1,21 +1,31 @@
-# Security Policy
+# Política de Seguridad - DrakesCraft Labs 🛡️
 
-## Supported Versions
+Esta política de seguridad describe cómo el equipo de **DrakesCraft Labs** gestiona las vulnerabilidades y cómo puedes reportarlas de forma segura.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Versiones Soportadas
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Actualmente, solo proporcionamos parches de seguridad para la rama de modernización principal:
 
-## Reporting a Vulnerability
+| Versión | Soportada |
+| ------- | --------- |
+| 1.21.1+ (Modernización) | ✅ Sí |
+| < 1.20.x (Legacy) | ❌ No |
 
-Use this section to tell people how to report a vulnerability.
+## Reportar una Vulnerabilidad
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+**¡Por favor, NO abras un Issue público para reportar una vulnerabilidad de seguridad!**
+
+Si descubres un problema de seguridad en nuestro ecosistema de Slimefun, te agradecemos que lo reportes de forma responsable:
+
+1. **Contacto Privado**: Envía un reporte detallado a través de los canales privados de **DrakesCraft Labs** (ej. Discord de JackStar o correo de contacto del laboratorio si está habilitado).
+2. **Detalles**: Incluye una descripción del fallo, pasos para reproducirlo y el impacto potencial.
+3. **Tiempo de Respuesta**: Nos comprometemos a acusar recibo en menos de 48 horas y a trabajar en una solución inmediata.
+
+## Nuestra Filosofía de Seguridad
+
+En **DrakesCraft Labs**, aplicamos una política de **"Zero Trust"** para librerías de terceros:
+- **Shadow Patching**: Sombreamos y parcheamos librerías críticas (como `commons-lang`) para eliminar CVEs heredados.
+- **Auditoría Continua**: Utilizamos GitHub Dependabot para monitorizar dependencias en tiempo real.
+- **Aislamiento de Namespaces**: El uso de namespaces propios (`dev.drake`) evita colisiones y ataques de "dependency confusion".
+
+Agradecemos a la comunidad por ayudarnos a mantener el reactor Slimefun seguro y estable. 🚀☢️
