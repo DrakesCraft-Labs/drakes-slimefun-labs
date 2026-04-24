@@ -3,7 +3,7 @@ package io.ncbpfluffybear.fluffymachines.items;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.magical.talismans.Talisman;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

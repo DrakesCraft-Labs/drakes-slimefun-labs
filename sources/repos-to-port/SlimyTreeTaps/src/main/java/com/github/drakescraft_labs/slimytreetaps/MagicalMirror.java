@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 public class MagicalMirror extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {

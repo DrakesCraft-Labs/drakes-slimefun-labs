@@ -27,7 +27,7 @@ import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 import org.bstats.bukkit.Metrics;

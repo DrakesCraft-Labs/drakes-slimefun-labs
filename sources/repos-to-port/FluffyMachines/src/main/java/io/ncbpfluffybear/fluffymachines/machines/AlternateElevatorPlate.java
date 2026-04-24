@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import dev.drake.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;

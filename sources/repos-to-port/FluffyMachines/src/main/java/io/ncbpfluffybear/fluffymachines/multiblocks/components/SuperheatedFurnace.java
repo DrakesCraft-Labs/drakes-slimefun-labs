@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPrese
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import io.ncbpfluffybear.fluffymachines.multiblocks.Foundry;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;

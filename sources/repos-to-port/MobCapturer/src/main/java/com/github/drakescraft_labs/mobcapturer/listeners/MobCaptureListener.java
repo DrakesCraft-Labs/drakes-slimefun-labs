@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.mobcapturer.MobCapturer;
 import com.github.drakescraft_labs.mobcapturer.events.MobCaptureEvent;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.config.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 
 /**
  * Listener for mob capturing.
