@@ -20,6 +20,6 @@ jobs:
 
       - name: Build Stable Addons
         run: |
-          mvn -B clean install -DskipTests -pl sources/community-addons/MiniBlocks,sources/community-addons/DyeBench,sources/community-addons/MapJammers,sources/community-addons/MissileWarfare,sources/community-addons/Element-Manipulation,sources/community-addons/HeadLimiter,sources/community-addons/SlimeHUD,sources/community-addons/SmallSpace,sources/community-addons/Quaptics,sources/community-addons/MoreResearches,sources/community-addons/SfBetterChests -am
+          mvn -B clean install -DskipTests -pl sources/community-addons/MiniBlocks,sources/community-addons/DyeBench,sources/community-addons/Quaptics -am
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

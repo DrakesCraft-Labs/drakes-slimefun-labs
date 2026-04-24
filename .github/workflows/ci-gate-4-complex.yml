@@ -20,6 +20,6 @@ jobs:
 
       - name: Build Complex Addons
         run: |
-          mvn -B clean install -DskipTests -pl sources/repos-to-port/DynaTech,sources/batch-2-expansion/Cultivation_Updated,sources/batch-2-expansion/SlimeTinker,sources/batch-2-expansion/SMG,sources/batch-2-expansion/Supreme,sources/batch-2-expansion/TranscEndence,sources/community-addons/GeneticChickengineering-Reborn,sources/community-addons/PotionExpansion,sources/community-addons/CompressionCraft,sources/community-addons/Netheopoiesis,sources/community-addons/UltimateGenerators2 -am
+          mvn -B clean install -DskipTests -pl sources/batch-2-expansion/Supreme -am
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

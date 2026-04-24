@@ -48,7 +48,7 @@ public final class AssemblyTable extends CraftingBlock implements EnergyNetCompo
     public AssemblyTable(SlimefunItemStack item, ItemStack[] recipe, int energy) {
         super(CoreItemGroup.MACHINES, item, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
         addRecipesFrom(TYPE);
-        layout(new MachineLayout()
+        setLayout(new MachineLayout()
                 .inputSlots(INPUT_SLOTS)
                 .outputSlots(new int[] { 43 })
                 .statusSlot(16)

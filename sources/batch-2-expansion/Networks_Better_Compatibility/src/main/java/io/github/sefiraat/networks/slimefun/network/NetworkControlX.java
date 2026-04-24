@@ -14,7 +14,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.features.blockstatesnapshot.BlockStateSnapshotResult;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;

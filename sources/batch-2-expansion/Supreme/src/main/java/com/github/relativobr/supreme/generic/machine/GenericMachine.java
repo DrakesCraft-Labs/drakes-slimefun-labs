@@ -14,7 +14,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import java.util.ArrayList;

@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlock
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation
 import dev.drake.dough.inventory.InvUtils
 import dev.drake.dough.items.CustomItemStack
-import dev.drake.dough.protection.Interaction
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils

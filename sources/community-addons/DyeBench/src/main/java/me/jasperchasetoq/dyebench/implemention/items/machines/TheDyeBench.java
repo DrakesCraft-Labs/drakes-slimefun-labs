@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import me.jasperchasetoq.dyebench.DyeBenchItems;
 import me.jasperchasetoq.dyebench.implemention.items.pigments.DyePigments;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.electic.machines.MenuUtils;
@@ -29,6 +29,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class TheDyeBench extends AContainer implements RecipeDisplayItem {
 
             @Override
             public boolean canOpen(Block b, Player p) {
-                return p.hasPermission("slimefun.dyebench.inventory.bypass") || Slimefun.getProtectionManager().hasPermission(p, b.getLocation(), Interaction.INTERACT_BLOCK);
+                return p.hasPermission("slimefun.dyebench.inventory.bypass") || hasPermissionCompat(p, b, Interaction.INTERACT_BLOCK);
             }
 
 
@@ -81,6 +82,30 @@ public class TheDyeBench extends AContainer implements RecipeDisplayItem {
                 }
             }
         };
+    }
+
+    @SuppressWarnings("unchecked")
+    private static boolean hasPermissionCompat(Player player, Block block, Interaction interaction) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass())
+                    || !parameterTypes[1].isAssignableFrom(block.getLocation().getClass())
+                    || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            try {
+                Object mappedInteraction = Enum.valueOf((Class<? extends Enum>) parameterTypes[2], interaction.name());
+                Object result = method.invoke(manager, player, block.getLocation(), mappedInteraction);
+                return result instanceof Boolean && (Boolean) result;
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // try next overload
+            }
+        }
+        return false;
     }
     @Override
     protected void registerDefaultRecipes() {

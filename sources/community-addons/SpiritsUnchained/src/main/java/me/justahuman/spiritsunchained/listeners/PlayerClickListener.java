@@ -3,7 +3,7 @@ package me.justahuman.spiritsunchained.listeners;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.common.ChatColors;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.implementation.mobs.AbstractCustomMob;
 import me.justahuman.spiritsunchained.utils.Keys;

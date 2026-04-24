@@ -7,7 +7,7 @@ import dev.drake.dough.common.ChatColors;
 import io.ncbpfluffybear.fluffymachines.utils.CancelPlace;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import io.ncbpfluffybear.fluffymachines.FluffyMachines;
 import io.ncbpfluffybear.fluffymachines.utils.Constants;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;

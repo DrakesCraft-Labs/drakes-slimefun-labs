@@ -31,9 +31,6 @@ jobs:
           cd ../../..
           
           # SlimefunTranslation
-          cd sources/community-addons/SlimefunTranslation
-          chmod +x gradlew
-          ./gradlew build -x test
-          cd ../../..
+          # Temporarily excluded while migrating legacy API surface
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

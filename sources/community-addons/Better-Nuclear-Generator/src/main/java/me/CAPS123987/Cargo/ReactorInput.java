@@ -22,7 +22,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.items.misc.CoolantCell;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.CAPS123987.IIIDmultiblock.ReactorCore;
 import me.CAPS123987.Item.Items;

@@ -2,9 +2,10 @@ package dev.j3fftw.extrautils.interfaces;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import java.lang.reflect.Array;
+import java.lang.reflect.Method;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
@@ -64,11 +65,35 @@ public interface InventoryBlock {
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
                 return player.hasPermission("slimefun.inventory.bypass")
-                    || (Slimefun.getProtectionManager().hasPermission(player, block.getLocation(),
-                    Interaction.INTERACT_BLOCK) && SlimefunUtils.canPlayerUseItem(player, item.getItem(), false)
+                    || (hasPermissionCompat(player, block, Interaction.INTERACT_BLOCK)
+                    && SlimefunUtils.canPlayerUseItem(player, item.getItem(), false)
                 );
             }
         };
+    }
+
+    @SuppressWarnings("unchecked")
+    private static boolean hasPermissionCompat(@Nonnull Player player, @Nonnull Block block, @Nonnull Interaction interaction) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass())
+                    || !parameterTypes[1].isAssignableFrom(block.getLocation().getClass())
+                    || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            try {
+                Object mappedInteraction = Enum.valueOf((Class<? extends Enum>) parameterTypes[2], interaction.name());
+                Object result = method.invoke(manager, player, block.getLocation(), mappedInteraction);
+                return result instanceof Boolean && (Boolean) result;
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // try next overload
+            }
+        }
+        return false;
     }
 
 }

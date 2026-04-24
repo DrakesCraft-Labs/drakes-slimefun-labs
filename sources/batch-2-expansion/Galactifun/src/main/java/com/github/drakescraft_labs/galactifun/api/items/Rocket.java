@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.lang.reflect.Method;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -60,7 +61,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.collections.RandomizedSet;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.items.ItemUtils;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
@@ -177,7 +178,7 @@ public abstract class Rocket extends SlimefunItem implements RecipeDisplayItem {
                     destBlock.getChunk().load();
                     if (!destBlock.getWorld().getWorldBorder().isInside(destBlock.getLocation())) {
                         p.sendMessage(ChatColor.RED + "Destination is outside of world border");
-                    } else if (!Slimefun.getProtectionManager().hasPermission(p, destBlock, Interaction.PLACE_BLOCK)) {
+                    } else if (!hasPermissionCompat(p, destBlock, Interaction.PLACE_BLOCK)) {
                         p.sendMessage(ChatColor.RED + "You do not have permission to land there");
                     } else {
                         Block down = destBlock.getRelative(BlockFace.DOWN);
@@ -300,6 +301,37 @@ public abstract class Rocket extends SlimefunItem implements RecipeDisplayItem {
                 .append(Component.text(msg))
                 .append(Component.text("..."))
                 .build()));
+    }
+
+    @SuppressWarnings("unchecked")
+    private static boolean hasPermissionCompat(@Nonnull Player player, @Nonnull Block block, @Nonnull Interaction interaction) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass()) || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            Object location = block.getLocation();
+            Object target;
+            if (parameterTypes[1].isAssignableFrom(block.getClass())) {
+                target = block;
+            } else if (parameterTypes[1].isAssignableFrom(location.getClass())) {
+                target = location;
+            } else {
+                continue;
+            }
+            try {
+                Object mappedInteraction = Enum.valueOf((Class<? extends Enum>) parameterTypes[2], interaction.name());
+                Object result = method.invoke(manager, player, target, mappedInteraction);
+                return result instanceof Boolean && (Boolean) result;
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // try next overload
+            }
+        }
+        return false;
     }
 
     protected abstract Map<ItemStack, Double> getAllowedFuels();

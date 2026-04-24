@@ -3,7 +3,7 @@ package ne.fnfal113.relicsofcthonia.slimefun.relics.legendary;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import ne.fnfal113.relicsofcthonia.api.OffHandRightClickHandler;
 import ne.fnfal113.relicsofcthonia.api.Rarity;
 import ne.fnfal113.relicsofcthonia.slimefun.relics.AbstractRelic;

@@ -95,9 +95,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.Sefiraat</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>Networks-drake</artifactId>
-            <version>3de3c9d608</version>
+            <version>11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

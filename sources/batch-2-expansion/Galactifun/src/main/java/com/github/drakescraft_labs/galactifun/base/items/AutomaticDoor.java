@@ -3,6 +3,7 @@ package com.github.drakescraft_labs.galactifun.base.items;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.UUID;
+import java.lang.reflect.Method;
 import java.util.logging.Level;
 
 import javax.annotation.Nonnull;
@@ -27,7 +28,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
@@ -89,7 +90,7 @@ public final class AutomaticDoor extends MenuBlock {
 
                 if (item == null || item.getType().isAir() || item.getType() == mat) {
                     OfflinePlayer p = Bukkit.getOfflinePlayer(UUID.fromString(BlockStorage.getLocationInfo(l, "player")));
-                    if (!Slimefun.getProtectionManager().hasPermission(p, l, Interaction.BREAK_BLOCK)) return;
+                    if (!hasPermissionCompat(p, l, Interaction.BREAK_BLOCK)) return;
 
                     int size = item == null || item.getType().isAir() ?
                             mat.getMaxStackSize() :
@@ -116,7 +117,7 @@ public final class AutomaticDoor extends MenuBlock {
                     if (bannedTypes.contains(stack.getType())) return;
 
                     OfflinePlayer p = Bukkit.getOfflinePlayer(UUID.fromString(BlockStorage.getLocationInfo(l, "player")));
-                    if (!Slimefun.getProtectionManager().hasPermission(p, l, Interaction.PLACE_BLOCK)) return;
+                    if (!hasPermissionCompat(p, l, Interaction.PLACE_BLOCK)) return;
 
                     Location start = l.clone();
                     Vector v = ((Directional) b.getBlockData()).getFacing().getDirection();
@@ -165,6 +166,38 @@ public final class AutomaticDoor extends MenuBlock {
                 log(Level.WARNING, "Unknown Type: " + type + ". Please check your config.yml");
             }
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    private static boolean hasPermissionCompat(@Nonnull OfflinePlayer player, @Nonnull Location location, @Nonnull Interaction interaction) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass()) || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            Object target;
+            if (parameterTypes[1].isAssignableFrom(location.getClass())) {
+                target = location;
+            } else {
+                Block block = location.getBlock();
+                if (!parameterTypes[1].isAssignableFrom(block.getClass())) {
+                    continue;
+                }
+                target = block;
+            }
+            try {
+                Object mappedInteraction = Enum.valueOf((Class<? extends Enum>) parameterTypes[2], interaction.name());
+                Object result = method.invoke(manager, player, target, mappedInteraction);
+                return result instanceof Boolean && (Boolean) result;
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // try next overload
+            }
+        }
+        return false;
     }
 
 }

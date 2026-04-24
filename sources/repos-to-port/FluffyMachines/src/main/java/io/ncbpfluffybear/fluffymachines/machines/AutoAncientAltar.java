@@ -16,7 +16,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.items.altar.AncientA
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.BrokenSpawner;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.RepairedSpawner;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import io.ncbpfluffybear.fluffymachines.utils.Constants;
 import java.util.ArrayList;

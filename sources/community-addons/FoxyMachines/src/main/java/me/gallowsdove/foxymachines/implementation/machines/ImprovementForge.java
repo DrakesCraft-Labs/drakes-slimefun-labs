@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetCompo
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
