@@ -25,6 +25,7 @@ Fecha del corte: `2026-04-24`.
 1. Timeout de wrapper Gradle aumentado para estabilizar descargas en red lenta (`networkTimeout=120000`).
 2. Alineacion de coordenadas internas Gradle con el namespace canonico del monorepo (`com.github.drakescraft_labs`) para resolver artefactos locales.
 3. Publicacion local de artefactos base (`dough-core`, `slimefun-core`, `SefiLib`, `InfinityLib`) para destrabar resolucion de dependencias sin credenciales de GitHub Packages.
+4. Ajuste de imports legacy en `Cultivation_Updated` (`slimefun4.libraries.*` -> paquetes vigentes) con evidencia de compilacion Maven en verde para el modulo.
 
 ## Bloques de trabajo sugeridos
 
