@@ -57,7 +57,7 @@
 
         <!-- ErrorReporter -->
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
+            <groupId>io.github.seggan</groupId>
             <artifactId>ErrorReporter-Java</artifactId>
             <version>1.1.0</version>
             <scope>compile</scope>

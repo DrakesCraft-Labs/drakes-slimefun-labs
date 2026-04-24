@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.drakescraft_labs</groupId>
+        <groupId>io.github.seggan</groupId>
         <artifactId>drakes-slimefun-labs</artifactId>
         <version>11-SNAPSHOT</version>
         <relativePath>../../../pom.xml</relativePath>
@@ -94,7 +94,7 @@
                         <configuration>
                             <relocations>
                                 <relocation>
-                                    <pattern>io.github.seggan.errorreporter</pattern>
+                                    <pattern>com.github.drakescraft_labs.errorreporter</pattern>
                                     <shadedPattern>com.github.drakescraft_labs.sfcalc.errorreporter</shadedPattern>
                                 </relocation>
                                 <relocation>

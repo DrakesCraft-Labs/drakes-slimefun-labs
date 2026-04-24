@@ -118,6 +118,9 @@ def repair(dry_run=False):
         # 4. Reparar GroupID en Dependencias (MASIVO)
         (r"<groupId>((io|com)\.github\.(thebusybiscuit|mooy1|seggan|sefiraat|slimefunguguproject|addoncommunity|baked-?libs(\.[\w-]+)*)|me\.(mr_cookie|pika|vaan))</groupId>", r"<groupId>com.github.drakescraft_labs</groupId>"),
         (r"(<groupId>)com\.github\.drakescraft-labs(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
+        # 4b. RESTAURAR LIBRERÍAS EXTERNAS (Si se rebrandearon por error)
+        (r"<groupId>com\.github\.drakescraft_labs</groupId>(\s*)<artifactId>ErrorReporter-Java</artifactId>", r"<groupId>io.github.seggan</groupId>\1<artifactId>ErrorReporter-Java</artifactId>"),
+        (r"<groupId>com\.github\.drakescraft_labs</groupId>(\s*)<artifactId>GuizhanLib-API</artifactId>", r"<groupId>net.guizhanss</groupId>\1<artifactId>GuizhanLib-API</artifactId>"),
         # 5. Mapeo de Librerías Internas (artifactId)
         (r"<artifactId>infinitylib-core</artifactId>", r"<artifactId>infinitylib-drake</artifactId>"),
         (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
@@ -457,7 +460,10 @@ def rebrand_imports(dry_run=False):
         r"com\.github\.drakescraft_labs\.dough": MASTER_MAPPING["dough"],
         r"com\.github\.drakescraft_labs\.infinitylib": MASTER_MAPPING["infinitylib"],
         r"com\.github\.drakescraft_labs\.sefilib": MASTER_MAPPING["sefilib"],
-        r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs"
+        r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs",
+        # Restaurar librerías externas que NO deben rebrandearse en imports
+        r"com\.github\.drakescraft_labs\.guizhanlib": "net.guizhanss.guizhanlib",
+        r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter"
     }
     
     count = 0
