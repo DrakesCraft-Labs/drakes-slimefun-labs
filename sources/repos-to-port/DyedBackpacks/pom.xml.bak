@@ -11,8 +11,8 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.drakescraft-labs</groupId>
-    <artifactId>DyedBackpacks</artifactId>
+    <groupId>com.github.drakescraft_labs</groupId>
+    <artifactId>DyedBackpacks-drake</artifactId>
     <version>1.20.6-Drake-SNAPSHOT</version>
 
     <properties>
@@ -88,7 +88,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>
@@ -110,7 +110,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>

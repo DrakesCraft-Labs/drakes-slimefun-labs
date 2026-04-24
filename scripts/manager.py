@@ -116,7 +116,9 @@ def repair(dry_run=False):
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
         # 6. Inyectar Versión en addons internos (-drake) si falta
         (r"(<artifactId>.*?-drake</artifactId>)(?![\s\S]*?<version>)([\s\S]*?)(</dependency>)", r"\1\2            <version>11-SNAPSHOT</version>\n        \3"),
-        # 7. Reparar corrupciones previas (I-SNAPSHOT)
+        # 7. Sustitución de Commons-Lang v2 por Versión Blindada (SHADOW PATCH)
+        (r"<groupId>commons-lang</groupId>[\s\S]*?<artifactId>commons-lang</artifactId>([\s\S]*?<version>.*?</version>)?", "<groupId>com.github.drakescraft_labs</groupId>\n            <artifactId>commons-lang-drake-patched</artifactId>\n            <version>2.6.1-DRAKE-PATCHED</version>"),
+        # 8. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     
@@ -478,6 +480,61 @@ def rebrand_folders():
                 
     log(f"Reestructuración completa. Operaciones realizadas: {count}", "SUCCESS")
 
+def security_sentinel(fix=False):
+    """Escanea y repara vulnerabilidades de dependencias."""
+    log("Iniciando Módulo Sentinel (Security Audit)...", "INFO")
+    
+    # Libreras bajo vigilancia y sus versiones mnimas seguras
+    VULNERABLE_ARTIFACTS = {
+        "commons-lang3": "3.20.0",
+        "guava": "33.6.0-jre",
+        "spring-context": "6.1.21"
+    }
+    
+    CRITICAL_DEPRECATED = ["commons-lang"] # Versin 2.x EOL
+    
+    found_count = 0
+    fixed_count = 0
+    
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            path = os.path.join(root, "pom.xml")
+            rel_path = os.path.relpath(path, SOURCES_DIR)
+            
+            with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+                content = f.read()
+            
+            needs_fix = False
+            for artifact in VULNERABLE_ARTIFACTS:
+                # Busca <artifactId>artifact</artifactId> seguido de un <version>
+                pattern = fr"(<artifactId>{artifact}</artifactId>)\s*<version>.*?</version>"
+                if re.search(pattern, content):
+                    log(f"VULNERABILIDAD: {artifact} detectado con versin hardcodeada en {rel_path}", "WARNING")
+                    found_count += 1
+                    needs_fix = True
+            
+            for artifact in CRITICAL_DEPRECATED:
+                if f"<artifactId>{artifact}</artifactId>" in content:
+                    log(f"CRTICO: Librera EOL detectada: {artifact} en {rel_path}. Migrar a v3 pronto.", "ERROR")
+                    found_count += 1
+
+            if fix and needs_fix:
+                # Reparacin: eliminar la etiqueta <version> para forzar herencia del root
+                new_content = content
+                for artifact in VULNERABLE_ARTIFACTS:
+                    pattern = fr"(<artifactId>{artifact}</artifactId>)\s*<version>.*?</version>"
+                    new_content = re.sub(pattern, r"\1", new_content)
+                
+                if new_content != content and validate_xml(new_content):
+                    with open(path, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+                    fixed_count += 1
+    
+    if found_count == 0:
+        log("Sentinel: No se detectaron vulnerabilidades conocidas en la flota.", "SUCCESS")
+    else:
+        log(f"Sentinel: Escaneo completado. Encontrados: {found_count}, Reparados: {fixed_count}", "SUCCESS")
+
 def clean_backups():
     log("Iniciando Limpieza de Archivos .bak...", "INFO")
     count = 0
@@ -509,6 +566,10 @@ if __name__ == "__main__":
         rebrand_imports(dry_run=is_dry)
     elif action == "rebrand-folders":
         rebrand_folders()
+    elif action == "security":
+        security_sentinel(fix=False)
+    elif action == "security-fix":
+        security_sentinel(fix=True)
     elif action == "clean-backups":
         clean_backups()
     else:

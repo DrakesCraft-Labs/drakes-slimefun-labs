@@ -105,14 +105,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>slimefun-core</artifactId>
-            <version>${slimefun.drake.version}</version>
+            <artifactId>commons-lang-drake-patched</artifactId>
+            <version>2.6.1-DRAKE-PATCHED</version>
             <scope>provided</scope>
         </dependency>
 

@@ -133,6 +133,8 @@
         <module>sources/community-addons/VillagerTrade</module>
         <module>sources/community-addons/Wildernether</module>
         <module>sources/community-addons/WorldEditSlimefun</module>
+        <!-- Security Patches & Internal Metadata -->
+        <module>sources/internal-metadata/patches/commons-lang-drake-patched</module>
     </modules>
 
     <dependencyManagement>
@@ -211,9 +213,9 @@
                 <version>3.0.2</version>
             </dependency>
             <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>2.6</version>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>commons-lang-drake-patched</artifactId>
+                <version>2.6.1-DRAKE-PATCHED</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
