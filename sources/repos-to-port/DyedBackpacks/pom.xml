@@ -98,6 +98,12 @@
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>slimefun-core</artifactId>
+            <version>${slimefun.drake.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.google.code.findbugs</groupId>

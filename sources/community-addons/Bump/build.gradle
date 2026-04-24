@@ -1,5 +1,11 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
+}
+
 dependencies {
-    implementation "com.github.drakescraft-labs:sefilib-core:0.3.1-DRAKE-SNAPSHOT"
+    implementation "com.github.drakescraft_labs:sefilib-drake:0.3.1-DRAKE-SNAPSHOT"
     implementation "org.bstats:bstats-bukkit:3.0.2"
 }
 
