@@ -10,7 +10,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 /**
  * This is the multiblock variant of the {@link SteamTurbine}, as shown in the {@link SlimefunGuide}.

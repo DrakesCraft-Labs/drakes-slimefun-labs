@@ -31,7 +31,7 @@ import com.github.drakescraft_labs.galactifun.base.universe.earth.Earth;
 import com.github.drakescraft_labs.galactifun.core.managers.WorldManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 /**
  * Any world that can be travelled to by rockets or other means

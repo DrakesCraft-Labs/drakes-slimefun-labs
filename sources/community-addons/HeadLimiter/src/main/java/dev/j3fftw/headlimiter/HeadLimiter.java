@@ -3,7 +3,7 @@ package dev.j3fftw.headlimiter;
 import java.io.File;
 
 import dev.j3fftw.headlimiter.blocklimiter.Group;
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.ConfigurationSection;

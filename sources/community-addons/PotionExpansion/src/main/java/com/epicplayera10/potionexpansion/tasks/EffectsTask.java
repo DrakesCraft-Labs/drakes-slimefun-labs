@@ -7,7 +7,7 @@ import com.epicplayera10.potionexpansion.api.effects.PotionSightType;
 import com.epicplayera10.potionexpansion.api.effects.EffectsManager;
 import com.epicplayera10.potionexpansion.utils.XRayUtil;
 
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 import net.md_5.bungee.api.ChatMessageType;

@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;

@@ -7,7 +7,7 @@ import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.armor.SlimefunArmorPiece;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import me.gallowsdove.foxymachines.implementation.consumables.CustomMobSpawnEgg;
 import me.gallowsdove.foxymachines.implementation.consumables.SimpleConsumable;
 import me.gallowsdove.foxymachines.implementation.consumables.UnbreakableRune;

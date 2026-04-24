@@ -4,8 +4,8 @@ import dev.drake.infinitylib.common.Events;
 import lombok.Getter;
 import me.gallowsdove.foxymachines.FoxyMachines;
 
-import dev.drake.dough.common.ChatColors;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

@@ -2,10 +2,10 @@ package io.ncbpfluffybear.fluffymachines;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
-import dev.drake.dough.collections.Pair;
-import dev.drake.dough.config.Config;
-import dev.drake.dough.updater.BlobBuildUpdater;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import io.ncbpfluffybear.fluffymachines.listeners.KeyedCrafterListener;
 import io.ncbpfluffybear.fluffymachines.utils.Constants;
 import io.ncbpfluffybear.fluffymachines.utils.Events;

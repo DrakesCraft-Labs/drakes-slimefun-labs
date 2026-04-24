@@ -1,6 +1,6 @@
 package io.github.sefiraat.danktech2.theme;
 
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;

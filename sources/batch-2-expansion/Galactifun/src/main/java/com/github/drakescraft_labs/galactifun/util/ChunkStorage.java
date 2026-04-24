@@ -12,7 +12,7 @@ import org.bukkit.block.Block;
 
 import com.google.common.collect.Iterables;
 import com.github.drakescraft_labs.galactifun.Galactifun;
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 /**

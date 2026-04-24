@@ -7,7 +7,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar;
 import me.gallowsdove.foxymachines.implementation.machines.ElectricGoldRefinery;

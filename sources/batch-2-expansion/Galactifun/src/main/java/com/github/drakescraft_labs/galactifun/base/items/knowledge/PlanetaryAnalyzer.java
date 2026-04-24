@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 public final class PlanetaryAnalyzer extends SimpleSlimefunItem<BlockUseHandler> {
 

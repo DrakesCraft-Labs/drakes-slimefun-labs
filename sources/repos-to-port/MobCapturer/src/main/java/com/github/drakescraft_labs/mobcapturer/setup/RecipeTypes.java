@@ -4,7 +4,7 @@ import org.bukkit.NamespacedKey;
 
 import com.github.drakescraft_labs.mobcapturer.MobCapturer;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import lombok.experimental.UtilityClass;
 

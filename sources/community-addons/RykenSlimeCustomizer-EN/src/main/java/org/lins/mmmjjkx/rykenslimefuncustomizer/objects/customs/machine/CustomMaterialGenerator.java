@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;

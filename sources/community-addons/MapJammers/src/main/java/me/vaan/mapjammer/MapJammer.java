@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.mapjammer;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.mapjammer.implementation.Setup;
 import com.github.drakescraft_labs.mapjammer.runnables.CheckPlayers;
 import com.github.drakescraft_labs.mapjammer.util.ConfigStorage;

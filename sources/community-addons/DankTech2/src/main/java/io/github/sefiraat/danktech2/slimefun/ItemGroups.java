@@ -7,7 +7,7 @@ import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.Skulls;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

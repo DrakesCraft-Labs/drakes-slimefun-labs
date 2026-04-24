@@ -495,6 +495,11 @@ def rebrand_imports(dry_run=False):
                     for old, new in remap.items():
                         new_content = re.sub(old, new, new_content)
                     
+                    # Alineación de sombras para Dough en expansiones y addons
+                    # Slimefun-core y dough-core deben usar dev.drake.dough directamente
+                    if "dough-core" not in root and "slimefun-core" not in root:
+                        new_content = re.sub(r"dev\.drake\.dough", r"com.github.drakescraft_labs.slimefun4.libraries.dough", new_content)
+                    
                     if new_content != content:
                         if not dry_run:
                             with open(file_path, 'w', encoding='utf-8') as jf:

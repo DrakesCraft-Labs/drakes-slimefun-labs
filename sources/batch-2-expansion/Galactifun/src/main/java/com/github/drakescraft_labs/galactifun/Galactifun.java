@@ -35,7 +35,7 @@ import dev.drake.infinitylib.core.AbstractAddon;
 
 import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 
 

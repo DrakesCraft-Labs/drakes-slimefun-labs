@@ -13,7 +13,7 @@ import io.papermc.lib.PaperLib;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.Plugin;
 
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 
 import com.github.drakescraft_labs.gcereborn.core.commands.GCECommand;
 import com.github.drakescraft_labs.gcereborn.core.services.ConfigurationService;

@@ -40,7 +40,7 @@ import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
 import com.github.drakescraft_labs.galactifun.api.aliens.BossAlien;
 import dev.drake.infinitylib.common.Events;
 import dev.drake.infinitylib.common.Scheduler;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 public final class AlienManager implements Listener {
 

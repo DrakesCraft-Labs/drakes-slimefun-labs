@@ -1,6 +1,6 @@
 package dev.walshy.sfmobdrops;
 
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.debug.Debug;
 

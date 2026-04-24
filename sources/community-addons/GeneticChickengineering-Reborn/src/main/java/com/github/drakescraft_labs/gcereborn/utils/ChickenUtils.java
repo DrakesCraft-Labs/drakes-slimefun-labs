@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.core.genetics.DNA;

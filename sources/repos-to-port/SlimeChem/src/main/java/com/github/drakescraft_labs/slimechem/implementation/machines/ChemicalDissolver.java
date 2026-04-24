@@ -17,7 +17,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
-import dev.drake.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
 import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;

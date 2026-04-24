@@ -1,7 +1,7 @@
 package net.guizhanss.ultimategenerators2
 
 import com.google.common.base.Preconditions
-import dev.drake.dough.updater.BlobBuildUpdater
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import net.guizhanss.ultimategenerators2.core.services.ConfigurationService

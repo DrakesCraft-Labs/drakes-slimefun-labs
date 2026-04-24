@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.utils.theme;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.Getter;
 import net.kyori.adventure.text.format.TextColor;
 import net.md_5.bungee.api.ChatColor;

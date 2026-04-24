@@ -1,6 +1,6 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.utils;
 
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

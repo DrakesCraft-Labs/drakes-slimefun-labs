@@ -1,6 +1,6 @@
 package dev.sefiraat.netheopoiesis.api.plant.netheos;
 
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import org.bukkit.inventory.ItemStack;
 

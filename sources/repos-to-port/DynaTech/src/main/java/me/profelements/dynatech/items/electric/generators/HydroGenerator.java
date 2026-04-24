@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetProvider;
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import org.bukkit.Location;

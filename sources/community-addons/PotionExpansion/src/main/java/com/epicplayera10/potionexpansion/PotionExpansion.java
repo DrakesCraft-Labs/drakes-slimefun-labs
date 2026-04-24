@@ -5,8 +5,8 @@ import com.epicplayera10.potionexpansion.commands.PotionExpansionTab;
 import com.epicplayera10.potionexpansion.listeners.DrinkMilkListener;
 import com.epicplayera10.potionexpansion.tasks.EffectsTask;
 
-import dev.drake.dough.config.Config;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;

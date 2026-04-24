@@ -14,7 +14,7 @@ import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
 import com.github.drakescraft_labs.galactifun.core.CoreRecipeType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
 import it.unimi.dsi.fastutil.ints.IntIntImmutablePair;
 import it.unimi.dsi.fastutil.ints.IntIntPair;
 

@@ -11,11 +11,11 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import dev.drake.dough.config.Config;
-import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
 /**
  * This is the main class of the {@link DyedBackpacks} addon.

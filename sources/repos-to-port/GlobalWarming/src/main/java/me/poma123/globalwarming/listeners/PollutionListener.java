@@ -20,7 +20,7 @@ import com.github.drakescraft_labs.slimefun4.api.events.AsyncMachineOperationFin
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.reactors.Reactor;
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation;
 import com.github.drakescraft_labs.slimefun4.implementation.operations.FuelOperation;
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AGenerator;
 

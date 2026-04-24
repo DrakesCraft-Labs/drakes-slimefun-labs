@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import net.byteflux.libby.BukkitLibraryManager;
 import net.byteflux.libby.Library;
 import org.bukkit.plugin.java.JavaPlugin;

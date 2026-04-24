@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 

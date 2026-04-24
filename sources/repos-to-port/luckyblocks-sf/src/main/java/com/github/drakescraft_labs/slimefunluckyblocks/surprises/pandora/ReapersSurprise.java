@@ -15,9 +15,9 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.LuckLevel;
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.Surprise;
-import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 
 public final class ReapersSurprise implements Surprise {
 
