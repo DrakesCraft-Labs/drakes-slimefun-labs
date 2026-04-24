@@ -31,7 +31,7 @@ public class DyedBackpacks extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         Config cfg = new Config(this);
-        new Metrics(this, 5778);
+
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/DyedBackpacks/master").start();

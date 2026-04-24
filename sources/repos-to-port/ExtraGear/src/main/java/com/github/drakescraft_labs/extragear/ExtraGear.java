@@ -36,7 +36,7 @@ public class ExtraGear extends JavaPlugin implements SlimefunAddon {
             new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/ExtraGear/master").start();
         }
 
-        new Metrics(this, 6469);
+
 
         itemGroup = new ItemGroup(new NamespacedKey(this, "items"), new CustomItemStack(Material.DIAMOND_SWORD, "&6ExtraGear"), 1);
 

@@ -61,7 +61,7 @@ public class SlimeCustomizer extends JavaPlugin implements SlimefunAddon {
             new BlobBuildUpdater(this, getFile(), "SlimeCustomizer", "Dev").start();
         }
 
-        final Metrics metrics = new Metrics(this, 9841);
+
 
         /* File generation */
         final File categoriesFile = new File(getInstance().getDataFolder(), "categories.yml");

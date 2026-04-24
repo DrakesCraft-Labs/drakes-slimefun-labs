@@ -59,7 +59,7 @@ public final class RykenSlimefunCustomizer extends JavaPlugin implements Slimefu
             updater.start();
         }
 
-        new Metrics(this, 25095);
+
 
         getServer().getScheduler().runTaskLater(this, () -> runtime = true, 1);
     }

@@ -44,7 +44,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         setInstance(this);
 
         Config cfg = new Config(this);
-        new Metrics(this, 6672);
+
 
         if (cfg.getBoolean("options.auto-update") && getPluginVersion().startsWith("Dev")) {
             new BlobBuildUpdater(this, getFile(), "MobCapturer").start();

@@ -109,7 +109,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         getServer().getPluginManager().registerEvents(new Events(), this);
         getServer().getPluginManager().registerEvents(new KeyedCrafterListener(), this);
 
-        final Metrics metrics = new Metrics(this, 8927);
+
     }
 
     @Override

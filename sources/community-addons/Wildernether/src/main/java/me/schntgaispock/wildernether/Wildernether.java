@@ -61,7 +61,7 @@ public class Wildernether extends AbstractAddon {
         Listeners.setup();
 
         // Might do more with this later idk
-        Metrics metrics = new Metrics(this, 15487);
+
 
         if (getInstance().getServer().getPluginManager().isPluginEnabled("SlimeHUD")) {
             try {

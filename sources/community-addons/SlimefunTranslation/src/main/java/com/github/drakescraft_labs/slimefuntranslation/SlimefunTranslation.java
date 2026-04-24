@@ -119,7 +119,7 @@ public final class SlimefunTranslation extends AbstractAddon {
     }
 
     private void setupMetrics() {
-        new Metrics(this, 20496);
+
     }
 
     @Override

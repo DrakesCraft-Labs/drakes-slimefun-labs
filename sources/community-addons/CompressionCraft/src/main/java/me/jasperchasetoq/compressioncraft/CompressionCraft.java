@@ -1,7 +1,7 @@
 package me.jasperchasetoq.compressioncraft;
 
 import dev.drake.infinitylib.core.AbstractAddon;
-import dev.drake.infinitylib.metrics.bukkit.Metrics;
+
 import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 import me.jasperchasetoq.compressioncraft.setup.CompressionCraftItemSetup;
 
@@ -19,7 +19,7 @@ public class CompressionCraft extends AbstractAddon {
 
         instance = this;
 
-        Metrics metrics = new Metrics(this, 15648);
+
 
         Config cfg = new Config(this);
 

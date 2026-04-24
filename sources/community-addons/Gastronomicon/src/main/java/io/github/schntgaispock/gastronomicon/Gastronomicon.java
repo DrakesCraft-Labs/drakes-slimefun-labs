@@ -56,7 +56,7 @@ public class Gastronomicon extends AbstractAddon {
             }
         }
 
-        final Metrics metrics = new Metrics(this, 16941);
+
 
         metrics.addCustomChart(
             new SimplePie("exoticgardenInstalled", () -> Boolean.toString(isPluginEnabled("ExoticGarden"))));

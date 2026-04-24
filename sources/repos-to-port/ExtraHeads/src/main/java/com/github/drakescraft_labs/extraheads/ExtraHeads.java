@@ -33,7 +33,7 @@ public class ExtraHeads extends JavaPlugin implements SlimefunAddon {
         registry = new Registry(new Config(this));
 
         // Setting up bStats
-        new Metrics(this, 5650);
+
 
         if (registry.getConfig().getBoolean("options.auto-update") && getPluginVersion().startsWith("Dev")) {
             new BlobBuildUpdater(this, getFile(), "ExtraHeads").start();

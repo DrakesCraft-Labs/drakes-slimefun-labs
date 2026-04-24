@@ -56,7 +56,7 @@ public class SfMobDrops extends JavaPlugin implements Listener {
         }
 
         if (!unitTest) {
-            new Metrics(this, 11950);
+
         }
         
         config = new Config(this);

@@ -19,7 +19,7 @@ public class OreChunks extends JavaPlugin implements SlimefunAddon {
 	@Override
 	public void onEnable() {
 		Config cfg = new Config(this);
-		new Metrics(this, 5683);
+
 		
 		if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
 			new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/SlimefunOreChunks/master").start();

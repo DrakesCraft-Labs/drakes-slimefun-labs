@@ -92,7 +92,7 @@ public class EmcTech extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupBstats() {
-        Metrics metrics = new Metrics(this, 15351);
+
     }
 
     public static EmcTech getInstance() {

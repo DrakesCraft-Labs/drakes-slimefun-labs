@@ -23,7 +23,7 @@ public class SlimeChem extends JavaPlugin implements SlimefunAddon {
         PluginUtils.setup("&bSlimeChem&7", this, "Slimefun-Addon-Community/SlimeChem/master", getFile());
         
         @SuppressWarnings("unused")
-        final Metrics metrics = new Metrics(this, 9490);
+
 
         IsotopeLoader isotopeLoader = new IsotopeLoader();
         isotopeLoader.load();

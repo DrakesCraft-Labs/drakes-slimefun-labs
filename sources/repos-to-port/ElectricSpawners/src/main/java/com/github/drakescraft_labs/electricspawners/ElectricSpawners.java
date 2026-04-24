@@ -24,7 +24,7 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
         Config cfg = new Config(this);
 
         // Setting up bStats
-        new Metrics(this, 6163);
+
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/ElectricSpawners/master").start();

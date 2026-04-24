@@ -53,7 +53,7 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
 
-        new Metrics(this, 11748);
+
 
         instance = this;
 

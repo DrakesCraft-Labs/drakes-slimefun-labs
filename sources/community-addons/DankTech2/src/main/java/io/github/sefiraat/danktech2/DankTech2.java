@@ -162,8 +162,8 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
         AdvancedPie danksChart = new AdvancedPie("danks", () -> dankValues);
         AdvancedPie heldItemsChart = new AdvancedPie("held_items", () -> heldItemValues);
 
-        metrics.addCustomChart(danksChart);
-        metrics.addCustomChart(heldItemsChart);
+
+
         */
     }
 

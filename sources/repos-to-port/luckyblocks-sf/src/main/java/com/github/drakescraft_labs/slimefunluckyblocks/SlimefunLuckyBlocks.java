@@ -104,7 +104,7 @@ public class SlimefunLuckyBlocks extends JavaPlugin implements SlimefunAddon {
         cfg = new Config(this);
 
         // Setting up bStats
-        new Metrics(this, 4858);
+
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/luckyblocks-sf/master").start();

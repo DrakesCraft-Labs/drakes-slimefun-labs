@@ -102,7 +102,7 @@ public final class VillagerTrade extends AbstractAddon {
     }
 
     private void setupMetrics() {
-        new Metrics(this, 18292);
+
     }
 
     @Override

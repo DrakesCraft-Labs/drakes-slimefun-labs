@@ -56,7 +56,7 @@ public class GlobalWarmingPlugin extends JavaPlugin implements SlimefunAddon {
             new GitHubBuildsUpdater(this, getFile(), "poma123/GlobalWarming/master").start();
         }
 
-        new Metrics(this, 9132);
+
 
         final File messagesFile = new File(getDataFolder(), "messages.yml");
         if (!messagesFile.exists()) {

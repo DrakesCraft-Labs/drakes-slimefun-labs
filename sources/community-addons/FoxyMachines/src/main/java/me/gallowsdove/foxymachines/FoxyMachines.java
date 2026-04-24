@@ -3,7 +3,7 @@ package me.gallowsdove.foxymachines;
 import dev.drake.infinitylib.common.Events;
 import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.infinitylib.core.AbstractAddon;
-import dev.drake.infinitylib.metrics.bukkit.Metrics;
+
 import dev.drake.dough.updater.BlobBuildUpdater;
 import lombok.SneakyThrows;
 import me.gallowsdove.foxymachines.abstracts.AbstractWand;
@@ -70,7 +70,7 @@ public class FoxyMachines extends AbstractAddon {
             Scheduler.repeat(2, new MobTicker());
         }
 
-        new Metrics(this, 10568);
+
 
         getAddonCommand().addSub(new KillallCommand()).addSub((new QuestCommand())).
                 addSub(new SacrificialAltarCommand()).addSub(new SummonCommand()).addSub(new ListallCommand());

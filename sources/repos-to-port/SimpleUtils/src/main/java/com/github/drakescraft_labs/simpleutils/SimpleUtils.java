@@ -6,8 +6,8 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
 import dev.drake.infinitylib.core.AbstractAddon;
-import dev.drake.infinitylib.metrics.bukkit.Metrics;
-import dev.drake.infinitylib.metrics.charts.SimplePie;
+
+
 import com.github.drakescraft_labs.simpleutils.implementation.Items;
 
 public final class SimpleUtils extends AbstractAddon {
@@ -24,11 +24,11 @@ public final class SimpleUtils extends AbstractAddon {
     @Override
     protected void enable() {
         Items.setup(this);
-        Metrics metrics = new Metrics(this, 10285);
+
         String ixInstalled = String.valueOf(getServer().getPluginManager().isPluginEnabled("InfinityExpansion"));
         String autoUpdates = String.valueOf(autoUpdatesEnabled());
-        metrics.addCustomChart(new SimplePie("ix_installed", () -> ixInstalled));
-        metrics.addCustomChart(new SimplePie("auto_updates", () -> autoUpdates));
+
+
     }
 
     @Override

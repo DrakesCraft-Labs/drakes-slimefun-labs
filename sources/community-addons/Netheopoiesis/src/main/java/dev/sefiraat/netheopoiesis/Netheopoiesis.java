@@ -98,7 +98,7 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
     }
 
     private void setupStats() {
-        Metrics metrics = new Metrics(this, 15374);
+
     }
 
     public static Netheopoiesis getInstance() {

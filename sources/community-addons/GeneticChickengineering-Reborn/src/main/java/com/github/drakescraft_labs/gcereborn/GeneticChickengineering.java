@@ -137,7 +137,7 @@ public class GeneticChickengineering extends AbstractAddon {
     }
 
     private void setupMetrics() {
-        new Metrics(this, 20243);
+
     }
 
     @Override

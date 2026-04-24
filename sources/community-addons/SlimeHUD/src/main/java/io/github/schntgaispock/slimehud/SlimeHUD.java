@@ -46,7 +46,7 @@ public class SlimeHUD extends AbstractAddon {
             }
         }
 
-        final Metrics metrics = new Metrics(this, 15883);
+
         metrics.addCustomChart(
             new SimplePie("disabled", () -> {
                 return "" + getConfig().getBoolean("waila.disabled");

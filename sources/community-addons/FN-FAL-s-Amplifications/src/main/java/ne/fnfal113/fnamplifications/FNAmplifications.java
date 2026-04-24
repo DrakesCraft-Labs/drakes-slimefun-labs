@@ -30,7 +30,7 @@ public final class FNAmplifications extends JavaPlugin implements SlimefunAddon 
     public void onEnable() {
         setInstance(this);
 
-        new Metrics(this, 13219);
+
 
         getLogger().info("************************************************************");
         getLogger().info("*         FN Amplifications - Created by FN_FAL113         *");

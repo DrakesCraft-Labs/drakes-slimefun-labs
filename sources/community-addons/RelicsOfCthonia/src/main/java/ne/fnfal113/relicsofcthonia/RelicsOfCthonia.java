@@ -25,7 +25,7 @@ public final class RelicsOfCthonia extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
-        new Metrics(this, 15420);
+
 
         getLogger().info("************************************************************");
         getLogger().info("*         Relics of Cthonia - Created by FN_FAL113         *");

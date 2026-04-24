@@ -38,7 +38,7 @@ public class Liquid extends JavaPlugin implements SlimefunAddon {
             new GitHubBuildsUpdater(this, getFile(), "Seggan/Liquid/master").start();
         }
         
-        new Metrics(this, 9408);
+
 
         List<LiquidMetal> metals = new ArrayList<>();
 

@@ -466,6 +466,14 @@ def rebrand_imports(dry_run=False):
         r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter"
     }
     
+    # Reglas de limpieza de telemetría obsoleta (bStats/InfinityLib Metrics)
+    telemetry_rules = [
+        (r"import\s+dev\.drake\.infinitylib\.metrics\..*?;", ""),
+        (r"import\s+io\.github\.mooy1\.infinitylib\.metrics\..*?;", ""),
+        (r".*?new\s+Metrics\(this,\s*\d+\);", ""),
+        (r".*?metrics\.addCustomChart\(.*?\);", "")
+    ]
+    
     count = 0
     file_count = 0
     for root, dirs, files in os.walk(SOURCES_DIR):
@@ -478,6 +486,12 @@ def rebrand_imports(dry_run=False):
                         content = jf.read()
                     
                     new_content = content
+                    
+                    # Aplicar reglas de telemetría
+                    for pattern, replacement in telemetry_rules:
+                        new_content = re.sub(pattern, replacement, new_content)
+                    
+                    # Aplicar rebranding de imports
                     for old, new in remap.items():
                         new_content = re.sub(old, new, new_content)
                     

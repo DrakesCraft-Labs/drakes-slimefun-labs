@@ -32,7 +32,7 @@ import com.github.drakescraft_labs.galactifun.core.managers.ProtectionManager;
 import com.github.drakescraft_labs.galactifun.core.managers.WorldManager;
 import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.infinitylib.core.AbstractAddon;
-import dev.drake.infinitylib.metrics.bukkit.Metrics;
+
 import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.BlobBuildUpdater;
@@ -106,7 +106,7 @@ public final class Galactifun extends AbstractAddon {
             }
         }
 
-        new Metrics(this, 11613);
+
 
         if (!isTest && this.getConfig().getBoolean("auto-update") && !getPluginVersion().contains("MODIFIED")) {
             new BlobBuildUpdater(this, this.getFile(), "Galactifun").start();

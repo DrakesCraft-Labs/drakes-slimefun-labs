@@ -41,9 +41,9 @@ public class InfinityExpansion extends AbstractAddon {
 
     @Override
     protected void enable() {
-        Metrics metrics = new Metrics(this, 8991);
+
         String autoUpdates = String.valueOf(autoUpdatesEnabled());
-        metrics.addCustomChart(new SimplePie("auto_updates", () -> autoUpdates));
+
 
         Plugin lx = getServer().getPluginManager().getPlugin("LiteXpansion");
         if (lx != null && lx.getConfig().getBoolean("options.nerf-other-addons")) {

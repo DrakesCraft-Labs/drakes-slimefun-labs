@@ -36,7 +36,7 @@ public class TreeTaps extends JavaPlugin implements SlimefunAddon {
 			new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/SlimyTreeTaps/master").start();
 		}
 		
-		new Metrics(this, 6138);
+
 		
 		SlimefunItemStack treeTap = new SlimefunItemStack("TREE_TAP", Material.WOODEN_HOE, "&6Tree Tap", getLore("Resin", cfg.getInt("resin-chance.standard")));
 		SlimefunItemStack reinforcedTreeTap = new SlimefunItemStack("REINFORCED_TREE_TAP", Material.IRON_HOE, "&6Reinforced Tree Tap", getLore("Resin", cfg.getInt("resin-chance.reinforced")));

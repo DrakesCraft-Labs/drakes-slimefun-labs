@@ -42,7 +42,7 @@ public class DynaTech extends JavaPlugin implements SlimefunAddon {
 
         saveDefaultConfig();
 
-        new Metrics(this, 9689);
+
 
         if (!getConfig().getBoolean("options.disable-dimensionalhome-world")) {
             WorldCreator worldCreator = new WorldCreator("dimensionalhome");

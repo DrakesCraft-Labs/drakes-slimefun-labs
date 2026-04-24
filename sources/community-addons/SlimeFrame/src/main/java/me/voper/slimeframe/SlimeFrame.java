@@ -51,7 +51,7 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         instance = this;
         saveDefaultConfig();
 
-        new Metrics(this, 19212);
+
 
         this.supportedPluginManager = new SupportedPluginManager();
 

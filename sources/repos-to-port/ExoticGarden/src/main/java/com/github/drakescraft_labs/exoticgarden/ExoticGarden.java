@@ -94,7 +94,7 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
         cfg = new Config(this);
 
         // Setting up bStats
-        new Metrics(this, 4575);
+
 
         // Auto Updater
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {

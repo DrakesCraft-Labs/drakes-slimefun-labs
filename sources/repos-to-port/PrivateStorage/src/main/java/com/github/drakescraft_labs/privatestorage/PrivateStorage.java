@@ -21,7 +21,7 @@ public class PrivateStorage extends JavaPlugin implements SlimefunAddon {
         Config cfg = new Config(this);
 
         // Setting up bStats
-        new Metrics(this, 4912);
+
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/PrivateStorage/master").start();

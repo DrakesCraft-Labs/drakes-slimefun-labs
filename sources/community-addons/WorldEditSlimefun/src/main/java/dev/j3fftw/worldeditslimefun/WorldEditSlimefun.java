@@ -30,7 +30,7 @@ public final class WorldEditSlimefun extends JavaPlugin implements SlimefunAddon
             new BlobBuildUpdater(this, getFile(), "WorldEditSlimefun", "Dev").start();
         }
 
-        new Metrics(this, 20799);
+
 
         Items.init(this);
         WorldEditSlimefunCommands.init(this);

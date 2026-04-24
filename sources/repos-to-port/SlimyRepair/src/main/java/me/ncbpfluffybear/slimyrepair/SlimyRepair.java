@@ -68,7 +68,7 @@ public class SlimyRepair extends JavaPlugin implements SlimefunAddon {
             }
         }
 
-        final Metrics metrics = new Metrics(this, 9821);
+
 
         new SlimyAnvil().register(this);
 

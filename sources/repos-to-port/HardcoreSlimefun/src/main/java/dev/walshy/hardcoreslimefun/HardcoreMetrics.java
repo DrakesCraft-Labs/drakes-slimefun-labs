@@ -32,7 +32,7 @@ class HardcoreMetrics {
 
     @ParametersAreNonnullByDefault
     private void addBooleanPie(Metrics metrics, String label, BooleanSupplier setting) {
-        metrics.addCustomChart(new SimplePie(label, getPieText(setting)));
+
     }
 
     @ParametersAreNonnullByDefault

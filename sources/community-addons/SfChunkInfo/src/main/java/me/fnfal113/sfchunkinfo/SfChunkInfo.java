@@ -15,7 +15,7 @@ public final class SfChunkInfo extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         setInstance(this);
-        new Metrics(this, 13713);
+
 
         getLogger().info("******************************************************");
         getLogger().info("*         SfChunkInfo - Created by FN_FAL113         *");

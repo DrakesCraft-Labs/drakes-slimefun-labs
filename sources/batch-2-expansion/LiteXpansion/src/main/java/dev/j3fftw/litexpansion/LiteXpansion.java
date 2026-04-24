@@ -34,7 +34,7 @@ public class LiteXpansion extends JavaPlugin implements SlimefunAddon {
             saveDefaultConfig();
         }
 
-        final Metrics metrics = new Metrics(this, 7111);
+
         metricsService.setup(metrics);
 
         if (getConfig().getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
