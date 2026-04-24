@@ -27,6 +27,18 @@ Fecha del corte: `2026-04-24`.
 3. Publicacion local de artefactos base (`dough-core`, `slimefun-core`, `SefiLib`, `InfinityLib`) para destrabar resolucion de dependencias sin credenciales de GitHub Packages.
 4. Ajuste de imports legacy en `Cultivation_Updated` (`slimefun4.libraries.*` -> paquetes vigentes) con evidencia de compilacion Maven en verde para el modulo.
 
+## Porteo automatizado (parches por lotes)
+
+Herramienta: `scripts/port_paper_121.py` (reglas textuales conservadoras para Paper 1.21.1).
+
+```bash
+python scripts/port_paper_121.py --list-rules
+python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
+python scripts/port_paper_121.py --apply --path sources/community-addons/MiAddon --rules libraries-dough,libraries-commons
+```
+
+Siempre ejecutar antes `--dry-run`, revisar diff, y luego `--apply`. Con `--backup` se escribe un `.portbak` por archivo (no versionar esos backups).
+
 ## Bloques de trabajo sugeridos
 
 1. Reintroducir modulos al CI en lotes pequenos.

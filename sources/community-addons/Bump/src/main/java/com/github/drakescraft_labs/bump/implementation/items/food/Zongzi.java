@@ -30,8 +30,8 @@ public class Zongzi extends ItemFood {
         FoodLevelUtils.add(p, 8);
         p.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 100, 1));
         p.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 1000, 1));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 100, 1));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 150, 2));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 100, 1));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 150, 2));
         p.addPotionEffect(new PotionEffect(PotionEffectType.LUCK, 500, 2));
     }
 }

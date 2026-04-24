@@ -41,7 +41,7 @@ public class SkySword extends BumpSword {
 
         BumpSound.SKY_SWORD_USE.playFor(p);
         for (int i = 0; i < 20; i++) {
-            p.spawnParticle(Particle.EXPLOSION_HUGE, p.getLocation(), 1);
+            p.spawnParticle(Particle.EXPLOSION, p.getLocation(), 1);
         }
         PersistentDataAPI.setBoolean(p, Keys.SKY_SWORD_PROTECTED, true);
     }

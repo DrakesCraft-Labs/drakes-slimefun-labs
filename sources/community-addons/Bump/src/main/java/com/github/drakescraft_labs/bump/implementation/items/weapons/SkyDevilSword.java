@@ -36,7 +36,7 @@ public class SkyDevilSword extends BumpSword {
 
         p.setGlowing(true);
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 300, 3));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 300, 3));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 300, 3));
 
         new BukkitRunnable() {
             int count = 3;

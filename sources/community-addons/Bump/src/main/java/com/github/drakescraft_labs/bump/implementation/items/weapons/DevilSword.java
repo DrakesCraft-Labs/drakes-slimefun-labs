@@ -37,7 +37,7 @@ public class DevilSword extends BumpSword {
         for (int i = 0; i < 20; i++) {
             Projectile projectile = p.launchProjectile(SmallFireball.class);
             WeaponProjectileTask.track(projectile);
-            p.spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 1);
+            p.spawnParticle(Particle.ENCHANT, p.getLocation(), 1);
         }
     }
 }
