@@ -19,7 +19,7 @@ fun String.getItemStack() : ItemStack {
         try {
             split[1].toInt()
         } catch (e: NumberFormatException) {
-            CustomItemGenerators.instance.logger.warning("Item amount not parsed correctly, format is: '<@>ITEM AMOUNT'")
+            CustomItemGenerators.instance.getJavaPlugin().logger.warning("Item amount not parsed correctly, format is: '<@>ITEM AMOUNT'")
             1
         }
     }

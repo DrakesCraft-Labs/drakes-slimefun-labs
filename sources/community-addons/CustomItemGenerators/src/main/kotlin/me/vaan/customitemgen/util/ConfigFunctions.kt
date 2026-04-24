@@ -50,7 +50,7 @@ fun FileConfiguration.getRecipe(id: String): Array<ItemStack?> {
         val stringValue = it[1] as String
         val value = stringValue.getItemStack()
         if (value.amount != 1) {
-            CustomItemGenerators.instance.logger.warning(
+            CustomItemGenerators.instance.getJavaPlugin().logger.warning(
                 """
                 You created a recipe using an amount different than 1, 
                 I am all for the f around and find out, but what you are trying to 
