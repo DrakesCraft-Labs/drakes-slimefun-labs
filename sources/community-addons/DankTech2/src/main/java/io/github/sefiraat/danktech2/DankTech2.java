@@ -37,7 +37,6 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     private final String repo;
     private final String branch;
 
-    private GitHubBuildsUpdater updater;
 
     private ConfigManager configManager;
     private ListenerManager listenerManager;
@@ -78,13 +77,7 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     }
 
     public void tryUpdate() {
-        if (getConfig().getBoolean("auto-update")
-            && getDescription().getVersion().startsWith("DEV")
-        ) {
-            String updateLocation = MessageFormat.format("{0}/{1}/{2}", this.username, this.repo, this.branch);
-            updater = new GitHubBuildsUpdater(this, getFile(), updateLocation);
-            updater.start();
-        }
+        // Auto-updater extirpado en favor de las actualizaciones centralizadas del reactor.
     }
 
     private void setupSlimefun() {
