@@ -95,7 +95,7 @@
                     <minimizeJar>true</minimizeJar>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>com.github.drakescraft_labs.simpleutils.infinitylib</shadedPattern>
                         </relocation>
                     </relocations>

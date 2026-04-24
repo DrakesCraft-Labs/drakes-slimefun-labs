@@ -137,7 +137,9 @@ def repair(dry_run=False):
         # Esta regla se aplicará solo si no estamos en el directorio del parche (se maneja en el loop)
         (r"<groupId>commons-lang</groupId>[\s\S]*?<artifactId>commons-lang</artifactId>([\s\S]*?<version>.*?</version>)?", "<groupId>com.github.drakescraft_labs</groupId>\n            <artifactId>commons-lang-drake-patched</artifactId>\n            <version>2.6.1-DRAKE-PATCHED</version>"),
         # 8. Reparar corrupciones previas (I-SNAPSHOT)
-        (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
+        (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>"),
+        # 9. Actualizar maven-shade-plugin a 3.6.0 para soporte de Java 21 (Major version 65)
+        (r"(<artifactId>maven-shade-plugin</artifactId>\s*<version>).*?(</version>)", r"\g<1>3.6.0\g<2>")
     ]
     
     count = 0
