@@ -116,9 +116,14 @@ def repair(dry_run=False):
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
         # 6. Inyectar Versión en addons internos (-drake) si falta
         (r"(<artifactId>.*?-drake</artifactId>)(?![\s\S]*?<version>)([\s\S]*?)(</dependency>)", r"\1\2            <version>11-SNAPSHOT</version>\n        \3"),
-        # 7. Sustitución de Commons-Lang v2 por Versión Blindada (SHADOW PATCH)
+        # 7. Forzar el uso de Propiedades en Librerías Internas (Muy Importante)
+        (r"(<artifactId>infinitylib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${infinitylib.version}</version>"),
+        (r"(<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),
+        (r"(<artifactId>slimefun-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${slimefun.drake.version}</version>"),
+        (r"(<artifactId>dough-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${dough.version}</version>"),
+        # 8. Sustitución de Commons-Lang v2 por Versión Blindada (SHADOW PATCH)
         (r"<groupId>commons-lang</groupId>[\s\S]*?<artifactId>commons-lang</artifactId>([\s\S]*?<version>.*?</version>)?", "<groupId>com.github.drakescraft_labs</groupId>\n            <artifactId>commons-lang-drake-patched</artifactId>\n            <version>2.6.1-DRAKE-PATCHED</version>"),
-        # 8. Reparar corrupciones previas (I-SNAPSHOT)
+        # 9. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     

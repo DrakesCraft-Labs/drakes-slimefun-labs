@@ -74,6 +74,7 @@ El ecosistema ha evolucionado de scripts fragmentados en PowerShell a una herram
 - `python scripts/manager.py repair`: Sincronización masiva de identidades y dependencias.
 - `python scripts/manager.py security`: Auditoría Sentinel de vulnerabilidades conocidas.
 - `python scripts/manager.py security-fix`: Aplicación automática de parches de seguridad.
+- `python scripts/manager.py inject-jsr305`: Inyección masiva de dependencias de anotaciones para resolver símbolos faltantes.
 - `python scripts/manager.py rebrand-imports`: Refactorización de paquetes a `com.github.drakescraft_labs`.
 
 ## Qué Es Este Repo y Qué No Es

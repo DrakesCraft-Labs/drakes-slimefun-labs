@@ -50,6 +50,7 @@ Para añadir o actualizar un addon:
 - **Estandarización 2026**: Elevadas todas las dependencias a estándares de abril 2026 (Spring 6.1.21, Guava 33.6.0-jre, Commons-Lang3 3.20.0) en todo el reactor. ✅
 - **Módulo Sentinel (Manager v4.21)**: Desplegado motor de auditoría y reparación activa de vulnerabilidades en la flota de addons. ✅
 - **Estabilización de CI/CD**: Purga masiva de workflows fallidos y optimización de la cola de compilación. ✅
+- **Transfusión JSR-305 (Manager v4.22)**: Inyección masiva de anotaciones de seguridad (`jsr305`) en 33 módulos para resolver errores de símbolos no encontrados (`@Nonnull`/`@Nullable`). ✅
 
 ### 🛡️ Próximos Objetivos
 1.  **Auditoría de Runtime**: Verificar la carga de las librerías "Shadow Patched" en un entorno real de servidor Paper 1.21.1.
