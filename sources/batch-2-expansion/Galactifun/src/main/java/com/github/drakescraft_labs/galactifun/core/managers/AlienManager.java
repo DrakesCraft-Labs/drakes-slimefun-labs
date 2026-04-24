@@ -38,8 +38,8 @@ import com.destroystokyo.paper.event.entity.EntityRemoveFromWorldEvent;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
 import com.github.drakescraft_labs.galactifun.api.aliens.BossAlien;
-import com.github.drakescraft_labs.infinitylib.common.Events;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 public final class AlienManager implements Listener {

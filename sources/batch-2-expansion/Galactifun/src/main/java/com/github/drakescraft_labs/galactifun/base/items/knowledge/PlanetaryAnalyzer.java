@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.worlds.PlanetaryWorld;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;

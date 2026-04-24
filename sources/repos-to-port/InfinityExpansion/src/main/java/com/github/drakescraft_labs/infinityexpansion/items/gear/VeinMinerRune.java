@@ -36,9 +36,9 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
-import com.github.drakescraft_labs.infinitylib.common.CoolDowns;
-import com.github.drakescraft_labs.infinitylib.common.Events;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.CoolDowns;
+import dev.drake.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

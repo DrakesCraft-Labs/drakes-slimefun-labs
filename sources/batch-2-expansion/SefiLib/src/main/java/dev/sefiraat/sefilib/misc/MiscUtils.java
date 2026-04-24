@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.misc;
+package dev.drake.sefilib.misc;
 
 /**
  * This class contains basic utility methods that do not fit in any other category.

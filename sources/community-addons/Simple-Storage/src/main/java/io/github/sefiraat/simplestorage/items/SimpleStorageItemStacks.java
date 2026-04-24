@@ -1,6 +1,6 @@
 package io.github.sefiraat.simplestorage.items;
 
-import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import dev.drake.infinitylib.machines.MachineLore;
 import io.github.sefiraat.simplestorage.SimpleStorage;
 import io.github.sefiraat.simplestorage.items.machines.DiePress;
 import io.github.sefiraat.simplestorage.items.machines.Enderator;

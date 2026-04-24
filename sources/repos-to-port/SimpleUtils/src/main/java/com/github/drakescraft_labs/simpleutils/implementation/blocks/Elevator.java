@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.github.drakescraft_labs.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Events;
 import com.github.drakescraft_labs.simpleutils.SimpleUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

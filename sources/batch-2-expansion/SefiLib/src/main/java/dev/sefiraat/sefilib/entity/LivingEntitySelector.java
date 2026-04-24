@@ -1,6 +1,6 @@
-package dev.sefiraat.sefilib.entity;
+package dev.drake.sefilib.entity;
 
-import dev.sefiraat.sefilib.version.Versions;
+import dev.drake.sefilib.version.Versions;
 import dev.drake.dough.versions.SemanticVersion;
 
 import java.util.Collections;

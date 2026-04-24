@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.slimechem.lists;
 
 import com.github.drakescraft_labs.slimechem.implementation.machines.ChemicalCombiner;
 import com.github.drakescraft_labs.slimechem.implementation.machines.ChemicalDissolver;
-import com.github.drakescraft_labs.infinitylib.presets.LorePreset;
+import dev.drake.infinitylib.presets.LorePreset;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.utils.HeadTexture;

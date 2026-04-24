@@ -6,7 +6,7 @@ import com.github.drakescraft_labs.slimechem.implementation.atomic.Element;
 import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.Isotope;
 import com.github.drakescraft_labs.slimechem.lists.Categories;
 import com.github.drakescraft_labs.slimechem.lists.Items;
-import com.github.drakescraft_labs.infinitylib.abstracts.AbstractMachine;
+import dev.drake.infinitylib.abstracts.AbstractMachine;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

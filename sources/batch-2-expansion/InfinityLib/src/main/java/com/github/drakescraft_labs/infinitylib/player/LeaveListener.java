@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.player;
+package dev.drake.infinitylib.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

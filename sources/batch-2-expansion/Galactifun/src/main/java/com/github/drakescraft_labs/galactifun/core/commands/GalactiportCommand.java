@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.worlds.PlanetaryWorld;
 import com.github.drakescraft_labs.galactifun.base.items.knowledge.KnowledgeLevel;
-import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
+import dev.drake.infinitylib.commands.SubCommand;
 import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
 
 /**

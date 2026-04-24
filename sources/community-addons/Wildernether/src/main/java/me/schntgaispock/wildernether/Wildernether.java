@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.NamespacedKey;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import me.schntgaispock.wildernether.integration.GastronomiconSetup;
 import me.schntgaispock.wildernether.integration.SlimeHUDSetup;

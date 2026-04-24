@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.common;
+package dev.drake.infinitylib.common;
 
 import java.util.HashMap;
 import java.util.Map;

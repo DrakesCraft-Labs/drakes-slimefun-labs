@@ -5,9 +5,9 @@ import java.io.File;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft_labs.infinitylib.metrics.bukkit.Metrics;
-import com.github.drakescraft_labs.infinitylib.metrics.charts.SimplePie;
+import dev.drake.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.metrics.bukkit.Metrics;
+import dev.drake.infinitylib.metrics.charts.SimplePie;
 import com.github.drakescraft_labs.simpleutils.implementation.Items;
 
 public final class SimpleUtils extends AbstractAddon {

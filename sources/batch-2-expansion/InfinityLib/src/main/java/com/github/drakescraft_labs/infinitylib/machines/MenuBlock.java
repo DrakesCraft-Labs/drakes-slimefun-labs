@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.machines;
+package dev.drake.infinitylib.machines;
 
 import java.util.List;
 

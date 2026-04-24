@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.common;
+package dev.drake.infinitylib.common;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -13,11 +13,11 @@ import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.setup.SlimefunItemSetup;
 import dev.drake.dough.items.CustomItemStack;
 
-import static com.github.drakescraft_labs.infinitylib.common.StackUtils.getId;
-import static com.github.drakescraft_labs.infinitylib.common.StackUtils.getIdOrType;
-import static com.github.drakescraft_labs.infinitylib.common.StackUtils.isSimilar;
-import static com.github.drakescraft_labs.infinitylib.common.StackUtils.itemById;
-import static com.github.drakescraft_labs.infinitylib.common.StackUtils.itemByIdOrType;
+import static dev.drake.infinitylib.common.StackUtils.getId;
+import static dev.drake.infinitylib.common.StackUtils.getIdOrType;
+import static dev.drake.infinitylib.common.StackUtils.isSimilar;
+import static dev.drake.infinitylib.common.StackUtils.itemById;
+import static dev.drake.infinitylib.common.StackUtils.itemByIdOrType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;

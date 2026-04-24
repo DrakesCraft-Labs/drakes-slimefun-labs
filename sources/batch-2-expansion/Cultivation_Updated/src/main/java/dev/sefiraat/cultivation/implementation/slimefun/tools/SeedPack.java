@@ -4,7 +4,7 @@ import dev.sefiraat.cultivation.api.datatypes.SeedPackDataType;
 import dev.sefiraat.cultivation.api.datatypes.instances.FloraLevelProfile;
 import dev.sefiraat.cultivation.api.datatypes.instances.SeedPackInstance;
 import dev.sefiraat.cultivation.api.slimefun.items.plants.CultivationPlant;
-import dev.sefiraat.sefilib.string.Theme;
+import dev.drake.sefilib.string.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

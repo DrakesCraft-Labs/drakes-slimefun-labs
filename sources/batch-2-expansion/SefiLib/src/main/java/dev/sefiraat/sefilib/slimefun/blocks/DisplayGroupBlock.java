@@ -1,7 +1,7 @@
-package dev.sefiraat.sefilib.slimefun.blocks;
+package dev.drake.sefilib.slimefun.blocks;
 
-import dev.sefiraat.sefilib.entity.display.DisplayGroup;
-import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
+import dev.drake.sefilib.entity.display.DisplayGroup;
+import dev.drake.sefilib.entity.display.DisplayInteractable;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

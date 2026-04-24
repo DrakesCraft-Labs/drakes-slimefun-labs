@@ -1,6 +1,6 @@
 package io.github.sefiraat.networks.slimefun.tools;
 
-import dev.sefiraat.sefilib.persistence.PersistenceTypes;
+import dev.drake.sefilib.persistence.PersistenceTypes;
 import org.bukkit.persistence.PersistentDataType;
 import io.github.sefiraat.networks.slimefun.network.NetworkDirectional;
 import io.github.sefiraat.networks.slimefun.network.NetworkPusher;

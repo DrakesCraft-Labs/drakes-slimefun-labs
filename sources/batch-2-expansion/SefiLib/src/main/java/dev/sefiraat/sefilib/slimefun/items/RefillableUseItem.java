@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.slimefun.items;
+package dev.drake.sefilib.slimefun.items;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

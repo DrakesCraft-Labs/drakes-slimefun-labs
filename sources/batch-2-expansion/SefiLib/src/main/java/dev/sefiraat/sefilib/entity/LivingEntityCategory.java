@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.entity;
+package dev.drake.sefilib.entity;
 
 public enum LivingEntityCategory {
     ANIMAL,

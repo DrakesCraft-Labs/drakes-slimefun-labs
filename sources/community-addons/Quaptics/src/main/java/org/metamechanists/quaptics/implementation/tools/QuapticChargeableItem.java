@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.implementation.tools;
 
-import com.github.drakescraft_labs.dough.common.ChatColors;
-import com.github.drakescraft_labs.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

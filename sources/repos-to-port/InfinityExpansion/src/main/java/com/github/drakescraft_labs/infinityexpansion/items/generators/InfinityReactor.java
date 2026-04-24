@@ -13,8 +13,8 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Materials;
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

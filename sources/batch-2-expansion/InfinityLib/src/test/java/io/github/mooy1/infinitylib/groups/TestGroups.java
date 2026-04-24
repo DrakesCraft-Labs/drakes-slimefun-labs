@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.groups;
+package dev.drake.infinitylib.groups;
 
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.ServerMock;
 import be.seeseemelk.mockbukkit.entity.PlayerMock;
-import com.github.drakescraft_labs.infinitylib.common.Events;
-import com.github.drakescraft_labs.infinitylib.core.MockAddon;
+import dev.drake.infinitylib.common.Events;
+import dev.drake.infinitylib.core.MockAddon;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;

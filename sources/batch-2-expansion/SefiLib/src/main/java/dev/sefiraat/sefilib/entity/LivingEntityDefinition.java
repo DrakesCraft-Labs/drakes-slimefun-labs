@@ -1,7 +1,7 @@
-package dev.sefiraat.sefilib.entity;
+package dev.drake.sefilib.entity;
 
 import com.google.common.collect.Sets;
-import dev.sefiraat.sefilib.version.Versions;
+import dev.drake.sefilib.version.Versions;
 import dev.drake.dough.versions.SemanticVersion;
 import org.bukkit.entity.EntityType;
 

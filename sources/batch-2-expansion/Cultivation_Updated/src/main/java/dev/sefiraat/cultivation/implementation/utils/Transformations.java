@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.implementation.utils;
 
-import dev.sefiraat.sefilib.misc.RotationFace;
-import dev.sefiraat.sefilib.misc.TransformationBuilder;
+import dev.drake.sefilib.misc.RotationFace;
+import dev.drake.sefilib.misc.TransformationBuilder;
 import io.papermc.lib.PaperLib;
 import org.bukkit.util.Transformation;
 import org.joml.Quaternionf;

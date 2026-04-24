@@ -1,6 +1,6 @@
 package io.github.sefiraat.networks.utils.datatypes;
 
-import dev.sefiraat.sefilib.persistence.PersistenceTypes;
+import dev.drake.sefilib.persistence.PersistenceTypes;
 import org.bukkit.persistence.PersistentDataType;
 import io.github.sefiraat.networks.network.stackcaches.CardInstance;
 import io.github.sefiraat.networks.utils.Keys;

@@ -1,6 +1,6 @@
-package dev.sefiraat.sefilib.entity;
+package dev.drake.sefilib.entity;
 
-import dev.sefiraat.sefilib.protections.Protections;
+import dev.drake.sefilib.protections.Protections;
 import dev.drake.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

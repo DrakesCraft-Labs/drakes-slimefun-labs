@@ -24,9 +24,9 @@ import org.bukkit.persistence.PersistentDataType;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
 import com.github.drakescraft_labs.infinityexpansion.categories.Groups;
-import com.github.drakescraft_labs.infinitylib.common.PersistentType;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.common.PersistentType;
+import dev.drake.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.attributes.DistinctiveItem;

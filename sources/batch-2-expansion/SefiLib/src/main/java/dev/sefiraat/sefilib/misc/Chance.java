@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.misc;
+package dev.drake.sefilib.misc;
 
 import java.util.concurrent.ThreadLocalRandom;
 

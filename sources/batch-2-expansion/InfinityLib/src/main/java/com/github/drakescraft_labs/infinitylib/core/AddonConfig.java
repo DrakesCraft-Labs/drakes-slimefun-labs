@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.core;
+package dev.drake.infinitylib.core;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.github.drakescraft_labs.infinitylib.common.StringUtils;
+import dev.drake.infinitylib.common.StringUtils;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 

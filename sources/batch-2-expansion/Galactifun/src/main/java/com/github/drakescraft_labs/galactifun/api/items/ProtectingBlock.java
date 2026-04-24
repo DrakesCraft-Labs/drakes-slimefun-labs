@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.galactifun.base.BaseItems;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
 import com.github.drakescraft_labs.galactifun.util.BSUtils;
 import com.github.drakescraft_labs.galactifun.util.Util;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

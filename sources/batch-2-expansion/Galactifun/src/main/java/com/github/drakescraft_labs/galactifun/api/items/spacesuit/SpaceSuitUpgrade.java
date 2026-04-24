@@ -14,7 +14,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 
 import com.github.drakescraft_labs.galactifun.Galactifun;
-import com.github.drakescraft_labs.infinitylib.common.PersistentType;
+import dev.drake.infinitylib.common.PersistentType;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.implementation.mobs;
 
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import me.gallowsdove.foxymachines.FoxyMachines;

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib;
+package dev.drake.infinitylib;
 
 import lombok.experimental.UtilityClass;
 

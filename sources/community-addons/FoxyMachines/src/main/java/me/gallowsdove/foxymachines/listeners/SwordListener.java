@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.listeners;
 
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import me.gallowsdove.foxymachines.Items;

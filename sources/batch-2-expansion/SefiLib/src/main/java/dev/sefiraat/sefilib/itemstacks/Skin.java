@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.itemstacks;
+package dev.drake.sefilib.itemstacks;
 
 import javax.annotation.Nonnull;
 

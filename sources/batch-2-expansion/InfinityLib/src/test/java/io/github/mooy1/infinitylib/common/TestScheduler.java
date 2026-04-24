@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.common;
+package dev.drake.infinitylib.common;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -11,12 +11,12 @@ import org.junit.jupiter.api.Test;
 
 import be.seeseemelk.mockbukkit.MockBukkit;
 import be.seeseemelk.mockbukkit.scheduler.BukkitSchedulerMock;
-import com.github.drakescraft_labs.infinitylib.core.MockAddon;
+import dev.drake.infinitylib.core.MockAddon;
 
-import static com.github.drakescraft_labs.infinitylib.common.Scheduler.repeat;
-import static com.github.drakescraft_labs.infinitylib.common.Scheduler.repeatAsync;
-import static com.github.drakescraft_labs.infinitylib.common.Scheduler.run;
-import static com.github.drakescraft_labs.infinitylib.common.Scheduler.runAsync;
+import static dev.drake.infinitylib.common.Scheduler.repeat;
+import static dev.drake.infinitylib.common.Scheduler.repeatAsync;
+import static dev.drake.infinitylib.common.Scheduler.run;
+import static dev.drake.infinitylib.common.Scheduler.runAsync;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

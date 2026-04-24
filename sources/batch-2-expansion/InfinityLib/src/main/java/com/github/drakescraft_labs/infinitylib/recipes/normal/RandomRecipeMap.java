@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.recipes.normal;
+package dev.drake.infinitylib.recipes.normal;
 
 import dev.drake.dough.collections.RandomizedSet;
 import org.bukkit.inventory.ItemStack;

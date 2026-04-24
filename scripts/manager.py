@@ -12,6 +12,14 @@ def log(msg, level="INFO"):
     colors = {"INFO": "\033[94m", "SUCCESS": "\033[92m", "WARNING": "\033[93m", "ERROR": "\033[91m", "RESET": "\033[0m"}
     print(f"{colors.get(level, colors['INFO'])}[{level}] {msg}{colors['RESET']}")
 
+# Mapeo Maestro de Namespaces
+MASTER_MAPPING = {
+    "slimefun4": "com.github.drakescraft_labs.slimefun4",
+    "dough": "dev.drake.dough",
+    "infinitylib": "dev.drake.infinitylib",
+    "sefilib": "dev.drake.sefilib"
+}
+
 def validate_xml(content):
     """Verifica si el contenido es un XML válido."""
     try:
@@ -108,12 +116,13 @@ def repair(dry_run=False):
         # 3. Forzar Versión 11-SNAPSHOT del Parent
         (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
         # 4. Reparar GroupID en Dependencias (MASIVO)
-        (r"<groupId>(io\.github\.(thebusybiscuit|mooy1|seggan|sefiraat|slimefunguguproject|addoncommunity|bakedlibs)|me\.(mr_cookie|pika|vaan))</groupId>", r"<groupId>com.github.drakescraft_labs</groupId>"),
+        (r"<groupId>((io|com)\.github\.(thebusybiscuit|mooy1|seggan|sefiraat|slimefunguguproject|addoncommunity|baked-?libs(\.[\w-]+)*)|me\.(mr_cookie|pika|vaan))</groupId>", r"<groupId>com.github.drakescraft_labs</groupId>"),
         (r"(<groupId>)com\.github\.drakescraft-labs(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
         # 5. Mapeo de Librerías Internas (artifactId)
         (r"<artifactId>infinitylib-core</artifactId>", r"<artifactId>infinitylib-drake</artifactId>"),
         (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
+        (r"<artifactId>dough-(api|items|common|protection|skins|inventories|recipes|chat|data|versions)</artifactId>", r"<artifactId>dough-core</artifactId>"),
         # 6. Forzar el uso de Propiedades en Librerías Internas (SOLO EN DEPENDENCIAS)
         (r"(<dependency>[\s\S]*?<artifactId>infinitylib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${infinitylib.version}</version>"),
         (r"(<dependency>[\s\S]*?<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),
@@ -382,12 +391,14 @@ def rebrand_shades(dry_run=False):
     
     # Mapeo de namespaces antiguos a nuevos
     remap = {
+        "io.github.thebusybiscuit.slimefun4": MASTER_MAPPING["slimefun4"],
         "io.github.thebusybiscuit": "com.github.drakescraft_labs",
         "io.github.seggan": "com.github.drakescraft_labs",
-        "me.mr_cookie": "com.github.drakescraft_labs",
+        "io.github.mooy1.infinitylib": MASTER_MAPPING["infinitylib"],
         "io.github.mooy1": "com.github.drakescraft_labs",
-        "me.pika": "com.github.drakescraft_labs",
-        "net.guizhanss": "com.github.drakescraft_labs",
+        "io.github.baked-?libs.dough": MASTER_MAPPING["dough"],
+        "io.github.baked-?libs": "dev.drake",
+        "dev.sefiraat.sefilib": MASTER_MAPPING["sefilib"],
         "com.github.drakescraft-labs": "com.github.drakescraft_labs"
     }
     
@@ -401,10 +412,11 @@ def rebrand_shades(dry_run=False):
             
             new_content = content
             for old, new in remap.items():
-                # Solo rebrandear dentro de <shadedPattern>
-                pattern = rf"<shadedPattern>{old}\.(.*?)</shadedPattern>"
-                replacement = rf"<shadedPattern>{new}.\1</shadedPattern>"
-                new_content = re.sub(pattern, replacement, new_content)
+                # Rebrandear tanto en <pattern> como en <shadedPattern>
+                for tag in ["pattern", "shadedPattern"]:
+                    pattern = rf"<{tag}>{old}(\.?)(.*?)</{tag}>"
+                    replacement = rf"<{tag}>{new}\1\2</{tag}>"
+                    new_content = re.sub(pattern, replacement, new_content)
             
             if new_content != content:
                 log(f"Rebrandeando sombras en: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
@@ -427,22 +439,24 @@ def rebrand_imports(dry_run=False):
     
     # Mapeo de namespaces de librerías y autores originales
     remap = {
+        r"io\.github\.thebusybiscuit\.slimefun4": MASTER_MAPPING["slimefun4"],
         r"io\.github\.thebusybiscuit": "com.github.drakescraft_labs",
         r"io\.github\.seggan": "com.github.drakescraft_labs",
+        r"io\.github\.mooy1\.infinitylib": MASTER_MAPPING["infinitylib"],
         r"io\.github\.mooy1": "com.github.drakescraft_labs",
         r"io\.github\.slimefunguguproject": "com.github.drakescraft_labs",
         r"io\.github\.addoncommunity": "com.github.drakescraft_labs",
-        r"io\.github\.bakedlibs": "com.github.drakescraft_labs",
-        r"me\.mrCookieSlime\.Slimefun": "com.github.drakescraft_labs.slimefun4.legacy",
+        r"io\.github\.baked-?libs\.dough": MASTER_MAPPING["dough"],
+        r"io\.github\.baked-?libs": "dev.drake",
+        r"dev\.sefiraat\.sefilib": MASTER_MAPPING["sefilib"],
+        r"me\.mrCookieSlime\.Slimefun": f"{MASTER_MAPPING['slimefun4']}.legacy",
         r"me\.mr_cookie": "com.github.drakescraft_labs",
         r"me\.pika": "com.github.drakescraft_labs",
         r"me\.vaan": "com.github.drakescraft_labs",
-        # Librerías externas que NO deben rebrandearse en imports
-        r"com\.github\.drakescraft_labs\.guizhanlib": "net.guizhanss.guizhanlib",
-        r"com\.github\.drakescraft-labs\.guizhanlib": "net.guizhanss.guizhanlib",
-        r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter",
-        r"com\.github\.drakescraft-labs\.errorreporter": "io.github.seggan.errorreporter",
-        # Parche para corregir el error del guion si ya se aplicó
+        # Parche para corregir errores de rebranding previos
+        r"com\.github\.drakescraft_labs\.dough": MASTER_MAPPING["dough"],
+        r"com\.github\.drakescraft_labs\.infinitylib": MASTER_MAPPING["infinitylib"],
+        r"com\.github\.drakescraft_labs\.sefilib": MASTER_MAPPING["sefilib"],
         r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs"
     }
     

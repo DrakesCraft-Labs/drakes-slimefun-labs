@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.core;
 
-import com.github.drakescraft_labs.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;

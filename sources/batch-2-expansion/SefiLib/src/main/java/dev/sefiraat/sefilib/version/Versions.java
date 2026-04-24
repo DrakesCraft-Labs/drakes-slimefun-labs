@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.version;
+package dev.drake.sefilib.version;
 
 import dev.drake.dough.versions.SemanticVersion;
 

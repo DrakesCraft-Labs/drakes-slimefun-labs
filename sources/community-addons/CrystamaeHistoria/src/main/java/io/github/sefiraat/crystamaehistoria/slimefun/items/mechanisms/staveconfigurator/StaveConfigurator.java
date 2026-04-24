@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.staveconfigurator;
 
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstanceStave;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.ChargedPlate;

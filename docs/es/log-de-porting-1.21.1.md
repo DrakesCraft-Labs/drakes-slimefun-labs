@@ -51,6 +51,7 @@ Para añadir o actualizar un addon:
 - **Módulo Sentinel (Manager v4.21)**: Desplegado motor de auditoría y reparación activa de vulnerabilidades en la flota de addons. ✅
 - **Estabilización de CI/CD**: Purga masiva de workflows fallidos y optimización de la cola de compilación. ✅
 - **Transfusión JSR-305 (Manager v4.22)**: Inyección masiva de anotaciones de seguridad (`jsr305`) en 33 módulos para resolver errores de símbolos no encontrados (`@Nonnull`/`@Nullable`). ✅
+- **Herencia Forzada (Manager v4.23)**: Eliminación de versiones hardcodeadas de Paper API y ACF en 42 módulos para garantizar la sincronización total con el reactor raíz. ✅
 
 ### 🛡️ Próximos Objetivos
 1.  **Auditoría de Runtime**: Verificar la carga de las librerías "Shadow Patched" en un entorno real de servidor Paper 1.21.1.

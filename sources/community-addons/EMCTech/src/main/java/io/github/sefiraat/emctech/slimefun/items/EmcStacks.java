@@ -8,7 +8,7 @@ import io.github.sefiraat.emctech.utils.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 
-import dev.sefiraat.sefilib.itemstacks.ItemStackGenerators;
+import dev.drake.sefilib.itemstacks.ItemStackGenerators;
 
 public class EmcStacks {
 

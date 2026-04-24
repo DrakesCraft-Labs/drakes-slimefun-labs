@@ -16,7 +16,7 @@ import com.github.drakescraft_labs.infinityexpansion.items.SlimefunExtension;
 import com.github.drakescraft_labs.infinityexpansion.items.blocks.InfinityWorkbench;
 import com.github.drakescraft_labs.infinityexpansion.items.gear.Gear;
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Materials;
-import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import dev.drake.infinitylib.machines.MachineLore;
 import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

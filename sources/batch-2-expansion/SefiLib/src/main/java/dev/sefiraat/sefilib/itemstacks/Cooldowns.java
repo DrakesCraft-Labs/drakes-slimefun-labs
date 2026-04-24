@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.itemstacks;
+package dev.drake.sefilib.itemstacks;
 
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.NamespacedKey;

@@ -13,7 +13,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.infinityexpansion.categories.Groups;
-import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import dev.drake.infinitylib.machines.MachineLore;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;

@@ -16,7 +16,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
-import com.github.drakescraft_labs.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Events;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 

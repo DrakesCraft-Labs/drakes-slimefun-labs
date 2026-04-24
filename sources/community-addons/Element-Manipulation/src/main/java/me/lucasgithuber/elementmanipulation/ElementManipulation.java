@@ -1,7 +1,7 @@
 package me.lucasgithuber.elementmanipulation;
 
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import me.lucasgithuber.elementmanipulation.elements.Elements;
 import me.lucasgithuber.elementmanipulation.items.Materials;

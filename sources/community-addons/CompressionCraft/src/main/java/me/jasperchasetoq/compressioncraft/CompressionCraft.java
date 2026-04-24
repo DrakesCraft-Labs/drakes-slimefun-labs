@@ -1,7 +1,7 @@
 package me.jasperchasetoq.compressioncraft;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft_labs.infinitylib.metrics.bukkit.Metrics;
+import dev.drake.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.metrics.bukkit.Metrics;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 import me.jasperchasetoq.compressioncraft.setup.CompressionCraftItemSetup;
 

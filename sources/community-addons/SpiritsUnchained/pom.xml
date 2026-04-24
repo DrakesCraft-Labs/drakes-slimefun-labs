@@ -42,7 +42,7 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>dev.sefiraat.sefilib</pattern>
+                            <pattern>dev.drake.sefilib</pattern>
                             <shadedPattern>me.justahuman.spiritsunchained.sefilib</shadedPattern>
                         </relocation>
                         <relocation>

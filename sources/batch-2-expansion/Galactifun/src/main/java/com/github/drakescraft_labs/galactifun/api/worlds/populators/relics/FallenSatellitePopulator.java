@@ -14,7 +14,7 @@ import org.bukkit.util.Vector;
 
 import com.github.drakescraft_labs.galactifun.base.BaseItems;
 import com.github.drakescraft_labs.galactifun.util.Util;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 

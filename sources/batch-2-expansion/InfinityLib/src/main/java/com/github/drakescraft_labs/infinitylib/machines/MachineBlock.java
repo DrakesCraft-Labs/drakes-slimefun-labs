@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.machines;
+package dev.drake.infinitylib.machines;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +12,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

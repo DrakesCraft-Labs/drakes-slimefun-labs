@@ -1,9 +1,9 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
 import dev.sefiraat.cultivation.implementation.slimefun.items.Machines;
-import dev.sefiraat.sefilib.entity.display.DisplayGroup;
-import dev.sefiraat.sefilib.string.Theme;
-import com.github.drakescraft_labs.dough.items.CustomItemStack;
+import dev.drake.sefilib.entity.display.DisplayGroup;
+import dev.drake.sefilib.string.Theme;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

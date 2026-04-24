@@ -71,11 +71,11 @@
                             <shadedPattern>ne.fnfal113.relicsofcthonia.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.github.bakedlibs.dough.updater</pattern>
+                            <pattern>dev.drake.dough.updater</pattern>
                             <shadedPattern>ne.fnfal113.relicsofcthonia.dough.updater</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.github.bakedlibs.dough.versions</pattern>
+                            <pattern>dev.drake.dough.versions</pattern>
                             <shadedPattern>ne.fnfal113.relicsofcthonia.dough.versions</shadedPattern>
                         </relocation>
                     </relocations>
@@ -128,16 +128,16 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.baked-libs.dough</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-updater</artifactId>
             <version>fcdbd45aa0</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-common</artifactId>
-            <version>fcdbd45aa0</version>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
             <scope>compile</scope>
         </dependency>
 

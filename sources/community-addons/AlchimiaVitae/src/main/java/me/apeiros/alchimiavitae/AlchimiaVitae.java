@@ -1,7 +1,7 @@
 package me.apeiros.alchimiavitae;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft_labs.infinitylib.metrics.bukkit.Metrics;
+import dev.drake.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.metrics.bukkit.Metrics;
 
 import me.apeiros.alchimiavitae.setup.Setup;
 

@@ -1,7 +1,7 @@
-package dev.sefiraat.sefilib.entity.display.builders;
+package dev.drake.sefilib.entity.display.builders;
 
-import dev.sefiraat.sefilib.entity.display.DisplayGroup;
-import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
+import dev.drake.sefilib.entity.display.DisplayGroup;
+import dev.drake.sefilib.entity.display.DisplayInteractable;
 import org.bukkit.Location;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.BlockDisplay;

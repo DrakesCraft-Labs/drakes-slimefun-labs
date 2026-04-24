@@ -76,7 +76,7 @@
                             <shadedPattern>me.char321.sfadvancements.libs.advancementapi</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.github.bakedlibs.dough</pattern>
+                            <pattern>dev.drake.dough</pattern>
                             <shadedPattern>me.char321.sfadvancements.libs.dough</shadedPattern>
                         </relocation>
                     </relocations>
@@ -194,9 +194,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-api</artifactId>
-            <version>1108163a49</version>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
             <scope>compile</scope>
         </dependency>
     

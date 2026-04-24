@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.commands;
 
-import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
+import dev.drake.infinitylib.commands.SubCommand;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.utils.QuestUtils;

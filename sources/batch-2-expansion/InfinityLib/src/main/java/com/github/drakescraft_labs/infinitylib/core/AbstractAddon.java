@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.core;
+package dev.drake.infinitylib.core;
 
 import java.io.File;
 import java.util.Objects;
@@ -14,9 +14,9 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
-import com.github.drakescraft_labs.infinitylib.InfinityLib;
-import com.github.drakescraft_labs.infinitylib.commands.AddonCommand;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.InfinityLib;
+import dev.drake.infinitylib.commands.AddonCommand;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.GitHubBuildsUpdater;

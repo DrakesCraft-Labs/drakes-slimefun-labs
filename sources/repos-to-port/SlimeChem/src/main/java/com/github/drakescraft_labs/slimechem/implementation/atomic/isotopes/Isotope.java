@@ -6,7 +6,7 @@ import com.github.drakescraft_labs.slimechem.lists.Constants;
 import com.github.drakescraft_labs.slimechem.utils.SubNum;
 import com.github.drakescraft_labs.slimechem.utils.SuperNum;
 import com.github.drakescraft_labs.slimechem.utils.Util;
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.StackUtils;
 import com.github.drakescraft_labs.slimechem.implementation.atomic.Element;
 import com.github.drakescraft_labs.slimechem.implementation.attributes.Atom;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;

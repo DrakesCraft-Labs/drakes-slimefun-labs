@@ -1,7 +1,7 @@
 package me.char321.sfadvancements.core.gui;
 
-import com.github.drakescraft_labs.dough.common.ChatColors;
-import com.github.drakescraft_labs.dough.items.CustomItemStack;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

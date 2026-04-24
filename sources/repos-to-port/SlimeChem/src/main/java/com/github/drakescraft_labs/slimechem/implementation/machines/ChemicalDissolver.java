@@ -6,9 +6,9 @@ import com.github.drakescraft_labs.slimechem.implementation.atomic.MoleculeIngre
 import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.Isotope;
 import com.github.drakescraft_labs.slimechem.lists.Categories;
 import com.github.drakescraft_labs.slimechem.lists.Items;
-import com.github.drakescraft_labs.infinitylib.abstracts.AbstractMachine;
-import com.github.drakescraft_labs.infinitylib.presets.MenuPreset;
-import com.github.drakescraft_labs.infinitylib.recipes.normal.RandomRecipeMap;
+import dev.drake.infinitylib.abstracts.AbstractMachine;
+import dev.drake.infinitylib.presets.MenuPreset;
+import dev.drake.infinitylib.recipes.normal.RandomRecipeMap;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

@@ -22,7 +22,7 @@ import org.bukkit.util.Vector;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
 import com.github.drakescraft_labs.galactifun.util.BSUtils;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
@@ -34,7 +34,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
-import static com.github.drakescraft_labs.infinitylib.core.AbstractAddon.log;
+import static dev.drake.infinitylib.core.AbstractAddon.log;
 
 public final class AutomaticDoor extends MenuBlock {
 

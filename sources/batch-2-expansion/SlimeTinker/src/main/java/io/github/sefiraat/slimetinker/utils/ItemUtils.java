@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.utils;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.StackUtils;
 import io.github.sefiraat.slimetinker.SlimeTinker;
 import io.github.sefiraat.slimetinker.events.friend.TraitPartType;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManager;

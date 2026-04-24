@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.abstracts;
 
-import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import dev.drake.infinitylib.core.AddonConfig;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

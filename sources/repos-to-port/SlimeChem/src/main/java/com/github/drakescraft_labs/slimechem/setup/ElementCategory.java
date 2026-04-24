@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.slimechem.setup;
 
 import com.github.drakescraft_labs.slimechem.SlimeChem;
 import com.github.drakescraft_labs.slimechem.implementation.atomic.Element;
-import com.github.drakescraft_labs.infinitylib.player.LeaveListener;
+import dev.drake.infinitylib.player.LeaveListener;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideImplementation;

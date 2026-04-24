@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.bump.implementation.groups.BumpItemGroups;
 import com.github.drakescraft_labs.bump.utils.constant.Strings;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 
-import dev.sefiraat.sefilib.slimefun.itemgroup.MenuItem;
+import dev.drake.sefilib.slimefun.itemgroup.MenuItem;
 import lombok.experimental.UtilityClass;
 
 /**

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.machines;
+package dev.drake.infinitylib.machines;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -10,7 +10,7 @@ import lombok.Getter;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 
 public final class MachineRecipeType extends RecipeType {

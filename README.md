@@ -45,7 +45,7 @@ El laboratorio cubre actualmente un universo de **89 addons** más los módulos 
 
 | Métrica | Valor | Estado |
 | :--- | :--- | :--- |
-| **REACTOR MAVEN** | `85` | 🛡️ Unificados bajo `com.github.drakescraft_labs` |
+| **REACTOR MAVEN** | `86` | 🛡️ Unificados bajo `com.github.drakescraft_labs` |
 | **REACTOR GRADLE** | `0` | 🐘 Modernizados con Java 21 |
 | **Progreso Estructural** | **100%** | **89/89 Addons Integrados** |
 | **Progreso Quirúrgico** | **67.4%** | **60/89 Addons con Rebrand** |

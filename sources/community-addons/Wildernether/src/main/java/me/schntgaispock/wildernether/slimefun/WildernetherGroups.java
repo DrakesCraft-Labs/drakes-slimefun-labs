@@ -1,7 +1,7 @@
 package me.schntgaispock.wildernether.slimefun;
 
-import com.github.drakescraft_labs.infinitylib.groups.MultiGroup;
-import com.github.drakescraft_labs.infinitylib.groups.SubGroup;
+import dev.drake.infinitylib.groups.MultiGroup;
+import dev.drake.infinitylib.groups.SubGroup;
 
 public class WildernetherGroups {
 

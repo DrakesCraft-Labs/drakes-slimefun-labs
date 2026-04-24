@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.galactifun.api.universe.attributes.atmosphere
 import com.github.drakescraft_labs.galactifun.api.worlds.PlanetaryWorld;
 import com.github.drakescraft_labs.galactifun.base.GalactifunHead;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
-import com.github.drakescraft_labs.infinitylib.machines.AbstractMachineBlock;
+import dev.drake.infinitylib.machines.AbstractMachineBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import dev.drake.dough.collections.RandomizedSet;

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
-import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
+import dev.drake.infinitylib.commands.SubCommand;
 
 public final class AlienSpawnCommand extends SubCommand {
 

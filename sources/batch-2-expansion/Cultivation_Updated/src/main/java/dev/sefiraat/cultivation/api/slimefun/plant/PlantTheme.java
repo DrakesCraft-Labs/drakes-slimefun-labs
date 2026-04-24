@@ -2,7 +2,7 @@ package dev.sefiraat.cultivation.api.slimefun.plant;
 
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.api.utils.Skins;
-import dev.sefiraat.sefilib.string.Theme;
+import dev.drake.sefilib.string.Theme;
 
 import javax.annotation.Nonnull;
 import java.util.List;

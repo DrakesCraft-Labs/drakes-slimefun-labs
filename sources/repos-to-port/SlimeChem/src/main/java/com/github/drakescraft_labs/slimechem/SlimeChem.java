@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.slimechem;
 
 import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.IsotopeLoader;
 import com.github.drakescraft_labs.slimechem.setup.Registry;
-import com.github.drakescraft_labs.infinitylib.PluginUtils;
+import dev.drake.infinitylib.PluginUtils;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import org.bstats.bukkit.Metrics;

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.core;
+package dev.drake.infinitylib.core;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

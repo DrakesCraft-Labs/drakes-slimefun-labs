@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.items.workstations.smeltery;
 
-import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
+import dev.drake.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.slimetinker.items.Materials;
 import io.github.sefiraat.slimetinker.utils.GUIItems;
 import io.github.sefiraat.slimetinker.utils.ThemeUtils;

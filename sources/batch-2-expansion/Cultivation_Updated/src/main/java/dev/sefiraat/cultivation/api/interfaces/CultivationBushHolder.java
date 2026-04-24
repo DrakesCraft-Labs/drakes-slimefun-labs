@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
 import dev.sefiraat.cultivation.implementation.utils.DisplayGroupGenerators;
-import dev.sefiraat.sefilib.entity.display.DisplayGroup;
+import dev.drake.sefilib.entity.display.DisplayGroup;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Location;

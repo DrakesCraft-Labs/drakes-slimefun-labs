@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.number;
+package dev.drake.sefilib.number;
 
 import java.util.TreeMap;
 

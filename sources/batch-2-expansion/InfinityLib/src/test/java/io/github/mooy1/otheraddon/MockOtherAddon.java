@@ -5,8 +5,8 @@ import java.io.File;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
 
-import com.github.drakescraft_labs.infinitylib.core.Environment;
-import com.github.drakescraft_labs.infinitylib.core.MockAddon;
+import dev.drake.infinitylib.core.Environment;
+import dev.drake.infinitylib.core.MockAddon;
 
 public final class MockOtherAddon extends MockAddon {
 

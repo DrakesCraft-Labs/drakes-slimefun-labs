@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel;
 
-import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
+import dev.drake.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

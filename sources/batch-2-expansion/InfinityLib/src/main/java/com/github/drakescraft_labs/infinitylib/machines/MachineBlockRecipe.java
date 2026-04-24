@@ -1,11 +1,11 @@
-package com.github.drakescraft_labs.infinitylib.machines;
+package dev.drake.infinitylib.machines;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.StackUtils;
 import dev.drake.dough.items.ItemUtils;
 
 final class MachineBlockRecipe {

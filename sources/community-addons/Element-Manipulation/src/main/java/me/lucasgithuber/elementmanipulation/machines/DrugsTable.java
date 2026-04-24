@@ -1,7 +1,7 @@
 package me.lucasgithuber.elementmanipulation.machines;
 
-import com.github.drakescraft_labs.infinitylib.machines.MachineLayout;
-import com.github.drakescraft_labs.infinitylib.machines.MachineRecipeType;
+import dev.drake.infinitylib.machines.MachineLayout;
+import dev.drake.infinitylib.machines.MachineRecipeType;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public final class DrugsTable extends com.github.drakescraft_labs.infinitylib.machines.CraftingBlock implements EnergyNetComponent {
+public final class DrugsTable extends dev.drake.infinitylib.machines.CraftingBlock implements EnergyNetComponent {
 
     public static final int[] INPUT_SLOTS = {
             2,3,4,5,6,7,

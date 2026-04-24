@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.common;
+package dev.drake.infinitylib.common;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -6,7 +6,7 @@ import lombok.experimental.UtilityClass;
 
 import org.bukkit.Bukkit;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 
 /**
  * A class for scheduling tasks

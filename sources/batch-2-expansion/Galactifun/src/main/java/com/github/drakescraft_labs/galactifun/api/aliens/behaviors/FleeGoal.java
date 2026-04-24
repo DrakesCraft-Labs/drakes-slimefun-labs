@@ -15,7 +15,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import com.destroystokyo.paper.entity.Pathfinder;
 import com.destroystokyo.paper.entity.ai.GoalType;
 import com.github.drakescraft_labs.galactifun.Galactifun;
-import com.github.drakescraft_labs.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Events;
 
 /**
  * Flees if attacked in the last {@code fleeTicks} ticks

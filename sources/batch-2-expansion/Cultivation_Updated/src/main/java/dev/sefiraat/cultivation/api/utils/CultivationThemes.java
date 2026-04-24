@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.utils;
 
-import dev.sefiraat.sefilib.string.Theme;
+import dev.drake.sefilib.string.Theme;
 import net.md_5.bungee.api.ChatColor;
 
 public final class CultivationThemes {

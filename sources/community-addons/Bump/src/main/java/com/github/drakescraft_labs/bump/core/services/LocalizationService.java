@@ -14,7 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 

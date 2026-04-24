@@ -40,7 +40,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
 
-import static dev.sefiraat.sefilib.slimefun.blocks.DisplayGroupBlock.KEY_UUID;
+import static dev.drake.sefilib.slimefun.blocks.DisplayGroupBlock.KEY_UUID;
 
 public abstract class QuapticBlock extends SlimefunItem {
     private static final int BURNOUT_EXPLODE_VOLUME = 2;

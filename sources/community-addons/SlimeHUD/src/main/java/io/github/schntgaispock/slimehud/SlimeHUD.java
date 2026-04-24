@@ -10,8 +10,8 @@ import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.NamespacedKey;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import dev.drake.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AddonConfig;
 import io.github.schntgaispock.slimehud.command.CommandManager;
 import io.github.schntgaispock.slimehud.waila.WAILAManager;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;

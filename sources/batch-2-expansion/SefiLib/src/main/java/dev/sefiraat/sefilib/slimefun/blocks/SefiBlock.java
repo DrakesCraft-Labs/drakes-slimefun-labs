@@ -1,7 +1,7 @@
-package dev.sefiraat.sefilib.slimefun.blocks;
+package dev.drake.sefilib.slimefun.blocks;
 
 import com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper;
-import dev.sefiraat.sefilib.slimefun.items.SefiSlimefunItem;
+import dev.drake.sefilib.slimefun.items.SefiSlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

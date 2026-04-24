@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.slimefun.recipes;
+package dev.drake.sefilib.slimefun.recipes;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 

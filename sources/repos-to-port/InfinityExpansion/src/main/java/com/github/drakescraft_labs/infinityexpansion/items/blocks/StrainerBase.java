@@ -19,7 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Materials;
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Strainer;
 import com.github.drakescraft_labs.infinityexpansion.utils.Util;
-import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
+import dev.drake.infinitylib.machines.TickingMenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

@@ -1,6 +1,6 @@
 package io.github.sefiraat.slimetinker.items.workstations.workbench;
 
-import com.github.drakescraft_labs.infinitylib.machines.CraftingBlock;
+import dev.drake.infinitylib.machines.CraftingBlock;
 import io.github.sefiraat.slimetinker.items.Workstations;
 import io.github.sefiraat.slimetinker.utils.GUIItems;
 import io.github.sefiraat.slimetinker.utils.ItemUtils;

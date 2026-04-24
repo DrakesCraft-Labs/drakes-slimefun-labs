@@ -13,8 +13,8 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.galactifun.api.items.Relic;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
-import com.github.drakescraft_labs.infinitylib.machines.AbstractMachineBlock;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.machines.AbstractMachineBlock;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

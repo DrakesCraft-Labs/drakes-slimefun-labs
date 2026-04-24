@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.slimefun;
+package dev.drake.sefilib.slimefun;
 
 import java.text.MessageFormat;
 

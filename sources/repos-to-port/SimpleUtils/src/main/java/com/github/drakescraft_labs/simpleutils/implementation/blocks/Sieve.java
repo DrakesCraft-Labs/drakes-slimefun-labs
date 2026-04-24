@@ -17,8 +17,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.StackUtils;
 import com.github.drakescraft_labs.simpleutils.SimpleUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.persistence;
+package dev.drake.sefilib.persistence;
 
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.persistence.PersistentDataAdapterContext;

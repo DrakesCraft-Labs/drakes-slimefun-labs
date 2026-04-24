@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets;
 
-import com.github.drakescraft_labs.infinitylib.machines.TickingMenuBlock;
+import dev.drake.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;

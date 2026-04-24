@@ -4,8 +4,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.machines.CraftingBlock;
-import com.github.drakescraft_labs.infinitylib.machines.MachineRecipeType;
+import dev.drake.infinitylib.machines.CraftingBlock;
+import dev.drake.infinitylib.machines.MachineRecipeType;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

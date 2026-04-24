@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.world;
+package dev.drake.sefilib.world;
 
 import org.bukkit.Location;
 

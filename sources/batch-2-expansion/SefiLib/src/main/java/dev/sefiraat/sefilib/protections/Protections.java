@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.protections;
+package dev.drake.sefilib.protections;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.protection.Interaction;

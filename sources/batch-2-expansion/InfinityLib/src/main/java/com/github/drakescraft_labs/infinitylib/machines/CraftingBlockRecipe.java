@@ -1,11 +1,11 @@
-package com.github.drakescraft_labs.infinitylib.machines;
+package dev.drake.infinitylib.machines;
 
 import lombok.Getter;
 
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.StackUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.items.ItemStackSnapshot;
 import dev.drake.dough.items.ItemUtils;

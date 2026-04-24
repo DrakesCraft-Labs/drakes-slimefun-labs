@@ -1,6 +1,6 @@
 package me.EzCoins.MiniBlocks;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
 import me.EzCoins.MiniBlocks.core.Groups;

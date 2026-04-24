@@ -21,8 +21,8 @@ import org.bukkit.entity.Player;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.structures.Structure;
 import com.github.drakescraft_labs.galactifun.api.structures.StructureRotation;
-import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
-import com.github.drakescraft_labs.infinitylib.common.PersistentType;
+import dev.drake.infinitylib.commands.SubCommand;
+import dev.drake.infinitylib.common.PersistentType;
 
 public final class StructureCommand extends SubCommand {
 

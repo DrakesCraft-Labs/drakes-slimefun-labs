@@ -3,7 +3,7 @@ package me.schntgaispock.wildernether.managers;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import dev.drake.infinitylib.core.AddonConfig;
 import lombok.Getter;
 import me.schntgaispock.wildernether.Wildernether;
 import me.schntgaispock.wildernether.loot.LootTableCollection;

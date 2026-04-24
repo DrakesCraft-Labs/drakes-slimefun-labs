@@ -1,6 +1,6 @@
 package io.github.sefiraat.simplestorage.items.chests;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.common.StackUtils;
 import io.github.sefiraat.simplestorage.SimpleStorage;
 import io.github.sefiraat.simplestorage.items.SimpleStorageItemStacks;
 import io.github.sefiraat.simplestorage.items.Skulls;

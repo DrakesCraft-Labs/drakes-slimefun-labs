@@ -17,7 +17,7 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
-import com.github.drakescraft_labs.infinitylib.machines.AbstractMachineBlock;
+import dev.drake.infinitylib.machines.AbstractMachineBlock;
 import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

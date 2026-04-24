@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.entity.display;
+package dev.drake.sefilib.entity.display;
 
 public interface DisplayInteractable {
 

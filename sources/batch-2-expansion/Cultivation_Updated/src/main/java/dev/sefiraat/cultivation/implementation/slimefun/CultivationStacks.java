@@ -2,8 +2,8 @@ package dev.sefiraat.cultivation.implementation.slimefun;
 
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.api.utils.Skins;
-import dev.sefiraat.sefilib.itemstacks.ItemStackGenerators;
-import dev.sefiraat.sefilib.string.Theme;
+import dev.drake.sefilib.itemstacks.ItemStackGenerators;
+import dev.drake.sefilib.string.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import org.bukkit.Color;

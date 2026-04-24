@@ -1,7 +1,7 @@
-package dev.sefiraat.sefilib.misc;
+package dev.drake.sefilib.misc;
 
 /**
- * This utility class provides a direct link between the faces a {@link dev.sefiraat.sefilib.entity.display.DisplayGroup}
+ * This utility class provides a direct link between the faces a {@link dev.drake.sefilib.entity.display.DisplayGroup}
  * rotates around and the corresponding axes. Due to the redundancy of having 6 faces, only 3 are used.
  *
  * @author Sfiguz7

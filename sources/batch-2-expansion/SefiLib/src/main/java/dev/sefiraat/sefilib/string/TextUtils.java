@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.string;
+package dev.drake.sefilib.string;
 
 import javax.annotation.Nonnull;
 import java.util.Arrays;

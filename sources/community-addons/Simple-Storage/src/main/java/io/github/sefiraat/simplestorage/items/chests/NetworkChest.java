@@ -1,6 +1,6 @@
 package io.github.sefiraat.simplestorage.items.chests;
 
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.simplestorage.utils.Utils;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

@@ -3,8 +3,8 @@ package com.github.drakescraft_labs.infinityexpansion.categories;
 import org.bukkit.Material;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
-import com.github.drakescraft_labs.infinitylib.groups.MultiGroup;
-import com.github.drakescraft_labs.infinitylib.groups.SubGroup;
+import dev.drake.infinitylib.groups.MultiGroup;
+import dev.drake.infinitylib.groups.SubGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import dev.drake.dough.items.CustomItemStack;
 

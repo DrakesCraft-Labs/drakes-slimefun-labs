@@ -10,8 +10,8 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
-import com.github.drakescraft_labs.infinitylib.core.AddonConfig;
+import dev.drake.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AddonConfig;
 import io.github.schntgaispock.gastronomicon.api.trees.TreeStructure;
 import io.github.schntgaispock.gastronomicon.core.setup.CommandSetup;
 import io.github.schntgaispock.gastronomicon.core.setup.ListenerSetup;

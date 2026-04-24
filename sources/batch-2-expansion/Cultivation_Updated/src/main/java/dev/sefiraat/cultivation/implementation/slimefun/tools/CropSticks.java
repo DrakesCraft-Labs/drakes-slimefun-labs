@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.implementation.slimefun.tools;
 
 import dev.sefiraat.cultivation.api.interfaces.CultivationCroppable;
-import dev.sefiraat.sefilib.slimefun.items.RefillableUseItem;
+import dev.drake.sefilib.slimefun.items.RefillableUseItem;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.core;
+package dev.drake.infinitylib.core;
 
 public enum MockAddonTest {
 

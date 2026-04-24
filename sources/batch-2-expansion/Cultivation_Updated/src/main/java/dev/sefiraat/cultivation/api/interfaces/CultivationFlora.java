@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.interfaces;
 
-import dev.sefiraat.sefilib.string.Theme;
+import dev.drake.sefilib.string.Theme;
 import org.bukkit.Material;
 
 import javax.annotation.Nonnull;

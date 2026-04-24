@@ -29,7 +29,7 @@
                             <shadedPattern>dev.sefiraat.netheopoiesis.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>io.github.bakedlibs.dough</pattern>
+                            <pattern>dev.drake.dough</pattern>
                             <shadedPattern>dev.sefiraat.netheopoiesis.dough</shadedPattern>
                         </relocation>
                         <relocation>
@@ -136,9 +136,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.baked-libs.dough</groupId>
-            <artifactId>dough-api</artifactId>
-            <version>a2364de77c</version>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
             <scope>compile</scope>
         </dependency>
 

@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.slimefun.blocks;
+package dev.drake.sefilib.slimefun.blocks;
 
 import java.util.HashMap;
 import java.util.Map;

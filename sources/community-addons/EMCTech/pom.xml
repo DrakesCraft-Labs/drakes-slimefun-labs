@@ -29,7 +29,7 @@
                             <shadedPattern>io.github.sefiraat.emctech.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>dev.sefiraat.sefilib</pattern>
+                            <pattern>dev.drake.sefilib</pattern>
                             <shadedPattern>io.github.sefiraat.emctech.sefilib</shadedPattern>
                         </relocation>
                         <relocation>

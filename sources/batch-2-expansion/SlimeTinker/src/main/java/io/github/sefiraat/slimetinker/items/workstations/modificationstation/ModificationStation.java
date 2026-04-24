@@ -1,7 +1,7 @@
 package io.github.sefiraat.slimetinker.items.workstations.modificationstation;
 
-import com.github.drakescraft_labs.infinitylib.common.StackUtils;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.common.StackUtils;
+import dev.drake.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.slimetinker.modifiers.Mod;
 import io.github.sefiraat.slimetinker.modifiers.Modifications;
 import io.github.sefiraat.slimetinker.utils.GUIItems;

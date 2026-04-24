@@ -1,6 +1,6 @@
-package dev.sefiraat.sefilib.entity.display;
+package dev.drake.sefilib.entity.display;
 
-import dev.sefiraat.sefilib.persistence.StringListDataType;
+import dev.drake.sefilib.persistence.StringListDataType;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

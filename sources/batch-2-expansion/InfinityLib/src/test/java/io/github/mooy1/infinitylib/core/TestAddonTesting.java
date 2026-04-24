@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.core;
+package dev.drake.infinitylib.core;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;

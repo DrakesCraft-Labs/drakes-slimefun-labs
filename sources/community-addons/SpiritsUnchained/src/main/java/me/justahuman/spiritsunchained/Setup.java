@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained;
 
-import dev.sefiraat.sefilib.slimefun.itemgroup.MenuItem;
+import dev.drake.sefilib.slimefun.itemgroup.MenuItem;
 import me.justahuman.spiritsunchained.implementation.mobs.Spirit;
 import me.justahuman.spiritsunchained.implementation.mobs.UnIdentifiedSpirit;
 import me.justahuman.spiritsunchained.managers.SpiritEntityManager;

@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.implementation.listeners;
 
 import dev.sefiraat.cultivation.api.slimefun.RecipeTypes;
-import dev.sefiraat.sefilib.entity.LivingEntityDefinition;
+import dev.drake.sefilib.entity.LivingEntityDefinition;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;

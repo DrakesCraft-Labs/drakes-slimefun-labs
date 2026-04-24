@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.commands;
 
-import com.github.drakescraft_labs.infinitylib.commands.SubCommand;
+import dev.drake.infinitylib.commands.SubCommand;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;

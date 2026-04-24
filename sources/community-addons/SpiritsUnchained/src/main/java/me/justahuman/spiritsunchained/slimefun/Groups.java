@@ -8,8 +8,8 @@ import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.spirits.SpiritsFlexGroup;
 
-import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
-import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
+import dev.drake.sefilib.slimefun.itemgroup.DummyItemGroup;
+import dev.drake.sefilib.slimefun.itemgroup.SimpleFlexGroup;
 
 import me.justahuman.spiritsunchained.utils.SpiritUtils;
 import org.bukkit.Color;

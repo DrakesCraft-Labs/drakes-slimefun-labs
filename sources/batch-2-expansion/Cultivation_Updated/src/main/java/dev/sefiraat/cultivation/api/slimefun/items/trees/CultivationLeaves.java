@@ -1,7 +1,7 @@
 package dev.sefiraat.cultivation.api.slimefun.items.trees;
 
 import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
-import dev.sefiraat.sefilib.misc.Chance;
+import dev.drake.sefilib.misc.Chance;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

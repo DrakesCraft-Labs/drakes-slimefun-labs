@@ -71,7 +71,7 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.thebusybiscuit.cscorelib2</pattern>
+                            <pattern>com.github.drakescraft_labs.cscorelib2</pattern>
                             <shadedPattern>me.waleks.simplematerialgenerators.cscorelib2</shadedPattern>
                         </relocation>
                     </relocations>

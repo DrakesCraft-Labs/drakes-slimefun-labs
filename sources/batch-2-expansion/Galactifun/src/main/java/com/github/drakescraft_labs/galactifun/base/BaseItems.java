@@ -37,7 +37,7 @@ import com.github.drakescraft_labs.galactifun.base.items.protection.SpaceHeater;
 import com.github.drakescraft_labs.galactifun.base.items.rockets.ChemicalRocket;
 import com.github.drakescraft_labs.galactifun.base.items.rockets.IonRocket;
 import com.github.drakescraft_labs.galactifun.core.CoreItemGroup;
-import com.github.drakescraft_labs.infinitylib.machines.MachineBlock;
+import dev.drake.infinitylib.machines.MachineBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;

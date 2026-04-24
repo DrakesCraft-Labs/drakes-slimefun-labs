@@ -9,7 +9,7 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
-import dev.sefiraat.sefilib.entity.display.DisplayInteractable;
+import dev.drake.sefilib.entity.display.DisplayInteractable;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;

@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.localization;
+package dev.drake.sefilib.localization;
 
 import com.google.common.base.Preconditions;
 import org.bukkit.configuration.InvalidConfigurationException;

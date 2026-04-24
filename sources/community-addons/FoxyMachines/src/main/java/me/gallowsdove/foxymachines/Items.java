@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines;
 
-import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import dev.drake.infinitylib.machines.MachineLore;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;

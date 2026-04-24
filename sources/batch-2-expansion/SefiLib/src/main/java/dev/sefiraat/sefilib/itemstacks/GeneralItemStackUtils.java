@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.itemstacks;
+package dev.drake.sefilib.itemstacks;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

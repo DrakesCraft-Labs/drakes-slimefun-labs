@@ -20,7 +20,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
 import com.github.drakescraft_labs.galactifun.base.BaseMats;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.items.ItemUtils;

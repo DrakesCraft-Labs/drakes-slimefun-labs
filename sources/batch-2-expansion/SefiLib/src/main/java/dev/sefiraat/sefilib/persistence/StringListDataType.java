@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.persistence;
+package dev.drake.sefilib.persistence;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataAdapterContext;

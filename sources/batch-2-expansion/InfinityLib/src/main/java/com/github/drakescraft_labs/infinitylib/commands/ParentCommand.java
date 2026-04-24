@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.commands;
+package dev.drake.infinitylib.commands;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -75,7 +75,7 @@
                     <minimizeJar>true</minimizeJar>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>me.jasperchasetoq.compressioncraft.infinitylib</shadedPattern>
                         </relocation>
                     </relocations>

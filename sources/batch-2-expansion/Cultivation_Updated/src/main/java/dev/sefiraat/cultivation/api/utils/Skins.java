@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.api.utils;
 
-import com.github.drakescraft_labs.dough.skins.PlayerSkin;
+import dev.drake.dough.skins.PlayerSkin;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

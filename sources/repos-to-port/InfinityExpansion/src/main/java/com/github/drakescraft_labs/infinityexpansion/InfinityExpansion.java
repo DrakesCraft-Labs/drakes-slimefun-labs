@@ -22,8 +22,8 @@ import com.github.drakescraft_labs.infinityexpansion.items.mobdata.MobData;
 import com.github.drakescraft_labs.infinityexpansion.items.quarries.Quarries;
 import com.github.drakescraft_labs.infinityexpansion.items.storage.Storage;
 import com.github.drakescraft_labs.infinityexpansion.items.storage.StorageSaveFix;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.core.AbstractAddon;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 

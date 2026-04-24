@@ -1,6 +1,6 @@
 package dev.sefiraat.cultivation.implementation.slimefun.machines;
 
-import dev.sefiraat.sefilib.entity.display.DisplayGroup;
+import dev.drake.sefilib.entity.display.DisplayGroup;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

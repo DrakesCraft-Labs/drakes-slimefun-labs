@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.presets;
+package dev.drake.infinitylib.presets;
 
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import org.bukkit.Material;

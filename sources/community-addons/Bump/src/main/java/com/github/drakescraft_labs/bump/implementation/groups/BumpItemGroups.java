@@ -7,8 +7,8 @@ import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
-import dev.sefiraat.sefilib.slimefun.itemgroup.DummyItemGroup;
-import dev.sefiraat.sefilib.slimefun.itemgroup.SimpleFlexGroup;
+import dev.drake.sefilib.slimefun.itemgroup.DummyItemGroup;
+import dev.drake.sefilib.slimefun.itemgroup.SimpleFlexGroup;
 import lombok.experimental.UtilityClass;
 
 /**

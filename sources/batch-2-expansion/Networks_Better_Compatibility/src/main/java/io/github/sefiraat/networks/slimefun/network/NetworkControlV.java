@@ -1,8 +1,8 @@
 package io.github.sefiraat.networks.slimefun.network;
 
 
-import dev.sefiraat.sefilib.misc.ParticleUtils;
-import dev.sefiraat.sefilib.world.LocationUtils;
+import dev.drake.sefilib.misc.ParticleUtils;
+import dev.drake.sefilib.world.LocationUtils;
 import dev.drake.dough.blocks.BlockPosition;
 import io.github.sefiraat.networks.NetworkStorage;
 import io.github.sefiraat.networks.Networks;

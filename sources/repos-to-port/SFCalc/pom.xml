@@ -57,7 +57,7 @@
 
         <!-- ErrorReporter -->
         <dependency>
-            <groupId>com.github.seggan</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>ErrorReporter-Java</artifactId>
             <version>1.1.0</version>
             <scope>compile</scope>
@@ -94,7 +94,7 @@
                         <configuration>
                             <relocations>
                                 <relocation>
-                                    <pattern>io.github.seggan.errorreporter</pattern>
+                                    <pattern>com.github.drakescraft_labs.errorreporter</pattern>
                                     <shadedPattern>com.github.drakescraft_labs.sfcalc.errorreporter</shadedPattern>
                                 </relocation>
                                 <relocation>

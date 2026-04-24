@@ -23,10 +23,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
-import com.github.drakescraft_labs.infinitylib.common.Events;
-import com.github.drakescraft_labs.infinitylib.common.Scheduler;
-import com.github.drakescraft_labs.infinitylib.machines.MachineLayout;
-import com.github.drakescraft_labs.infinitylib.machines.MenuBlock;
+import dev.drake.infinitylib.common.Events;
+import dev.drake.infinitylib.common.Scheduler;
+import dev.drake.infinitylib.machines.MachineLayout;
+import dev.drake.infinitylib.machines.MenuBlock;
 import com.github.drakescraft_labs.simpleutils.SimpleUtils;
 import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;

@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.slimefun.recipes;
+package dev.drake.sefilib.slimefun.recipes;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;

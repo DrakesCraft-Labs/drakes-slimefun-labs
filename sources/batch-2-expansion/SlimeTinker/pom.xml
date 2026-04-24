@@ -86,7 +86,7 @@
                     <minimizeJar>true</minimizeJar>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>io.github.sefiraat.slimetinker.infinitylib</shadedPattern>
                         </relocation>
                         <relocation>

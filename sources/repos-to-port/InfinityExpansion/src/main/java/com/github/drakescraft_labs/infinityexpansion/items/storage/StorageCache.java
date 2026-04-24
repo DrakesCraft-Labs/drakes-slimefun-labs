@@ -20,7 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
-import com.github.drakescraft_labs.infinitylib.machines.MachineLore;
+import dev.drake.infinitylib.machines.MachineLore;
 import dev.drake.dough.common.ChatColors;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.items.ItemUtils;

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.common;
+package dev.drake.infinitylib.common;
 
 import java.util.function.Consumer;
 
@@ -12,7 +12,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.core.AbstractAddon;
 
 /**
  * A class for registering listeners and event handlers

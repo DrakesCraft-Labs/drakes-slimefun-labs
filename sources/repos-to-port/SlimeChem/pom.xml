@@ -81,7 +81,7 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>io.github.addoncommunity.slimechem.infinitylib</shadedPattern>
                         </relocation>
                         <relocation>

@@ -1,4 +1,4 @@
-package dev.sefiraat.sefilib.block;
+package dev.drake.sefilib.block;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;

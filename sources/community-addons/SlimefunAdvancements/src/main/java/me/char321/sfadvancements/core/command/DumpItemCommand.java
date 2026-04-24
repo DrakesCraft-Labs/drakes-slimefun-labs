@@ -1,6 +1,6 @@
 package me.char321.sfadvancements.core.command;
 
-import com.github.drakescraft_labs.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;

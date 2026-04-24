@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.commands;
+package dev.drake.infinitylib.commands;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +18,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 
-import com.github.drakescraft_labs.infinitylib.common.Events;
-import com.github.drakescraft_labs.infinitylib.core.AbstractAddon;
+import dev.drake.infinitylib.common.Events;
+import dev.drake.infinitylib.core.AbstractAddon;
 
 /**
  * The main command of an addon, which can hold multiple sub commands

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.infinitylib.abstracts;
+package dev.drake.infinitylib.abstracts;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
