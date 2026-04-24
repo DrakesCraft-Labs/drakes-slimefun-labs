@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
     id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
+    // Ensures Lombok runs during Gradle compileJava for this nested project (fixes missing getters/constructors).
+    id 'io.freefair.lombok' version '8.6'
 }
 
 repositories {
@@ -17,7 +19,6 @@ dependencies {
     compileOnly "com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT"
     compileOnly "com.google.code.findbugs:jsr305:3.0.2"
     compileOnly "org.projectlombok:lombok:1.18.34"
-    annotationProcessor "org.projectlombok:lombok:1.18.34"
     
     implementation "net.guizhanss:guizhanlib-all:2.2.0"
     implementation "com.github.drakescraft_labs:sefilib-drake:0.3.1-DRAKE-SNAPSHOT"
@@ -36,7 +37,7 @@ shadowJar {
 }
 
 bukkit {
-    main = 'io.github.slimefunguguproject.bump.implementation.Bump'
+    main = 'com.github.drakescraft_labs.bump.implementation.Bump'
     apiVersion = '1.21'
     authors = ['bxx2004', 'LobbyTech-MC', 'zimzaza4', 'haiman233', 'ybw0014']
     depend = ['Slimefun']

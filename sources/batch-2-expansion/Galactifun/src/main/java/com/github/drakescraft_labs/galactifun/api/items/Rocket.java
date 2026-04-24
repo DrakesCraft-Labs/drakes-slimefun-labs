@@ -62,7 +62,7 @@ import dev.drake.dough.collections.RandomizedSet;
 import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.items.ItemUtils;
 import dev.drake.dough.protection.Interaction;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import net.kyori.adventure.text.Component;

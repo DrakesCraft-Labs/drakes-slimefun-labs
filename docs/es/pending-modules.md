@@ -18,13 +18,24 @@ Este documento refleja el estado real despues de la estabilizacion CI actual.
 
 Fecha del corte: `2026-04-24`.
 
+### Resumen de conteos (evidencia local en esta fecha)
+
+| Herramienta | OK | FAIL | Notas |
+|-------------|---:|-----:|-------|
+| Maven (`-pl` LiteXpansion, Supreme, TranscEndence `-am compile`) | 3 modulos objetivo + reactor | 0 | `BUILD SUCCESS` con `mvn` portable o sistema |
+| Gradle (`gradlew build -x test`, reactor raiz) | Galactifun + metaproyectos sin fuentes | Bump bloquea el avance | El orden de tareas falla en `:sources:community-addons:Bump:compileJava` antes de revalidar CIG/FastMachines/SlimefunTranslation en este mismo comando |
+
+### Lote Maven (expansion batch-2)
+
+- `LiteXpansion-drake`, `Supreme-drake`, `TranscEndence-drake` (y dependencias `-am`): **BUILD SUCCESS** tras regla `libraries-paperlib` en `port_paper_121.py` y metricas bStats en `LiteXpansion.java`.
+
 ### Lote Gradle auditado (reactor raiz)
 
 - `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL**
-- `sources:community-addons:Bump`: **FAIL** (128 errores de compilacion; mezcla de APIs legacy y simbolos removidos en 1.21.1)
-- `sources:community-addons:CustomItemGenerators`: **FAIL** (errores Kotlin, referencias no resueltas como `logger`)
-- `sources:community-addons:FastMachines`: **FAIL** (errores Kotlin de tipos/API de Slimefun addon)
-- `sources:community-addons:SlimefunTranslation`: **FAIL** (94 errores Java; incompatibilidades API/constructores/tipos)
+- `sources:community-addons:Bump`: **FAIL** (~92 errores en `compileJava`). Causa principal: `net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon` enlaza contra `io.github.thebusybiscuit.slimefun4.*`, clases que **no** estan en el artefacto `slimefun-core` Drake (`com.github.drakescraft_labs.slimefun4.*`), lo que rompe la verificacion de tipos y arrastra errores en cadena (p. ej. Lombok/getters hasta resolver la jerarquia). Mitigaciones ya aplicadas en repo: plugin `io.freefair.lombok`, imports GuizhanLib 2.x (`common.utils`), `LocalizationService` basado en `SlimefunLocalization`, `main` del plugin corregido en `build.gradle`. Pendiente de diseno: fork/vendored `AbstractAddon` para el namespace Drake, o dependencia de compilacion coherente (sin romper runtime). Tambien aparecen APIs 1.21 (`ItemFlag.HIDE_POTION_EFFECTS`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`).
+- `sources:community-addons:CustomItemGenerators`: **no revalidado** en el ultimo `build` raiz (fallo previo a Bump en el orden actual del reactor).
+- `sources:community-addons:FastMachines`: **no revalidado** (mismo motivo).
+- `sources:community-addons:SlimefunTranslation`: **no revalidado** (mismo motivo); en cortes anteriores: fallos Java API amplios.
 
 ### Mitigaciones aplicadas en este bloque
 
@@ -35,7 +46,7 @@ Fecha del corte: `2026-04-24`.
 
 ## Porteo automatizado (parches por lotes)
 
-Herramienta: `scripts/port_paper_121.py` (reglas textuales conservadoras para Paper 1.21.1).
+Herramienta: `scripts/port_paper_121.py` (reglas textuales conservadoras para Paper 1.21.1). Incluye entre otras la regla `libraries-paperlib` (`com.github.drakescraft_labs.slimefun4.libraries.paperlib` -> `io.papermc.lib`).
 
 ```bash
 python scripts/port_paper_121.py --list-rules
@@ -64,5 +75,5 @@ Un modulo se considera cerrado cuando:
 > Estado de sincronizacion: **2026-04-24 (actualizado tras auditoria de build por lotes)**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo lote Gradle validado con 1 modulo en verde y 4 modulos con fallos de migracion API/codigo.
+> Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo corte: Maven lote LiteXpansion/Supreme/TranscEndence en verde; Gradle raiz con Galactifun en verde y Bump bloqueado (guizhanlib vs namespace Slimefun Drake).
 <!-- DRAKES-STATUS:END -->

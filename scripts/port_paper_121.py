@@ -51,6 +51,12 @@ def _rules() -> List[TextRule]:
             "org.apache.commons.lang.",
         ),
         TextRule(
+            "libraries-paperlib",
+            "Ruta legacy slimefun4.libraries.paperlib.* -> io.papermc.lib.*",
+            re.compile(r"com\.github\.drakescraft_labs\.slimefun4\.libraries\.paperlib\."),
+            "io.papermc.lib.",
+        ),
+        TextRule(
             "potion",
             "PotionEffectType: constantes renombradas/removidas en API moderna",
             re.compile(

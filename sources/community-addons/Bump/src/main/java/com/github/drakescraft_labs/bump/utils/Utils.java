@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.guizhanss.guizhanlib.utils.StringUtil;
+import net.guizhanss.guizhanlib.common.utils.StringUtil;
 
 import lombok.experimental.UtilityClass;
 

@@ -72,7 +72,7 @@ import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 

@@ -19,7 +19,7 @@ import dev.drake.dough.items.CustomItemStack;
 import dev.drake.dough.skins.PlayerHead;
 import dev.drake.dough.skins.PlayerSkin;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import me.pranavverma.advancedtech.general.BaseItems;
 import me.pranavverma.advancedtech.general.items.commanders.command_engine.command_engine;
 import me.pranavverma.advancedtech.general.items.commanders.command_hub.command_hub;

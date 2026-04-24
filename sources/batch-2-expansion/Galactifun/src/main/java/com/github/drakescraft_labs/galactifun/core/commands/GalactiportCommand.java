@@ -14,7 +14,7 @@ import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.worlds.PlanetaryWorld;
 import com.github.drakescraft_labs.galactifun.base.items.knowledge.KnowledgeLevel;
 import dev.drake.infinitylib.commands.SubCommand;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 
 /**
  * Command to teleport to world spawns

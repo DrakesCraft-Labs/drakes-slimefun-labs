@@ -1,6 +1,6 @@
 package com.xmooncorp.magic8ball.utils.compatibility;
 
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import org.bukkit.Particle;
 
 import javax.annotation.Nonnull;

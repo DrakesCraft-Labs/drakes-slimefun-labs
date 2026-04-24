@@ -6,7 +6,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.ItemUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
