@@ -2,13 +2,13 @@
 
 ## Contexto Base
 
-Este repo es un laboratorio de migración para `Slimefun 6`, `Paper 1.21.11`, `Java 21` y `dough-core 1.3.1-DRAKE`.
+Este repo es un laboratorio de migración para el ecosistema Slimefun 4 (fork Drake), `Paper 1.21.1`, `Java 21` y las coordenadas compartidas del `pom.xml` raiz.
 
 No es un único plugin.
 
 ## Reglas de Trabajo
 
-- leer primero `README.md`
+- leer primero `README.md` y `docs/es/PLUGIN_MATRIX.md` (regenerar con `python scripts/generate_plugin_matrix.py` si cambiaron los gates)
 - usar builds aislados con `-pl` y `-am`
 - no compilar el reactor completo salvo necesidad estricta
 - revisar primero si el fallo es de Maven o de API

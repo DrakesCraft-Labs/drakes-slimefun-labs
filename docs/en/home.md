@@ -17,11 +17,17 @@
 
 ## Quick navigation
 
+- **Root README** (generated full module table): [`README.md`](../../README.md)
+- **Audited plugin matrix** (86 rows; do not hand-edit): [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) (Spanish column headers; canonical data for the monorepo)
+- **Org GitHub Project board**: [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
+- **How to sync the board with the matrix**: [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)
 - Checklist: `docs/en/migration-checklist.md`
 - Pending modules: `docs/en/pending-modules.md`
 - Roadmap: `docs/en/stabilization-roadmap.md`
 - CI/Release strategy: `docs/en/release-and-ci-strategy.md`
 - Technical reference: `docs/en/technical-reference-paper-1.21.1.md`
+
+Refresh README + matrix: `python scripts/generate_plugin_matrix.py`
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.

@@ -2,16 +2,16 @@
 
 ## Goal
 
-This page translates the `README_EN.md` inventory into an operational closure sequence. The goal is not only to "make it compile", but to close the real backlog without mixing old variants, bloating the reactor, or leaving ambiguous states behind.
+This page translates the root [`README.md`](../../README.md) and the generated [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) inventory into an operational closure sequence. The goal is not only to "make it compile", but to close the real backlog without mixing old variants, bloating the reactor, or leaving ambiguous states behind.
 
-## Base State
+## Base state (audited)
 
-- Workspace universe: `87 addons + 2 base modules`
-- Active modules in reactor: `59`
-- Ready modules in reactor: `57`
-- Active modules with confirmed failure: `2`
-- Addons outside the reactor: `30`
-- Real operational backlog: `32 addons`
+- Unified reactor inventory: **86 entries** (Maven + Gradle; see the generated matrix).
+- **CI-ready**: explicit subset in `ci-gate-*.yml` workflows (not the entire monorepo).
+- **Local-only green**: modules with verified `mvn compile -am` outside a gate; still need CI promotion.
+- **In progress**: most Maven modules with `port_paper_121` patches applied but without per-module CI build evidence yet.
+- **Build-blocked**: four Gradle addons with reproducible compile failures (see `docs/en/pending-modules.md` and matrix notes).
+- Org board: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned with the matrix ([`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
 
 ## Recommended Order
 
@@ -94,7 +94,7 @@ An addon can be marked as ready for `1.21.11` when:
 - it builds consistently either inside the reactor or through isolated module build
 - it no longer depends on old coordinates such as `dev.drake:Slimefun:5.0-Drake-1.21.11`
 - it no longer has known active API failures
-- its status is reflected in `README_EN.md` and tracking pages
+- its status is reflected in the root `README.md` / generated `docs/es/PLUGIN_MATRIX.md` and tracking pages
 
 ## Final Project Closure
 

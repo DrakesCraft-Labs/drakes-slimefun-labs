@@ -1,81 +1,13 @@
-# Drakes Slimefun Labs
+# Matriz de plugins y modulos (generada)
 
-[![Java 21](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net/)
-[![Paper 1.21.1](https://img.shields.io/badge/Paper-1.21.1-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![CI Gates](https://img.shields.io/badge/CI-Gates%201--5%20Green-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions)
-[![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
-[![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
+> Generado por `scripts/generate_plugin_matrix.py`. No editar a mano: ejecutar el script y commit.
 
-Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefun 4** sobre baseline unificado **Paper 1.21.1 + Java 21**. Este repositorio agrupa el core Drake, librerias compartidas y decenas de addons en un reactor **Maven + Gradle** coherente.
+Criterios:
 
----
-
-## Enlaces rapidos
-
-| Recurso | URL |
-|---|---|
-| **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
-| **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |
-| **Issues** | [Issues](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues) |
-| **Matriz detallada (generada)** | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
-| **Como sincronizar el tablero** | [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md) |
-| **Docs ES (indice)** | [`docs/es/home.md`](docs/es/home.md) |
-
-> La matriz y la tabla de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineacion manual.
-
----
-
-## Tablero GitHub Projects
-
-El estado de alto nivel del porteo se gestiona en el [**Project 1 de la organizacion**](https://github.com/orgs/DrakesCraft-Labs/projects/1).
-
-Para actualizarlo desde tu equipo con la CLI, autoriza scopes de Projects:
-
-```bash
-gh auth refresh -h github.com -s read:project,project
-```
-
-Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de la tabla inferior (o del archivo `docs/es/PLUGIN_MATRIX.md`). Guia paso a paso: [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md).
-
----
-
-## Resumen de estado (auditable)
-
-> Corte generado automaticamente a partir de `ci-gate-*.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
-
-| Estado | Cantidad | Significado |
-|---:|---:|---|
-| **Listo (CI)** | **12** | Aparece en un workflow `ci-gate-*` y compila alli. |
-| **Listo (local)** | **4** | `mvn compile -am` verde en revision auditada; **pendiente** promover a gate CI. |
-| **En curso** | **66** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
-| **Bloqueado (build)** | **4** | Fallo reproducible de compilacion en el reactor Gradle. |
-| **Total modulos** | **86** | Maven + Gradle en reactor; ver conteo exacto en esta fila. |
-
-### Barra de proporcion (CI vs resto)
-
-```text
-Listo CI:     12/86  (14.0%)
-Listo local:  4/86
-En curso:     66/86
-Bloqueado:    4/86
-```
-
----
-
-## Metodologia (criterios)
-
-1. **Listo (CI)**: modulo listado explicitamente en `ci-gate-1-foundation.yml`, `ci-gate-2-stable.yml`, `ci-gate-3-community.yml`, `ci-gate-4-complex.yml` o paso Gradle de `ci-gate-5-gradle.yml`.
-2. **Listo (local)**: compilacion Maven exitosa en cadena `-am` en la misma revision que el script (no reemplaza CI).
-3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
-4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build Gradle del monorepo documentado en `docs/es/pending-modules.md`.
-
-Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`.
-
----
-
-## Inventario completo de modulos y plugins
-
-Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (repos-to-port), `addon (Gradle)`.
+- **Listo (CI)**: modulo construido explicitamente en un workflow `ci-gate-*.yml`.
+- **Listo (local)**: `mvn compile -am` exitoso en la revision auditada (no sustituye CI).
+- **En curso**: en reactor pero sin evidencia de build reciente por modulo.
+- **Bloqueado (build)**: fallo reproducible de compilacion en el reactor Gradle.
 
 | Modulo | Tipo | Estado | Evidencia | Ruta | Observaciones |
 |---|---|:---:|---|---|---|
@@ -165,44 +97,3 @@ Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (rep
 | CustomItemGenerators | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/CustomItemGenerators` | Kotlin: clase base `AbstractAddon` vs `JavaPlugin` (`dataFolder`, `server`, etc.); dependencia `sf4k` y firma `SlimefunAddon`. |
 | FastMachines | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/FastMachines` | Kotlin: extensiones y tipos esperan `SlimefunAddon`/`SlimefunItemStack` del fork; ajustar imports y bridge de addon. |
 | SlimefunTranslation | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/SlimefunTranslation` | Java: decenas de errores de API (SlimefunAddon, permisos, traducciones); migracion profunda contra Slimefun4 Drake. |
-
----
-
-## Arbol resumido del monorepo
-
-```text
-drakes-slimefun-labs/
-├─ .github/workflows/     # ci-gate-1 .. ci-gate-5
-├─ docs/                  # guias ES/EN + PROJECT_BOARD_SYNC + PLUGIN_MATRIX
-├─ scripts/               # generate_plugin_matrix.py, port_paper_121.py, manager.py
-├─ sources/
-│  ├─ slimefun-core/Slimefun4-src
-│  ├─ dough-core/
-│  ├─ batch-2-expansion/
-│  ├─ community-addons/
-│  ├─ repos-to-port/
-│  └─ internal-metadata/
-├─ pom.xml
-└─ settings.gradle.kts
-```
-
----
-
-## Comandos utiles
-
-```bash
-# Regenerar matriz + README (tabla alineada)
-python scripts/generate_plugin_matrix.py
-
-# Parche masivo Paper 1.21.1 (dry-run primero)
-python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
-
-# Build base Maven (ejemplo)
-mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
-```
-
----
-
-## Licencia
-
-Proyecto bajo **GPLv3**. Ver [`LICENSE`](LICENSE).

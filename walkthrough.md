@@ -7,7 +7,7 @@ Este documento detalla la intervención quirúrgica masiva realizada para estabi
 - **Sombreado Maestro (Core Fix)**: Corrección del `maven-shade-plugin` en `slimefun-core` para incluir Dough bajo el namespace interno, permitiendo la compilación de addons heredados.
 - **Protocolo Sentinel**: Despliegue de `SECURITY.md` y actualización masiva de la Wiki técnica.
 - **Unificación MASTER_MAPPING**: Centralización de namespaces en `dev.drake` para Dough, InfinityLib y SefiLib.
-- **Unificación de Plugins Gradle**: Restaurada la capacidad de construcción de `Galactifun`, `Bump` y `SlimefunTranslation` mediante la inyección de los plugins de Bukkit y Shadow.
+- **Plugins Gradle en el monorepo**: `Galactifun` compila en Gate 5; `Bump`, `CustomItemGenerators`, `FastMachines` y `SlimefunTranslation` siguen **bloqueados** a nivel de compilacion (ver matriz).
 - **Sincronización de Identidad**: Todos los módulos Maven y Gradle ahora usan el namespace unificado `com.github.drakescraft_labs`.
 - **Shadow Patching**: Implementación del parche `commons-lang-drake-patched` para neutralizar vulnerabilidades heredadas.
 
@@ -17,25 +17,29 @@ Este documento detalla la intervención quirúrgica masiva realizada para estabi
     - `inject-lombok`: Verificador de integridad de Getters/Setters.
     - `repair`: Motor de sincronización de identidades Maven.
 
-## 📊 Estado del Reactor
-| Componente | Estado | Acción Realizada |
+## Estado del reactor (corte honesto)
+
+La **fuente de verdad numerica y por modulo** es la tabla generada en el [`README.md`](README.md) y en [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) (`python scripts/generate_plugin_matrix.py`).
+
+| Componente | Estado resumido | Nota |
 | :--- | :--- | :--- |
-| **84 Módulos Maven** | 🟢 Estable | Inyección de JSR-305 y Rebranding. |
-| **5 Módulos Gradle** | 🟢 Estable | Inyección de Plugins y Corrección de Namespaces. |
-| **Slimefun Core** | 🟢 Estable | Rebranding Total y Adaptación 1.21.1. |
-| **Seguridad Sentinel** | 🛡️ Protegido | Auditoría de vulnerabilidades 2026 superada. |
+| **CI Gates 1–5** | Verde en `1.21-latin` | Cubre subconjuntos curados; no implica 86/86 compilando en un solo job. |
+| **Modulos Maven en `pom.xml`** | Mayormente **en curso** | Parches `port_paper_121` aplicados por lotes; falta evidencia de compile/CI por muchos addons. |
+| **Reactor Gradle (5)** | **1 verde (Galactifun)**, 4 bloqueados | Bump, CustomItemGenerators, FastMachines, SlimefunTranslation con fallos de API/Kotlin/Java. |
+| **Slimefun Core + Dough** | Listo en Gate 1 | Baseline Paper 1.21.1 + Java 21. |
 
-## ✅ Validación CI/CD
+## Validacion CI/CD
 
-El reactor híbrido ha superado las barreras previas de compilación, logrando procesar la totalidad de la flota de addons en una sola pasada unificada.
+El pipeline principal permite iterar con seguridad. El trabajo restante es **promover modulos** desde "en curso" o "listo local" hacia gates CI y desbloquear el cuarteto Gradle siguiendo las observaciones de la matriz.
 
-### Fase 3: Estabilización y Purificación (Actual)
-- [x] Unificar namespaces a `dev.drake`.
+### Fase 3: Estabilizacion y purificacion (actual)
+
+- [x] Unificar namespaces a `dev.drake` (donde aplica al monorepo).
 - [x] Corregir reubicaciones de sombras (shades) en el Core.
-- [x] Eliminar telemetría (Metrics) rota de InfinityLib.
+- [x] Eliminar telemetria (Metrics) rota de InfinityLib.
 - [x] Restaurar dependencias externas (SFCalc fix).
-- [x] Desplegar política de seguridad (SECURITY.md).
-- [/] Validar build definitivo del reactor.
+- [x] Desplegar politica de seguridad (SECURITY.md).
+- [/] Ampliar cobertura CI por modulo y cerrar bloqueos Gradle (ver matriz).
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.

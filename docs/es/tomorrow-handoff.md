@@ -1,11 +1,12 @@
 # 🏛️ Tomorrow-Handoff (v16.0)
 
-## 📊 Estado de la Gran Obra
+## Estado operativo (abril 2026)
+
 - **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft_labs`
-- **Integración Estructural**: **100% (89/89 addons)**.
-- **Reactor Maven**: 80 módulos (Core + 78 Addons).
-- **Reactor Gradle**: 9 módulos (Galactifun, Bump, etc.).
-- **Progreso Quirúrgico**: 60/89 addons ya tienen rebranding `-drake`.
+- **Inventario auditado**: ver [`README.md`](../../README.md) y [`PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md) — **86 filas** (81 Maven en `pom.xml` + 5 entradas Gradle del reactor; regenerar con `python scripts/generate_plugin_matrix.py`).
+- **CI**: Gates 1–5 verdes sobre **subconjuntos** curados; no asumir build global de los 86.
+- **Gradle**: `Galactifun` OK en CI; cuatro addons comunitarios siguen **bloqueados** de compilacion (detalle en la matriz y en `pending-modules.md`).
+- **Tablero org**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — alinear con [`PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
 ## 🛰️ Infraestructura CI/CD
 - **Unified Engine**: El workflow maestro ya está operativo y valida ambos reactores en paralelo.
@@ -13,7 +14,7 @@
 
 ## 🐍 DrakesLab Manager
 - Usar siempre `python scripts/manager.py audit` para ver el estado real antes de empezar.
-- **NUEVO**: `python scripts/manager.py audit --sync` actualiza automáticamente las métricas del `README.md` (ES/EN) y Checklists.
+- Las metricas de modulo/estado del README se regeneran con `python scripts/generate_plugin_matrix.py` (tabla + `PLUGIN_MATRIX.md`).
 - **REPARACIÓN MAESTRA**: `python scripts/manager.py repair` ahora fuerza la versión `11-SNAPSHOT` del padre y reconstruye bloques dañados.
 - El comando `python scripts/manager.py` (sin flags) repara identidades XML y versiones de padre.
 

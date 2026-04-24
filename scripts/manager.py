@@ -166,9 +166,8 @@ def sync_docs(status):
     
     targets = [
         os.path.join(ROOT_DIR, "README.md"),
-        os.path.join(ROOT_DIR, "README_EN.md"),
         os.path.join(ROOT_DIR, "docs", "es", "migration-checklist.md"),
-        os.path.join(ROOT_DIR, "docs", "en", "migration-checklist.md")
+        os.path.join(ROOT_DIR, "docs", "en", "migration-checklist.md"),
     ]
     
     total_maven = len(status['STABILIZED']) + len(status['SURGICAL'])

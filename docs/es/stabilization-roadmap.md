@@ -2,15 +2,16 @@
 
 ## Objetivo
 
-Esta página traduce el inventario del `README.md` a una secuencia operativa. La meta no es solo "hacer que compile", sino cerrar el backlog real sin mezclar variantes viejas, sin inflar el reactor y sin dejar estados ambiguos.
+Esta página traduce el inventario del [`README.md`](../../README.md) y la [`PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md) (generada) a una secuencia operativa. La meta no es solo "hacer que compile", sino cerrar el backlog real sin mezclar variantes viejas, sin inflar el reactor y sin dejar estados ambiguos.
 
-## Estado Base
+## Estado base (auditable)
 
-- Universo del workspace: `87 addons + 2 módulos base`
-- Módulos activos en reactor: `89` (100% de la flota)
-- Estado de Estabilidad: `Transfusión masiva JSR-305 aplicada` ✅
-- Bloqueadores actuales: `Validación final del CI/CD`
-- Backlog operativo real: `0 (Todo asimilado)`
+- Inventario unificado en el reactor: **86 entradas** (Maven + Gradle; ver matriz generada).
+- **Listo (CI)**: subconjunto explicito en `ci-gate-*.yml` (no es el 100% del monorepo).
+- **Listo (local)**: modulos con `mvn compile -am` verificado fuera de gate; pendiente promocion a CI.
+- **En curso**: mayoria de modulos Maven con parches `port_paper_121` aplicados pero sin evidencia de build por modulo en CI.
+- **Bloqueado (build)**: cuatro addons Gradle con fallos reproducibles (ver `pending-modules.md` y columnas de la matriz).
+- Tablero org: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — mantener alineado con la matriz ([`PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
 
 ## 🛡️ Fortificación y Seguridad (Especial 2026)
 

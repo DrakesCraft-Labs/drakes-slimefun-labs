@@ -8,6 +8,8 @@ Definir una política clara para publicación de artefactos y automatización en
 
 Este repositorio es un `reactor Maven` grande y curado por etapas.
 
+El inventario por modulo (listo CI, listo local, en curso, bloqueado) esta en el [`README.md`](../../README.md) y en [`PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md), generados por `scripts/generate_plugin_matrix.py`. El [Project 1 de la org](https://github.com/orgs/DrakesCraft-Labs/projects/1) debe reflejar esos mismos estados ([`PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
+
 Eso implica que:
 
 - no todos los módulos tienen el mismo nivel de validación runtime

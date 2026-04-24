@@ -5,18 +5,16 @@ Usar este resumen como punto de partida cuando se abre una sesión nueva y hace 
 ## Contexto corto
 
 - rama: `1.21-latin`
-- stack: `Paper 1.21.11`, `Java 21`, `Slimefun 6`, `dough-core 1.3.1-DRAKE`
-- reactor activo: `59` módulos
-- listos en reactor: `57`
-- fallos activos: `2`
-- fuera del reactor: `30`
+- stack: `Paper 1.21.1`, `Java 21`, ecosistema Slimefun (ver `pom.xml` raiz)
+- inventario auditado: **86** entradas en reactor (ver `README.md` + `docs/es/PLUGIN_MATRIX.md`)
+- CI: Gates 1–5 en verde sobre subconjuntos curados (no prueba de build de los 86 en un solo job)
 
 ## Reglas clave
 
 - no compilar todo el reactor salvo necesidad estricta
 - usar `mvn -pl <ruta> -am -DskipTests package`
 - antes de tocar código, distinguir fallo de `pom.xml` contra fallo de API
-- si se actualiza un estado, sincronizar `README.md` y wiki
+- si se actualiza un estado, ejecutar `python scripts/generate_plugin_matrix.py` y alinear el [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) (`docs/PROJECT_BOARD_SYNC.md`)
 
 ## Próximo enfoque recomendado
 

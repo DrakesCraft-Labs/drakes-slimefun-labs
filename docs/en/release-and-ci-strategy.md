@@ -2,6 +2,8 @@
 
 ## Current policy
 
+Per-module readiness is tracked in the generated root [`README.md`](../../README.md) and [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) (`python scripts/generate_plugin_matrix.py`). Keep the org [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) aligned using [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
+
 The repository is operated in an incremental-stability model:
 
 - Keep the main branch (`1.21-latin`) green at all times.

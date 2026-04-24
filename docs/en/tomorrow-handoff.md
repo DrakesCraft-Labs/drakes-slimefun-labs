@@ -1,63 +1,49 @@
-# Tomorrow Handoff
+# Tomorrow handoff
 
-## Current State
+## Operational snapshot (April 2026)
 
-- Main working branch: `1.21-latin`
-- Target stack: `Paper 1.21.11`, `Java 21`, `Slimefun 6`, `dough-core 1.3.1-DRAKE`
-- Active reactor: `59` modules
-- Ready in reactor: `57`
-- Active failures in reactor: `2`
-- Outside the reactor: `30`
-- Real operational backlog: `32 addons`
+- **Branch**: `1.21-latin` | **Identity**: `com.github.drakescraft_labs`
+- **Audited inventory**: see root [`README.md`](../../README.md) and [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) — **86 rows** (81 Maven modules in root `pom.xml` + 5 Gradle reactor entries). Regenerate with `python scripts/generate_plugin_matrix.py`.
+- **CI**: Gates 1–5 are green on **curated subsets**; do not assume a single job builds all 86.
+- **Gradle**: `Galactifun` is OK in CI; four community addons remain **compile-blocked** (details in the matrix and `docs/en/pending-modules.md`).
+- **Org board**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned via [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
-## Last Confirmed Status
+## CI/CD infrastructure
 
-The human source of truth is `README_EN.md`.
+- Gate workflows (`ci-gate-1` … `ci-gate-5`) validate Maven and Gradle slices separately.
+- Regenerate the README/module table after inventory-affecting changes: `python scripts/generate_plugin_matrix.py`.
 
-That file already documents:
+## DrakesLab Manager
 
-- which addons are ready
-- which ones are still failing inside the reactor
-- which ones are still outside the reactor
-- plugin-specific notes where they matter
+- Use `python scripts/manager.py audit` to inspect repository state before large edits.
+- `python scripts/manager.py repair` can fix parent/version/XML identity issues (review diffs).
 
-## Active Blockers
+## Dependency stabilization notes (Phase 2 highlights)
 
-### `GeneticChickengineering-Reborn`
+- Several addons needed explicit `dough-core` / Slimefun coordinates even when versions come from the parent.
+- Lombok and Paper API 1.21.1 migrations were applied in batches; always verify with targeted `-pl … -am` builds.
 
-- still integrated into the reactor, but not ready
-- current main blocker: `pom.xml` and missing dependencies
-- review `lombok` and `bstats` first
+## Recommended next route
 
-### `PotionExpansion`
+1. Promote **local-green** Maven modules into the right `ci-gate-*.yml` slice.
+2. Triage the **Gradle-blocked** quartet using the matrix “Observaciones” column.
+3. Smoke-test high-risk gameplay addons on a real Paper 1.21.1 server.
 
-- still integrated into the reactor, but not ready
-- current main blocker: old API usage
-- review `SlimefunItemStack.item()`
-- review old `CustomItemStack.create(...)` calls
+## Survival commands
 
-## Recommended Next Route
+- **Audit**: `python scripts/manager.py audit`
+- **Maven**: `mvn -pl sources/community-addons/AddonName -am -DskipTests package`
+- **Gradle**: `./gradlew :sources:batch-2-expansion:Galactifun:build`
 
-1. close `GeneticChickengineering-Reborn`
-2. close `PotionExpansion`
-3. go back to quick wins outside the reactor:
-   - `MoreResearches`
-   - `SfBetterChests`
-   - `SlimeHUD`
-   - `SmallSpace`
-   - `Quaptics`
+## Links
 
-## Operational Reminders
-
-- do not build the entire reactor unless strictly needed
-- use isolated builds with `-pl` and `-am`
-- if an addon changes state, sync `README.md`, `README_EN.md`, and the wiki
-- do not count historical variants as ready if the active target is a different variant
-- do not commit `build_status.log` unless explicitly requested
+- [Migration checklist](migration-checklist.md)
+- [Release & CI strategy](release-and-ci-strategy.md)
+- [Pending modules](pending-modules.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Sync cut: **2026-04-24**.
+> Active baseline: **Paper 1.21.1 + Java 21**.
+> Main CI on `1.21-latin`: **Gates 1–5 green**.
+> Note: incremental migration continues for the wider monorepo beyond the gate subsets.
 <!-- DRAKES-STATUS:END -->

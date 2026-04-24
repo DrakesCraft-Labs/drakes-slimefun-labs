@@ -17,11 +17,17 @@
 
 ## Navegacion rapida
 
+- **README raiz** (tabla de todos los modulos generada): [`README.md`](../../README.md)
+- **Matriz auditada** (86 filas, no editar a mano): [`docs/es/PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md)
+- **Tablero GitHub org**: [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
+- **Sincronizar tablero con la matriz**: [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)
 - Checklist: `docs/es/migration-checklist.md`
 - Pendientes: `docs/es/pending-modules.md`
 - Roadmap: `docs/es/stabilization-roadmap.md`
 - Estrategia CI/Release: `docs/es/release-and-ci-strategy.md`
 - Referencia tecnica: `docs/es/technical-reference-paper-1.21.1.md`
+
+Regenerar README + matriz: `python scripts/generate_plugin_matrix.py`
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.

@@ -5,7 +5,7 @@
 - preferir cambios pequeños y validados
 - no compilar el reactor completo salvo necesidad real
 - diagnosticar primero `pom.xml` y dependencias antes de entrar a port profundo de API
-- documentar cualquier cambio de estado en `README.md` y wiki
+- documentar cualquier cambio de estado: actualizar entradas en `scripts/generate_plugin_matrix.py` si aplica, ejecutar `python scripts/generate_plugin_matrix.py`, y alinear el [tablero de la org](https://github.com/orgs/DrakesCraft-Labs/projects/1) (`docs/PROJECT_BOARD_SYNC.md`)
 
 ## Estándar de Build
 
@@ -19,9 +19,10 @@ También es válido usar `compile` cuando solo se necesita validación rápida d
 
 Cuando un addon cambia de estado:
 
-1. actualizar el inventario del `README.md`
-2. actualizar la wiki si el conteo o la ruta cambió
-3. dejar observaciones si compila pero sigue teniendo riesgo de runtime
+1. ajustar criterios en `scripts/generate_plugin_matrix.py` (gates, evidencia local, bloqueos Gradle) si el hecho tecnico cambio
+2. ejecutar `python scripts/generate_plugin_matrix.py` para refrescar `README.md` y `docs/es/PLUGIN_MATRIX.md`
+3. actualizar el tablero [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) siguiendo `docs/PROJECT_BOARD_SYNC.md`
+4. dejar observaciones si compila pero sigue teniendo riesgo de runtime
 
 ## Criterio de "No Listo"
 

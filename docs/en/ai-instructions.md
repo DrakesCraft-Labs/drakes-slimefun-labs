@@ -2,13 +2,13 @@
 
 ## Base Context
 
-This repository is a migration lab for `Slimefun 6`, `Paper 1.21.11`, `Java 21`, and `dough-core 1.3.1-DRAKE`.
+This repository is a migration lab for Slimefun 4 (Drake fork), `Paper 1.21.1`, `Java 21`, and the shared Dough/Slimefun stack pinned in the root POM.
 
 It is not a single plugin.
 
 ## Working Rules
 
-- read `README.md` and `README_EN.md` first
+- read root `README.md` and generated `docs/es/PLUGIN_MATRIX.md` first (refresh with `python scripts/generate_plugin_matrix.py` if gates changed)
 - use isolated builds with `-pl` and `-am`
 - do not build the full reactor unless strictly necessary
 - determine whether a failure is Maven-related or API-related before editing code
