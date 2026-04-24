@@ -23,7 +23,7 @@ Fecha del corte: `2026-04-24`.
 | Herramienta | OK | FAIL | Notas |
 |-------------|---:|-----:|-------|
 | Maven (`-pl` LiteXpansion, Supreme, TranscEndence `-am compile`) | 3 modulos objetivo + reactor | 0 | `BUILD SUCCESS` con `mvn` portable o sistema |
-| Gradle (`gradlew build -x test`, reactor raiz) | Galactifun + metaproyectos sin fuentes | Bump bloquea el avance | El orden de tareas falla en `:sources:community-addons:Bump:compileJava` antes de revalidar CIG/FastMachines/SlimefunTranslation en este mismo comando |
+| Gradle (`gradlew build -x test`, reactor raiz) | Bump + Galactifun + metaproyectos | Otros modulos Gradle fallan | Bump y Galactifun compilan; el `build` raiz sigue fallando en CustomItemGenerators / FastMachines / SlimefunTranslation segun el orden de tareas |
 
 ### Lote Maven (expansion batch-2)
 
@@ -32,10 +32,10 @@ Fecha del corte: `2026-04-24`.
 ### Lote Gradle auditado (reactor raiz)
 
 - `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL**
-- `sources:community-addons:Bump`: **FAIL** (~92 errores en `compileJava`). Causa principal: `net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon` enlaza contra `io.github.thebusybiscuit.slimefun4.*`, clases que **no** estan en el artefacto `slimefun-core` Drake (`com.github.drakescraft_labs.slimefun4.*`), lo que rompe la verificacion de tipos y arrastra errores en cadena (p. ej. Lombok/getters hasta resolver la jerarquia). Mitigaciones ya aplicadas en repo: plugin `io.freefair.lombok`, imports GuizhanLib 2.x (`common.utils`), `LocalizationService` basado en `SlimefunLocalization`, `main` del plugin corregido en `build.gradle`. Pendiente de diseno: fork/vendored `AbstractAddon` para el namespace Drake, o dependencia de compilacion coherente (sin romper runtime). Tambien aparecen APIs 1.21 (`ItemFlag.HIDE_POTION_EFFECTS`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`).
-- `sources:community-addons:CustomItemGenerators`: **no revalidado** en el ultimo `build` raiz (fallo previo a Bump en el orden actual del reactor).
-- `sources:community-addons:FastMachines`: **no revalidado** (mismo motivo).
-- `sources:community-addons:SlimefunTranslation`: **no revalidado** (mismo motivo); en cortes anteriores: fallos Java API amplios.
+- `sources:community-addons:Bump`: **BUILD SUCCESS** en `compileJava` (abril 2026). Port principal: clase principal `JavaPlugin` + `SlimefunAddon` Drake (sin Guizhan `AbstractAddon` BusyBiscuit), `SimpleMenuBlock` nativo sobre `SlimefunItem` + `BlockMenuPreset`, `LocalizationService` sobre `MinecraftLocalization`, encantamientos/flags 1.21 (`POWER`, `SHARPNESS`, `UNBREAKING`, `HIDE_ADDITIONAL_TOOLTIP`), `GuizhanBuildsUpdater.start(...)`. El `build` raiz del monorepo puede seguir fallando en otros modulos Gradle (CIG/FastMachines/SlimefunTranslation).
+- `sources:community-addons:CustomItemGenerators`: **FAIL** en Kotlin/SlimefunAddon (ver matriz); ejecutar `./gradlew :sources:community-addons:CustomItemGenerators:compileKotlin` para log actual.
+- `sources:community-addons:FastMachines`: **FAIL** Kotlin (tipos BusyBiscuit vs Drake; dependencias InfinityExpansion); ver matriz.
+- `sources:community-addons:SlimefunTranslation`: **FAIL** Java API amplia vs Slimefun Drake; ver matriz.
 
 ### Mitigaciones aplicadas en este bloque
 
@@ -75,5 +75,5 @@ Un modulo se considera cerrado cuando:
 > Estado de sincronizacion: **2026-04-24 (actualizado tras auditoria de build por lotes)**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo corte: Maven lote LiteXpansion/Supreme/TranscEndence en verde; Gradle raiz con Galactifun en verde y Bump bloqueado (guizhanlib vs namespace Slimefun Drake).
+> Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo corte: Maven lote LiteXpansion/Supreme/TranscEndence en verde; Gradle Bump + Galactifun compilan; CustomItemGenerators / FastMachines / SlimefunTranslation siguen bloqueados en el reactor Gradle.
 <!-- DRAKES-STATUS:END -->

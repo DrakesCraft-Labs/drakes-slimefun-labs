@@ -49,14 +49,17 @@ GRADLE_MODULES = {
     "sources/community-addons/SlimefunTranslation",
 }
 GRADLE_FAIL = {
-    "sources/community-addons/Bump",
     "sources/community-addons/CustomItemGenerators",
     "sources/community-addons/FastMachines",
     "sources/community-addons/SlimefunTranslation",
 }
 
+# Modulos Gradle con compile verificado localmente (sin gate CI dedicado)
+LOCAL_GRADLE_COMPILE_OK = {
+    "sources/community-addons/Bump",
+}
+
 GRADLE_FAIL_NOTE = {
-    "sources/community-addons/Bump": "Bloquea `compileJava` del reactor Gradle (~90 errores): `AbstractAddon` de GuizhanLib enlaza `io.github.thebusybiscuit.slimefun4.*`, inexistente en Slimefun Drake (`com.github.drakescraft_labs.slimefun4.*`). Mitigaciones en repo: Lombok Freefair, GuizhanLib 2.x imports, `SlimefunLocalization`. Pendiente: shim/fork de `AbstractAddon` o classpath coherente; APIs 1.21 (`ItemFlag`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`).",
     "sources/community-addons/CustomItemGenerators": "Kotlin: clase base `AbstractAddon` vs `JavaPlugin` (`dataFolder`, `server`, etc.); dependencia `sf4k` y firma `SlimefunAddon`.",
     "sources/community-addons/FastMachines": "Kotlin: extensiones y tipos esperan `SlimefunAddon`/`SlimefunItemStack` del fork; ajustar imports y bridge de addon.",
     "sources/community-addons/SlimefunTranslation": "Java: decenas de errores de API (SlimefunAddon, permisos, traducciones); migracion profunda contra Slimefun4 Drake.",
@@ -107,6 +110,12 @@ def classify(path: str) -> tuple[str, str, str]:
             "Listo (local)",
             "Maven compile 2026-04",
             "Compila con `mvn -pl ... -am compile` en baseline actual; falta incorporarlo a un gate CI y smoke en servidor.",
+        )
+    if path in LOCAL_GRADLE_COMPILE_OK:
+        return (
+            "Listo (local)",
+            "Gradle compile 2026-04",
+            "Port Bump: `JavaPlugin` + SlimefunAddon Drake, maquinas sin Guizhan `MenuBlock`/BusyBiscuit, APIs 1.21 (`Enchantment`, `ItemFlag`). `compileJava` OK; falta gate CI y smoke.",
         )
     if path in GRADLE_MODULES:
         return (

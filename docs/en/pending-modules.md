@@ -23,7 +23,7 @@ Cut date: `2026-04-24`.
 | Tool | OK | FAIL | Notes |
 |------|---:|-----:|-------|
 | Maven (`-pl` LiteXpansion, Supreme, TranscEndence `-am compile`) | 3 target modules + reactor | 0 | `BUILD SUCCESS` |
-| Gradle (`gradlew build -x test`, root reactor) | Galactifun + empty meta-projects | Bump stops the run | Task order fails at `:sources:community-addons:Bump:compileJava` before CIG/FastMachines/SlimefunTranslation are re-checked in the same invocation |
+| Gradle (`gradlew build -x test`, root reactor) | Bump + Galactifun + empty meta-projects | Other Gradle addons fail | Bump and Galactifun compile; the full root `build` still fails on CustomItemGenerators / FastMachines / SlimefunTranslation depending on task order |
 
 ### Maven batch (batch-2 expansion)
 
@@ -32,10 +32,10 @@ Cut date: `2026-04-24`.
 ### Gradle slice (same cut)
 
 - `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL** (also covered by CI Gate 5)
-- `sources:community-addons:Bump`: **FAIL** (~92 `compileJava` errors). Root cause: `net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon` is compiled against `io.github.thebusybiscuit.slimefun4.*`, which is **not** on the classpath for Drake’s `slimefun-core` (`com.github.drakescraft_labs.slimefun4.*`), so type-checking breaks and errors cascade (e.g. Lombok-generated accessors until the hierarchy resolves). Repo mitigations already applied: `io.freefair.lombok`, GuizhanLib 2.x `common.utils` imports, `LocalizationService` extends `SlimefunLocalization`, corrected Bukkit `main` in `build.gradle`. Design follow-up: vendor/fork `AbstractAddon` for Drake’s namespace or a compile-only strategy that stays runtime-safe. Additional 1.21 API drift shows up (`ItemFlag.HIDE_POTION_EFFECTS`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`).
-- `sources:community-addons:CustomItemGenerators`: **not re-checked** in the latest root `build` (Bump fails first in current task order).
-- `sources:community-addons:FastMachines`: **not re-checked** (same).
-- `sources:community-addons:SlimefunTranslation`: **not re-checked** (same); earlier cuts: broad Java API mismatches.
+- `sources:community-addons:Bump`: **BUILD SUCCESS** on `compileJava` (April 2026). Main port: `JavaPlugin` + Drake `SlimefunAddon` (no Guizhan `AbstractAddon` / BusyBiscuit), native `SimpleMenuBlock` on `SlimefunItem` + `BlockMenuPreset`, `LocalizationService` extends `MinecraftLocalization`, 1.21 enchant/flag updates (`POWER`, `SHARPNESS`, `UNBREAKING`, `HIDE_ADDITIONAL_TOOLTIP`), `GuizhanBuildsUpdater.start(...)`. The full root `build` can still fail on other Gradle modules (CIG/FastMachines/SlimefunTranslation).
+- `sources:community-addons:CustomItemGenerators`: **FAIL** (Kotlin / `SlimefunAddon` wiring); run `./gradlew :sources:community-addons:CustomItemGenerators:compileKotlin` for the current log.
+- `sources:community-addons:FastMachines`: **FAIL** (Kotlin / BusyBiscuit vs Drake types; InfinityExpansion wiring); see matrix.
+- `sources:community-addons:SlimefunTranslation`: **FAIL** (broad Java API drift vs Drake Slimefun); see matrix.
 
 ## Automated porting (batch patches)
 
@@ -68,5 +68,5 @@ A module is considered closed when:
 > Sync cut: **2026-04-24 (updated after Gradle batch audit)**.
 > Active baseline: **Paper 1.21.1 + Java 21**.
 > Main CI on `1.21-latin`: **Gates 1–5 green**.
-> Note: the full monorepo remains on incremental migration; latest cut: Maven batch LiteXpansion/Supreme/TranscEndence green; root Gradle with Galactifun green and Bump blocked (GuizhanLib vs Drake Slimefun namespace).
+> Note: the full monorepo remains on incremental migration; latest cut: Maven batch LiteXpansion/Supreme/TranscEndence green; Gradle Bump + Galactifun compile; CustomItemGenerators / FastMachines / SlimefunTranslation remain blocked in the Gradle reactor.
 <!-- DRAKES-STATUS:END -->

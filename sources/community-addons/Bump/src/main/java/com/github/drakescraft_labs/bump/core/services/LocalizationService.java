@@ -20,18 +20,18 @@ import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 import net.guizhanss.guizhanlib.common.utils.StringUtil;
-import net.guizhanss.guizhanlib.slimefun.addon.SlimefunLocalization;
+import net.guizhanss.guizhanlib.minecraft.localization.MinecraftLocalization;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 
 /**
- * This is an extended {@link SlimefunLocalization} service made for Bump.
+ * Localization for Bump (extends Guizhan {@link MinecraftLocalization} to avoid BusyBiscuit Slimefun types).
  *
  * @author ybw0014
  */
 @SuppressWarnings({"ConstantConditions", "java:S1192"})
-public final class LocalizationService extends SlimefunLocalization {
+public final class LocalizationService extends MinecraftLocalization {
     private static final String NULL_RECIPE_TYPE_MESSAGE = "RecipeType Id cannot be null";
 
     public LocalizationService(Bump plugin) {

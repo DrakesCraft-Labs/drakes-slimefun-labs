@@ -46,18 +46,18 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 | Estado | Cantidad | Significado |
 |---:|---:|---|
 | **Listo (CI)** | **12** | Aparece en un workflow `ci-gate-*` y compila alli. |
-| **Listo (local)** | **4** | `mvn compile -am` verde en revision auditada; **pendiente** promover a gate CI. |
+| **Listo (local)** | **5** | `mvn compile -am` verde en revision auditada; **pendiente** promover a gate CI. |
 | **En curso** | **66** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
-| **Bloqueado (build)** | **4** | Fallo reproducible de compilacion en el reactor Gradle. |
+| **Bloqueado (build)** | **3** | Fallo reproducible de compilacion en el reactor Gradle. |
 | **Total modulos** | **86** | Maven + Gradle en reactor; ver conteo exacto en esta fila. |
 
 ### Barra de proporcion (CI vs resto)
 
 ```text
 Listo CI:     12/86  (14.0%)
-Listo local:  4/86
+Listo local:  5/86
 En curso:     66/86
-Bloqueado:    4/86
+Bloqueado:    3/86
 ```
 
 ---
@@ -161,7 +161,7 @@ Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (rep
 | luckyblocks-sf | addon (port) | En curso | Reactor Maven | `sources/repos-to-port/luckyblocks-sf` | En `pom.xml` raiz; aplicado parche masivo `port_paper_121` (Paper 1.21.1) sobre fuentes. Falta compile por lote + inclusion en gate CI. |
 | Slimefun4-src | core | Listo (CI) | Gate 1 | `sources/slimefun-core/Slimefun4-src` | Stack base Paper 1.21.1 + Java 21. |
 | Galactifun | addon (Gradle) | Listo (CI) | Gate 5 Gradle | `sources/batch-2-expansion/Galactifun` | Construido en CI; dependencias base Maven pre-instaladas en el workflow. |
-| Bump | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/Bump` | Bloquea `compileJava` del reactor Gradle (~90 errores): `AbstractAddon` de GuizhanLib enlaza `io.github.thebusybiscuit.slimefun4.*`, inexistente en Slimefun Drake (`com.github.drakescraft_labs.slimefun4.*`). Mitigaciones en repo: Lombok Freefair, GuizhanLib 2.x imports, `SlimefunLocalization`. Pendiente: shim/fork de `AbstractAddon` o classpath coherente; APIs 1.21 (`ItemFlag`, `Enchantment.LUCK`, `Attribute.HORSE_JUMP_STRENGTH`). |
+| Bump | addon (Gradle) | Listo (local) | Gradle compile 2026-04 | `sources/community-addons/Bump` | Port Bump: `JavaPlugin` + SlimefunAddon Drake, maquinas sin Guizhan `MenuBlock`/BusyBiscuit, APIs 1.21 (`Enchantment`, `ItemFlag`). `compileJava` OK; falta gate CI y smoke. |
 | CustomItemGenerators | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/CustomItemGenerators` | Kotlin: clase base `AbstractAddon` vs `JavaPlugin` (`dataFolder`, `server`, etc.); dependencia `sf4k` y firma `SlimefunAddon`. |
 | FastMachines | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/FastMachines` | Kotlin: extensiones y tipos esperan `SlimefunAddon`/`SlimefunItemStack` del fork; ajustar imports y bridge de addon. |
 | SlimefunTranslation | addon (Gradle) | Bloqueado (build) | Gradle monorepo | `sources/community-addons/SlimefunTranslation` | Java: decenas de errores de API (SlimefunAddon, permisos, traducciones); migracion profunda contra Slimefun4 Drake. |

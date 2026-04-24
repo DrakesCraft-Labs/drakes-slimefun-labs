@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.bump.api.appraise.AppraiseAttribute;
@@ -155,7 +156,13 @@ public final class AppraiseTypeMenu {
                 Bump.getLocalization().getStringList("appraise_info.material.lore_disabled")
             );
         }
-        return result.addFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        ItemStack stack = result.clone();
+        ItemMeta meta = stack.getItemMeta();
+        if (meta != null) {
+            meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
+            stack.setItemMeta(meta);
+        }
+        return stack;
     }
 
     @Nonnull

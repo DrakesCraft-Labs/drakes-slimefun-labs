@@ -275,35 +275,35 @@ public final class BumpItems {
             Material.DIAMOND_SWORD
         );
 
-        LIGHT_BOW.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 5);
+        LIGHT_BOW.addUnsafeEnchantment(Enchantment.POWER, 5);
 
-        WITHERSKULL_BOW.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 5);
+        WITHERSKULL_BOW.addUnsafeEnchantment(Enchantment.POWER, 5);
 
-        EMER_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
+        EMER_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 1);
 
-        BONE_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+        BONE_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 10);
 
         AppraiseUtils.setAppraisable(RANDOM_SWORD);
 
-        GUARD_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
+        GUARD_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 5);
         GUARD_SWORD.addUnsafeEnchantment(Enchantment.IMPALING, 3);
 
         PEACH_SWORD.addUnsafeEnchantment(Enchantment.KNOCKBACK, 5);
-        PEACH_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
+        PEACH_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 3);
 
-        SOUL_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
-        SOUL_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+        SOUL_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 2);
+        SOUL_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
 
-        SKY_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
-        SKY_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+        SKY_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 1);
+        SKY_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
         SKY_SWORD.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 1);
 
-        DEVIL_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
-        DEVIL_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+        DEVIL_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 1);
+        DEVIL_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
         DEVIL_SWORD.addUnsafeEnchantment(Enchantment.SWEEPING_EDGE, 1);
 
-        SKY_DEVIL_SWORD.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
-        SKY_DEVIL_SWORD.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+        SKY_DEVIL_SWORD.addUnsafeEnchantment(Enchantment.SHARPNESS, 5);
+        SKY_DEVIL_SWORD.addUnsafeEnchantment(Enchantment.UNBREAKING, 5);
         SKY_DEVIL_SWORD.addUnsafeEnchantment(Enchantment.LOYALTY, 5);
 
         // endregion weapon

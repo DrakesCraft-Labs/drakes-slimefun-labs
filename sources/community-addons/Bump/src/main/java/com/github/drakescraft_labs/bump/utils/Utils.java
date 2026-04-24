@@ -56,7 +56,7 @@ public final class Utils {
         }
 
         final ItemMeta itemMeta = item.getItemMeta();
-        itemMeta.addEnchant(Enchantment.LUCK, 1, true);
+        itemMeta.addEnchant(Enchantment.UNBREAKING, 1, true);
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(itemMeta);
     }

@@ -1,37 +1,43 @@
 package com.github.drakescraft_labs.bump.implementation.items.machines;
 
+import java.util.List;
+
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
+import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
+import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
+import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
-
-import net.guizhanss.guizhanlib.slimefun.machines.MenuBlock;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
+import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 
 /**
- * A {@link MenuBlock} that has single input and output slot.
- * <p>
- * Consumes power when use this machine.
+ * Single-input / single-output menu machine on Slimefun Drake (replaces Guizhan {@code MenuBlock}).
  *
  * @author ybw0014
  */
-public abstract class SimpleMenuBlock extends MenuBlock implements EnergyNetComponent {
+public abstract class SimpleMenuBlock extends SlimefunItem implements InventoryBlock, EnergyNetComponent {
 
-    // gui
     private static final int[] BACKGROUND = {
         0, 4, 8, 9, 17, 18, 22, 26
     };
@@ -45,44 +51,45 @@ public abstract class SimpleMenuBlock extends MenuBlock implements EnergyNetComp
     private static final int OPERATION_SLOT = 13;
     private static final int OUTPUT_SLOT = 15;
 
-    /**
-     * Constructor.
-     *
-     * @param itemGroup  the {@link ItemGroup} of this {@link MenuBlock}
-     * @param item       the {@link SlimefunItemStack} of this {@link MenuBlock}
-     * @param recipeType the {@link RecipeType} of this {@link MenuBlock}
-     * @param recipe     the recipe of this {@link MenuBlock}
-     */
     @ParametersAreNonnullByDefault
     protected SimpleMenuBlock(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-    }
 
-    @Nonnull
-    protected abstract ItemStack getOperationSlotItem();
-
-    @Override
-    protected void setup(BlockMenuPreset blockMenuPreset) {
-        blockMenuPreset.drawBackground(ChestMenuUtils.getBackground(), BACKGROUND);
-        blockMenuPreset.drawBackground(ChestMenuUtils.getInputSlotTexture(), INPUT_BACKGROUND);
-        blockMenuPreset.drawBackground(ChestMenuUtils.getOutputSlotTexture(), OUTPUT_BACKGROUND);
-
-        blockMenuPreset.addItem(OPERATION_SLOT, getOperationSlotItem());
-        blockMenuPreset.addMenuClickHandler(OPERATION_SLOT, ChestMenuUtils.getEmptyClickHandler());
-    }
-
-    @Override
-    protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu) {
-        super.onBreak(e, menu);
-        Location location = menu.getLocation();
-        menu.dropItems(location, INPUT_SLOT);
-        menu.dropItems(location, OUTPUT_SLOT);
+        addItemHandler(
+            new BlockBreakHandler(false, false) {
+                @Override
+                public void onPlayerBreak(BlockBreakEvent e, ItemStack tool, List<ItemStack> drops) {
+                    BlockMenu menu = BlockStorage.getInventory(e.getBlock());
+                    if (menu != null) {
+                        SimpleMenuBlock.this.onBreak(e, menu);
+                    }
+                }
+            },
+            new BlockPlaceHandler(false) {
+                @Override
+                public void onPlayerPlace(BlockPlaceEvent e) {
+                    SimpleMenuBlock.this.onPlace(e, e.getBlockPlaced());
+                }
+            }
+        );
     }
 
     @ParametersAreNonnullByDefault
-    @Override
+    @Nonnull
+    protected final int[] getTransportSlots(DirtyChestMenu menu, ItemTransportFlow flow, ItemStack item) {
+        return switch (flow) {
+            case INSERT -> getInputSlots(menu, item);
+            case WITHDRAW -> getOutputSlots();
+        };
+    }
+
+    @ParametersAreNonnullByDefault
+    protected int[] getInputSlots(DirtyChestMenu menu, ItemStack item) {
+        return getInputSlots();
+    }
+
+    @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
-        super.onNewInstance(blockMenu, b);
         blockMenu.addMenuClickHandler(OPERATION_SLOT, (player, slot, itemStack, clickAction) -> {
             onOperate(blockMenu, b, player, clickAction);
             return false;
@@ -90,7 +97,61 @@ public abstract class SimpleMenuBlock extends MenuBlock implements EnergyNetComp
     }
 
     @ParametersAreNonnullByDefault
+    protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu) {
+        var l = menu.getLocation();
+        menu.dropItems(l, getInputSlots());
+        menu.dropItems(l, getOutputSlots());
+    }
+
+    @ParametersAreNonnullByDefault
+    protected void onPlace(BlockPlaceEvent e, Block b) {
+        // default: no-op (Guizhan MenuBlock parity)
+    }
+
+    @Override
+    public void postRegister() {
+        new BlockMenuPreset(getId(), getItemName()) {
+
+            @Override
+            public void init() {
+                SimpleMenuBlock.this.setup(this);
+            }
+
+            @Override
+            public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block b) {
+                SimpleMenuBlock.this.onNewInstance(menu, b);
+            }
+
+            @Override
+            public int[] getSlotsAccessedByItemTransport(DirtyChestMenu menu, ItemTransportFlow flow, ItemStack item) {
+                return SimpleMenuBlock.this.getTransportSlots(menu, flow, item);
+            }
+
+            @Override
+            public int[] getSlotsAccessedByItemTransport(ItemTransportFlow flow) {
+                return new int[0];
+            }
+
+            @Override
+            public boolean canOpen(@Nonnull Block b, @Nonnull Player p) {
+                if (p.hasPermission("slimefun.inventory.bypass")) {
+                    return true;
+                }
+                return SimpleMenuBlock.this.canUse(p, false)
+                    && (Slimefun.instance().isUnitTest()
+                        || Slimefun.getProtectionManager().hasPermission(p, b, Interaction.INTERACT_BLOCK));
+            }
+        };
+    }
+
+    @Nonnull
+    protected abstract ItemStack getOperationSlotItem();
+
+    @ParametersAreNonnullByDefault
     protected abstract void onOperate(BlockMenu menu, Block b, Player p, ClickAction action);
+
+    @Override
+    public abstract int getCapacity();
 
     @Nonnull
     @Override
@@ -106,13 +167,23 @@ public abstract class SimpleMenuBlock extends MenuBlock implements EnergyNetComp
         return OUTPUT_SLOT;
     }
 
-    @Override
-    protected final int[] getInputSlots() {
-        return new int[]{INPUT_SLOT};
+    @ParametersAreNonnullByDefault
+    private void setup(BlockMenuPreset blockMenuPreset) {
+        blockMenuPreset.drawBackground(ChestMenuUtils.getBackground(), BACKGROUND);
+        blockMenuPreset.drawBackground(ChestMenuUtils.getInputSlotTexture(), INPUT_BACKGROUND);
+        blockMenuPreset.drawBackground(ChestMenuUtils.getOutputSlotTexture(), OUTPUT_BACKGROUND);
+
+        blockMenuPreset.addItem(OPERATION_SLOT, getOperationSlotItem());
+        blockMenuPreset.addMenuClickHandler(OPERATION_SLOT, ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
-    protected final int[] getOutputSlots() {
-        return new int[]{OUTPUT_SLOT};
+    public int[] getInputSlots() {
+        return new int[] { INPUT_SLOT };
+    }
+
+    @Override
+    public int[] getOutputSlots() {
+        return new int[] { OUTPUT_SLOT };
     }
 }
