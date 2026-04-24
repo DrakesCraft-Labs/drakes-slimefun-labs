@@ -150,5 +150,11 @@
 			<version>2.14.1</version>
 			<scope>provided</scope>
 		</dependency>
-	</dependencies>
+	
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

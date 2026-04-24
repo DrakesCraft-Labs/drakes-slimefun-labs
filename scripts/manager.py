@@ -272,6 +272,55 @@ def inject_lombok(dry_run=False):
 
     log(f"Inyección de Lombok completada. Módulos alimentados: {count}", "SUCCESS")
 
+def inject_jsr305(dry_run=False):
+    log("Iniciando Inyección Masiva de JSR-305 (Anotaciones)...", "INFO")
+    
+    count = 0
+    for root, dirs, files in os.walk(SOURCES_DIR):
+        if "pom.xml" in files:
+            pom_path = os.path.join(root, "pom.xml")
+            
+            # 1. ¿Usa anotaciones en el código?
+            needs_jsr = False
+            for r, d, f in os.walk(root):
+                for file in f:
+                    if file.endswith(".java"):
+                        try:
+                            with open(os.path.join(r, file), 'r', encoding='utf-8', errors='ignore') as jf:
+                                code = jf.read()
+                                if any(x in code for x in ["@Nonnull", "@Nullable", "javax.annotation"]):
+                                    needs_jsr = True
+                                    break
+                        except: pass
+                if needs_jsr: break
+            
+            if needs_jsr:
+                with open(pom_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                if "jsr305" not in content.lower():
+                    log(f"Inyectando JSR-305 en: {os.path.relpath(pom_path, ROOT_DIR)}", "WARNING")
+                    
+                    dependency_block = """
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>"""
+                    
+                    new_content = content.replace("</dependencies>", dependency_block)
+                    
+                    if not dry_run:
+                        if validate_xml(new_content):
+                            with open(pom_path, 'w', encoding='utf-8') as f:
+                                f.write(new_content)
+                            count += 1
+                    else:
+                        count += 1
+
+    log(f"Inyección de JSR-305 completada. Módulos alimentados: {count}", "SUCCESS")
+
 def migrate_to_paper(dry_run=False):
     log("Iniciando Migración Masiva a Paper-API...", "INFO")
     
@@ -558,6 +607,8 @@ if __name__ == "__main__":
         inject_dough(dry_run=is_dry)
     elif action == "inject-lombok":
         inject_lombok(dry_run=is_dry)
+    elif action == "inject-jsr305":
+        inject_jsr305(dry_run=is_dry)
     elif action == "migrate-to-paper":
         migrate_to_paper(dry_run=is_dry)
     elif action == "rebrand-shades":
