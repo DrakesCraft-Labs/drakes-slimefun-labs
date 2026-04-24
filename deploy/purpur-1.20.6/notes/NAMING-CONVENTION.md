@@ -14,3 +14,10 @@ Para mantener coherencia operativa y saber rápidamente la procedencia y madurez
 1. No usar espacios en los nombres de los Jars.
 2. Añadir siempre la versión del plugin (por más que cambie internamente, ayuda visualmente).
 3. Etiquetar la versión de Minecraft al final (para evitar accidentes al migrar a una 1.21).
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

@@ -54,3 +54,10 @@ That file already documents:
 - if an addon changes state, sync `README.md`, `README_EN.md`, and the wiki
 - do not count historical variants as ready if the active target is a different variant
 - do not commit `build_status.log` unless explicitly requested
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

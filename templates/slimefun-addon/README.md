@@ -28,3 +28,10 @@ mvn -pl ruta/del/modulo -am -DskipTests package
 - no fijes coordenadas viejas de `Slimefun 5`
 - si usas `dough`, apunta al stack `dev.drake.dough`
 - no marques el addon como listo solo porque compile una vez
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

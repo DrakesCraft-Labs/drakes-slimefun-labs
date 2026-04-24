@@ -69,3 +69,10 @@ Implementaremos un motor de traducción sobre el branch de migración.
 1. Inicializar el **Parent POM** y el módulo `v-bridge`.
 2. Migrar **SefiLib** y **InfinityLib** como las primeras dependencias del Parent.
 3. Seleccionar **SlimeChem** como el proyecto "Piloto" para validar el Bridge en 1.21.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

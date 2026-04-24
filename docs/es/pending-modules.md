@@ -1,77 +1,31 @@
-# Modulos Pendientes
+# Modulos pendientes
 
-## Pendientes Dentro del Reactor
+Este documento refleja el estado real despues de la estabilizacion CI actual.
 
-Estos addons ya estan declarados en el `pom.xml` raiz, pero todavia no estan todos cerrados.
+## Estado actual
 
-- Conteo real pendiente en reactor: `0`
-- Este numero representa solo el backlog del build unificado.
-- La lista explicita larga vive ahora en `README.md`.
+- Gates 1-5: estables en verde
+- Pendiente principal: ampliar cobertura de modulos fuera del subset estable
+- Trabajo requerido: reingreso por lotes + smoke tests por addon sensible
 
-> [!NOTE]
-> El tablero del `README` debe mantenerse alineado contra el estado real de este grupo. Si cambia el conteo, actualizar tambien la wiki.
+## Bloques de trabajo sugeridos
 
-- Ninguno. El reactor activo está estable a nivel de build en este momento.
+1. Reintroducir modulos al CI en lotes pequenos.
+2. Resolver incompatibilidades de dependencias legacy (repos externos, snapshots, coordinates antiguas).
+3. Ejecutar smoke tests de runtime en addons con mecanicas complejas.
+4. Consolidar documentacion de cierre por lote.
 
-## Fuera del Reactor
+## Criterio de cierre
 
-Estos addons existen en el repo pero aun no estan incorporados al build unificado:
+Un modulo se considera cerrado cuando:
 
-- `Cultivation`
-- `EMC2`
-- `Galactifun`
-- `Networks`
-- `AdvancedTech`
-- `Better-Nuclear-Generator`
-- `Bump`
-- `CompressionCraft`
-- `CustomItemGenerators`
-- `EMCTech`
-- `FastMachines`
-- `Gastronomicon`
-- `Geyser-Slimefun-Heads`
-- `MoreResearches`
-- `Netheopoiesis`
-- `Quaptics`
-- `RelicsOfCthonia`
-- `SaneCrafting`
-- `SfBetterChests`
-- `SlimeFrame`
-- `SlimefunAdvancements`
-- `SlimefunTranslation`
-- `SlimefunWarfare`
-- `SlimeHUD`
-- `SmallSpace`
-- `SpiritsUnchained`
-- `VillagerTrade`
-- `Wildernether`
-- `WorldEditSlimefun`
+- compila dentro del gate correspondiente,
+- no rompe el pipeline global,
+- y tiene validacion minima de runtime si aplica.
 
-## Easy para Continuar
-
-- `MoreResearches`
-- `SfBetterChests`
-- `SlimeHUD`
-- `SmallSpace`
-- `Quaptics`
-
-## Intermedios
-
-- `Geyser-Slimefun-Heads`
-- `Gastronomicon`
-- `RelicsOfCthonia`
-- `VillagerTrade`
-- `Wildernether`
-- `WorldEditSlimefun`
-
-## Pesados o de Triage Primero
-
-- `Galactifun`
-- `Bump`
-- `CustomItemGenerators`
-- `FastMachines`
-- `SlimefunTranslation`
-- `Cultivation`
-- `Networks`
-- `EMC2`
-- `SlimefunWarfare`
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

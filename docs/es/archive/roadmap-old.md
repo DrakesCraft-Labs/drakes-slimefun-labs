@@ -42,3 +42,10 @@ Completar una libreria util de plugins para `Purpur 1.20.6` que permita montar u
 ## Pendientes Operativos
 
 - probar la estabilidad de las configuraciones base en runtime
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

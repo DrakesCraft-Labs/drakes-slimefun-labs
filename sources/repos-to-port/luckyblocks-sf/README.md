@@ -28,3 +28,10 @@ Click the badge down below to join the server for suggestions/questions or other
 
 ## Open Source
 This Project is open-source and licensed under [GNU GPLv3](https://github.com/TheBusyBiscuit/luckyblocks-sf/blob/master/LICENSE)
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

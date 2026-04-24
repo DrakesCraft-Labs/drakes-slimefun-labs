@@ -1,43 +1,36 @@
-# 🚀 Release and CI Strategy: DrakesLab Standard
+# Release and CI Strategy
 
-## Goal
-Define a clear policy for artifact publication and automation in `drakes-slimefun-labs`, leveraging the **Unified Engine** to maintain high-quality standards across the 89-addon ecosystem.
+## Current policy
 
-## 🏗️ Unified CI Architecture
-As of v15.0, we have consolidated all automation into a single, high-performance engine: **DrakesLab Unified Engine** (`unified-engine.yml`).
+The repository is operated in an incremental-stability model:
 
-### Core Capabilities:
-- **Parallel Processing**: Builds both Maven and Gradle reactors simultaneously.
-- **Ecosystem Audit**: Automatically runs `manager.py audit` to track migration progress.
-- **Strict Quality**: Forces **Java 21** and **Paper 1.21.1** standards.
-- **Smart Caching**: Aggressive dependency caching for sub-3-minute full builds.
+- Keep the main branch (`1.21-latin`) green at all times.
+- Expand module coverage in controlled batches.
+- Prefer deterministic dependencies over snapshot-only external sources.
 
-## 📦 Deployment Policy
+## CI shape
 
-### Automated Deployment (Continuous Delivery)
-The **Unified Engine** automatically deploys the following critical modules to **GitHub Packages** upon every successful push to `1.21-latin`:
-- `com.github.drakescraft_labs:dough-core`
-- `com.github.drakescraft_labs:slimefun-core`
-- `com.github.drakescraft_labs:sefilib-core`
-- `com.github.drakescraft_labs:infinitylib-core`
+- Gate 1: foundation baseline
+- Gate 2: stable addons subset
+- Gate 3: community subset under active migration
+- Gate 4: complex/heavy subset
+- Gate 5: gradle front subset
 
-### Manual Release Candidates
-Individual addons are not automatically released as stable versions. Instead:
-1. **Workflow Artifacts**: Every build generates downloadable `.jar` files for all 89 addons.
-2. **Smoke Testing**: Developers must manually validate artifacts in a live environment.
-3. **Draft Releases**: Stable batches or high-priority addons (like `InfinityExpansion` or `DynaTech`) are published as manual releases after runtime confirmation.
+## Release posture
 
-## 🛠️ Recommended Developer Workflow
-1. **Local Validation**: Run `python scripts/manager.py` to sync identities.
-2. **Isolated Build**: Use `mvn -pl <path> -am clean install` for fast local testing.
-3. **CI Validation**: Push to `1.21-latin` and monitor the **Unified Engine** for regressions.
+- Core artifacts are validated continuously through CI.
+- Addon-level production readiness still requires runtime smoke checks.
+- A passing pipeline is a required condition, not a sufficient production guarantee.
 
-## ✅ Quality Gate Standards
-A module is considered "Surgical Ready" and eligible for stable distribution when:
-- It successfully passes the **Unified Engine** build.
-- It uses the `com.github.drakescraft_labs` unified identity.
-- No legacy API warnings or dependency conflicts are present.
-- It has been smoke-tested in a real Minecraft server environment.
+## Next milestones
 
----
-**Maintained by DrakesLab Core Team.**
+1. Reintroduce broader module sets per gate.
+2. Remove legacy dependency bottlenecks.
+3. Track runtime validation status per addon group.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

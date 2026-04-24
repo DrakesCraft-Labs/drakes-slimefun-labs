@@ -36,3 +36,10 @@ El reactor híbrido ha superado las barreras previas de compilación, logrando p
 - [x] Restaurar dependencias externas (SFCalc fix).
 - [x] Desplegar política de seguridad (SECURITY.md).
 - [/] Validar build definitivo del reactor.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

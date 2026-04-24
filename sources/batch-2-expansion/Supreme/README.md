@@ -163,3 +163,10 @@ Make a new issue, pull request, or discord Slimefun-Addon-Community
 - **supreme-enchant** - Indication Enchantment of the gear and tools
 - **supreme-effects** - Indication Effects of the gear
 - **power-section** - Customizable Capacity, Buffer and Energy of the capacitor and generator
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

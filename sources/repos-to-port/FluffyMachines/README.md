@@ -73,3 +73,10 @@ Custom item settings can be changed in `plugins/Slimefun/Items.yml`
 ## FAQ
 **Can cargo be used on the Foundry?**
 *Yes, but you can not place it directly on the Superheated Furnace. Place down a chest in its place, put the cargo on the chest, and then replace the chest wth the Superheated Furnace.*
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

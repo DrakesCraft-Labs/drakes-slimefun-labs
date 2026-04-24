@@ -1,77 +1,31 @@
-# Bienvenido a Drakes Slimefun Labs Wiki
+# Inicio - Drakes Slimefun Labs
 
-> [!NOTE]
-> Esta wiki documenta el estado real del laboratorio de migracion para `Paper 1.21.11`, `Java 21`, `Slimefun 6` y `dough-core 1.3.1-DRAKE`.
+> Estado sincronizado al cierre operativo actual de la rama `1.21-latin`.
 
----
+## Resumen ejecutivo
 
-## Estado Real
+- Baseline tecnico vigente: `Paper 1.21.1`, `Java 21`
+- CI principal (Gate 1 a Gate 5): en verde
+- Dependency Submission Maven: en verde
+- Enfoque del momento: estabilidad CI + migracion gradual de modulos legacy
 
-- Addons presentes en el repo: `87`
-- Modulos base: `2`
-- Universo total del workspace: `89`
-- Modulos activos en el reactor: `60`
-- Modulos listos dentro del reactor: `60`
-- Modulos activos con fallo confirmado: `0`
-- Addons fuera del reactor: `29`
-- Backlog bruto real: `29 addons`
+## Que significa esto
 
-> [!TIP]
-> El `README.md` ahora contiene la lista explicita completa de addons listos, addons con observaciones y addons faltantes. Usa esa lista como fuente de verdad humana.
+- El pipeline principal esta sano y permite iterar con seguridad.
+- Aun existen addons que necesitan validacion de runtime y hardening.
+- El estado "verde" no equivale a "todo el monorepo listo para produccion".
 
-## Navegacion Rapida
+## Navegacion rapida
 
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [Project backlog en GitHub](https://github.com/orgs/drakescraft_labs/projects/1/views/1)
-- [[Roadmap de Estabilización]]
-- [[Referencia Técnica (Paper 1.21.1)]]
-- [[Guía de Smoke Test]]
-- [[Dev-Setup]]
-- [[New-Addon-Template]]
-- [[Tomorrow-Handoff]]
-- [[Home-EN]]
-- [Estrategia de Releases y CI](release-and-ci-strategy.md)
+- Checklist: `docs/es/migration-checklist.md`
+- Pendientes: `docs/es/pending-modules.md`
+- Roadmap: `docs/es/stabilization-roadmap.md`
+- Estrategia CI/Release: `docs/es/release-and-ci-strategy.md`
+- Referencia tecnica: `docs/es/technical-reference-paper-1.21.1.md`
 
-## Que significa cada numero
-
-- `Reactor activo`: lo que hoy compila con el parent `pom.xml` unificado.
-- `Activos con fallo confirmado`: addons ya integrados al build, pero aun no cerrados.
-- `Fuera del reactor`: addons presentes en `sources/*` que aun no fueron incorporados al build unificado.
-- `Backlog bruto`: suma de lo pendiente dentro del reactor mas lo que aun esta fuera del reactor.
-
-## Ruta Recomendada
-
-- Primero avanzar con quick wins fuera del reactor y reservar smoke tests para los módulos más sensibles.
-- Despues incorporar quick wins con `pom.xml` ya existente desde comunidad.
-- Dejar para despues los casos con Gradle o variantes obsoletas que requieren triage.
-
-## Quick Wins Actuales
-
-- `MoreResearches`
-- `SfBetterChests`
-- `SlimeHUD`
-- `SmallSpace`
-- `Quaptics`
-
-## Ultimos Cierres Validados
-
-- `MapJammers`
-- `HeadLimiter`
-- `MiniBlocks`
-- `DyeBench`
-- `Element-Manipulation`
-- `MissileWarfare`
-
-## Fallo Activo Confirmado
-
-- `GeneticChickengineering-Reborn`
-- `PotionExpansion`
-
-## Navegacion
-
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [[Roadmap de Estabilización]]
-- [[Tomorrow-Handoff]]
-- [[Home-EN]]
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

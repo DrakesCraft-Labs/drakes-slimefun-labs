@@ -19,3 +19,10 @@
 - [ ] I have added `Nullable` or `Nonnull` annotations to my methods
 - [ ] I have added sufficient Unit Tests to cover my code.
 - [ ] I updated the version in pom.xml according to semantic versioning.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

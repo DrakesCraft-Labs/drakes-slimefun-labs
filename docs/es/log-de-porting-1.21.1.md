@@ -24,3 +24,10 @@
 1. Monitorizar el build `b462a6bd`.
 2. Verificar el sombreado final en los JARs resultantes.
 3. Iniciar fase de pruebas en entorno real (Server 1.21.1).
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

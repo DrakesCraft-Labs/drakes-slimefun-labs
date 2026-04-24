@@ -32,3 +32,10 @@
 1.  **Massive Rebranding**: Move the 20 `STABILIZED` addons to `SURGICAL`.
 2.  **Smoke Tests**: Begin load testing on real Paper 1.21.1 servers.
 3.  **Public Wiki**: Synchronize this local documentation with the GitHub Wiki.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

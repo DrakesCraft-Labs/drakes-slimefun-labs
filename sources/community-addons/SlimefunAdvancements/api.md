@@ -116,3 +116,10 @@ And that's it!
 
 Once again, you can always look at a [reference implementation](https://github.com/qwertyuioplkjhgfd/ExampleCriteria). <br>
 If you're still confused, feel free to ask in the [Slimefun Addon Community discord server](https://discord.gg/SqD3gg5SAU).
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

@@ -27,3 +27,10 @@ https://www.spigotmc.org/resources/quaptics.112602/
 ![circuit-2](https://github.com/metamechanists/Quaptics/assets/35176119/0862eda9-51ff-40f5-bc36-81f81f40bd92)
 ![beacons](https://github.com/metamechanists/Quaptics/assets/35176119/5c4560a3-9b57-4d86-9c7c-66b95172c0d3)
 ![ezgif-3-3a765a9c1c](https://github.com/metamechanists/Quaptics/assets/35176119/43db8a64-d6ad-4d47-8507-fd99984e7bd8)
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

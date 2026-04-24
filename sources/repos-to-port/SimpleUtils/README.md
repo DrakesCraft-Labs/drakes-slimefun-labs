@@ -36,3 +36,10 @@ Dev 12 - Internal Updates, Elevators now copy block below
 Dev 13 - Simple Workbench can only do vanilla recipes with mc 1.17+
 
 Dev 14 - Fixed Simple Elevator Below y=0, config option to balance sieve item rates
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->
