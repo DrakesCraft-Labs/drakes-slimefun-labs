@@ -22,10 +22,13 @@ Gestiona los addons basados en Gradle (como Galactifun o SlimefunTranslation) me
 - Fuerza el estándar **Java 21** en todos los subproyectos.
 - Conecta los addons a las librerías de DrakesLab publicadas en Maven.
 
-## 🐍 DrakesLab Manager
-La integridad del ecosistema se mantiene mediante `scripts/manager.py`. Sus funciones incluyen:
-- **Auditoría**: Seguimiento del estado de los 89 addons.
-- **Hot-Repair**: Sincronización de identidades XML y reparación de puentes de dependencias internas.
+## 🐍 DrakesLab Manager (Control Plane)
+La integridad y seguridad del ecosistema se mantiene mediante `scripts/manager.py`. Esta herramienta en **Python 3.12** actúa como la capa de orquestación central:
+
+1. **Auditoría de Estado**: Seguimiento en tiempo real de los 89 módulos y sus variantes (Surgical, Stabilized, Gradle).
+2. **Módulo Sentinel (Seguridad Activa)**: Auditoría automática de vulnerabilidades y aplicación de **Shadow Patches** (como el de `commons-lang` v2) para blindar el reactor.
+3. **Hot-Repair**: Sincronización masiva de identidades XML y reparación quirúrgica de dependencias internas.
+4. **Rationale (¿Por qué Python?)**: Se utiliza Python por su superioridad en el procesamiento recursivo de archivos, su potente motor de expresiones regulares para refactorizaciones masivas y su capacidad de automatizar auditorías de seguridad complejas de forma multiplataforma.
 
 ## 🚀 CI/CD: Unified Engine
 Contamos con un único workflow maestro (`unified-engine.yml`) que:

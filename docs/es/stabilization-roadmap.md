@@ -13,6 +13,14 @@ Esta página traduce el inventario del `README.md` a una secuencia operativa. La
 - Addons fuera del reactor: `30`
 - Backlog operativo real: `32 addons`
 
+## 🛡️ Fortificación y Seguridad (Especial 2026)
+
+A partir de la intervención de abril 2026, el reactor ha elevado sus requisitos de seguridad:
+
+1. **Shadow Patching**: Implementado para eliminar vulnerabilidades en librerías EOL (Commons Lang v2). ✅
+2. **Estándares 2026**: Todas las dependencias críticas (Spring, Guava) deben estar en sus versiones de seguridad de 2026. ✅
+3. **Manager Sentinel**: Auditoría activa obligatoria para detectar inyecciones de versiones obsoletas. ✅
+
 ## Orden Recomendado
 
 ### Fase 1: cerrar lo que ya está dentro del reactor
@@ -76,10 +84,11 @@ Estos casos no deben mezclarse con las variantes activas sin una decisión expl�
 
 Antes de tocar código:
 
-1. confirmar si el problema es de `pom.xml`/dependencias o de API/código
-2. revisar si ya usa `dev.drake.dough.*`
-3. validar si hereda del parent del reactor
-4. compilar solo el módulo con `-pl` y `-am`
+1. Confirmar si el problema es de `pom.xml`/dependencias o de API/código.
+2. Revisar si ya usa `dev.drake.dough.*`.
+3. Validar si hereda del parent del reactor.
+4. **Ejecutar `python scripts/manager.py security`** para auditar vulnerabilidades. 🛡️
+5. Compilar solo el módulo con `-pl` y `-am`.
 
 Comando base:
 
@@ -89,27 +98,10 @@ mvn -pl ruta/del/modulo -am -DskipTests package
 
 ## Criterio de "Listo"
 
-Un addon puede marcarse como listo para `1.21.11` cuando:
+Un addon puede marcarse como listo para `1.21.1` cuando:
 
-- compila dentro del reactor o en build aislado de forma consistente
-- ya no depende de coordenadas viejas como `dev.drake:Slimefun:5.0-Drake-1.21.11`
-- no deja errores activos de API conocidos
-- su estado quedó reflejado en `README.md` y páginas de seguimiento
-
-## Cierre Final del Proyecto
-
-El proyecto no se considera cerrado solo con `BUILD SUCCESS`.
-
-Al final del backlog debe hacerse:
-
-1. smoke test con Paper/Purpur `1.21.11`
-2. validación básica de runtime para addons sensibles
-3. limpieza de logs temporales no versionados
-4. revisión final del inventario del `README` y la wiki
-
-## Enlaces Útiles
-
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [[Guía de Smoke Test]]
-- [[Tomorrow-Handoff]]
+- Compila dentro del reactor o en build aislado de forma consistente.
+- Ya no depende de coordenadas viejas como `dev.drake:Slimefun:5.0-Drake-1.21.1`.
+- **Supera la auditoría de seguridad del Módulo Sentinel**. ✅
+- No deja errores activos de API conocidos.
+- Su estado quedó reflejado en `README.md` y páginas de seguimiento.

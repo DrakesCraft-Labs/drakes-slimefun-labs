@@ -60,6 +60,22 @@ El laboratorio cubre actualmente un universo de **89 addons** más los módulos 
 - **SURGICAL**: 60 addons ya han pasado por la cirugía final de rebranding `-drake`.
 - **DrakesLab Manager**: La herramienta `scripts/manager.py` es ahora el estándar para gestionar este universo de 89 addons.
 
+## 🛠️ DrakesLab Manager (Python Core)
+
+El ecosistema ha evolucionado de scripts fragmentados en PowerShell a una herramienta de gestión unificada en **Python 3.12**. 
+
+### ¿Por qué Python?
+1. **Potencia Quirúrgica**: Python permite manipular archivos XML (`pom.xml`) y Gradle con una precisión que PowerShell no alcanza, evitando corrupciones estructurales en el reactor.
+2. **Módulo Sentinel (Seguridad)**: Hemos implementado un IDS (Intrusion Detection System) interno que audita vulnerabilidades críticas y aplica "Shadow Patches" automáticamente.
+3. **Portabilidad Multiplataforma**: El reactor puede ser gestionado indistintamente desde Windows, Linux o macOS, garantizando la consistencia en el CI/CD.
+
+### Comandos de Poder:
+- `python scripts/manager.py audit`: Escaneo completo del estado de los 89 módulos.
+- `python scripts/manager.py repair`: Sincronización masiva de identidades y dependencias.
+- `python scripts/manager.py security`: Auditoría Sentinel de vulnerabilidades conocidas.
+- `python scripts/manager.py security-fix`: Aplicación automática de parches de seguridad.
+- `python scripts/manager.py rebrand-imports`: Refactorización de paquetes a `com.github.drakescraft_labs`.
+
 ## Qué Es Este Repo y Qué No Es
 
 Este repositorio:

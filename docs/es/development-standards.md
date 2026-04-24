@@ -31,14 +31,15 @@ Un addon no debe marcarse como listo si:
 - depende de una variante vieja no adoptada
 - compila pero tiene una integración crítica no revisada y sin observación documentada
 
-## Integración al Reactor
+## Integración al Reactor (Flujo DrakesLab)
 
-Antes de dar por integrado un addon:
+Antes de dar por integrado un addon, se debe seguir estrictamente este flujo asistido por el **Manager**:
 
-- confirmar parent correcto
-- confirmar dependencias locales
-- agregar el módulo al `pom.xml` raíz
-- validar build aislado
+1. **Auditoría Sentinel**: `python scripts/manager.py security` (Obligatorio). No se permiten dependencias vulnerables.
+2. **Reparación de Seguridad**: `python scripts/manager.py security-fix` si se detectan vulnerabilidades reparables.
+3. **Unificación de Identidad**: `python scripts/manager.py repair` para sincronizar GroupId y Parent.
+4. **Validación de Build**: Validar build aislado con `mvn -pl ... -am -DskipTests package`.
+5. **Registro en Reactor**: Agregar el módulo al `pom.xml` raíz solo tras superar los pasos anteriores.
 
 ## Enlaces Relacionados
 

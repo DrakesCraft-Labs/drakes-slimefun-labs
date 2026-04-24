@@ -45,6 +45,13 @@ Para añadir o actualizar un addon:
     - Sincronización automática de dependencias internas (`InfinityLib`, `SefiLib`).
 - **Higiene del Reactor**: Purgadas carpetas huérfanas (`Cultivation`, `EMC2`, `Networks`, `SlimefunWarfare`).
 
+### 🛡️ Intervención de Seguridad Crítica (Fortificación Sentinel)
+- **Shadow Patch (Commons Lang v2)**: Creación del artefacto `commons-lang-drake-patched` v2.6.1-DRAKE-PATCHED para eliminar la vulnerabilidad CVE-2025-48924 sin reescribir Slimefun. ✅
+- **Estandarización 2026**: Elevadas todas las dependencias a estándares de abril 2026 (Spring 6.1.21, Guava 33.6.0-jre, Commons-Lang3 3.20.0) en todo el reactor. ✅
+- **Módulo Sentinel (Manager v4.21)**: Desplegado motor de auditoría y reparación activa de vulnerabilidades en la flota de addons. ✅
+- **Estabilización de CI/CD**: Purga masiva de workflows fallidos y optimización de la cola de compilación. ✅
+
 ### 🛡️ Próximos Objetivos
-1.  **Validación de Runtime**: Pruebas de inyección de dependencias en servidor 1.21.1.
-2.  **Modernización de los Núcleos**: Iniciar cirugía sobre `dough-core` y `slimefun-core`.
+1.  **Auditoría de Runtime**: Verificar la carga de las librerías "Shadow Patched" en un entorno real de servidor Paper 1.21.1.
+2.  **Migración de Legado**: Identificar módulos que aún dependen de la v2 de Commons Lang para planificar su migración definitiva a v3.
+3.  **Wiki & Docs**: Reflejar los nuevos estándares de seguridad en la documentación para desarrolladores.
