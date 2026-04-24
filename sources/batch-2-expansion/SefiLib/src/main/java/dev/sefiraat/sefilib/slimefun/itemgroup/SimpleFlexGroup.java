@@ -1,6 +1,6 @@
 package dev.drake.sefilib.slimefun.itemgroup;
 
-import dev.drake.dough.chat.ChatInput;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.chat.ChatInput;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;

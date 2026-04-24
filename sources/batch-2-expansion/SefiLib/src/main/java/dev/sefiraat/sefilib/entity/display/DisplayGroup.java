@@ -1,7 +1,7 @@
 package dev.drake.sefilib.entity.display;
 
 import dev.drake.sefilib.persistence.StringListDataType;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
