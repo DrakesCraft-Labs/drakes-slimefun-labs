@@ -79,3 +79,10 @@ Big thank goes to GentlemanCheesy#2225 who made both the Viney and Spiney textur
 addon. He made them in a very short time frame and, for those who may not know, each color and each shade as they grow
 had to be their own texture!
 Even the Spawning heads made by me in this addon used his as a base so massive kudos to him :)
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

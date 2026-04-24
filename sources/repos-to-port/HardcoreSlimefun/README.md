@@ -53,3 +53,10 @@ messages:
   research-failed: '&cResearch failed! You''ll need to do that again :^)'
   android-malfunctioned: '&cYour Android has malfunctioned! Let it cool down and start it again'
 ```
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

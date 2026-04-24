@@ -73,3 +73,10 @@ The published release jar is:
 ## Support Expectations
 
 This repository should be treated as the active Drakes compatibility-focused core for `1.21.11`, not as an official upstream support channel.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

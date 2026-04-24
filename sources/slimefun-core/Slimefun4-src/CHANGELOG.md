@@ -1484,4 +1484,11 @@ https://thebusybiscuit.github.io/builds/TheBusyBiscuit/Slimefun4/stable/#2
 ## Release Candidate 1 (26 Sep 2019)
 https://thebusybiscuit.github.io/builds/TheBusyBiscuit/Slimefun4/stable/#1
 
-* First "stable" release since over a year. Stable builds will NOT receive support for bug reports since they are technically outdated. 
+* First "stable" release since over a year. Stable builds will NOT receive support for bug reports since they are technically outdated.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

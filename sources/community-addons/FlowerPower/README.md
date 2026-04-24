@@ -22,3 +22,10 @@ Welcome to Flower Power, a Slimefun4 addon centered around flowers!
 **Infinity Bandage:** A magical item that can be used to heal yourself infinitely at the cost of a small amount of experience.
 
 **Recall Charm:** A magical item that you can bind to a location and use later to teleport back to that location at the cost of a large amount of experience.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

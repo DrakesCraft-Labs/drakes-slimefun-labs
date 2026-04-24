@@ -21,3 +21,10 @@
 - [ ] I did my best to add documentation to any public classes or methods I added.
 - [ ] I have added `Nonnull` and `Nullable` annotations to my methods to indicate their behaviour for null values
 - [ ] I added sufficient Unit Tests to cover my code.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

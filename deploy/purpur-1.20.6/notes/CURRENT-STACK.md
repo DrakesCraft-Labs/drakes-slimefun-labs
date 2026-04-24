@@ -66,3 +66,10 @@ Aquí se colocan los plugins u addons que no están garantizados para el surviva
 - Todo jar debe seguir la `NAMING-CONVENTION.md`.
 - `InfinityExpansion` incluye parche local para el dupe de storages del issue `#126`.
 - `SlimefunWarfare` y `EMCTech` quedan estrictamente prohibidos y no deben colocarse ni siquiera en la carpeta confirmed. Ver `addons-rechazados.md`.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

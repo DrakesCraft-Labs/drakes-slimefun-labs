@@ -1,4 +1,4 @@
-﻿# Auditoria Slimefun para Purpur 1.20.6
+# Auditoria Slimefun para Purpur 1.20.6
 
 Fecha de generacion: 2026-04-20 09:09:48 -04:00
 
@@ -47,3 +47,10 @@ Fuente principal: https://thebusybiscuit.github.io/builds/resources/repos.json
 - DynaTech: Formato de soporte no concluyente
 - ExtraUtils: No encontre metadata oficial de builds para este addon
 - SlimeChem: No encontre metadata oficial de builds para este addon
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

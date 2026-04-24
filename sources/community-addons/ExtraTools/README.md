@@ -13,3 +13,10 @@ These tools are a combination of suggestions from the community to which, as an 
 - Vaporizer - Salt and Sulfate production;
 - Concrete Factory - Turns Concrete Powder into Concrete, 8 at a time;
 - Pulverizer - Turns blocks into sand (allows cobblestone -> sand automation! No need to choose in Slimefun's config which recipe would work for the Electric Ore Grinder, you can have both with this).
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

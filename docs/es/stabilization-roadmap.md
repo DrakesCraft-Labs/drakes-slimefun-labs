@@ -104,3 +104,10 @@ Un addon puede marcarse como listo para `1.21.1` cuando:
 - **Supera la auditoría de seguridad del Módulo Sentinel**. ✅
 - No deja errores activos de API conocidos.
 - Su estado quedó reflejado en `README.md` y páginas de seguimiento.
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

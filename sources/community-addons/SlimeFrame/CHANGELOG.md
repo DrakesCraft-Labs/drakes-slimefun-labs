@@ -46,5 +46,9 @@
 
 * **relics:** add the concrete generator power cell as a relic reward ([96e5bd7](https://github.com/VoperAD/SlimeFrame/commit/96e5bd7c525979d74c7f316af87b383e9e94e57a))
 
-
-
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->

@@ -35,3 +35,10 @@ A tool that lets you move villagers easily
 An item given to you by the Villager Transport wand which is associated with a villager
 
 Right click on the ground somewhere with the Transport Charm to teleport the villager there
+
+<!-- DRAKES-STATUS:BEGIN -->
+> Estado de sincronizacion: **2026-04-24**.
+> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
+> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Nota: el monorepo completo sigue en migracion incremental por lotes.
+<!-- DRAKES-STATUS:END -->
