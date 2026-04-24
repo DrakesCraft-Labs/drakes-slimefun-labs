@@ -172,6 +172,13 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- ACF -->
+            <dependency>
+                <groupId>co.aikar</groupId>
+                <artifactId>acf-paper</artifactId>
+                <version>0.5.1-SNAPSHOT</version>
+            </dependency>
+
             <!-- Common Libs -->
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>

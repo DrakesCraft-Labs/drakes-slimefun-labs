@@ -14,7 +14,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>ExtraHeads-drake</artifactId>
     <version>11.0-Drake-1.21.1-SNAPSHOT</version>
 
@@ -34,7 +34,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -68,9 +68,15 @@
         </dependency>
     
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>

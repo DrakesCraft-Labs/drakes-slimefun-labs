@@ -119,7 +119,9 @@ def repair(dry_run=False):
         (r"(<dependency>[\s\S]*?<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),
         (r"(<dependency>[\s\S]*?<artifactId>slimefun-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${slimefun.drake.version}</version>"),
         (r"(<dependency>[\s\S]*?<artifactId>dough-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${dough.version}</version>"),
-        # 7. Sustitución de Commons-Lang v2 por Versión Blindada (EXCLUYENDO EL PROPIO PARCHE)
+        # 7. Forzar Herencia en Paper y ACF (Eliminar versiones fijas)
+        (r"(<artifactId>(paper-api|acf-paper)</artifactId>)\s*<version>.*?</version>", r"\1"),
+        # 8. Sustitución de Commons-Lang v2 por Versión Blindada (EXCLUYENDO EL PROPIO PARCHE)
         # Esta regla se aplicará solo si no estamos en el directorio del parche (se maneja en el loop)
         (r"<groupId>commons-lang</groupId>[\s\S]*?<artifactId>commons-lang</artifactId>([\s\S]*?<version>.*?</version>)?", "<groupId>com.github.drakescraft_labs</groupId>\n            <artifactId>commons-lang-drake-patched</artifactId>\n            <version>2.6.1-DRAKE-PATCHED</version>"),
         # 8. Reparar corrupciones previas (I-SNAPSHOT)
