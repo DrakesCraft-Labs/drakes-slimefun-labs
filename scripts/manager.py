@@ -105,7 +105,7 @@ def repair(dry_run=False):
         (r"(<parent>[\s\S]*?<groupId>).*?(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
         # 2. Asegurar ArtifactID del Parent
         (r"(<parent>[\s\S]*?<artifactId>).*?(</artifactId>)", r"\g<1>drakes-slimefun-labs\g<2>"),
-        # 3. Forzar Versión 11-SNAPSHOT
+        # 3. Forzar Versión 11-SNAPSHOT del Parent
         (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
         # 4. Reparar GroupID en Dependencias (MASIVO)
         (r"<groupId>(io\.github\.(thebusybiscuit|mooy1|seggan|sefiraat|slimefunguguproject|addoncommunity|bakedlibs)|me\.(mr_cookie|pika|vaan))</groupId>", r"<groupId>com.github.drakescraft_labs</groupId>"),
@@ -114,23 +114,30 @@ def repair(dry_run=False):
         (r"<artifactId>infinitylib-core</artifactId>", r"<artifactId>infinitylib-drake</artifactId>"),
         (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
-        # 6. Inyectar Versión en addons internos (-drake) si falta
-        (r"(<artifactId>.*?-drake</artifactId>)(?![\s\S]*?<version>)([\s\S]*?)(</dependency>)", r"\1\2            <version>11-SNAPSHOT</version>\n        \3"),
-        # 7. Forzar el uso de Propiedades en Librerías Internas (Muy Importante)
-        (r"(<artifactId>infinitylib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${infinitylib.version}</version>"),
-        (r"(<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),
-        (r"(<artifactId>slimefun-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${slimefun.drake.version}</version>"),
-        (r"(<artifactId>dough-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${dough.version}</version>"),
-        # 8. Sustitución de Commons-Lang v2 por Versión Blindada (SHADOW PATCH)
+        # 6. Forzar el uso de Propiedades en Librerías Internas (SOLO EN DEPENDENCIAS)
+        (r"(<dependency>[\s\S]*?<artifactId>infinitylib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${infinitylib.version}</version>"),
+        (r"(<dependency>[\s\S]*?<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),
+        (r"(<dependency>[\s\S]*?<artifactId>slimefun-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${slimefun.drake.version}</version>"),
+        (r"(<dependency>[\s\S]*?<artifactId>dough-core</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${dough.version}</version>"),
+        # 7. Sustitución de Commons-Lang v2 por Versión Blindada (EXCLUYENDO EL PROPIO PARCHE)
+        # Esta regla se aplicará solo si no estamos en el directorio del parche (se maneja en el loop)
         (r"<groupId>commons-lang</groupId>[\s\S]*?<artifactId>commons-lang</artifactId>([\s\S]*?<version>.*?</version>)?", "<groupId>com.github.drakescraft_labs</groupId>\n            <artifactId>commons-lang-drake-patched</artifactId>\n            <version>2.6.1-DRAKE-PATCHED</version>"),
-        # 9. Reparar corrupciones previas (I-SNAPSHOT)
+        # 8. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     
     count = 0
     for root, _, files in os.walk(SOURCES_DIR):
         if "pom.xml" in files:
-            if safe_replace_pom(os.path.join(root, "pom.xml"), transformations, dry_run):
+            pom_path = os.path.join(root, "pom.xml")
+            
+            # EXCEPCIÓN CRÍTICA: No aplicar la regla de commons-lang al propio módulo del parche
+            active_transformations = transformations
+            if "commons-lang-drake-patched" in root:
+                # Filtrar la regla de commons-lang (es la penúltima)
+                active_transformations = [t for t in transformations if "commons-lang-drake-patched" not in t[1]]
+            
+            if safe_replace_pom(pom_path, active_transformations, dry_run):
                 count += 1
     
     log(f"Reparación completada. Módulos afectados: {count}", "SUCCESS")
