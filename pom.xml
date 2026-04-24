@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <name>drakes-slimefun-labs</name>
-    <description>The ultimate laboratory for Slimefun 4 addons, optimized for Minecraft 1.21.11. Featuring a unified reactor, synchronized dependencies, and high-performance core patches for a premium experience.</description>
+    <description>The ultimate laboratory for Slimefun 4 addons, optimized for Minecraft 1.21.1. Featuring a unified reactor, synchronized dependencies, and high-performance core patches for a premium experience.</description>
     <url>https://github.com/DrakesCraft-Labs/drakes-slimefun-labs</url>
 
     <organization>

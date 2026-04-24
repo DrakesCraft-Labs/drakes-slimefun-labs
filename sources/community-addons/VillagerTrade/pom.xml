@@ -18,7 +18,7 @@
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
-        <java.version>16</java.version>
+        <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <sonar.organization>guizhancraft</sonar.organization>

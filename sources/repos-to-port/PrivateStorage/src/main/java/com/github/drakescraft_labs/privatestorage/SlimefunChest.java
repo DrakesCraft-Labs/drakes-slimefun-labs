@@ -2,6 +2,7 @@ package com.github.drakescraft_labs.privatestorage;
 
 import java.util.List;
 import java.util.Objects;
+import java.lang.reflect.Method;
 
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -18,7 +19,6 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
@@ -49,7 +49,7 @@ public class SlimefunChest extends SlimefunItem {
                     case PRIVATE:
                         return BlockStorage.getLocationInfo(b.getLocation(), "owner").equals(p.getUniqueId().toString());
                     default:
-                        return Slimefun.getProtectionManager().hasPermission(p, b.getLocation(), Interaction.INTERACT_BLOCK);
+                        return hasInteractPermission(p, b);
                 }
             }
 
@@ -136,6 +136,30 @@ public class SlimefunChest extends SlimefunItem {
         } else {
             return new int[0];
         }
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private static boolean hasInteractPermission(Player player, Block block) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass())
+                    || !parameterTypes[1].isAssignableFrom(block.getLocation().getClass())
+                    || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            try {
+                Object interaction = Enum.valueOf((Class<? extends Enum>) parameterTypes[2], "INTERACT_BLOCK");
+                Object result = method.invoke(manager, player, block.getLocation(), interaction);
+                return result instanceof Boolean && (Boolean) result;
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // Continue scanning signatures until a compatible one is found.
+            }
+        }
+        return false;
     }
 
 }

@@ -44,7 +44,7 @@ public class BiomeMap<T> implements Keyed {
 
     /**
      * Our internal biome map holding all the data.
-     * Paper 1.21.11 no longer exposes {@link Biome} as a Java enum.
+     * Paper 1.21.1 no longer exposes {@link Biome} as a Java enum.
      */
     private final Map<Biome, T> dataMap = new HashMap<>();
 

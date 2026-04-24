@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import dev.drake.dough.versions.MinecraftVersion;
 
 /**
- * Adaptador unificado para nombres de items, optimizado para Paper 1.21.11.
+ * Adaptador unificado para nombres de items, optimizado para Paper 1.21.1.
  * Se ha purgado toda la lógica de versiones legacy y NMS.
  */
 public interface ItemNameAdapter {
@@ -24,7 +24,7 @@ public interface ItemNameAdapter {
             return new ItemNameAdapterMockBukkit();
         }
 
-        // En DrakesLab, solo soportamos Paper 1.21.11+ nativo.
+        // En DrakesLab, solo soportamos Paper 1.21.1+ nativo.
         return new ItemNameAdapterPaper();
     }
 }

@@ -46,14 +46,14 @@ val mainPackage = "com.github.drakescraft_labs.fastmachines"
 
 java {
     disableAutoTargetJvm()
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 kotlin {
     compilerOptions {
         javaParameters = true
-        jvmTarget = JvmTarget.JVM_17
+        jvmTarget = JvmTarget.JVM_21
     }
 }
 
@@ -102,7 +102,7 @@ tasks.runServer {
         url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
     }
     jvmArgs("-Dcom.mojang.eula.agree=true")
-    minecraftVersion("1.21.11")
+    minecraftVersion("1.21.1")
 }
 
 tasks.test {

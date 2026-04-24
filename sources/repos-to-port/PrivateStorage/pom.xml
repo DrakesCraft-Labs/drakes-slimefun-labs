@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>PrivateStorage-drake</artifactId>
-    <version>1.21.11-Drake</version>
+    <version>1.21.1-Drake</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>

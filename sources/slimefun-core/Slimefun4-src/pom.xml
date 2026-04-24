@@ -14,7 +14,7 @@
     <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
     <name>Slimefun</name>
-    <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.11 environment.</description>
+    <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.1 environment.</description>
     <inceptionYear>2013</inceptionYear>
     <packaging>jar</packaging>
 
