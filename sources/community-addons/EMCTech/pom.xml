@@ -180,7 +180,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.Mooy1</groupId>
-            <artifactId>InfinityExpansion</artifactId>
+            <artifactId>InfinityExpansion-drake</artifactId>
             <version>1e83e7afa0</version>
         </dependency>
         <dependency>

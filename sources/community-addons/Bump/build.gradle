@@ -4,6 +4,14 @@ plugins {
     id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
     implementation "com.github.drakescraft_labs:sefilib-drake:0.3.1-DRAKE-SNAPSHOT"
     implementation "org.bstats:bstats-bukkit:3.0.2"

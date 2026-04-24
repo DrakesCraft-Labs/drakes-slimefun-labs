@@ -126,6 +126,9 @@ def repair(dry_run=False):
         (r"<artifactId>sefilib-core</artifactId>", r"<artifactId>sefilib-drake</artifactId>"),
         (r"<artifactId>Networks</artifactId>", r"<artifactId>Networks-drake</artifactId>"),
         (r"<artifactId>dough-(api|items|common|protection|skins|inventories|recipes|chat|data|versions)</artifactId>", r"<artifactId>dough-core</artifactId>"),
+        # 5b. Mapeo de Addons Cruzados (artifactId)
+        (r"<artifactId>ExoticGarden</artifactId>", r"<artifactId>ExoticGarden-drake</artifactId>"),
+        (r"<artifactId>InfinityExpansion</artifactId>", r"<artifactId>InfinityExpansion-drake</artifactId>"),
         # 6. Forzar el uso de Propiedades en Librerías Internas (SOLO EN DEPENDENCIAS)
         (r"(<dependency>[\s\S]*?<artifactId>infinitylib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${infinitylib.version}</version>"),
         (r"(<dependency>[\s\S]*?<artifactId>sefilib-drake</artifactId>)\s*<version>.*?</version>", r"\1\n            <version>${sefilib.version}</version>"),

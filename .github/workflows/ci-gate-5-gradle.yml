@@ -18,6 +18,10 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
+      - name: Pre-build Foundation (Maven)
+        run: |
+          mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib -am
+          
       - name: Build Gradle Modules
         run: |
           # Bump

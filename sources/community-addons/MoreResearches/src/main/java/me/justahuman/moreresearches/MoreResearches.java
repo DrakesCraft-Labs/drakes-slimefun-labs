@@ -43,10 +43,7 @@ public class MoreResearches extends JavaPlugin implements SlimefunAddon {
         }
 
 
-        metrics.addCustomChart(new SimplePie("server_custom_research_count",
-                () -> String.valueOf(Slimefun.getRegistry().getResearches().stream()
-                        .filter(research -> research.getKey().getNamespace().equalsIgnoreCase("moreresearches"))
-                        .count())));
+
     }
 
     @Override

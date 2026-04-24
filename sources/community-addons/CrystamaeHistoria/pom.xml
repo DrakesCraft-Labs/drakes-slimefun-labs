@@ -63,7 +63,7 @@
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>ExoticGarden</artifactId>
+            <artifactId>ExoticGarden-drake</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>

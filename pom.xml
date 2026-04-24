@@ -252,9 +252,9 @@
             <scope>provided</scope>
         </dependency>
             <dependency>
-                <groupId>io.github.sefiraat</groupId>
-                <artifactId>Networks</artifactId>
-                <version>1.6</version>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>Networks-drake</artifactId>
+                <version>11-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
@@ -294,6 +294,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.34</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
             </plugin>
             
             <!-- Maven Enforcer Plugin: Strict dependency and environment check -->
