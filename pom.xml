@@ -38,10 +38,10 @@
         <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
         <maven.deploy.skip>true</maven.deploy.skip>
         
-        <!-- Security Patches -->
-        <commons-lang3.version>3.18.0</commons-lang3.version>
-        <guava.version>33.3.0-jre</guava.version>
-        <spring.version>6.1.14</spring.version>
+        <!-- Security Patches (2026 Standards) -->
+        <commons-lang3.version>3.20.0</commons-lang3.version>
+        <guava.version>33.6.0-jre</guava.version>
+        <spring.version>6.1.21</spring.version>
     </properties>
 
     <modules>
