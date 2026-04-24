@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.persistence.PersistentDataAdapterContext;

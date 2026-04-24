@@ -2,10 +2,10 @@ package me.ncbpfluffybear.slimyrepair;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.collections.Pair;
+import dev.drake.dough.config.Config;
+import dev.drake.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

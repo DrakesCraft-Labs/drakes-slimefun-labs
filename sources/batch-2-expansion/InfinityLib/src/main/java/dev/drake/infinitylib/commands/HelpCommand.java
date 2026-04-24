@@ -7,7 +7,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import dev.drake.dough.common.ChatColors;
 
 @ParametersAreNonnullByDefault
 final class HelpCommand extends SubCommand {

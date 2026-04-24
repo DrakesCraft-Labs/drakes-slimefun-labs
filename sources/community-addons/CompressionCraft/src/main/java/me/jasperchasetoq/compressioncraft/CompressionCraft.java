@@ -2,7 +2,7 @@ package me.jasperchasetoq.compressioncraft;
 
 import dev.drake.infinitylib.core.AbstractAddon;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 import me.jasperchasetoq.compressioncraft.setup.CompressionCraftItemSetup;
 
 import java.io.File;

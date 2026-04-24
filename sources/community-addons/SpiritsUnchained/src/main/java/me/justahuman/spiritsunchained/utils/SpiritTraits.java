@@ -1,8 +1,8 @@
 package me.justahuman.spiritsunchained.utils;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.protection.Interaction;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

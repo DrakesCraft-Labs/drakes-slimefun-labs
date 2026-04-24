@@ -1,7 +1,7 @@
 package me.jasperchasetoq.dyebench;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 
 import me.jasperchasetoq.dyebench.setup.DyeBenchItemSetup;
 

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 
 import org.bukkit.plugin.Plugin;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon;
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;

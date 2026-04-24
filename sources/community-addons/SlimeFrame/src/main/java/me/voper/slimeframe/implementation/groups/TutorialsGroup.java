@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.guide.SurvivalSlimefunGuide;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.voper.slimeframe.utils.Colors;

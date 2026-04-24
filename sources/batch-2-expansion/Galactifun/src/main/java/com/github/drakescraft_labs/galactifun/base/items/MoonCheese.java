@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 public final class MoonCheese extends SimpleSlimefunItem<BlockPlaceHandler> {
 

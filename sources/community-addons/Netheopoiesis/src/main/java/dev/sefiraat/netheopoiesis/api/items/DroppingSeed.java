@@ -1,7 +1,7 @@
 package dev.sefiraat.netheopoiesis.api.items;
 
 import dev.sefiraat.netheopoiesis.Netheopoiesis;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
+import dev.drake.dough.collections.RandomizedSet;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;

@@ -1,6 +1,6 @@
 package dev.drake.sefilib.version;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.SemanticVersion;
+import dev.drake.dough.versions.SemanticVersion;
 
 public class Versions {
 

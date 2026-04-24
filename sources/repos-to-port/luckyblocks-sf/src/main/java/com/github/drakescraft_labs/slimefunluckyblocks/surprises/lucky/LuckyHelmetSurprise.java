@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.LuckLevel;
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.Surprise;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 public final class LuckyHelmetSurprise implements Surprise {
 

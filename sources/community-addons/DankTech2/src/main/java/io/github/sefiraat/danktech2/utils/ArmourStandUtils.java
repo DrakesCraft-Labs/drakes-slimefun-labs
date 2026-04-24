@@ -1,7 +1,7 @@
 package io.github.sefiraat.danktech2.utils;
 
 import io.github.sefiraat.danktech2.theme.ThemeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

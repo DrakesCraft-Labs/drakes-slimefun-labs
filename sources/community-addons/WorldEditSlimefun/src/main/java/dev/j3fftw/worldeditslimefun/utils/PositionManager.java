@@ -1,6 +1,6 @@
 package dev.j3fftw.worldeditslimefun.utils;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;

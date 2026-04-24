@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.slimefun4.core.services.CustomItemDataService
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.setup.SlimefunItemSetup;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import static dev.drake.infinitylib.common.StackUtils.getId;
 import static dev.drake.infinitylib.common.StackUtils.getIdOrType;

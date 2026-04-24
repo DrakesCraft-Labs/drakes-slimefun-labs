@@ -22,7 +22,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;

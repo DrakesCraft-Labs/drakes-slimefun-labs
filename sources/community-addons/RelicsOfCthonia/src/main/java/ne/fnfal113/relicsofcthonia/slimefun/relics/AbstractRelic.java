@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import ne.fnfal113.relicsofcthonia.RelicsOfCthonia;
 import ne.fnfal113.relicsofcthonia.RelicsRegistry;

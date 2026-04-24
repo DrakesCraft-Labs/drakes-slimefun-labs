@@ -6,7 +6,7 @@ import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

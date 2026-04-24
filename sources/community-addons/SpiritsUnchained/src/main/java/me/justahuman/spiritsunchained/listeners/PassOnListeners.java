@@ -1,7 +1,7 @@
 package me.justahuman.spiritsunchained.listeners;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.spirits.Goal;

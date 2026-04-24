@@ -23,9 +23,9 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.gadgets.SolarHelmet;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.generators.SolarGenerator;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.config.Config;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 

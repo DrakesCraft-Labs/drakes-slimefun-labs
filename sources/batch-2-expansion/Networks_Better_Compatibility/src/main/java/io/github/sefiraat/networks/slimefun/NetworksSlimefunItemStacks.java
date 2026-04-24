@@ -4,7 +4,7 @@ import io.github.sefiraat.networks.slimefun.network.NetworkQuantumStorage;
 import io.github.sefiraat.networks.slimefun.tools.NetworkRemote;
 import io.github.sefiraat.networks.utils.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

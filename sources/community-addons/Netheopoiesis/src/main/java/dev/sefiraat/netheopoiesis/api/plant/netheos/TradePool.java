@@ -3,7 +3,7 @@ package dev.sefiraat.netheopoiesis.api.plant.netheos;
 import dev.sefiraat.netheopoiesis.Registry;
 import dev.sefiraat.netheopoiesis.implementation.netheos.NetheoBall;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
+import dev.drake.dough.collections.RandomizedSet;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.galactifun.base.BaseMats;
 import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 /**
  * Class for the martian

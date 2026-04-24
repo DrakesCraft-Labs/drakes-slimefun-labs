@@ -6,7 +6,7 @@ import java.util.Map;
 import org.bukkit.entity.EntityType;
 
 import com.github.drakescraft_labs.mobcapturer.items.MobEgg;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 
 import lombok.Getter;
 

@@ -3,7 +3,7 @@ package dev.walshy.hardcoreslimefun;
 import dev.walshy.hardcoreslimefun.events.AndroidEvents;
 import dev.walshy.hardcoreslimefun.events.Events;
 import dev.walshy.hardcoreslimefun.utils.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nullable;

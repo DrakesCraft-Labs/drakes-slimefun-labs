@@ -19,7 +19,7 @@ import io.github.schntgaispock.gastronomicon.util.ChunkPDC;
 import io.github.schntgaispock.gastronomicon.util.item.GastroKeys;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 public class FermenterRefillListener implements Listener {

@@ -16,7 +16,7 @@ import dev.sefiraat.cultivation.managers.SupportedPluginManager;
 import dev.sefiraat.cultivation.managers.TaskManager;
 import dev.drake.sefilib.entity.display.DisplayGroupManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

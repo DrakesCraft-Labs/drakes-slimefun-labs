@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.beams.beam;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.BlockDisplay;

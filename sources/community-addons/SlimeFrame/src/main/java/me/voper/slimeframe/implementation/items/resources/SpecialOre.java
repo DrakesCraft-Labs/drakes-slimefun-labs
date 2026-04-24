@@ -18,7 +18,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import me.voper.slimeframe.implementation.groups.Groups;
 import me.voper.slimeframe.utils.Keys;

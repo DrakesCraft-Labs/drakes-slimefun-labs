@@ -1,7 +1,7 @@
 package com.github.drakescraft_labs.mapjammer.runnables;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 import com.github.drakescraft_labs.mapjammer.implementation.Jammer;
 import com.github.drakescraft_labs.mapjammer.util.ConfigStorage;
 import com.github.drakescraft_labs.mapjammer.util.ShowHideInterface;

@@ -1,6 +1,6 @@
 package com.epicplayera10.potionexpansion.utils;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.Vein;
+import dev.drake.dough.blocks.Vein;
 
 import org.bukkit.Color;
 import org.bukkit.Location;

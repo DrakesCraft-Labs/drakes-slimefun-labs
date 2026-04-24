@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
+import dev.drake.dough.collections.RandomizedSet;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import me.profelements.dynatech.DynaTech;
 import me.profelements.dynatech.items.electric.abstracts.AMachine;

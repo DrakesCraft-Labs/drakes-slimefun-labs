@@ -5,7 +5,7 @@ import com.xmooncorp.magic8ball.implementation.Items;
 import com.xmooncorp.magic8ball.implementation.resources.Magic8BallFragmentResource;
 import com.xmooncorp.magic8ball.implementation.setup.ItemSetup;
 import com.xmooncorp.magic8ball.implementation.setup.ResearchSetup;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;

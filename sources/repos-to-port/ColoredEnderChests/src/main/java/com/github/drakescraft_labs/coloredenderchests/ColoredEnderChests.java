@@ -11,9 +11,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.config.Config;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 
 public class ColoredEnderChests extends JavaPlugin implements SlimefunAddon {
 

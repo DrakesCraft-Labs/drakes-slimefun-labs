@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.utils.theme;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;

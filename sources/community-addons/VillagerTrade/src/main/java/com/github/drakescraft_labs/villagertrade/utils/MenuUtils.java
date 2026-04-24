@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.chat.ChatInput;
+import dev.drake.dough.chat.ChatInput;
 
 import com.github.drakescraft_labs.villagertrade.VillagerTrade;
 

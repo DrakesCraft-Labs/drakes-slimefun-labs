@@ -31,7 +31,7 @@ import com.github.drakescraft_labs.slimefun4.api.exceptions.BiomeMapException;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.researches.Research;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 import com.github.drakescraft_labs.slimefun4.utils.biomes.BiomeMap;
 
 import me.poma123.globalwarming.api.biomes.BiomeTemperature;

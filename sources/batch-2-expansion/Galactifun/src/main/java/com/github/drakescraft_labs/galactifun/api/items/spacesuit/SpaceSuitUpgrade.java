@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import dev.drake.dough.common.ChatColors;
 
 @ParametersAreNonnullByDefault
 public final class SpaceSuitUpgrade extends UnplaceableBlock {

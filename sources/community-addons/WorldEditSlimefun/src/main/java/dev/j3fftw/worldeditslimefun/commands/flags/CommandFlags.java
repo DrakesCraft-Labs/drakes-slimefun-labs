@@ -7,7 +7,7 @@ import dev.j3fftw.worldeditslimefun.utils.Utils;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;

@@ -2,7 +2,7 @@ package me.voper.slimeframe.utils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import me.voper.slimeframe.SlimeFrame;
 
@@ -11,7 +11,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import net.md_5.bungee.api.ChatColor;

@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import lombok.Getter;
 import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;

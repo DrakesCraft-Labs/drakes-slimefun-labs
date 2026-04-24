@@ -27,8 +27,8 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import com.github.drakescraft_labs.galactifun.base.aliens.Martian;
 import com.github.drakescraft_labs.galactifun.core.managers.AlienManager;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 /**
  * Abstract class for an alien

@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.bump.implementation.items.weapons.SkySword;
 import com.github.drakescraft_labs.bump.utils.constant.Keys;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 /**
  * This {@link Listener} is related to {@link SkySword}.

@@ -1,7 +1,7 @@
 package com.github.drakescraft_labs.liquid;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import org.bukkit.inventory.ItemStack;
 

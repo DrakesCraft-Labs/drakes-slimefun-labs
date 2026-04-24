@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.drakescraft_labs:slimefun-core:5.0-Drake-1.21.1")
+    compileOnly("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")

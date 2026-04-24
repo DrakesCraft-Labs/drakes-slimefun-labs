@@ -33,7 +33,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 
 
 import org.bukkit.plugin.PluginManager;

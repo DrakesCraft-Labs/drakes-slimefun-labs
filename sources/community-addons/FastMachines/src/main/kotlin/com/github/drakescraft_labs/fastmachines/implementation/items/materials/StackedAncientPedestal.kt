@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler
 import com.github.drakescraft_labs.slimefun4.core.services.sounds.SoundEffect
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils
+import dev.drake.dough.items.ItemUtils
 import net.guizhanss.guizhanlib.kt.slimefun.items.edit
 import net.guizhanss.guizhanlib.minecraft.utils.InventoryUtil
 import org.bukkit.inventory.ItemStack

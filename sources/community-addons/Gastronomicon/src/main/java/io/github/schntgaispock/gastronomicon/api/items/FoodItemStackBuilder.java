@@ -3,7 +3,7 @@ package io.github.schntgaispock.gastronomicon.api.items;
 import org.bukkit.Material;
 
 import io.github.schntgaispock.gastronomicon.api.food.FoodEffect;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import org.apache.commons.lang.Validate;
 
 public class FoodItemStackBuilder {
 

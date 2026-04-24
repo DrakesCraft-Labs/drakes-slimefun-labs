@@ -7,7 +7,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import me.justahuman.spiritsunchained.spirits.SpiritDefinition;
 import me.justahuman.spiritsunchained.utils.Keys;

@@ -20,7 +20,7 @@ import io.github.schntgaispock.gastronomicon.core.setup.ItemSetup;
 import io.github.schntgaispock.gastronomicon.integration.DynaTechSetup;
 import io.github.schntgaispock.gastronomicon.integration.SlimeHUDSetup;
 import io.github.schntgaispock.gastronomicon.util.StringUtil;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;

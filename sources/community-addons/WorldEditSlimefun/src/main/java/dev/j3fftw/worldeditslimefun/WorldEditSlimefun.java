@@ -5,7 +5,7 @@ import dev.j3fftw.worldeditslimefun.listeners.RegistryListener;
 import dev.j3fftw.worldeditslimefun.slimefun.Items;
 import dev.j3fftw.worldeditslimefun.listeners.WandListener;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;

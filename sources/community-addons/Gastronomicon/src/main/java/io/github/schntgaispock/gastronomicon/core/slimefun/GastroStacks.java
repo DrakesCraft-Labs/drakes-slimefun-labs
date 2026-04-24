@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.HeadTexture;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import lombok.experimental.UtilityClass;

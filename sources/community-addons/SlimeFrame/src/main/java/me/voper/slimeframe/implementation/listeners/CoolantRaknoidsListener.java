@@ -19,7 +19,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import me.voper.slimeframe.SlimeFrame;
 import me.voper.slimeframe.implementation.SFrameStacks;

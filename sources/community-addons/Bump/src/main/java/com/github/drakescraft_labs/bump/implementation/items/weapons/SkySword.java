@@ -13,7 +13,7 @@ import com.github.drakescraft_labs.bump.implementation.BumpItems;
 import com.github.drakescraft_labs.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 /**
  * {@link SkySword Heaven Breaking Sword} will lift player up to the sky when using.

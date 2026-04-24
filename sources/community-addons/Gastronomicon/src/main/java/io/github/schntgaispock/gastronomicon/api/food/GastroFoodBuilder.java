@@ -25,7 +25,7 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.recipes.GastroRecipeT
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.researches.Research;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import org.apache.commons.lang.Validate;
 import lombok.ToString;
 
 @ToString

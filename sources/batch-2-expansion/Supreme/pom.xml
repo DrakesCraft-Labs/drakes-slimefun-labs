@@ -92,6 +92,12 @@
             <version>${dough.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>infinitylib-drake</artifactId>
+            <version>${infinitylib.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>

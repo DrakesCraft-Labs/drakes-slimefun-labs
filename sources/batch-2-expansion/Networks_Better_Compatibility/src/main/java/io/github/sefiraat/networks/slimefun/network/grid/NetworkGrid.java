@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;

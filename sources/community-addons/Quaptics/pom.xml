@@ -133,6 +133,18 @@
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>dough-core</artifactId>
+            <version>${dough.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>sefilib-drake</artifactId>
+            <version>${sefilib.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>co.aikar</groupId>

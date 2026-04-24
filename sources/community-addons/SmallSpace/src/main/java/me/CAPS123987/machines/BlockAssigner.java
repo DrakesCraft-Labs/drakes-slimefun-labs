@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.CAPS123987.implementation.SizedBlock;
 import me.CAPS123987.items.Items;

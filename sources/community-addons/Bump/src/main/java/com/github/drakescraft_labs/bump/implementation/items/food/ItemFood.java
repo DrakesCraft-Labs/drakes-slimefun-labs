@@ -18,7 +18,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 import net.guizhanss.guizhanlib.common.Cooldown;
 

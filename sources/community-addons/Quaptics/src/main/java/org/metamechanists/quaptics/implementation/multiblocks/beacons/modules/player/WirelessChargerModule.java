@@ -51,7 +51,7 @@ public class WirelessChargerModule extends BeaconModule implements PlayerModule 
 
     private static @NotNull SlimefunItemStack getBanner(final @NotNull SlimefunItemStack stack) {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.LIGHT_BLUE, PatternType.CIRCLE_MIDDLE));
+        meta.addPattern(new Pattern(DyeColor.LIGHT_BLUE, PatternType.CIRCLE));
         meta.addPattern(new Pattern(DyeColor.CYAN, PatternType.FLOWER));
         meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
         stack.setItemMeta(meta);

@@ -1,8 +1,8 @@
 package me.justahuman.spiritsunchained.managers;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.implementation.mobs.AbstractCustomMob;
 import me.justahuman.spiritsunchained.slimefun.Items;

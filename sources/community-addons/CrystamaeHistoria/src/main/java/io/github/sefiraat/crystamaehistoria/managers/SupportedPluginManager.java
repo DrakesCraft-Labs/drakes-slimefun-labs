@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import com.github.drakescraft_labs.exoticgarden.items.BonemealableItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;

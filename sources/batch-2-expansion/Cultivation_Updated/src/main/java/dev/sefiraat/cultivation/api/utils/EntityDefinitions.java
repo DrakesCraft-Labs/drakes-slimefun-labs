@@ -4,8 +4,8 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.drake.sefilib.entity.LivingEntityCategory;
 import dev.drake.sefilib.entity.LivingEntityDefinition;
 import dev.drake.sefilib.entity.LivingEntitySelector;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.MinecraftVersion;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.UnknownServerVersionException;
+import dev.drake.dough.versions.MinecraftVersion;
+import dev.drake.dough.versions.UnknownServerVersionException;
 import org.bukkit.Server;
 
 import java.util.Collections;

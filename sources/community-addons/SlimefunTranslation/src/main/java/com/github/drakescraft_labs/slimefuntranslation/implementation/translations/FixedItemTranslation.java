@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 
 import com.github.drakescraft_labs.slimefuntranslation.api.config.TranslationConditions;
 import com.github.drakescraft_labs.slimefuntranslation.api.translation.ItemTranslation;

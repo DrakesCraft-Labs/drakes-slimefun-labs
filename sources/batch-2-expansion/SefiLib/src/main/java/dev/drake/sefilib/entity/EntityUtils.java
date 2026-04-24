@@ -1,7 +1,7 @@
 package dev.drake.sefilib.entity;
 
 import dev.drake.sefilib.protections.Protections;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;

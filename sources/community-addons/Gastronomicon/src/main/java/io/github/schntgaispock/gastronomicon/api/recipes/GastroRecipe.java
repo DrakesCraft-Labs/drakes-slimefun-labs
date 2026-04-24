@@ -14,7 +14,7 @@ import io.github.schntgaispock.gastronomicon.api.recipes.components.RecipeCompon
 import io.github.schntgaispock.gastronomicon.api.recipes.components.RecipeInput;
 import io.github.schntgaispock.gastronomicon.api.recipes.components.SingleRecipeComponent;
 import io.github.schntgaispock.gastronomicon.core.slimefun.recipes.GastroRecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

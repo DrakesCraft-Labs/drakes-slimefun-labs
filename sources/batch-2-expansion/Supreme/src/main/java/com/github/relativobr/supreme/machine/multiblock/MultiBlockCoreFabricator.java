@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;

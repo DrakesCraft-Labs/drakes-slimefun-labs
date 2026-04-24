@@ -4,7 +4,7 @@ import dev.drake.infinitylib.common.Events;
 import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.infinitylib.core.AbstractAddon;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import lombok.SneakyThrows;
 import me.gallowsdove.foxymachines.abstracts.AbstractWand;
 import me.gallowsdove.foxymachines.abstracts.CustomBoss;

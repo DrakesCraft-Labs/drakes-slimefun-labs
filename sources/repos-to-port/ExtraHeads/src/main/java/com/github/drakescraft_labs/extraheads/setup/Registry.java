@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.bukkit.entity.EntityType;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 
 import lombok.Getter;
 

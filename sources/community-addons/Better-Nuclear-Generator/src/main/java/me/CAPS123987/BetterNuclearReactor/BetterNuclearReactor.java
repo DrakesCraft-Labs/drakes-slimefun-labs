@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import me.CAPS123987.Item.Graphite;
 import me.CAPS123987.Machines.HeatSensor;
 import me.CAPS123987.Machines.ReactorStop;
@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 import me.CAPS123987.Cargo.ReactorInput;
 import me.CAPS123987.Cargo.ReactorOutput;
 import me.CAPS123987.IIIDmultiblock.ReactorCore;

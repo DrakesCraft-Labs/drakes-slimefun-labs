@@ -18,7 +18,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactive;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;

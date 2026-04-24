@@ -12,7 +12,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.CAPS123987.Item.Items;
 import me.CAPS123987.Utils.ETInventoryBlock;

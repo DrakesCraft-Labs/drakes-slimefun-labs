@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.hotbarpets.HotbarPet;
 import com.github.drakescraft_labs.hotbarpets.HotbarPets;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 public class SoulPieListener implements Listener {
 

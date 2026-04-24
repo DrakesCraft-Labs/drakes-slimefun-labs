@@ -28,7 +28,7 @@ import com.github.drakescraft_labs.bump.api.exceptions.TagMisconfigurationExcept
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.bump.utils.JsonUtils;
 import com.github.drakescraft_labs.bump.utils.constant.Patterns;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
+import dev.drake.dough.common.CommonPatterns;
 
 /**
  * The {@link TagParser} is responsible for parsing a JSON file into a {@link BumpTag}.

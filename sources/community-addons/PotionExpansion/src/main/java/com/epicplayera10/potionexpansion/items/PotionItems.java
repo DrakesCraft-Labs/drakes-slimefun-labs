@@ -6,8 +6,8 @@ import com.epicplayera10.potionexpansion.utils.ItemUtil;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

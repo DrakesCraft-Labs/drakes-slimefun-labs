@@ -21,7 +21,7 @@ import io.github.sefiraat.slimetinker.managers.MemoryManager;
 import io.github.sefiraat.slimetinker.managers.TraitManager;
 import io.github.sefiraat.slimetinker.runnables.RunnableManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;

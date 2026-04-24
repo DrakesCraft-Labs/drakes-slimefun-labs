@@ -9,8 +9,8 @@ import com.github.drakescraft_labs.extraheads.listeners.HeadListener;
 import com.github.drakescraft_labs.extraheads.setup.ItemSetup;
 import com.github.drakescraft_labs.extraheads.setup.Registry;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.config.Config;
+import dev.drake.dough.updater.BlobBuildUpdater;
 
 import lombok.Getter;
 

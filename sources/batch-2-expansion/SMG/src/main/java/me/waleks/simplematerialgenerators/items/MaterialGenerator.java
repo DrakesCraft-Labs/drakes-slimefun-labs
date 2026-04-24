@@ -6,7 +6,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.settings.IntRangeSetting;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
 import org.bukkit.Material;

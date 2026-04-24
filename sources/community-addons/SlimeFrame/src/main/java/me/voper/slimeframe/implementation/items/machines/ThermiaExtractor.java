@@ -15,9 +15,9 @@ import org.bukkit.inventory.ItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.blocks.BlockPosition;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 

@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;

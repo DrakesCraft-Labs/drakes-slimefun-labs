@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.aliens.Alien;
 import com.github.drakescraft_labs.galactifun.base.BaseMats;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 public final class MoonCow extends Alien<Cow> {
 

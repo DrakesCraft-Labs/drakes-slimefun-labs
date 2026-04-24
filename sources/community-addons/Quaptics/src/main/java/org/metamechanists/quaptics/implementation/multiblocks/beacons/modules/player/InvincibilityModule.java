@@ -44,7 +44,7 @@ public class InvincibilityModule extends BeaconModule implements PlayerModule {
 
     private static @NotNull SlimefunItemStack getBanner(final @NotNull SlimefunItemStack stack) {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.RHOMBUS_MIDDLE));
+        meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.RHOMBUS));
         meta.addPattern(new Pattern(DyeColor.WHITE, PatternType.SKULL));
         meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
         stack.setItemMeta(meta);

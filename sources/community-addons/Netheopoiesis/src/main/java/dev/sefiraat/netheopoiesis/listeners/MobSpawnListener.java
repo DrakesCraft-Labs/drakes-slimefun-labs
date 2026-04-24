@@ -5,7 +5,7 @@ import dev.sefiraat.netheopoiesis.api.mobs.MobCapType;
 import dev.sefiraat.netheopoiesis.managers.MobManager;
 import dev.sefiraat.netheopoiesis.utils.TimePeriod;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
+import dev.drake.dough.collections.RandomizedSet;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;

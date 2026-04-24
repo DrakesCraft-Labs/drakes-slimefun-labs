@@ -1,6 +1,6 @@
 package net.guizhanss.fastmachines.utils.items
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI
+import dev.drake.dough.data.persistent.PersistentDataAPI
 import net.guizhanss.fastmachines.utils.constants.Keys
 import org.bukkit.inventory.ItemStack
 import kotlin.random.Random

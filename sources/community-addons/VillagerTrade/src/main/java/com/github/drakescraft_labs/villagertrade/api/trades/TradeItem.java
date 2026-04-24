@@ -13,7 +13,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import com.github.drakescraft_labs.villagertrade.VillagerTrade;
 import com.github.drakescraft_labs.villagertrade.api.trades.mutables.MutableTradeItem;

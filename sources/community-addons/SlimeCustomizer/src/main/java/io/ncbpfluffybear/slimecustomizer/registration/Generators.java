@@ -7,7 +7,7 @@ import io.ncbpfluffybear.slimecustomizer.objects.CustomGenerator;
 import io.ncbpfluffybear.slimecustomizer.objects.SCMachine;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineFuel;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

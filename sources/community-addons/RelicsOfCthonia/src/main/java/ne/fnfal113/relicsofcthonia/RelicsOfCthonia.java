@@ -1,6 +1,6 @@
 package ne.fnfal113.relicsofcthonia;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
 import ne.fnfal113.relicsofcthonia.config.ConfigManager;

@@ -1,7 +1,7 @@
 package me.justahuman.spiritsunchained.managers;
 
 import com.destroystokyo.paper.event.entity.EntityRemoveFromWorldEvent;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 

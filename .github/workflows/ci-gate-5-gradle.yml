@@ -24,12 +24,6 @@ jobs:
           
       - name: Build Gradle Modules
         run: |
-          # Bump
-          cd sources/community-addons/Bump
-          chmod +x gradlew
-          ./gradlew build -x test
-          cd ../../..
-          
           # Galactifun
           cd sources/batch-2-expansion/Galactifun
           chmod +x gradlew

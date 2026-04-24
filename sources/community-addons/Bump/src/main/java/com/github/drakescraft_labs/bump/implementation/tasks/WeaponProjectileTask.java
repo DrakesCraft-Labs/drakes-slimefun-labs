@@ -13,7 +13,7 @@ import org.bukkit.entity.Projectile;
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 /**
  * The {@link WeaponProjectileTask} is responsible for tracking

@@ -10,7 +10,7 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.AbstractGoal;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

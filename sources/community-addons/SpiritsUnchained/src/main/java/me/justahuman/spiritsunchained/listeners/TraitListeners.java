@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.listeners;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import io.papermc.paper.event.entity.ElderGuardianAppearanceEvent;
 import io.papermc.paper.event.player.PlayerDeepSleepEvent;
 import me.justahuman.spiritsunchained.SpiritsUnchained;

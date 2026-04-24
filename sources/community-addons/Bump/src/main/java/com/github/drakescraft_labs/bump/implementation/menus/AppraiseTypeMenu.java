@@ -15,7 +15,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.bump.api.appraise.AppraiseAttribute;
 import com.github.drakescraft_labs.bump.api.appraise.AppraiseType;
 import com.github.drakescraft_labs.bump.implementation.Bump;

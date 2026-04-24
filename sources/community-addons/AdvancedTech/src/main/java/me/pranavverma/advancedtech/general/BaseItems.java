@@ -3,8 +3,8 @@ package me.pranavverma.advancedtech.general;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import lombok.experimental.UtilityClass;
 
 import org.bukkit.Material;

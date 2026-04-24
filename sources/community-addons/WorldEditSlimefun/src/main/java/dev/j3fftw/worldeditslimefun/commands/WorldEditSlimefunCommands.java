@@ -20,7 +20,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

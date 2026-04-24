@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisatio
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltarCache;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;

@@ -214,6 +214,6 @@ public class InfusionContainer extends ConnectedBlock implements ItemHolderBlock
                 0);
     }
     private static void animateCenter(@NotNull final Location center) {
-        ParticleUtils.randomParticle(center.clone().toCenterLocation(), Particle.ENCHANTMENT_TABLE, CONTAINER_PARTICLE_RADIUS, CONTAINER_PARTICLE_COUNT);
+        ParticleUtils.randomParticle(center.clone().toCenterLocation(), Particle.ENCHANT, CONTAINER_PARTICLE_RADIUS, CONTAINER_PARTICLE_COUNT);
     }
 }

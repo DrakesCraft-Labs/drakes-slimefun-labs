@@ -1,8 +1,8 @@
 package me.EzCoins.MiniBlocks.utils;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import lombok.Getter;
 import lombok.Setter;
 import me.EzCoins.MiniBlocks.core.MiniBlock;

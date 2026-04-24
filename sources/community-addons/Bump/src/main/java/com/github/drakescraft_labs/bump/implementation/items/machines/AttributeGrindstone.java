@@ -30,7 +30,7 @@ import com.github.drakescraft_labs.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.bump.utils.tags.BumpTag;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;

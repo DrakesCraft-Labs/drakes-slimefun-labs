@@ -2,7 +2,7 @@ package io.github.sefiraat.networks.utils;
 
 import io.github.sefiraat.networks.network.stackcaches.ItemStackCache;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;

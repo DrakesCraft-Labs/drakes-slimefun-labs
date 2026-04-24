@@ -1,7 +1,7 @@
 package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.slimefun;
 
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.LoopIterator;
+import org.apache.commons.lang.Validate;
+import dev.drake.dough.collections.LoopIterator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,9 +1,9 @@
 package io.github.sefiraat.slimetinker.utils;
 
 import io.github.sefiraat.slimetinker.items.tinkermaterials.TinkerMaterialManager;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

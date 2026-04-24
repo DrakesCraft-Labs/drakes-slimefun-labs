@@ -23,7 +23,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
 /**

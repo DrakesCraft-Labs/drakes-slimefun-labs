@@ -13,7 +13,7 @@ import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
+import dev.drake.dough.common.CommonPatterns;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 @UtilityClass

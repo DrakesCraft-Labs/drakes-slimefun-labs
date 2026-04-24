@@ -55,8 +55,8 @@ public class ExperienceModule extends BeaconModule implements PlayerModule, List
 
     private static @NotNull SlimefunItemStack getBanner(final @NotNull SlimefunItemStack stack) {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
-        meta.addPattern(new Pattern(DyeColor.GREEN, PatternType.RHOMBUS_MIDDLE));
-        meta.addPattern(new Pattern(DyeColor.LIME, PatternType.CIRCLE_MIDDLE));
+        meta.addPattern(new Pattern(DyeColor.GREEN, PatternType.RHOMBUS));
+        meta.addPattern(new Pattern(DyeColor.LIME, PatternType.CIRCLE));
         meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
         stack.setItemMeta(meta);
         return stack;

@@ -4,7 +4,7 @@ import static com.github.relativobr.supreme.util.CompatibilySupremeLegacy.getOld
 
 import com.github.relativobr.supreme.Supreme;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.ArrayUtils;
+import org.apache.commons.lang.ArrayUtils;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

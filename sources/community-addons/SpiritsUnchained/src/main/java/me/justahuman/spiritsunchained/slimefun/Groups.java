@@ -1,8 +1,8 @@
 package me.justahuman.spiritsunchained.slimefun;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ColoredFireworkStar;
 
 import me.justahuman.spiritsunchained.SpiritsUnchained;

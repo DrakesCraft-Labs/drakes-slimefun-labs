@@ -5,7 +5,7 @@ import me.EzCoins.MiniBlocks.MiniBlocks;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import me.EzCoins.MiniBlocks.utils.GUIHeads;
 import org.bukkit.Material;

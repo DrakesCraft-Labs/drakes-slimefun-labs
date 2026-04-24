@@ -1,6 +1,6 @@
 package me.pranavverma.advancedtech.general.items.diggers.lib.basic;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

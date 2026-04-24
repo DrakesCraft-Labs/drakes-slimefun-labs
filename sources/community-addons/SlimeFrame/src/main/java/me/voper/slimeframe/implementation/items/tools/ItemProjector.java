@@ -20,10 +20,10 @@ import org.bukkit.scheduler.BukkitTask;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.blocks.BlockPosition;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.utils.NumberUtils;
 
 import me.voper.slimeframe.SlimeFrame;

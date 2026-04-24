@@ -1,9 +1,9 @@
 package org.metamechanists.quaptics;
 
 import co.aikar.commands.PaperCommandManager;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import com.github.drakescraft_labs.slimefun4.libraries.paperlib.PaperLib;
+import io.papermc.lib.PaperLib;
 import lombok.Getter;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

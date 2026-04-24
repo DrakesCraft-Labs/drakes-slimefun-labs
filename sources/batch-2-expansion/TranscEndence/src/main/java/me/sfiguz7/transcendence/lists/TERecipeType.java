@@ -1,7 +1,7 @@
 package me.sfiguz7.transcendence.lists;
 
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import me.sfiguz7.transcendence.TranscEndence;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

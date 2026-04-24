@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 

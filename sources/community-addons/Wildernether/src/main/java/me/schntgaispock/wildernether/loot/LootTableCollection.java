@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 import lombok.Getter;
 import me.schntgaispock.wildernether.util.GeneralUtil;
 

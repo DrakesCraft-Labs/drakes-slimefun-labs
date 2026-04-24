@@ -34,8 +34,8 @@ import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetCompo
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;

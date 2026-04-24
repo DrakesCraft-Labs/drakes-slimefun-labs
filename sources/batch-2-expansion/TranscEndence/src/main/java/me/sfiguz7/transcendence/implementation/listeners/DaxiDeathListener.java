@@ -1,7 +1,7 @@
 package me.sfiguz7.transcendence.implementation.listeners;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.items.CustomItemStack;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.implementation.items.items.Daxi;
 import me.sfiguz7.transcendence.lists.TEItems;

@@ -108,7 +108,7 @@ public class CraftingComponents {
             "QP_PHASE_CRYSTAL_180", Material.QUARTZ, "&7Phase Crystal", Lore.phaseChange(180)));
 
     private @NotNull SlimefunItemStack enchant(final @NotNull SlimefunItemStack itemStack) {
-        itemStack.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
+        itemStack.addUnsafeEnchantment(Enchantment.POWER, 1);
         itemStack.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         return itemStack;
     }

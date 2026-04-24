@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.liquid.objects;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.attributes.ItemAttribute;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.utils.NumberUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;

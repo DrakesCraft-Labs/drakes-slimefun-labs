@@ -4,7 +4,7 @@ import dev.sefiraat.netheopoiesis.Purification;
 import dev.sefiraat.netheopoiesis.implementation.Groups;
 import dev.sefiraat.netheopoiesis.utils.ItemStackUtils;
 import dev.sefiraat.netheopoiesis.utils.Theme;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;

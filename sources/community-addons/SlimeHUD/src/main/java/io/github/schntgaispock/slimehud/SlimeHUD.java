@@ -14,7 +14,7 @@ import dev.drake.infinitylib.core.AbstractAddon;
 import dev.drake.infinitylib.core.AddonConfig;
 import io.github.schntgaispock.slimehud.command.CommandManager;
 import io.github.schntgaispock.slimehud.waila.WAILAManager;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import lombok.Getter;
 
 public class SlimeHUD extends AbstractAddon {

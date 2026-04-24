@@ -11,7 +11,7 @@ import org.metamechanists.sanecrafting.patches.CraftingTablePatch;
 import org.metamechanists.sanecrafting.patches.RecipeBookResearchPatch;
 import org.metamechanists.sanecrafting.patches.RecipeLorePatch;
 import org.metamechanists.sanecrafting.patches.UsableInWorkbenchPatch;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 
 
 public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {

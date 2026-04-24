@@ -194,6 +194,6 @@ public class CrystalRefiner extends ConnectedBlock implements ItemHolderBlock, P
     }
 
     private static void tickAnimation(@NotNull final Location location) {
-        location.getWorld().spawnParticle(Particle.BLOCK_DUST, location.toCenterLocation(), 4, 0, 0, 0, Material.QUARTZ_BLOCK.createBlockData());
+        location.getWorld().spawnParticle(Particle.BLOCK, location.toCenterLocation(), 4, 0, 0, 0, Material.QUARTZ_BLOCK.createBlockData());
     }
 }

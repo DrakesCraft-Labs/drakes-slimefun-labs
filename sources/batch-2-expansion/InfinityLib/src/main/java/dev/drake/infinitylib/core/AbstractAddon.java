@@ -19,7 +19,7 @@ import dev.drake.infinitylib.commands.AddonCommand;
 import dev.drake.infinitylib.common.Scheduler;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import dev.drake.dough.updater.GitHubBuildsUpdater;
 
 /**
  * Extend this in your main plugin class to access a bunch of utilities

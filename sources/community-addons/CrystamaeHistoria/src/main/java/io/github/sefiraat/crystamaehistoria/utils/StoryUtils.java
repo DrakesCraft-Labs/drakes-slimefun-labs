@@ -13,7 +13,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoriesDataType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

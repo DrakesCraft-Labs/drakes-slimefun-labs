@@ -12,7 +12,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstrac
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

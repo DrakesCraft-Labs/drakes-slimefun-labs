@@ -1,7 +1,7 @@
 package me.mmmjjkx.betterChests.items.chests.ie;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import me.mmmjjkx.betterChests.BetterChests;
 import me.mmmjjkx.betterChests.utils.ItemStackBuilder;

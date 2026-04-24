@@ -6,7 +6,7 @@ import java.util.Map;
 import org.bukkit.inventory.ItemStack;
 
 import dev.drake.infinitylib.common.StackUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 final class MachineBlockRecipe {
 

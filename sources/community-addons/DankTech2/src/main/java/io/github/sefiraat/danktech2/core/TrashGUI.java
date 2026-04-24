@@ -9,7 +9,7 @@ import io.github.sefiraat.danktech2.utils.Skulls;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentTrashInstanceType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;

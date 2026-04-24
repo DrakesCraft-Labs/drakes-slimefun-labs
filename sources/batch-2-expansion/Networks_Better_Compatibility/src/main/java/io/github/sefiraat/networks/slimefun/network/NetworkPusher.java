@@ -9,7 +9,7 @@ import io.github.sefiraat.networks.utils.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;

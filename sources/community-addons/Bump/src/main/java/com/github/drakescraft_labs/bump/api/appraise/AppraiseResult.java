@@ -23,7 +23,7 @@ import com.github.drakescraft_labs.bump.utils.Utils;
 import com.github.drakescraft_labs.bump.utils.ValidateUtils;
 import com.github.drakescraft_labs.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.bump.utils.tags.BumpTag;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
 

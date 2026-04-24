@@ -1,6 +1,6 @@
 package me.justahuman.spiritsunchained.implementation.mobs;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import me.justahuman.spiritsunchained.SpiritsUnchained;
 import me.justahuman.spiritsunchained.managers.SpiritEntityManager;

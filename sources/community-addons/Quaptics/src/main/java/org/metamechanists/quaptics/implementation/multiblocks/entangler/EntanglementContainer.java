@@ -253,7 +253,7 @@ public class EntanglementContainer extends ConnectedBlock implements ItemHolderB
                 0.05);
     }
     private static void animateCenterCompleted(@NotNull final Location center) {
-        new ParticleBuilder(Particle.FIREWORKS_SPARK)
+        new ParticleBuilder(Particle.FIREWORK)
                 .location(center.toCenterLocation())
                 .extra(0.1)
                 .count(50)

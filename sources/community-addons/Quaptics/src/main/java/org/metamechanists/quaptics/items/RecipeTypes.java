@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.items;
 
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.metamechanists.quaptics.utils.Colors;
 import org.metamechanists.quaptics.utils.Keys;

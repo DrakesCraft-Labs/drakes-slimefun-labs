@@ -7,7 +7,7 @@ import dev.sefiraat.netheopoiesis.api.interfaces.PurificationDrain;
 import dev.sefiraat.netheopoiesis.listeners.CustomPlacementListener;
 import dev.sefiraat.netheopoiesis.utils.Keys;
 import dev.sefiraat.netheopoiesis.utils.WorldUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
+import dev.drake.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

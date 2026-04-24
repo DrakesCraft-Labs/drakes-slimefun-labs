@@ -8,7 +8,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.github.drakescraft_labs.bump.utils.ValidateUtils;
 import com.github.drakescraft_labs.bump.utils.constant.Keys;
 import com.github.drakescraft_labs.slimefun4.core.attributes.ItemAttribute;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 
 /**
  * This {@link ItemAttribute} indicates that this item has cooldown time.

@@ -4,7 +4,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.AutoBrewer;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils;
+import dev.drake.dough.inventory.InvUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import org.bukkit.Material;

@@ -12,7 +12,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import dev.drake.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;

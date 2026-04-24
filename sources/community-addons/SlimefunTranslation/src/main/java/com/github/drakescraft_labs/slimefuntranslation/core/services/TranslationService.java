@@ -24,7 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 import com.github.drakescraft_labs.slimefuntranslation.api.config.TranslationConfiguration;

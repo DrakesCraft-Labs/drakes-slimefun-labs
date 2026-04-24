@@ -13,9 +13,9 @@ import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineTier;
 import com.github.drakescraft_labs.slimefun4.core.attributes.MachineType;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 
 import ne.fnfal113.fnamplifications.FNAmplifications;

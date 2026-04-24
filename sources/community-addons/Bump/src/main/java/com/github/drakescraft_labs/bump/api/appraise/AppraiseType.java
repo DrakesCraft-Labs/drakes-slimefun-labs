@@ -30,7 +30,7 @@ import com.github.drakescraft_labs.bump.core.BumpRegistry;
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import org.apache.commons.lang.Validate;
 
 import net.guizhanss.guizhanlib.utils.RandomUtil;
 import net.guizhanss.guizhanlib.utils.StringUtil;

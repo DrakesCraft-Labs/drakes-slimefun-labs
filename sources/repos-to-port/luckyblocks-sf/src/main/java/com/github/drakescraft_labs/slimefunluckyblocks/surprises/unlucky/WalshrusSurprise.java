@@ -14,9 +14,9 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.LuckLevel;
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.Surprise;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.skins.PlayerHead;
+import dev.drake.dough.skins.PlayerSkin;
 
 public final class WalshrusSurprise implements Surprise {
 

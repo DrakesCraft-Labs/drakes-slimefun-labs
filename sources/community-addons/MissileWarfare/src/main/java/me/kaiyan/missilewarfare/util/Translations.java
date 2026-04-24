@@ -1,6 +1,6 @@
 package me.kaiyan.missilewarfare.util;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import dev.drake.dough.config.Config;
 import net.md_5.bungee.api.ChatColor;
 
 import java.util.List;

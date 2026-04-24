@@ -6,7 +6,7 @@ import co.aikar.commands.PaperCommandManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import dev.drake.dough.updater.BlobBuildUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.plugin.PluginManager;

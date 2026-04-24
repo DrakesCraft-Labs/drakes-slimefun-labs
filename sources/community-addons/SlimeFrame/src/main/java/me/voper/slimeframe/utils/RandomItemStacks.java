@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.commons.lang.Validate;
+import org.apache.commons.lang.Validate;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -22,7 +22,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.ProtectionType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.ProtectiveArmor;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import dev.drake.dough.common.ChatColors;
 
 @ParametersAreNonnullByDefault
 public class SpaceSuit extends SlimefunItem implements ProtectiveArmor {

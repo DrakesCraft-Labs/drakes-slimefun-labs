@@ -12,7 +12,7 @@ import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
