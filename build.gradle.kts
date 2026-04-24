@@ -7,7 +7,7 @@ subprojects {
     apply(plugin = "java")
     apply(plugin = "com.github.johnrengelman.shadow")
 
-    group = "com.github.drakescraft-labs"
+    group = "com.github.drakescraft_labs"
     version = "11.0-Drake-1.21.1-SNAPSHOT"
 
     java {
@@ -35,8 +35,8 @@ subprojects {
         val slimefunVersion = "11.0-Drake-1.21.1-SNAPSHOT"
 
         compileOnly("io.papermc.paper:paper-api:$paperVersion")
-        compileOnly("com.github.drakescraft-labs:slimefun-core:$slimefunVersion")
-        compileOnly("com.github.drakescraft-labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
+        compileOnly("com.github.drakescraft_labs:slimefun-core:$slimefunVersion")
+        compileOnly("com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
     }
 
     tasks.withType<JavaCompile> {
