@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>SimpleUtils-drake</artifactId>
     <version>MODIFIED</version>
 
@@ -33,7 +33,7 @@
 
         <!-- Slimefun -->
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -41,7 +41,7 @@
 
         <!-- Dough -->
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>

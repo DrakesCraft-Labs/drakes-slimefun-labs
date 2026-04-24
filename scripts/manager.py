@@ -94,7 +94,9 @@ def repair(dry_run=False):
         (r"(<parent>[\s\S]*?<artifactId>).*?(</artifactId>)", r"\g<1>drakes-slimefun-labs\g<2>"),
         # 3. Forzar Versión 11-SNAPSHOT
         (r"(<parent>[\s\S]*?<version>).*?(</version>)", r"\g<1>11-SNAPSHOT\g<2>"),
-        # 4. Reparar corrupciones previas (I-SNAPSHOT)
+        # 4. Reparar GroupID en Dependencias (CRÍTICO)
+        (r"(<groupId>)com\.github\.drakescraft-labs(</groupId>)", r"\g<1>com.github.drakescraft_labs\g<2>"),
+        # 5. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>")
     ]
     

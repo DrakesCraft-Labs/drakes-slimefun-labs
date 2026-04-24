@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>SpiritsUnchained-drake</artifactId>
     <version>UNOFFICIAL</version>
 
@@ -114,7 +114,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -128,7 +128,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-core</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>

@@ -10,7 +10,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>FluffyMachines-drake</artifactId>
     <version>1.0.0</version>
 
@@ -113,7 +113,7 @@
         </dependency>
 
                 <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -167,7 +167,7 @@
         </dependency>
     
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>

@@ -11,7 +11,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>DyeBench-drake</artifactId>
 
     <version>UNOFFICIAL</version>
@@ -80,7 +80,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -103,7 +103,7 @@
         </dependency>
     
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>

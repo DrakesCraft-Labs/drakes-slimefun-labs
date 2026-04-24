@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>EMCTech-drake</artifactId>
     <version>MODIFIED</version>
 
@@ -132,7 +132,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
@@ -151,7 +151,7 @@
             <version>3.0.1u2</version>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-core</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>
@@ -170,7 +170,7 @@
 
         <!-- Supported Plugins -->
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>networks</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>

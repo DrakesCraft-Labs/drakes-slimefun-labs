@@ -32,25 +32,25 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-core</artifactId>
             <version>${sefilib.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>InfinityExpansion</artifactId>
             <version>1.20.6-Drake-SNAPSHOT</version>
             <scope>provided</scope>

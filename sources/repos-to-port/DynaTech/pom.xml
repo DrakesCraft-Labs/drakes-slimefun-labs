@@ -15,7 +15,7 @@
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>DynaTech-drake</artifactId>
     <version>1.21-Drake-v7</version>
     <name>DynaTech</name>
@@ -30,14 +30,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>provided</scope>
@@ -45,19 +45,19 @@
 
         <!-- Soft Dependencies (Batch 1 Partners) -->
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>ExtraUtils-drake</artifactId>
             <version>1.20.6-Drake-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>ExoticGarden-drake</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>InfinityExpansion-drake</artifactId>
             <version>1.20.6-Drake-SNAPSHOT</version>
             <scope>provided</scope>

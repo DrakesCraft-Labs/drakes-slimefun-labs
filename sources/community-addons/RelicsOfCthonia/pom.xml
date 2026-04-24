@@ -11,7 +11,7 @@
     </parent>
 
 
-    <groupId>com.github.drakescraft-labs</groupId>
+    <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>RelicsOfCthonia-drake</artifactId>
     <version>Unofficial-2.0.0</version>
     <packaging>jar</packaging>
@@ -122,7 +122,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.drakescraft-labs</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
             <version>${slimefun.drake.version}</version>
             <scope>provided</scope>
