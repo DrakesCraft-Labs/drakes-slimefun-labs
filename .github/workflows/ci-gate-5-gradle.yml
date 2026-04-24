@@ -1,0 +1,41 @@
+name: "Gate 5: Gradle Front"
+
+on:
+  push:
+    branches: [ "1.21-latin" ]
+  workflow_dispatch:
+
+jobs:
+  gradle-addons:
+    name: "Gradle Build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build Gradle Modules
+        run: |
+          # Bump
+          cd sources/community-addons/Bump
+          chmod +x gradlew
+          ./gradlew build -x test
+          cd ../../..
+          
+          # Galactifun
+          cd sources/batch-2-expansion/Galactifun
+          chmod +x gradlew
+          ./gradlew build -x test
+          cd ../../..
+          
+          # SlimefunTranslation
+          cd sources/community-addons/SlimefunTranslation
+          chmod +x gradlew
+          ./gradlew build -x test
+          cd ../../..
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
