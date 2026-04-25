@@ -94,19 +94,32 @@ class UltimateGenerators2 : AbstractAddon(
 
     private fun setupMetrics() {
         // Tras shade-plugin, bStats debe cargarse con el paquete relocado (checkRelocation en 3.x).
-        val metricsClass = Class.forName(
-            "com.github.drakescraft_labs.ultimategenerators2.libs.bstats.bukkit.Metrics",
-        )
-        val intType = Integer.TYPE
+        // Paper puede mezclar otra variante de bStats en runtime (p. ej. NoSuchMethodError al invocar);
+        // las métricas son opcionales: no bloquear el enabling del addon.
         try {
-            val ctor = metricsClass.getConstructor(Plugin::class.java, intType)
-            ctor.newInstance(this, 21567)
-        } catch (_: NoSuchMethodException) {
-            val ctor = metricsClass.getConstructor(
-                org.bukkit.plugin.java.JavaPlugin::class.java,
-                intType,
+            val metricsClass = Class.forName(
+                "com.github.drakescraft_labs.ultimategenerators2.libs.bstats.bukkit.Metrics",
             )
-            ctor.newInstance(this, 21567)
+            val intType = Integer.TYPE
+            val pluginArg: Any = this
+            val paramVariants = listOf(
+                arrayOf(Plugin::class.java, intType),
+                arrayOf(org.bukkit.plugin.java.JavaPlugin::class.java, intType),
+            )
+            for (paramTypes in paramVariants) {
+                try {
+                    val ctor = metricsClass.getConstructor(*paramTypes)
+                    ctor.newInstance(pluginArg, 21567)
+                    return
+                } catch (_: ReflectiveOperationException) {
+                    // siguiente variante
+                } catch (_: LinkageError) {
+                    // NoSuchMethodError u otro enlace frente a otra copia de bStats en el classloader
+                    return
+                }
+            }
+        } catch (e: Throwable) {
+            logger.log(Level.FINE, "bStats no disponible o incompatible (omitido).", e)
         }
     }
 
