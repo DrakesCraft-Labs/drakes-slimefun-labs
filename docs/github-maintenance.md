@@ -29,6 +29,42 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
 
+## Bloquear merge entre `1.21-latin` y `26.X-ToTheStars` (GitHub / `gh`)
+
+GitHub **no** incluye una regla nativa del tipo “si la base es A y la cabeza es B, bloquear”. **Rulesets** y **branch protection** exigen reviews, firmas, checks genéricos, etc., pero **no** pueden declarar solo esa pareja de ramas.
+
+Lo habitual es:
+
+1. **Workflow de Actions** que falle cuando `github.base_ref` y `github.head_ref` sean exactamente esa pareja prohibida.
+2. Marcar ese job como **status check obligatorio** en las ramas afectadas (ruleset o branch protection).
+
+En este repo el workflow es [`.github/workflows/policy-no-cross-line-merge.yml`](../.github/workflows/policy-no-cross-line-merge.yml). El job se llama **`cross-merge-guard`** (nombre que verás en el cuadro de checks del PR).
+
+### Activar el bloqueo (recomendado: Rulesets en la UI)
+
+1. *Settings → Rules → Rulesets → New branch ruleset*.
+2. **Name:** por ejemplo `require-cross-merge-guard`.
+3. **Target branches:** incluir `1.21-latin` y `26.X-ToTheStars` (dos entradas o patrón que las cubra).
+4. Activar **Require status checks to pass** (o el equivalente en rulesets) y elegir el check **`cross-merge-guard`** (tras abrir un PR de prueba contra esas bases para que GitHub lo descubra, si no aparece en la lista).
+5. Opcional: modo **Evaluate** primero para validar sin bloquear aún.
+
+### Qué puede hacer `gh` aquí
+
+- **Solo lectura / comprobación** (oficial en CLI): `gh ruleset list`, `gh ruleset view`, `gh ruleset check <rama> -R org/repo`.
+- **Crear o actualizar rulesets** no trae subcomando dedicado; se hace con la **API REST** que `gh` puede llamar:
+
+  ```bash
+  gh api --method POST repos/DrakesCraft-Labs/drakes-slimefun-labs/rulesets --input ruleset.json
+  ```
+
+  El cuerpo `ruleset.json` debe seguir [Create a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2022-11-28#create-a-repository-ruleset) (campos `name`, `target`, `enforcement`, `conditions.ref_name.include`, `rules` con `type: "required_status_checks"` y el `context` exacto del check). Hace falta token con permisos de administración sobre el repo.
+
+- **Branch protection clásica** (alternativa): `PUT /repos/{owner}/{repo}/branches/{branch}/protection` con `required_status_checks`; también vía `gh api` con JSON bien formado. Suele ser más verboso que un ruleset en la UI.
+
+### Limitación del workflow
+
+Solo bloquea cuando la **cabeza del PR** es exactamente `26.X-ToTheStars` o `1.21-latin`. Un PR desde una rama intermedia (`sync/bad`) con contenido mezclado **no** queda cubierto; ahí hacen falta revisión humana y convención de equipo.
+
 ## Dependabot y vulnerabilidades
 
 ### Dónde mirar

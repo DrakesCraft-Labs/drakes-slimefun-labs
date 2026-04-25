@@ -1,0 +1,38 @@
+# Impide PR cuya base sea una línea estable y la cabeza sea la otra rama de historia
+# paralela (merge bidireccional prohibido por política del repo).
+#
+# Tras el primer run, añade este check como obligatorio en ruleset / branch protection
+# para 1.21-latin y 26.X-ToTheStars (ver docs/github-maintenance.md).
+
+name: policy-no-cross-merge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+    branches:
+      - 1.21-latin
+      - 26.X-ToTheStars
+
+permissions:
+  contents: read
+
+jobs:
+  cross-merge-guard:
+    name: cross-merge-guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rechazar merge directo entre 1.21-latin y 26.X-ToTheStars
+        run: |
+          set -e
+          base="${{ github.base_ref }}"
+          head="${{ github.head_ref }}"
+          echo "PR head=$head base=$base"
+          if [ "$base" = "1.21-latin" ] && [ "$head" = "26.X-ToTheStars" ]; then
+            echo "::error::Prohibido: no fusionar 26.X-ToTheStars en 1.21-latin. Usa cherry-pick o ramas de feature."
+            exit 1
+          fi
+          if [ "$base" = "26.X-ToTheStars" ] && [ "$head" = "1.21-latin" ]; then
+            echo "::error::Prohibido: no fusionar 1.21-latin en 26.X-ToTheStars. Usa cherry-pick o ramas de feature."
+            exit 1
+          fi
+          echo "OK: combinación base/head permitida."
