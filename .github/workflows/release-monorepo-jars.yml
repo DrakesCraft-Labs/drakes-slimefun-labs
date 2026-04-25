@@ -1,0 +1,63 @@
+name: Release monorepo JARs
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag de GitHub Release (ej. v11-plugins-2026-04-25). Debe ser único."
+        required: true
+        type: string
+      draft:
+        description: "Crear el release como borrador"
+        required: true
+        default: true
+        type: boolean
+      prerelease:
+        description: "Marcar como pre-release"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_release:
+    name: Maven package + ZIP + GitHub Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: Maven package (reactor)
+        run: mvn -B -DskipTests package
+
+      - name: Collect plugin JARs
+        run: |
+          python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars
+          (cd dist && zip -r ../monorepo-plugins.zip monorepo-jars)
+
+      - name: Upload build artifact (ZIP)
+        uses: actions/upload-artifact@v5
+        with:
+          name: monorepo-plugins-${{ inputs.tag }}
+          path: monorepo-plugins.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: ${{ inputs.tag }}
+          draft: ${{ inputs.draft }}
+          prerelease: ${{ inputs.prerelease }}
+          generate_release_notes: true
+          files: monorepo-plugins.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,6 @@
 param(
     [string]$Profile = "foundation",
-    [string]$MinecraftVersion = "1.21.1",
+    [string]$MinecraftVersion = "",
     [int]$TimeoutSeconds = 90,
     [switch]$NoBuild,
     [switch]$Clean
@@ -14,7 +14,6 @@ $profilePath = Join-Path $scriptDir "smoke-profiles.json"
 $profileRoot = Join-Path (Join-Path $root ".smoke") $Profile
 $pluginsSource = Join-Path $profileRoot "artifacts/plugins"
 $serverDir = Join-Path $profileRoot "server"
-$serverJar = Join-Path $serverDir "paper-$MinecraftVersion.jar"
 $logPath = Join-Path $serverDir "logs/latest.log"
 
 function Get-ProfileConfig {
@@ -156,6 +155,18 @@ function Assert-SmokeLog {
 
 $profileConfig = Get-ProfileConfig
 
+$mc = $MinecraftVersion
+if ([string]::IsNullOrWhiteSpace($mc)) {
+    if ($profileConfig.PSObject.Properties.Name -contains "minecraftVersion" -and $profileConfig.minecraftVersion) {
+        $mc = [string]$profileConfig.minecraftVersion
+    } else {
+        $mc = "1.21.1"
+    }
+}
+$MinecraftVersion = $mc
+$serverJar = Join-Path $serverDir "paper-$MinecraftVersion.jar"
+Write-Host "==> Paper Minecraft version: $MinecraftVersion (jar: $serverJar)" -ForegroundColor DarkGray
+
 if (-not $NoBuild) {
     & (Join-Path $scriptDir "build-smoke-artifacts.ps1") -Profile $Profile -Clean:$Clean
     if ($LASTEXITCODE -ne 0) {
@@ -201,7 +212,7 @@ if (Test-Path $fetchDeps) {
     }
 }
 
-Write-Host "==> Iniciando servidor smoke ($Profile, timeout ${waitSeconds}s)" -ForegroundColor Cyan
+Write-Host "==> Iniciando servidor smoke ($Profile, MC $MinecraftVersion, timeout ${waitSeconds}s)" -ForegroundColor Cyan
 $psi = [System.Diagnostics.ProcessStartInfo]::new()
 $psi.FileName = "java"
 $psi.Arguments = "-Xms512M -Xmx2G -jar `"$serverJar`" --nogui"

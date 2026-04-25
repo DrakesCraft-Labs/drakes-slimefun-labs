@@ -1,5 +1,21 @@
 {
   "profiles": {
+    "foundation-paper-12111": {
+      "description": "Runtime smoke minimo: Paper 1.21.11 + Slimefun core Drake.",
+      "minecraftVersion": "1.21.11",
+      "mavenModules": [
+        "sources/slimefun-core/Slimefun4-src"
+      ],
+      "gradleTasks": [],
+      "expectedPlugins": [
+        "Slimefun"
+      ],
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ]
+    },
     "foundation": {
       "description": "Runtime smoke minimo: Paper 1.21.1 + Slimefun core Drake.",
       "mavenModules": [
@@ -30,6 +46,29 @@
         "PrivateStorage",
         "ElectricSpawners"
       ],
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ]
+    },
+    "monorepo-all-paper-12111": {
+      "description": "Paper 1.21.11 + Slimefun + todos los addons Maven del reactor (misma matriz que monorepo-all).",
+      "minecraftVersion": "1.21.11",
+      "mavenReactorAll": true,
+      "excludeMavenModules": [
+        "sources/dough-core",
+        "sources/batch-2-expansion/SefiLib",
+        "sources/batch-2-expansion/InfinityLib",
+        "sources/internal-metadata/patches/commons-lang-drake-patched",
+        "sources/repos-to-port/ExtraUtils"
+      ],
+      "gradleTasks": [],
+      "expectedPlugins": [],
+      "strictExpectedPlugins": true,
+      "mergeDoughIntoAddonJars": true,
+      "startupTimeoutSeconds": 360,
+      "postReadySleepSeconds": 25,
       "requiredLogMarkers": [
         "JACKSTAR",
         "DRAKESCRAFT",

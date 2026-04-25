@@ -42,3 +42,11 @@ Los merges los debe hacer alguien con contexto del porte; esta guía no sustituy
 ## Projects (tablero org)
 
 Ver [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md). La CLI necesita scopes `read:project` y `project` tras `gh auth refresh`.
+
+## Release de todos los JAR del monorepo
+
+El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a mano (*Actions → Release monorepo JARs → Run workflow*). Ejecuta `mvn -B -DskipTests package` en el reactor, recopila un jar por módulo con `scripts/release/collect_monorepo_jars.py`, genera `monorepo-plugins.zip` y crea un **GitHub Release** con ese ZIP adjunto.
+
+- **Tag**: obligatorio y único (por ejemplo `v11-plugins-2026-04-25`). Si el tag ya existe, el paso de release fallará hasta que elijas otro.
+- **Draft / Prerelease**: útil la primera vez para revisar notas y adjuntos antes de publicar.
+- Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` dentro del ZIP con la lista `missing_modules`; conviene revisar ese archivo si el ZIP parece incompleto.

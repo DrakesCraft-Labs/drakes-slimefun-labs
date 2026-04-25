@@ -10,8 +10,15 @@ on:
         type: choice
         options:
           - foundation
+          - foundation-paper-12111
           - core-addons
           - monorepo-all
+          - monorepo-all-paper-12111
+      minecraft_version:
+        description: "Override Paper MC version (empty = use profile default, usually 1.21.1)"
+        required: false
+        default: ""
+        type: string
       timeout_seconds:
         description: "Seconds to wait for Paper startup (use >=360 for monorepo-all)"
         required: true
@@ -40,10 +47,16 @@ jobs:
       - name: Run Paper smoke server
         shell: pwsh
         run: |
-          ./scripts/smoke/run-smoke-server.ps1 `
+          $extra = @()
+          if ('${{ inputs.minecraft_version }}' -ne '') {
+            $extra += '-MinecraftVersion'
+            $extra += '${{ inputs.minecraft_version }}'
+          }
+          & ./scripts/smoke/run-smoke-server.ps1 `
             -Profile "${{ inputs.profile }}" `
             -Clean `
-            -TimeoutSeconds ${{ inputs.timeout_seconds }}
+            -TimeoutSeconds ${{ inputs.timeout_seconds }} `
+            @extra
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
