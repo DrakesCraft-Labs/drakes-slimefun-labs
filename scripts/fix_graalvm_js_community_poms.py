@@ -71,7 +71,7 @@ def main() -> int:
 
     if args.audit:
         if not hits_audit:
-            print("OK: ningún pom.xml con org.graalvm.js + artifactId js (enterprise).")
+            print("OK: no hay pom.xml con org.graalvm.js + artifactId js (enterprise).")
             return 0
         print("POMs con dependencia GraalVM js (enterprise):")
         for h in hits_audit:
