@@ -45,7 +45,7 @@ jobs:
           (cd dist && zip -r ../monorepo-plugins.zip monorepo-jars)
 
       - name: Upload build artifact (ZIP)
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: monorepo-plugins-${{ inputs.tag }}
           path: monorepo-plugins.zip
