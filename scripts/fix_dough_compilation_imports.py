@@ -10,6 +10,9 @@ antes del `compile` de los addons, asi que `Slimefun.getProtectionManager()` exp
 NO modificar `sources/slimefun-core` ni `sources/dough-core`: alli el codigo fuente
 debe seguir usando `dev.drake.dough`.
 
+Tampoco `batch-2-expansion/SefiLib` ni `InfinityLib`: el CI fundación hace `compile` sin
+shade; esos modulos dependen de `dough-core` y deben importar `dev.drake.dough.protection.*`.
+
 Uso (raiz del repo):
   python scripts/fix_dough_compilation_imports.py
 """
