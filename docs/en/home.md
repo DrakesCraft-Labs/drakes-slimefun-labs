@@ -5,7 +5,7 @@
 ## Executive snapshot
 
 - Active baseline: `Paper 1.21.1`, `Java 21`
-- Main CI (Gate 1 through Gate 5): green
+- Main CI (`CI Monorepo 1.21` in Actions): green
 - Maven Dependency Submission: green
 - Current focus: CI stability plus gradual migration of legacy modules
 
@@ -32,6 +32,6 @@ Refresh README + matrix: `python scripts/generate_plugin_matrix.py`
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs in `ci-monorepo-121.yml`).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

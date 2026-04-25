@@ -10,7 +10,7 @@ This document reflects the real state after the current CI stabilization work.
 
 ## Current state
 
-- Gates 1–5: green on branch `1.21-latin`
+- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): green on branch `1.21-latin` for curated Maven/Gradle slices
 - Main gap: widen CI coverage beyond the curated gate subsets; most Maven modules are still **in progress** at per-module build evidence level
 - Work style: reintroduce modules in small batches + smoke tests for sensitive addons
 
@@ -31,7 +31,7 @@ Cut date: `2026-04-24`.
 
 ### Gradle slice (same cut)
 
-- `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL** (also covered by CI Gate 5)
+- `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL** (also covered by CI job `gradle_green` in `ci-monorepo-121.yml`)
 - `sources:community-addons:Bump`: **BUILD SUCCESS** on `compileJava` (April 2026). Main port: `JavaPlugin` + Drake `SlimefunAddon` (no Guizhan `AbstractAddon` / BusyBiscuit), native `SimpleMenuBlock` on `SlimefunItem` + `BlockMenuPreset`, `LocalizationService` extends `MinecraftLocalization`, 1.21 enchant/flag updates (`POWER`, `SHARPNESS`, `UNBREAKING`, `HIDE_ADDITIONAL_TOOLTIP`), `GuizhanBuildsUpdater.start(...)`. The full root `build` can still fail on other Gradle modules (CIG/FastMachines/SlimefunTranslation).
 - `sources:community-addons:CustomItemGenerators`: **FAIL** (Kotlin / `SlimefunAddon` wiring); run `./gradlew :sources:community-addons:CustomItemGenerators:compileKotlin` for the current log.
 - `sources:community-addons:FastMachines`: **FAIL** (Kotlin / BusyBiscuit vs Drake types; InfinityExpansion wiring); see matrix.
@@ -51,7 +51,7 @@ Always run `--dry-run` first, review the diff, then `--apply`. With `--backup`, 
 
 ## Suggested work blocks
 
-1. Promote **local-compile-green** Maven modules into an appropriate `ci-gate-*.yml` slice.
+1. Promote **local-compile-green** Maven modules into a new job or `-pl` slice inside [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml).
 2. Fix Gradle-blocked addons with the highest leverage ordering (see matrix notes).
 3. Run runtime smoke tests for mechanics-heavy addons.
 4. Keep the GitHub Project board aligned after each documentation cut.
@@ -60,13 +60,13 @@ Always run `--dry-run` first, review the diff, then `--apply`. With `--backup`, 
 
 A module is considered closed when:
 
-- it compiles in the matching CI gate (or a dedicated workflow),
+- it compiles in the matching CI job in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (or a dedicated workflow),
 - it does not break the global pipeline,
 - and it has minimal runtime validation when gameplay risk is high.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Sync cut: **2026-04-24 (updated after Gradle batch audit)**.
 > Active baseline: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **Gates 1–5 green**.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs).
 > Note: the full monorepo remains on incremental migration; latest cut: Maven batch LiteXpansion/Supreme/TranscEndence green; Gradle Bump + Galactifun compile; CustomItemGenerators / FastMachines / SlimefunTranslation remain blocked in the Gradle reactor.
 <!-- DRAKES-STATUS:END -->

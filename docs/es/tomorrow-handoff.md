@@ -4,12 +4,12 @@
 
 - **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft_labs`
 - **Inventario auditado**: ver [`README.md`](../../README.md) y [`PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md) — **86 filas** (81 Maven en `pom.xml` + 5 entradas Gradle del reactor; regenerar con `python scripts/generate_plugin_matrix.py`).
-- **CI**: Gates 1–5 verdes sobre **subconjuntos** curados; no asumir build global de los 86.
-- **Gradle**: `Galactifun` OK en CI; cuatro addons comunitarios siguen **bloqueados** de compilacion (detalle en la matriz y en `pending-modules.md`).
+- **CI**: **CI Monorepo 1.21** verde sobre **subconjuntos** curados (`ci-monorepo-121.yml`); no asumir build global de los 86.
+- **Gradle**: `Galactifun` y `Bump` OK en CI (`gradle_green`); tres addons comunitarios siguen **bloqueados** de compilacion en el reactor completo (detalle en la matriz y en `pending-modules.md`).
 - **Tablero org**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — alinear con [`PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
 ## 🛰️ Infraestructura CI/CD
-- **Unified Engine**: El workflow maestro ya está operativo y valida ambos reactores en paralelo.
+- **Workflow unificado**: [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) valida lotes Maven y el subconjunto Gradle en verde (`gradle_green`).
 - **GitHub Packages**: Registro purgado de basura antigua. Solo queda el stack premium.
 
 ## 🐍 DrakesLab Manager
@@ -43,6 +43,6 @@
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

@@ -12,11 +12,14 @@ The repository is operated in an incremental-stability model:
 
 ## CI shape
 
-- Gate 1: foundation baseline
-- Gate 2: stable addons subset
-- Gate 3: community subset under active migration
-- Gate 4: complex/heavy subset
-- Gate 5: gradle front subset
+Single workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`):
+
+- **foundation**: Maven baseline (Dough, Slimefun, SefiLib, InfinityLib, commons-lang patch)
+- **maven_stable**, **maven_community**, **maven_complex**: parallel Maven slices after `foundation` succeeds
+- **gradle_green**: `compileJava` for Gradle modules that already port (Bump + Galactifun), not the whole failing Gradle reactor
+- **ci_summary**: optional umbrella check for branch protection
+
+Concurrency cancels in-progress runs on the same branch to reduce “war zone” noise from stacked pushes.
 
 ## Release posture
 
@@ -26,13 +29,13 @@ The repository is operated in an incremental-stability model:
 
 ## Next milestones
 
-1. Reintroduce broader module sets per gate.
+1. Reintroduce broader module sets in `ci-monorepo-121.yml` jobs (`-pl` slices).
 2. Remove legacy dependency bottlenecks.
 3. Track runtime validation status per addon group.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados en `ci-monorepo-121.yml`).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

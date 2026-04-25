@@ -1,0 +1,13 @@
+# Actualizaciones de dependencias con bajo ruido (no sustituye revision humana del port 1.21).
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"

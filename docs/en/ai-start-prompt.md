@@ -7,7 +7,7 @@ Use this summary as a starting point when opening a new session and you need qui
 - branch: `1.21-latin`
 - stack: `Paper 1.21.1`, `Java 21`, Slimefun ecosystem (see root `pom.xml`)
 - audited inventory: **86** reactor entries (see `README.md` + `docs/es/PLUGIN_MATRIX.md`)
-- CI: Gates 1–5 green on curated subsets (not full monorepo per-module proof)
+- CI: **CI Monorepo 1.21** green on curated subsets in \ci-monorepo-121.yml\ (not full monorepo per-module proof)
 
 ## Key rules
 
@@ -19,6 +19,6 @@ Use this summary as a starting point when opening a new session and you need qui
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

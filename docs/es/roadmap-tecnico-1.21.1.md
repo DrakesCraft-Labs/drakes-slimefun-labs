@@ -73,6 +73,6 @@ Implementaremos un motor de traducción sobre el branch de migración.
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

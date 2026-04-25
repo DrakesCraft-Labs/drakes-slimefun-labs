@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"m": "http://maven.apache.org/POM/4.0.0"}
 
-# Modulos con evidencia explicita en .github/workflows/ci-gate-*.yml
+# Modulos con evidencia explicita en .github/workflows/ci-monorepo-121.yml (jobs Maven + gradle_green)
 GATE_1 = {
     "sources/dough-core",
     "sources/slimefun-core/Slimefun4-src",
@@ -28,8 +28,11 @@ GATE_3 = {
     "sources/community-addons/DankTech2",
 }
 GATE_4 = {"sources/batch-2-expansion/Supreme"}
-# Gate 5: solo Galactifun en el job Gradle (SlimefunTranslation excluido en comentario)
-GATE_5_GRADLE_OK = {"sources/batch-2-expansion/Galactifun"}
+# Job gradle_green: compileJava de proyectos ya portados (no todo el reactor Gradle)
+GATE_5_GRADLE_OK = {
+    "sources/batch-2-expansion/Galactifun",
+    "sources/community-addons/Bump",
+}
 
 # Compilacion Maven local verificada (mvn compile -am) Abril 2026 — misma sesion de auditoria
 LOCAL_MAVEN_COMPILE = {
@@ -52,11 +55,6 @@ GRADLE_FAIL = {
     "sources/community-addons/CustomItemGenerators",
     "sources/community-addons/FastMachines",
     "sources/community-addons/SlimefunTranslation",
-}
-
-# Modulos Gradle con compile verificado localmente (sin gate CI dedicado)
-LOCAL_GRADLE_COMPILE_OK = {
-    "sources/community-addons/Bump",
 }
 
 GRADLE_FAIL_NOTE = {
@@ -94,28 +92,22 @@ def classify(path: str) -> tuple[str, str, str]:
     if path in GATE_5_GRADLE_OK:
         return (
             "Listo (CI)",
-            "Gate 5 Gradle",
-            "Construido en CI; dependencias base Maven pre-instaladas en el workflow.",
+            "CI Monorepo · gradle_green",
+            "Compila en job `gradle_green` (`compileJava`); Maven base instalado antes en el mismo workflow.",
         )
     if path in GATE_1:
-        return ("Listo (CI)", "Gate 1", "Stack base Paper 1.21.1 + Java 21.")
+        return ("Listo (CI)", "CI Monorepo · foundation", "Stack base Paper 1.21.1 + Java 21.")
     if path in GATE_2:
-        return ("Listo (CI)", "Gate 2", "Addons estables del lote rapido.")
+        return ("Listo (CI)", "CI Monorepo · maven_stable", "Addons estables del lote rapido.")
     if path in GATE_3:
-        return ("Listo (CI)", "Gate 3", "Repos + comunidad (subconjunto).")
+        return ("Listo (CI)", "CI Monorepo · maven_community", "Repos + comunidad (subconjunto).")
     if path in GATE_4:
-        return ("Listo (CI)", "Gate 4", "Supreme en lote complejo; ademas compila en cadena Maven local.")
+        return ("Listo (CI)", "CI Monorepo · maven_complex", "Supreme en lote complejo; ademas compila en cadena Maven local.")
     if path in LOCAL_MAVEN_COMPILE and path not in (GATE_1 | GATE_2 | GATE_3 | GATE_4):
         return (
             "Listo (local)",
             "Maven compile 2026-04",
-            "Compila con `mvn -pl ... -am compile` en baseline actual; falta incorporarlo a un gate CI y smoke en servidor.",
-        )
-    if path in LOCAL_GRADLE_COMPILE_OK:
-        return (
-            "Listo (local)",
-            "Gradle compile 2026-04",
-            "Port Bump: `JavaPlugin` + SlimefunAddon Drake, maquinas sin Guizhan `MenuBlock`/BusyBiscuit, APIs 1.21 (`Enchantment`, `ItemFlag`). `compileJava` OK; falta gate CI y smoke.",
+            "Compila con `mvn -pl ... -am compile` en baseline actual; falta incorporarlo al workflow CI (`ci-monorepo-121.yml`) y smoke en servidor.",
         )
     if path in GRADLE_MODULES:
         return (
@@ -127,7 +119,7 @@ def classify(path: str) -> tuple[str, str, str]:
     return (
         "En curso",
         "Reactor Maven",
-        "En `pom.xml` raiz; aplicado parche masivo `port_paper_121` (Paper 1.21.1) sobre fuentes. Falta compile por lote + inclusion en gate CI.",
+        "En `pom.xml` raiz; aplicado parche masivo `port_paper_121` (Paper 1.21.1) sobre fuentes. Falta compile por lote + inclusion en job CI del monorepo.",
     )
 
 
@@ -158,7 +150,7 @@ def main() -> None:
         "",
         "Criterios:",
         "",
-        "- **Listo (CI)**: modulo construido explicitamente en un workflow `ci-gate-*.yml`.",
+        "- **Listo (CI)**: modulo construido explicitamente en el workflow `ci-monorepo-121.yml` (job correspondiente).",
         "- **Listo (local)**: `mvn compile -am` exitoso en la revision auditada (no sustituye CI).",
         "- **En curso**: en reactor pero sin evidencia de build reciente por modulo.",
         "- **Bloqueado (build)**: fallo reproducible de compilacion en el reactor Gradle.",
@@ -189,7 +181,7 @@ def main() -> None:
 
 [![Java 21](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net/)
 [![Paper 1.21.1](https://img.shields.io/badge/Paper-1.21.1-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![CI Gates](https://img.shields.io/badge/CI-Gates%201--5%20Green-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions)
+[![CI Monorepo](https://img.shields.io/badge/CI-Monorepo%201.21-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
 [![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
 
@@ -228,12 +220,12 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 
 ## Resumen de estado (auditable)
 
-> Corte generado automaticamente a partir de `ci-gate-*.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
+> Corte generado automaticamente a partir de `ci-monorepo-121.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
 
 | Estado | Cantidad | Significado |
 |---:|---:|---|
-| **Listo (CI)** | **{ci}** | Aparece en un workflow `ci-gate-*` y compila alli. |
-| **Listo (local)** | **{loc}** | `mvn compile -am` verde en revision auditada; **pendiente** promover a gate CI. |
+| **Listo (CI)** | **{ci}** | Aparece en `ci-monorepo-121.yml` (job Maven o `gradle_green`) y compila alli. |
+| **Listo (local)** | **{loc}** | `mvn compile -am` verde en revision auditada; **pendiente** promover a un job de `ci-monorepo-121.yml`. |
 | **En curso** | **{prog}** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
 | **Bloqueado (build)** | **{blk}** | Fallo reproducible de compilacion en el reactor Gradle. |
 | **Total modulos** | **{total}** | Maven + Gradle en reactor; ver conteo exacto en esta fila. |
@@ -251,7 +243,7 @@ Bloqueado:    {blk}/{total}
 
 ## Metodologia (criterios)
 
-1. **Listo (CI)**: modulo listado explicitamente en `ci-gate-1-foundation.yml`, `ci-gate-2-stable.yml`, `ci-gate-3-community.yml`, `ci-gate-4-complex.yml` o paso Gradle de `ci-gate-5-gradle.yml`.
+1. **Listo (CI)**: modulo cubierto por un job de [`ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) (`foundation`, `maven_*`, `gradle_green`).
 2. **Listo (local)**: compilacion Maven exitosa en cadena `-am` en la misma revision que el script (no reemplaza CI).
 3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
 4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build Gradle del monorepo documentado en `docs/es/pending-modules.md`.
@@ -272,7 +264,7 @@ Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (rep
 
 ```text
 drakes-slimefun-labs/
-├─ .github/workflows/     # ci-gate-1 .. ci-gate-5
+├─ .github/workflows/     # ci-monorepo-121.yml (CI unificado)
 ├─ docs/                  # guias ES/EN + PROJECT_BOARD_SYNC + PLUGIN_MATRIX
 ├─ scripts/               # generate_plugin_matrix.py, port_paper_121.py, manager.py
 ├─ sources/

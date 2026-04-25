@@ -7,7 +7,7 @@ Esta página traduce el inventario del [`README.md`](../../README.md) y la [`PLU
 ## Estado base (auditable)
 
 - Inventario unificado en el reactor: **86 entradas** (Maven + Gradle; ver matriz generada).
-- **Listo (CI)**: subconjunto explicito en `ci-gate-*.yml` (no es el 100% del monorepo).
+- **Listo (CI)**: subconjunto explicito en [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (no es el 100% del monorepo).
 - **Listo (local)**: modulos con `mvn compile -am` verificado fuera de gate; pendiente promocion a CI.
 - **En curso**: mayoria de modulos Maven con parches `port_paper_121` aplicados pero sin evidencia de build por modulo en CI.
 - **Bloqueado (build)**: cuatro addons Gradle con fallos reproducibles (ver `pending-modules.md` y columnas de la matriz).
@@ -109,6 +109,6 @@ Un addon puede marcarse como listo para `1.21.1` cuando:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

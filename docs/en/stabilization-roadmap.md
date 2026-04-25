@@ -7,8 +7,8 @@ This page translates the root [`README.md`](../../README.md) and the generated [
 ## Base state (audited)
 
 - Unified reactor inventory: **86 entries** (Maven + Gradle; see the generated matrix).
-- **CI-ready**: explicit subset in `ci-gate-*.yml` workflows (not the entire monorepo).
-- **Local-only green**: modules with verified `mvn compile -am` outside a gate; still need CI promotion.
+- **CI-ready**: explicit subset in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (not the entire monorepo).
+- **Local-only green**: modules with verified `mvn compile -am` outside the CI Monorepo jobs; still need CI promotion.
 - **In progress**: most Maven modules with `port_paper_121` patches applied but without per-module CI build evidence yet.
 - **Build-blocked**: four Gradle addons with reproducible compile failures (see `docs/en/pending-modules.md` and matrix notes).
 - Org board: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned with the matrix ([`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
@@ -110,6 +110,6 @@ At the end of the backlog, the team should still do:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

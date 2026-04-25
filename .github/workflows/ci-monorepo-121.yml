@@ -1,0 +1,166 @@
+# CI unificado Paper 1.21.1 + Java 21 — sustituye los workflows "Gate 1…5" dispersos.
+# Un solo nombre en la pestaña Actions evita ruido; cada job sigue siendo un bloque claro en el grafo.
+#
+# Branch protection: si tenias checks obligatorios con nombres "Gate 1: Foundation / …",
+# sustituirlos por los checks de ESTE workflow (titulo "CI Monorepo 1.21" + nombre de cada job).
+# El historial de ejecuciones viejas no se puede borrar desde git; en GitHub: Actions -> workflow antiguo -> "…" -> delete (por workflow) o dejar archivado.
+
+name: CI Monorepo 1.21
+
+on:
+  push:
+    branches: ["1.21-latin"]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".gitignore"
+  pull_request:
+    branches: ["1.21-latin"]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".gitignore"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  foundation:
+    name: Maven · fundación
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: Instalar stack base (Dough + Slimefun + libs internas)
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/internal-metadata/patches/commons-lang-drake-patched \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  maven_stable:
+    name: Maven · addons estables
+    needs: [foundation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: MiniBlocks, DyeBench, Quaptics
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/community-addons/MiniBlocks,sources/community-addons/DyeBench,sources/community-addons/Quaptics \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  maven_community:
+    name: Maven · comunidad y repos
+    needs: [foundation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: ExtraUtils, DankTech2
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/repos-to-port/ExtraUtils,sources/community-addons/DankTech2 \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  maven_complex:
+    name: Maven · lote complejo
+    needs: [foundation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: Supreme
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/batch-2-expansion/Supreme \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  gradle_green:
+    name: Gradle · módulos verdes (Bump + Galactifun)
+    needs: [foundation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: temurin
+          cache: maven
+
+      - name: Publicar artefactos Maven para el reactor Gradle
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Compilar solo proyectos que ya portean en Drake
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --no-daemon \
+            :sources:community-addons:Bump:compileJava \
+            :sources:batch-2-expansion:Galactifun:compileJava
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Job ligero para branch protection: marcar un solo check "CI Monorepo 1.21 / ci_summary".
+  # Solo se ejecuta si todos los needs tuvieron éxito (comportamiento por defecto de GitHub).
+  ci_summary:
+    name: CI — resumen
+    needs: [foundation, maven_stable, maven_community, maven_complex, gradle_green]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "CI Monorepo 1.21 — todos los jobs obligatorios OK."

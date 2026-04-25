@@ -10,7 +10,7 @@ Este documento refleja el estado real despues de la estabilizacion CI actual.
 
 ## Estado actual
 
-- Gates 1-5: estables en verde
+- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): estable en verde en `1.21-latin` para los subconjuntos Maven/Gradle curados
 - Pendiente principal: ampliar cobertura de modulos fuera del subset estable
 - Trabajo requerido: reingreso por lotes + smoke tests por addon sensible
 
@@ -67,13 +67,13 @@ Siempre ejecutar antes `--dry-run`, revisar diff, y luego `--apply`. Con `--back
 
 Un modulo se considera cerrado cuando:
 
-- compila dentro del gate correspondiente,
+- compila en el job correspondiente de [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml),
 - no rompe el pipeline global,
 - y tiene validacion minima de runtime si aplica.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24 (actualizado tras auditoria de build por lotes)**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo corte: Maven lote LiteXpansion/Supreme/TranscEndence en verde; Gradle Bump + Galactifun compilan; CustomItemGenerators / FastMachines / SlimefunTranslation siguen bloqueados en el reactor Gradle.
 <!-- DRAKES-STATUS:END -->

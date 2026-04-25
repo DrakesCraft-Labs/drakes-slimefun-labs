@@ -7,7 +7,7 @@ Usar este resumen como punto de partida cuando se abre una sesión nueva y hace 
 - rama: `1.21-latin`
 - stack: `Paper 1.21.1`, `Java 21`, ecosistema Slimefun (ver `pom.xml` raiz)
 - inventario auditado: **86** entradas en reactor (ver `README.md` + `docs/es/PLUGIN_MATRIX.md`)
-- CI: Gates 1–5 en verde sobre subconjuntos curados (no prueba de build de los 86 en un solo job)
+- CI: **CI Monorepo 1.21** en verde sobre subconjuntos curados en \ci-monorepo-121.yml\ (no prueba de build de los 86 en un solo job)
 
 ## Reglas clave
 
@@ -31,6 +31,6 @@ Usar este resumen como punto de partida cuando se abre una sesión nueva y hace 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->

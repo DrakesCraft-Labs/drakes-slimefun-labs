@@ -4,13 +4,13 @@
 
 - **Branch**: `1.21-latin` | **Identity**: `com.github.drakescraft_labs`
 - **Audited inventory**: see root [`README.md`](../../README.md) and [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) — **86 rows** (81 Maven modules in root `pom.xml` + 5 Gradle reactor entries). Regenerate with `python scripts/generate_plugin_matrix.py`.
-- **CI**: Gates 1–5 are green on **curated subsets**; do not assume a single job builds all 86.
+- **CI**: **CI Monorepo 1.21** is green on **curated subsets**; do not assume a single job builds all 86.
 - **Gradle**: `Galactifun` is OK in CI; four community addons remain **compile-blocked** (details in the matrix and `docs/en/pending-modules.md`).
 - **Org board**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned via [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
 ## CI/CD infrastructure
 
-- Gate workflows (`ci-gate-1` … `ci-gate-5`) validate Maven and Gradle slices separately.
+- Unified workflow [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) validates Maven slices and the green Gradle subset.
 - Regenerate the README/module table after inventory-affecting changes: `python scripts/generate_plugin_matrix.py`.
 
 ## DrakesLab Manager
@@ -25,7 +25,7 @@
 
 ## Recommended next route
 
-1. Promote **local-green** Maven modules into the right `ci-gate-*.yml` slice.
+1. Promote **local-green** Maven modules into the right `-pl` slice or job in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml).
 2. Triage the **Gradle-blocked** quartet using the matrix “Observaciones” column.
 3. Smoke-test high-risk gameplay addons on a real Paper 1.21.1 server.
 
@@ -44,6 +44,6 @@
 <!-- DRAKES-STATUS:BEGIN -->
 > Sync cut: **2026-04-24**.
 > Active baseline: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **Gates 1–5 green**.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs).
 > Note: incremental migration continues for the wider monorepo beyond the gate subsets.
 <!-- DRAKES-STATUS:END -->

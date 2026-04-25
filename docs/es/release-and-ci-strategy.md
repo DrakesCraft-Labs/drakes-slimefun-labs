@@ -57,16 +57,16 @@ Solo si se documentan bien:
 - una etiqueta global que sugiera estabilidad homogénea de todo el reactor
 - automatizar publicación de releases para cada `push` sin filtro
 
-## Nueva Arquitectura de CI (Modular Gates)
+## Arquitectura de CI (workflow unificado)
 
-A partir de la v7, el CI se ha dividido en **4 Gates (Puertas de Calidad)** paralelas para aislar fallos y asegurar el núcleo:
+Un solo workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`) con jobs encadenados:
 
-*   **Gate: Foundation** 🧱: Valida y publica el stack crítico (`slimefun-core`, `dough-core`, librerías base).
-*   **Gate: Standard Addons** 📦: Addons oficiales y estables.
-*   **Gate: Expansion Addons** 🌌: Expansiones de gran tamaño y complejidad.
-*   **Gate: Community Addons** 👥: Addons externos integrados progresivamente.
+- **foundation**: stack Maven base (Dough, Slimefun, SefiLib, InfinityLib, parche `commons-lang`).
+- **maven_stable**, **maven_community**, **maven_complex**: lotes Maven en paralelo tras `foundation`.
+- **gradle_green**: `compileJava` solo de módulos Gradle ya portados (p. ej. Bump + Galactifun), sin forzar el reactor Gradle completo.
+- **ci_summary**: comprobacion opcional para branch protection.
 
-Esto permite que un fallo en un addon de la comunidad no bloquee el despliegue del núcleo o de los addons oficiales.
+`concurrency` con `cancel-in-progress` reduce ruido en Actions cuando llegan muchos `push` seguidos.
 
 ## Política de releases
 
@@ -87,6 +87,6 @@ Una release debe hacerse cuando:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados en `ci-monorepo-121.yml`).
 > Nota: el monorepo completo sigue en migracion incremental por lotes.
 <!-- DRAKES-STATUS:END -->
