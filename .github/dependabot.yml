@@ -22,3 +22,7 @@ updates:
       - "dependencies"
       - "java"
       - "maven"
+    ignore:
+      # Spring 7.x implica Jakarta 9+ / cambios de plataforma; subir solo en PR dedicado.
+      - dependency-name: "org.springframework:spring-context"
+        update-types: ["version-update:semver-major"]

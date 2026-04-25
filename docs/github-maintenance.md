@@ -101,3 +101,14 @@ El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a m
 - Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` dentro del ZIP con la lista `missing_modules`; conviene revisar ese archivo si el ZIP parece incompleto.
 
 Tras publicar, el despliegue típico en survival es manual (por ejemplo en **[DrakesCraft](https://drakescraft.cl)**); el ZIP es un solo paquete coherente para actualizar el pack sin publicar un release por cada addon.
+
+## Fallos de Actions ya cubiertos en `1.21-latin` (referencia)
+
+| Síntoma | Causa | Mitigación en repo |
+|--------|--------|---------------------|
+| **Maven · fundación** + `package ...libraries.dough.protection does not exist` en **SefiLib** / **InfinityLib** | Esos módulos compilan con `compile` sin shade de Slimefun; los imports deben ser **`dev.drake.dough.*`**. | Imports corregidos; `fix_dough_compilation_imports.py` excluye esos árboles. |
+| **Maven · reactor completo** + mismos errores en addons | El job usaba solo **`mvn compile`**; sin shade no existen tipos `libraries.dough.*`. | Workflow pasa a **`mvn package -DskipTests -fae`**. |
+| **Release monorepo JARs** + `truffle-enterprise` / JAR corrupto | `org.graalvm.js:js` enterprise en POM y carga Libby de **truffle-enterprise**. | POM **`js-community`**; Libby sin enterprise. |
+| **Dependabot** propone **Spring 7** desde 6.2.x | Salto **semver-major** no deseado en el port 1.21. | `dependabot.yml` **ignore** en `spring-context` para major. |
+
+Las acciones **release** y **smoke** usan **`actions/upload-artifact@v7`** y el release **`softprops/action-gh-release@v3`**, alineadas con los PRs de Dependabot que pasaron CI.

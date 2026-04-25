@@ -45,13 +45,13 @@ jobs:
           (cd dist && zip -r ../monorepo-plugins.zip monorepo-jars)
 
       - name: Upload build artifact (ZIP)
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: monorepo-plugins-${{ inputs.tag }}
           path: monorepo-plugins.zip
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ inputs.tag }}
           name: ${{ inputs.tag }}
