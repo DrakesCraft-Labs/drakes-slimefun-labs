@@ -17,7 +17,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.EntityInteractHandler
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.utils.ChickenUtils;

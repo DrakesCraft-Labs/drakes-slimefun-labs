@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

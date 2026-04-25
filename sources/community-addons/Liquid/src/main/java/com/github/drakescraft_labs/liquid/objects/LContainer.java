@@ -9,7 +9,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper;

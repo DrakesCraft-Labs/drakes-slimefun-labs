@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import dev.drake.dough.inventory.InvUtils;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import it.unimi.dsi.fastutil.Pair;
 import lombok.Getter;
 import me.mmmjjkx.betterChests.BCGroups;

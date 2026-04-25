@@ -30,7 +30,7 @@ import io.github.schntgaispock.gastronomicon.core.slimefun.GastroStacks;
 import io.github.schntgaispock.gastronomicon.util.NumberUtil;
 import io.github.schntgaispock.gastronomicon.util.StringUtil;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 
 public class WildHarvestListener implements Listener {
 

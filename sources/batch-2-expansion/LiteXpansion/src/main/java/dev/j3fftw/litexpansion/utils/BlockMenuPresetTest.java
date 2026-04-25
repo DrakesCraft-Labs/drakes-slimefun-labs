@@ -4,7 +4,7 @@ import dev.j3fftw.extrautils.utils.Utils;
 import dev.j3fftw.litexpansion.machine.UUCrafter;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;

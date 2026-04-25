@@ -41,7 +41,12 @@ Los subcomandos exactos y backups `.bak` están descritos en el propio script.
 
 ### `fix_dough_compilation_imports.py`
 
-Corrige imports que apuntan por error a `com.github.drakescraft_labs.slimefun4.libraries.dough` (namespace del jar sombreado de Slimefun en runtime). En compilacion Maven debe usarse `dev.drake.dough` (artefacto `dough-core`).
+Los addons que usan `Slimefun.getProtectionManager()` deben alinear tipos con el
+jar **sombreado** de Slimefun (`com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`),
+porque el `compile` del addon ocurre **despues** del `package` de Slimefun en el reactor.
+El script reemplaza `dev.drake.dough.protection.Interaction` y el import
+`import dev.drake.dough.protection.ProtectionManager` (cuando se asigna desde Slimefun)
+bajo `sources/`, excluyendo `slimefun-core` y `dough-core`.
 
 ```bash
 python scripts/fix_dough_compilation_imports.py
