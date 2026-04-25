@@ -1,64 +1,62 @@
-# Guía de Smoke Test
+# Guia de Smoke Test Runtime
 
 ## Objetivo
 
-El smoke test sirve para comprobar que el stack base y los addons integrados no solo compilan, sino que también cargan de forma razonable en runtime.
+El smoke test runtime valida que los jars Drake no solo compilan, sino que cargan en un servidor Paper real. Es la prueba minima antes de declarar estable un corte grande del ecosistema.
 
-## Cuándo usarlo
+## Base disponible
 
-- después de varios cierres seguidos
-- cuando se tocó el core o `dough-core`
-- cuando un addon sensible compila pero conviene validar carga real
-- antes de marcar un bloque grande del roadmap como estabilizado
-- después del corte local completo `2026-04-24`, porque ya no hay bloqueos de compilacion y el siguiente riesgo real es runtime
+La base vive en `scripts/smoke/`:
 
-## Script disponible
+- `smoke-profiles.json`: define que modulos se empaquetan y que marcadores de log deben aparecer.
+- `build-smoke-artifacts.ps1`: compila/empaca los modulos del perfil y copia jars a `.smoke/<perfil>/artifacts/plugins`.
+- `run-smoke-server.ps1`: descarga Paper `1.21.1`, prepara un servidor temporal, copia plugins, arranca, espera `Done`, apaga con `stop` y valida logs.
+- `README.md`: referencia rapida de uso local y GitHub Actions.
+
+## Perfiles
+
+- `foundation`: Paper `1.21.1` + `Slimefun` core Drake. Debe estar verde siempre.
+- `core-addons`: `foundation` + addons Maven pequenos para ampliar cobertura runtime cuando el core ya esta estable.
+
+## Uso local
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\slimefun\smoke-test.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
 ```
 
-## Qué debería validar como mínimo
+Para solo preparar jars:
 
-- que Paper/Purpur `1.21.11` inicie sin romper el stack base
-- que `Slimefun` cargue correctamente
-- que los addons recién cerrados no tiren errores de enable
-- que integraciones opcionales críticas no revienten al cargar
-- que los bridges de compatibilidad (`io.github.thebusybiscuit.slimefun4.*`, `MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) no oculten errores de inicializacion en addons Gradle/Kotlin
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation -Clean
+```
 
-## Addons que conviene mirar con más atención
+## Smoke en GitHub
 
-- `MapJammers`
-- `MissileWarfare`
-- `SoundMuffler`
-- `Simple-Storage`
-- `SlimeCustomizer`
-- `RykenSlimeCustomizer-EN`
-- `Element-Manipulation`
-- `HeadLimiter` si se usa `Towny`
+El workflow manual `Smoke Runtime 1.21` ejecuta el mismo runner en GitHub Actions. Se dispara desde `workflow_dispatch` para evitar ruido en cada push.
 
-## Qué registrar si falla
+## Banner de verificacion
 
-Si el smoke test encuentra un problema, dejar documentado:
+El arranque de `Slimefun` imprime un banner verde de DrakesCraft con:
 
-- addon afectado
-- error exacto
-- si el fallo es de carga, evento, receta o integración externa
-- si sigue compilando pero no es seguro marcarlo como listo
+- `JACKSTAR`
+- `DRAKESCRAFT`
+- `CHAGUI68`
+- enlace al repo
+- enlace al perfil de JackStar
 
-## Relación con el README
+El smoke falla si esos marcadores no aparecen. Esto confirma que el servidor cargo un jar Drake actual y no un artifact viejo.
 
-El `README.md` puede marcar un addon como listo por build validado. Aun así, el smoke test es la capa que confirma si conviene dejar observaciones especiales de runtime.
+## Criterio de exito
 
-## Enlaces Útiles
-
-- [[Checklist de Migración]]
-- [[Roadmap de Estabilización]]
-- [[Tomorrow-Handoff]]
+- Paper llega a `Done`.
+- No hay errores de carga de jars.
+- No hay `Error occurred while enabling`.
+- No hay `NoClassDefFoundError` ni `ClassNotFoundException`.
+- Aparecen los marcadores del banner.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: build local completo verde: 81 Maven + 5 Gradle. El siguiente cierre real debe validar runtime.
+> Nota: existe base runtime smoke local y workflow manual `Smoke Runtime 1.21`.
 <!-- DRAKES-STATUS:END -->

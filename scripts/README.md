@@ -51,14 +51,30 @@ python scripts/manager.py rebrand-imports
 
 # Ver estado actual del reactor
 python scripts/manager.py audit --sync
+
+# Smoke runtime minimo en Paper 1.21.1
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
 ```
 
 > [!IMPORTANT]
 > El manager realiza backups automáticos (`.bak`) de cada archivo modificado. Puedes limpiarlos con `python scripts/manager.py clean-backups`.
 
+---
+
+## Smoke Runtime (`scripts/smoke`)
+
+La carpeta `scripts/smoke/` contiene la base nueva para validar runtime real:
+
+- `smoke-profiles.json`: perfiles `foundation` y `core-addons`.
+- `build-smoke-artifacts.ps1`: empaqueta jars y prepara `.smoke/<perfil>/artifacts/plugins`.
+- `run-smoke-server.ps1`: descarga Paper, levanta servidor temporal, valida logs y apaga limpio.
+- `README.md`: guia operativa del smoke.
+
+El perfil `foundation` verifica que el core Drake cargue y que aparezca el banner verde con `JACKSTAR`, `DRAKESCRAFT` y `CHAGUI68`.
+
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **Gates 1-5 en verde**.
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> Nota: smoke runtime local y workflow manual `Smoke Runtime 1.21` disponibles.
 <!-- DRAKES-STATUS:END -->

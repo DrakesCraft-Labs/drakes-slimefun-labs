@@ -263,6 +263,7 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
     private void onPluginStart() {
         long timestamp = System.nanoTime();
         Logger logger = getLogger();
+        StartupBanner.print(logger, getDescription());
 
         // Check if Paper (<3) is installed
         if (PaperLib.isPaper()) {

@@ -1,43 +1,62 @@
-# Smoke Test Guide
+# Runtime Smoke Test Guide
 
 ## Goal
 
-The smoke test is used to verify that the base stack and integrated addons not only compile, but also load in a minimally healthy runtime environment.
+The runtime smoke test verifies that Drake jars do more than compile: they must load on a real Paper server. This is the minimum runtime gate before calling a major ecosystem cut stable.
 
-## When to use it
+## Available Base
 
-- after several closures in a row
-- when the core or `dough-core` has been touched
-- when a sensitive addon compiles but still deserves runtime review
-- before calling a major roadmap block stabilized
+The smoke base lives in `scripts/smoke/`:
 
-## Available script
+- `smoke-profiles.json`: declares which modules are packaged and which log markers must appear.
+- `build-smoke-artifacts.ps1`: packages the profile modules and copies jars into `.smoke/<profile>/artifacts/plugins`.
+- `run-smoke-server.ps1`: downloads Paper `1.21.1`, prepares a temporary server, copies plugins, starts it, waits for `Done`, stops it with `stop`, and validates logs.
+- `README.md`: quick local and GitHub Actions reference.
+
+## Profiles
+
+- `foundation`: Paper `1.21.1` + Drake `Slimefun` core. This should always stay green.
+- `core-addons`: `foundation` plus a small Maven addon set for broader runtime coverage once core is stable.
+
+## Local Usage
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\slimefun\smoke-test.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
 ```
 
-## Minimum validation targets
+To only prepare jars:
 
-- Paper/Purpur `1.21.11` starts cleanly with the base stack
-- `Slimefun` loads correctly
-- newly closed addons do not throw enable errors
-- critical optional integrations do not crash on load
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation -Clean
+```
 
-## Addons worth extra attention
+## GitHub Smoke
 
-- `MapJammers`
-- `MissileWarfare`
-- `SoundMuffler`
-- `Simple-Storage`
-- `SlimeCustomizer`
-- `RykenSlimeCustomizer-EN`
-- `Element-Manipulation`
-- `HeadLimiter` if `Towny` is involved
+The manual workflow `Smoke Runtime 1.21` runs the same smoke runner in GitHub Actions. It is `workflow_dispatch` only to avoid noisy Actions history.
+
+## Verification Banner
+
+`Slimefun` startup prints a green DrakesCraft banner with:
+
+- `JACKSTAR`
+- `DRAKESCRAFT`
+- `CHAGUI68`
+- repository link
+- JackStar profile link
+
+The smoke fails if these markers are missing. This confirms the server loaded a current Drake artifact rather than an old jar.
+
+## Success Criteria
+
+- Paper reaches `Done`.
+- No jar load errors.
+- No `Error occurred while enabling`.
+- No `NoClassDefFoundError` or `ClassNotFoundException`.
+- Banner markers are present.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
+> Nota: local runtime smoke base and manual `Smoke Runtime 1.21` workflow are available.
 <!-- DRAKES-STATUS:END -->

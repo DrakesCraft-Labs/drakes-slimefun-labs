@@ -1,0 +1,40 @@
+{
+  "profiles": {
+    "foundation": {
+      "description": "Runtime smoke minimo: Paper 1.21.1 + Slimefun core Drake.",
+      "mavenModules": [
+        "sources/slimefun-core/Slimefun4-src"
+      ],
+      "gradleTasks": [],
+      "expectedPlugins": [
+        "Slimefun"
+      ],
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ]
+    },
+    "core-addons": {
+      "description": "Runtime smoke base con Slimefun y addons Maven de bajo riesgo.",
+      "mavenModules": [
+        "sources/slimefun-core/Slimefun4-src",
+        "sources/repos-to-port/ExoticGarden",
+        "sources/repos-to-port/PrivateStorage",
+        "sources/repos-to-port/ElectricSpawners"
+      ],
+      "gradleTasks": [],
+      "expectedPlugins": [
+        "Slimefun",
+        "ExoticGarden",
+        "PrivateStorage",
+        "ElectricSpawners"
+      ],
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ]
+    }
+  }
+}
