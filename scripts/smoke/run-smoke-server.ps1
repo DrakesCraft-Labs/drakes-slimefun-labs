@@ -107,6 +107,34 @@ function Stop-SmokeServer {
     }
 }
 
+function Ensure-ProtocolLibSmoke {
+    param([string]$PluginDir)
+
+    $dest = Join-Path $PluginDir "ProtocolLib.jar"
+    if ((Test-Path $dest) -and ((Get-Item $dest).Length -gt 10000)) {
+        return
+    }
+
+    $urls = @(
+        "https://github.com/dmulloy2/ProtocolLib/releases/download/5.3.0/ProtocolLib.jar",
+        "https://repo.dmulloy2.net/repository/public/com/comphenix/protocol/ProtocolLib/5.3.0/ProtocolLib-5.3.0.jar"
+    )
+
+    foreach ($u in $urls) {
+        try {
+            Write-Host "==> Descargando ProtocolLib (fallback pwsh): $u" -ForegroundColor Cyan
+            Invoke-WebRequest -Uri $u -OutFile $dest -UseBasicParsing
+            if ((Test-Path $dest) -and ((Get-Item $dest).Length -gt 10000)) {
+                return
+            }
+        } catch {
+            Write-Warning "ProtocolLib download fallo: $($_.Exception.Message)"
+        }
+    }
+
+    Write-Warning "No se pudo colocar ProtocolLib.jar en $PluginDir (SoundMuffler puede no cargar)."
+}
+
 function Assert-SmokeLog {
     param($ProfileConfig)
 
@@ -202,15 +230,20 @@ $fetchDeps = Join-Path $scriptDir "fetch_smoke_optional_deps.py"
 if (Test-Path $fetchDeps) {
     $python = Get-Command python -ErrorAction SilentlyContinue
     if (-not $python) {
+        $python = Get-Command python3 -ErrorAction SilentlyContinue
+    }
+    if (-not $python) {
         $python = Get-Command py -ErrorAction SilentlyContinue
     }
     if ($python) {
         Write-Host "==> Dependencias opcionales smoke (ProtocolLib, etc.)" -ForegroundColor Cyan
         & $python.Source $fetchDeps $pluginDirForDeps
     } else {
-        Write-Warning "Python no encontrado: omitiendo fetch_smoke_optional_deps.py (SoundMuffler puede fallar sin ProtocolLib)."
+        Write-Warning "Python no encontrado: se usara descarga directa de ProtocolLib (pwsh)."
     }
 }
+
+Ensure-ProtocolLibSmoke -PluginDir $pluginDirForDeps
 
 Write-Host "==> Iniciando servidor smoke ($Profile, MC $MinecraftVersion, timeout ${waitSeconds}s)" -ForegroundColor Cyan
 $psi = [System.Diagnostics.ProcessStartInfo]::new()
