@@ -450,4 +450,17 @@
             <url>https://nexus.neetgames.com/repository/maven-public</url>
         </repository>
     </repositories>
+
+    <!-- Rama 26.X-ToTheStars: compilar contra Paper API 26.x con -Ppaper-26-preview (no activo por defecto). -->
+    <profiles>
+        <profile>
+            <id>paper-26-preview</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <paper.version>26.1.2.build.24-alpha</paper.version>
+            </properties>
+        </profile>
+    </profiles>
 </project>
