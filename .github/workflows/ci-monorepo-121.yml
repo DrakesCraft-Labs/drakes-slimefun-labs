@@ -70,9 +70,11 @@ jobs:
           distribution: temurin
           cache: maven
 
-      - name: Compilar los 81 módulos Maven del reactor
+      # `package` (no solo `compile`): Slimefun debe ejecutar shade para que existan
+      # `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath de los addons.
+      - name: Empaquetar los 81 módulos Maven del reactor
         run: |
-          mvn -B compile -DskipTests -fae
+          mvn -B package -DskipTests -fae
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
