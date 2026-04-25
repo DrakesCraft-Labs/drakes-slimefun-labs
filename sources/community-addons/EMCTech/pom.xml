@@ -164,8 +164,13 @@
             <artifactId>SimplixStorage</artifactId>
             <version>3.2.7</version>
             <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.esotericsoftware.yamlbeans</groupId>
+                    <artifactId>yamlbeans</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
         <!-- Supported Plugins -->
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>

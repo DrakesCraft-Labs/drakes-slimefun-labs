@@ -29,6 +29,17 @@ subprojects {
         }
     }
 
+    configurations.configureEach {
+        resolutionStrategy.eachDependency {
+            when (requested.group to requested.name) {
+                "commons-io" to "commons-io" -> useVersion("2.14.0")
+                "org.apache.commons" to "commons-lang3" -> useVersion("3.20.0")
+                "com.fasterxml.jackson.core" to "jackson-core" -> useVersion("2.18.6")
+                "org.apache.logging.log4j" to "log4j-core" -> useVersion("2.25.4")
+            }
+        }
+    }
+
     dependencies {
         // Todas las dependencias comunes se gestionan aquí
         val paperVersion = "1.21.1-R0.1-SNAPSHOT"
