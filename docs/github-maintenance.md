@@ -1,3 +1,7 @@
+<!-- drakes-labs:branch-26x-notice -->
+
+> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con **`paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama **`1.21-latin`**. Guía: `docs/paper-26-base.md`.
+
 # Mantenimiento en GitHub (Actions, PRs, seguridad)
 
 Guía operativa para mantener el repositorio **drakes-slimefun-labs** ordenado en GitHub. Los permisos requieren rol de mantenedor en la org o el repo.
@@ -22,7 +26,7 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 ## Pull requests
 
 1. `gh pr list --repo DrakesCraft-Labs/drakes-slimefun-labs --state open`
-2. Para cada PR: revisar CI, conflicto con `1.21-latin`, y si el cambio sigue la política del monorepo.
+2. Para cada PR: revisar CI, conflicto con la rama base (`1.21-latin` para estabilidad **1.21.x**, o `26.X-ToTheStars` si el PR es de porte **26.x`), y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
@@ -35,8 +39,8 @@ Los merges los debe hacer alguien con contexto del porte; esta guía no sustituy
 
 ## Que todo quede “en verde”
 
-1. Rama objetivo: `1.21-latin` (o la que defina el equipo).
-2. Comprobar el último run de **CI Monorepo 1.21** y del smoke manual si aplica.
+1. Rama objetivo: **`1.21-latin`** para releases y Paper **1.21.x**; **`26.X-ToTheStars`** para el porte **Paper API 26.x** (perfil `paper-26-preview` en el `pom` raíz).
+2. Comprobar el último run de **CI Monorepo 1.21** (referencia heredada) y del smoke manual si aplica.
 3. Si un job falla por infraestructura (caché, red), *Re-run jobs*; si es código, arreglar y empujar.
 
 ## Projects (tablero org)

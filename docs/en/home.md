@@ -1,6 +1,10 @@
+<!-- drakes-labs:branch-26x-notice -->
+
+> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con **`paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama **`1.21-latin`**. Guía: `docs/paper-26-base.md`.
+
 # Documentation home (English)
 
-**Baseline:** Paper 1.21.1 · Java 21 · branch `1.21-latin`
+**This branch:** `26.X-ToTheStars` (Paper / Minecraft **26.x** port; see [paper-26-base.md](../paper-26-base.md)). **Stable baseline & smoke:** Paper **1.21.x** · Java **21** · branch **`1.21-latin`**.
 
 ## Start here
 
@@ -12,6 +16,7 @@
 
 | Topic | File |
 |-------|------|
+| Paper 26.x (this branch) | [paper-26-base.md](../paper-26-base.md) |
 | Local setup | [development-setup.md](development-setup.md) |
 | Smoke test (Paper) | [smoke-test-guide.md](smoke-test-guide.md) |
 | Migration checklist | [migration-checklist.md](migration-checklist.md) |

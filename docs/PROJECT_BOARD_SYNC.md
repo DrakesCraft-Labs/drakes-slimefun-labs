@@ -1,8 +1,12 @@
+<!-- drakes-labs:branch-26x-notice -->
+
+> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con **`paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama **`1.21-latin`**. Guía: `docs/paper-26-base.md`.
+
 # Sincronizar GitHub Projects con la matriz
 
 **Tablero:** [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
 
-**Datos auditados:** [docs/es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) (generado; no editar a mano). Regenerar README y matriz:
+**Datos auditados:** [docs/es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) (generado; no editar a mano). Mientras el porte **26.x** avanza, la matriz sigue reflejando sobre todo el estado **1.21-latin** hasta que se regenere con criterios **26.x**. Regenerar README y matriz:
 
 ```bash
 python scripts/generate_plugin_matrix.py

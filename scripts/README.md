@@ -1,6 +1,10 @@
+<!-- drakes-labs:branch-26x-notice -->
+
+> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con **`paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama **`1.21-latin`**. Guía: `docs/paper-26-base.md`.
+
 # Scripts del monorepo
 
-Automatización para **Drakes Slimefun Labs**: porteo Paper 1.21.1, coherencia Maven/Gradle, matrices y smoke runtime.
+Automatización para **Drakes Slimefun Labs** en **`26.X-ToTheStars`**: porteo desde **Paper 1.21.x** hacia **Paper API 26.x** (`-Ppaper-26-preview`), coherencia Maven/Gradle, matrices y smoke runtime (hoy calibrado para **1.21.x** en servidor).
 
 ## Requisitos
 
@@ -12,7 +16,7 @@ Automatización para **Drakes Slimefun Labs**: porteo Paper 1.21.1, coherencia M
 
 | Contenido | Ruta |
 |-----------|------|
-| Índice general del repo | [../docs/README.md](../docs/README.md) |
+| Índice general del repo | [../docs/README.md](../docs/README.md) · [Paper 26.x](../docs/paper-26-base.md) |
 | Smoke (perfiles, Paper, logs) | [smoke/README.md](smoke/README.md) |
 | Guía smoke EN/ES | [../docs/en/smoke-test-guide.md](../docs/en/smoke-test-guide.md) · [../docs/es/smoke-test-guide.md](../docs/es/smoke-test-guide.md) |
 | Actions y limpieza en GitHub | [../docs/github-maintenance.md](../docs/github-maintenance.md) |
@@ -71,3 +75,11 @@ python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --
 ## Ámbito de los README bajo `sources/`
 
 Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon documentan ese proyecto concreto o son herencia upstream. No forman el manual central del laboratorio; el manual central vive en `docs/` y en este archivo.
+
+En la rama **`26.X-ToTheStars`**, la mayoría de los `.md` bajo el repo (incluidos muchos `sources/**`) llevan un **aviso de rama** al inicio, generado/actualizado con:
+
+```bash
+python scripts/apply_26x_branch_notice_to_markdown.py
+```
+
+(excluye `README.md` raíz, `docs/README.md` y `docs/paper-26-base.md`, que se editan a mano).

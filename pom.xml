@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <name>drakes-slimefun-labs</name>
-    <description>The ultimate laboratory for Slimefun 4 addons, optimized for Minecraft 1.21.1. Featuring a unified reactor, synchronized dependencies, and high-performance core patches for a premium experience.</description>
+    <description>Drakes Slimefun Labs — branch 26.X-ToTheStars: porting the Slimefun 4 ecosystem toward Paper/Minecraft 26.x API (paper-26-preview profile). Default paper.version remains 1.21.1-R0.1-SNAPSHOT for incremental builds; stable 1.21.x line lives on branch 1.21-latin.</description>
     <url>https://github.com/DrakesCraft-Labs/drakes-slimefun-labs</url>
 
     <organization>

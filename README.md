@@ -1,12 +1,15 @@
 # Drakes Slimefun Labs
 
 [![Java 21](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net/)
-[![Paper 1.21.1](https://img.shields.io/badge/Paper-1.21.1-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![CI Monorepo](https://img.shields.io/badge/CI-Monorepo%201.21-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
+[![Paper API 26.x (preview)](https://img.shields.io/badge/Paper%20API-26.x%20preview-7c3aed?style=for-the-badge&logo=minecraft)](https://jd.papermc.io/paper/)
+[![Paper 1.21.x (baseline)](https://img.shields.io/badge/Paper%20baseline-1.21.x-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
+[![CI Monorepo 1.21](https://img.shields.io/badge/CI-Monorepo%201.21%20(ref)-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
 [![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
 
-Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefun 4** sobre baseline unificado **Paper 1.21.1 + Java 21**. Este repositorio agrupa el core Drake, librerias compartidas y decenas de addons en un reactor **Maven + Gradle** coherente.
+**Rama `26.X-ToTheStars`:** laboratorio de porte del ecosistema **Slimefun 4** hacia **Minecraft / Paper 26.x** (API tipo `26.1.x.build.*-alpha`). El reactor sigue declarando por defecto **`paper.version` 1.21.1** para no romper builds masivos; el salto a la API 26.x se prueba con el perfil Maven **`paper-26-preview`** (`mvn -Ppaper-26-preview`). La línea **estable en producción** (Paper 1.21.x, smoke y releases alineados) permanece en la rama **`1.21-latin`**. Detalle técnico: [`docs/paper-26-base.md`](docs/paper-26-base.md).
+
+Los README y `.md` bajo `sources/` incluyen un aviso de rama al inicio; el texto original puede seguir mencionando 1.21.x como origen del porte hasta que cada módulo se actualice.
 
 ---
 
@@ -14,7 +17,7 @@ Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefu
 
 | Recurso | URL |
 |---|---|
-| **Indice de documentacion** | [`docs/README.md`](docs/README.md) |
+| **Indice de documentacion** | [`docs/README.md`](docs/README.md) · [Paper 26.x (esta rama)](docs/paper-26-base.md) |
 | **Mantenimiento GitHub** (runs, PRs, alertas) | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
 | **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
 | **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |
@@ -44,7 +47,7 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 
 ## Resumen de estado (auditable)
 
-> Corte generado automaticamente a partir de `ci-monorepo-121.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
+> Corte generado automaticamente a partir de `ci-monorepo-121.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script. Los conteos **Listo (CI)** describen el estado heredado de la linea **1.21-latin** hasta que existan jobs dedicados **26.x** en esta rama.
 
 | Estado | Cantidad | Significado |
 |---:|---:|---|
@@ -72,7 +75,7 @@ Bloqueado:    0/86
 3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
 4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build local documentado en `docs/es/pending-modules.md`.
 
-Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`, bridges locales de compatibilidad para addons Gradle (`MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) y bridges BusyBiscuit en Slimefun core (`io.github.thebusybiscuit.slimefun4.*`).
+Herramientas de porteo (1.21.x, base heredada): `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`, bridges locales de compatibilidad para addons Gradle (`MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) y bridges BusyBiscuit en Slimefun core (`io.github.thebusybiscuit.slimefun4.*`). Para **26.x** habra que anadir/ajustar scripts y revision de breaking changes de la API Paper 26.
 
 ---
 
@@ -197,8 +200,11 @@ drakes-slimefun-labs/
 # Regenerar matriz + README (tabla alineada)
 python scripts/generate_plugin_matrix.py
 
-# Parche masivo Paper 1.21.1 (dry-run primero)
+# Parche masivo Paper 1.21.1 (dry-run primero; base heredada desde 1.21-latin)
 python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
+
+# Probar compilacion contra API Paper 26.x (perfil en pom.xml raiz)
+mvn -B -DskipTests -Ppaper-26-preview compile -fae
 
 # Build base Maven (ejemplo)
 mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
