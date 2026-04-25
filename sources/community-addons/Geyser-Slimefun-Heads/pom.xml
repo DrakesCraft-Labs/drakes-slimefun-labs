@@ -100,7 +100,7 @@
         <dependency>
             <groupId>io.github.bananapuncher714</groupId>
             <artifactId>nbteditor</artifactId>
-            <version>7.19.8</version>
+            <version>8.0.0</version>
         </dependency>
 
         <dependency>
