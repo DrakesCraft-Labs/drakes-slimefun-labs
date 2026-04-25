@@ -1,6 +1,6 @@
 # Inicio de documentación (Español)
 
-**Baseline:** Paper 1.21.1 · Java 21 · rama `1.21-latin`
+**Rama estable:** `1.21-latin` · **Paper 1.21.x** · **Java 21**. El pulido fino addon por addon lo llevan la **comunidad**, **Chagui** y el survival **[DrakesCraft](https://drakescraft.cl)** (Chile).
 
 ## Por dónde empezar
 
@@ -12,6 +12,7 @@
 
 | Tema | Archivo |
 |------|---------|
+| Qué queda (técnico vs juego) | [pending-modules.md](pending-modules.md) |
 | Entorno local | [development-setup.md](development-setup.md) |
 | Smoke en Paper | [smoke-test-guide.md](smoke-test-guide.md) |
 | Checklist de migración | [migration-checklist.md](migration-checklist.md) |

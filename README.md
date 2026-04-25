@@ -1,12 +1,32 @@
 # Drakes Slimefun Labs
 
 [![Java 21](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net/)
-[![Paper 1.21.1](https://img.shields.io/badge/Paper-1.21.1-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![CI Monorepo](https://img.shields.io/badge/CI-Monorepo%201.21-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
+[![Paper 1.21.x](https://img.shields.io/badge/Paper-1.21.x-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
+[![CI Monorepo 1.21](https://img.shields.io/badge/CI-Monorepo%201.21-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
 [![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
 
-Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefun 4** sobre baseline unificado **Paper 1.21.1 + Java 21**. Este repositorio agrupa el core Drake, librerias compartidas y decenas de addons en un reactor **Maven + Gradle** coherente.
+**Rama `1.21-latin` — línea estable.** Un solo reactor **Maven + Gradle** (Java **21**) con **Slimefun 4 Drake**, Dough, librerías internas y **muchos addons** ya alineados a la API **Paper 1.21.x**. El objetivo del laboratorio es simple: *que compile en CI, que arranque en Paper real y que el pack se pueda desplegar*; el resto es mejora continua.
+
+### Listo en el laboratorio (no bloquea seguir iterando)
+
+| Pilar | Detalle breve |
+|-------|----------------|
+| **Build** | Todos los módulos del reactor cubiertos por [CI Monorepo 1.21](.github/workflows/ci-monorepo-121.yml) (`maven_full_reactor`, `foundation`, `gradle_green`). |
+| **Smoke** | Servidor Paper **1.21.1** y **1.21.11** (perfiles `foundation`, `foundation-paper-12111`, `monorepo-all`, …); ver [`scripts/smoke/README.md`](scripts/smoke/README.md). |
+| **Distribución** | [Release monorepo JARs](.github/workflows/release-monorepo-jars.yml): un **ZIP** con los plugins del reactor (manual en Actions); guía en [`docs/github-maintenance.md`](docs/github-maintenance.md). |
+
+### Qué queda a propósito “para después”
+
+No es deuda del reactor: es **vida real** en el juego.
+
+- **Pasta fina addon por addon** (lore, recetas raras, choques con otros plugins): lo van encontrando **jugadores**, **Chagui** y quien cura el survival.
+- **Bugs de gameplay** → [Issues](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues) y el tablero de la org.
+- **Servidor de referencia (Chile):** **[DrakesCraft](https://drakescraft.cl)** — survival donde vive buena parte del stack; conexión típica **`play.drakescraft.cl`** / **`mc.drakescraft.cl`** (según lo que muestre el cliente al unirse). Ahí se valida el pack con carga real.
+
+### Experimental (no es esta rama)
+
+El porte a **Paper API 26.x** vive en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**. Hasta que madure, **`1.21-latin`** sigue siendo la referencia para **1.21.x**.
 
 ---
 
@@ -15,6 +35,8 @@ Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefu
 | Recurso | URL |
 |---|---|
 | **Indice de documentacion** | [`docs/README.md`](docs/README.md) |
+| **Smoke (perfiles, Paper, logs)** | [`scripts/smoke/README.md`](scripts/smoke/README.md) |
+| **Release ZIP monorepo (Actions)** | [`.github/workflows/release-monorepo-jars.yml`](.github/workflows/release-monorepo-jars.yml) |
 | **Mantenimiento GitHub** (runs, PRs, alertas) | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
 | **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
 | **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |
@@ -23,8 +45,9 @@ Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefu
 | **Como sincronizar el tablero** | [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md) |
 | **Docs ES (indice)** | [`docs/es/home.md`](docs/es/home.md) |
 | **Docs EN (indice)** | [`docs/en/home.md`](docs/en/home.md) |
+| **Servidor de referencia (Chile)** | [drakescraft.cl](https://drakescraft.cl) |
 
-> La matriz y la tabla de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineacion manual.
+> La matriz y la tabla larga de módulos de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineación manual.
 
 ---
 
@@ -44,7 +67,7 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 
 ## Resumen de estado (auditable)
 
-> Corte generado automaticamente a partir de `ci-monorepo-121.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
+> Corte generado automáticamente a partir de `ci-monorepo-121.yml`, `pom.xml`, `settings.gradle.kts` y el script de matriz. Los números miden **cobertura de build en CI**, no “porcentaje de perfección” del juego en survival.
 
 | Estado | Cantidad | Significado |
 |---:|---:|---|
@@ -200,6 +223,9 @@ python scripts/generate_plugin_matrix.py
 # Parche masivo Paper 1.21.1 (dry-run primero)
 python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
 
+# Smoke completo local (Paper + JARs; tarda; subir timeout si hace falta)
+python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 420
+
 # Build base Maven (ejemplo)
 mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
 
@@ -210,6 +236,8 @@ mvn -B -DskipTests compile -fae
 # Dependencia local necesaria para FastMachines cuando Gradle resuelve InfinityExpansion-drake
 mvn -B -DskipTests install -pl sources/repos-to-port/InfinityExpansion -am
 ```
+
+El **release** del ZIP de plugins se lanza desde GitHub: *Actions → Release monorepo JARs → Run workflow* (elige un tag nuevo cada vez).
 
 ---
 

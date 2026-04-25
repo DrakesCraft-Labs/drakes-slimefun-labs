@@ -1,6 +1,6 @@
 # Documentation home (English)
 
-**Baseline:** Paper 1.21.1 · Java 21 · branch `1.21-latin`
+**Stable branch:** `1.21-latin` · **Paper 1.21.x** · **Java 21**. Fine-grained addon polish happens in the community, with **Chagui**, and on **[DrakesCraft](https://drakescraft.cl)** (Chile).
 
 ## Start here
 
@@ -12,6 +12,7 @@
 
 | Topic | File |
 |-------|------|
+| What’s left (technical vs gameplay) | [pending-modules.md](pending-modules.md) |
 | Local setup | [development-setup.md](development-setup.md) |
 | Smoke test (Paper) | [smoke-test-guide.md](smoke-test-guide.md) |
 | Migration checklist | [migration-checklist.md](migration-checklist.md) |

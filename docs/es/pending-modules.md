@@ -1,6 +1,12 @@
 # Modulos pendientes
 
-Este documento refleja el estado real despues de la estabilizacion CI actual.
+Este documento refleja el estado **técnico** del monorepo tras la estabilización de **CI** y builds locales. No enumera “cada bug posible en survival”: eso lo absorben **Issues**, **Chagui**, la **comunidad** y el servidor **[DrakesCraft](https://drakescraft.cl)** (Chile) con el tiempo.
+
+## Qué no cuenta como “pendiente del laboratorio”
+
+- **Pulido addon por addon** en juego (textos, recetas raras, interacciones con economía/PvE de un servidor concreto).
+- **Paridad 1:1 con cada upstream** salvo que bloquee compilación o arranque en el smoke acordado.
+- **Paper 26.x**: va en la rama **`26.X-ToTheStars`**, no aquí.
 
 ## Inventario unico (fuente de verdad)
 
@@ -12,7 +18,8 @@ Este documento refleja el estado real despues de la estabilizacion CI actual.
 
 - **CI Monorepo 1.21** (`ci-monorepo-121.yml`): cubre el reactor Maven completo (`maven_full_reactor`) y los 5 proyectos Gradle (`gradle_green`).
 - **Compilacion local completa**: el reactor Maven completo y los 5 proyectos Gradle declarados compilan en el corte `2026-04-24`.
-- Pendiente principal: ejecutar smoke tests de runtime en addons con mecanicas sensibles y mantener el CI completo estable.
+- **Smoke runtime**: hay perfiles (`foundation`, `monorepo-all`, variantes Paper 1.21.11, etc.); el mantenimiento del script y ejecutarlo en cada gran cambio sigue siendo buena práctica.
+- **Siguiente fricción esperada**: no en “compilar”, sino en **bugs de juego** y afinado en **DrakesCraft** / reportes de jugadores.
 
 ## Auditoria tecnica reciente (build por lotes)
 
@@ -63,9 +70,9 @@ Siempre ejecutar antes `--dry-run`, revisar diff, y luego `--apply`. Con `--back
 ## Bloques de trabajo sugeridos
 
 1. Mantener `maven_full_reactor` y `gradle_green` como checks obligatorios de cierre.
-2. Ejecutar smoke tests de runtime en addons con mecanicas complejas.
+2. Ejecutar smoke de runtime tras cambios grandes (o confiar en CI + quien despliegue en **DrakesCraft**).
 3. Reducir deuda de compatibilidad donde un bridge local ya pueda convertirse en API compartida.
-4. Consolidar documentacion de cierre por lote.
+4. Triaje de Issues con lo que salga en survival (comunidad + Chagui).
 
 ## Criterio de cierre
 
@@ -76,8 +83,8 @@ Un modulo se considera cerrado cuando:
 - y tiene validacion minima de runtime si aplica.
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24 (actualizado tras pase completo Maven + Gradle local)**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
+> Estado de sincronización: **2026-04-24** (build Maven + Gradle); README/docs **2026-04-25** (mensaje “qué queda” alineado con comunidad + DrakesCraft).
+> Baseline técnico: **Paper 1.21.x + Java 21** en rama **`1.21-latin`**.
+> CI: **Monorepo 1.21** (reactor completo + Gradle). Smoke y **release ZIP** opcionales documentados en README / `github-maintenance.md`.
+> Lo que sigue: **gameplay y pulido en servidor** (no es lista cerrada del laboratorio).
 <!-- DRAKES-STATUS:END -->

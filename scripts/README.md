@@ -71,3 +71,7 @@ python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --
 ## Ámbito de los README bajo `sources/`
 
 Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon documentan ese proyecto concreto o son herencia upstream. No forman el manual central del laboratorio; el manual central vive en `docs/` y en este archivo.
+
+## Después del “build verde”
+
+El monorepo en **`1.21-latin`** ya tiene como objetivo principal **CI + smoke + release ZIP**. Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.

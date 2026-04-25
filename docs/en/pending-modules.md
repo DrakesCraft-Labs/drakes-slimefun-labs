@@ -1,6 +1,12 @@
 # Pending modules
 
-This document reflects the real state after the current CI stabilization work.
+This document tracks the **technical** monorepo state after CI stabilization. It is **not** a list of every possible survival bug: gameplay issues land in **Issues**, and polish is absorbed by the community, **Chagui**, and the **[DrakesCraft](https://drakescraft.cl)** server (Chile) over time.
+
+## What we intentionally do *not* track here
+
+- Per-addon “fine polish” in a live economy/PvE stack.
+- 1:1 upstream parity unless it blocks compile or agreed smoke startup.
+- **Paper 26.x** work — use branch **`26.X-ToTheStars`**.
 
 ## Single source of truth (inventory)
 
@@ -12,7 +18,8 @@ This document reflects the real state after the current CI stabilization work.
 
 - **CI Monorepo 1.21** (`ci-monorepo-121.yml`): covers the full Maven reactor (`maven_full_reactor`) and all 5 Gradle projects (`gradle_green`).
 - **Full local compile**: the full Maven reactor and all 5 declared Gradle projects compile on the `2026-04-24` cut.
-- Main gap: run runtime smoke tests for sensitive addons and keep the full CI stable.
+- **Runtime smoke**: profiles exist under `scripts/smoke/`; run them on large changes (or rely on whoever deploys to **DrakesCraft**).
+- **Next friction is expected in gameplay**, not in “does it compile”.
 
 ## Recent technical audit (Gradle batch, root reactor)
 
@@ -61,9 +68,9 @@ Always run `--dry-run` first, review the diff, then `--apply`. With `--backup`, 
 ## Suggested work blocks
 
 1. Keep `maven_full_reactor` and `gradle_green` as required closure checks.
-2. Run runtime smoke tests for mechanics-heavy addons.
+2. Run smoke after big merges (or trust CI + production deploy on **DrakesCraft**).
 3. Reduce compatibility debt where a local bridge can become shared API.
-4. Keep the GitHub Project board aligned after each documentation cut.
+4. Triage Issues from real survival reports (community + Chagui).
 
 ## Definition of done (per module)
 
@@ -74,8 +81,8 @@ A module is considered closed when:
 - and it has minimal runtime validation when gameplay risk is high.
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Sync cut: **2026-04-24 (updated after full local Maven + Gradle pass)**.
-> Active baseline: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
-> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
+> Sync cut: **2026-04-24** (Maven + Gradle build); README/docs **2026-04-25** (“what’s left” aligned with community + DrakesCraft).
+> Baseline: **Paper 1.21.x + Java 21** on **`1.21-latin`**.
+> CI: **Monorepo 1.21** (full reactor + Gradle). Optional smoke + **ZIP release** documented in README / `github-maintenance.md`.
+> What’s next: **gameplay polish on servers** (open-ended, not a finite lab checklist).
 <!-- DRAKES-STATUS:END -->

@@ -9,3 +9,5 @@ Este archivo existía como informe narrativo largo y quedaba desalineado con el 
 - [docs/github-maintenance.md](docs/github-maintenance.md) — Actions, PRs y alertas de seguridad.
 
 Los README bajo `sources/` son documentación por-addon o heredada; no intentan describir el monorepo completo.
+
+**Validación en survival (Chile):** el pack también vive en **[DrakesCraft](https://drakescraft.cl)** (`play.drakescraft.cl` / `mc.drakescraft.cl` según el cliente).

@@ -50,3 +50,5 @@ El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a m
 - **Tag**: obligatorio y único (por ejemplo `v11-plugins-2026-04-25`). Si el tag ya existe, el paso de release fallará hasta que elijas otro.
 - **Draft / Prerelease**: útil la primera vez para revisar notas y adjuntos antes de publicar.
 - Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` dentro del ZIP con la lista `missing_modules`; conviene revisar ese archivo si el ZIP parece incompleto.
+
+Tras publicar, el despliegue típico en survival es manual (por ejemplo en **[DrakesCraft](https://drakescraft.cl)**); el ZIP es un solo paquete coherente para actualizar el pack sin publicar un release por cada addon.

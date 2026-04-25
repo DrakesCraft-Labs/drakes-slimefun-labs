@@ -1,6 +1,6 @@
-# Smoke runtime (Paper 1.21.1)
+# Smoke runtime (Paper 1.21.x)
 
-Objetivo: comprobar que los JAR no solo compilan, sino que **cargan** en un servidor Paper real con el stack configurado.
+Objetivo: comprobar que los JAR no solo compilan, sino que **cargan** en un servidor **Paper 1.21.1 / 1.21.11** real con el stack configurado. Complementa al CI: el “mundo real” largo sigue en **[DrakesCraft](https://drakescraft.cl)** (Chile), con la comunidad y **Chagui**.
 
 ## Archivos
 
