@@ -1,24 +1,49 @@
-# AI Start Prompt
+# AI Start Prompt (copy/paste for a new session)
 
-Use this summary as a starting point when opening a new session and you need quick context without rereading the whole repository.
+Use this block as **short memory** for assistants.
 
-## Short context
+```text
+Repo: DrakesCraft-Labs / drakes-slimefun-labs
+Stable branch: 1.21-latin (Paper 1.21.x API, Java 21). NOT a single plugin: Maven+Gradle monorepo (~86 modules).
+Experimental 26.x: 26.X-ToTheStars (Maven profile paper-26-preview). Do not mix into 1.21 without agreement.
+Human note: the 1.21.x sprint was extremely heavy; expect ~1 month before 26.x is pushed at full sprint pace; priority = keep 1.21-latin green + Issues + DrakesCraft.
 
-- branch: `1.21-latin`
-- stack: `Paper 1.21.1`, `Java 21`, Slimefun ecosystem (see root `pom.xml`)
-- audited inventory: **86** reactor entries (see `README.md` + `docs/es/PLUGIN_MATRIX.md`)
-- CI: **CI Monorepo 1.21** covers all 86 modules: full Maven reactor + 5 Gradle projects in `ci-monorepo-121.yml`
+Before coding:
+- Root README.md + docs/es/PLUGIN_MATRIX.md
+- Maven failure vs Paper/Slimefun API failure
+- Slimefun shaded jar relocates Dough → use com.github.drakescraft_labs.slimefun4.libraries.dough.protection.* for ProtectionManager paths when compiling addons (fix_dough_compilation_imports.py)
 
-## Key rules
+Typical build: mvn -B -pl <module-path> -am -DskipTests package
 
-- use the full CI as the main gate; compile the whole reactor locally only before large changes
-- use `mvn -pl <path> -am -DskipTests package`
-- before editing code, distinguish `pom.xml` failures from API failures
-- if a state changes, run `python scripts/generate_plugin_matrix.py` and align the org Project board (`docs/PROJECT_BOARD_SYNC.md`)
+Smoke: scripts/smoke/ + smoke_orchestrate.py (profiles include Paper 1.21.11 variants).
+Release ZIP: release-monorepo-jars.yml (manual Actions).
+Reference survival server (Chile): https://drakescraft.cl — gameplay polish: community + Chagui + Issues.
+```
+
+## More detail (if one paragraph is not enough)
+
+| Topic | Where |
+|-------|--------|
+| Lab vs gameplay backlog | `docs/en/pending-modules.md`, root `README.md` |
+| Paper smoke + ProtocolLib | `scripts/smoke/README.md` |
+| ZIP releases | `docs/github-maintenance.md` |
+| Long AI rules | `docs/en/ai-instructions.md` |
+| What 26.x is | branch `26.X-ToTheStars` → `docs/paper-26-base.md` on GitHub |
+
+## Suggested focus order
+
+1. Keep **CI Monorepo 1.21** green.
+2. Run **smoke** after large addon changes.
+3. Triage **Issues** from **DrakesCraft** / players.
+4. Keep **26.x** work on its branch without forcing timeline during the ~1 month recovery window.
+
+## References
+
+- [AI instructions](ai-instructions.md)
+- [Migration checklist](migration-checklist.md)
+- [Pending modules](pending-modules.md)
+- [Tomorrow handoff](tomorrow-handoff.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
-> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
+> **2026-04-25** — Expanded prompt (26.x cadence, DrakesCraft, smoke, release).
 <!-- DRAKES-STATUS:END -->

@@ -24,9 +24,13 @@ No es deuda del reactor: es **vida real** en el juego.
 - **Bugs de gameplay** → [Issues](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues) y el tablero de la org.
 - **Servidor de referencia (Chile):** **[DrakesCraft](https://drakescraft.cl)** — survival donde vive buena parte del stack; conexión típica **`play.drakescraft.cl`** / **`mc.drakescraft.cl`** (según lo que muestre el cliente al unirse). Ahí se valida el pack con carga real.
 
-### Experimental (no es esta rama)
+### Rama experimental **26.x** (`26.X-ToTheStars`)
 
-El porte a **Paper API 26.x** vive en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**. Hasta que madure, **`1.21-latin`** sigue siendo la referencia para **1.21.x**.
+**Qué es:** una línea de trabajo paralela para el salto a **Minecraft / Paper API 26.x** (artefactos tipo `26.1.x.build.*-alpha` en el repo de Paper). En esa rama el `pom.xml` raíz sigue con **`paper.version` 1.21.x por defecto** y se añade el perfil Maven **`paper-26-preview`** para compilar contra la API 26 cuando toque (`mvn -Ppaper-26-preview`). La documentación allí incluye avisos en los `.md` y la guía [`paper-26-base.md`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/blob/26.X-ToTheStars/docs/paper-26-base.md) (solo en esa rama).
+
+**Qué no es:** un reemplazo de `1.21-latin` de la noche a la mañana. Los **releases**, el **smoke** pensado para operadores y el **pack estable** siguen saliendo de **`1.21-latin`**.
+
+**Calendencia humana:** el porte agresivo a **1.21.x** fue extremadamente exigente (“casi nos mata”). Se contempla una ventana aproximada de **un mes** antes de retomar el porte **26.x** con el mismo ritmo de sprint; en ese intervalo el foco sigue siendo **mantener verde** `1.21-latin`, Issues, smoke cuando haga falta y el survival **[DrakesCraft](https://drakescraft.cl)**. El trabajo 26.x avanza **sin presión** en `26.X-ToTheStars` hasta que el equipo vuelva a tener cabeza para API breaking.
 
 ---
 
@@ -45,6 +49,7 @@ El porte a **Paper API 26.x** vive en la rama **[`26.X-ToTheStars`](https://gith
 | **Como sincronizar el tablero** | [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md) |
 | **Docs ES (indice)** | [`docs/es/home.md`](docs/es/home.md) |
 | **Docs EN (indice)** | [`docs/en/home.md`](docs/en/home.md) |
+| **Prompt corto para IA** | [`docs/es/ai-start-prompt.md`](docs/es/ai-start-prompt.md) · [`docs/en/ai-start-prompt.md`](docs/en/ai-start-prompt.md) |
 | **Servidor de referencia (Chile)** | [drakescraft.cl](https://drakescraft.cl) |
 
 > La matriz y la tabla larga de módulos de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineación manual.

@@ -1,36 +1,49 @@
-# AI-Start-Prompt
+# AI Start Prompt (copiar / pegar al abrir sesión)
 
-Usar este resumen como punto de partida cuando se abre una sesión nueva y hace falta recuperar contexto rápido sin releer todo el repo.
+Usa este bloque como **memoria corta** para asistentes o sesiones nuevas.
 
-## Contexto corto
+```text
+Repo: DrakesSlimefunLabs / drakes-slimefun-labs
+Rama estable: 1.21-latin (Paper 1.21.x API, Java 21). NO es un solo plugin: monorepo Maven+Gradle (~86 módulos).
+Rama experimental 26.x: 26.X-ToTheStars (perfil Maven paper-26-preview). No mezclar con 1.21 sin acuerdo.
+Humano: el sprint 1.21.x fue muy duro; se asume ~1 mes antes de retomar 26.x a ritmo fuerte; prioridad = mantener 1.21-latin + Issues + DrakesCraft.
 
-- rama: `1.21-latin`
-- stack: `Paper 1.21.1`, `Java 21`, ecosistema Slimefun (ver `pom.xml` raiz)
-- inventario auditado: **86** entradas en reactor (ver `README.md` + `docs/es/PLUGIN_MATRIX.md`)
-- CI: **CI Monorepo 1.21** cubre los 86 modulos: reactor Maven completo + 5 Gradle en `ci-monorepo-121.yml`
+Antes de codificar:
+- README.md raíz + docs/es/PLUGIN_MATRIX.md
+- Fallo Maven vs API Paper/Slimefun
+- Slimefun package sombrea Dough → imports protection bajo com.github.drakescraft_labs.slimefun4.libraries.dough... (fix_dough_compilation_imports.py)
 
-## Reglas clave
+Build típico: mvn -B -pl <ruta-modulo> -am -DskipTests package
 
-- usar el CI completo como gate principal; compilar todo localmente solo antes de cambios grandes
-- usar `mvn -pl <ruta> -am -DskipTests package`
-- antes de tocar código, distinguir fallo de `pom.xml` contra fallo de API
-- si se actualiza un estado, ejecutar `python scripts/generate_plugin_matrix.py` y alinear el [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) (`docs/PROJECT_BOARD_SYNC.md`)
+Smoke: scripts/smoke/ / smoke_orchestrate.py (perfiles foundation, monorepo-all, paper 1.21.11 en JSON).
+Release ZIP: workflow release-monorepo-jars.yml (Actions manual).
+Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + Chagui + Issues.
+```
 
-## Próximo enfoque recomendado
+## Detalle extendido (si hace falta más de un párrafo)
 
-1. mantener `maven_full_reactor` y `gradle_green` verdes
-2. ejecutar smoke tests de runtime en addons sensibles
-3. reducir deuda de bridges/compatibilidad donde se repita entre addons
+| Tema | Dónde |
+|------|--------|
+| Qué queda “lab vs juego” | `docs/es/pending-modules.md`, `README.md` |
+| Smoke Paper + ProtocolLib | `scripts/smoke/README.md` |
+| Releases ZIP | `docs/github-maintenance.md` |
+| Instrucciones largas para IA | `docs/es/ai-instructions.md` |
+| 26.x qué es / conclusión | rama `26.X-ToTheStars` → `docs/paper-26-base.md` en GitHub |
+
+## Próximo enfoque recomendado (orden sugerido)
+
+1. Mantener **CI Monorepo 1.21** verde (`maven_full_reactor`, `foundation`, `gradle_green`).
+2. **Smoke** tras cambios grandes en addons sensibles (`python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --timeout 420` o mayor).
+3. **Issues** triage con lo que salga en **DrakesCraft** / jugadores.
+4. **26.x** solo en rama dedicada, sin urgencia hasta pasada la ventana ~1 mes si aplica al equipo.
 
 ## Referencias
 
-- [[Checklist de Migración]]
-- [[Módulos Pendientes]]
-- [[Tomorrow-Handoff]]
+- [Instrucciones para la IA](ai-instructions.md)
+- [Checklist de migración](migration-checklist.md)
+- [Módulos pendientes](pending-modules.md)
+- [Tomorrow handoff](tomorrow-handoff.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
+> **2026-04-25** — Prompt ampliado (26.x, cadencia, DrakesCraft, smoke, release).
 <!-- DRAKES-STATUS:END -->
