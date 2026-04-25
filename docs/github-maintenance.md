@@ -27,11 +27,60 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
 
-## Dependabot y “vulnerabilities”
+## Dependabot y vulnerabilidades
 
-- Revisa *Security → Dependabot alerts* (y *Code scanning* si está habilitado).
-- En Java, muchas alertas vienen de dependencias transitivas: solución típica = actualizar el padre BOM, subir versión explícita en el `pom` raíz, o exclusiones controladas (documentar el porqué).
-- Tras cambios de versiones: `mvn -B -DskipTests verify` o al menos `compile -fae` en local antes de fusionar.
+### Dónde mirar
+
+- **Dependabot alerts**: *Security → Dependabot alerts* en el repo (o API REST).
+- **Dependabot version updates**: los PRs automáticos siguen `.github/dependabot.yml` (GitHub Actions + POM raíz Maven).
+- **GitHub “Dependabot security updates”** y el grafo **Dependency review** pueden mostrar el mismo CVE en varios manifiestos; no es obligatorio tener *cero* filas duplicadas si el estado global es **fixed** o **dismissed** con motivo documentado.
+- **Code scanning**: solo aparece si hay análisis configurado (CodeQL u otro); si la API devuelve 404, no hay alertas de código que listar.
+
+### Revisión rápida por CLI (mantenedor)
+
+Alertas Dependabot abiertas:
+
+```bash
+gh api "repos/DrakesCraft-Labs/drakes-slimefun-labs/dependabot/alerts?state=open&per_page=100" --jq 'length'
+```
+
+Resumen de alertas de dependencias (incluye histórico *fixed* / *dismissed*):
+
+```bash
+gh api graphql -f query='query($o:String!,$n:String!){repository(owner:$o,name:$n){vulnerabilityAlerts(first:50){nodes{state securityAdvisory{summary severity}}}}}' -f o=DrakesCraft-Labs -f n=drakes-slimefun-labs
+```
+
+### Cómo mitiga este monorepo
+
+En el **`pom.xml` raíz**, `dependencyManagement` fija versiones seguras de uso frecuente (commons-lang3, Guava, Spring context, Plexus Utils, Commons IO, Jackson, Log4j2, etc.). Los submódulos heredan el BOM al resolver transitivos.
+
+En **`build.gradle.kts`** del reactor Gradle, `resolutionStrategy` fuerza las mismas líneas críticas (commons-io, commons-lang3, jackson-core, log4j-api / log4j-core) para no diverger del árbol Maven.
+
+**Commons Lang 2.x**: el código vulnerable upstream no recibe parche en Maven Central; aquí se usa **`commons-lang-drake-patched`** (reemplazo interno). Las alertas sobre `commons-lang:commons-lang` suelen **cerrarse como “dismissed”** o equivalente con la nota de que el runtime usa el artefacto parcheado.
+
+Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que toque) y fusionar PRs de Dependabot con revisión humana.
+
+### Alertas “del bot” (PRs / comentarios)
+
+- **Dependabot**: PRs con etiquetas `dependencies`, `java`, `maven` o `github-actions`; revisar CI y conflictos con `1.21-latin`.
+- **Copilot / otros bots**: mismo criterio que un PR humano: CI verde y alcance claro.
+- **Issues**: si un bot abre un issue de seguridad, enlazar el GHSA y el commit o PR que lo mitiga.
+
+## CI Maven: fundación vs reactor completo
+
+El workflow **CI Monorepo 1.21** (`.github/workflows/ci-monorepo-121.yml`) define dos comportamientos distintos:
+
+1. **Maven · fundación** ejecuta `mvn clean compile` solo sobre el stack base (Dough, Slimefun core, SefiLib, InfinityLib, commons-lang parcheado). **No** se ejecuta el *shade* de Slimefun, por tanto **no existen** paquetes `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath. **SefiLib** e **InfinityLib** deben importar **`dev.drake.dough.protection.*`**. El script `scripts/fix_dough_compilation_imports.py` **excluye** esos árboles para no sustituir imports por los tipos sombreados.
+
+2. **Maven · reactor completo** ejecuta `mvn package` sobre todo el reactor. Ahí Slimefun **sí** empaqueta con shade antes de los addons que dependen de él, así que los addons pueden usar **`com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`** (ver script anterior y comentarios en `docs/README.md`).
+
+El workflow **Release monorepo JARs** también usa `package`, coherente con el reactor completo.
+
+## GraalVM (RykenSlimeCustomizer) y CI
+
+- En Maven, **`org.graalvm.js:js`** (tipo POM “enterprise”) arrastra **`truffle-enterprise`**, problemático en Maven público y en GitHub Actions. Debe usarse **`org.graalvm.js:js-community`** (mismo rango de versión, p. ej. `24.1.2`). El script **`scripts/fix_graalvm_js_community_poms.py`** (`--audit`, `--dry-run`) y **`scripts/ci_hygiene_fixes.py`** documentan y automatizan el barrido; **`scripts/manager.py repair`** incluye la misma regla en transformaciones POM.
+
+- En **Libby** (carga en runtime), no se debe pedir el artefacto **`truffle-enterprise`**; el stack community usa **`truffle-runtime`** junto con `js-language`, `truffle-api`, etc.
 
 ## Que todo quede “en verde”
 
