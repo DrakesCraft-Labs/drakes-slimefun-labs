@@ -7,20 +7,20 @@ This page translates the root [`README.md`](../../README.md) and the generated [
 ## Base state (audited)
 
 - Unified reactor inventory: **86 entries** (Maven + Gradle; see the generated matrix).
-- **CI-ready**: explicit subset in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (not the entire monorepo).
-- **Local-only green**: the remaining Maven and Gradle reactor entries compile locally on the `2026-04-24` cut; still need CI promotion.
-- **In progress / Build-blocked**: no active compile blockers in the local cut; remaining risk moves to wider CI and runtime smoke testing.
+- **CI-ready**: [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) covers 100% of the inventory: `maven_full_reactor` + `gradle_green`.
+- **Local-only green**: kept as historical evidence from the `2026-04-24` cut, but it is no longer the primary status.
+- **In progress / Build-blocked**: no active compile blockers in the local cut; remaining risk moves to runtime smoke testing and release discipline.
 - Org board: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned with the matrix ([`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
 
 ## Recommended Order
 
-### Phase 1: promote what already compiles locally
+### Phase 1: keep full CI green
 
-This is highest priority because it converts local evidence into reproducible gates.
+This is highest priority because the gate now covers the whole reactor.
 
-1. Add broader Maven slices or family-based jobs to the workflow.
-2. Expand `gradle_green` with `CustomItemGenerators`, `FastMachines`, and `SlimefunTranslation`.
-3. Keep `mvn -B -DskipTests compile -fae` as the preflight for large changes.
+1. Keep `maven_full_reactor` as the 81-module Maven proof.
+2. Keep `gradle_green` as the 5-project Gradle proof.
+3. Keep `mvn -B -DskipTests compile -fae` as the local preflight for large changes.
 
 ### Phase 2: runtime smoke tests
 
@@ -101,6 +101,6 @@ At the end of the backlog, the team should still do:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Note: full local build is green: 81 Maven + 5 Gradle. Remaining gap is wider CI coverage and smoke testing.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
+> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
 <!-- DRAKES-STATUS:END -->

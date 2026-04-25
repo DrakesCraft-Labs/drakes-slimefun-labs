@@ -10,9 +10,9 @@ This document reflects the real state after the current CI stabilization work.
 
 ## Current state
 
-- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): green on branch `1.21-latin` for curated Maven/Gradle slices.
+- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): covers the full Maven reactor (`maven_full_reactor`) and all 5 Gradle projects (`gradle_green`).
 - **Full local compile**: the full Maven reactor and all 5 declared Gradle projects compile on the `2026-04-24` cut.
-- Main gap: promote the local-green coverage into CI slices and run runtime smoke tests for sensitive addons.
+- Main gap: run runtime smoke tests for sensitive addons and keep the full CI stable.
 
 ## Recent technical audit (Gradle batch, root reactor)
 
@@ -60,7 +60,7 @@ Always run `--dry-run` first, review the diff, then `--apply`. With `--backup`, 
 
 ## Suggested work blocks
 
-1. Promote local-green Maven and Gradle modules into new jobs or `-pl` slices inside [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml).
+1. Keep `maven_full_reactor` and `gradle_green` as required closure checks.
 2. Run runtime smoke tests for mechanics-heavy addons.
 3. Reduce compatibility debt where a local bridge can become shared API.
 4. Keep the GitHub Project board aligned after each documentation cut.
@@ -76,6 +76,6 @@ A module is considered closed when:
 <!-- DRAKES-STATUS:BEGIN -->
 > Sync cut: **2026-04-24 (updated after full local Maven + Gradle pass)**.
 > Active baseline: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs).
-> Note: the full monorepo compiles locally on this cut: 81 Maven modules + 5 Gradle projects. Remaining gap is wider CI coverage and runtime smoke testing.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
+> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
 <!-- DRAKES-STATUS:END -->

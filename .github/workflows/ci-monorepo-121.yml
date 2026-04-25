@@ -55,11 +55,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  maven_stable:
-    name: Maven · addons estables
+  maven_full_reactor:
+    name: Maven · reactor completo
     needs: [foundation]
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -70,65 +70,17 @@ jobs:
           distribution: temurin
           cache: maven
 
-      - name: MiniBlocks, DyeBench, Quaptics
+      - name: Compilar los 81 módulos Maven del reactor
         run: |
-          mvn -B clean compile -DskipTests \
-            -pl sources/community-addons/MiniBlocks,sources/community-addons/DyeBench,sources/community-addons/Quaptics \
-            -am
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  maven_community:
-    name: Maven · comunidad y repos
-    needs: [foundation]
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: "21"
-          distribution: temurin
-          cache: maven
-
-      - name: ExtraUtils, DankTech2
-        run: |
-          mvn -B clean compile -DskipTests \
-            -pl sources/repos-to-port/ExtraUtils,sources/community-addons/DankTech2 \
-            -am
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  maven_complex:
-    name: Maven · lote complejo
-    needs: [foundation]
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: "21"
-          distribution: temurin
-          cache: maven
-
-      - name: Supreme
-        run: |
-          mvn -B clean compile -DskipTests \
-            -pl sources/batch-2-expansion/Supreme \
-            -am
+          mvn -B compile -DskipTests -fae
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   gradle_green:
-    name: Gradle · módulos verdes (Bump + Galactifun)
+    name: Gradle · reactor completo
     needs: [foundation]
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -142,7 +94,7 @@ jobs:
       - name: Publicar artefactos Maven para el reactor Gradle
         run: |
           mvn -B clean install -DskipTests \
-            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib \
+            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
             -am
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -150,12 +102,15 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Compilar solo proyectos que ya portean en Drake
+      - name: Compilar los 5 proyectos Gradle del reactor
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon \
             :sources:community-addons:Bump:compileJava \
-            :sources:batch-2-expansion:Galactifun:compileJava
+            :sources:batch-2-expansion:Galactifun:compileJava \
+            :sources:community-addons:CustomItemGenerators:compileJava \
+            :sources:community-addons:FastMachines:compileJava \
+            :sources:community-addons:SlimefunTranslation:compileJava
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -163,7 +118,7 @@ jobs:
   # Solo se ejecuta si todos los needs tuvieron éxito (comportamiento por defecto de GitHub).
   ci_summary:
     name: CI — resumen
-    needs: [foundation, maven_stable, maven_community, maven_complex, gradle_green]
+    needs: [foundation, maven_full_reactor, gradle_green]
     runs-on: ubuntu-latest
     steps:
       - run: echo "CI Monorepo 1.21 — todos los jobs obligatorios OK."

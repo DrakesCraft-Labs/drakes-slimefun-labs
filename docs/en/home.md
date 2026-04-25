@@ -32,6 +32,6 @@ Refresh README + matrix: `python scripts/generate_plugin_matrix.py`
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs in `ci-monorepo-121.yml`).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
+> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
 <!-- DRAKES-STATUS:END -->

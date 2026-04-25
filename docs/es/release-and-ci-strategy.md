@@ -22,7 +22,7 @@ No se debe publicar una release masiva con todos los `.jar` del reactor como si 
 
 En su lugar, la estrategia recomendada es:
 
-1. usar CI para validar grupos curados de módulos estables
+1. usar CI para validar el reactor completo antes de cualquier cierre
 2. conservar artifacts descargables por workflow para revisión rápida
 3. publicar releases manuales o semimanuales solo para stacks o módulos seleccionados
 
@@ -62,13 +62,13 @@ Solo si se documentan bien:
 Un solo workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`) con jobs encadenados:
 
 - **foundation**: stack Maven base (Dough, Slimefun, SefiLib, InfinityLib, parche `commons-lang`).
-- **maven_stable**, **maven_community**, **maven_complex**: lotes Maven en paralelo tras `foundation`.
-- **gradle_green**: `compileJava` solo de módulos Gradle ya portados (p. ej. Bump + Galactifun), sin forzar el reactor Gradle completo.
+- **maven_full_reactor**: los 81 modulos Maven del reactor con `mvn -B compile -DskipTests -fae`.
+- **gradle_green**: `compileJava` de los 5 proyectos Gradle (`Galactifun`, `Bump`, `CustomItemGenerators`, `FastMachines`, `SlimefunTranslation`) tras instalar artefactos Maven requeridos.
 - **ci_summary**: comprobacion opcional para branch protection.
 
 `concurrency` con `cancel-in-progress` reduce ruido en Actions cuando llegan muchos `push` seguidos.
 
-El corte local `2026-04-24` ya probo `mvn -B -DskipTests compile -fae` sobre los 81 modulos Maven y `compileJava` sobre los 5 proyectos Gradle. La accion recomendada no es publicar todo, sino convertir ese pase local en jobs curados nuevos.
+El corte local `2026-04-24` probo `mvn -B -DskipTests compile -fae` sobre los 81 modulos Maven y `compileJava` sobre los 5 proyectos Gradle. Ese pase ya fue promovido a CI; la accion recomendada ahora no es publicar todo, sino vigilar estabilidad del gate completo y validar runtime.
 
 ## Política de releases
 
@@ -81,7 +81,7 @@ Una release debe hacerse cuando:
 
 ## Próximos pasos sugeridos
 
-1. mantener y ajustar la CI curada
+1. mantener `maven_full_reactor` y `gradle_green` verdes
 2. revisar naming/versionado de módulos candidatos a release
 3. crear draft releases manuales para módulos verdaderamente estables
 4. solo después evaluar automatización de releases
@@ -89,6 +89,6 @@ Una release debe hacerse cuando:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados en `ci-monorepo-121.yml`).
-> Nota: build local completo verde: 81 Maven + 5 Gradle. Falta ampliar CI y validar runtime antes de releases masivas.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
 <!-- DRAKES-STATUS:END -->

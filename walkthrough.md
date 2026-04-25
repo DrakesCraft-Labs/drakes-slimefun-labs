@@ -44,6 +44,6 @@ El pipeline principal permite iterar con seguridad. El trabajo restante es **pro
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (`ci-monorepo-121.yml`, jobs curados).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
 <!-- DRAKES-STATUS:END -->

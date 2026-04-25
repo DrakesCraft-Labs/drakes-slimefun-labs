@@ -4,7 +4,7 @@
 
 - **Rama**: `1.21-latin` | **Identidad**: `com.github.drakescraft_labs`
 - **Inventario auditado**: ver [`README.md`](../../README.md) y [`PLUGIN_MATRIX.md`](PLUGIN_MATRIX.md) — **86 filas** (81 Maven en `pom.xml` + 5 entradas Gradle del reactor; regenerar con `python scripts/generate_plugin_matrix.py`).
-- **CI**: **CI Monorepo 1.21** verde sobre **subconjuntos** curados (`ci-monorepo-121.yml`); el pase local completo ya existe, pero CI todavia no cubre los 86.
+- **CI**: **CI Monorepo 1.21** cubre los **86**: reactor Maven completo (`maven_full_reactor`) + 5 Gradle (`gradle_green`).
 - **Build local completo**: 81 modulos Maven + 5 proyectos Gradle compilan en el corte `2026-04-24`.
 - **Tablero org**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — alinear con [`PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
@@ -27,8 +27,8 @@
 - **Lección Aprendida**: Aunque las versiones se definan en el `parent`, los addons DEBEN declarar la dependencia explícitamente para que Maven las incluya en el classpath de compilación.
 
 ## 🎯 Siguiente Ruta Recomendada (Fase Quirúrgica)
-1.  **Promover CI**: convertir el pase local completo en jobs o slices nuevos dentro de `ci-monorepo-121.yml`.
-2.  **Smoke Testing**: iniciar pruebas de carga en servidores Paper 1.21.1 reales con el stack completo.
+1.  **Smoke Testing**: iniciar pruebas de carga en servidores Paper 1.21.1 reales con el stack completo.
+2.  **Vigilar CI completo**: mantener `maven_full_reactor` y `gradle_green` verdes antes de nuevos cierres.
 3.  **Reducir deuda de bridges**: mover a utilidades compartidas los bridges que se repitan entre addons.
 
 ## 🛠️ Comandos de Supervivencia
@@ -46,6 +46,6 @@
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Nota: build local completo verde: 81 Maven + 5 Gradle. Falta ampliar CI y smoke tests.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
 <!-- DRAKES-STATUS:END -->

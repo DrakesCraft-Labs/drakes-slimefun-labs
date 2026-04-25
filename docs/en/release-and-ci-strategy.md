@@ -7,7 +7,7 @@ Per-module readiness is tracked in the generated root [`README.md`](../../README
 The repository is operated in an incremental-stability model:
 
 - Keep the main branch (`1.21-latin`) green at all times.
-- Expand module coverage in controlled batches.
+- Keep full Maven + Gradle compile coverage in CI.
 - Prefer deterministic dependencies over snapshot-only external sources.
 
 ## CI shape
@@ -15,8 +15,8 @@ The repository is operated in an incremental-stability model:
 Single workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`):
 
 - **foundation**: Maven baseline (Dough, Slimefun, SefiLib, InfinityLib, commons-lang patch)
-- **maven_stable**, **maven_community**, **maven_complex**: parallel Maven slices after `foundation` succeeds
-- **gradle_green**: `compileJava` for Gradle modules that already port (Bump + Galactifun), not the whole failing Gradle reactor
+- **maven_full_reactor**: all 81 Maven reactor modules with `mvn -B compile -DskipTests -fae`
+- **gradle_green**: `compileJava` for all 5 Gradle projects after publishing required Maven artifacts locally
 - **ci_summary**: optional umbrella check for branch protection
 
 Concurrency cancels in-progress runs on the same branch to reduce “war zone” noise from stacked pushes.
@@ -29,13 +29,13 @@ Concurrency cancels in-progress runs on the same branch to reduce “war zone”
 
 ## Next milestones
 
-1. Reintroduce broader module sets in `ci-monorepo-121.yml` jobs (`-pl` slices).
+1. Keep `maven_full_reactor` and `gradle_green` stable.
 2. Remove legacy dependency bottlenecks.
 3. Track runtime validation status per addon group.
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados en `ci-monorepo-121.yml`).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
+> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
 <!-- DRAKES-STATUS:END -->

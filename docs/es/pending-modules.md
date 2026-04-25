@@ -10,9 +10,9 @@ Este documento refleja el estado real despues de la estabilizacion CI actual.
 
 ## Estado actual
 
-- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): estable en verde en `1.21-latin` para los subconjuntos Maven/Gradle curados.
+- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): cubre el reactor Maven completo (`maven_full_reactor`) y los 5 proyectos Gradle (`gradle_green`).
 - **Compilacion local completa**: el reactor Maven completo y los 5 proyectos Gradle declarados compilan en el corte `2026-04-24`.
-- Pendiente principal: promover la cobertura local verde a CI por lotes y ejecutar smoke tests de runtime en addons con mecanicas sensibles.
+- Pendiente principal: ejecutar smoke tests de runtime en addons con mecanicas sensibles y mantener el CI completo estable.
 
 ## Auditoria tecnica reciente (build por lotes)
 
@@ -62,7 +62,7 @@ Siempre ejecutar antes `--dry-run`, revisar diff, y luego `--apply`. Con `--back
 
 ## Bloques de trabajo sugeridos
 
-1. Reintroducir modulos al CI en lotes pequenos, usando la matriz como fuente de verdad.
+1. Mantener `maven_full_reactor` y `gradle_green` como checks obligatorios de cierre.
 2. Ejecutar smoke tests de runtime en addons con mecanicas complejas.
 3. Reducir deuda de compatibilidad donde un bridge local ya pueda convertirse en API compartida.
 4. Consolidar documentacion de cierre por lote.
@@ -78,6 +78,6 @@ Un modulo se considera cerrado cuando:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24 (actualizado tras pase completo Maven + Gradle local)**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Nota: el monorepo completo compila localmente en este corte: 81 modulos Maven + 5 proyectos Gradle. La brecha restante es CI ampliado y smoke tests de runtime.
+> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
 <!-- DRAKES-STATUS:END -->

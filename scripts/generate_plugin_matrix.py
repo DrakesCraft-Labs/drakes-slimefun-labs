@@ -10,7 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"m": "http://maven.apache.org/POM/4.0.0"}
 
-# Modulos con evidencia explicita en .github/workflows/ci-monorepo-121.yml (jobs Maven + gradle_green)
+# Modulos con evidencia explicita en .github/workflows/ci-monorepo-121.yml.
+# El job `maven_full_reactor` compila el reactor Maven completo y `gradle_green`
+# compila los 5 proyectos declarados en settings.gradle.kts.
 GATE_1 = {
     "sources/dough-core",
     "sources/slimefun-core/Slimefun4-src",
@@ -18,20 +20,13 @@ GATE_1 = {
     "sources/batch-2-expansion/InfinityLib",
     "sources/internal-metadata/patches/commons-lang-drake-patched",
 }
-GATE_2 = {
-    "sources/community-addons/MiniBlocks",
-    "sources/community-addons/DyeBench",
-    "sources/community-addons/Quaptics",
-}
-GATE_3 = {
-    "sources/repos-to-port/ExtraUtils",
-    "sources/community-addons/DankTech2",
-}
-GATE_4 = {"sources/batch-2-expansion/Supreme"}
-# Job gradle_green: compileJava de proyectos ya portados (no todo el reactor Gradle)
+# Job gradle_green: compileJava de todos los proyectos Gradle del reactor.
 GATE_5_GRADLE_OK = {
     "sources/batch-2-expansion/Galactifun",
     "sources/community-addons/Bump",
+    "sources/community-addons/CustomItemGenerators",
+    "sources/community-addons/FastMachines",
+    "sources/community-addons/SlimefunTranslation",
 }
 
 # Compilacion local verificada el 2026-04-24:
@@ -78,16 +73,10 @@ def classify(path: str) -> tuple[str, str, str]:
         return (
             "Listo (CI)",
             "CI Monorepo · gradle_green",
-            "Compila en job `gradle_green` (`compileJava`); Maven base instalado antes en el mismo workflow.",
+            "Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow.",
         )
     if path in GATE_1:
         return ("Listo (CI)", "CI Monorepo · foundation", "Stack base Paper 1.21.1 + Java 21.")
-    if path in GATE_2:
-        return ("Listo (CI)", "CI Monorepo · maven_stable", "Addons estables del lote rapido.")
-    if path in GATE_3:
-        return ("Listo (CI)", "CI Monorepo · maven_community", "Repos + comunidad (subconjunto).")
-    if path in GATE_4:
-        return ("Listo (CI)", "CI Monorepo · maven_complex", "Supreme en lote complejo; ademas compila en cadena Maven local.")
     if path in GRADLE_MODULES:
         note = GRADLE_LOCAL_OK_NOTE.get(
             path,
@@ -100,9 +89,9 @@ def classify(path: str) -> tuple[str, str, str]:
         )
     # Resto del reactor Maven
     return (
-        "Listo (local)",
-        f"Maven reactor compile {LOCAL_BUILD_CUT}",
-        "`mvn -B -DskipTests compile -fae` verde en reactor completo; falta promover a CI y smoke en servidor si el addon tiene mecanicas sensibles.",
+        "Listo (CI)",
+        "CI Monorepo · maven_full_reactor",
+        "`mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles.",
     )
 
 
@@ -207,7 +196,7 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 
 | Estado | Cantidad | Significado |
 |---:|---:|---|
-| **Listo (CI)** | **{ci}** | Aparece en `ci-monorepo-121.yml` (job Maven o `gradle_green`) y compila alli. |
+| **Listo (CI)** | **{ci}** | Aparece en `ci-monorepo-121.yml` (`maven_full_reactor`, `foundation` o `gradle_green`) y compila alli. |
 | **Listo (local)** | **{loc}** | `mvn compile -fae` o `gradlew <proyecto>:compileJava` verde en revision auditada; **pendiente** promover a un job de `ci-monorepo-121.yml`. |
 | **En curso** | **{prog}** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
 | **Bloqueado (build)** | **{blk}** | Fallo reproducible de compilacion en el reactor local. |
@@ -226,7 +215,7 @@ Bloqueado:    {blk}/{total}
 
 ## Metodologia (criterios)
 
-1. **Listo (CI)**: modulo cubierto por un job de [`ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) (`foundation`, `maven_*`, `gradle_green`).
+1. **Listo (CI)**: modulo cubierto por un job de [`ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) (`foundation`, `maven_full_reactor`, `gradle_green`).
 2. **Listo (local)**: compilacion Maven/Gradle exitosa en la misma revision que el script (no reemplaza CI).
 3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
 4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build local documentado en `docs/es/pending-modules.md`.
