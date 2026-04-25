@@ -28,6 +28,9 @@ NEW_PM_IMPORT = (
 SKIP_PREFIXES = (
     "sources" + "/" + "slimefun-core",
     "sources" + "/" + "dough-core",
+    # Librerías internas: compilan contra dough-core sin jar Slimefun sombreado
+    "sources/batch-2-expansion/SefiLib",
+    "sources/batch-2-expansion/InfinityLib",
 )
 
 

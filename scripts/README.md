@@ -46,7 +46,7 @@ jar **sombreado** de Slimefun (`com.github.drakescraft_labs.slimefun4.libraries.
 porque el `compile` del addon ocurre **despues** del `package` de Slimefun en el reactor.
 El script reemplaza `dev.drake.dough.protection.Interaction` y el import
 `import dev.drake.dough.protection.ProtectionManager` (cuando se asigna desde Slimefun)
-bajo `sources/`, excluyendo `slimefun-core` y `dough-core`.
+bajo `sources/`, excluyendo `slimefun-core`, `dough-core`, `batch-2-expansion/SefiLib` e `InfinityLib` (compilan contra dough sin Slimefun sombreado).
 
 ```bash
 python scripts/fix_dough_compilation_imports.py
