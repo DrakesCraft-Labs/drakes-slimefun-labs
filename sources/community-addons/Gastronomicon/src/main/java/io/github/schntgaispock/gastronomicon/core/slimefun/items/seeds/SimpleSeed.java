@@ -14,6 +14,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -131,7 +132,7 @@ public class SimpleSeed extends AbstractSeed {
         }
 
         final int sickleTier = ItemUtil.getSickleTier(item);
-        final int fortuneLevel = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+        final int fortuneLevel = item.getEnchantmentLevel(VersionedEnchantment.FORTUNE);
 
         final ItemStack seed = getItem().clone();
         seed.setAmount(NumberUtil.getFortuneAmount(fortuneLevel, sickleTier, 2));

@@ -100,7 +100,7 @@ public final class TraderTypes {
     public String toString() {
         return "TraderTypes(wanderingTrader = " + hasWanderingTrader
             + ", villagerProfessions = "
-            + villagerProfessions.stream().map(Enum::toString).collect(Collectors.joining(", "))
+            + villagerProfessions.stream().map(Object::toString).collect(Collectors.joining(", "))
             + ")";
     }
 

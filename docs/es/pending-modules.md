@@ -10,9 +10,9 @@ Este documento refleja el estado real despues de la estabilizacion CI actual.
 
 ## Estado actual
 
-- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): estable en verde en `1.21-latin` para los subconjuntos Maven/Gradle curados
-- Pendiente principal: ampliar cobertura de modulos fuera del subset estable
-- Trabajo requerido: reingreso por lotes + smoke tests por addon sensible
+- **CI Monorepo 1.21** (`ci-monorepo-121.yml`): estable en verde en `1.21-latin` para los subconjuntos Maven/Gradle curados.
+- **Compilacion local completa**: el reactor Maven completo y los 5 proyectos Gradle declarados compilan en el corte `2026-04-24`.
+- Pendiente principal: promover la cobertura local verde a CI por lotes y ejecutar smoke tests de runtime en addons con mecanicas sensibles.
 
 ## Auditoria tecnica reciente (build por lotes)
 
@@ -22,27 +22,31 @@ Fecha del corte: `2026-04-24`.
 
 | Herramienta | OK | FAIL | Notas |
 |-------------|---:|-----:|-------|
-| Maven (`-pl` LiteXpansion, Supreme, TranscEndence `-am compile`) | 3 modulos objetivo + reactor | 0 | `BUILD SUCCESS` con `mvn` portable o sistema |
-| Gradle (`gradlew build -x test`, reactor raiz) | Bump + Galactifun + metaproyectos | Otros modulos Gradle fallan | Bump y Galactifun compilan; el `build` raiz sigue fallando en CustomItemGenerators / FastMachines / SlimefunTranslation segun el orden de tareas |
+| Maven (`mvn -B -DskipTests compile -fae`) | 81 modulos del reactor | 0 | `BUILD SUCCESS`; log local `drakes-maven-compile-fae.log` en `%TEMP%` durante el corte |
+| Gradle (`compileJava` por proyecto declarado) | 5 proyectos Gradle | 0 | Galactifun, Bump, CustomItemGenerators, FastMachines y SlimefunTranslation compilan |
 
-### Lote Maven (expansion batch-2)
+### Lote Maven completo
 
-- `LiteXpansion-drake`, `Supreme-drake`, `TranscEndence-drake` (y dependencias `-am`): **BUILD SUCCESS** tras regla `libraries-paperlib` en `port_paper_121.py` y metricas bStats en `LiteXpansion.java`.
+- Reactor Maven completo: **BUILD SUCCESS** con `mvn -B -DskipTests compile -fae`.
+- Modulos que antes bloqueaban el pase (`GeneticChickengineering-Reborn`, `EMCTech`, `UltimateGenerators2`, `VillagerTrade`, `SlimeHUD`, `SfBetterChests`, entre otros) ahora compilan contra el baseline Drake.
+- Persisten warnings de APIs Paper/Bukkit antiguas, pero no bloquean compilacion.
 
-### Lote Gradle auditado (reactor raiz)
+### Lote Gradle auditado
 
-- `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL**
-- `sources:community-addons:Bump`: **BUILD SUCCESS** en `compileJava` (abril 2026). Port principal: clase principal `JavaPlugin` + `SlimefunAddon` Drake (sin Guizhan `AbstractAddon` BusyBiscuit), `SimpleMenuBlock` nativo sobre `SlimefunItem` + `BlockMenuPreset`, `LocalizationService` sobre `MinecraftLocalization`, encantamientos/flags 1.21 (`POWER`, `SHARPNESS`, `UNBREAKING`, `HIDE_ADDITIONAL_TOOLTIP`), `GuizhanBuildsUpdater.start(...)`. El `build` raiz del monorepo puede seguir fallando en otros modulos Gradle (CIG/FastMachines/SlimefunTranslation).
-- `sources:community-addons:CustomItemGenerators`: **FAIL** en Kotlin/SlimefunAddon (ver matriz); ejecutar `./gradlew :sources:community-addons:CustomItemGenerators:compileKotlin` para log actual.
-- `sources:community-addons:FastMachines`: **FAIL** Kotlin (tipos BusyBiscuit vs Drake; dependencias InfinityExpansion); ver matriz.
-- `sources:community-addons:SlimefunTranslation`: **FAIL** Java API amplia vs Slimefun Drake; ver matriz.
+- `sources:batch-2-expansion:Galactifun`: **BUILD SUCCESSFUL**.
+- `sources:community-addons:Bump`: **BUILD SUCCESSFUL**.
+- `sources:community-addons:CustomItemGenerators`: **BUILD SUCCESSFUL** tras quitar `sf4k`, usar `JavaPlugin` directo y registrar via adapter `SlimefunAddon`.
+- `sources:community-addons:FastMachines`: **BUILD SUCCESSFUL** tras alinear dependencias Drake, instalar `InfinityExpansion-drake` localmente y agregar bridges Kotlin locales.
+- `sources:community-addons:SlimefunTranslation`: **BUILD SUCCESSFUL** tras ajustar API Paper 1.21 (`EntityType.ITEM`).
 
-### Mitigaciones aplicadas en este bloque
+### Mitigaciones y herramientas aplicadas en este bloque
 
 1. Timeout de wrapper Gradle aumentado para estabilizar descargas en red lenta (`networkTimeout=120000`).
 2. Alineacion de coordenadas internas Gradle con el namespace canonico del monorepo (`com.github.drakescraft_labs`) para resolver artefactos locales.
-3. Publicacion local de artefactos base (`dough-core`, `slimefun-core`, `SefiLib`, `InfinityLib`) para destrabar resolucion de dependencias sin credenciales de GitHub Packages.
-4. Ajuste de imports legacy en `Cultivation_Updated` (`slimefun4.libraries.*` -> paquetes vigentes) con evidencia de compilacion Maven en verde para el modulo.
+3. Publicacion local de artefactos base (`dough-core`, `slimefun-core`, `SefiLib`, `InfinityLib`, `InfinityExpansion-drake`) para destrabar resolucion de dependencias sin credenciales de GitHub Packages.
+4. Bridges BusyBiscuit dentro de Slimefun core (`io.github.thebusybiscuit.slimefun4.*`) para librerias compiladas contra el paquete upstream.
+5. Bridges Kotlin locales para addons Gradle: `MenuBlock`, `TickingMenuBlock` y `DrakeItemBuilderCompat`.
+6. Migraciones puntuales de API 1.21: enums renombrados, imports Dough/Slimefun Drake, `GuizhanBuildsUpdater.start(...)`, y reemplazo de extensiones Kotlin no disponibles por llamadas directas.
 
 ## Porteo automatizado (parches por lotes)
 
@@ -58,9 +62,9 @@ Siempre ejecutar antes `--dry-run`, revisar diff, y luego `--apply`. Con `--back
 
 ## Bloques de trabajo sugeridos
 
-1. Reintroducir modulos al CI en lotes pequenos.
-2. Resolver incompatibilidades de dependencias legacy (repos externos, snapshots, coordinates antiguas).
-3. Ejecutar smoke tests de runtime en addons con mecanicas complejas.
+1. Reintroducir modulos al CI en lotes pequenos, usando la matriz como fuente de verdad.
+2. Ejecutar smoke tests de runtime en addons con mecanicas complejas.
+3. Reducir deuda de compatibilidad donde un bridge local ya pueda convertirse en API compartida.
 4. Consolidar documentacion de cierre por lote.
 
 ## Criterio de cierre
@@ -72,8 +76,8 @@ Un modulo se considera cerrado cuando:
 - y tiene validacion minima de runtime si aplica.
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24 (actualizado tras auditoria de build por lotes)**.
+> Estado de sincronizacion: **2026-04-24 (actualizado tras pase completo Maven + Gradle local)**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Nota: el monorepo completo sigue en migracion incremental por lotes; ultimo corte: Maven lote LiteXpansion/Supreme/TranscEndence en verde; Gradle Bump + Galactifun compilan; CustomItemGenerators / FastMachines / SlimefunTranslation siguen bloqueados en el reactor Gradle.
+> Nota: el monorepo completo compila localmente en este corte: 81 modulos Maven + 5 proyectos Gradle. La brecha restante es CI ampliado y smoke tests de runtime.
 <!-- DRAKES-STATUS:END -->

@@ -89,7 +89,7 @@ public class SpiritRune extends SimpleSlimefunItem<ItemDropHandler> {
                     // Being sure entities are still valid and not picked up or whatsoever.
                     if (rune.isValid() && runeStack.getAmount() == 1 && item.isValid() && itemStack.getAmount() == 1 && !PersistentDataAPI.hasByte(itemStack.getItemMeta(), Keys.imbuedKey)) {
 
-                        location.getWorld().spawnParticle(Particle.CRIT_MAGIC, location, 1);
+                        location.getWorld().spawnParticle(Particle.ENCHANTED_HIT, location, 1);
                         location.getWorld().playSound(location, Sound.ENTITY_ZOMBIE_VILLAGER_CURE, 1F, 1F);
 
                         item.remove();

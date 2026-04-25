@@ -17,6 +17,11 @@ public class VersionedEnchantment {
     public static final Enchantment LUCK_OF_THE_SEA;
     public static final Enchantment AQUA_AFFINITY;
     public static final Enchantment FORTUNE;
+    public static final Enchantment POWER;
+    public static final Enchantment INFINITY;
+    public static final Enchantment LOOTING;
+    public static final Enchantment RESPIRATION;
+    public static final Enchantment FEATHER_FALLING;
 
     static {
         // DIG_SPEED is renamed to EFFICIENCY in 1.20.5
@@ -39,6 +44,15 @@ public class VersionedEnchantment {
 
         // LOOT_BONUS_BLOCKS is renamed to FORTUNE in 1.20.5
         FORTUNE = getKey("fortune");
+
+        // ARROW_DAMAGE and ARROW_INFINITE were renamed in 1.20.5
+        POWER = getKey("power");
+        INFINITY = getKey("infinity");
+
+        // Additional Bukkit field renames in 1.20.5
+        LOOTING = getKey("looting");
+        RESPIRATION = getKey("respiration");
+        FEATHER_FALLING = getKey("feather_falling");
     }
 
     @Nullable

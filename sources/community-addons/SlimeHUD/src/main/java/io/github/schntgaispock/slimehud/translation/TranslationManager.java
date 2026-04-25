@@ -2,7 +2,6 @@ package io.github.schntgaispock.slimehud.translation;
 
 import io.github.schntgaispock.slimehud.SlimeHUD;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import com.github.drakescraft_labs.slimefuntranslation.api.SlimefunTranslationAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -30,12 +29,8 @@ public class TranslationManager {
             return sfItem.getItemName();
         }
         
-        try {
-            return SlimefunTranslationAPI.getItemName(SlimefunTranslationAPI.getUser(p), sfItem);
-        } catch (NoClassDefFoundError e) {
-            SlimeHUD.getInstance().getLogger().info("Could not get item translation! Please update SlimefunTranslation");
-            translationEnabled = false;
-            return sfItem.getItemName();
-        }
+        SlimeHUD.getInstance().getLogger().info("SlimefunTranslation API is not available in this build; using default Slimefun item names.");
+        translationEnabled = false;
+        return sfItem.getItemName();
     }
 }

@@ -9,6 +9,7 @@ import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -745,7 +746,7 @@ public class NetworksSlimefunItemStacks {
                 NETWORK_RAKE_3 = Theme.themedSlimefunItemStack(
                                 "NTW_RAKE_3",
                                 getPreEnchantedItemStack(Material.WEEPING_VINES, true,
-                                                new Pair<>(Enchantment.LUCK_OF_THE_SEA, 1)),
+                                                new Pair<>(VersionedEnchantment.LUCK_OF_THE_SEA, 1)),
                                 Theme.TOOL,
                                 "Network Rake (3)",
                                 "Right click a Network Object to",
@@ -756,7 +757,7 @@ public class NetworksSlimefunItemStacks {
                 NETWORK_DEBUG_STICK = Theme.themedSlimefunItemStack(
                                 "NTW_DEBUG_STICK",
                                 getPreEnchantedItemStack(Material.STICK, true,
-                                                new Pair<>(Enchantment.LUCK_OF_THE_SEA, 1)),
+                                                new Pair<>(VersionedEnchantment.LUCK_OF_THE_SEA, 1)),
                                 Theme.TOOL,
                                 "Network Debug Stick",
                                 "Right click a Network Object to",

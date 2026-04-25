@@ -62,7 +62,7 @@ class SlimefunItemBuilder(private val registry: ItemRegistry) {
             FastMachines.log(Level.SEVERE, e, "Failed to create SlimefunItem")
             throw e
         }
-        item.register(FastMachines.instance)
+        item.register(FastMachines.addon)
         return sfis
     }
 }

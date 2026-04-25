@@ -3,7 +3,6 @@ package ne.fnfal113.fnamplifications;
 import javax.annotation.Nonnull;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import dev.drake.dough.updater.BlobBuildUpdater;
 
 import ne.fnfal113.fnamplifications.config.ConfigManager;
 import ne.fnfal113.fnamplifications.gears.commands.GearCommands;
@@ -50,9 +49,8 @@ public final class FNAmplifications extends JavaPlugin implements SlimefunAddon 
         registerCommands();
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ArmorEquipRunnable(), 0L, getConfig().getInt("armor-update-period") * 20L);
 
-        if(getConfig().getBoolean("auto-update", true) && getDescription().getVersion().startsWith("Dev - ")) {
-            new BlobBuildUpdater(this, getFile(), "FNAmplifications").start();
-        }
+        // The BlobBuild updater artifact is not available in the Drake build graph.
+        // Keep builds reproducible and let servers update this addon explicitly.
     }
 
     @Override

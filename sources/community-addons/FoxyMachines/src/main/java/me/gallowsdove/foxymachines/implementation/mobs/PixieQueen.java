@@ -173,7 +173,7 @@ public class PixieQueen extends CustomBoss {
         }
 
         for (int i = 0; i < 10; i++) {
-            location.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, location, 1, random.nextDouble(-1.5, 1.5),
+            location.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, location, 1, random.nextDouble(-1.5, 1.5),
                     random.nextDouble(-1.2, 2.4), random.nextDouble(-1.5, 1.5), 0);
         }
     }

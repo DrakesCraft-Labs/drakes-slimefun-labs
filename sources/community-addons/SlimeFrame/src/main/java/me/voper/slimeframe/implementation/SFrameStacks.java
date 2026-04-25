@@ -11,7 +11,9 @@ import com.cryptomorin.xseries.XMaterial;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionData;
@@ -51,7 +53,7 @@ public final class SFrameStacks {
     @Nonnull
     public static ItemStack enchantedItem(@Nonnull Material m) {
         return new CustomItemStack(m, (meta) -> {
-            meta.addEnchant(Enchantment.LUCK, 1, false);
+            meta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, false);
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         });
     }
@@ -62,7 +64,7 @@ public final class SFrameStacks {
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
         if (meta != null) {
             meta.setBasePotionData(new PotionData(type));
-            meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+            meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
             potion.setItemMeta(meta);
         }
         return potion;

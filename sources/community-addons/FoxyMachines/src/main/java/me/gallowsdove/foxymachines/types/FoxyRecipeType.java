@@ -6,6 +6,7 @@ import me.gallowsdove.foxymachines.FoxyMachines;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class FoxyRecipeType {
@@ -13,7 +14,7 @@ public class FoxyRecipeType {
             "&e&oUse &c/foxy quest &e&oto view your current quest."));
     static {
         ItemMeta meta = QUEST_ITEM.getItemMeta();
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         QUEST_ITEM.setItemMeta(meta);
     }
 

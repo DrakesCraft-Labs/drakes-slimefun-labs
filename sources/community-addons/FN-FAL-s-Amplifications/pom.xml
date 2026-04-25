@@ -127,13 +127,6 @@
 
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>dough-updater</artifactId>
-            <version>1108163a49</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>compile</scope>

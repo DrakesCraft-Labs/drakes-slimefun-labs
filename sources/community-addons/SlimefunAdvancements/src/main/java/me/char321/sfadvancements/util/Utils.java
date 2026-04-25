@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
@@ -25,14 +26,14 @@ public class Utils {
         item = item.clone();
         ItemMeta im = item.getItemMeta();
         //noinspection DataFlowIssue
-        im.addEnchant(Enchantment.DURABILITY, 1, false);
+        im.addEnchant(VersionedEnchantment.UNBREAKING, 1, false);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(im);
         return item;
     }
 
     public static void makeShiny(ItemMeta im) {
-        im.addEnchant(Enchantment.DURABILITY, 1, false);
+        im.addEnchant(VersionedEnchantment.UNBREAKING, 1, false);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
     }
 

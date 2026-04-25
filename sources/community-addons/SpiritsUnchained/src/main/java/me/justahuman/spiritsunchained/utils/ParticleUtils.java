@@ -75,6 +75,6 @@ public class ParticleUtils {
     public static void breakParticles(Location location, ItemStack itemStack) {
         final World world = location.getWorld();
         world.playSound(location, Sound.ENTITY_ITEM_BREAK, 0.5F, 1);
-        new ParticleBuilder(Particle.ITEM_CRACK).offset(0.2, 0.2, 0.2).extra(0).count(8).location(location).data(itemStack).allPlayers().spawn();
+        new ParticleBuilder(Particle.ITEM).offset(0.2, 0.2, 0.2).extra(0).count(8).location(location).data(itemStack).allPlayers().spawn();
     }
 }

@@ -18,6 +18,7 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 
 public final class Items {
 
@@ -551,7 +552,7 @@ public final class Items {
         "&7Converter"
     );
 
-    private static final Enchantment glowEnchant = Enchantment.LUCK_OF_THE_SEA;
+    private static final Enchantment glowEnchant = VersionedEnchantment.LUCK_OF_THE_SEA;
 
     static {
         ADVANCED_SOLAR_HELMET.addEnchantment(Enchantment.UNBREAKING, 1);

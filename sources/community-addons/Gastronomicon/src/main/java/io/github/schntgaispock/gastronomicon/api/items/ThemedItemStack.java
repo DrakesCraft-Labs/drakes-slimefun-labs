@@ -5,6 +5,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -90,7 +91,7 @@ public class ThemedItemStack extends SlimefunItemStack {
     }
 
     public ThemedItemStack glisten() {
-        return enchant(Enchantment.DURABILITY).addFlags(ItemFlag.HIDE_ENCHANTS);
+        return enchant(VersionedEnchantment.UNBREAKING).addFlags(ItemFlag.HIDE_ENCHANTS);
     }
 
     public ThemedItemStack addFlags(ItemFlag... flags) {

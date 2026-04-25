@@ -17,6 +17,7 @@ import dev.drake.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -275,7 +276,7 @@ public class StoryUtils {
         ItemMeta itemMeta = itemStack.getItemMeta();
         PersistentDataAPI.setInt(itemMeta, Keys.PDC_CURRENT_NUMBER_OF_STORIES, amount);
         if (amount >= getMaxStoryAmount(itemStack)) {
-            itemMeta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true);
+            itemMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         itemStack.setItemMeta(itemMeta);

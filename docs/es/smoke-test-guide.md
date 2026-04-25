@@ -10,6 +10,7 @@ El smoke test sirve para comprobar que el stack base y los addons integrados no 
 - cuando se tocó el core o `dough-core`
 - cuando un addon sensible compila pero conviene validar carga real
 - antes de marcar un bloque grande del roadmap como estabilizado
+- después del corte local completo `2026-04-24`, porque ya no hay bloqueos de compilacion y el siguiente riesgo real es runtime
 
 ## Script disponible
 
@@ -23,6 +24,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\slimefun\smoke-test.ps1
 - que `Slimefun` cargue correctamente
 - que los addons recién cerrados no tiren errores de enable
 - que integraciones opcionales críticas no revienten al cargar
+- que los bridges de compatibilidad (`io.github.thebusybiscuit.slimefun4.*`, `MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) no oculten errores de inicializacion en addons Gradle/Kotlin
 
 ## Addons que conviene mirar con más atención
 
@@ -58,5 +60,5 @@ El `README.md` puede marcar un addon como listo por build validado. Aun así, el
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Nota: build local completo verde: 81 Maven + 5 Gradle. El siguiente cierre real debe validar runtime.
 <!-- DRAKES-STATUS:END -->

@@ -35,12 +35,15 @@ public class SlimeHUDSetup {
 
         // Fishing Net
         SlimeHUD.getHudController().registerCustomHandler(FishingNet.class, request -> {
-            return ((FishingNet) request.getSlimefunItem()).getMachineProcessor().getOperation(request.getLocation()) == null ? "&7Not in water" : "";
+            final Object item = request.getSlimefunItem();
+            if (!(item instanceof FishingNet fishingNet)) return "";
+            return fishingNet.getMachineProcessor().getOperation(request.getLocation()) == null ? "&7Not in water" : "";
         });
 
         // Fermenter
         SlimeHUD.getHudController().registerCustomHandler(Fermenter.class, request -> {
-            final Fermenter fermenter = (Fermenter) request.getSlimefunItem();
+            final Object item = request.getSlimefunItem();
+            if (!(item instanceof Fermenter fermenter)) return "";
             return "&7&9🪣 &7" + ChunkPDC.getOrCreateDefault(request.getLocation().getBlock(), GastroKeys.FERMENTER_WATER, 0) + "/" + fermenter.getCapacity() + " mB";
         });
     }

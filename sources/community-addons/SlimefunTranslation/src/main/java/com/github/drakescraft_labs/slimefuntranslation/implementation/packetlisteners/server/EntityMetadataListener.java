@@ -49,7 +49,7 @@ public class EntityMetadataListener extends AServerListener {
         final PacketContainer packet = event.getPacket();
         final Entity entity = packet.getEntityModifier(event).read(0);
 
-        if (entity == null || entity.getType() != EntityType.DROPPED_ITEM) {
+        if (entity == null || entity.getType() != EntityType.ITEM) {
             return;
         }
 

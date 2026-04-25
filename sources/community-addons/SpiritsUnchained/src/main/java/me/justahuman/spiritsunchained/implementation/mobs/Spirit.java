@@ -64,7 +64,7 @@ public class Spirit extends AbstractCustomMob<Allay> {
     public void onTick(Allay allay) {
         final Location location = allay.getLocation();
         final String state = PersistentDataAPI.getString(allay, Keys.spiritStateKey);
-        ParticleUtils.spawnParticleRadius(location, Particle.SPELL_INSTANT, 0.1, particleCount, "Spirit");
+        ParticleUtils.spawnParticleRadius(location, Particle.INSTANT_EFFECT, 0.1, particleCount, "Spirit");
         SpiritUtils.spawnStateParticle(state, location);
         
         if (PersistentDataAPI.hasLong(allay, Keys.despawnKey) && System.currentTimeMillis() >= PersistentDataAPI.getLong(allay, Keys.despawnKey)) {

@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import ne.fnfal113.fnamplifications.staffs.abstracts.AbstractStaff;
 import ne.fnfal113.fnamplifications.utils.Keys;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;

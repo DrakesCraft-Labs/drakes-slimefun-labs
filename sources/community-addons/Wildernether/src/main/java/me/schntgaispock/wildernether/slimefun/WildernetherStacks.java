@@ -414,7 +414,7 @@ public class WildernetherStacks {
         GARDEN_OF_THE_LOST_SOUL = ItemUtil.formattedSlimefunItemStack(
             Theme.SOUL,
             "GARDEN_OF_THE_LOST_SOUL",
-            Material.GRASS,
+            Material.SHORT_GRASS,
             "Garden of the Lost Soul",
             "&7Chapter 1",
             "",

@@ -34,16 +34,12 @@ GATE_5_GRADLE_OK = {
     "sources/community-addons/Bump",
 }
 
-# Compilacion Maven local verificada (mvn compile -am) Abril 2026 — misma sesion de auditoria
-LOCAL_MAVEN_COMPILE = {
-    "sources/batch-2-expansion/Cultivation_Updated",
-    "sources/batch-2-expansion/LiteXpansion",
-    "sources/batch-2-expansion/SMG",
-    "sources/batch-2-expansion/TranscEndence",
-    "sources/batch-2-expansion/Supreme",  # tambien Gate 4
-}
+# Compilacion local verificada el 2026-04-24:
+# - Reactor Maven completo: mvn -B -DskipTests compile -fae -> BUILD SUCCESS
+# - Proyectos Gradle declarados en settings.gradle.kts: compileJava -> BUILD SUCCESS
+LOCAL_BUILD_CUT = "2026-04-24"
 
-# Gradle reactor (settings.gradle.kts) — fallos conocidos en build completo del monorepo
+# Gradle reactor (settings.gradle.kts)
 GRADLE_MODULES = {
     "sources/batch-2-expansion/Galactifun",
     "sources/community-addons/Bump",
@@ -51,16 +47,11 @@ GRADLE_MODULES = {
     "sources/community-addons/FastMachines",
     "sources/community-addons/SlimefunTranslation",
 }
-GRADLE_FAIL = {
-    "sources/community-addons/CustomItemGenerators",
-    "sources/community-addons/FastMachines",
-    "sources/community-addons/SlimefunTranslation",
-}
 
-GRADLE_FAIL_NOTE = {
-    "sources/community-addons/CustomItemGenerators": "Kotlin: clase base `AbstractAddon` vs `JavaPlugin` (`dataFolder`, `server`, etc.); dependencia `sf4k` y firma `SlimefunAddon`.",
-    "sources/community-addons/FastMachines": "Kotlin: extensiones y tipos esperan `SlimefunAddon`/`SlimefunItemStack` del fork; ajustar imports y bridge de addon.",
-    "sources/community-addons/SlimefunTranslation": "Java: decenas de errores de API (SlimefunAddon, permisos, traducciones); migracion profunda contra Slimefun4 Drake.",
+GRADLE_LOCAL_OK_NOTE = {
+    "sources/community-addons/CustomItemGenerators": "Gradle `compileJava` verde. Port principal: `JavaPlugin` directo, adapter `SlimefunAddon`, sin `sf4k`; proteccion usa paquete Drake sombreado.",
+    "sources/community-addons/FastMachines": "Gradle `compileJava` verde. Incluye bridges locales `MenuBlock`/`TickingMenuBlock` y DSL `DrakeItemBuilderCompat`; requiere artefactos Maven base e `InfinityExpansion-drake` en `mavenLocal`.",
+    "sources/community-addons/SlimefunTranslation": "Gradle `compileJava` verde. API Paper 1.21 ajustada (`EntityType.ITEM`) y SlimefunTranslation compilable contra Slimefun Drake.",
 }
 
 
@@ -83,12 +74,6 @@ def module_type(path: str) -> str:
 def classify(path: str) -> tuple[str, str, str]:
     """Devuelve (estado_corto, evidencia, observacion)."""
     name = Path(path).name
-    if path in GRADLE_FAIL:
-        note = GRADLE_FAIL_NOTE.get(
-            path,
-            "Fallo compilacion Gradle. Ver `docs/es/pending-modules.md`.",
-        )
-        return ("Bloqueado (build)", "Gradle monorepo", note)
     if path in GATE_5_GRADLE_OK:
         return (
             "Listo (CI)",
@@ -103,23 +88,21 @@ def classify(path: str) -> tuple[str, str, str]:
         return ("Listo (CI)", "CI Monorepo · maven_community", "Repos + comunidad (subconjunto).")
     if path in GATE_4:
         return ("Listo (CI)", "CI Monorepo · maven_complex", "Supreme en lote complejo; ademas compila en cadena Maven local.")
-    if path in LOCAL_MAVEN_COMPILE and path not in (GATE_1 | GATE_2 | GATE_3 | GATE_4):
+    if path in GRADLE_MODULES:
+        note = GRADLE_LOCAL_OK_NOTE.get(
+            path,
+            "Incluido en reactor Gradle raiz; `compileJava` verificado localmente en el corte actual.",
+        )
         return (
             "Listo (local)",
-            "Maven compile 2026-04",
-            "Compila con `mvn -pl ... -am compile` en baseline actual; falta incorporarlo al workflow CI (`ci-monorepo-121.yml`) y smoke en servidor.",
-        )
-    if path in GRADLE_MODULES:
-        return (
-            "En curso",
-            "Gradle",
-            "Incluido en reactor Gradle raiz; pendiente verificacion tras desbloquear vecinos o ajustar CI.",
+            f"Gradle compileJava {LOCAL_BUILD_CUT}",
+            note + " Falta promover a CI si debe quedar como gate permanente.",
         )
     # Resto del reactor Maven
     return (
-        "En curso",
-        "Reactor Maven",
-        "En `pom.xml` raiz; aplicado parche masivo `port_paper_121` (Paper 1.21.1) sobre fuentes. Falta compile por lote + inclusion en job CI del monorepo.",
+        "Listo (local)",
+        f"Maven reactor compile {LOCAL_BUILD_CUT}",
+        "`mvn -B -DskipTests compile -fae` verde en reactor completo; falta promover a CI y smoke en servidor si el addon tiene mecanicas sensibles.",
     )
 
 
@@ -151,9 +134,9 @@ def main() -> None:
         "Criterios:",
         "",
         "- **Listo (CI)**: modulo construido explicitamente en el workflow `ci-monorepo-121.yml` (job correspondiente).",
-        "- **Listo (local)**: `mvn compile -am` exitoso en la revision auditada (no sustituye CI).",
+        "- **Listo (local)**: `mvn compile -fae` o `gradlew <proyecto>:compileJava` exitoso en la revision auditada (no sustituye CI).",
         "- **En curso**: en reactor pero sin evidencia de build reciente por modulo.",
-        "- **Bloqueado (build)**: fallo reproducible de compilacion en el reactor Gradle.",
+        "- **Bloqueado (build)**: fallo reproducible de compilacion en el reactor local.",
         "",
         "| Modulo | Tipo | Estado | Evidencia | Ruta | Observaciones |",
         "|---|---|:---:|---|---|---|",
@@ -225,9 +208,9 @@ Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de l
 | Estado | Cantidad | Significado |
 |---:|---:|---|
 | **Listo (CI)** | **{ci}** | Aparece en `ci-monorepo-121.yml` (job Maven o `gradle_green`) y compila alli. |
-| **Listo (local)** | **{loc}** | `mvn compile -am` verde en revision auditada; **pendiente** promover a un job de `ci-monorepo-121.yml`. |
+| **Listo (local)** | **{loc}** | `mvn compile -fae` o `gradlew <proyecto>:compileJava` verde en revision auditada; **pendiente** promover a un job de `ci-monorepo-121.yml`. |
 | **En curso** | **{prog}** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
-| **Bloqueado (build)** | **{blk}** | Fallo reproducible de compilacion en el reactor Gradle. |
+| **Bloqueado (build)** | **{blk}** | Fallo reproducible de compilacion en el reactor local. |
 | **Total modulos** | **{total}** | Maven + Gradle en reactor; ver conteo exacto en esta fila. |
 
 ### Barra de proporcion (CI vs resto)
@@ -244,11 +227,11 @@ Bloqueado:    {blk}/{total}
 ## Metodologia (criterios)
 
 1. **Listo (CI)**: modulo cubierto por un job de [`ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) (`foundation`, `maven_*`, `gradle_green`).
-2. **Listo (local)**: compilacion Maven exitosa en cadena `-am` en la misma revision que el script (no reemplaza CI).
+2. **Listo (local)**: compilacion Maven/Gradle exitosa en la misma revision que el script (no reemplaza CI).
 3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
-4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build Gradle del monorepo documentado en `docs/es/pending-modules.md`.
+4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build local documentado en `docs/es/pending-modules.md`.
 
-Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`.
+Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`, bridges locales de compatibilidad para addons Gradle (`MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) y bridges BusyBiscuit en Slimefun core (`io.github.thebusybiscuit.slimefun4.*`).
 
 ---
 
@@ -291,6 +274,13 @@ python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAdd
 
 # Build base Maven (ejemplo)
 mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
+
+# Verificacion local del corte completo
+mvn -B -DskipTests compile -fae
+./gradlew :sources:batch-2-expansion:Galactifun:compileJava :sources:community-addons:Bump:compileJava :sources:community-addons:CustomItemGenerators:compileJava :sources:community-addons:FastMachines:compileJava :sources:community-addons:SlimefunTranslation:compileJava --no-daemon
+
+# Dependencia local necesaria para FastMachines cuando Gradle resuelve InfinityExpansion-drake
+mvn -B -DskipTests install -pl sources/repos-to-port/InfinityExpansion -am
 ```
 
 ---

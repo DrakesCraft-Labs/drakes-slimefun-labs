@@ -115,7 +115,7 @@ class UltimateGenerators2 : AbstractAddon(
                 updaterStart.invoke(null, this, file, githubUser, githubRepo, githubBranch)
             } catch (ignored: Exception) {
                 // use updater in lib
-                GuizhanBuildsUpdater(this, file, githubUser, githubRepo, githubBranch).start()
+                GuizhanBuildsUpdater.start(this, file, githubUser, githubRepo, githubBranch)
             }
         }
     }

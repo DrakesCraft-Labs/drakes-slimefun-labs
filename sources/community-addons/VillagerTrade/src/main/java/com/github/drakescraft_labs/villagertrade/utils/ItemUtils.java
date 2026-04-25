@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.common.base.Preconditions;
 
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
@@ -24,7 +25,7 @@ import lombok.experimental.UtilityClass;
 public final class ItemUtils {
     @Nonnull
     public ItemStack addGlow(@Nonnull ItemStack item) {
-        item.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        item.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
         ItemMeta meta = item.getItemMeta();
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(meta);

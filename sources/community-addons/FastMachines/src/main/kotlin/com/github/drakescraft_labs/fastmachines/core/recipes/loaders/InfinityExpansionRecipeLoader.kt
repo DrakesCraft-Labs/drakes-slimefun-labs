@@ -1,6 +1,6 @@
 package net.guizhanss.fastmachines.core.recipes.loaders
 
-import com.github.drakescraft_labs.infinityexpansion.infinitylib.machines.MachineRecipeType
+import dev.drake.infinitylib.machines.MachineRecipeType
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
 import net.guizhanss.fastmachines.FastMachines
 import net.guizhanss.fastmachines.core.recipes.choices.ExactChoice

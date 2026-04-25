@@ -177,7 +177,7 @@ public class SpiritTraits {
     }
     public static void Explode(Player player) {
         final Location location = player.getLocation();
-        final TNTPrimed tnt = (TNTPrimed) player.getWorld().spawnEntity(location, EntityType.PRIMED_TNT);
+        final TNTPrimed tnt = (TNTPrimed) player.getWorld().spawnEntity(location, EntityType.TNT);
         tnt.setFuseTicks(1);
         PersistentDataAPI.setString(tnt, Keys.immuneKey, player.getUniqueId().toString());
         PersistentDataAPI.setString(tnt, Keys.entityKey, "DullExplosion");
@@ -338,7 +338,7 @@ public class SpiritTraits {
         if (inventory.contains(Material.GLASS_BOTTLE)) {
             final ItemStack potion1 = new ItemStack(Material.SPLASH_POTION);
             final PotionMeta meta1 = ((PotionMeta) potion1.getItemMeta());
-            meta1.setBasePotionData(new PotionData(PotionType.REGEN, false, true));
+            meta1.setBasePotionData(new PotionData(PotionType.REGENERATION, false, true));
             potion1.setItemMeta(meta1);
 
             final ItemStack potion2 = new ItemStack(Material.SPLASH_POTION);
@@ -348,7 +348,7 @@ public class SpiritTraits {
 
             final ItemStack potion3 = new ItemStack(Material.SPLASH_POTION);
             final PotionMeta meta3 = ((PotionMeta) potion3.getItemMeta());
-            meta3.setBasePotionData(new PotionData(PotionType.INSTANT_HEAL, false, true));
+            meta3.setBasePotionData(new PotionData(PotionType.HEALING, false, true));
             potion3.setItemMeta(meta3);
 
             final ItemStack[] potions = new ItemStack[] {

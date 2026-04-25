@@ -45,8 +45,8 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 import org.bukkit.util.Vector;
-import org.spigotmc.event.entity.EntityDismountEvent;
-import org.spigotmc.event.entity.EntityMountEvent;
+import org.bukkit.event.entity.EntityDismountEvent;
+import org.bukkit.event.entity.EntityMountEvent;
 
 public class TraitListeners implements Listener {
     SpiritsUnchained instance = SpiritsUnchained.getInstance();
@@ -57,7 +57,7 @@ public class TraitListeners implements Listener {
         final String key = PersistentDataAPI.hasString(projectile, Keys.entityKey) ? PersistentDataAPI.getString(projectile, Keys.entityKey) : "";
 
         if (key.equalsIgnoreCase("Eggpult")) {
-            final TNTPrimed tnt = (TNTPrimed) projectile.getWorld().spawnEntity(projectile.getLocation(), EntityType.PRIMED_TNT);
+            final TNTPrimed tnt = (TNTPrimed) projectile.getWorld().spawnEntity(projectile.getLocation(), EntityType.TNT);
             tnt.setFuseTicks(1);
             PersistentDataAPI.setString(tnt, Keys.entityKey, "DullExplosion");
             PersistentDataAPI.setString(tnt, Keys.immuneKey, PersistentDataAPI.getString(projectile, Keys.ownerKey));
@@ -120,7 +120,7 @@ public class TraitListeners implements Listener {
             return;
         }
         //Frosty
-        if (cause == EntityDamageEvent.DamageCause.FREEZE && isUsed(player, EntityType.SNOWMAN)) {
+        if (cause == EntityDamageEvent.DamageCause.FREEZE && isUsed(player, EntityType.SNOW_GOLEM)) {
             event.setCancelled(true);
             return;
         }
@@ -202,7 +202,7 @@ public class TraitListeners implements Listener {
         }
         //Scute Shedding
         if (SpiritUtils.chance(10) && isUsed(player, EntityType.TURTLE)) {
-            player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.SCUTE));
+            player.getWorld().dropItemNaturally(player.getLocation(), new ItemStack(Material.TURTLE_SCUTE));
         }
     }
     //Morning Gift
@@ -251,8 +251,8 @@ public class TraitListeners implements Listener {
                 potionMeta.addCustomEffect(effect, true);
             }
         }
-        if (base.getType() == PotionType.INSTANT_DAMAGE) {
-            base = new PotionData(PotionType.INSTANT_HEAL, base.isExtended(), base.isUpgraded());
+        if (base.getType() == PotionType.HARMING) {
+            base = new PotionData(PotionType.HEALING, base.isExtended(), base.isUpgraded());
         }
         potionMeta.setBasePotionData(base);
         item.setItemMeta(potionMeta);

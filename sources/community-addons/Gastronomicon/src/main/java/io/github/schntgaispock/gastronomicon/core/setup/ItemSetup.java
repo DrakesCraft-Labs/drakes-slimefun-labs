@@ -491,25 +491,25 @@ public class ItemSetup {
         new SimpleSeed(
             GastroStacks.RICE,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.QUINOA,
             Material.WHEAT,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.OATS,
             Material.WHEAT,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.SOYBEANS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SlimefunItem(
@@ -522,7 +522,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.BARLEY_SEEDS,
             Material.WHEAT,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.BARLEY)
                 .register(gn);
 
@@ -536,7 +536,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.RYE_SEEDS,
             Material.WHEAT,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.RYE)
                 .register(gn);
 
@@ -550,7 +550,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.SORGHUM_SEEDS,
             Material.WHEAT,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.SORGHUM)
                 .register(gn);
 
@@ -564,7 +564,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.TURNIP_SEEDS,
             Material.BEETROOTS,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.TURNIP)
                 .register(gn);
 
@@ -578,13 +578,13 @@ public class ItemSetup {
         new FruitingSeed(
             GastroStacks.SQUASH_SEEDS,
             Material.MELON_STEM,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             "GN_SQUASH")
                 .register(gn);
 
         new DuplicatingSeed(
             GastroStacks.CELERY,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SlimefunItem(
@@ -597,7 +597,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.BOK_CHOY_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.BOK_CHOY)
                 .register(gn);
 
@@ -611,7 +611,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.BROCCOLI_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.BROCCOLI)
                 .register(gn);
 
@@ -625,7 +625,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.CUCUMBER_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.CUCUMBER)
                 .register(gn);
 
@@ -639,7 +639,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.BASIL_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.BASIL)
                 .register(gn);
 
@@ -653,14 +653,14 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.SPINACH_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.SPINACH)
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.BRUSSLES_SPROUTS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SlimefunItem(
@@ -673,7 +673,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.MINT_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.MINT)
                 .register(gn);
 
@@ -687,7 +687,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.CHILI_PEPPER_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.CHILI_PEPPER)
                 .register(gn);
 
@@ -701,38 +701,38 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.PARSLEY_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.PARSLEY)
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.CASSAVA,
             Material.BEETROOTS,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.LENTILS,
             Material.CARROTS,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.PEANUTS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.BEANS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.PEAS,
             Material.BEETROOTS,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SlimefunItem(
@@ -745,7 +745,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.ASPARAGUS_SEEDS,
             Material.CARROTS,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.ASPARAGUS)
                 .register(gn);
 
@@ -759,7 +759,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.GREEN_ONION_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.GREEN_ONION)
                 .register(gn);
 
@@ -773,7 +773,7 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.CAULIFLOWER_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.CAULIFLOWER)
                 .register(gn);
 
@@ -787,25 +787,25 @@ public class ItemSetup {
         new CropSeed(
             GastroStacks.AVOCADO_PIT,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.AVOCADO)
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.TURMERIC,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.CUMIN_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.RED_BEANS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new SlimefunItem(
@@ -818,7 +818,7 @@ public class ItemSetup {
         new FruitingSeed(
             GastroStacks.CANTALOUPE_SEEDS,
             Material.MELON_STEM,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             "GN_CANTALOUPE")
                 .register(gn);
 
@@ -832,14 +832,14 @@ public class ItemSetup {
         new FruitingSeed(
             GastroStacks.HONEYDEW_MELON_SEEDS,
             Material.MELON_STEM,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             "GN_HONEYDEW_MELON")
                 .register(gn);
 
         new SimpleSeed(
             GastroStacks.SESAME_SEEDS,
             Material.POTATOES,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new UnplaceableSolid(
@@ -851,7 +851,7 @@ public class ItemSetup {
 
         new VineSeed(
             GastroStacks.VANILLA_PLANT,
-            RecipeUtil.singleCenter(Material.GRASS),
+            RecipeUtil.singleCenter(Material.SHORT_GRASS),
             GastroStacks.VANILLA_BEANS)
                 .register(gn);
 
@@ -868,7 +868,7 @@ public class ItemSetup {
             GastroGroups.RAW_INGREDIENTS,
             GastroStacks.LYCHEE_SAPLING,
             GastroRecipeType.BREAK,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         new UnplaceableSolid(
@@ -882,7 +882,7 @@ public class ItemSetup {
             GastroGroups.RAW_INGREDIENTS,
             GastroStacks.BANANA_SAPLING,
             GastroRecipeType.BREAK,
-            RecipeUtil.singleCenter(Material.GRASS))
+            RecipeUtil.singleCenter(Material.SHORT_GRASS))
                 .register(gn);
 
         // -- Harvested --

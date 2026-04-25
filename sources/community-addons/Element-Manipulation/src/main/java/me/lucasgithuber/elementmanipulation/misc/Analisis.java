@@ -11,6 +11,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import me.lucasgithuber.elementmanipulation.utils.RecipeTypes;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 
 import org.bukkit.inventory.meta.ItemMeta;
@@ -86,7 +87,7 @@ public final class Analisis {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         PYRITE.setItemMeta(meta);
-        PYRITE.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        PYRITE.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
     public static final SlimefunItemStack PYRROTITE = new SlimefunItemStack(
         "EM_PYRROTITE",

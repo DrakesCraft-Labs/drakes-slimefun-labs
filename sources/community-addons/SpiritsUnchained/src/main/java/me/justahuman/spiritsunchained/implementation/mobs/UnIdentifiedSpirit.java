@@ -64,7 +64,7 @@ public class UnIdentifiedSpirit extends AbstractCustomMob<Allay> {
     @ParametersAreNonnullByDefault
     public void onTick(Allay allay) {
         final Location location = allay.getLocation();
-        ParticleUtils.spawnParticleRadius(location, Particle.SPELL_INSTANT, 0.1, 5, "Spirit");
+        ParticleUtils.spawnParticleRadius(location, Particle.INSTANT_EFFECT, 0.1, 5, "Spirit");
         if (PersistentDataAPI.hasLong(allay, Keys.despawnKey) && System.currentTimeMillis() >= PersistentDataAPI.getLong(allay, Keys.despawnKey)) {
             ParticleUtils.passOnAnimation(location);
             allay.remove();

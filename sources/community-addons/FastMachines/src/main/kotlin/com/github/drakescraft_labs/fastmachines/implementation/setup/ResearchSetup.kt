@@ -4,7 +4,6 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
 import com.github.drakescraft_labs.slimefun4.api.researches.Research
 import net.guizhanss.fastmachines.implementation.items.FMItems
 import net.guizhanss.fastmachines.utils.constants.Keys
-import net.guizhanss.guizhanlib.kt.slimefun.items.toItem
 
 object ResearchSetup {
 
@@ -61,7 +60,7 @@ object ResearchSetup {
 
     private fun Research.addItems(vararg items: SlimefunItemStack): Research {
         items.forEach { item ->
-            addItems(item.toItem())
+            addItems(item)
         }
         return this
     }

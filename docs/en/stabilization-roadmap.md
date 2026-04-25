@@ -8,46 +8,37 @@ This page translates the root [`README.md`](../../README.md) and the generated [
 
 - Unified reactor inventory: **86 entries** (Maven + Gradle; see the generated matrix).
 - **CI-ready**: explicit subset in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (not the entire monorepo).
-- **Local-only green**: modules with verified `mvn compile -am` outside the CI Monorepo jobs; still need CI promotion.
-- **In progress**: most Maven modules with `port_paper_121` patches applied but without per-module CI build evidence yet.
-- **Build-blocked**: four Gradle addons with reproducible compile failures (see `docs/en/pending-modules.md` and matrix notes).
+- **Local-only green**: the remaining Maven and Gradle reactor entries compile locally on the `2026-04-24` cut; still need CI promotion.
+- **In progress / Build-blocked**: no active compile blockers in the local cut; remaining risk moves to wider CI and runtime smoke testing.
 - Org board: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned with the matrix ([`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)).
 
 ## Recommended Order
 
-### Phase 1: close what is already inside the reactor
+### Phase 1: promote what already compiles locally
 
-This is highest priority because any failure here affects the unified build.
+This is highest priority because it converts local evidence into reproducible gates.
 
-1. `GeneticChickengineering-Reborn`
-2. `PotionExpansion`
+1. Add broader Maven slices or family-based jobs to the workflow.
+2. Expand `gradle_green` with `CustomItemGenerators`, `FastMachines`, and `SlimefunTranslation`.
+3. Keep `mvn -B -DskipTests compile -fae` as the preflight for large changes.
 
-### Phase 2: integrate quick wins outside the reactor
+### Phase 2: runtime smoke tests
 
-These are the most reasonable targets for continued fast closures:
+These are reasonable first runtime targets because they now compile but have mechanics or integrations worth validating:
 
-1. `MoreResearches`
-2. `SfBetterChests`
-3. `SlimeHUD`
-4. `SmallSpace`
-5. `Quaptics`
+1. `FastMachines`
+2. `CustomItemGenerators`
+3. `UltimateGenerators2`
+4. `GeneticChickengineering-Reborn`
+5. `SlimeHUD`
 
-### Phase 3: mid-tier candidates
+### Phase 3: reduce compatibility debt
 
-These require more review, but still make more sense than the heavy or historical cases.
+Review whether local bridges should stay per addon or move into shared utilities:
 
-1. `Geyser-Slimefun-Heads`
-2. `Gastronomicon`
-3. `RelicsOfCthonia`
-4. `VillagerTrade`
-5. `Wildernether`
-6. `WorldEditSlimefun`
-7. `CompressionCraft`
-8. `EMCTech`
-9. `SaneCrafting`
-10. `SpiritsUnchained`
-11. `Better-Nuclear-Generator`
-12. `AdvancedTech`
+1. BusyBiscuit bridges in Slimefun core (`io.github.thebusybiscuit.slimefun4.*`).
+2. `MenuBlock` / `TickingMenuBlock` in Kotlin addons.
+3. `DrakeItemBuilderCompat` and replacements for GuizhanLib Kotlin extensions.
 
 ### Phase 4: triage first, port second
 
@@ -111,5 +102,5 @@ At the end of the backlog, the team should still do:
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Note: full local build is green: 81 Maven + 5 Gradle. Remaining gap is wider CI coverage and smoke testing.
 <!-- DRAKES-STATUS:END -->

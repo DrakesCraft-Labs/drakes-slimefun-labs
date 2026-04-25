@@ -25,10 +25,11 @@ dependencies {
     compileOnly(kotlin("stdlib")) // loaded through library loader
     compileOnly(kotlin("reflect")) // loaded through library loader
     compileOnlyAndTestImpl("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    compileOnlyAndTestImpl("com.github.slimefun:Slimefun4:experimental-SNAPSHOT")
+    compileOnlyAndTestImpl("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
+    compileOnlyAndTestImpl("com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
     compileOnly("net.guizhanss:SlimefunTranslation:e6da231617")
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
-    compileOnly("com.github.SlimefunGuguProject:InfinityExpansion:bebf0bd0f9")
+    compileOnly("com.github.drakescraft_labs:InfinityExpansion-drake:1.20.6-Drake-SNAPSHOT")
     compileOnly("com.github.VoperAD:SlimeFrame:8af2379a01")
     compileOnly("net.guizhanss:InfinityExpansion2:8d3e6c40f6")
     implementation("org.bstats:bstats-bukkit:3.1.0")

@@ -211,6 +211,16 @@ public class SlimefunItemStack extends ItemStack {
     }
 
     /**
+     * Legacy accessor used by older addons.
+     *
+     * @return a clone of this item stack
+     */
+    @Deprecated(forRemoval = false)
+    public final @Nonnull ItemStack item() {
+        return clone();
+    }
+
+    /**
      * Gets the {@link SlimefunItem} associated for this {@link SlimefunItemStack}.
      * Null if no item is found.
      *

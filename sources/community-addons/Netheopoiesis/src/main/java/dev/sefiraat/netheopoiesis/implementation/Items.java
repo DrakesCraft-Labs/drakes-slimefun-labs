@@ -617,7 +617,7 @@ public final class Items {
             .tryRegister(addon);
 
         new DroppingSeed(Stacks.GRASS_SEED)
-            .addDrop(new ItemStack(Material.GRASS), 2)
+            .addDrop(new ItemStack(Material.SHORT_GRASS), 2)
             .addDrop(new ItemStack(Material.TALL_GRASS), 2)
             .addDrop(new ItemStack(Material.SEAGRASS), 1)
             .addDrop(new ItemStack(Material.TALL_SEAGRASS), 1)

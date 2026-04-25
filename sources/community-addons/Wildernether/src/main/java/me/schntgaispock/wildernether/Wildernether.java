@@ -20,7 +20,7 @@ import me.schntgaispock.wildernether.managers.LootManager;
 /**
  * See the <a href="https://github.com/SchnTgaiSpock/Wildernether/wiki">Wildernether wiki</a> for more info about the addon
  */
-public class Wildernether extends AbstractAddon {
+public class Wildernether extends AbstractAddon implements io.github.thebusybiscuit.slimefun4.api.SlimefunAddon {
 
     static Wildernether instance;
 

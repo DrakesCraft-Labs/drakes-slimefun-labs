@@ -48,7 +48,7 @@ public class GrowthChamber extends AbstractMachine {
             ItemStack chicken = null;
             ItemStack seed = null;
             for (int slot : getInputSlots()) {
-            ItemStack item = menu.getItemInSlot(slot);
+                ItemStack item = menu.getItemInSlot(slot);
 
                 if (item == null || item.getType() == Material.AIR) {
                     continue;
@@ -65,16 +65,17 @@ public class GrowthChamber extends AbstractMachine {
                 return null;
             }
 
-        ItemStack output = chicken.clone();
-        output.setAmount(1);
-        // Use PocketChickenData to avoid repeated PDC reads
-        var data = PocketChickenData.fromItem(chicken);
-        JsonObject adapter = data != null ? data.getAdapter() : PersistentDataAPI.get(output.getItemMeta(), Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER);
-        var dnaState = data != null ? data.getState() : PersistentDataAPI.getIntArray(output.getItemMeta(), Keys.POCKET_CHICKEN_DNA);
-        adapter.addProperty("baby", false);
-        adapter.addProperty("_age", 6000);
-        adapter.addProperty("_breedable", false);
-        ChickenUtils.setPocketChicken(output, adapter, new DNA(dnaState));
+            ItemStack output = chicken.clone();
+            output.setAmount(1);
+            // Use PocketChickenData to avoid repeated PDC reads
+            var data = PocketChickenData.fromItem(chicken);
+            ItemMeta outputMeta = output.getItemMeta();
+            JsonObject adapter = data != null ? data.getAdapter() : PersistentDataAPI.get(outputMeta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER);
+            var dnaState = data != null ? data.getState() : PersistentDataAPI.getIntArray(outputMeta, Keys.POCKET_CHICKEN_DNA);
+            adapter.addProperty("baby", false);
+            adapter.addProperty("_age", 6000);
+            adapter.addProperty("_breedable", false);
+            ChickenUtils.setPocketChicken(output, adapter, new DNA(dnaState));
 
             MachineRecipe recipe = new MachineRecipe(
                 config.isTest() ? 1 : config.getGrowthChamberTime(),
@@ -84,12 +85,6 @@ public class GrowthChamber extends AbstractMachine {
             if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
                 return null;
             }
-            ItemUtils.consumeItem(chicken, false);
-            ItemUtils.consumeItem(seed, seed.getMaxStackSize(), false);
-            return recipe;
-        } finally {
-            SimpleProfiler.record("GrowthChamber.findNextRecipe", System.nanoTime() - start);
-        }
             ItemUtils.consumeItem(chicken, false);
             ItemUtils.consumeItem(seed, seed.getMaxStackSize(), false);
             return recipe;

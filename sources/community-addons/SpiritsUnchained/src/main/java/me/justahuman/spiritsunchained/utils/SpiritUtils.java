@@ -1,7 +1,7 @@
 package me.justahuman.spiritsunchained.utils;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import dev.drake.dough.common.ChatColors;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
@@ -35,6 +35,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.FireworkEffectMeta;
@@ -142,10 +143,10 @@ public class SpiritUtils {
             case HUSK -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(112, 104, 90)).build();
             case LLAMA -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(180, 148, 117)).build();
             case MAGMA_CUBE -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(49, 0, 0)).build();
-            case MUSHROOM_COW -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(150, 14, 15)).build();
+            case MOOSHROOM -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(150, 14, 15)).build();
             case MULE -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(25, 2, 0)).build();
             case OCELOT -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(221, 206, 116)).build();
-            case PANDA, SHEEP, TURTLE, IRON_GOLEM, SNOWMAN -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(217, 217, 217)).build();
+            case PANDA, SHEEP, TURTLE, IRON_GOLEM, SNOW_GOLEM -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(217, 217, 217)).build();
             case PARROT -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(12, 157, 10)).build();
             case PHANTOM -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(63, 76, 129)).build();
             case PIG -> FireworkEffect.builder().with(FireworkEffect.Type.BURST).withColor(Color.fromRGB(225, 155, 152)).build();
@@ -209,7 +210,7 @@ public class SpiritUtils {
         }
         final Collection<Player> collection = getNearImbued(location);
         for (Player player : collection) {
-            player.spawnParticle(Particle.REDSTONE, location.clone().add(0,0.5,0), 1, 0, 0, 0, dustOptions);
+            player.spawnParticle(Particle.DUST, location.clone().add(0,0.5,0), 1, 0, 0, 0, dustOptions);
         }
     }
 
@@ -428,7 +429,7 @@ public class SpiritUtils {
         itemLore.add(Component.text(getTranslation("names.items.spirit_item.progress_lore").replace("{progress_bar}", getProgress(0))));
         itemLore.add(Component.text(getTranslation("names.items.spirit_item.pass_on_lore").replace("{pass_on_progress}", "0").replace("{pass_on_requirement}", String.valueOf(definition.getGoal().getAmount())).replace("{locked}", "")));
 
-        itemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        itemMeta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
 
         itemMeta.lore(itemLore);
         itemStack.setItemMeta(itemMeta);

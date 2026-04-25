@@ -4,8 +4,8 @@
 
 - **Branch**: `1.21-latin` | **Identity**: `com.github.drakescraft_labs`
 - **Audited inventory**: see root [`README.md`](../../README.md) and [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) — **86 rows** (81 Maven modules in root `pom.xml` + 5 Gradle reactor entries). Regenerate with `python scripts/generate_plugin_matrix.py`.
-- **CI**: **CI Monorepo 1.21** is green on **curated subsets**; do not assume a single job builds all 86.
-- **Gradle**: `Galactifun` is OK in CI; four community addons remain **compile-blocked** (details in the matrix and `docs/en/pending-modules.md`).
+- **CI**: **CI Monorepo 1.21** is green on **curated subsets**; a full local pass now exists, but CI does not cover all 86 yet.
+- **Full local build**: 81 Maven modules + 5 Gradle projects compile on the `2026-04-24` cut.
 - **Org board**: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — keep aligned via [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md).
 
 ## CI/CD infrastructure
@@ -22,18 +22,21 @@
 
 - Several addons needed explicit `dough-core` / Slimefun coordinates even when versions come from the parent.
 - Lombok and Paper API 1.21.1 migrations were applied in batches; always verify with targeted `-pl … -am` builds.
+- Compatibility bridges now exist for upstream BusyBiscuit packages in Slimefun core (`io.github.thebusybiscuit.slimefun4.*`), plus local Kotlin bridges for `FastMachines` / `UltimateGenerators2` (`MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`).
 
 ## Recommended next route
 
-1. Promote **local-green** Maven modules into the right `-pl` slice or job in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml).
-2. Triage the **Gradle-blocked** quartet using the matrix “Observaciones” column.
-3. Smoke-test high-risk gameplay addons on a real Paper 1.21.1 server.
+1. Promote the full local-green Maven/Gradle coverage into the right slices or jobs in [`ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml).
+2. Smoke-test high-risk gameplay addons on a real Paper 1.21.1 server.
+3. Reduce bridge debt where repeated local bridges can become shared API.
 
 ## Survival commands
 
 - **Audit**: `python scripts/manager.py audit`
-- **Maven**: `mvn -pl sources/community-addons/AddonName -am -DskipTests package`
-- **Gradle**: `./gradlew :sources:batch-2-expansion:Galactifun:build`
+- **Full Maven**: `mvn -B -DskipTests compile -fae`
+- **Targeted Maven**: `mvn -pl sources/community-addons/AddonName -am -DskipTests package`
+- **Gradle cut**: `./gradlew :sources:batch-2-expansion:Galactifun:compileJava :sources:community-addons:Bump:compileJava :sources:community-addons:CustomItemGenerators:compileJava :sources:community-addons:FastMachines:compileJava :sources:community-addons:SlimefunTranslation:compileJava --no-daemon`
+- **FastMachines local artifact**: `mvn -B -DskipTests install -pl sources/repos-to-port/InfinityExpansion -am`
 
 ## Links
 
@@ -45,5 +48,5 @@
 > Sync cut: **2026-04-24**.
 > Active baseline: **Paper 1.21.1 + Java 21**.
 > Main CI on `1.21-latin`: **CI Monorepo 1.21** green (curated jobs).
-> Note: incremental migration continues for the wider monorepo beyond the gate subsets.
+> Note: full local build is green: 81 Maven + 5 Gradle. Remaining gap is wider CI coverage and smoke testing.
 <!-- DRAKES-STATUS:END -->

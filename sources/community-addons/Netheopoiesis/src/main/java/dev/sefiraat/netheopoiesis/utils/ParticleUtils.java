@@ -68,7 +68,7 @@ public final class ParticleUtils {
             double x = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
             double y = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
             double z = ThreadLocalRandom.current().nextDouble(-radius, radius + 0.1);
-            location.getWorld().spawnParticle(Particle.REDSTONE, location.clone().add(x, y, z), 1, options);
+            location.getWorld().spawnParticle(Particle.DUST, location.clone().add(x, y, z), 1, options);
         }
     }
 
@@ -84,7 +84,7 @@ public final class ParticleUtils {
 
     @ParametersAreNonnullByDefault
     public static void drawLine(Location start, Location end, double space, @Nonnull Particle.DustOptions dustOptions) {
-        drawLine(Particle.REDSTONE, start, end, space, dustOptions);
+        drawLine(Particle.DUST, start, end, space, dustOptions);
     }
 
     @ParametersAreNonnullByDefault

@@ -1,6 +1,5 @@
 package com.github.drakescraft_labs.customitemgen.file
 
-import com.github.drakescraft_labs.sf4k.extensions.getSlimefun
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
 import com.github.drakescraft_labs.customitemgen.CustomItemGenerators
@@ -49,7 +48,7 @@ object MachineLoader {
             val generator = ItemGenerator(CustomItemGenerators.group, machineItem, recipeType, recipe, options, production)
             generator
                 .setCapacity(energyCapacity)
-                .register(CustomItemGenerators.instance)
+                .register(CustomItemGenerators.addon)
 
             generator.load() //have to post load it myself
             MachineRegistry[id] = generator
@@ -94,7 +93,7 @@ object MachineLoader {
                 for(entry in MachineRegistry.values) {
                     for (produceEntry in entry.production) {
                         val item = produceEntry.recipe.input[0]
-                        val sfItem = item.getSlimefun<SlimefunItem>()
+                        val sfItem = SlimefunItem.getByItem(item)
 
                         val id = sfItem?.id
                                     ?.lowercase()

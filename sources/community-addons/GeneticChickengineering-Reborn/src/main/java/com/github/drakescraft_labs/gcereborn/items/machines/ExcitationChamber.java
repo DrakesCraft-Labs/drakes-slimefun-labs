@@ -29,6 +29,7 @@ import com.github.drakescraft_labs.gcereborn.items.GCEItems;
 import com.github.drakescraft_labs.gcereborn.utils.ChickenUtils;
 import com.github.drakescraft_labs.gcereborn.utils.PocketChickenData;
 import com.github.drakescraft_labs.gcereborn.items.chicken.ChickenTypes;
+import com.github.drakescraft_labs.gcereborn.utils.GuiItems;
 import com.github.drakescraft_labs.gcereborn.utils.SimpleProfiler;
 
 public class ExcitationChamber extends AbstractMachine {
@@ -111,16 +112,16 @@ public class ExcitationChamber extends AbstractMachine {
         long __start = System.nanoTime();
         try {
             var config = GeneticChickengineering.getConfigService();
-        for (int slot : getInputSlots()) {
-            ItemStack chicken = menu.getItemInSlot(slot);
-            PocketChickenData data = PocketChickenData.fromItem(chicken);
-            if (data == null || !data.isAdult()) {
-                continue;
-            }
+            for (int slot : getInputSlots()) {
+                ItemStack chicken = menu.getItemInSlot(slot);
+                PocketChickenData data = PocketChickenData.fromItem(chicken);
+                if (data == null || !data.isAdult()) {
+                    continue;
+                }
 
-            // Set the progress bar to always be the resource, since players
-            // can abort the recipe if they know the egg is coming
-            ItemStack resourceIcon = data.getResource();
+                // Set the progress bar to always be the resource, since players
+                // can abort the recipe if they know the egg is coming
+                ItemStack resourceIcon = data.getResource();
 
                 ItemStack chickResource;
                 if (ThreadLocalRandom.current().nextInt(100) < config.getResourceFailRate()) {
@@ -129,46 +130,47 @@ public class ExcitationChamber extends AbstractMachine {
                     chickResource = resourceIcon.clone();
                 }
 
-            /* Speed calculation
-             * All recipes have a base speed of 14 (by default)
-             * All recipes add 1 second/DNA tier
-             * All recipes subtract 2 seconds/DNA strength (dominant pairs)
-             *         | normal    | boosted
-             *  Tier 0 | 2-14 sec  | 1-7 sec
-             *  Tier 1 | 5-15 sec  | 2-7 sec
-             *  Tier 2 | 8-16 sec  | 4-8 sec
-             *  Tier 3 | 11-17 sec | 5-8 sec
-             *  Tier 4 | 14-18 sec | 7-9 sec
-             *  Tier 5 | 17-19 sec | 8-9 sec
-             *  Tier 6 | 20 sec    | 10 sec
-             */
-            int speed = (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed();
-            MachineRecipe recipe = new MachineRecipe(
-                config.isTest() ? 1 : speed,
-                new ItemStack[] {chicken},
-                new ItemStack[] {chickResource}
-            );
-            if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
-                continue;
-            }
-
-            if (config.isPainEnabled()) {
-                if (!(data.getHealth() > 0.25) && !config.isPainDeathEnabled()) {
+                /* Speed calculation
+                 * All recipes have a base speed of 14 (by default)
+                 * All recipes add 1 second/DNA tier
+                 * All recipes subtract 2 seconds/DNA strength (dominant pairs)
+                 *         | normal    | boosted
+                 *  Tier 0 | 2-14 sec  | 1-7 sec
+                 *  Tier 1 | 5-15 sec  | 2-7 sec
+                 *  Tier 2 | 8-16 sec  | 4-8 sec
+                 *  Tier 3 | 11-17 sec | 5-8 sec
+                 *  Tier 4 | 14-18 sec | 7-9 sec
+                 *  Tier 5 | 17-19 sec | 8-9 sec
+                 *  Tier 6 | 20 sec    | 10 sec
+                 */
+                int speed = (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed();
+                MachineRecipe recipe = new MachineRecipe(
+                    config.isTest() ? 1 : speed,
+                    new ItemStack[] {chicken},
+                    new ItemStack[] {chickResource}
+                );
+                if (!InvUtils.fitAll(menu.toInventory(), recipe.getOutput(), getOutputSlots())) {
                     continue;
                 }
-                ChickenUtils.possiblyHarm(chicken);
-                if (ChickenUtils.getHealth(chicken) <= 0d) {
-                    ItemUtils.consumeItem(chicken, false);
-                    if (config.isSoundsEnabled()) {
-                        GeneticChickengineering.getScheduler().run(() ->
-                            menu.getLocation().getWorld().playSound(menu.getLocation(), Sound.ENTITY_CHICKEN_DEATH, 1f, 1f)
-                        );
+
+                if (config.isPainEnabled()) {
+                    if (!(data.getHealth() > 0.25) && !config.isPainDeathEnabled()) {
+                        continue;
                     }
-                    continue;
+                    ChickenUtils.possiblyHarm(chicken);
+                    if (ChickenUtils.getHealth(chicken) <= 0d) {
+                        ItemUtils.consumeItem(chicken, false);
+                        if (config.isSoundsEnabled()) {
+                            GeneticChickengineering.getScheduler().run(() ->
+                                menu.getLocation().getWorld().playSound(menu.getLocation(), Sound.ENTITY_CHICKEN_DEATH, 1f, 1f)
+                            );
+                        }
+                        continue;
+                    }
                 }
 
                 return recipe;
-        }
+            }
         } finally {
             SimpleProfiler.record("ExcitationChamber.findNextRecipe", System.nanoTime() - __start);
         }

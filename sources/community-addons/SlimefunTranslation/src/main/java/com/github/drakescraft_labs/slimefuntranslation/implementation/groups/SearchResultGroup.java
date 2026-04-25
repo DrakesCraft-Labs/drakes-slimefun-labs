@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
@@ -95,7 +96,7 @@ public class SearchResultGroup extends FlexItemGroup {
                     ));
                     ItemGroup itemGroup = slimefunItem.getItemGroup();
                     meta.setLore(Arrays.asList("", ChatColor.DARK_GRAY + "\u21E8 " + ChatColor.WHITE + itemGroup.getDisplayName(p)));
-                    meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_POTION_EFFECTS);
+                    meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                     PersistentDataAPI.setBoolean(meta, Keys.SEARCH_DISPLAY, true);
                 });
 

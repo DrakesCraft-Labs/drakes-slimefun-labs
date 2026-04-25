@@ -1,6 +1,7 @@
 package net.guizhanss.fastmachines
 
 import dev.drake.dough.updater.BlobBuildUpdater
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon
 import net.byteflux.libby.Library
 import net.guizhanss.fastmachines.core.FMRegistry
 import net.guizhanss.fastmachines.core.services.ConfigService
@@ -21,6 +22,7 @@ import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.Plugin
+import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.util.logging.Level
 
@@ -51,6 +53,11 @@ class FastMachines : AbstractAddon(
 
     override fun enable() {
         instance = this
+        addon = object : SlimefunAddon {
+            override fun getJavaPlugin(): JavaPlugin = this@FastMachines
+
+            override fun getBugTrackerURL(): String = "https://github.com/ybw0014/FastMachines/issues"
+        }
 
         FMRegistry
 
@@ -143,6 +150,8 @@ class FastMachines : AbstractAddon(
         const val DEFAULT_LANG = "en-US"
 
         lateinit var instance: FastMachines
+            private set
+        lateinit var addon: SlimefunAddon
             private set
         lateinit var configService: ConfigService
             private set

@@ -40,7 +40,7 @@ public class CoolantRaknoidsTask implements Runnable {
             Location particleLoc = entity.getLocation().clone();
             particleLoc.setX(particleLoc.getX() + Math.cos(angle) * MULTIPLIER);
             particleLoc.setZ(particleLoc.getZ() + Math.sin(angle) * MULTIPLIER);
-            entity.getWorld().spawnParticle(Particle.REDSTONE, particleLoc, 1, new Particle.DustOptions(Color.fromRGB(87, 182, 255), 2));
+            entity.getWorld().spawnParticle(Particle.DUST, particleLoc, 1, new Particle.DustOptions(Color.fromRGB(87, 182, 255), 2));
 
             angle += 0.25D;
             if (angle > 360) {

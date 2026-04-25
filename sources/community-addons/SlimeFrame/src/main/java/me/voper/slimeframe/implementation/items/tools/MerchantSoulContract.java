@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.entity.AbstractVillager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -104,7 +105,7 @@ public class MerchantSoulContract extends SimpleSlimefunItem<EntityInteractHandl
                 PersistentDataAPI.set(meta, Keys.MERCHANT_RECIPE, new MerchantRecipeListDataType(), recipes);
 
                 // Update the meta
-                meta.addEnchant(Enchantment.LUCK, 1, true);
+                meta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
                 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
                 List<String> lore = new ArrayList<>();

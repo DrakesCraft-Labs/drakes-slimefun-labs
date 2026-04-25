@@ -6,8 +6,6 @@ import javax.annotation.Nonnull;
 import io.github.schntgaispock.slimehud.placeholder.PlaceholderManager;
 import io.github.schntgaispock.slimehud.translation.TranslationManager;
 import io.github.schntgaispock.slimehud.waila.HudController;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
 import org.bukkit.NamespacedKey;
 
 import dev.drake.infinitylib.core.AbstractAddon;
@@ -45,18 +43,6 @@ public class SlimeHUD extends AbstractAddon {
                 getLogger().info("You can download the official build here: https://blob.build/project/SlimeHUD");
             }
         }
-
-
-        metrics.addCustomChart(
-            new SimplePie("disabled", () -> {
-                return "" + getConfig().getBoolean("waila.disabled");
-            })
-        );
-        metrics.addCustomChart(
-            new SimplePie("waila_location", () -> {
-                return getConfig().getString("waila.location");
-            })
-        );
 
         playerData = new AddonConfig("player.yml");
 

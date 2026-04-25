@@ -169,8 +169,8 @@
         <!-- Supported Plugins -->
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>networks</artifactId>
-            <version>1.0.0</version>
+            <artifactId>Networks-drake</artifactId>
+            <version>11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -179,14 +179,15 @@
             <version>d2465ae845</version>
         </dependency>
         <dependency>
-            <groupId>com.github.Mooy1</groupId>
+            <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>InfinityExpansion-drake</artifactId>
-            <version>1e83e7afa0</version>
+            <version>1.20.6-Drake-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.11.1</version>
+            <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
     

@@ -12,6 +12,7 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -35,7 +36,7 @@ public class PotionItems {
                 PotionMeta meta = (PotionMeta) itemMeta;
                 meta.setColor(Color.AQUA);
                 meta.setDisplayName(ChatColors.color("&bPotion Expansion"));
-                meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true);
+                meta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
                 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             })
     );

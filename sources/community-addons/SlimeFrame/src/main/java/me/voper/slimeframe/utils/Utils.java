@@ -4,6 +4,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -36,7 +37,7 @@ public final class Utils {
     public static void enchant(ItemStack item) {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null) return;
-        itemMeta.addEnchant(Enchantment.LUCK, 1, false);
+        itemMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, false);
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(itemMeta);
     }
@@ -44,7 +45,7 @@ public final class Utils {
     public static void disenchant(ItemStack item) {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null) return;
-        itemMeta.removeEnchant(Enchantment.LUCK);
+        itemMeta.removeEnchant(VersionedEnchantment.LUCK_OF_THE_SEA);
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item.setItemMeta(itemMeta);
     }

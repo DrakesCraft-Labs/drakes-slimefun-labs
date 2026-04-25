@@ -6,6 +6,7 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -32,7 +33,7 @@ public final class ItemStackUtils {
         PotionMeta potionMeta = (PotionMeta) itemStack.getItemMeta();
         potionMeta.setBasePotionData(new PotionData(PotionType.WATER));
         potionMeta.setColor(color);
-        potionMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        potionMeta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         itemStack.setItemMeta(potionMeta);
         return itemStack;
     }

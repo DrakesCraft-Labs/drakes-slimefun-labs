@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -257,14 +258,14 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
             // The clicked trade is already selected
             if (tradeIndex == trade) {
                 selectedTradeMap.put(bp, -1);
-                itemMeta.removeEnchant(Enchantment.LUCK);
+                itemMeta.removeEnchant(VersionedEnchantment.LUCK_OF_THE_SEA);
             } else {
                 if (trade != -1) {
                     ItemStack itemInSlot = menu.getItemInSlot(getTradesSlots()[trade]);
                     Utils.disenchant(itemInSlot);
                 }
                 selectedTradeMap.put(bp, tradeIndex);
-                itemMeta.addEnchant(Enchantment.LUCK, 1, true);
+                itemMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
             }
 
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

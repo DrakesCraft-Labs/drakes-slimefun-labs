@@ -1,6 +1,6 @@
 package com.github.drakescraft_labs.customitemgen
 
-import com.github.drakescraft_labs.sf4k.AbstractAddon
+import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup
 import com.github.drakescraft_labs.customitemgen.file.DisplayLoader
 import com.github.drakescraft_labs.customitemgen.util.getBlock
@@ -9,7 +9,7 @@ import org.bukkit.NamespacedKey
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
-class CustomItemGenerators : AbstractAddon() {
+class CustomItemGenerators : JavaPlugin() {
 
     companion object {
         lateinit var group: ItemGroup
@@ -22,10 +22,17 @@ class CustomItemGenerators : AbstractAddon() {
             private set
         lateinit var key: NamespacedKey
             private set
+        lateinit var addon: SlimefunAddon
+            private set
     }
 
-    override suspend fun onEnableAsync() {
+    override fun onEnable() {
         instance = this
+        addon = object : SlimefunAddon {
+            override fun getJavaPlugin(): JavaPlugin = this@CustomItemGenerators
+
+            override fun getBugTrackerURL(): String = "https://github.com/Intybyte/CustomItemGenerators/issues"
+        }
         pluginFolder = this.dataFolder
         metrics = Metrics(this, 23674)
         key = NamespacedKey(this, "mark")
@@ -40,16 +47,12 @@ class CustomItemGenerators : AbstractAddon() {
         server.pluginManager.registerEvents(FinalizeListener, this)
     }
 
-    override suspend fun onDisableAsync() {
+    override fun onDisable() {
 
     }
 
-    override fun getJavaPlugin(): JavaPlugin {
+    fun getJavaPlugin(): JavaPlugin {
         return this
-    }
-
-    override fun getBugTrackerURL(): String {
-        return "https://github.com/Intybyte/CustomItemGenerators/issues"
     }
 
     fun genFile(path: String): File {

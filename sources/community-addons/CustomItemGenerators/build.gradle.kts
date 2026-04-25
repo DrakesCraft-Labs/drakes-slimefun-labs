@@ -22,8 +22,8 @@ dependencies {
     library(kotlin("stdlib"))
     library("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:RC-37")
-    implementation("io.github.seggan:sf4k:0.7.1")
+    compileOnly("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
+    compileOnly("com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.0.2")
 }
 

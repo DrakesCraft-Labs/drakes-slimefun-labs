@@ -7,6 +7,7 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -94,7 +95,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         CONDENSED_SOUL.setItemMeta(meta);
-        CONDENSED_SOUL.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        CONDENSED_SOUL.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
 
     public static final SlimefunItemStack LIGHT_MAGIC_PLANT = new SlimefunItemStack("AV_GOOD_MAGIC_PLANT",
@@ -108,7 +109,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         LIGHT_MAGIC_PLANT.setItemMeta(meta);
-        LIGHT_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        LIGHT_MAGIC_PLANT.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
 
     public static final SlimefunItemStack DARK_MAGIC_PLANT = new SlimefunItemStack("AV_EVIL_MAGIC_PLANT",
@@ -123,7 +124,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         DARK_MAGIC_PLANT.setItemMeta(meta);
-        DARK_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        DARK_MAGIC_PLANT.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
 
     public static final SlimefunItemStack EXP_CRYSTAL = new SlimefunItemStack("AV_EXP_CRYSTAL",
@@ -137,7 +138,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         EXP_CRYSTAL.setItemMeta(meta);
-        EXP_CRYSTAL.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        EXP_CRYSTAL.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
 
     public static final SlimefunItemStack LIGHT_ESSENCE = new SlimefunItemStack("AV_GOOD_ESSENCE",
@@ -164,7 +165,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         ILLUMIUM.setItemMeta(meta);
-        ILLUMIUM.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        ILLUMIUM.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
 
     public static final SlimefunItemStack DARKSTEEL = new SlimefunItemStack("AV_DARKSTEEL",
@@ -178,7 +179,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         DARKSTEEL.setItemMeta(meta);
-        DARKSTEEL.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        DARKSTEEL.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
     // }}}
 

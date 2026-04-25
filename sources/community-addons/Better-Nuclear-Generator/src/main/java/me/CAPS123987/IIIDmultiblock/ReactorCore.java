@@ -379,7 +379,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 								Area.setRadius(12);							
 								Area.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE,5,2), true);
 								Area.setDuration(falloutTickTimePer*uranPer);
-								Area.setParticle(Particle.REDSTONE,new DustOptions(Color.GREEN,1));
+								Area.setParticle(Particle.DUST,new DustOptions(Color.GREEN,1));
 							}
 						}
 					}else {
@@ -389,7 +389,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 						Area.setRadius(12);							
 						Area.addCustomEffect(new PotionEffect(PotionEffectType.INSTANT_DAMAGE,5,2), true);
 						Area.setDuration(falloutTickTimePer*uranPer);
-						Area.setParticle(Particle.REDSTONE,new DustOptions(Color.GREEN,1));
+						Area.setParticle(Particle.DUST,new DustOptions(Color.GREEN,1));
 					}
 				}
 				
@@ -835,7 +835,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 		Color c = geColor(m);
 		//b.getWorld().spawnFallingBlock(b.getLocation(), new MaterialData(m));
 		if(!b.getType().equals(m)) {
-			b.getWorld().spawnParticle(Particle.REDSTONE, b.getLocation().getX() +0.5,b.getLocation().getY() +0.5,b.getLocation().getZ() +0.5, particles, 0.1 , 0.1 , 0.1 ,new DustOptions(c,1));
+			b.getWorld().spawnParticle(Particle.DUST, b.getLocation().getX() +0.5,b.getLocation().getY() +0.5,b.getLocation().getZ() +0.5, particles, 0.1 , 0.1 , 0.1 ,new DustOptions(c,1));
 		}
 		
 	}

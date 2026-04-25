@@ -68,6 +68,8 @@ Un solo workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflo
 
 `concurrency` con `cancel-in-progress` reduce ruido en Actions cuando llegan muchos `push` seguidos.
 
+El corte local `2026-04-24` ya probo `mvn -B -DskipTests compile -fae` sobre los 81 modulos Maven y `compileJava` sobre los 5 proyectos Gradle. La accion recomendada no es publicar todo, sino convertir ese pase local en jobs curados nuevos.
+
 ## Política de releases
 
 Una release debe hacerse cuando:
@@ -88,5 +90,5 @@ Una release debe hacerse cuando:
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
 > CI principal en `1.21-latin`: **CI Monorepo 1.21** en verde (jobs curados en `ci-monorepo-121.yml`).
-> Nota: el monorepo completo sigue en migracion incremental por lotes.
+> Nota: build local completo verde: 81 Maven + 5 Gradle. Falta ampliar CI y validar runtime antes de releases masivas.
 <!-- DRAKES-STATUS:END -->

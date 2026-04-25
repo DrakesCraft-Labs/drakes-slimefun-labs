@@ -10,6 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.entity.Axolotl;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -31,7 +32,7 @@ public interface MagicPaintbrush {
         PotionMeta potionMeta = (PotionMeta) itemStack.getItemMeta();
         potionMeta.setColor(dyeColor.getColor());
         if (enchanted) {
-            potionMeta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true);
+            potionMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
         }
         potionMeta.addItemFlags(
             ItemFlag.HIDE_ENCHANTS,

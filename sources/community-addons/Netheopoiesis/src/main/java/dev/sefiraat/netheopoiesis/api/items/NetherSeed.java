@@ -517,6 +517,6 @@ public abstract class NetherSeed extends SlimefunItem implements NetherPlant, Se
     }
 
     private void breedSuccess(@Nonnull Location location) {
-        ParticleUtils.randomSpread(WorldUtils.centre(location), Particle.SLIME, 0.5, 4);
+        ParticleUtils.randomSpread(WorldUtils.centre(location), Particle.ITEM_SLIME, 0.5, 4);
     }
 }

@@ -101,7 +101,7 @@ public class ChunkEater extends AbstractMachine {
                     }
                 }
 
-                block.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, block.getLocation(), 1);
+                block.getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, block.getLocation(), 1);
                 block.getWorld().playSound(block.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
                 block.setType(Material.AIR);
             }

@@ -187,7 +187,7 @@ public class ElectricSpiritCatcher extends SlimefunItem implements EnergyNetComp
         final LivingEntity finalTarget = target;
         final ItemStack finalToReturn = toReturn;
         Bukkit.getScheduler().runTaskLater(SpiritsUnchained.getInstance(), () -> {
-            ParticleUtils.spawnParticleRadius(location, Particle.SPELL_INSTANT, 1.5, 10, "");
+            ParticleUtils.spawnParticleRadius(location, Particle.INSTANT_EFFECT, 1.5, 10, "");
             finalTarget.getWorld().playSound(finalTarget.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1, 1);
             finalTarget.remove();
             spiritNet.subtract();

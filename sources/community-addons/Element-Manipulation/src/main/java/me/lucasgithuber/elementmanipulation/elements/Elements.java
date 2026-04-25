@@ -9,6 +9,7 @@ import me.lucasgithuber.elementmanipulation.utils.RecipeTypes;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -444,7 +445,7 @@ public class Elements {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         BISMUTH.setItemMeta(meta);
-        BISMUTH.addUnsafeEnchantment(Enchantment.LUCK_OF_THE_SEA, 1);
+        BISMUTH.addUnsafeEnchantment(VersionedEnchantment.LUCK_OF_THE_SEA, 1);
     }
     public static final SlimefunItemStack MOSCOVIUM = new SlimefunItemStack(
             "EM_MOSCOVIUM",

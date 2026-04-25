@@ -128,8 +128,8 @@
 
         <dependency>
             <groupId>net.guizhanss</groupId>
-            <artifactId>GuizhanLib-api</artifactId>
-            <version>1.11-SNAPSHOT.1</version>
+            <artifactId>guizhanlib-all</artifactId>
+            <version>2.3.0</version>
             <scope>compile</scope>
         </dependency>
 

@@ -76,7 +76,7 @@ public class RelationsAndStateRunnable extends BukkitRunnable {
                         world.dropItemNaturally(location, scare.clone());
                         inventory.remove(scare);
                         world.playSound(location, Sound.ENTITY_ITEM_PICKUP, 2, 1);
-                        ParticleUtils.spawnParticleRadius(location, Particle.REDSTONE, 3, 30, "Colored", new Particle.DustOptions(Color.fromRGB(255,0,0), 1));
+                        ParticleUtils.spawnParticleRadius(location, Particle.DUST, 3, 30, "Colored", new Particle.DustOptions(Color.fromRGB(255,0,0), 1));
                     }
                 }
     

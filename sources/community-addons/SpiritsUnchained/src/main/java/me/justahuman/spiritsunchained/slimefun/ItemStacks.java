@@ -11,7 +11,9 @@ import me.justahuman.spiritsunchained.utils.SpiritUtils;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.inventory.ItemFlag;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -25,7 +27,7 @@ public class ItemStacks {
     private static ItemStack getEnchanted(ItemStack itemStack) {
         final ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemMeta != null) {
-            itemMeta.addEnchant(Enchantment.ARROW_DAMAGE, 1, false);
+            itemMeta.addEnchant(VersionedEnchantment.POWER, 1, false);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemStack.setItemMeta(itemMeta);
         }
@@ -36,7 +38,7 @@ public class ItemStacks {
         final ItemStack itemStack = new ItemStack(Material.SPLASH_POTION);
         final ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemMeta != null) {
-            itemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+            itemMeta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
             PotionMeta potionMeta = (PotionMeta) itemMeta;
             potionMeta.setColor(Color.fromRGB(150, 150, 150));
             itemStack.setItemMeta(potionMeta);

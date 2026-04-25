@@ -3,8 +3,6 @@ package io.github.schntgaispock.gastronomicon;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -55,11 +53,6 @@ public class Gastronomicon extends AbstractAddon {
                 info("You can download the official build here: https://blob.build/project/Gastronomicon");
             }
         }
-
-
-
-        metrics.addCustomChart(
-            new SimplePie("exoticgardenInstalled", () -> Boolean.toString(isPluginEnabled("ExoticGarden"))));
 
         ItemSetup.setup();
         ResearchSetup.setup();

@@ -29,6 +29,7 @@ import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.Enchantment;
+import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemFlag;
@@ -347,7 +348,7 @@ public abstract class NetworkDirectional extends NetworkObject {
                         + ChatColor.stripColor(slimefunItem.getItemName()) + ")");
         final ItemMeta itemMeta = displayStack.getItemMeta();
         if (active) {
-            itemMeta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true);
+            itemMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
         itemMeta.setLore(List.of(
@@ -366,7 +367,7 @@ public abstract class NetworkDirectional extends NetworkObject {
                     Theme.PASSIVE + "Direction " + blockFace.name() + " (" + blockMaterial.name() + ")");
             final ItemMeta itemMeta = displayStack.getItemMeta();
             if (active) {
-                itemMeta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true);
+                itemMeta.addEnchant(VersionedEnchantment.LUCK_OF_THE_SEA, 1, true);
                 itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             }
             itemMeta.setLore(List.of(

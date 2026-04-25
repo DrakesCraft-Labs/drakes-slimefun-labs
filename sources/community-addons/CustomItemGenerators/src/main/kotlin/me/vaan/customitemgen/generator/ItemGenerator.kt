@@ -1,6 +1,5 @@
 package com.github.drakescraft_labs.customitemgen.generator
 
-import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup
 import com.github.drakescraft_labs.slimefun4.api.items.ItemState
@@ -19,11 +18,10 @@ import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlock
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation
 import dev.drake.dough.inventory.InvUtils
 import dev.drake.dough.items.CustomItemStack
-import dev.drake.dough.protection.Interaction
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
-import kotlinx.coroutines.runBlocking
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.AdvancedMenuClickHandler
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
@@ -109,7 +107,7 @@ class ItemGenerator(
             return this@ItemGenerator.canUse(p, false) && (// Protection manager doesn't exist in unit tests
                     Slimefun.instance()!!.isUnitTest
                             || Slimefun.getProtectionManager()
-                        .hasPermission(p, b.location, Interaction.INTERACT_BLOCK))
+                        .hasPermission(p, b, Interaction.INTERACT_BLOCK))
         }
     }
 
@@ -320,11 +318,8 @@ class ItemGenerator(
         val sfMachine = SFMachine(this, b)
         val execute = options.validators.validate(sfMachine)
 
-        val event = runBlocking(CustomItemGenerators.instance.minecraftDispatcher) {
-            val event = CIGPreRunEvent(sfMachine, execute)
-            Bukkit.getPluginManager().callEvent(event)
-            event
-        }
+        val event = CIGPreRunEvent(sfMachine, execute)
+        Bukkit.getPluginManager().callEvent(event)
 
         return execute && !event.isCancelled
     }
