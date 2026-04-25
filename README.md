@@ -11,6 +11,12 @@
 
 Los README y `.md` bajo `sources/` incluyen un aviso de rama al inicio; el texto original puede seguir mencionando 1.21.x como origen del porte hasta que cada módulo se actualice.
 
+**Línea roja (no negociable):** esta rama (**`26.X-ToTheStars`**) y **`1.21-latin`** (línea estable tipo “main” del laboratorio para Paper 1.21.x) son **historiales separados a propósito**. **Jamás las fusiones** entre sí (`git merge`, PR de merge bidireccional, rebase que mezcle ambas bases): BOMs, `paper.version`, perfiles y API **no son intercambiables** y unirlas **puede dejar el monorepo irrecuperable** sin un trabajo largo de revertir o rehacer. Los cambios que deban existir en ambas líneas se **reaplican a mano** (cherry-pick o parche acotado), nunca mezclando las ramas enteras.
+
+#### ¿Por qué GitHub muestra “más de dos” ramas?
+
+Además de **`1.21-latin`** y **`26.X-ToTheStars`**, aparecen ramas **`dependabot/...`** (una por PR automático de dependencias); no son productos paralelos y suelen desaparecer al cerrar o fusionar cada PR.
+
 ---
 
 ## Enlaces rapidos
