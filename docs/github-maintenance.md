@@ -25,6 +25,8 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 2. Para cada PR: revisar CI, conflicto con `1.21-latin`, y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
+**Ramas divergentes:** no abras ni fusiones PRs que intenten unir **`1.21-latin`** con **`26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
+
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
 
 ## Dependabot y vulnerabilidades

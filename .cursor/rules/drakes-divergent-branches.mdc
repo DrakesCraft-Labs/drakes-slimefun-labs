@@ -1,0 +1,21 @@
+---
+description: Ramas 1.21-latin y 26.X-ToTheStars nunca deben fusionarse entre sí.
+alwaysApply: true
+---
+
+# Política de ramas (drakes-slimefun-labs)
+
+- La rama estable por defecto del repositorio es **`1.21-latin`** (no hay `main`; trátala como la línea principal del laboratorio).
+- **`26.X-ToTheStars`** es una línea experimental para Paper / API **26.x**, con BOMs, perfiles y supuestos distintos.
+
+## Prohibido
+
+- **No propongas ni ejecutes** `git merge` (ni PR de merge) entre **`1.21-latin`** y **`26.X-ToTheStars`** en ningún sentido.
+- **No rebases** que mezclen commits de ambas bases como si fueran una sola historia lineal publicable.
+
+Unirlas puede corromper el `pom.xml` raíz, módulos, CI y el reactor hasta un estado muy costoso de deshacer.
+
+## Permitido
+
+- Trabajar en una sola rama según el objetivo (estable 1.21 vs experimento 26.x).
+- Traer un cambio puntual **manualmente** (cherry-pick acotado, reaplicar parche, copiar diff revisado) cuando un humano lo pida y el contexto sea compatible.

@@ -28,9 +28,15 @@ No es deuda del reactor: es **vida real** en el juego.
 
 **Qué es:** una línea de trabajo paralela para el salto a **Minecraft / Paper API 26.x** (artefactos tipo `26.1.x.build.*-alpha` en el repo de Paper). En esa rama el `pom.xml` raíz sigue con **`paper.version` 1.21.x por defecto** y se añade el perfil Maven **`paper-26-preview`** para compilar contra la API 26 cuando toque (`mvn -Ppaper-26-preview`). La documentación allí incluye avisos en los `.md` y la guía [`paper-26-base.md`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/blob/26.X-ToTheStars/docs/paper-26-base.md) (solo en esa rama).
 
+**Línea roja (no negociable):** **`1.21-latin`** (rama estable por defecto del repo; equivale a la “main” operativa del laboratorio) y **`26.X-ToTheStars`** son **líneas de historia separadas a propósito**. **Jamás las unas** con `git merge`, PR de fusión bidireccional ni rebase que mezcle ambas bases: los BOMs, `paper.version`, perfiles Maven, módulos y supuestos de API **no son intercambiables** y mezclarlos tiene **alto riesgo de romper el monorepo** (resolución de dependencias imposible, CI rojo masivo, pérdida de tiempo hasta revertir o reconstruir a mano). Si un cambio debe vivir en las dos líneas, se **replica o reescribe** de forma acotada (cherry-pick manual o parche equivalente), nunca fusionando las ramas enteras.
+
 **Qué no es:** un reemplazo de `1.21-latin` de la noche a la mañana. Los **releases**, el **smoke** pensado para operadores y el **pack estable** siguen saliendo de **`1.21-latin`**.
 
 **Calendencia humana:** el porte agresivo a **1.21.x** fue extremadamente exigente (“casi nos mata”). Se contempla una ventana aproximada de **un mes** antes de retomar el porte **26.x** con el mismo ritmo de sprint; en ese intervalo el foco sigue siendo **mantener verde** `1.21-latin`, Issues, smoke cuando haga falta y el survival **[DrakesCraft](https://drakescraft.cl)**. El trabajo 26.x avanza **sin presión** en `26.X-ToTheStars` hasta que el equipo vuelva a tener cabeza para API breaking.
+
+#### ¿Por qué GitHub muestra “más de dos” ramas?
+
+Además de **`1.21-latin`** y **`26.X-ToTheStars`**, GitHub lista ramas **`dependabot/...`**: son **una rama por cada PR automático** de Dependabot; no son líneas de producto paralelas y suelen cerrarse al mergear o descartar el PR. Por eso el contador de ramas crece sin que existan “tres productos” distintos.
 
 ---
 
