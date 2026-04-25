@@ -1,6 +1,6 @@
-<!-- drakes-labs:branch-26x-notice -->
 
-> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con **`paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama **`1.21-latin`**. Guía: `docs/paper-26-base.md`.
+
+> **Rama `26.X-ToTheStars` — Minecraft / Paper 26.x:** porte hacia la API **Paper 26.x** (p. ej. artefactos `26.1.x.build.*-alpha` en repo.papermc.io). Por defecto el `pom.xml` raíz sigue con `**paper.version=1.21.1-R0.1-SNAPSHOT`**; para compilar contra la API 26.x: `mvn -B -DskipTests -Ppaper-26-preview compile -fae`. La línea estable **Paper 1.21.x**, CI y smoke de referencia están en la rama `**1.21-latin`**. Guía: `docs/paper-26-base.md`.
 
 # Mantenimiento en GitHub (Actions, PRs, seguridad)
 
@@ -12,13 +12,10 @@ GitHub **no** ofrece un botón “borrar todo el historial” de ejecuciones. Op
 
 1. **Retención automática** (recomendado): en el repo, *Settings → Actions → General → Artifact and log retention* (y políticas de la org). Reduce ruido sin scripts.
 2. **Borrar ejecuciones con la CLI** (por lotes): con token que incluya `workflow`:
-
-   ```bash
+  ```bash
    gh run list --repo DrakesCraft-Labs/drakes-slimefun-labs --limit 200 --json databaseId -q '.[].databaseId' | xargs -n1 gh run delete --repo DrakesCraft-Labs/drakes-slimefun-labs
-   ```
-
+  ```
    En Windows PowerShell puedes iterar con un bucle corto sobre `gh run list`. Respeta los límites de tasa de la API; pausa entre lotes si hay cientos de entradas.
-
 3. **Archivar el repo** o duplicar historial: medida extrema; no suele ser necesaria solo por “limpieza visual”.
 
 No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos en Settings.
@@ -29,9 +26,42 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 2. Para cada PR: revisar CI, conflicto con la rama base (`1.21-latin` para estabilidad **1.21.x**, o `26.X-ToTheStars` si el PR es de porte **26.x`), y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
-**Ramas divergentes:** no abras ni fusiones PRs que intenten unir **`1.21-latin`** con **`26.X-ToTheStars`** (ni al revés). Política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
+**Ramas divergentes:** no abras ni fusiones PRs que intenten unir `**1.21-latin`** con `**26.X-ToTheStars**` (ni al revés). Política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
+
+## Bloquear merge entre `1.21-latin` y `26.X-ToTheStars` (GitHub / `gh`)
+
+GitHub **no** incluye una regla nativa del tipo “si la base es A y la cabeza es B, bloquear”. **Rulesets** y **branch protection** exigen reviews, firmas, checks genéricos, etc., pero **no** pueden declarar solo esa pareja de ramas.
+
+Lo habitual es:
+
+1. **Workflow de Actions** que falle cuando `github.base_ref` y `github.head_ref` sean exactamente esa pareja prohibida.
+2. Marcar ese job como **status check obligatorio** en las ramas afectadas (ruleset o branch protection).
+
+En este repo el workflow es `[.github/workflows/policy-no-cross-line-merge.yml](../.github/workflows/policy-no-cross-line-merge.yml)`. El job se llama `**cross-merge-guard`** (nombre que verás en el cuadro de checks del PR).
+
+### Activar el bloqueo (recomendado: Rulesets en la UI)
+
+1. *Settings → Rules → Rulesets → New branch ruleset*.
+2. **Name:** por ejemplo `require-cross-merge-guard`.
+3. **Target branches:** incluir `1.21-latin` y `26.X-ToTheStars` (dos entradas o patrón que las cubra).
+4. Activar **Require status checks to pass** (o el equivalente en rulesets) y elegir el check `**cross-merge-guard*`* (tras abrir un PR de prueba contra esas bases para que GitHub lo descubra, si no aparece en la lista).
+5. Opcional: modo **Evaluate** primero para validar sin bloquear aún.
+
+### Qué puede hacer `gh` aquí
+
+- **Solo lectura / comprobación** (oficial en CLI): `gh ruleset list`, `gh ruleset view`, `gh ruleset check <rama> -R org/repo`.
+- **Crear o actualizar rulesets** no trae subcomando dedicado; se hace con la **API REST** que `gh` puede llamar:
+  ```bash
+  gh api --method POST repos/DrakesCraft-Labs/drakes-slimefun-labs/rulesets --input ruleset.json
+  ```
+  El cuerpo `ruleset.json` debe seguir [Create a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2022-11-28#create-a-repository-ruleset) (campos `name`, `target`, `enforcement`, `conditions.ref_name.include`, `rules` con `type: "required_status_checks"` y el `context` exacto del check). Hace falta token con permisos de administración sobre el repo.
+- **Branch protection clásica** (alternativa): `PUT /repos/{owner}/{repo}/branches/{branch}/protection` con `required_status_checks`; también vía `gh api` con JSON bien formado. Suele ser más verboso que un ruleset en la UI.
+
+### Limitación del workflow
+
+Solo bloquea cuando la **cabeza del PR** es exactamente `26.X-ToTheStars` o `1.21-latin`. Un PR desde una rama intermedia (`sync/bad`) con contenido mezclado **no** queda cubierto; ahí hacen falta revisión humana y convención de equipo.
 
 ## Dependabot y “vulnerabilities”
 
@@ -41,7 +71,7 @@ Los merges los debe hacer alguien con contexto del porte; esta guía no sustituy
 
 ## Que todo quede “en verde”
 
-1. Rama objetivo: **`1.21-latin`** para releases y Paper **1.21.x**; **`26.X-ToTheStars`** para el porte **Paper API 26.x** (perfil `paper-26-preview` en el `pom` raíz).
+1. Rama objetivo: `**1.21-latin`** para releases y Paper **1.21.x**; `**26.X-ToTheStars`** para el porte **Paper API 26.x** (perfil `paper-26-preview` en el `pom` raíz).
 2. Comprobar el último run de **CI Monorepo 1.21** (referencia heredada) y del smoke manual si aplica.
 3. Si un job falla por infraestructura (caché, red), *Re-run jobs*; si es código, arreglar y empujar.
 
@@ -56,3 +86,4 @@ El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a m
 - **Tag**: obligatorio y único (por ejemplo `v11-plugins-2026-04-25`). Si el tag ya existe, el paso de release fallará hasta que elijas otro.
 - **Draft / Prerelease**: útil la primera vez para revisar notas y adjuntos antes de publicar.
 - Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` dentro del ZIP con la lista `missing_modules`; conviene revisar ese archivo si el ZIP parece incompleto.
+
