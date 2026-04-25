@@ -5,7 +5,7 @@ description: A Slimefun Addon that adds new Plants and dishes to the game
 website: https://github.com/TheBusyBiscuit/ExoticGarden
 
 api-version: '1.13'
-main: io.github.thebusybiscuit.exoticgarden.ExoticGarden
+main: com.github.drakescraft_labs.exoticgarden.ExoticGarden
 
 depend:
 - Slimefun

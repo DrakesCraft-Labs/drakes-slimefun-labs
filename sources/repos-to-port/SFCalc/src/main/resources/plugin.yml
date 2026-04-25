@@ -1,6 +1,6 @@
 name: SFCalc
-main: io.github.seggan.sfcalc.SFCalc
-version: ${version}
+main: com.github.drakescraft_labs.sfcalc.SFCalc
+version: 1.21-Drake-v1
 author: Seggan
 depend: [Slimefun]
 api-version: 1.15

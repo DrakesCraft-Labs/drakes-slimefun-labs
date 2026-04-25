@@ -1,5 +1,7 @@
 # Runtime Smoke Test Guide
 
+Monorepo documentation index: [`docs/README.md`](../README.md).
+
 ## Goal
 
 The runtime smoke test verifies that Drake jars do more than compile: they must load on a real Paper server. This is the minimum runtime gate before calling a major ecosystem cut stable.
@@ -11,14 +13,25 @@ The smoke base lives in `scripts/smoke/`:
 - `smoke-profiles.json`: declares which modules are packaged and which log markers must appear.
 - `build-smoke-artifacts.ps1`: packages the profile modules and copies jars into `.smoke/<profile>/artifacts/plugins`.
 - `run-smoke-server.ps1`: downloads Paper `1.21.1`, prepares a temporary server, copies plugins, starts it, waits for `Done`, stops it with `stop`, and validates logs.
-- `README.md`: quick local and GitHub Actions reference.
+- `smoke_orchestrate.py`: from repo root, chains Maven (`full` / `mvn-package` / `mvn-package-pl`), artifact build, and server run.
+- `README.md`: operational detail for the smoke folder.
 
 ## Profiles
 
 - `foundation`: Paper `1.21.1` + Drake `Slimefun` core. This should always stay green.
 - `core-addons`: `foundation` plus a small Maven addon set for broader runtime coverage once core is stable.
+- `monorepo-all`: large addon set; slow and resource-heavy. Use after a full `mvn package` or with `smoke_orchestrate.py full --skip-mvn` when jars are already built.
 
-## Local Usage
+## Local Usage (orchestrator)
+
+From repository root:
+
+```bash
+python scripts/smoke/smoke_orchestrate.py full --profile foundation --clean --timeout 120
+python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
+```
+
+## Local Usage (PowerShell only)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
@@ -49,10 +62,8 @@ The smoke fails if these markers are missing. This confirms the server loaded a 
 ## Success Criteria
 
 - Paper reaches `Done`.
-- No jar load errors.
-- No `Error occurred while enabling`.
-- No `NoClassDefFoundError` or `ClassNotFoundException`.
-- Banner markers are present.
+- Log must not match the fatal regex list in `run-smoke-server.ps1` (including `Error occurred while enabling`, `Could not load plugin`, `NoClassDefFoundError`, `[SEVERE]`, and related load/exception patterns).
+- Banner markers are present (see **Verification Banner**).
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.

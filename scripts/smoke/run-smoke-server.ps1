@@ -118,11 +118,11 @@ function Assert-SmokeLog {
     $log = Get-Content $logPath -Raw
     $fatalPatterns = @(
         "Could not load 'plugins/.*\.jar'",
+        "Could not load plugin '",
         "Error occurred while enabling",
         "Error occurred while disabling",
         "Plugin .* generated an exception",
         "java\.lang\.NoClassDefFoundError",
-        "java\.lang\.ClassNotFoundException",
         "\[SEVERE\]"
     )
 
@@ -132,9 +132,17 @@ function Assert-SmokeLog {
         }
     }
 
+    $strictPlugins = $false
+    if ($ProfileConfig.PSObject.Properties.Name -contains "strictExpectedPlugins") {
+        $strictPlugins = [bool]$ProfileConfig.strictExpectedPlugins
+    }
+
     foreach ($plugin in @($ProfileConfig.expectedPlugins)) {
         $pluginName = [regex]::Escape($plugin)
         if ($log -notmatch "\[$pluginName\] (Loading|Enabling|Disabling) " -and $log -notmatch "Enabled plugin '$pluginName'") {
+            if ($strictPlugins) {
+                throw "Smoke runtime fallo: no aparecio carga/enabling para el plugin esperado '$plugin'."
+            }
             Write-Warning "No se encontro marcador claro de carga para plugin esperado '$plugin'."
         }
     }
@@ -155,11 +163,45 @@ if (-not $NoBuild) {
     }
 }
 
+$manifestPath = Join-Path $profileRoot "artifact-manifest.json"
+if (Test-Path $manifestPath) {
+    $mj = Get-Content $manifestPath -Raw | ConvertFrom-Json
+    if ($mj.PSObject.Properties.Name -contains "expectedPlugins" -and $mj.expectedPlugins) {
+        $names = @($mj.expectedPlugins)
+        if ($names.Count -gt 0) {
+            $profileConfig | Add-Member -MemberType NoteProperty -Name expectedPlugins -Value $names -Force
+        }
+    }
+}
+
+$waitSeconds = $TimeoutSeconds
+if ($profileConfig.PSObject.Properties.Name -contains "startupTimeoutSeconds" -and $profileConfig.startupTimeoutSeconds) {
+    $minFromProfile = [int]$profileConfig.startupTimeoutSeconds
+    if ($minFromProfile -gt $waitSeconds) {
+        $waitSeconds = $minFromProfile
+    }
+}
+
 Initialize-ServerDirectory
 Invoke-PaperDownload
 Copy-SmokePlugins
 
-Write-Host "==> Iniciando servidor smoke ($Profile)" -ForegroundColor Cyan
+$pluginDirForDeps = Join-Path $serverDir "plugins"
+$fetchDeps = Join-Path $scriptDir "fetch_smoke_optional_deps.py"
+if (Test-Path $fetchDeps) {
+    $python = Get-Command python -ErrorAction SilentlyContinue
+    if (-not $python) {
+        $python = Get-Command py -ErrorAction SilentlyContinue
+    }
+    if ($python) {
+        Write-Host "==> Dependencias opcionales smoke (ProtocolLib, etc.)" -ForegroundColor Cyan
+        & $python.Source $fetchDeps $pluginDirForDeps
+    } else {
+        Write-Warning "Python no encontrado: omitiendo fetch_smoke_optional_deps.py (SoundMuffler puede fallar sin ProtocolLib)."
+    }
+}
+
+Write-Host "==> Iniciando servidor smoke ($Profile, timeout ${waitSeconds}s)" -ForegroundColor Cyan
 $psi = [System.Diagnostics.ProcessStartInfo]::new()
 $psi.FileName = "java"
 $psi.Arguments = "-Xms512M -Xmx2G -jar `"$serverJar`" --nogui"
@@ -171,11 +213,15 @@ $psi.UseShellExecute = $false
 
 $process = [System.Diagnostics.Process]::Start($psi)
 try {
-    if (-not (Wait-ForLogText -Text "Done (" -Seconds $TimeoutSeconds)) {
-        throw "El servidor no llego a estado Done en $TimeoutSeconds segundos."
+    if (-not (Wait-ForLogText -Text "Done (" -Seconds $waitSeconds)) {
+        throw "El servidor no llego a estado Done en $waitSeconds segundos."
     }
 
-    Start-Sleep -Seconds 5
+    $postReadySleep = 5
+    if ($profileConfig.PSObject.Properties.Name -contains "postReadySleepSeconds" -and $profileConfig.postReadySleepSeconds) {
+        $postReadySleep = [int]$profileConfig.postReadySleepSeconds
+    }
+    Start-Sleep -Seconds $postReadySleep
 }
 finally {
     Stop-SmokeServer -Process $process

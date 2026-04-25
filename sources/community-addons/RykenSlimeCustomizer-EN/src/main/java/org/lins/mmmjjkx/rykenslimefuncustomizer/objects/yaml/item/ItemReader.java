@@ -109,7 +109,7 @@ public class ItemReader extends YamlReader<SlimefunItem> {
                 return null;
             }
 
-            CommonUtils.addLore((ItemStack) CommonUtils.DELEGATE.get(sfis), true, CMIChatColor.translate("&8⇨ &e⚡ &70 / " + energyCapacity + " J"));
+            CommonUtils.addLore(CommonUtils.backingItemStack(sfis), true, CMIChatColor.translate("&8⇨ &e⚡ &70 / " + energyCapacity + " J"));
 
             instance = new CustomEnergyItem(group.getSecondValue(), sfis, rt, itemStacks, (float) energyCapacity, eval);
         } else if (section.getBoolean("placeable", false)) {
@@ -295,7 +295,7 @@ public class ItemReader extends YamlReader<SlimefunItem> {
 
         boolean energy = section.contains("energy_capacity");
 
-        CommonUtils.addLore((ItemStack) CommonUtils.DELEGATE.get(original), true, CMIChatColor.translate(radioactivity.getLore()));
+        CommonUtils.addLore(CommonUtils.backingItemStack(original), true, CMIChatColor.translate(radioactivity.getLore()));
 
         BaseRadiationItem instance;
 

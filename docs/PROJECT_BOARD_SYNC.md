@@ -1,45 +1,37 @@
-# Sincronizar el tablero GitHub Projects (org DrakesCraft-Labs)
+# Sincronizar GitHub Projects con la matriz
 
-Tablero oficial: [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
+**Tablero:** [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
 
-La matriz de estado auditada del codigo vive en:
+**Datos auditados:** [docs/es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) (generado; no editar a mano). Regenerar README y matriz:
 
-- [`docs/es/PLUGIN_MATRIX.md`](es/PLUGIN_MATRIX.md) (generada; ver script abajo)
+```bash
+python scripts/generate_plugin_matrix.py
+```
 
-## Por que no se actualizo desde la CLI aqui
+## CLI `gh` y permisos
 
-La CLI `gh` requiere scopes adicionales para leer o editar Projects v2:
+Para leer o mutar Projects v2 hace falta refrescar scopes:
 
 ```bash
 gh auth refresh -h github.com -s read:project,project
 ```
 
-Sin esos permisos, `gh project` devuelve error de scopes.
+Sin eso, los subcomandos `gh project` fallan por permisos.
 
-## Checklist manual recomendado (por cada release de docs)
+## Proceso recomendado
 
-1. Regenerar la matriz desde el repo:
+1. Regenerar la matriz (comando anterior).
+2. Abrir el Project 1 en el navegador.
+3. Por cada módulo del monorepo: alinear la columna de estado con la columna **Estado** de `PLUGIN_MATRIX.md` y copiar o resumir **Observaciones**.
+4. Añadir tarjetas para módulos nuevos en `sources/...` que aún no estén en el tablero.
 
-   ```bash
-   python scripts/generate_plugin_matrix.py
-   ```
+## Sugerencia de mapeo
 
-2. Abrir el [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) en el navegador.
-
-3. Para cada item del tablero que corresponda a un modulo del monorepo, alinear:
-
-   - **Columna / estado** con la columna `Estado` de `PLUGIN_MATRIX.md` (Listo CI, Listo local, En curso, Bloqueado).
-   - **Notas** con el texto de `Observaciones` (acortar si el campo es limitado).
-
-4. Modulos nuevos en el reactor que no existan en el tablero: crear tarjeta y enlazar a la ruta `sources/...`.
-
-## Mapeo sugerido estado -> columnas tipicas
-
-| Matriz `PLUGIN_MATRIX` | Sugerencia de columna en tablero |
-|---|---|
+| Estado en matriz | Columna típica en el tablero |
+|------------------|------------------------------|
 | Listo (CI) | Done / Ready |
-| Listo (local) | In progress (validacion CI pendiente) |
+| Listo (local) | In progress (falta validar en CI) |
 | En curso | Todo o In progress |
 | Bloqueado (build) | Blocked |
 
-Ajustar nombres de columnas al esquema real del Project 1 de la org.
+Ajusta los nombres a las columnas reales del Project 1.

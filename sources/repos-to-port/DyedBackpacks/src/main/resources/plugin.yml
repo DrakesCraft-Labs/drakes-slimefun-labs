@@ -5,7 +5,7 @@ author: TheBusyBiscuit
 description: A Slimefun Addon that adds dyed backpacks
 website: https://github.com/TheBusyBiscuit/DyedBackpacks
 
-main: io.github.thebusybiscuit.dyedbackpacks.DyedBackpacks
+main: com.github.drakescraft_labs.dyedbackpacks.DyedBackpacks
 depend: [Slimefun]
 
 api-version: "1.21"

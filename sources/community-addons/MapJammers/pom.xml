@@ -36,6 +36,14 @@
             <goals>
               <goal>shade</goal>
             </goals>
+            <configuration>
+              <relocations>
+                <relocation>
+                  <pattern>me.vaan.mapjammer</pattern>
+                  <shadedPattern>com.github.drakescraft_labs.mapjammer</shadedPattern>
+                </relocation>
+              </relocations>
+            </configuration>
           </execution>
         </executions>
       </plugin>

@@ -1,6 +1,6 @@
 name: VillagerTrade
 version: '${project.version}'
-main: net.guizhanss.villagertrade.VillagerTrade
+main: com.github.drakescraft_labs.villagertrade.VillagerTrade
 api-version: "1.21"
 depend:
   - Slimefun

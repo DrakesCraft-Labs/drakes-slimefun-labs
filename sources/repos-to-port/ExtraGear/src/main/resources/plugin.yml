@@ -4,4 +4,4 @@ author: TheBusyBiscuit
 depend: [Slimefun]
 
 api-version: "1.21"
-main: io.github.thebusybiscuit.extragear.ExtraGear
+main: com.github.drakescraft_labs.extragear.ExtraGear

@@ -14,12 +14,15 @@ Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefu
 
 | Recurso | URL |
 |---|---|
+| **Indice de documentacion** | [`docs/README.md`](docs/README.md) |
+| **Mantenimiento GitHub** (runs, PRs, alertas) | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
 | **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
 | **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |
 | **Issues** | [Issues](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues) |
 | **Matriz detallada (generada)** | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
 | **Como sincronizar el tablero** | [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md) |
 | **Docs ES (indice)** | [`docs/es/home.md`](docs/es/home.md) |
+| **Docs EN (indice)** | [`docs/en/home.md`](docs/en/home.md) |
 
 > La matriz y la tabla de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineacion manual.
 

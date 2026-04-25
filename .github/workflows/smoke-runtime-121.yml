@@ -11,8 +11,9 @@ on:
         options:
           - foundation
           - core-addons
+          - monorepo-all
       timeout_seconds:
-        description: "Seconds to wait for Paper startup"
+        description: "Seconds to wait for Paper startup (use >=360 for monorepo-all)"
         required: true
         default: "120"
 

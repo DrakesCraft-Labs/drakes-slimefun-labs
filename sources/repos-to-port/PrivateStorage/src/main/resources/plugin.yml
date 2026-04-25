@@ -4,7 +4,7 @@ author: TheBusyBiscuit
 website: https://github.com/TheBusyBiscuit/PrivateStorage
 
 api-version: "1.21"
-main: io.github.thebusybiscuit.privatestorage.PrivateStorage
+main: com.github.drakescraft_labs.privatestorage.PrivateStorage
 
 depend:
 - Slimefun

@@ -1,0 +1,6 @@
+name: ExtraHeads
+version: ${project.version}
+main: com.github.drakescraft_labs.extraheads.ExtraHeads
+api-version: '1.21'
+depend: [Slimefun]
+authors: [DrakesCraft Labs]

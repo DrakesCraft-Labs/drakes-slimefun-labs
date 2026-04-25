@@ -76,7 +76,7 @@ softdepend:
   - Supreme
 
   ## This value is automatically replaced by the version specified in your pom.xml file, do not change this.
-version: ${project.version}
+version: 1.0.0
 
 ## This is the minimum minecraft version required to run your plugin.
 api-version: "1.21"

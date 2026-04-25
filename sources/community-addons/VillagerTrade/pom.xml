@@ -62,6 +62,10 @@
                                     <pattern>net.guizhanss.guizhanlib</pattern>
                                     <shadedPattern>com.github.drakescraft_labs.villagertrade.guizhanlib</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>io.github.thebusybiscuit.slimefun4</pattern>
+                                    <shadedPattern>com.github.drakescraft_labs.slimefun4</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>

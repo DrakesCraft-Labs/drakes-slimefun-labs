@@ -2,6 +2,7 @@ package me.voper.slimeframe.implementation.items.machines;
 
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -38,14 +39,26 @@ public class FlowerGenerator extends AbstractMachine {
 
     private static final int TIME = Utils.secondsToSfTicks(6);
     private static final Map<BlockPosition, Integer> PROGRESS_MAP = new HashMap<>();
-    private static final Map<Material, ItemStack> POTTED_FLOWERS_MAP = new EnumMap<Material, ItemStack>(
-            Tag.FLOWER_POTS.getValues().stream()
-                    .filter(m -> m.name().startsWith("POTTED_"))
-                    .collect(Collectors.toMap(Function.identity(), material -> {
-                        Material flower = Material.getMaterial(material.name().substring(7));
-                        return flower == null ? new ItemStack(material) : new ItemStack(flower);
-                    }))
-    );
+    private static final Map<Material, ItemStack> POTTED_FLOWERS_MAP = buildPottedFlowersMap();
+
+    private static Map<Material, ItemStack> buildPottedFlowersMap() {
+        Map<Material, ItemStack> collected = Tag.FLOWER_POTS.getValues().stream()
+                .filter(m -> m.name().startsWith("POTTED_"))
+                .filter(Material::isItem)
+                .collect(Collectors.toMap(Function.identity(), material -> {
+                    Material flower = Material.getMaterial(material.name().substring(7));
+                    if (flower != null && flower.isItem()) {
+                        return new ItemStack(flower);
+                    }
+                    return new ItemStack(Material.POPPY);
+                }, (a, b) -> a, LinkedHashMap::new));
+        if (collected.isEmpty()) {
+            EnumMap<Material, ItemStack> fallback = new EnumMap<>(Material.class);
+            fallback.put(Material.POTTED_POPPY, new ItemStack(Material.POPPY));
+            return fallback;
+        }
+        return new EnumMap<>(collected);
+    }
 
     @Setter
     private int production = 1;

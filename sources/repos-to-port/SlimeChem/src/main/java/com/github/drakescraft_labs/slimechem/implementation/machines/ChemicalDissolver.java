@@ -53,6 +53,9 @@ public class ChemicalDissolver extends AbstractMachine {
     }
     
     private void addRecipe(Material mat, int[] chances, MoleculeIngredient... ingredients) {
+        if (!mat.isItem()) {
+            return;
+        }
         this.recipes.put(new ItemStack(mat), makeRecipe(chances, ingredients));
     }
 

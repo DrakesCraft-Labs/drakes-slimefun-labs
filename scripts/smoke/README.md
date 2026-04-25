@@ -1,44 +1,52 @@
-# Smoke Runtime 1.21
+# Smoke runtime (Paper 1.21.1)
 
-Base de smoke test para validar que los jars no solo compilan: tambien arrancan en un servidor Paper real.
+Objetivo: comprobar que los JAR no solo compilan, sino que **cargan** en un servidor Paper real con el stack configurado.
+
+## Archivos
+
+| Archivo | Rol |
+|---------|-----|
+| `smoke-profiles.json` | Lista de módulos y plugins por perfil (`foundation`, `core-addons`, `monorepo-all`, etc.). |
+| `build-smoke-artifacts.ps1` | Empaqueta con Maven los módulos del perfil y copia JAR a `.smoke/<perfil>/artifacts/plugins`. |
+| `run-smoke-server.ps1` | Descarga Paper si falta, arranca servidor temporal, valida el log y apaga con `stop`. |
+| `fetch_smoke_optional_deps.py` | Descarga dependencias opcionales (p. ej. ProtocolLib) para addons que las declaran duras. |
+| `smoke_orchestrate.py` | Orquesta Maven + build de artifacts + run desde la raíz del repo. |
+
+## Orquestador Python (recomendado)
+
+Desde la raíz del repositorio:
+
+```bash
+python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
+```
+
+Opciones útiles:
+
+- `--skip-mvn` — no ejecutar `mvn package` completo del reactor (útil si ya compilaste).
+- `--skip-build-artifacts` — reusar `.smoke/<perfil>/artifacts` existentes.
+- `mvn-package-pl --pl sources/community-addons/MiAddon,sources/community-addons/Otro` — compilar solo módulos listados.
+
+## PowerShell directo
+
+```powershell
+pwsh -NoProfile -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation -Clean
+pwsh -NoProfile -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
+```
 
 ## Perfiles
 
-- `foundation`: Paper 1.21.1 + Slimefun core Drake. Es el perfil por defecto y el que debe estar verde siempre.
-- `core-addons`: Slimefun core + un grupo pequeno de addons Maven de bajo riesgo. Usalo para ampliar cobertura runtime cuando el stack base ya esta estable.
+- **`foundation`**: Paper + Slimefun core Drake; debe mantenerse verde como mínimo.
+- **`monorepo-all`**: conjunto amplio de addons del monorepo; tarda más y exige más RAM/disco.
+- Otros perfiles: ver `smoke-profiles.json`.
 
-Los perfiles viven en `scripts/smoke/smoke-profiles.json`.
+## Comprobaciones en el log
 
-## Uso local
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation -Clean
-powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
-```
-
-El runner:
-
-1. empaqueta los modulos del perfil;
-2. copia jars a `.smoke/<perfil>/artifacts/plugins`;
-3. descarga Paper `1.21.1` si falta;
-4. acepta la EULA en el workspace temporal;
-5. arranca el servidor con `--nogui`;
-6. espera `Done`;
-7. apaga con `stop`;
-8. falla si detecta errores de carga o si no aparece el banner Drake.
+`run-smoke-server.ps1` falla si detecta patrones de error graves (carga de plugins, excepciones en enable, etc.). Ajustar patrones con cuidado: demasiado laxo oculta regresiones; demasiado estricto genera falsos positivos.
 
 ## GitHub Actions
 
-El workflow manual `Smoke Runtime 1.21` ejecuta el perfil `foundation` en Ubuntu. No corre en cada push para no ensuciar Actions; se dispara con `workflow_dispatch` cuando quieras validar runtime real.
+El workflow **Smoke Runtime 1.21** (`.github/workflows/smoke-runtime-121.yml`) está pensado para **ejecución manual** (`workflow_dispatch`), no en cada push, para no saturar Actions.
 
-## Banner esperado
+## Banner de arranque
 
-Durante el arranque debe aparecer un banner verde de DrakesCraft con:
-
-- `JACKSTAR`
-- `DRAKESCRAFT`
-- `CHAGUI68`
-- enlace del repo
-- enlace del perfil de JackStar
-
-Ese marcador tambien sirve para confirmar que se cargo el jar Drake y no un artifact viejo.
+El servidor de smoke debe mostrar el banner acordado (JackStar / DrakesCraft / Chagui68) para confirmar que el JAR Drake correcto está en `plugins/`.

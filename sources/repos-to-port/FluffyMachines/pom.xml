@@ -76,7 +76,7 @@
                             <shadedPattern>io.ncbpfluffybear.shaded.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.github.Slimefun-Addon-Community.extrautils</pattern>
+                            <pattern>dev.j3fftw.extrautils</pattern>
                             <shadedPattern>io.ncbpfluffybear.shaded.extrautils</shadedPattern>
                         </relocation>
                     </relocations>
@@ -160,9 +160,10 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.Slimefun-Addon-Community</groupId>
-            <artifactId>extrautils</artifactId>
-            <version>73e76ac06c</version>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>ExtraUtils-drake</artifactId>
+            <version>1.20.6-Drake-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     
         <dependency>

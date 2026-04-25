@@ -28,7 +28,9 @@ public class SFCalc extends JavaPlugin implements Listener {
     public void onEnable() {
         instance = this;
 
-        new BlobBuildUpdater(this, getFile(), "SFCalc").start();
+        if (getDescription().getVersion().startsWith("Dev ")) {
+            new BlobBuildUpdater(this, getFile(), "SFCalc").start();
+        }
 
         REPORTER = new ErrorReporter("Seggan", "SFCalc", () ->
                 "SFCalc " +

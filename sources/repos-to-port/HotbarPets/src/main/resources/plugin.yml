@@ -5,4 +5,4 @@ depend: [Slimefun]
 
 api-version: "1.21"
 
-main: io.github.thebusybiscuit.hotbarpets.HotbarPets
+main: com.github.drakescraft_labs.hotbarpets.HotbarPets

@@ -5,4 +5,4 @@ depend: [Slimefun]
 
 api-version: 1.13
 
-main: io.github.thebusybiscuit.electricspawners.ElectricSpawners
+main: com.github.drakescraft_labs.electricspawners.ElectricSpawners

@@ -22,7 +22,7 @@ public final class Dies {
 
     public static final SlimefunItemStack DIE_SPEAR_HEAD =
         ThemeUtils.themedItemStack(
-          "DIE_SHOVEL_HEAD",
+          "DIE_SPEAR_HEAD",
           SkullTextures.PART_SPEAR_HEAD,
           ThemeItemType.CAST,
           "Die: Stone Spear Head",

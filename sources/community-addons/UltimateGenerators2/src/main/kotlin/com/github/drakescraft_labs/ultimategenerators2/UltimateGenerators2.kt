@@ -9,7 +9,6 @@ import net.guizhanss.ultimategenerators2.core.services.IntegrationService
 import net.guizhanss.ultimategenerators2.core.services.ListenerService
 import net.guizhanss.ultimategenerators2.core.services.LocalizationService
 import net.guizhanss.ultimategenerators2.implementation.setup.UGItemSetup
-import org.bstats.bukkit.Metrics
 import org.bukkit.plugin.Plugin
 import java.io.File
 import java.util.logging.Level
@@ -94,7 +93,21 @@ class UltimateGenerators2 : AbstractAddon(
     }
 
     private fun setupMetrics() {
-        Metrics(this, 21567)
+        // Tras shade-plugin, bStats debe cargarse con el paquete relocado (checkRelocation en 3.x).
+        val metricsClass = Class.forName(
+            "com.github.drakescraft_labs.ultimategenerators2.libs.bstats.bukkit.Metrics",
+        )
+        val intType = Integer.TYPE
+        try {
+            val ctor = metricsClass.getConstructor(Plugin::class.java, intType)
+            ctor.newInstance(this, 21567)
+        } catch (_: NoSuchMethodException) {
+            val ctor = metricsClass.getConstructor(
+                org.bukkit.plugin.java.JavaPlugin::class.java,
+                intType,
+            )
+            ctor.newInstance(this, 21567)
+        }
     }
 
     override fun autoUpdate() {

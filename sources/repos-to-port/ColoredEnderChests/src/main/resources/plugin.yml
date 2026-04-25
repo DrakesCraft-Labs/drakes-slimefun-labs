@@ -3,7 +3,7 @@ version: ${project.version}
 author: TheBusyBiscuit
 website: https://github.com/TheBusyBiscuit/ColoredEnderChests
 
-main: io.github.thebusybiscuit.coloredenderchests.ColoredEnderChests
+main: com.github.drakescraft_labs.coloredenderchests.ColoredEnderChests
 api-version: 1.13
 
 depend: 

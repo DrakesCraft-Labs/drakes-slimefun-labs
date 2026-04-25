@@ -62,7 +62,7 @@
                     <!-- Shade dependencies into the output jar -->
                     <relocations>
                         <relocation>
-                            <pattern>org.bstats.bukkit</pattern>
+                            <pattern>org.bstats</pattern>
                             <shadedPattern>me.sfiguz7.transcendence.bstats</shadedPattern>
                         </relocation>
                     </relocations>

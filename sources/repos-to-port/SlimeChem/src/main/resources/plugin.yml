@@ -1,7 +1,7 @@
 name: SlimeChem
 authors: [Mooy1, Seggan, TheBusyBiscuit]
 description: slimefun chemistry
-main: io.github.addoncommunity.slimechem.SlimeChem
+main: com.github.drakescraft_labs.slimechem.SlimeChem
 depend: [Slimefun]
-version: ${project.version}
+version: 1.21-Drake-v7
 api-version: "1.21"

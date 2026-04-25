@@ -2,10 +2,10 @@ name: SimpleUtils
 author: Mooy1
 description: Simple utility items for slimefun
 website: https://github.com/Mooy1/SimpleUtils
-main: io.github.mooy1.simpleutils.SimpleUtils
+main: com.github.drakescraft_labs.simpleutils.SimpleUtils
 depend: [Slimefun]
 softdepend: [InfinityExpansion]
-version: ${project.version}
+version: MODIFIED
 api-version: "1.21"
 
 commands:

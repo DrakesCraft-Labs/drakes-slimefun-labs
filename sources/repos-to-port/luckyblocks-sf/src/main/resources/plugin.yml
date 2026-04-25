@@ -4,7 +4,7 @@ author: TheBusyBiscuit
 website: https://github.com/TheBusyBiscuit/luckyblocks-sf/
 
 api-version: "1.21"
-main: io.github.thebusybiscuit.slimefunluckyblocks.SlimefunLuckyBlocks
+main: com.github.drakescraft_labs.slimefunluckyblocks.SlimefunLuckyBlocks
 
 depend:
 - Slimefun

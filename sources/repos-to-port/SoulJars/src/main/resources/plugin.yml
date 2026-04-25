@@ -4,7 +4,7 @@ author: TheBusyBiscuit
 website: https://github.com/TheBusyBiscuit/souljars
 
 api-version: "1.21"
-main: io.github.thebusybiscuit.souljars.SoulJars
+main: com.github.drakescraft_labs.souljars.SoulJars
 
 depend:
 - Slimefun

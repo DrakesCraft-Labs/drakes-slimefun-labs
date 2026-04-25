@@ -35,6 +35,28 @@
         "DRAKESCRAFT",
         "CHAGUI68"
       ]
+    },
+    "monorepo-all": {
+      "description": "Paper + Slimefun + todos los addons Maven del reactor (excluye dough, SefiLib, InfinityLib, commons-lang parcheado y ExtraUtils libreria).",
+      "mavenReactorAll": true,
+      "excludeMavenModules": [
+        "sources/dough-core",
+        "sources/batch-2-expansion/SefiLib",
+        "sources/batch-2-expansion/InfinityLib",
+        "sources/internal-metadata/patches/commons-lang-drake-patched",
+        "sources/repos-to-port/ExtraUtils"
+      ],
+      "gradleTasks": [],
+      "expectedPlugins": [],
+      "strictExpectedPlugins": true,
+      "mergeDoughIntoAddonJars": true,
+      "startupTimeoutSeconds": 360,
+      "postReadySleepSeconds": 25,
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ]
     }
   }
 }

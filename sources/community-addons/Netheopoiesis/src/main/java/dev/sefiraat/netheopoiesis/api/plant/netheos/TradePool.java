@@ -257,7 +257,7 @@ public class TradePool {
         .addTrade(new ItemStack(Material.AZALEA, 5), 0)
         .addTrade(SlimefunItems.GILDED_IRON, 0)
         .addTrade(new ItemStack(Material.CALCITE, 15), 0)
-        .addTrade(new ItemStack(Material.CAVE_VINES, 10), 0)
+        .addTrade(new ItemStack(Material.TWISTING_VINES, 10), 0)
         .addTrade(new ItemStack(Material.GLOW_BERRIES, 10), 10)
         .addTrade(new ItemStack(Material.SAND, 20), 20)
         .addTrade(new ItemStack(Material.NAUTILUS_SHELL), 40);

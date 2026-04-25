@@ -1,7 +1,7 @@
 name: GeneticChickengineering
 author: kiichan, ybw0014
 description: An addon for Slimefun that adds resource chickens, rewritten by ybw0014.
-main: net.guizhanss.gcereborn.GeneticChickengineering
+main: com.github.drakescraft_labs.gcereborn.GeneticChickengineering
 website: https://github.com/ybw0014/GeneticChickengineering-Reborn
 version: ${project.version}
 api-version: "1.21"

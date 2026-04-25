@@ -59,6 +59,10 @@
                                     <shadedPattern>com.github.drakescraft_labs.gcereborn.libs.guizhanlib</shadedPattern>
                                 </relocation>
                                 <relocation>
+                                    <pattern>io.github.thebusybiscuit.slimefun4</pattern>
+                                    <shadedPattern>com.github.drakescraft_labs.slimefun4</shadedPattern>
+                                </relocation>
+                                <relocation>
                                     <pattern>org.sqlite</pattern>
                                     <shadedPattern>com.github.drakescraft_labs.gcereborn.libs.sqlite</shadedPattern>
                                 </relocation>

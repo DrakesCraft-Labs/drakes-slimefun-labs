@@ -1,0 +1,6 @@
+name: MobCapturer
+version: ${project.version}
+main: com.github.drakescraft_labs.mobcapturer.MobCapturer
+api-version: '1.21'
+depend: [Slimefun]
+authors: [DrakesCraft Labs]

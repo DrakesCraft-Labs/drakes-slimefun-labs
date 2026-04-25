@@ -1,37 +1,24 @@
-# Home - Drakes Slimefun Labs
+# Documentation home (English)
 
-> Synced to the current operational state of branch `1.21-latin`.
+**Baseline:** Paper 1.21.1 · Java 21 · branch `1.21-latin`
 
-## Executive snapshot
+## Start here
 
-- Active baseline: `Paper 1.21.1`, `Java 21`
-- Main CI (`CI Monorepo 1.21` in Actions): green
-- Maven Dependency Submission: green
-- Current focus: CI stability plus gradual migration of legacy modules
+1. **[docs/README.md](../README.md)** — canonical index (bilingual pointers + tables).
+2. **[README.md](../../README.md)** — repository overview and generated module table (`python scripts/generate_plugin_matrix.py`).
+3. **[PLUGIN_MATRIX.md](../es/PLUGIN_MATRIX.md)** — audited per-module rows (Spanish headers; do not hand-edit).
 
-## What this means
+## Guides
 
-- The primary pipeline is healthy and safe for iteration.
-- Some addons still require runtime validation and hardening.
-- A green pipeline does not mean every module is production ready.
+| Topic | File |
+|-------|------|
+| Local setup | [development-setup.md](development-setup.md) |
+| Smoke test (Paper) | [smoke-test-guide.md](smoke-test-guide.md) |
+| Migration checklist | [migration-checklist.md](migration-checklist.md) |
+| CI / release notes | [release-and-ci-strategy.md](release-and-ci-strategy.md) |
+| Technical baseline | [technical-reference-paper-1.21.1.md](technical-reference-paper-1.21.1.md) |
+| GitHub hygiene (runs, PRs, alerts) | [github-maintenance.md](../github-maintenance.md) |
 
-## Quick navigation
+## Org board
 
-- **Root README** (generated full module table): [`README.md`](../../README.md)
-- **Audited plugin matrix** (86 rows; do not hand-edit): [`docs/es/PLUGIN_MATRIX.md`](../es/PLUGIN_MATRIX.md) (Spanish column headers; canonical data for the monorepo)
-- **Org GitHub Project board**: [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1)
-- **How to sync the board with the matrix**: [`docs/PROJECT_BOARD_SYNC.md`](../PROJECT_BOARD_SYNC.md)
-- Checklist: `docs/en/migration-checklist.md`
-- Pending modules: `docs/en/pending-modules.md`
-- Roadmap: `docs/en/stabilization-roadmap.md`
-- CI/Release strategy: `docs/en/release-and-ci-strategy.md`
-- Technical reference: `docs/en/technical-reference-paper-1.21.1.md`
-
-Refresh README + matrix: `python scripts/generate_plugin_matrix.py`
-
-<!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
-> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
-<!-- DRAKES-STATUS:END -->
+[DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) — align with the matrix using [PROJECT_BOARD_SYNC.md](../PROJECT_BOARD_SYNC.md).

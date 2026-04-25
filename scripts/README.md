@@ -1,80 +1,68 @@
-# 🛠️ DrakesCraft Scripts & Automation
+# Scripts del monorepo
 
-Este directorio contiene el motor de automatización utilizado para la modernización y mantenimiento masivo del ecosistema **DrakesVanillaSlimefun+**.
+Automatización para **Drakes Slimefun Labs**: porteo Paper 1.21.1, coherencia Maven/Gradle, matrices y smoke runtime.
 
-## 🐍 ¿Por qué Python?
+## Requisitos
 
-Dadas las dimensiones del proyecto (+89 módulos), realizar cambios estructurales en los archivos `pom.xml` o refactorizar namespaces en miles de archivos Java de forma manual es inviable. Hemos elegido **Python 3** por:
+- **Python 3.10+** para los scripts listados aquí.
+- **Maven 3.9+** y **JDK 21** en PATH para builds.
+- **PowerShell** (Windows) o **pwsh** para `scripts/smoke/*.ps1`.
 
-1. **Manipulación Masiva**: Capacidad para iterar sobre cientos de archivos y aplicar reglas de sustitución (Regex) de forma quirúrgica.
-2. **Validación de Integridad**: El script verifica que cada cambio mantenga la estructura XML válida antes de guardar.
-3. **Agilidad en el Porting**: Permite actualizar versiones de APIs (Paper, Slimefun) en toda la flota con un solo comando.
-4. **Independencia del IDE**: Las reparaciones se pueden ejecutar en entornos CI/CD (GitHub Actions) o localmente sin depender de refactorizaciones pesadas del IDE.
+## Documentación relacionada
 
----
+| Contenido | Ruta |
+|-----------|------|
+| Índice general del repo | [../docs/README.md](../docs/README.md) |
+| Smoke (perfiles, Paper, logs) | [smoke/README.md](smoke/README.md) |
+| Guía smoke EN/ES | [../docs/en/smoke-test-guide.md](../docs/en/smoke-test-guide.md) · [../docs/es/smoke-test-guide.md](../docs/es/smoke-test-guide.md) |
+| Actions y limpieza en GitHub | [../docs/github-maintenance.md](../docs/github-maintenance.md) |
 
-## 🎮 El Manager (`manager.py`)
+## Herramientas principales
 
-El `manager.py` es el centro de mando del reactor. Sus funciones principales son:
+### `generate_plugin_matrix.py`
 
-### 1. `repair`
-Realiza una "cirugía estructural" en todos los módulos Maven:
-- **Herencia Forzada**: Asegura que todos los módulos hereden del `pom.xml` raíz.
-- **Unificación de Versiones**: Elimina versiones hardcodeadas de `paper-api` y `acf-paper` para usar las del reactor global.
-- **Identidad de Laboratorio**: Rebrandea GroupIds y ArtifactIds al estándar `com.github.drakescraft_labs`.
-- **Seguridad**: Inyecta automáticamente parches para librerías vulnerables (como `commons-lang-drake-patched`).
+Regenera `docs/es/PLUGIN_MATRIX.md` y la tabla larga del `README.md` raíz. Ejecutarlo siempre que cambie el inventario de módulos en `pom.xml` / `settings.gradle.kts` o el mapeo en CI.
 
-### 2. `rebrand-imports`
-Escanea los archivos `.java` y `.kt` para actualizar los namespaces de las librerías internas:
-- Migra de `io.github.bakedlibs` a `dev.drake.dough`.
-- Sincroniza los paquetes de `Slimefun`, `InfinityLib` y `SefiLib` a la nueva estructura unificada.
-
-### 3. `rebrand-shades`
-Sincroniza las reglas de reubicación (`<relocation>`) en los archivos POM para que coincidan con los nuevos namespaces del código fuente, evitando colisiones de clases en el servidor.
-
-### 4. `audit`
-Genera un informe detallado del estado del reactor:
-- % de progreso de la migración.
-- Lista de módulos estabilizados vs. pendientes.
-- Sincronización automática de métricas con el `README.md`.
-
----
-
-## 🚀 Uso Rápido
-
-```powershell
-# Reparar estructura de todos los POMs
-python scripts/manager.py repair
-
-# Refactorizar imports en todo el código fuente
-python scripts/manager.py rebrand-imports
-
-# Ver estado actual del reactor
-python scripts/manager.py audit --sync
-
-# Smoke runtime minimo en Paper 1.21.1
-powershell -ExecutionPolicy Bypass -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
+```bash
+python scripts/generate_plugin_matrix.py
 ```
 
-> [!IMPORTANT]
-> El manager realiza backups automáticos (`.bak`) de cada archivo modificado. Puedes limpiarlos con `python scripts/manager.py clean-backups`.
+### `manager.py`
 
----
+Orquestación de mantenimiento del reactor (POMs, imports, sombras, auditoría). Revisar siempre el diff antes de fusionar cambios masivos.
 
-## Smoke Runtime (`scripts/smoke`)
+```bash
+python scripts/manager.py audit
+python scripts/manager.py repair
+python scripts/manager.py rebrand-imports
+```
 
-La carpeta `scripts/smoke/` contiene la base nueva para validar runtime real:
+Los subcomandos exactos y backups `.bak` están descritos en el propio script.
 
-- `smoke-profiles.json`: perfiles `foundation` y `core-addons`.
-- `build-smoke-artifacts.ps1`: empaqueta jars y prepara `.smoke/<perfil>/artifacts/plugins`.
-- `run-smoke-server.ps1`: descarga Paper, levanta servidor temporal, valida logs y apaga limpio.
-- `README.md`: guia operativa del smoke.
+### `fix_dough_compilation_imports.py`
 
-El perfil `foundation` verifica que el core Drake cargue y que aparezca el banner verde con `JACKSTAR`, `DRAKESCRAFT` y `CHAGUI68`.
+Corrige imports que apuntan por error a `com.github.drakescraft_labs.slimefun4.libraries.dough` (namespace del jar sombreado de Slimefun en runtime). En compilacion Maven debe usarse `dev.drake.dough` (artefacto `dough-core`).
 
-<!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: smoke runtime local y workflow manual `Smoke Runtime 1.21` disponibles.
-<!-- DRAKES-STATUS:END -->
+```bash
+python scripts/fix_dough_compilation_imports.py
+```
+
+### `port_paper_121.py`
+
+Parches repetibles de API Paper 1.21.1; usar con `--dry-run` primero.
+
+## Smoke y orquestación
+
+- Perfiles: `scripts/smoke/smoke-profiles.json`.
+- Orquestador Python: `python scripts/smoke/smoke_orchestrate.py --help` (subcomandos `full`, `mvn-package`, `mvn-package-pl`, `build-artifacts`, `run-server`, `parse-log`).
+- Detalle operativo: [smoke/README.md](smoke/README.md).
+
+Ejemplo de verificación pesada local (después de compilar):
+
+```bash
+python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
+```
+
+## Ámbito de los README bajo `sources/`
+
+Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon documentan ese proyecto concreto o son herencia upstream. No forman el manual central del laboratorio; el manual central vive en `docs/` y en este archivo.

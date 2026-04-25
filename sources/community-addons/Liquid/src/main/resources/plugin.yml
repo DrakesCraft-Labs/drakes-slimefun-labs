@@ -1,6 +1,6 @@
 name: Liquid
 author: Seggan
-main: io.github.seggan.liquid.Liquid
+main: com.github.drakescraft_labs.liquid.Liquid
 depend: [Slimefun]
 version: ${project.version}
 api-version: "1.21"

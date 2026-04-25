@@ -1,6 +1,6 @@
 name: MapJammer
 version: '${project.version}'
-main: me.vaan.mapjammer.MapJammer
+main: com.github.drakescraft_labs.mapjammer.MapJammer
 api-version: "1.21"
 depend:
   - Slimefun

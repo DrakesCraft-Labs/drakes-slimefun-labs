@@ -72,10 +72,6 @@
                             <pattern>io.papermc.lib</pattern>
                             <shadedPattern>dev.sefiraat.cultivation.paperlib</shadedPattern>
                         </relocation>
-                        <relocation>
-                            <pattern>io.github.sefiraat.sefilib</pattern>
-                            <shadedPattern>io.github.sefiraat.cultivation.sefilib</shadedPattern>
-                        </relocation>
                     </relocations>
                     <filters>
                         <filter>
@@ -286,7 +282,7 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-drake</artifactId>
             <version>${sefilib.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Tools etc. -->

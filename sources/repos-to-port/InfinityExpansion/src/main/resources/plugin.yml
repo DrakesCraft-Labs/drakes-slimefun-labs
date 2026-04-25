@@ -1,7 +1,7 @@
 name: InfinityExpansion
 author: Mooy1
 description: more slimefun content
-main: io.github.mooy1.infinityexpansion.InfinityExpansion
+main: com.github.drakescraft_labs.infinityexpansion.InfinityExpansion
 website: https://github.com/Mooy1/InfinityExpansion
 depend: [Slimefun]
 softdepend: [LiteXpansion]

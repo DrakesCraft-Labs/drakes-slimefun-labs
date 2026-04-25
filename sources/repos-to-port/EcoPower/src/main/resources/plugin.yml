@@ -1,7 +1,7 @@
 name: EcoPower
 author: TheBusyBiscuit
 description: A Slimefun Addon that focuses on renewable and climate-friendly power generation
-main: io.github.thebusybiscuit.ecopower.EcoPowerPlugin
+main: com.github.drakescraft_labs.ecopower.EcoPowerPlugin
 website: https://github.com/TheBusyBiscuit/EcoPower
 
 depend: [Slimefun]

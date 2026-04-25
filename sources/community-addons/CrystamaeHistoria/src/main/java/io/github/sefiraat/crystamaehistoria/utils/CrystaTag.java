@@ -46,6 +46,9 @@ public enum CrystaTag implements Tag<Material> {
 
         try {
             final InputStream stream = CrystamaeHistoria.class.getResourceAsStream(fileLocation);
+            if (stream == null) {
+                throw new IllegalStateException("Missing tag resource: " + fileLocation);
+            }
             final JsonReader reader = new JsonReader(new InputStreamReader(stream));
             final JsonObject object = (JsonObject) JsonParser.parseReader(reader);
 

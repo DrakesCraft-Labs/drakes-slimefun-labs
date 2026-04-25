@@ -561,14 +561,14 @@ public final class Items {
         ADVANCEDLX_SOLAR_HELMET.addUnsafeEnchantment(Enchantment.UNBREAKING, 4);
         HYBRID_SOLAR_HELMET.addUnsafeEnchantment(Enchantment.UNBREAKING, 5);
         ULTIMATE_SOLAR_HELMET.addUnsafeEnchantment(Enchantment.UNBREAKING, 6);
-        ADVANCED_CIRCUIT.addEnchantment(glowEnchant, 1);
-        GLASS_CUTTER.addEnchantment(glowEnchant, 1);
+        ADVANCED_CIRCUIT.addUnsafeEnchantment(glowEnchant, 1);
+        GLASS_CUTTER.addUnsafeEnchantment(glowEnchant, 1);
 
-        DIAMOND_DRILL.addEnchantment(glowEnchant, 1);
-        LAPOTRON_CRYSTAL.addEnchantment(glowEnchant, 1);
-        ADVANCEDLX_SOLAR_HELMET.addEnchantment(glowEnchant, 1);
-        HYBRID_SOLAR_HELMET.addEnchantment(glowEnchant, 1);
-        ULTIMATE_SOLAR_HELMET.addEnchantment(glowEnchant, 1);
+        DIAMOND_DRILL.addUnsafeEnchantment(glowEnchant, 1);
+        LAPOTRON_CRYSTAL.addUnsafeEnchantment(glowEnchant, 1);
+        ADVANCEDLX_SOLAR_HELMET.addUnsafeEnchantment(glowEnchant, 1);
+        HYBRID_SOLAR_HELMET.addUnsafeEnchantment(glowEnchant, 1);
+        ULTIMATE_SOLAR_HELMET.addUnsafeEnchantment(glowEnchant, 1);
     }
 
     private Items() {}

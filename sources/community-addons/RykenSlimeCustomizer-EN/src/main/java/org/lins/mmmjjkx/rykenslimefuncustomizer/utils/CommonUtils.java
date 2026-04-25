@@ -48,14 +48,33 @@ public class CommonUtils {
             "TURTLE_SCUTE", "SCUTE"
     );
 
+    /**
+     * Legacy BusyBiscuit Slimefun used a composition delegate; Drake Slimefun's {@link SlimefunItemStack}
+     * extends {@link ItemStack} directly. When absent, use {@link #backingItemStack(SlimefunItemStack)}.
+     */
+    @Nullable
     public static final VarHandle DELEGATE;
 
     static {
+        VarHandle handle = null;
         try {
-            DELEGATE = MethodHandles.privateLookupIn(SlimefunItemStack.class, MethodHandles.lookup()).findVarHandle(SlimefunItemStack.class, "delegate", ItemStack.class);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
+            handle = MethodHandles.privateLookupIn(SlimefunItemStack.class, MethodHandles.lookup())
+                    .findVarHandle(SlimefunItemStack.class, "delegate", ItemStack.class);
+        } catch (NoSuchFieldException | IllegalAccessException ignored) {
+            // Drake fork: no delegate field
         }
+        DELEGATE = handle;
+    }
+
+    @Contract("null -> null; !null -> !null")
+    public static ItemStack backingItemStack(@Nullable SlimefunItemStack sfis) {
+        if (sfis == null) {
+            return null;
+        }
+        if (DELEGATE != null) {
+            return (ItemStack) DELEGATE.get(sfis);
+        }
+        return sfis;
     }
 
     public static ItemStack doGlow(ItemStack item) {
