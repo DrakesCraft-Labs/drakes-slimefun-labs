@@ -52,6 +52,23 @@ bajo `sources/`, excluyendo `slimefun-core` y `dough-core`.
 python scripts/fix_dough_compilation_imports.py
 ```
 
+### `fix_graalvm_js_community_poms.py`
+
+Sustituye `org.graalvm.js` + `artifactId js` (metapaquete Enterprise, arrastra `truffle-enterprise`) por `js-community` en todos los `pom.xml` bajo `sources/` y el POM raíz. Validación XML antes de escribir.
+
+```bash
+python scripts/fix_graalvm_js_community_poms.py
+python scripts/fix_graalvm_js_community_poms.py --audit
+```
+
+### `ci_hygiene_fixes.py`
+
+Orquesta los dos scripts anteriores (GraalVM POM + imports Dough) para una pasada rápida antes de un `mvn package` o un release.
+
+```bash
+python scripts/ci_hygiene_fixes.py
+```
+
 ### `port_paper_121.py`
 
 Parches repetibles de API Paper 1.21.1; usar con `--dry-run` primero.

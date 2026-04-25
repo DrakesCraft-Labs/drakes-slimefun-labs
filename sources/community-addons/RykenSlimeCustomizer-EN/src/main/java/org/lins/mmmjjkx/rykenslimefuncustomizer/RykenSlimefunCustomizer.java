@@ -129,11 +129,6 @@ public final class RykenSlimefunCustomizer extends JavaPlugin implements Slimefu
                 .artifactId("truffle-compiler")
                 .version(graalVersion)
                 .build();
-        Library truffleEnterprise = Library.builder()
-                .groupId("org{}graalvm{}truffle")
-                .artifactId("truffle-enterprise")
-                .version(graalVersion)
-                .build();
         Library truffleRuntime = Library.builder()
                 .groupId("org{}graalvm{}truffle")
                 .artifactId("truffle-runtime")
@@ -204,7 +199,6 @@ public final class RykenSlimefunCustomizer extends JavaPlugin implements Slimefu
         libraryManager.loadLibrary(graalJniUtils);
         libraryManager.loadLibrary(graalRegex);
         libraryManager.loadLibrary(truffleCompiler);
-        libraryManager.loadLibrary(truffleEnterprise);
         libraryManager.loadLibrary(truffleRuntime);
 
         libraryManager.loadLibrary(httpCore);

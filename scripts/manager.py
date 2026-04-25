@@ -142,7 +142,9 @@ def repair(dry_run=False):
         # 8. Reparar corrupciones previas (I-SNAPSHOT)
         (r"I-SNAPSHOT</version>", r"<version>11-SNAPSHOT</version>"),
         # 9. Actualizar maven-shade-plugin a 3.6.0 para soporte de Java 21 (Major version 65)
-        (r"(<artifactId>maven-shade-plugin</artifactId>\s*<version>).*?(</version>)", r"\g<1>3.6.0\g<2>")
+        (r"(<artifactId>maven-shade-plugin</artifactId>\s*<version>).*?(</version>)", r"\g<1>3.6.0\g<2>"),
+        # 10. GraalVM: js (enterprise) → js-community (evita truffle-enterprise en Maven público / CI)
+        (r"(<groupId>org\.graalvm\.js</groupId>\s*<artifactId>)js(</artifactId>)", r"\g<1>js-community\g<2>"),
     ]
     
     count = 0

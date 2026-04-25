@@ -87,7 +87,7 @@
 
 		<dependency>
 			<groupId>org.graalvm.js</groupId>
-			<artifactId>js</artifactId>
+			<artifactId>js-community</artifactId>
 			<version>24.1.2</version>
 			<scope>provided</scope>
 			<type>pom</type>
