@@ -1,6 +1,6 @@
 Fragmentos para el servidor (NO es un plugin): copiar valores a los config reales en Z:\plugins o equivalente.
 Fecha referencia: 2026-04-26.
-También hay copia sugerida en el servidor: Z:\plugins\NOTAS-auth-nlogin-geyser.txt
+También hay copia en el servidor: Z:\plugins\NOTAS-auth-nlogin-geyser.txt (incluye checklist “aplicado en Z”).
 
 --- nLogin: quitar / ocultar flujo de PIN para premium y Bedrock ---
 
