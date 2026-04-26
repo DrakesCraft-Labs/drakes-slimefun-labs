@@ -1,11 +1,11 @@
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "8.1.1" apply false
+    id("com.gradleup.shadow") version "8.3.10" apply false
 }
 
 subprojects {
     apply(plugin = "java")
-    apply(plugin = "com.github.johnrengelman.shadow")
+    apply(plugin = "com.gradleup.shadow")
 
     group = "com.github.drakescraft_labs"
     version = "11.0-Drake-1.21.1-SNAPSHOT"
