@@ -23,32 +23,42 @@ import java.util.Map;
 
 public class VanillaHook {
     private AdvancementManager vanillaManager;
+    /** True solo tras {@link #pushVanillaAdvancements()} sin excepción (createAll cargó los logros en Bukkit). */
     private boolean initialized = false;
 
+    public boolean isVanillaIntegrationReady() {
+        return initialized;
+    }
+
     public void init() {
-        if (initialized) return;
-        initialized = true;
-
+        if (initialized) {
+            return;
+        }
         this.vanillaManager = new AdvancementManager(SFAdvancements.instance());
-
+        pushVanillaAdvancements();
         Utils.listen(new PlayerJoinListener());
         Utils.listen(new AdvancementListener());
-        reload();
+        initialized = true;
     }
 
     public void reload() {
         if (!initialized) {
             init();
+            return;
         }
 
-        vanillaManager.clearAdvancements();
-        registerGroups(vanillaManager);
-        registerAdvancements(vanillaManager);
-        vanillaManager.createAll(true);
+        pushVanillaAdvancements();
 
         for (Player p : Bukkit.getOnlinePlayers()) {
             syncProgress(p);
         }
+    }
+
+    private void pushVanillaAdvancements() {
+        vanillaManager.clearAdvancements();
+        registerGroups(vanillaManager);
+        registerAdvancements(vanillaManager);
+        vanillaManager.createAll(true);
     }
 
     private static void registerGroups(AdvancementManager manager) {
@@ -151,6 +161,9 @@ public class VanillaHook {
     }
 
     public void syncProgress(Player p) {
+        if (!initialized) {
+            return;
+        }
         for (AdvancementGroup group : SFAdvancements.getRegistry().getAdvancementGroups()) {
             complete(p, Utils.keyOf(group.getId()));
         }
@@ -164,18 +177,24 @@ public class VanillaHook {
     }
 
     public void complete(Player p, NamespacedKey key) {
+        if (!initialized) {
+            return;
+        }
         org.bukkit.advancement.Advancement advancement = Bukkit.getAdvancement(key);
         if (advancement == null) {
-            SFAdvancements.warn("Tried to complete unregistered advancement " + key);
+            SFAdvancements.logger().fine("Omitiendo complete: logro vanilla no cargado " + key);
             return;
         }
         Utils.runSync(() -> p.getAdvancementProgress(advancement).awardCriteria("impossible"));
     }
 
     public void revoke(Player p, NamespacedKey key) {
+        if (!initialized) {
+            return;
+        }
         org.bukkit.advancement.Advancement advancement = Bukkit.getAdvancement(key);
         if (advancement == null) {
-            SFAdvancements.warn("Tried to revoke unregistered advancement " + key);
+            SFAdvancements.logger().fine("Omitiendo revoke: logro vanilla no cargado " + key);
             return;
         }
         Utils.runSync(() -> p.getAdvancementProgress(advancement).revokeCriteria("impossible"));

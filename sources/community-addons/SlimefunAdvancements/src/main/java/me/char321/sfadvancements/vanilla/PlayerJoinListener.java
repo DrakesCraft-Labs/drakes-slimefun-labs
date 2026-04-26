@@ -8,7 +8,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        if (SFAdvancements.getMainConfig().getBoolean("use-advancements-api")){
+        if (SFAdvancements.getMainConfig().getBoolean("use-advancements-api")
+                && SFAdvancements.getVanillaHook().isVanillaIntegrationReady()) {
             SFAdvancements.getVanillaHook().syncProgress(e.getPlayer());
         }
     }

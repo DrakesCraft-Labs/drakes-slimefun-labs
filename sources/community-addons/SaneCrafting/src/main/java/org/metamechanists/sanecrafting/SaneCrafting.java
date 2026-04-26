@@ -1,10 +1,13 @@
 package org.metamechanists.sanecrafting;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
+import org.bukkit.event.server.ServerLoadEvent;
 import lombok.Getter;
 import lombok.NonNull;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
 import org.metamechanists.sanecrafting.patches.CraftingTablePatch;
@@ -29,13 +32,33 @@ public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {
 
         new Metrics(this, BSTATS_ID);
 
-        // Patches applied on first tick to ensure everything has loaded
-        Bukkit.getScheduler().scheduleSyncDelayedTask(this, () -> {
+        Runnable applyPatches = () -> {
             UsableInWorkbenchPatch.apply();
             CraftingTablePatch.apply();
             RecipeBookResearchPatch.apply();
             RecipeLorePatch.apply();
-        }, 1);
+        };
+
+        // Tras STARTUP las recetas ya deben existir antes de que los jugadores sincronicen el libro de recetas
+        // (delay 1 tick provocaba "unrecognized recipe" en el primer login).
+        Bukkit.getPluginManager().registerEvents(new Listener() {
+            @EventHandler
+            public void onServerLoad(ServerLoadEvent e) {
+                if (e.getType() != ServerLoadEvent.LoadType.STARTUP
+                        && e.getType() != ServerLoadEvent.LoadType.RELOAD) {
+                    return;
+                }
+                applyPatches.run();
+                if (e.getType() == ServerLoadEvent.LoadType.STARTUP) {
+                    // Segundo pase: addons que registran recetas ECT algo más tarde
+                    Bukkit.getScheduler().runTaskLater(SaneCrafting.this, () -> {
+                        CraftingTablePatch.apply();
+                        RecipeBookResearchPatch.apply();
+                        RecipeLorePatch.apply();
+                    }, 20L);
+                }
+            }
+        }, this);
 
     }
 
