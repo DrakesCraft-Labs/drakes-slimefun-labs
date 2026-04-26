@@ -70,6 +70,15 @@ jobs:
           distribution: temurin
           cache: maven
 
+      - name: Set up Gradle (SlimefunTranslation JAR para UltimateGenerators2)
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: SlimefunTranslation shadowJar (API Drake en classpath de UG2)
+        run: |
+          cd sources/community-addons/SlimefunTranslation
+          chmod +x ./gradlew
+          ./gradlew --no-daemon shadowJar
+
       # `package` (no solo `compile`): Slimefun debe ejecutar shade para que existan
       # `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath de los addons.
       - name: Empaquetar los 81 módulos Maven del reactor
@@ -108,10 +117,11 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon \
+            :sources:community-addons:SlimefunTranslation:shadowJar \
             :sources:community-addons:Bump:compileJava \
             :sources:batch-2-expansion:Galactifun:compileJava \
             :sources:community-addons:CustomItemGenerators:compileJava \
-            :sources:community-addons:FastMachines:compileJava \
+            :sources:community-addons:FastMachines:compileKotlin \
             :sources:community-addons:SlimefunTranslation:compileJava
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
