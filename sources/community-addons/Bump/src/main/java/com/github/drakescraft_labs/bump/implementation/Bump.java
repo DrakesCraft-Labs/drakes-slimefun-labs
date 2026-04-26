@@ -32,7 +32,7 @@ import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
 import net.guizhanss.guizhanlib.minecraft.utils.ChatUtil;
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.bump.core.config.BumpPluginYaml;
 import net.guizhanss.guizhanlib.slimefun.addon.Scheduler;
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 
@@ -54,7 +54,7 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
 
     private static Bump instance;
 
-    private AddonConfig addonConfig;
+    private BumpPluginYaml addonConfig;
     private Scheduler scheduler;
     private int slimefunTickCount;
     private boolean autoUpdateEnabled;
@@ -69,7 +69,7 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
     }
 
     @Nonnull
-    public static AddonConfig getAddonConfig() {
+    public static BumpPluginYaml getAddonConfig() {
         return Objects.requireNonNull(getInstance().addonConfig, "Bump config is not loaded!");
     }
 
@@ -158,7 +158,7 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
 
         boolean brokenConfig = false;
         try {
-            addonConfig = new AddonConfig("config.yml");
+            addonConfig = new BumpPluginYaml(this, "config.yml");
         } catch (RuntimeException e) {
             brokenConfig = true;
             e.printStackTrace();
@@ -195,7 +195,7 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
         sendConsole("&a&l  GitHub: https://github.com/SlimefunGuguProject/Bump");
         sendConsole("&a&l  Issues: https://github.com/SlimefunGuguProject/Bump/issues");
 
-        AddonConfig config = getAddonConfig();
+        BumpPluginYaml config = getAddonConfig();
         new ConfigUpdateService(config);
 
         registry = new BumpRegistry(this, config);
@@ -222,7 +222,7 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
 
         BumpTag.reloadAll();
 
-        soundService = new SoundService(new AddonConfig("sounds.yml"));
+        soundService = new SoundService(new BumpPluginYaml(this, "sounds.yml"));
         soundService.load(true);
 
         AppraiseSetup.setupTypes();
@@ -283,6 +283,6 @@ public final class Bump extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void saveDefaultConfig() {
-        // handled by AddonConfig like Guizhan AbstractAddon
+        // BumpPluginYaml crea el YAML desde recursos al arrancar
     }
 }

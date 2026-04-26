@@ -17,7 +17,7 @@ import com.github.drakescraft_labs.bump.utils.tags.BumpTag;
 import org.apache.commons.lang.Validate;
 import dev.drake.dough.common.CommonPatterns;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import lombok.experimental.UtilityClass;
 
@@ -29,12 +29,15 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public final class ConfigUtils {
     /**
-     * Add the missing config options in {@link AddonConfig}.
+     * Add the missing config options in a {@link FileConfiguration} con defaults.
      *
-     * @param config The {@link AddonConfig} to deal with.
+     * @param config The config to deal with.
      */
-    public static void addMissingOptions(AddonConfig config) {
+    public static void addMissingOptions(FileConfiguration config) {
         Configuration defaultConfig = config.getDefaults();
+        if (defaultConfig == null) {
+            return;
+        }
         for (String key : defaultConfig.getKeys(true)) {
             if (!config.contains(key)) {
                 config.set(key, defaultConfig.get(key));

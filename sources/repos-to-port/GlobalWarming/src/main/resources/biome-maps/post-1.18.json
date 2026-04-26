@@ -556,5 +556,41 @@
     "biomes": [
       "minecraft:nether_wastes"
     ]
+  },
+  {
+    "value": {
+      "temperature": 19,
+      "max-temp-drop-at-night": 10
+    },
+    "biomes": [
+      "minecraft:cherry_grove"
+    ]
+  },
+  {
+    "value": {
+      "temperature": 27,
+      "max-temp-drop-at-night": 8
+    },
+    "biomes": [
+      "minecraft:mangrove_swamp"
+    ]
+  },
+  {
+    "value": {
+      "temperature": 8,
+      "max-temp-drop-at-night": 4
+    },
+    "biomes": [
+      "minecraft:deep_dark"
+    ]
+  },
+  {
+    "value": {
+      "temperature": 14,
+      "max-temp-drop-at-night": 13
+    },
+    "biomes": [
+      "minecraft:pale_garden"
+    ]
   }
 ]

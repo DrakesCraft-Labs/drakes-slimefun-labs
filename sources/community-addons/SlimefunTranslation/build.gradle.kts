@@ -35,7 +35,7 @@ tasks.shadowJar {
     relocate("net.guizhanss.guizhanlib", "com.github.drakescraft_labs.slimefuntranslation.libs.guizhanlib")
     relocate("org.bstats", "com.github.drakescraft_labs.slimefuntranslation.libs.bstats")
     archiveFileName.set("SlimefunTranslation-drake.jar")
-    minimize()
+    // minimize() eliminaba clases de GuizhanLib → NoClassDefFoundError AbstractAddon en runtime
 }
 
 bukkit {

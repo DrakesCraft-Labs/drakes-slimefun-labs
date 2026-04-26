@@ -55,6 +55,10 @@
                             <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>me.EzCoins.MiniBlocks.infinitylib</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>org.bstats</pattern>
+                            <shadedPattern>me.EzCoins.MiniBlocks.bstats</shadedPattern>
+                        </relocation>
                     </relocations>
                     <filters>
                         <filter>

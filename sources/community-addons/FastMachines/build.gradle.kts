@@ -68,7 +68,7 @@ tasks.shadowJar {
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
     doRelocate("io.papermc.lib", "paperlib")
-    minimize()
+    // minimize() podía quitar la clase principal FastMachines del JAR sombreado
     archiveClassifier = ""
 }
 

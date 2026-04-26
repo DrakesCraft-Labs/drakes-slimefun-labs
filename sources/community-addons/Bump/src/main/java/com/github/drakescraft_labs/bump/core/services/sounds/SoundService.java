@@ -12,7 +12,7 @@ import com.google.common.base.Preconditions;
 
 import com.github.drakescraft_labs.bump.implementation.Bump;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.bump.core.config.BumpPluginYaml;
 
 /**
  * This service manages all sounds used in Bump.
@@ -21,7 +21,7 @@ import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
  */
 public final class SoundService {
 
-    private final AddonConfig config;
+    private final BumpPluginYaml config;
 
     private final Map<BumpSound, SoundConfig> soundMap = new EnumMap<>(BumpSound.class);
 
@@ -30,7 +30,7 @@ public final class SoundService {
      *
      * @param soundConfig The config file of sounds.
      */
-    public SoundService(@Nonnull AddonConfig soundConfig) {
+    public SoundService(@Nonnull BumpPluginYaml soundConfig) {
         this.config = soundConfig;
     }
 

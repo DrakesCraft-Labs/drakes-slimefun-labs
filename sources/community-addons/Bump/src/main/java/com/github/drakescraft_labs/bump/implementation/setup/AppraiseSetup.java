@@ -20,7 +20,7 @@ import com.github.drakescraft_labs.bump.api.exceptions.AppraiseTypeKeyConflictEx
 import com.github.drakescraft_labs.bump.implementation.Bump;
 import com.github.drakescraft_labs.bump.utils.ConfigUtils;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.bump.core.config.BumpPluginYaml;
 
 import lombok.experimental.UtilityClass;
 
@@ -34,7 +34,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public final class AppraiseSetup {
     public static void setupTypes() {
-        AddonConfig config = new AddonConfig("appraise-types.yml");
+        BumpPluginYaml config = new BumpPluginYaml(Bump.getInstance(), "appraise-types.yml");
         config.save();
         config.reload();
 
@@ -100,7 +100,7 @@ public final class AppraiseSetup {
     }
 
     public static void setupStars() {
-        final AddonConfig config = Bump.getRegistry().getConfig();
+        final BumpPluginYaml config = Bump.getRegistry().getConfig();
         final Map<Byte, Byte> starThreshold = Bump.getRegistry().getStarThresholds();
         ConfigurationSection section = config.getConfigurationSection("appraise.stars");
         if (section == null) {

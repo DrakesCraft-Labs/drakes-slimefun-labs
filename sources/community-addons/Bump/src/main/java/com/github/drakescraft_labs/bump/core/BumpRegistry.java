@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.github.drakescraft_labs.bump.api.appraise.AppraiseType;
 
-import net.guizhanss.guizhanlib.slimefun.addon.AddonConfig;
+import com.github.drakescraft_labs.bump.core.config.BumpPluginYaml;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,7 +27,7 @@ import lombok.Setter;
 public final class BumpRegistry {
     // config
     @Getter
-    private final AddonConfig config;
+    private final BumpPluginYaml config;
 
     // appraise
     @Getter
@@ -43,7 +43,7 @@ public final class BumpRegistry {
     private String language;
 
     @ParametersAreNonnullByDefault
-    public BumpRegistry(JavaPlugin plugin, AddonConfig config) {
+    public BumpRegistry(JavaPlugin plugin, BumpPluginYaml config) {
         this.config = config;
     }
 }
