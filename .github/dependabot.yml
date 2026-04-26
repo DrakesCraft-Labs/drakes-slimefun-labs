@@ -1,4 +1,8 @@
 # Actualizaciones de dependencias con bajo ruido (no sustituye revision humana del port 1.21).
+#
+# groups: menos ramas dependabot/* — un PR agrupado por ecosistema (Actions) y por tipo
+# Maven (produccion vs desarrollo). Los PRs viejos “uno por dependencia” se pueden cerrar
+# tras fusionar o sustituir por los nuevos agrupados.
 
 version: 2
 updates:
@@ -7,7 +11,11 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 2
+    groups:
+      actions-all:
+        patterns:
+          - "*"
     labels:
       - "dependencies"
       - "github-actions"
@@ -17,7 +25,12 @@ updates:
     schedule:
       interval: "weekly"
       day: "tuesday"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 3
+    groups:
+      maven-production:
+        dependency-type: "production"
+      maven-development:
+        dependency-type: "development"
     labels:
       - "dependencies"
       - "java"

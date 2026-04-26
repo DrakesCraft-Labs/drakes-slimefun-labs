@@ -8,13 +8,10 @@ GitHub **no** ofrece un botón “borrar todo el historial” de ejecuciones. Op
 
 1. **Retención automática** (recomendado): en el repo, *Settings → Actions → General → Artifact and log retention* (y políticas de la org). Reduce ruido sin scripts.
 2. **Borrar ejecuciones con la CLI** (por lotes): con token que incluya `workflow`:
-
-   ```bash
+  ```bash
    gh run list --repo DrakesCraft-Labs/drakes-slimefun-labs --limit 200 --json databaseId -q '.[].databaseId' | xargs -n1 gh run delete --repo DrakesCraft-Labs/drakes-slimefun-labs
-   ```
-
+  ```
    En Windows PowerShell puedes iterar con un bucle corto sobre `gh run list`. Respeta los límites de tasa de la API; pausa entre lotes si hay cientos de entradas.
-
 3. **Archivar el repo** o duplicar historial: medida extrema; no suele ser necesaria solo por “limpieza visual”.
 
 No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos en Settings.
@@ -25,7 +22,7 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 2. Para cada PR: revisar CI, conflicto con `1.21-latin`, y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
-**Ramas divergentes:** no abras ni fusiones PRs que intenten unir **`1.21-latin`** con **`26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
+**Ramas divergentes:** no abras ni fusiones PRs que intenten unir `**1.21-latin`** con `**26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
 
@@ -38,27 +35,24 @@ Lo habitual es:
 1. **Workflow de Actions** que falle cuando `github.base_ref` y `github.head_ref` sean exactamente esa pareja prohibida.
 2. Marcar ese job como **status check obligatorio** en las ramas afectadas (ruleset o branch protection).
 
-En este repo el workflow es [`.github/workflows/policy-no-cross-line-merge.yml`](../.github/workflows/policy-no-cross-line-merge.yml). El job se llama **`cross-merge-guard`** (nombre que verás en el cuadro de checks del PR).
+En este repo el workflow es `[.github/workflows/policy-no-cross-line-merge.yml](../.github/workflows/policy-no-cross-line-merge.yml)`. El job se llama `**cross-merge-guard`** (nombre que verás en el cuadro de checks del PR).
 
 ### Activar el bloqueo (recomendado: Rulesets en la UI)
 
 1. *Settings → Rules → Rulesets → New branch ruleset*.
 2. **Name:** por ejemplo `require-cross-merge-guard`.
 3. **Target branches:** incluir `1.21-latin` y `26.X-ToTheStars` (dos entradas o patrón que las cubra).
-4. Activar **Require status checks to pass** (o el equivalente en rulesets) y elegir el check **`cross-merge-guard`** (tras abrir un PR de prueba contra esas bases para que GitHub lo descubra, si no aparece en la lista).
+4. Activar **Require status checks to pass** (o el equivalente en rulesets) y elegir el check `**cross-merge-guard`** (tras abrir un PR de prueba contra esas bases para que GitHub lo descubra, si no aparece en la lista).
 5. Opcional: modo **Evaluate** primero para validar sin bloquear aún.
 
 ### Qué puede hacer `gh` aquí
 
 - **Solo lectura / comprobación** (oficial en CLI): `gh ruleset list`, `gh ruleset view`, `gh ruleset check <rama> -R org/repo`.
 - **Crear o actualizar rulesets** no trae subcomando dedicado; se hace con la **API REST** que `gh` puede llamar:
-
   ```bash
   gh api --method POST repos/DrakesCraft-Labs/drakes-slimefun-labs/rulesets --input ruleset.json
   ```
-
   El cuerpo `ruleset.json` debe seguir [Create a repository ruleset](https://docs.github.com/en/rest/repos/rules?apiVersion=2022-11-28#create-a-repository-ruleset) (campos `name`, `target`, `enforcement`, `conditions.ref_name.include`, `rules` con `type: "required_status_checks"` y el `context` exacto del check). Hace falta token con permisos de administración sobre el repo.
-
 - **Branch protection clásica** (alternativa): `PUT /repos/{owner}/{repo}/branches/{branch}/protection` con `required_status_checks`; también vía `gh api` con JSON bien formado. Suele ser más verboso que un ruleset en la UI.
 
 ### Limitación del workflow
@@ -70,7 +64,7 @@ Solo bloquea cuando la **cabeza del PR** es exactamente `26.X-ToTheStars` o `1.2
 ### Dónde mirar
 
 - **Dependabot alerts**: *Security → Dependabot alerts* en el repo (o API REST).
-- **Dependabot version updates**: los PRs automáticos siguen `.github/dependabot.yml` (GitHub Actions + POM raíz Maven).
+- **Dependabot version updates**: los PRs automáticos siguen `.github/dependabot.yml` (GitHub Actions + POM raíz Maven). El YAML usa **`groups`**: suele haber **un PR semanal agrupado** para Actions y hasta **dos** para Maven (dependencias de producción vs desarrollo), en lugar de una rama por cada bump. Tras cambiar la config, conviene **cerrar** los PRs viejos “uno por librería” que ya no aporten.
 - **GitHub “Dependabot security updates”** y el grafo **Dependency review** pueden mostrar el mismo CVE en varios manifiestos; no es obligatorio tener *cero* filas duplicadas si el estado global es **fixed** o **dismissed** con motivo documentado.
 - **Code scanning**: solo aparece si hay análisis configurado (CodeQL u otro); si la API devuelve 404, no hay alertas de código que listar.
 
@@ -90,11 +84,11 @@ gh api graphql -f query='query($o:String!,$n:String!){repository(owner:$o,name:$
 
 ### Cómo mitiga este monorepo
 
-En el **`pom.xml` raíz**, `dependencyManagement` fija versiones seguras de uso frecuente (commons-lang3, Guava, Spring context, Plexus Utils, Commons IO, Jackson, Log4j2, etc.). Los submódulos heredan el BOM al resolver transitivos.
+En el `**pom.xml` raíz**, `dependencyManagement` fija versiones seguras de uso frecuente (commons-lang3, Guava, Spring context, Plexus Utils, Commons IO, Jackson, Log4j2, etc.). Los submódulos heredan el BOM al resolver transitivos.
 
-En **`build.gradle.kts`** del reactor Gradle, `resolutionStrategy` fuerza las mismas líneas críticas (commons-io, commons-lang3, jackson-core, log4j-api / log4j-core) para no diverger del árbol Maven.
+En `**build.gradle.kts`** del reactor Gradle, `resolutionStrategy` fuerza las mismas líneas críticas (commons-io, commons-lang3, jackson-core, log4j-api / log4j-core) para no diverger del árbol Maven.
 
-**Commons Lang 2.x**: el código vulnerable upstream no recibe parche en Maven Central; aquí se usa **`commons-lang-drake-patched`** (reemplazo interno). Las alertas sobre `commons-lang:commons-lang` suelen **cerrarse como “dismissed”** o equivalente con la nota de que el runtime usa el artefacto parcheado.
+**Commons Lang 2.x**: el código vulnerable upstream no recibe parche en Maven Central; aquí se usa `**commons-lang-drake-patched`** (reemplazo interno). Las alertas sobre `commons-lang:commons-lang` suelen **cerrarse como “dismissed”** o equivalente con la nota de que el runtime usa el artefacto parcheado.
 
 Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que toque) y fusionar PRs de Dependabot con revisión humana.
 
@@ -108,17 +102,15 @@ Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que to
 
 El workflow **CI Monorepo 1.21** (`.github/workflows/ci-monorepo-121.yml`) define dos comportamientos distintos:
 
-1. **Maven · fundación** ejecuta `mvn clean compile` solo sobre el stack base (Dough, Slimefun core, SefiLib, InfinityLib, commons-lang parcheado). **No** se ejecuta el *shade* de Slimefun, por tanto **no existen** paquetes `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath. **SefiLib** e **InfinityLib** deben importar **`dev.drake.dough.protection.*`**. El script `scripts/fix_dough_compilation_imports.py` **excluye** esos árboles para no sustituir imports por los tipos sombreados.
-
-2. **Maven · reactor completo** ejecuta `mvn package` sobre todo el reactor. Ahí Slimefun **sí** empaqueta con shade antes de los addons que dependen de él, así que los addons pueden usar **`com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`** (ver script anterior y comentarios en `docs/README.md`).
+1. **Maven · fundación** ejecuta `mvn clean compile` solo sobre el stack base (Dough, Slimefun core, SefiLib, InfinityLib, commons-lang parcheado). **No** se ejecuta el *shade* de Slimefun, por tanto **no existen** paquetes `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath. **SefiLib** e **InfinityLib** deben importar `**dev.drake.dough.protection.*`**. El script `scripts/fix_dough_compilation_imports.py` **excluye** esos árboles para no sustituir imports por los tipos sombreados.
+2. **Maven · reactor completo** ejecuta `mvn package` sobre todo el reactor. Ahí Slimefun **sí** empaqueta con shade antes de los addons que dependen de él, así que los addons pueden usar `**com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`** (ver script anterior y comentarios en `docs/README.md`).
 
 El workflow **Release monorepo JARs** también usa `package`, coherente con el reactor completo.
 
 ## GraalVM (RykenSlimeCustomizer) y CI
 
-- En Maven, **`org.graalvm.js:js`** (tipo POM “enterprise”) arrastra **`truffle-enterprise`**, problemático en Maven público y en GitHub Actions. Debe usarse **`org.graalvm.js:js-community`** (mismo rango de versión, p. ej. `24.1.2`). El script **`scripts/fix_graalvm_js_community_poms.py`** (`--audit`, `--dry-run`) y **`scripts/ci_hygiene_fixes.py`** documentan y automatizan el barrido; **`scripts/manager.py repair`** incluye la misma regla en transformaciones POM.
-
-- En **Libby** (carga en runtime), no se debe pedir el artefacto **`truffle-enterprise`**; el stack community usa **`truffle-runtime`** junto con `js-language`, `truffle-api`, etc.
+- En Maven, `**org.graalvm.js:js`** (tipo POM “enterprise”) arrastra `**truffle-enterprise`**, problemático en Maven público y en GitHub Actions. Debe usarse `**org.graalvm.js:js-community**` (mismo rango de versión, p. ej. `24.1.2`). El script `**scripts/fix_graalvm_js_community_poms.py**` (`--audit`, `--dry-run`) y `**scripts/ci_hygiene_fixes.py**` documentan y automatizan el barrido; `**scripts/manager.py repair**` incluye la misma regla en transformaciones POM.
+- En **Libby** (carga en runtime), no se debe pedir el artefacto `**truffle-enterprise`**; el stack community usa `**truffle-runtime`** junto con `js-language`, `truffle-api`, etc.
 
 ## Que todo quede “en verde”
 
@@ -142,11 +134,13 @@ Tras publicar, el despliegue típico en survival es manual (por ejemplo en **[Dr
 
 ## Fallos de Actions ya cubiertos en `1.21-latin` (referencia)
 
-| Síntoma | Causa | Mitigación en repo |
-|--------|--------|---------------------|
-| **Maven · fundación** + `package ...libraries.dough.protection does not exist` en **SefiLib** / **InfinityLib** | Esos módulos compilan con `compile` sin shade de Slimefun; los imports deben ser **`dev.drake.dough.*`**. | Imports corregidos; `fix_dough_compilation_imports.py` excluye esos árboles. |
-| **Maven · reactor completo** + mismos errores en addons | El job usaba solo **`mvn compile`**; sin shade no existen tipos `libraries.dough.*`. | Workflow pasa a **`mvn package -DskipTests -fae`**. |
-| **Release monorepo JARs** + `truffle-enterprise` / JAR corrupto | `org.graalvm.js:js` enterprise en POM y carga Libby de **truffle-enterprise**. | POM **`js-community`**; Libby sin enterprise. |
-| **Dependabot** propone **Spring 7** desde 6.2.x | Salto **semver-major** no deseado en el port 1.21. | `dependabot.yml` **ignore** en `spring-context` para major. |
 
-Las acciones **release** y **smoke** usan **`actions/upload-artifact@v7`** y el release **`softprops/action-gh-release@v3`**, alineadas con los PRs de Dependabot que pasaron CI.
+| Síntoma                                                                                                         | Causa                                                                                                     | Mitigación en repo                                                           |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Maven · fundación** + `package ...libraries.dough.protection does not exist` en **SefiLib** / **InfinityLib** | Esos módulos compilan con `compile` sin shade de Slimefun; los imports deben ser `**dev.drake.dough.*`**. | Imports corregidos; `fix_dough_compilation_imports.py` excluye esos árboles. |
+| **Maven · reactor completo** + mismos errores en addons                                                         | El job usaba solo `**mvn compile`**; sin shade no existen tipos `libraries.dough.*`.                      | Workflow pasa a `**mvn package -DskipTests -fae`**.                          |
+| **Release monorepo JARs** + `truffle-enterprise` / JAR corrupto                                                 | `org.graalvm.js:js` enterprise en POM y carga Libby de **truffle-enterprise**.                            | POM `**js-community`**; Libby sin enterprise.                                |
+| **Dependabot** propone **Spring 7** desde 6.2.x                                                                 | Salto **semver-major** no deseado en el port 1.21.                                                        | `dependabot.yml` **ignore** en `spring-context` para major.                  |
+
+
+Las acciones **release** y **smoke** usan `**actions/upload-artifact@v7`** y el release `**softprops/action-gh-release@v3`**, alineadas con los PRs de Dependabot que pasaron CI.
