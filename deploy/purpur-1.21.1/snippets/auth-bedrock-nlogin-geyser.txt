@@ -1,0 +1,47 @@
+Fragmentos para el servidor (NO es un plugin): copiar valores a los config reales en Z:\plugins o equivalente.
+Fecha referencia: 2026-04-26.
+
+--- nLogin: quitar / ocultar flujo de PIN para premium y Bedrock ---
+
+1) Plantilla oficial (language-version 2): https://docs.nickuc.com/nlogin/config/template
+
+   Asegura autologin (sin pedir registro/password a quien ya es premium o Bedrock vía Floodgate):
+   premium:
+     autologin:
+       premium:
+         enable: true
+         skip-register: true
+       bedrock:
+         enable: true
+         skip-register: true
+
+2) Si el "PIN" viene del sistema de recuperación / comando /pin (configs antiguos estilo OpeNLogin):
+   En config.yml del backend, si existe sección similar a:
+     pin:
+       enable-pin: false
+   y desactiva el comando pin si tu versión lo expone bajo commands.pin / pin.enabled.
+
+3) Si usas Discord o Email como segundo factor y te obliga a premium/Bedrock:
+   En el yml de Discord de nLogin (según docs "Configuring 2FA"):
+     options:
+       link-required:
+         required-for-premium: false
+   Igual en el yml de Email. Así el enlace 2FA no es obligatorio para cuentas premium.
+
+4) Permisos: a grupos premium y Bedrock (Floodgate) puedes dar nlogin.bypass.* que correspondan
+   a email/discord si aún molesta (ver lista en https://docs.nickuc.com/nlogin/).
+
+--- Geyser: segunda mano (offhand) para Bedrock ---
+
+Bedrock no tiene la tecla F de Java; Geyser ofrece:
+
+A) Comando (por jugador): /geyser offhand  (permiso geyser.command.offhand)
+   En LuckPerms, al grupo de Bedrock (p. ej. contexto floodgate o prefijo .):
+     permission set geyser.command.offhand true
+
+B) Config en plugins/Geyser-Spigot/config.yml (o standalone):
+     emote-offhand-workaround: emotes-and-offhand
+   Valores típicos: disabled | no-emotes | emotes-and-offhand
+   Con esto, al hacer un emote en Bedrock se intercambian mano principal y secundaria.
+
+Wiki: https://geysermc.org/wiki/geyser/faq/ (sección offhand)

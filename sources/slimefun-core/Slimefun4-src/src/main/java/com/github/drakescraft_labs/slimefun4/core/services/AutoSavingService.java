@@ -148,17 +148,14 @@ public class AutoSavingService {
             BlockStorage storage = BlockStorage.getStorage(world);
 
             if (storage != null) {
-                storage.computeChanges();
-
-                if (storage.getChanges() > 0) {
-                    storage.save();
-                    worlds++;
-                }
+                // save() ya hace computeChanges() y no escribe si no hay cambios
+                storage.save();
+                worlds++;
             }
         }
 
         if (worlds > 0) {
-            Slimefun.logger().log(Level.INFO, "Slimefun: guardados datos de bloques en {0} mundo(s) durante el apagado.", worlds);
+            Slimefun.logger().log(Level.INFO, "Slimefun: volcado de BlockStorage revisado en {0} mundo(s) al apagar.", worlds);
         }
     }
 
