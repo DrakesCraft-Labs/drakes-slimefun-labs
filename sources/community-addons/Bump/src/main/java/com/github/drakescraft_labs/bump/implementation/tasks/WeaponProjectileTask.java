@@ -39,8 +39,9 @@ public final class WeaponProjectileTask implements Runnable {
      * This method starts this task
      */
     public static void start() {
+        // Guizhan AddonConfig#getInt(path, min, max) → acotar al rango [0, 60]; default del config.yml: 10
         int duration = Math.max(0, Math.min(60,
-            Bump.getRegistry().getConfig().getInt("weapons.projectile-duration", 60)));
+            Bump.getRegistry().getConfig().getInt("weapons.projectile-duration", 10)));
         if (duration > 0) {
             Bump.getScheduler().repeat(Slimefun.getTickerTask().getTickRate(), new WeaponProjectileTask(duration));
         }
