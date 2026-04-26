@@ -1,5 +1,5 @@
 # Enable this to get bug fixes and support asap
-auto-update: true
+auto-update: false
 
 worlds:
 

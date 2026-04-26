@@ -113,7 +113,11 @@ public final class Galactifun extends AbstractAddon {
         if (!isTest && this.getConfig().getBoolean("auto-update")
                 && !ver.contains("MODIFIED")
                 && !ver.toLowerCase(java.util.Locale.ROOT).contains("drake")) {
-            new BlobBuildUpdater(this, this.getFile(), "Galactifun").start();
+            try {
+                new BlobBuildUpdater(this, this.getFile(), "Galactifun").start();
+            } catch (IllegalArgumentException ex) {
+                log(Level.WARNING, "Auto-updater omitido (versión no compatible con BlobBuild): " + ex.getMessage());
+            }
         }
 
         this.alienManager = new AlienManager(this);
@@ -169,6 +173,9 @@ public final class Galactifun extends AbstractAddon {
     @Nullable
     @Override
     public ChunkGenerator getDefaultWorldGenerator(@Nonnull String worldName, @Nullable String id) {
+        if (this.worldManager == null) {
+            return null;
+        }
         World world = Bukkit.getWorld(worldName);
         if (world == null) return null;
 

@@ -34,6 +34,14 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
     public static int blocksExploded = 0;
 
     @Override
+    public void onLoad() {
+        if (getServer().getPluginManager().getPlugin("WorldGuard") != null
+                && getServer().getPluginManager().getPlugin("WorldEdit") != null) {
+            WorldGuardLoader.load(this);
+        }
+    }
+
+    @Override
     public void onEnable() {
         int pluginId = 14904; // <-- Replace with the id of your plugin!
         metrics = new Metrics(this, pluginId);
@@ -102,13 +110,8 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
                 }
             }
         }.runTaskTimer(this, 0, cfg.getInt("other.cleanup-wait-time"));
-        
-        // WorldGuard solo permite registrar flags mientras el registro está abierto (no en un tick diferido).
-        getLogger().info("Checking For Worldguard");
-        if (getServer().getPluginManager().getPlugin("WorldGuard") != null
-                && getServer().getPluginManager().getPlugin("WorldEdit") != null) {
-            WorldGuardLoader.load();
-        }
+
+        getLogger().info("Checking For Towny");
         if (getServer().getPluginManager().getPlugin("Towny") != null) {
             TownyLoader.setup();
         }

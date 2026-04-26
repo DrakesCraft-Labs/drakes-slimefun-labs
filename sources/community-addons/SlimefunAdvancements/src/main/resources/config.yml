@@ -1,7 +1,8 @@
 auto-update: true
 
 # adds your advancements to the vanilla advancements menu (experimental)
-use-advancements-api: true
+# Paper/Purpur 1.21.11+: AdvancementAPI antiguo usa icono {"item":...} sin "id" → JsonParseException; dejar false hasta API compatible.
+use-advancements-api: false
 # whether to announce advancements
 announce-advancements: true
 add-advancements-to-guide: true

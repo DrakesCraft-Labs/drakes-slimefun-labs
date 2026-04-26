@@ -17,12 +17,17 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
+
 public class WorldGuardLoader {
     public static StateFlag ALLOW_MISSILE_EXPLODE;
 
-    public static void load(){
+    /**
+     * Debe llamarse desde {@code onLoad()}: WorldGuard 7 cierra el registro de flags antes de {@code onEnable}.
+     */
+    public static void load(@Nonnull MissileWarfare plugin) {
         MissileWarfare.worldGuardEnabled = true;
-        MissileWarfare.getInstance().getLogger().info("WorldGuard Enabled!");
+        plugin.getLogger().info("WorldGuard Enabled!");
         FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
         try {
             // create a flag with the name "my-custom-flag", defaulting to true
@@ -36,9 +41,12 @@ public class WorldGuardLoader {
             if (existing instanceof StateFlag) {
                 ALLOW_MISSILE_EXPLODE = (StateFlag) existing;
             } else {
-                MissileWarfare.getInstance().getLogger().severe("!! WARNING: WORLDGUARD FLAG ALLOW_MISSILE_EXPLODE HAS BEEN TAKEN BY ANOTHER PLUGIN, WORLDGUARD SUPPORT IS DISABLED !!");
+                plugin.getLogger().severe("!! WARNING: WORLDGUARD FLAG ALLOW_MISSILE_EXPLODE HAS BEEN TAKEN BY ANOTHER PLUGIN, WORLDGUARD SUPPORT IS DISABLED !!");
                 MissileWarfare.worldGuardEnabled = false;
             }
+        } catch (IllegalStateException e) {
+            plugin.getLogger().warning("WorldGuard: no se pudo registrar la flag (registro cerrado). " + e.getMessage());
+            MissileWarfare.worldGuardEnabled = false;
         }
     }
 

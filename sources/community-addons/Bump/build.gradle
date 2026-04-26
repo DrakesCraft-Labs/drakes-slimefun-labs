@@ -30,6 +30,11 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
+// Evita publicar el JAR fino sin dependencias sombreadas (ClassNotFound guizhanlib.*).
+tasks.named('jar', Jar) {
+    enabled = false
+}
+
 shadowJar {
     relocate 'dev.sefiraat.sefilib', 'io.github.slimefunguguproject.bump.libs.sefilib'
     relocate 'net.guizhanss.guizhanlib', 'io.github.slimefunguguproject.bump.libs.guizhanlib'

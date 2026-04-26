@@ -58,6 +58,11 @@ kotlin {
     }
 }
 
+// Solo el fat JAR sombreado debe ir al servidor (el jar de Kotlin no incluye main ni relocations).
+tasks.named<Jar>("jar") {
+    enabled = false
+}
+
 tasks.shadowJar {
     fun doRelocate(from: String, to: String? = null) {
         val last = to ?: from.split(".").last()

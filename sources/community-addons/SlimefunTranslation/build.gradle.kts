@@ -31,6 +31,10 @@ java {
     sourceCompatibility = JavaVersion.VERSION_21
 }
 
+tasks.named<Jar>("jar") {
+    enabled = false
+}
+
 tasks.shadowJar {
     relocate("net.guizhanss.guizhanlib", "com.github.drakescraft_labs.slimefuntranslation.libs.guizhanlib")
     relocate("org.bstats", "com.github.drakescraft_labs.slimefuntranslation.libs.bstats")
