@@ -20,7 +20,7 @@ dependencies {
     compileOnly "com.google.code.findbugs:jsr305:3.0.2"
     compileOnly "org.projectlombok:lombok:1.18.34"
     
-    implementation "net.guizhanss:guizhanlib-all:2.2.0"
+    implementation "net.guizhanss:guizhanlib-all:2.5.0"
     implementation "com.github.drakescraft_labs:sefilib-drake:0.3.1-DRAKE-SNAPSHOT"
     implementation "org.bstats:bstats-bukkit:3.0.2"
 }
@@ -32,7 +32,9 @@ java {
 
 shadowJar {
     relocate 'dev.sefiraat.sefilib', 'io.github.slimefunguguproject.bump.libs.sefilib'
+    relocate 'net.guizhanss.guizhanlib', 'io.github.slimefunguguproject.bump.libs.guizhanlib'
     relocate 'org.bstats', 'io.github.slimefunguguproject.bump.libs.bstats'
+    mergeServiceFiles()
     archiveFileName = "Bump-drake.jar"
 }
 

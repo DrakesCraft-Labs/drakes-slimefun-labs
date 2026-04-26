@@ -30,6 +30,19 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPrese
 @ParametersAreNonnullByDefault
 public final class GearTransformer extends AbstractEnergyCrafter implements RecipeDisplayItem {
 
+    /** 1.21+ removed {@code Material.CHAIN}; use a sensible fallback for "chain tier" recipe cost. */
+    private static Material chainArmorUnit() {
+        Material m = Material.matchMaterial("CHAIN");
+        if (m != null) {
+            return m;
+        }
+        m = Material.matchMaterial("CHAIN_BLOCK");
+        if (m != null) {
+            return m;
+        }
+        return Material.IRON_BARS;
+    }
+
     private static final boolean SF = InfinityExpansion.config().getBoolean("balance-options.allow-sf-item-transform");
     private static final int[] OUTPUT_SLOTS = { 40 };
     private static final int[] INPUT_SLOTS = { 10, 16 };
@@ -44,7 +57,7 @@ public final class GearTransformer extends AbstractEnergyCrafter implements Reci
     };
     private static final ItemStack[] ARMOR_RECIPE = {
             new ItemStack(Material.LEATHER, 9),
-            new ItemStack(Material.valueOf("CHAIN"), 9),
+            new ItemStack(chainArmorUnit(), 9),
             new ItemStack(Material.IRON_INGOT, 9),
             new ItemStack(Material.GOLD_INGOT, 9),
             new ItemStack(Material.DIAMOND, 9),

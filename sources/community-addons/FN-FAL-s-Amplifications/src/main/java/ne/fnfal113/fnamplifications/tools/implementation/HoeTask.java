@@ -30,6 +30,19 @@ public class HoeTask {
 
     private static final Set<Material> MAT = new HashSet<>();
 
+    @SuppressWarnings("unchecked")
+    private static void addTagMaterialsIfPresent(Set<Material> out, String tagFieldName) {
+        try {
+            var field = Tag.class.getField(tagFieldName);
+            Tag<Material> tag = (Tag<Material>) field.get(null);
+            if (tag != null) {
+                out.addAll(tag.getValues());
+            }
+        } catch (ReflectiveOperationException | ClassCastException ignored) {
+            // 1.21+: e.g. TALL_FLOWERS removed; tall flowers are covered by Tag.FLOWERS
+        }
+    }
+
     static {
         if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_17)) {
             GRASS_PATH = Material.DIRT_PATH;
@@ -37,7 +50,7 @@ public class HoeTask {
         
         MAT.addAll(Tag.FLOWERS.getValues());
         MAT.addAll(Tag.SMALL_FLOWERS.getValues());
-        MAT.addAll(Tag.TALL_FLOWERS.getValues());
+        addTagMaterialsIfPresent(MAT, "TALL_FLOWERS");
         MAT.addAll(Tag.SAPLINGS.getValues());
     }
 

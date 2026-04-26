@@ -44,6 +44,13 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
+                    <artifactSet>
+                        <includes>
+                            <include>${project.groupId}:${project.artifactId}</include>
+                            <include>com.github.drakescraft_labs:dough-core</include>
+                            <include>org.bstats:bstats-bukkit</include>
+                        </includes>
+                    </artifactSet>
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>

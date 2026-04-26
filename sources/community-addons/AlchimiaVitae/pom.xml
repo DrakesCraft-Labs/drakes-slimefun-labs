@@ -35,6 +35,33 @@
                 </includes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${maven.shade.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>dev.drake.infinitylib</pattern>
+                                    <shadedPattern>me.apeiros.alchimiavitae.shaded.infinitylib</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>dev.drake.dough</pattern>
+                                    <shadedPattern>me.apeiros.alchimiavitae.shaded.dough</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>

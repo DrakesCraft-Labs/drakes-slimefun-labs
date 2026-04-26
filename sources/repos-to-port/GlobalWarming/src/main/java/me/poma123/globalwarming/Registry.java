@@ -77,7 +77,7 @@ public class Registry {
 
         // Printing missing, unconfigured biomes
         List<String> missingBiomes = new ArrayList<>();
-        for (Biome biome : Biome.values()) {
+        for (Biome biome : org.bukkit.Registry.BIOME) {
             if (!biomeMap.containsKey(biome)) {
                 missingBiomes.add(biome.toString());
             }

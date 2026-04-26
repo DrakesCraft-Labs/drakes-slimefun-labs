@@ -1,6 +1,5 @@
 package me.voper.slimeframe.implementation.items.machines;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +38,7 @@ public class CryoticExtractor extends AbstractMachine {
 
     private static final int TIME = Utils.secondsToSfTicks(5 * 60);
     private static final Map<BlockPosition, Integer> PROGRESS_MAP = new HashMap<>();
-    public static final Map<Biome, Integer> VALID_BIOMES = new EnumMap<>(Biome.class);
+    public static final Map<Biome, Integer> VALID_BIOMES = new HashMap<>();
 
     static {
         VALID_BIOMES.put(Biome.SNOWY_TAIGA, 2);

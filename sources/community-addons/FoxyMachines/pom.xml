@@ -73,8 +73,12 @@
                 <configuration>
                     <relocations>
                         <relocation>
-                            <pattern> io.github.mooy1.infinitylib </pattern>
-                            <shadedPattern> me.gallowsdove.foxymachines.infinitylib </shadedPattern>
+                            <pattern>dev.drake.infinitylib</pattern>
+                            <shadedPattern>me.gallowsdove.foxymachines.infinitylib</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>io.github.mooy1.infinitylib</pattern>
+                            <shadedPattern>me.gallowsdove.foxymachines.infinitylib</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
