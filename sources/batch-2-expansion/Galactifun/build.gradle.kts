@@ -32,7 +32,7 @@ tasks.shadowJar {
 bukkit {
     name = "Galactifun-drake"
     description = "Space addon for Slimefun"
-    main = "io.github.addoncommunity.galactifun.Galactifun"
+    main = "com.github.drakescraft_labs.galactifun.Galactifun"
     version = project.version.toString()
     authors = listOf("Seggan", "Mooy1", "GallowsDove", "ProfElements")
     apiVersion = "1.21"

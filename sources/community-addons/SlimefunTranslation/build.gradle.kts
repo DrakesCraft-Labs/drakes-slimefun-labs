@@ -39,7 +39,7 @@ tasks.shadowJar {
 }
 
 bukkit {
-    main = "net.guizhanss.slimefuntranslation.SlimefunTranslation"
+    main = "com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation"
     apiVersion = "1.21"
     authors = listOf("ybw0014")
     description = "A Slimefun Addon that translates items without actually modifying the items. DrakesLab Edition."

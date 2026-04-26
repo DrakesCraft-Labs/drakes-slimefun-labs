@@ -33,8 +33,10 @@ fun ItemWrapper?.isSimilarTo(other: ItemStack?, checkLore: Boolean = false): Boo
     // null check
     if (this == null || other == null) return false
 
-    // bukkit item comparison
-    if (FastMachines.configService.fmUseBukkitItemComparison.value) {
+    // bukkit item comparison (default true when plugin not bootstrapped, e.g. unit tests)
+    val useBukkitComparison = runCatching { FastMachines.configService.fmUseBukkitItemComparison.value }
+        .getOrDefault(true)
+    if (useBukkitComparison) {
         return baseItem.isSimilar(other)
     }
 
