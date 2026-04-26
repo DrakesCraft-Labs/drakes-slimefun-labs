@@ -24,7 +24,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.34")
 
     compileOnly("me.clip:placeholderapi:2.11.6")
-    compileOnly("com.comphenix.protocol:ProtocolLib:5.3.0")
+    // 5.4+: mapeo 1.21.4+ (HashedStack en WINDOW_CLICK). En el servidor usar ProtocolLib ≥5.4.0.
+    compileOnly("net.dmulloy2:ProtocolLib:5.4.0")
     implementation("net.guizhanss:guizhanlib-all:2.2.0")
     implementation("org.bstats:bstats-bukkit:3.1.0")
 }

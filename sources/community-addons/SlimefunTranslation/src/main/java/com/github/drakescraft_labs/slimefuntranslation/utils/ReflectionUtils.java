@@ -13,6 +13,11 @@ public final class ReflectionUtils {
             return true;
         } catch (NoSuchMethodException e) {
             return false;
+        } catch (LinkageError | IllegalStateException e) {
+            // p. ej. classloader de otro plugin con JAR cerrado (zip file closed) tras fallo de enable
+            return false;
+        } catch (Throwable t) {
+            return false;
         }
     }
 }

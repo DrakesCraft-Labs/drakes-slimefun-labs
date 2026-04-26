@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 import com.github.drakescraft_labs.slimefuntranslation.implementation.packetlisteners.client.AClientListener;
+import com.github.drakescraft_labs.slimefuntranslation.utils.PacketItemStackReaders;
 
 public class SetCreativeSlotListener extends AClientListener {
     public SetCreativeSlotListener() {
@@ -20,7 +21,10 @@ public class SetCreativeSlotListener extends AClientListener {
         if (user == null) {
             return;
         }
-        ItemStack item = event.getPacket().getItemModifier().read(0);
+        ItemStack item = PacketItemStackReaders.readSingletonItemModifierOrNull(event.getPacket());
+        if (item == null) {
+            return;
+        }
         SlimefunTranslation.getTranslationService().translateItem(user, item);
     }
 }
