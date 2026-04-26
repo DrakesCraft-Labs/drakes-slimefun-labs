@@ -414,6 +414,9 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
             return;
         }
 
+        // Detiene timers de auto-save async antes del volcado síncrono (evita carreras)
+        Bukkit.getScheduler().cancelTasks(this);
+
         // Finishes all started movements/removals of block data
         try {
             ticker.halt();
@@ -446,9 +449,6 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
         if (config.getBoolean("options.backup-data")) {
             backupService.run();
         }
-
-        // Tras volcar datos: cancelar timers async de auto-save (evita carreras con el guardado de arriba)
-        Bukkit.getScheduler().cancelTasks(this);
 
         // Close and unload any resources from our Metrics Service
         metricsService.cleanUp();
