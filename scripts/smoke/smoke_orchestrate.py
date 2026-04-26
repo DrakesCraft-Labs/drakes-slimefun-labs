@@ -8,6 +8,7 @@ Uso (desde la raíz del repo):
   python scripts/smoke/smoke_orchestrate.py build-artifacts --profile monorepo-all --clean
   python scripts/smoke/smoke_orchestrate.py run-server --profile monorepo-all --clean --timeout 120
   python scripts/smoke/smoke_orchestrate.py run-server --profile foundation-paper-12111 --clean --timeout 180
+  python scripts/smoke/smoke_orchestrate.py run-server --profile foundation --server-jar C:/ruta/purpur.jar --minecraft 1.21.11 --no-build --clean
   python scripts/smoke/smoke_orchestrate.py parse-log --profile monorepo-all
   python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
   python scripts/smoke/smoke_orchestrate.py mvn-package-pl --pl sources/community-addons/Foo,sources/community-addons/Bar
@@ -128,6 +129,12 @@ def main() -> int:
         default="",
         help="Version de Minecraft para Paper (ej. 1.21.11). Vacío = perfil smoke o 1.21.1 por defecto.",
     )
+    r.add_argument(
+        "--server-jar",
+        default="",
+        dest="server_jar",
+        help="Ruta a Purpur/Paper .jar local; no descarga Paper (ej. C:/Users/.../purpur-1.21.11-2568.jar).",
+    )
     r.add_argument("--timeout", type=int, default=120)
     r.add_argument("--clean", action="store_true")
     r.add_argument("--no-build", action="store_true")
@@ -146,6 +153,12 @@ def main() -> int:
         "--skip-build-artifacts",
         action="store_true",
         help="No ejecutar build-smoke-artifacts (asume .smoke/<profile>/artifacts ya generados)",
+    )
+    f.add_argument(
+        "--server-jar",
+        default="",
+        dest="server_jar",
+        help="Ruta a server .jar local (Purpur, etc.); se pasa a run-smoke-server.ps1.",
     )
 
     p = sub.add_parser("parse-log", help="Buscar errores de enable en latest.log")
@@ -178,6 +191,8 @@ def main() -> int:
         ]
         if getattr(args, "minecraft", ""):
             ps_args.extend(["-MinecraftVersion", args.minecraft])
+        if getattr(args, "server_jar", ""):
+            ps_args.extend(["-ServerJarPath", args.server_jar])
         if args.clean:
             ps_args.append("-Clean")
         if args.no_build:
@@ -207,6 +222,8 @@ def main() -> int:
         ]
         if getattr(args, "minecraft", ""):
             ps_args.extend(["-MinecraftVersion", args.minecraft])
+        if getattr(args, "server_jar", ""):
+            ps_args.extend(["-ServerJarPath", args.server_jar])
         if args.clean:
             ps_args.append("-Clean")
         if args.skip_build_artifacts:

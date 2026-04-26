@@ -1,6 +1,8 @@
 param(
     [string]$Profile = "foundation",
     [string]$MinecraftVersion = "",
+    # Ruta absoluta a un server.jar (Purpur, Paper local, etc.). Si se define, no se descarga Paper.
+    [string]$ServerJarPath = "",
     [int]$TimeoutSeconds = 90,
     [switch]$NoBuild,
     [switch]$Clean
@@ -27,6 +29,15 @@ function Get-ProfileConfig {
 }
 
 function Invoke-PaperDownload {
+    if (-not [string]::IsNullOrWhiteSpace($ServerJarPath)) {
+        if (-not (Test-Path -LiteralPath $ServerJarPath)) {
+            throw "ServerJarPath no existe: $ServerJarPath"
+        }
+        Write-Host "==> Copiando server JAR local (Purpur/Paper): $ServerJarPath -> $serverJar" -ForegroundColor Cyan
+        Copy-Item -LiteralPath $ServerJarPath -Destination $serverJar -Force
+        return
+    }
+
     if (Test-Path $serverJar) {
         return
     }
@@ -192,8 +203,13 @@ if ([string]::IsNullOrWhiteSpace($mc)) {
     }
 }
 $MinecraftVersion = $mc
-$serverJar = Join-Path $serverDir "paper-$MinecraftVersion.jar"
-Write-Host "==> Paper Minecraft version: $MinecraftVersion (jar: $serverJar)" -ForegroundColor DarkGray
+if (-not [string]::IsNullOrWhiteSpace($ServerJarPath)) {
+    $serverJar = Join-Path $serverDir "smoke-server.jar"
+    Write-Host "==> Server local: MC $MinecraftVersion (jar efectivo: $serverJar)" -ForegroundColor DarkGray
+} else {
+    $serverJar = Join-Path $serverDir "paper-$MinecraftVersion.jar"
+    Write-Host "==> Paper Minecraft version: $MinecraftVersion (jar: $serverJar)" -ForegroundColor DarkGray
+}
 
 if (-not $NoBuild) {
     & (Join-Path $scriptDir "build-smoke-artifacts.ps1") -Profile $Profile -Clean:$Clean
