@@ -114,4 +114,52 @@ public class AutoSavingService {
         BlockStorage.saveChunks();
     }
 
+    /**
+     * Guardado síncrono al apagar el servidor: todos los perfiles en memoria (no solo los marcados dirty)
+     * y el mismo volcado de bloques que el auto-save periódico, más {@link BlockStorage#saveChunks()}.
+     * Debe ejecutarse en el hilo principal durante {@code onDisable}.
+     */
+    public void shutdownSave() {
+        Slimefun.logger().log(Level.INFO, "Slimefun: ejecutando guardado de apagado (jugadores, bloques y chunks)...");
+        saveAllPlayersShutdown();
+        saveAllBlocksShutdown();
+        BlockStorage.saveChunks();
+    }
+
+    private void saveAllPlayersShutdown() {
+        Iterator<PlayerProfile> iterator = PlayerProfile.iterator();
+        int players = 0;
+
+        while (iterator.hasNext()) {
+            PlayerProfile profile = iterator.next();
+            profile.save();
+            players++;
+        }
+
+        if (players > 0) {
+            Slimefun.logger().log(Level.INFO, "Slimefun: guardados {0} perfil(es) de jugador en el apagado.", players);
+        }
+    }
+
+    private void saveAllBlocksShutdown() {
+        int worlds = 0;
+
+        for (World world : Bukkit.getWorlds()) {
+            BlockStorage storage = BlockStorage.getStorage(world);
+
+            if (storage != null) {
+                storage.computeChanges();
+
+                if (storage.getChanges() > 0) {
+                    storage.save();
+                    worlds++;
+                }
+            }
+        }
+
+        if (worlds > 0) {
+            Slimefun.logger().log(Level.INFO, "Slimefun: guardados datos de bloques en {0} mundo(s) durante el apagado.", worlds);
+        }
+    }
+
 }

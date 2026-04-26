@@ -428,12 +428,8 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
         // Kill our Profiler Threads
         profiler.kill();
 
-        // Save all Player Profiles that are still in memory
-        PlayerProfile.iterator().forEachRemaining(profile -> {
-            if (profile.isDirty()) {
-                profile.save();
-            }
-        });
+        // Guardado completo al apagar: todos los perfiles en memoria + bloques pendientes (evita pérdidas)
+        autoSavingService.shutdownSave();
 
         // Save all registered Worlds
         for (Map.Entry<String, BlockStorage> entry : getRegistry().getWorlds().entrySet()) {
