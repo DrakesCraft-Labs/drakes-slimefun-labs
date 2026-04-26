@@ -1,20 +1,19 @@
-example_trade:
+# Comercio de ejemplo solo vanilla (no depende de ítems Slimefun)
+starter_emerald_trade:
   traders:
-    - FARMER
+    - LIBRARIAN
   output:
-    type: SLIMEFUN
-    id: ZINC_INGOT
-    amount: 32
+    type: VANILLA
+    id: EMERALD
+    amount: 1
   input:
     1:
-      type: SLIMEFUN
-      id: COPPER_INGOT
-      amount: 64
+      type: VANILLA
+      id: PAPER
+      amount: 24
     2:
       type: NONE
-  max-uses: 4
+  max-uses: 16
   exp-reward: true
-  exp-villager: 0
-  price-multiplier: 0.0
-
-
+  exp-villager: 2
+  price-multiplier: 0.05

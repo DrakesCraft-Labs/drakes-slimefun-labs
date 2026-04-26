@@ -15,8 +15,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
-import java.util.logging.Level;
-
 /**
  * {@link MobDrops} registers the mob drops
  * in the mob-drops config file.
@@ -28,8 +26,7 @@ public class MobDrops {
     public static boolean register(Config drops) {
         for (String dropKey : drops.getKeys()) {
             if (dropKey.equals("EXAMPLE_DROP")) {
-                SlimeCustomizer.getInstance().getLogger().log(Level.WARNING, "Your mob-drops.yml file still contains the example mob drop! " +
-                    "Did you forget to set up the plugin?");
+                continue;
             }
 
             String itemType = drops.getString(dropKey + ".item-type");

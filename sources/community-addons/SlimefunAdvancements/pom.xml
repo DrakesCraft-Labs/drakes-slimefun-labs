@@ -75,6 +75,11 @@
                             <pattern>net.roxeez.advancement</pattern>
                             <shadedPattern>me.char321.sfadvancements.libs.advancementapi</shadedPattern>
                         </relocation>
+                        <!-- Paper 1.21+ carga bungee-chat sin ctor legacy; AdvancementAPI necesita copia embebida y relocada -->
+                        <relocation>
+                            <pattern>net.md_5</pattern>
+                            <shadedPattern>me.char321.sfadvancements.libs.md_5</shadedPattern>
+                        </relocation>
                         <relocation>
                             <pattern>dev.drake.dough</pattern>
                             <shadedPattern>me.char321.sfadvancements.libs.dough</shadedPattern>
@@ -162,6 +167,20 @@
             <groupId>com.github.qwertyuioplkjhgfd</groupId>
             <artifactId>AdvancementAPI</artifactId>
             <version>f243bdaf75</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.md-5</groupId>
+                    <artifactId>bungeecord-chat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- API de chat compatible con AdvancementAPI sombreado (evita NoSuchMethodError TextComponentSerializer en Paper 1.21+) -->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-chat</artifactId>
+            <version>1.16-R0.4</version>
             <scope>compile</scope>
         </dependency>
 

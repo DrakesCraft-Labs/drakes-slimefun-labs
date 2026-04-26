@@ -8,7 +8,7 @@ debug: false
 # This option is to make sure you read through the config options.
 # This option only works for the trades in "trades.yml",
 # trades added from API still works regardless of this option.
-enable-trades: false
+enable-trades: true
 
 # Whether the player will be redirected
 # to the trade list after saving a trade.

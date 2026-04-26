@@ -95,7 +95,13 @@ public final class SFAdvancements extends JavaPlugin implements SlimefunAddon {
             loadAdvancements();
 
             if (!testing && config.getBoolean("use-advancements-api")) {
-                vanillaHook.init();
+                try {
+                    vanillaHook.init();
+                } catch (Throwable t) {
+                    getLogger().log(Level.SEVERE, t, () ->
+                        "AdvancementAPI / chat no compatible con este servidor; desactivando integración vanilla. "
+                            + "Puedes poner use-advancements-api: false en config.yml.");
+                }
             }
         }, 0L);
 

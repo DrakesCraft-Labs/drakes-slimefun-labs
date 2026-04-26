@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.mapjammer.util;
+package me.vaan.mapjammer.util;
 
 import org.bukkit.configuration.file.FileConfiguration;
 

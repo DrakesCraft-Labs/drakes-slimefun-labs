@@ -14,8 +14,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
-import java.util.logging.Level;
-
 /**
  * {@link Items} registers the items
  * in the items config file.
@@ -27,8 +25,7 @@ public class Items {
     public static boolean register(Config items) {
         for (String itemKey : items.getKeys()) {
             if (itemKey.equals("EXAMPLE_ITEM")) {
-                SlimeCustomizer.getInstance().getLogger().log(Level.WARNING, "Your items.yml file still contains the example item! " +
-                    "Did you forget to set up the plugin?");
+                continue;
             }
 
             // Update config for new "placeable" option

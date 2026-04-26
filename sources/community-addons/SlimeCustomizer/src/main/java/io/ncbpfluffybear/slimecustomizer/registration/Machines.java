@@ -12,8 +12,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.LinkedHashMap;
-import java.util.logging.Level;
-
 /**
  * {@link Machines} registers the machines
  * in the machines config file.
@@ -25,8 +23,7 @@ public class Machines {
     public static boolean register(Config machines) {
         for (String machineKey : machines.getKeys()) {
             if (machineKey.equals("EXAMPLE_MACHINE")) {
-                SlimeCustomizer.getInstance().getLogger().log(Level.WARNING, "Your machines.yml file still contains " +
-                    "the example machine! Did you forget to set up the plugin?");
+                continue;
             }
 
             SCMachine machine = new SCMachine(machines, machineKey, "machine");

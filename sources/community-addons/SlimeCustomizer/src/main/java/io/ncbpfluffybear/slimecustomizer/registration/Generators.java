@@ -13,8 +13,6 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-
 /**
  * {@link Generators} registers the generators
  * in the generators config file.
@@ -26,9 +24,7 @@ public class Generators {
     public static boolean register(Config generators) {
         for (String generatorKey : generators.getKeys()) {
             if (generatorKey.equals("EXAMPLE_GENERATOR")) {
-                SlimeCustomizer.getInstance().getLogger().log(Level.WARNING, "Your generators.yml file still contains" +
-                    " the example generator! " +
-                    "Did you forget to set up the plugin?");
+                continue;
             }
 
             SCMachine generator = new SCMachine(generators, generatorKey, "generator");

@@ -1,4 +1,4 @@
-package com.github.drakescraft_labs.mapjammer.implementation;
+package me.vaan.mapjammer.implementation;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

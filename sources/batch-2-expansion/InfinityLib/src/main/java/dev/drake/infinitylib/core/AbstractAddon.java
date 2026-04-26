@@ -94,11 +94,8 @@ public abstract class AbstractAddon extends JavaPlugin implements SlimefunAddon 
                 // Log a warning instead of throwing an exception during migration/dev
                 getLogger().log(Level.WARNING, "InfinityLib is not relocated! This should be fixed for production builds.");
             }
-            String addonPackage = getClass().getPackage().getName();
-            if (!addonPackage.contains(InfinityLib.ADDON_PACKAGE)) {
-                // Log a warning instead of throwing an exception during migration/dev
-                getLogger().log(Level.WARNING, "InfinityLib relocation package mismatch! Expected: " + InfinityLib.ADDON_PACKAGE);
-            }
+            // Drake: los addons viven bajo com.github.drakescraft_labs.* u otros prefijos; InfinityLib va en *.infinitylib.
+            // El antiguo check addonPackage.contains(ADDON_PACKAGE) ("dev.drake") generaba falsos positivos en cada enable.
         }
         if (instance != null) {
             throw new IllegalStateException("Addon " + instance.getName() + " is already using this InfinityLib, Shade an relocate your own!");

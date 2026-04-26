@@ -14,7 +14,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,9 +28,7 @@ public class SolarGenerators {
     public static boolean register(Config generators) {
         for (String generatorKey : generators.getKeys()) {
             if (generatorKey.equals("EXAMPLE_SOLAR_GENERATOR")) {
-                SlimeCustomizer.getInstance().getLogger().log(Level.WARNING, "Your solar-generators.yml file still contains" +
-                    " the example solar generator! " +
-                    "Did you forget to set up the plugin?");
+                continue;
             }
 
             int dayEnergy;
