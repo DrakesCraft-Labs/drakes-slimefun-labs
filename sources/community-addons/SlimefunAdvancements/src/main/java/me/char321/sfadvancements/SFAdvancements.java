@@ -30,6 +30,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +47,8 @@ public final class SFAdvancements extends JavaPlugin implements SlimefunAddon {
 
     private boolean testing = false;
     private boolean multiBlockCraftEvent = false;
+    /** Evita doble carga de grupos/advancements si el runnable se dispara más de una vez. */
+    private final AtomicBoolean sfPostWorldLoadStarted = new AtomicBoolean(false);
 
     public SFAdvancements() {
 
@@ -89,6 +92,10 @@ public final class SFAdvancements extends JavaPlugin implements SlimefunAddon {
         //allow other plugins to register their criteria completers
         info("Waiting for server start...");
         Utils.runLater(() -> {
+            if (!sfPostWorldLoadStarted.compareAndSet(false, true)) {
+                return;
+            }
+
             info("Loading groups from config...");
             loadGroups();
             info("Loading advancements from config...");

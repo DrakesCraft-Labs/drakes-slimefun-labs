@@ -43,7 +43,10 @@ dependencies {
 group = "com.github.drakescraft_labs"
 description = "FastMachines"
 
-val mainPackage = "com.github.drakescraft_labs.fastmachines"
+version = "11.0-Drake-1.21.1-SNAPSHOT"
+
+/** Paquete real del fork Drake (upstream Guizhan); coincide con las fuentes Kotlin. */
+val mainPackage = "net.guizhanss.fastmachines"
 
 java {
     disableAutoTargetJvm()
@@ -58,23 +61,26 @@ kotlin {
     }
 }
 
-// Solo el fat JAR sombreado debe ir al servidor (el jar de Kotlin no incluye main ni relocations).
+// Shadow necesita el JAR de Kotlin como entrada; el clasificador "thin" evita confundirlo con el fat JAR del servidor.
 tasks.named<Jar>("jar") {
-    enabled = false
+    enabled = true
+    archiveClassifier.set("thin")
 }
 
 tasks.shadowJar {
     fun doRelocate(from: String, to: String? = null) {
         val last = to ?: from.split(".").last()
-        relocate(from, "$mainPackage.libs.$last")
+        relocate(from, "com.github.drakescraft_labs.fastmachines.libs.$last")
     }
 
     doRelocate("net.byteflux.libby")
     doRelocate("net.guizhanss.guizhanlib")
     doRelocate("org.bstats")
-    doRelocate("io.papermc.lib", "paperlib")
+    doRelocate("io.papermc.lib", "com.github.drakescraft_labs.fastmachines.libs.paperlib")
+    relocate("io.github.thebusybiscuit.slimefun4", "com.github.drakescraft_labs.slimefun4")
     // minimize() podía quitar la clase principal FastMachines del JAR sombreado
-    archiveClassifier = ""
+    archiveClassifier.set("")
+    archiveFileName.set("FastMachines-11.0-Drake-1.21.1-SNAPSHOT.jar")
 }
 
 bukkit {

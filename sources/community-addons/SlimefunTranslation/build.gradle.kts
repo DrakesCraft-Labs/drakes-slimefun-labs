@@ -4,6 +4,8 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
+version = "11.0-Drake-1.21.1-SNAPSHOT"
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -36,9 +38,11 @@ tasks.named<Jar>("jar") {
 }
 
 tasks.shadowJar {
+    // GuizhanLib sigue referenciando el paquete legacy de Slimefun; en runtime solo existe el fork Drake.
+    relocate("io.github.thebusybiscuit.slimefun4", "com.github.drakescraft_labs.slimefun4")
     relocate("net.guizhanss.guizhanlib", "com.github.drakescraft_labs.slimefuntranslation.libs.guizhanlib")
     relocate("org.bstats", "com.github.drakescraft_labs.slimefuntranslation.libs.bstats")
-    archiveFileName.set("SlimefunTranslation-drake.jar")
+    archiveFileName.set("SlimefunTranslation-11.0-Drake-1.21.1-SNAPSHOT.jar")
     // minimize() eliminaba clases de GuizhanLib → NoClassDefFoundError AbstractAddon en runtime
 }
 

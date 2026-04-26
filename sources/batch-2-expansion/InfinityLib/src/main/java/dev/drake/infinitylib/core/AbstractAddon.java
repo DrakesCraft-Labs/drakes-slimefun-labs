@@ -1,6 +1,7 @@
 package dev.drake.infinitylib.core;
 
 import java.io.File;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -179,8 +180,8 @@ public abstract class AbstractAddon extends JavaPlugin implements SlimefunAddon 
             }
         }
 
-        // Get plugin command
-        PluginCommand pluginCommand = getCommand(getName());
+        // Get plugin command (Paper/Bukkit registran nombres en minúsculas; getName() puede traer mayúsculas del plugin.yml)
+        PluginCommand pluginCommand = getCommand(getName().toLowerCase(Locale.ROOT));
         if (pluginCommand != null) {
             command = new AddonCommand(pluginCommand);
         }
@@ -257,7 +258,7 @@ public abstract class AbstractAddon extends JavaPlugin implements SlimefunAddon 
      */
     @Nonnull
     protected final AddonCommand getAddonCommand() {
-        return Objects.requireNonNull(instance().command, "Command '" + getName() + "' missing from plugin.yml!");
+        return Objects.requireNonNull(instance().command, "Command '" + getName().toLowerCase(Locale.ROOT) + "' missing from plugin.yml!");
     }
 
     /**

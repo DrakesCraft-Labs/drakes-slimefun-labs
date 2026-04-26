@@ -4,6 +4,8 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
+version = "11.0-Drake-1.21.1-SNAPSHOT"
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -26,7 +28,7 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 
 tasks.shadowJar {
     relocate("io.github.mooy1.infinitylib", "com.github.drakescraft_labs.galactifun.infinitylib")
-    archiveFileName.set("Galactifun-drake.jar")
+    archiveFileName.set("Galactifun-11.0-Drake-1.21.1-SNAPSHOT.jar")
 }
 
 bukkit {
@@ -39,10 +41,10 @@ bukkit {
     depend = listOf("Slimefun")
 
     commands {
-        register("galactifun") {
+        register("galactifun-drake") {
             description = "Galactifun main command"
-            usage = "/galactifun <subcommand>"
-            aliases = listOf("gf", "galactic")
+            usage = "/galactifun-drake <subcommand>"
+            aliases = listOf("galactifun", "gf", "galactic")
         }
     }
 }
