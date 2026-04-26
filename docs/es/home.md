@@ -12,6 +12,7 @@
 
 | Tema | Archivo |
 |------|---------|
+| Colaboración, QA (Chagui) y campo de pruebas | [colaboracion-y-qa.md](colaboracion-y-qa.md) |
 | Qué queda (técnico vs juego) | [pending-modules.md](pending-modules.md) |
 | Entorno local | [development-setup.md](development-setup.md) |
 | Smoke en Paper | [smoke-test-guide.md](smoke-test-guide.md) |
