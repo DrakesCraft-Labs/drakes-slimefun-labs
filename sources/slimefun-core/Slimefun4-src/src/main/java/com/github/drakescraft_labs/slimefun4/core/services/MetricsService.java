@@ -72,6 +72,9 @@ public class MetricsService {
      */
     private static final String DOWNLOAD_URL = "https://github.com/Slimefun/" + REPO_NAME + "/releases/download";
 
+    /** Si la API de GitHub falla, intentar esta revisión conocida (debe existir en /releases/download). */
+    private static final int FALLBACK_METRICS_BUILD = 29;
+
     private final Slimefun plugin;
     private final File parentFolder;
     private final File metricsModuleFile;
@@ -105,8 +108,17 @@ public class MetricsService {
         if (!metricsModuleFile.exists()) {
             plugin.getLogger().info(JAR_NAME + " does not exist, downloading...");
 
-            if (!download(getLatestVersion())) {
-                plugin.getLogger().warning("Failed to start metrics as the file could not be downloaded.");
+            int latest = getLatestVersion();
+            if (latest <= 0) {
+                plugin.getLogger().info("No se pudo leer la última versión de MetricsModule desde GitHub; se intenta la revisión " + FALLBACK_METRICS_BUILD + ".");
+                latest = FALLBACK_METRICS_BUILD;
+            }
+            if (!download(latest) && latest != FALLBACK_METRICS_BUILD) {
+                plugin.getLogger().info("Reintento de métricas con revisión " + FALLBACK_METRICS_BUILD + "...");
+                download(FALLBACK_METRICS_BUILD);
+            }
+            if (!metricsModuleFile.exists()) {
+                plugin.getLogger().info("Métricas de Slimefun omitidas (descarga desde GitHub no disponible en este entorno).");
                 return;
             }
         }
@@ -206,9 +218,32 @@ public class MetricsService {
 
             JsonElement element = JsonUtils.parseString(response.body());
 
-            return element.getAsJsonObject().get("tag_name").getAsInt();
+            var tag = element.getAsJsonObject().get("tag_name");
+            if (tag == null || tag.isJsonNull()) {
+                return -1;
+            }
+            return parseMetricsReleaseTag(tag.getAsString());
         } catch (IOException | InterruptedException | JsonParseException e) {
             plugin.getLogger().log(Level.WARNING, "Failed to fetch latest builds for Metrics: {0}", e.getMessage());
+            return -1;
+        }
+    }
+
+    private static int parseMetricsReleaseTag(@Nonnull String tagName) {
+        String t = tagName.trim();
+        if (t.startsWith("v") || t.startsWith("V")) {
+            t = t.substring(1).trim();
+        }
+        int end = 0;
+        while (end < t.length() && Character.isDigit(t.charAt(end))) {
+            end++;
+        }
+        if (end == 0) {
+            return -1;
+        }
+        try {
+            return Integer.parseInt(t.substring(0, end));
+        } catch (NumberFormatException e) {
             return -1;
         }
     }
@@ -220,37 +255,51 @@ public class MetricsService {
      *            The version to download.
      */
     private boolean download(int version) {
+        if (version <= 0) {
+            return false;
+        }
+        URI uri = URI.create(DOWNLOAD_URL + "/" + version + "/" + JAR_NAME + ".jar");
         File file = new File(parentFolder, "Metrics-" + version + ".jar");
 
-        try {
-            plugin.getLogger().log(Level.INFO, "# Starting download of MetricsModule build: #{0}", version);
-
-            if (file.exists()) {
-                // Delete the file in case we accidentally downloaded it before
-                Files.delete(file.toPath());
+        for (int attempt = 1; attempt <= 3; attempt++) {
+            if (attempt > 1) {
+                plugin.getLogger().info("Reintentando descarga de MetricsModule (" + attempt + "/3)...");
+                try {
+                    Thread.sleep(2000L * attempt);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    return false;
+                }
             }
+            try {
+                plugin.getLogger().log(Level.INFO, "# Starting download of MetricsModule build: #{0}", version);
 
-            HttpResponse<Path> response = client.send(
-                buildBaseRequest(URI.create(DOWNLOAD_URL + "/" + version + "/" + JAR_NAME + ".jar")),
-                downloadMonitor(HttpResponse.BodyHandlers.ofFile(file.toPath()))
-            );
+                if (file.exists()) {
+                    Files.delete(file.toPath());
+                }
 
+                HttpResponse<Path> response = client.send(
+                    buildDownloadRequest(uri),
+                    downloadMonitor(HttpResponse.BodyHandlers.ofFile(file.toPath()))
+                );
 
-            if (response.statusCode() >= 200 && response.statusCode() < 300) {
-                plugin.getLogger().log(Level.INFO, "Successfully downloaded {0} build: #{1}", new Object[] { JAR_NAME, version });
+                if (response.statusCode() >= 200 && response.statusCode() < 300) {
+                    plugin.getLogger().log(Level.INFO, "Successfully downloaded {0} build: #{1}", new Object[] { JAR_NAME, version });
 
-                // Replace the metric file with the new one
-                cleanUp();
-                Files.move(file.toPath(), metricsModuleFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    cleanUp();
+                    Files.move(file.toPath(), metricsModuleFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-                metricVersion = String.valueOf(version);
-                hasDownloadedUpdate = true;
-                return true;
+                    metricVersion = String.valueOf(version);
+                    hasDownloadedUpdate = true;
+                    return true;
+                } else {
+                    plugin.getLogger().log(Level.WARNING, "MetricsModule: HTTP {0} al descargar {1}", new Object[] { response.statusCode(), uri });
+                }
+            } catch (InterruptedException | JsonParseException e) {
+                plugin.getLogger().log(Level.WARNING, "MetricsModule: error de red o respuesta inválida: {0}", e.getMessage());
+            } catch (IOException e) {
+                plugin.getLogger().log(Level.WARNING, "MetricsModule: I/O ({0}): {1}", new Object[] { e.getClass().getSimpleName(), e.getMessage() });
             }
-        } catch (InterruptedException | JsonParseException e) {
-            plugin.getLogger().log(Level.WARNING, "Failed to fetch the latest jar file from the builds page. Perhaps GitHub is down? Response: {0}", e.getMessage());
-        } catch (IOException e) {
-            plugin.getLogger().log(Level.WARNING, "Failed to replace the old metric file with the new one. Please do this manually! Error: {0}", e.getMessage());
         }
 
         return false;
@@ -283,6 +332,16 @@ public class MetricsService {
                 .timeout(Duration.ofSeconds(5))
                 .header("User-Agent", "MetricsModule Auto-Updater")
                 .header("Accept", "application/vnd.github.v3+json")
+                .build();
+    }
+
+    /** Descarga del JAR: timeout más largo (hosts con latencia o egress limitado). */
+    private HttpRequest buildDownloadRequest(@Nonnull URI uri) {
+        return HttpRequest.newBuilder()
+                .uri(uri)
+                .timeout(Duration.ofSeconds(45))
+                .header("User-Agent", "MetricsModule Auto-Updater")
+                .GET()
                 .build();
     }
 

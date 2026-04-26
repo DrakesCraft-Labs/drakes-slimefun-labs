@@ -46,6 +46,12 @@
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
             <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bstats</groupId>
+                    <artifactId>bstats-bukkit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -113,6 +119,9 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <!-- Un solo artefacto en target/: evita copiar original-*.jar al servidor (nombre de plugin duplicado). -->
+                            <shadedArtifactAttached>false</shadedArtifactAttached>
+                            <outputFile>${project.build.directory}/${project.build.finalName}.jar</outputFile>
                             <relocations>
                                 <relocation>
                                     <pattern>net.guizhanss.guizhanlib</pattern>
@@ -143,6 +152,30 @@
                                     </excludes>
                                 </filter>
                             </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>remove-shade-secondary-jars</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- Solo el respaldo sin sombrear; NO borrar *-shaded.jar (shade puede dejarlo como paso intermedio). -->
+                                <delete quiet="true">
+                                    <fileset dir="${project.build.directory}">
+                                        <include name="original-*.jar"/>
+                                    </fileset>
+                                </delete>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>

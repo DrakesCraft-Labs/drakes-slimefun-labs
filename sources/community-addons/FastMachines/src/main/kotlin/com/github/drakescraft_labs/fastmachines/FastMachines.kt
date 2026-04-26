@@ -19,7 +19,6 @@ import net.guizhanss.fastmachines.implementation.tasks.FastMachineTickingTask
 import net.guizhanss.guizhanlib.libraries.BukkitLibraryManager
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater
-import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
@@ -138,7 +137,7 @@ class FastMachines : AbstractAddon(
     }
 
     private fun setupMetrics() {
-        Metrics(this, 20046)
+        MetricsBootstrap.start(this, 20046)
     }
 
     companion object {

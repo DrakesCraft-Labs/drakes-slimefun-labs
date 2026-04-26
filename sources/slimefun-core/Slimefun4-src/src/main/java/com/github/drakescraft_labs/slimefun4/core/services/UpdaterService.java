@@ -143,9 +143,15 @@ public class UpdaterService {
             updater.start();
         } else {
             printBorder();
-            plugin.getLogger().log(Level.WARNING, "It looks like you are using an unofficially modified build of Slimefun!");
-            plugin.getLogger().log(Level.WARNING, "Auto-Updates have been disabled, this build is not considered safe.");
-            plugin.getLogger().log(Level.WARNING, "Do not report bugs encountered in this Version of Slimefun to any official sources.");
+            if (branch == SlimefunBranch.UNOFFICIAL) {
+                plugin.getLogger().log(Level.WARNING, "It looks like you are using an unofficially modified build of Slimefun!");
+                plugin.getLogger().log(Level.WARNING, "Auto-Updates have been disabled, this build is not considered safe.");
+                plugin.getLogger().log(Level.WARNING, "Do not report bugs encountered in this Version of Slimefun to any official sources.");
+            } else {
+                // Fork Drake / rama desconocida: no es un build “UNOFFICIAL” del flujo Guizhan; el updater blob no aplica.
+                plugin.getLogger().log(Level.INFO, "Slimefun: build sin auto-actualización integrada (fork o versión {0}).", branch.name());
+                plugin.getLogger().log(Level.INFO, "Esto es normal en el núcleo Drake; no indica un fallo de seguridad por sí solo.");
+            }
             printBorder();
         }
     }
