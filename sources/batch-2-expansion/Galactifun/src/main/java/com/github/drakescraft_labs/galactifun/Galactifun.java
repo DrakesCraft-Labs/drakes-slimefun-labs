@@ -108,7 +108,11 @@ public final class Galactifun extends AbstractAddon {
 
 
 
-        if (!isTest && this.getConfig().getBoolean("auto-update") && !getPluginVersion().contains("MODIFIED")) {
+        // BlobBuildUpdater solo acepta versiones estilo build de blob.guizhanss; las builds Drake rompen extractBuild().
+        String ver = getPluginVersion();
+        if (!isTest && this.getConfig().getBoolean("auto-update")
+                && !ver.contains("MODIFIED")
+                && !ver.toLowerCase(java.util.Locale.ROOT).contains("drake")) {
             new BlobBuildUpdater(this, this.getFile(), "Galactifun").start();
         }
 

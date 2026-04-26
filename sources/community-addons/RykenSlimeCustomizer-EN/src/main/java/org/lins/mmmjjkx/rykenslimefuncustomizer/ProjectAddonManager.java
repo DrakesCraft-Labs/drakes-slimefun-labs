@@ -100,6 +100,12 @@ public final class ProjectAddonManager {
                 continue;
             }
 
+            if ("example".equals(id) && !inst.getConfig().getBoolean("load-bundled-example-addon", false)) {
+                ExceptionHandler.info("Skipping addon id \"example\" (set load-bundled-example-addon: true in config.yml to load it).");
+                skip.add(folder.getName());
+                continue;
+            }
+
             projectIds.put(id, folder);
         }
 

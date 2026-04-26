@@ -1,5 +1,7 @@
-# Whether to save the example configuration file
-saveExample: true
+# Whether to save the example configuration file (false: no ruido del addon example en producción)
+saveExample: false
+# Cargar el addon de ejemplo id "example" (requiere InfinityExpansion desinstalado en su plantilla upstream; en Drake déjalo false)
+load-bundled-example-addon: false
 # Whether to enable debug mode, if plugin doesn't have exceptions, you can set it to false.
 debug: false
 # Addon update settings
