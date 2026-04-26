@@ -1,6 +1,6 @@
 package net.guizhanss.ultimategenerators2.implementation.listeners
 
-import net.guizhanss.slimefuntranslation.api.events.TranslationsLoadEvent
+import com.github.drakescraft_labs.slimefuntranslation.api.events.TranslationsLoadEvent
 import net.guizhanss.ultimategenerators2.UltimateGenerators2
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

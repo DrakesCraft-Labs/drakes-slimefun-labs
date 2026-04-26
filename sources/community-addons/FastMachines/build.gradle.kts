@@ -27,14 +27,24 @@ dependencies {
     compileOnlyAndTestImpl("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnlyAndTestImpl("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
     compileOnlyAndTestImpl("com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
-    compileOnly("net.guizhanss:SlimefunTranslation:e6da231617")
+    // API en paquete com.github.drakescraft_labs (fork Drake); el JAR de Guizhan/JitPack usa net.guizhanss.
+    compileOnly(
+        files(
+            layout.projectDirectory.file("../SlimefunTranslation/build/libs/SlimefunTranslation-11.0-Drake-1.21.1-SNAPSHOT.jar")
+        )
+    )
     compileOnly("com.github.schntgaispock:SlimeHUD:1.3.0")
     compileOnly("com.github.drakescraft_labs:InfinityExpansion-drake:1.20.6-Drake-SNAPSHOT")
     compileOnly("com.github.VoperAD:SlimeFrame:8af2379a01")
     compileOnly("net.guizhanss:InfinityExpansion2:8d3e6c40f6")
+    // GuizhanLib trae bstats antiguo (p. ej. ctor JavaPlugin); sombrea la 3.1.0 y provoca NoSuchMethodError en runtime.
+    implementation("net.guizhanss:guizhanlib-all:2.5.0") {
+        exclude(group = "org.bstats", module = "bstats-bukkit")
+    }
+    implementation("net.guizhanss:guizhanlib-kt-all:0.2.0") {
+        exclude(group = "org.bstats", module = "bstats-bukkit")
+    }
     implementation("org.bstats:bstats-bukkit:3.1.0")
-    implementation("net.guizhanss:guizhanlib-all:2.5.0")
-    implementation("net.guizhanss:guizhanlib-kt-all:0.2.0")
 
     testImplementation(kotlin("test"))
     testImplementation("org.mockbukkit.mockbukkit:mockbukkit-v1.21:4.10.0")

@@ -1,7 +1,7 @@
 package net.guizhanss.fastmachines.implementation.listeners
 
 import net.guizhanss.fastmachines.FastMachines
-import net.guizhanss.slimefuntranslation.api.events.TranslationsLoadEvent
+import com.github.drakescraft_labs.slimefuntranslation.api.events.TranslationsLoadEvent
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 

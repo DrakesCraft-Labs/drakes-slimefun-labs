@@ -1,9 +1,9 @@
 package net.guizhanss.ultimategenerators2.core.services
 
-import net.guizhanss.slimefuntranslation.api.config.TranslationConfiguration
-import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationDefaults
-import net.guizhanss.slimefuntranslation.api.config.TranslationConfigurationFields
-import net.guizhanss.slimefuntranslation.utils.FileUtils
+import com.github.drakescraft_labs.slimefuntranslation.api.config.TranslationConfiguration
+import com.github.drakescraft_labs.slimefuntranslation.api.config.TranslationConfigurationDefaults
+import com.github.drakescraft_labs.slimefuntranslation.api.config.TranslationConfigurationFields
+import com.github.drakescraft_labs.slimefuntranslation.utils.FileUtils
 import net.guizhanss.ultimategenerators2.UltimateGenerators2
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File

@@ -74,11 +74,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- API en paquete Drake; construir antes: gradle :SlimefunTranslation:shadowJar -->
         <dependency>
-            <groupId>net.guizhanss</groupId>
-            <artifactId>SlimefunTranslation</artifactId>
-            <version>e03b01a7b7</version>
-            <scope>provided</scope>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>slimefuntranslation</artifactId>
+            <version>11.0-Drake-1.21.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../SlimefunTranslation/build/libs/SlimefunTranslation-11.0-Drake-1.21.1-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
 
