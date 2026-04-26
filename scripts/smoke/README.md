@@ -44,7 +44,16 @@ pwsh -NoProfile -File .\scripts\smoke\run-smoke-server.ps1 `
 
 O con el orquestador: `python scripts/smoke/smoke_orchestrate.py run-server --profile foundation --server-jar "C:\...\purpur-....jar" --minecraft 1.21.11 --no-build --clean --timeout 180`
 
-**Purpur 1.21.11 + ProtocolLib:** el smoke sigue descargando ProtocolLib 5.3.0 para addons que lo piden; en **1.21.11** ese build puede **fallar al cargar** (NMS aún no alineado). Slimefun **foundation** no lo necesita para pasar el smoke. Para servidor real con addons que sí requieran ProtocolLib, usa un **build más nuevo** del plugin o quita `ProtocolLib.jar` de `plugins/` hasta tener uno compatible.
+### ProtocolLib (GPL-2.0, proyecto ajeno)
+
+**No hace falta “portearlo” en DrakesCraft:** el soporte **1.21.11** ya está en el upstream **[dmulloy2/ProtocolLib](https://github.com/dmulloy2/ProtocolLib)** (p. ej. [#3578](https://github.com/dmulloy2/ProtocolLib/pull/3578), [#3589](https://github.com/dmulloy2/ProtocolLib/pull/3589)). Código nuevo → PR al **repo de dmulloy2**. **DrakesCraft no es autor**; GPL-2.0 en el upstream.
+
+| JVM del servidor | Qué hacer |
+|------------------|-----------|
+| **Java 25+** | [dev-build `ProtocolLib.jar`](https://github.com/dmulloy2/ProtocolLib/releases/download/dev-build/ProtocolLib.jar) (puede ir con bytecode muy nuevo). |
+| **Java 21** | El `dev-build` reciente puede fallar (`UnsupportedClassVersionError`). Compilá el upstream con **Gradle** en commit **`774e679`** (incluye “Mark 1.21.11” y bytecode Java 17): `git clone …` → `git checkout 774e679` → `.\gradlew.bat build -x test` → usá `build/libs/ProtocolLib.jar` en `plugins/`. |
+
+**Smoke:** exportá **`PROTOCOL_LIB_PATH`** (ruta al `ProtocolLib.jar`) o **`PROTOCOL_LIB_URL`**. Por defecto se intentan releases **5.4.0** / **5.3.0** (JVM 21 OK; en 1.21.11 pueden fallar por NMS) y al final **dev-build** (útil si la JVM es 25+).
 
 ## Perfiles
 

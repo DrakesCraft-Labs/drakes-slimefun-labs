@@ -126,9 +126,19 @@ function Ensure-ProtocolLibSmoke {
         return
     }
 
+    $fromPath = [Environment]::GetEnvironmentVariable("PROTOCOL_LIB_PATH", "Process")
+    if (-not [string]::IsNullOrWhiteSpace($fromPath) -and (Test-Path -LiteralPath $fromPath)) {
+        Write-Host "==> Copiando ProtocolLib desde PROTOCOL_LIB_PATH: $fromPath" -ForegroundColor Cyan
+        Copy-Item -LiteralPath $fromPath -Destination $dest -Force
+        return
+    }
+
+    # Oficial GPL-2.0: https://github.com/dmulloy2/ProtocolLib — 5.4.x/5.3.x bytecode Java 17; dev-build puede requerir Java 25+.
     $urls = @(
+        "https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar",
         "https://github.com/dmulloy2/ProtocolLib/releases/download/5.3.0/ProtocolLib.jar",
-        "https://repo.dmulloy2.net/repository/public/com/comphenix/protocol/ProtocolLib/5.3.0/ProtocolLib-5.3.0.jar"
+        "https://repo.dmulloy2.net/repository/public/com/comphenix/protocol/ProtocolLib/5.3.0/ProtocolLib-5.3.0.jar",
+        "https://github.com/dmulloy2/ProtocolLib/releases/download/dev-build/ProtocolLib.jar"
     )
 
     foreach ($u in $urls) {

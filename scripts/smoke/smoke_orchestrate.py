@@ -9,6 +9,7 @@ Uso (desde la raíz del repo):
   python scripts/smoke/smoke_orchestrate.py run-server --profile monorepo-all --clean --timeout 120
   python scripts/smoke/smoke_orchestrate.py run-server --profile foundation-paper-12111 --clean --timeout 180
   python scripts/smoke/smoke_orchestrate.py run-server --profile foundation --server-jar C:/ruta/purpur.jar --minecraft 1.21.11 --no-build --clean
+  # Con ProtocolLib compilado upstream (GPL): PROTOCOL_LIB_PATH=C:/ruta/ProtocolLib.jar
   python scripts/smoke/smoke_orchestrate.py parse-log --profile monorepo-all
   python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
   python scripts/smoke/smoke_orchestrate.py mvn-package-pl --pl sources/community-addons/Foo,sources/community-addons/Bar
