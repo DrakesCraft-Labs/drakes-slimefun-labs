@@ -22,6 +22,12 @@
     <description>A highly optimized, high-performance fork of the Dough library. Re-engineered for the DrakesCraft ecosystem with enhanced protection hooks and improved skin caching for 1.21.1.</description>
 
     <dependencies>
+        <!-- Lang 2.x (org.apache.commons.lang): no depender solo del transitivo de Paper; bumps del BOM lo quitan y rompe compile. -->
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>commons-lang-drake-patched</artifactId>
+        </dependency>
+
         <!-- Paper API -->
         <dependency>
             <groupId>io.papermc.paper</groupId>

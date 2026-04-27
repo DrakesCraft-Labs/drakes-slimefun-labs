@@ -25,7 +25,8 @@ updates:
     schedule:
       interval: "monthly"
       day: "tuesday"
-    open-pull-requests-limit: 2
+    # Un solo PR Maven abierto (prod O dev); evita pares #23+#24 y fuerza revisar en serie.
+    open-pull-requests-limit: 1
     groups:
       # Solo patch/minor: los majors rompen transitivos (p. ej. Guava, Jackson) y el reactor 81 módulos.
       maven-production:
