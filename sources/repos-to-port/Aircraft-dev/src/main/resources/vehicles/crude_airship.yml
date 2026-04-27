@@ -1,0 +1,661 @@
+translation: [0.0, 0.0, 0.0]
+mass: 20.0
+momentOfInertia: 100.0
+airDensity: 10.0
+frictionCoefficient: 0.1
+steeringSpeed: 0.0
+
+damping:
+  velocity: 0.05
+  angularVelocity: 0.1
+  groundRoll: 0.0
+  groundPitch: 0.0
+
+weight:
+  location: [0.0, 0.0, 0.0]
+  acceleration: 0.0
+
+engine:
+  location: [0.0, 0.0, 0.0]
+  force: 80.0
+  fuels: [fuel, water]
+
+collisionTolerance:
+  up: 0.05
+  down: 1.0
+  sideways: 0.5
+
+resources:
+  fuel:
+    capacity: 600.0
+    passiveEngineDrain: 0.1
+    throttleDrain: 0.0
+    type: COMBUSTIBLE
+  water:
+    capacity: 8000.0
+    passiveEngineDrain: 0.0
+    throttleDrain: 0.5
+    type: WATER
+
+hud:
+  compass:
+    position: [0.51, -0.48, 0.0]
+    rotation: [0.0, 0.0, 0.0]
+    
+    majorColor: [195, 178, 153]
+    minorColor: [129, 83, 85]
+    detailColor: [102, 70, 73]
+    majorText: "|"
+    minorText: "|"
+    detailText: "|"
+    majorSize: 0.2
+    minorSize: 0.15
+    detailSize: 0.1
+
+    directionColor: [229, 245, 215]
+    directionSize: 0.12
+    directionOffset: -0.035
+    directionTextN: "N"
+    directionTextE: "E"
+    directionTextS: "S"
+    directionTextW: "W"
+
+    degreeColor: [203, 212, 194]
+    degreeSize: 0.08
+    degreeOffset: -0.03
+
+    notchText: "▼"
+    notchColor: [201, 161, 128]
+    notchSize: 0.1
+    notchOffset: 0.033
+  
+  bottomPanel:
+    position: [0.49, -0.556, 0.0]
+    rotation: [0.0, 0.0, 0.0]
+
+    throttle:
+      barMaterial: LIME_TERRACOTTA
+      barWidth: 0.2
+      barHeight: 0.02
+      barVerticalOffset: 0.015
+      barHorizontalOffset: -0.03
+
+      textColor: [255, 255, 255]
+      textSize: 0.1
+      textVerticalOffset: 0.021
+      textHorizontalOffset: 0.12
+
+    resources:
+      fuel:
+        barMaterial: GRAY_TERRACOTTA
+        barWidth: 0.2
+        barHeight: 0.02
+        barVerticalOffset: -0.015
+        barHorizontalOffset: -0.03
+
+        textColor: [255, 255, 255]
+        textSize: 0.1
+        textVerticalOffset: -0.009
+        textHorizontalOffset: 0.12
+
+      water:
+        barMaterial: LIGHT_BLUE_TERRACOTTA
+        barWidth: 0.2
+        barHeight: 0.02
+        barVerticalOffset: -0.045
+        barHorizontalOffset: -0.03
+
+        textColor: [255, 255, 255]
+        textSize: 0.1
+        textVerticalOffset: -0.039
+        textHorizontalOffset: 0.12
+
+components:
+  Hud:
+    Compass:
+      material: STRIPPED_DARK_OAK_WOOD
+      size: [0.05, 0.12, 0.5]
+      location: [0.55, -0.48, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    BottomPanel:
+      material: STRIPPED_BIRCH_WOOD
+      size: [0.04, 0.15, 0.48]
+      location: [0.55, -0.58, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    StandCenter:
+      material: GRAY_CONCRETE
+      size: [0.12, 0.6, 0.56]
+      location: [0.55, -0.95, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    StandSides:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.12, 0.52, 0.3]
+      location: [0.55, -0.93, 0.21]
+      rotation: [-0.3, 0.0, 0.0]
+    StandDiagonalFront:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.9, 0.12, 0.12]
+      location: [1.0, -0.75, 0.1]
+      rotation: [0.0, 0.25, 0.0]
+    Throttle:
+      material: LIME_DYE
+      size: [0.025, 0.025, 0.025]
+      location: [0.48, -0.525, -0.145]
+      rotation: [0.0, 1.5708, 0.0]
+    fuel:
+      material: COAL
+      size: [0.025, 0.025, 0.025]
+      location: [0.48, -0.555, -0.145]
+      rotation: [0.0, 1.5708, 0.0]
+    Water:
+      material: WATER_BUCKET
+      size: [0.025, 0.025, 0.025]
+      location: [0.48, -0.585, -0.145]
+      rotation: [0.0, 1.5708, 0.0]
+  
+  Gondola:
+    Floor1:
+      material: OAK_PLANKS
+      size: [1.0, 0.2, 1.0]
+      location: [0.6, -1.2, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Floor2:
+      material: OAK_PLANKS
+      size: [1.0, 0.2, 1.0]
+      location: [-0.4, -1.2, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Floor3:
+      material: OAK_PLANKS
+      size: [1.0, 0.2, 1.0]
+      location: [-1.4, -1.2, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Gearbox:
+      material: OAK_PLANKS
+      size: [0.2, 0.2, 0.2]
+      location: [-1.45, 0.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    VerticalShaft:
+      material: GRAY_TERRACOTTA
+      size: [0.1, 0.4, 0.1]
+      location: [-1.45, -0.3, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      propeller:
+        rotationAxis: [0.0, 1.0, 0.0]
+        maxRotationRate: 0.8
+        fuels: [fuel, water]
+    HorizontalShaft:
+      material: GRAY_TERRACOTTA
+      size: [0.1, 1.0, 0.1]
+      location: [-2.0, 0.0, 0.0]
+      rotation: [1.5708, 0.0, 1.5708]
+      propeller:
+        rotationAxis: [0.0, 1.0, 0.0]
+        maxRotationRate: 0.8
+        fuels: [fuel, water]
+    PropellerFrame:
+      mirror: true
+      material: SPRUCE_LOG
+      size: [0.1, 0.8, 0.1]
+      location: [-2.3, -0.38, 0.15]
+      rotation: [-0.4, 0.0, 0.0]
+    Propeller:
+      material: LIGHT_GRAY_CONCRETE
+      size: [0.05, 0.15, 0.8]
+      location: [-2.45, 0.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      propeller:
+        rotationAxis: [-1.0, 0.0, 0.0]
+        maxRotationRate: 0.8
+        fuels: [fuel, water]
+  
+  Engine:
+    Top:
+      material: GRAY_CONCRETE
+      size: [0.6, 0.2, 0.6]
+      location: [-1.45, -0.45, 0.0]
+      rotation: [0.0, 1.5708, 0.0]
+    Bottom:
+      material: IRON_BLOCK
+      size: [0.6, 0.2, 0.6]
+      location: [-1.45, -1.05, 0.0]
+      rotation: [0.0, 1.5708, 0.0]
+    Bars:
+      material: IRON_BARS
+      size: [0.3, 0.4, 0.5]
+      location: [-1.25, -0.75, 0.0]
+      rotation: [0.0, 1.5708, 0.0]
+    Back:
+      material: ORANGE_TERRACOTTA
+      size: [0.5, 0.5, 0.1]
+      location: [-1.65, -0.75, 0.0]
+      rotation: [0.0, 1.5708, 0.0]
+    Sides:
+      mirror: true
+      material: ORANGE_TERRACOTTA
+      size: [0.1, 0.5, 0.5]
+      location: [-1.45, -0.75, 0.2]
+      rotation: [0.0, 1.5708, 0.0]
+    Fire:
+      material: SHROOMLIGHT
+      size: [0.3, 0.3, 0.3]
+      location: [-1.45, -0.9, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      visible:
+        signals: [ENGINE_TICK]
+    Exhaust:
+      material: GRAY_CONCRETE
+      size: [0.8, 0.1, 0.1]
+      location: [-2.0, -1.05, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      thruster:
+        signals: [ENGINE_TICK]
+        thrust: 0.0
+        direction: [1.0, 0.0, 0.0]
+        particle: CAMPFIRE_COSY_SMOKE
+        particleSpeed: 0.02
+        particleOffset: [-0.8, -0.1, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.0
+    TankSupportsFront:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.1, 0.1, 0.1]
+      location: [-1.3, -0.7, 0.3]
+      rotation: [0.0, 0.0, 0.0]
+    TankSupportsBack:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.1, 0.1, 0.1]
+      location: [-1.6, -0.7, 0.3]
+      rotation: [0.0, 0.0, 0.0]
+    Tank:
+      mirror: true
+      material: WHITE_CONCRETE
+      size: [1.2, 0.3, 0.3]
+      location: [-1.4, -0.7, 0.5]
+      rotation: [0.0, 0.0, 0.0]
+
+  Thrusters:
+    Shaft:
+      mirror: true
+      material: WHITE_CONCRETE
+      size: [0.05, 0.05, 1.5]
+      location: [-1.45, 0.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Box:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.2]
+      location: [-1.45, 0.0, 0.7]
+      rotation: [1.5708, 0.0, 0.0]
+    SideRight:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.45, 0.0, 0.8]
+      rotation: [1.5708, 0.0, 0.0]
+      thruster:
+        signals: [STRAFE_LEFT]
+        thrust: 20.0
+        direction: [0.0, 0.0, -1.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.1, 0.1]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.0
+    SideLeft:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.45, 0.0, -0.8]
+      rotation: [-1.5708, 0.0, 0.0]
+      thruster:
+        signals: [STRAFE_RIGHT]
+        thrust: 20.0
+        direction: [0.0, 0.0, 1.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.1, -0.1]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.0
+    FrontRight:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.35, 0.0, 0.7]
+      rotation: [0.0, 0.0, -1.5708]
+      thruster:
+        signals: [STRAFE_RIGHT, d]
+        thrust: 20.0
+        direction: [-1.0, 0.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.1, -0.1, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+    FrontLeft:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.35, 0.0, -0.7]
+      rotation: [0.0, 0.0, -1.5708]
+      thruster:
+        signals: [STRAFE_LEFT, a]
+        thrust: 20.0
+        direction: [-1.0, 0.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.1, -0.1, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water: 
+            drain: 0.25
+    BackRight:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.55, 0.0, 0.7]
+      rotation: [0.0, 0.0, 1.5708]
+      thruster:
+        signals: [STRAFE_LEFT, a]
+        thrust: 20.0
+        direction: [1.0, 0.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [-0.1, -0.1, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+    BackLeft:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-1.55, 0.0, -0.7]
+      rotation: [0.0, 0.0, 1.5708]
+      thruster:
+        signals: [STRAFE_RIGHT, d]
+        thrust: 20.0
+        direction: [1.0, 0.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [-0.1, -0.1, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+  
+  VerticalThrusters:
+    BoxBottomFront:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.2]
+      location: [2.0, 1.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    BottomFront:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [2.0, 0.9, 0.0]
+      rotation: [3.1415, 0.0, 0.0]
+      thruster:
+        signals: [s]
+        thrust: 6.0
+        direction: [0.0, 1.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.2, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+    BoxBottomBack:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.2]
+      location: [-2.0, 1.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    BottomBack:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-2.0, 0.9, 0.0]
+      rotation: [3.1415, 0.0, 0.0]
+      thruster:
+        signals: [s]
+        thrust: 6.0
+        direction: [0.0, 1.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.2, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+    BoxTopFront:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.2]
+      location: [2.0, 2.5, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    TopFront:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [2.0, 2.6, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      thruster:
+        signals: [w]
+        thrust: 6.0
+        direction: [0.0, -1.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.2, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+    BoxTopBack:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.2]
+      location: [-2.0, 2.5, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    TopBack:
+      material: COMPOSTER
+      size: [0.15, 0.15, 0.15]
+      location: [-2.0, 2.6, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      thruster:
+        signals: [w]
+        thrust: 6.0
+        direction: [0.0, -1.0, 0.0]
+        particle: SMOKE
+        particleSpeed: 0.1
+        particleOffset: [0.0, -0.2, 0.0]
+        fuels: [fuel, water]
+        fuelDrain:
+          water:
+            drain: 0.25
+
+  FrameFront:
+    Center:
+      material: OAK_LOG
+      size: [0.2, 0.8, 0.2]
+      location: [1.5, -0.7, 0.0]
+      rotation: [1.5708, 0.0, 0.0]
+    Diagonal:
+      mirror: true
+      material: OAK_LOG
+      size: [0.199, 0.8, 0.199]
+      location: [1.24, -0.7, 0.62]
+      rotation: [1.5708, 0.0, 0.785]
+    Side:
+      mirror: true
+      material: OAK_LOG
+      size: [0.2, 0.8, 0.2]
+      location: [0.62, -0.7, 0.87]
+      rotation: [1.5708, 0.0, 1.5708]
+    SupportCenter:
+      material: OAK_LOG
+      size: [0.2, 0.7, 0.2]
+      location: [1.25, -0.96, 0.0]
+      rotation: [0.0, 0.0, -0.785]
+    SupportSides:
+      mirror: true
+      material: OAK_LOG
+      size: [0.2, 0.7, 0.2]
+      location: [0.62, -0.96, 0.62]
+      rotation: [0.0, -1.5708, -0.785]
+
+  FrameBack:
+    Center:
+      material: OAK_LOG
+      size: [0.2, 0.8, 0.2]
+      location: [-2.3, -0.7, 0.0]
+      rotation: [1.5708, 0.0, 0.0]
+    Diagonal:
+      mirror: true
+      material: OAK_LOG
+      size: [0.199, 0.8, 0.199]
+      location: [-2.04, -0.7, 0.62]
+      rotation: [1.5708, 0.0, -0.785]
+    Side:
+      mirror: true
+      material: OAK_LOG
+      size: [0.2, 1.2, 0.2]
+      location: [-1.22, -0.7, 0.87]
+      rotation: [1.5708, 0.0, 1.5708]
+    SupportCenter:
+      material: OAK_LOG
+      size: [0.2, 0.7, 0.2]
+      location: [-2.05, -0.96, 0.0]
+      rotation: [0.0, 0.0, 0.785]
+    SupportSides:
+      mirror: true
+      material: OAK_LOG
+      size: [0.2, 0.7, 0.2]
+      location: [-1.22, -0.96, 0.62]
+      rotation: [0.0, -1.5708, -0.785]
+  
+  Balloon:
+    Front:
+      material: WHITE_WOOL
+      size: [1.5, 1.5, 1.5]
+      location: [1.8, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Center:
+      material: WHITE_WOOL
+      size: [1.5, 1.5, 1.5]
+      location: [-0.2, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Back:
+      material: WHITE_WOOL
+      size: [1.5, 1.5, 1.5]
+      location: [-2.2, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    SideBack:
+      mirror: true
+      material: RED_WOOL
+      size: [1.4, 0.5, 0.5]
+      location: [-1.2, 1.75, 1.4]
+      rotation: [0.0, 0.0, 0.0]
+    SideFront:
+      mirror: true
+      material: RED_WOOL
+      size: [1.4, 0.5, 0.5]
+      location: [0.8, 1.75, 1.4]
+      rotation: [0.0, 0.0, 0.0]
+  
+  BalloonFrame:
+    Center:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [7.5, 0.2, 0.2]
+      location: [-0.2, 1.75, 0.4]
+      rotation: [0.0, 0.0, 0.0]
+    Side:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [6.2, 0.2, 0.2]
+      location: [-0.2, 1.75, 1.4]
+      rotation: [0.0, 0.0, 0.0]
+    RopeBeamBack:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 2.0]
+      location: [-1.2, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    RopeBeamFront:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 2.0]
+      location: [0.8, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Front:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.7]
+      location: [3.45, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Back:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.2, 0.7]
+      location: [-3.85, 1.75, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    FrontDiagonal:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.19, 0.2, 0.2]
+      location: [-3.54, 1.75, 0.95]
+      rotation: [0.0, -1.0, 0.0]
+    BackDiagonal:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.19, 0.2, 0.2]
+      location: [3.14, 1.75, 0.95]
+      rotation: [0.0, 1.0, 0.0]
+    BackDiagonal1:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [-2.2, 2.0, 1.01]
+      rotation: [0.0, 1.5708, 0.5]
+    BackDiagonal2:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [-2.2, 1.5, 1.01]
+      rotation: [0.0, 1.5708, -0.5]
+    CenterDiagonal1:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [-0.2, 2.0, 1.01]
+      rotation: [0.0, 1.5708, 0.5]
+    CenterDiagonal2:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [-0.2, 1.5, 1.01]
+      rotation: [0.0, 1.5708, -0.5]
+    FrontDiagonal1:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [1.8, 2.0, 1.01]
+      rotation: [0.0, 1.5708, 0.5]
+    FrontDiagonal2:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [1.0, 0.2, 0.2]
+      location: [1.8, 1.5, 1.01]
+      rotation: [0.0, 1.5708, -0.5]
+  
+  Ropes:
+    Back:
+      mirror: true
+      material: BROWN_CONCRETE
+      size: [0.07, 2.3, 0.07]
+      location: [-1.2, 0.55, 0.55]
+      rotation: [0.32, 0.0, 0.0]
+    Front:
+      mirror: true
+      material: BROWN_CONCRETE
+      size: [0.07, 2.65, 0.07]
+      location: [0.8, 0.55, 0.55]
+      rotation: [0.32, 0.0, 0.0]
