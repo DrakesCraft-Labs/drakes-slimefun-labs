@@ -25,7 +25,7 @@ jobs:
   build_and_release:
     name: Maven package + ZIP + GitHub Release
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v6
 
@@ -36,8 +36,25 @@ jobs:
           distribution: temurin
           cache: maven
 
+      - name: Set up Gradle (SlimefunTranslation → UltimateGenerators2)
+        uses: gradle/actions/setup-gradle@v6
+
+      # UltimateGenerators2 referencia el JAR de SlimefunTranslation por systemPath (mismo orden que CI monorepo).
+      - name: Instalar núcleo Maven y shadowJar SlimefunTranslation
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
+            -am
+          cd sources/community-addons/SlimefunTranslation
+          chmod +x ./gradlew
+          ./gradlew --no-daemon shadowJar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Maven package (reactor)
         run: mvn -B -DskipTests package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Collect plugin JARs
         run: |
