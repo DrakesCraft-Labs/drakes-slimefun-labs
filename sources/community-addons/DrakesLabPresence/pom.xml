@@ -13,7 +13,7 @@
 
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>DrakesLabPresence-drake</artifactId>
-    <version>1.0.0-DRAKE-SNAPSHOT</version>
+    <version>1.0.1-DRAKE-SNAPSHOT</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>

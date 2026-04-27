@@ -1,32 +1,32 @@
 package com.github.drakescraft_labs.drakeslabpresence;
 
 import java.io.File;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
-import java.util.Locale;
+import java.util.Collections;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
+
 /**
- * Opt-in HTTPS heartbeat. No third-party URLs or secrets are embedded; operators configure their own webhook.
+ * Webhook HTTPS opt-in: latido periódico + eventos de servidor/juego hacia Discord o relay.
+ * Sin tokens de bot embebidos; el operador configura URLs y flags.
  */
 public final class DrakesLabPresencePlugin extends JavaPlugin {
 
-    private static final String SCHEMA = "drakeslab-presence/1";
-    private static final HttpClient HTTP = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).build();
+    private static final String SCHEMA_PRESENCE = "drakeslab-presence/1";
 
     private final AtomicInteger heartbeatTaskId = new AtomicInteger(-1);
+    private final AtomicInteger startupTaskId = new AtomicInteger(-1);
+    private volatile String instanceIdCached = "";
+    private GameEventListener gameEventListener;
 
     @Override
     public void onEnable() {
@@ -34,12 +34,17 @@ public final class DrakesLabPresencePlugin extends JavaPlugin {
         if (getCommand("drakeslabpresence") != null) {
             getCommand("drakeslabpresence").setExecutor(this::onCommand);
         }
-        scheduleHeartbeat();
+        refreshBridgeState();
     }
 
     @Override
     public void onDisable() {
-        cancelHeartbeat();
+        if (getConfig().getBoolean("enabled", false)
+                && getConfig().getBoolean("events.server-shutdown", false)) {
+            sendShutdownWebhookSync();
+        }
+        cancelTasks();
+        unregisterGameEvents();
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -48,62 +53,200 @@ public final class DrakesLabPresencePlugin extends JavaPlugin {
         }
         if (args.length == 1 && "reload".equalsIgnoreCase(args[0])) {
             reloadConfig();
-            scheduleHeartbeat();
-            sender.sendMessage("[DrakesLabPresence] Config recargada y latido reprogramado.");
+            refreshBridgeState();
+            sender.sendMessage("[DrakesLabPresence] Config recargada (latido + eventos + webhooks).");
             return true;
         }
-        sender.sendMessage("[DrakesLabPresence] Uso: /drakeslabpresence reload");
+        if (args.length == 1 && "test".equalsIgnoreCase(args[0])) {
+            if (!getConfig().getBoolean("enabled", false)) {
+                sender.sendMessage("[DrakesLabPresence] enabled=false — actívalo para probar el webhook.");
+                return true;
+            }
+            String evUrl = resolveEventsWebhookUrl();
+            final String targetUrl = evUrl.isBlank() ? resolvePresenceWebhookUrl() : evUrl;
+            if (targetUrl.isBlank() || !WebhookSender.isAllowedHttpsUrl(targetUrl)) {
+                sender.sendMessage("[DrakesLabPresence] No hay webhook-url válida.");
+                return true;
+            }
+            ensureInstanceIdLoadedAsync(() -> {
+                String serverLbl = resolveServerLabel();
+                byte[] body;
+                if (WebhookSender.isDiscordWebhookUrl(targetUrl)) {
+                    String footer = instanceIdCached + " · test";
+                    String json = BridgePayloads.discordEmbed(
+                            "Prueba DrakesLabPresence",
+                            "Webhook de **eventos** (o presencia si no hay `webhook-events-url`).",
+                            5814783,
+                            footer,
+                            Collections.singletonMap("Emisor", sender.getName()));
+                    body = json.getBytes(StandardCharsets.UTF_8);
+                } else {
+                    Map<String, String> data = new java.util.LinkedHashMap<>();
+                    data.put("note", "manual test");
+                    data.put("sender", sender.getName());
+                    String json = BridgePayloads.genericBridgeEvent(
+                            "manual_test", instanceIdCached, serverLbl, data);
+                    body = json.getBytes(StandardCharsets.UTF_8);
+                }
+                WebhookSender.sendAsync(this, targetUrl, body);
+                sender.sendMessage("[DrakesLabPresence] POST de prueba encolado hacia el webhook de eventos.");
+            });
+            return true;
+        }
+        sender.sendMessage("[DrakesLabPresence] Uso: /drakeslabpresence reload | test");
         return true;
     }
 
-    private void scheduleHeartbeat() {
-        cancelHeartbeat();
+    /**
+     * Llamado desde {@link GameEventListener} en el hilo principal del servidor.
+     */
+    public void deliverGameEvent(
+            String eventKey,
+            String discordTitle,
+            String discordDescription,
+            int colorArgb,
+            Map<String, String> data
+    ) {
         if (!getConfig().getBoolean("enabled", false)) {
-            getLogger().info("Telemetry desactivada (enabled: false). Activala en config.yml + webhook-url.");
             return;
         }
-        String url = getConfig().getString("webhook-url", "");
-        if (url == null || url.isBlank()) {
-            getLogger().warning("enabled=true pero webhook-url vacío; no se enviará nada.");
+        String url = resolveEventsWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
             return;
         }
-        if (!isAllowedHttpsUrl(url.trim())) {
-            getLogger().severe("webhook-url no permitida (solo https:// hacia hosts públicos). Revisa config.yml.");
+        Map<String, String> payload = data != null ? data : Collections.emptyMap();
+        String instanceId = instanceIdCached;
+        String serverLabel = resolveServerLabel();
+        byte[] body;
+        if (WebhookSender.isDiscordWebhookUrl(url)) {
+            String footer = instanceId + " · " + serverLabel;
+            String json = BridgePayloads.discordEmbed(discordTitle, discordDescription, colorArgb, footer, payload);
+            body = json.getBytes(StandardCharsets.UTF_8);
+        } else {
+            String json = BridgePayloads.genericBridgeEvent(eventKey, instanceId, serverLabel, payload);
+            body = json.getBytes(StandardCharsets.UTF_8);
+        }
+        Bukkit.getScheduler().runTaskAsynchronously(this, () -> WebhookSender.sendAsync(this, url, body));
+    }
+
+    private void refreshBridgeState() {
+        cancelTasks();
+        unregisterGameEvents();
+        if (!getConfig().getBoolean("enabled", false)) {
+            getLogger().info("Bridge desactivado (enabled: false).");
+            return;
+        }
+        String presence = resolvePresenceWebhookUrl();
+        if (presence.isBlank()) {
+            getLogger().warning("enabled=true pero webhook-url vacío; latido y eventos requieren URL.");
+        } else if (!WebhookSender.isAllowedHttpsUrl(presence)) {
+            getLogger().severe("webhook-url no permitida (solo https:// hacia hosts públicos).");
+        }
+        ensureInstanceIdLoadedAsync(() -> {
+            scheduleHeartbeat();
+            scheduleStartupWebhook();
+            registerGameEventsIfNeeded();
+        });
+    }
+
+    private void ensureInstanceIdLoadedAsync(Runnable thenMainThread) {
+        Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
+            try {
+                instanceIdCached = loadOrCreateInstanceId();
+            } catch (Exception e) {
+                getLogger().log(Level.WARNING, "No se pudo leer instance-id", e);
+                instanceIdCached = "";
+            }
+            Bukkit.getScheduler().runTask(this, thenMainThread);
+        });
+    }
+
+    private void scheduleHeartbeat() {
+        String url = resolvePresenceWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
+            getLogger().info("Sin webhook-url de presencia válida: no se programa latido.");
             return;
         }
         int minutes = Math.max(15, getConfig().getInt("heartbeat-minutes", 360));
         long periodTicks = minutes * 60L * 20L;
         long delayTicks = Math.max(20L, getConfig().getInt("startup-delay-seconds", 60) * 20L);
-
         int id = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () ->
                 Bukkit.getScheduler().runTaskAsynchronously(this, this::sendHeartbeat), delayTicks, periodTicks);
         heartbeatTaskId.set(id);
         getLogger().info("Latido programado cada " + minutes + " min (primer envío tras " + (delayTicks / 20) + " s).");
     }
 
-    private void cancelHeartbeat() {
-        int id = heartbeatTaskId.getAndSet(-1);
-        if (id != -1) {
-            Bukkit.getScheduler().cancelTask(id);
+    private void scheduleStartupWebhook() {
+        if (!getConfig().getBoolean("events.server-startup", false)) {
+            return;
         }
+        String url = resolveEventsWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
+            return;
+        }
+        long delayTicks = Math.max(20L, getConfig().getInt("startup-delay-seconds", 60) * 20L);
+        int id = Bukkit.getScheduler().scheduleSyncDelayedTask(this, this::sendStartupWebhook, delayTicks);
+        startupTaskId.set(id);
+    }
+
+    private void sendStartupWebhook() {
+        if (!getConfig().getBoolean("enabled", false) || !getConfig().getBoolean("events.server-startup", false)) {
+            return;
+        }
+        String url = resolveEventsWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
+            return;
+        }
+        String label = resolveServerLabel();
+        String mc = safeMcVersion();
+        boolean sf = Bukkit.getPluginManager().getPlugin("Slimefun") != null;
+        Map<String, String> data = new java.util.LinkedHashMap<>();
+        data.put("minecraftVersion", mc);
+        data.put("slimefun", sf ? "yes" : "no");
+        String desc = "Servidor **" + JsonStrings.truncate(label, 200) + "** en línea · MC `" + mc + "` · Slimefun: "
+                + (sf ? "sí" : "no");
+        deliverGameEvent("server_startup", "Arranque", desc, 3066993, data);
+    }
+
+    private void sendShutdownWebhookSync() {
+        String url = resolveEventsWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
+            return;
+        }
+        String label = resolveServerLabel();
+        Map<String, String> data = new java.util.LinkedHashMap<>();
+        data.put("reason", "plugin_disable");
+        String desc = "Apagado o recarga de **" + JsonStrings.truncate(label, 200) + "**.";
+        byte[] body;
+        if (WebhookSender.isDiscordWebhookUrl(url)) {
+            String json = BridgePayloads.discordEmbed(
+                    "Apagado",
+                    desc,
+                    15105570,
+                    instanceIdCached + " · " + label,
+                    data);
+            body = json.getBytes(StandardCharsets.UTF_8);
+        } else {
+            String json = BridgePayloads.genericBridgeEvent(
+                    "server_shutdown", instanceIdCached, label, data);
+            body = json.getBytes(StandardCharsets.UTF_8);
+        }
+        WebhookSender.sendSyncBestEffort(this, url, body);
     }
 
     private void sendHeartbeat() {
         if (!getConfig().getBoolean("enabled", false)) {
             return;
         }
-        String url = getConfig().getString("webhook-url", "");
-        if (url == null || url.isBlank() || !isAllowedHttpsUrl(url.trim())) {
+        String url = resolvePresenceWebhookUrl();
+        if (url.isBlank() || !WebhookSender.isAllowedHttpsUrl(url)) {
             return;
         }
         url = url.trim();
-
         try {
-            String instanceId = loadOrCreateInstanceId();
-            String serverLabel = getConfig().getString("server-label", "");
-            if (serverLabel == null || serverLabel.isBlank()) {
-                serverLabel = Bukkit.getServer().getName();
-            }
+            String instanceId = instanceIdCached.isEmpty() ? loadOrCreateInstanceId() : instanceIdCached;
+            instanceIdCached = instanceId;
+            String serverLabel = resolveServerLabel();
             boolean sf = Bukkit.getPluginManager().getPlugin("Slimefun") != null;
             String sfVer = "";
             if (sf) {
@@ -113,30 +256,45 @@ public final class DrakesLabPresencePlugin extends JavaPlugin {
                 }
             }
             String paperMc = safeMcVersion();
-            String bodyJson = buildPayloadJson(url, instanceId, serverLabel, paperMc, sf, sfVer);
-            String secret = getConfig().getString("shared-secret", "");
-            byte[] bodyBytes = bodyJson.getBytes(StandardCharsets.UTF_8);
-
-            var builder = HttpRequest.newBuilder(URI.create(url))
-                    .timeout(java.time.Duration.ofSeconds(20))
-                    .header("Content-Type", "application/json; charset=UTF-8")
-                    .POST(HttpRequest.BodyPublishers.ofByteArray(bodyBytes));
-            if (secret != null && !secret.isBlank()) {
-                String sig = hmacSha256Hex(secret, bodyBytes);
-                builder.header("X-Drakes-Signature", "sha256=" + sig);
-            }
-            HttpRequest req = builder.build();
-            HTTP.sendAsync(req, HttpResponse.BodyHandlers.discarding()).whenComplete((resp, err) -> {
-                if (err != null) {
-                    getLogger().log(Level.WARNING, "Latido HTTP falló: " + err.getMessage(), err);
-                } else if (getConfig().getBoolean("debug", false)) {
-                    int code = resp != null ? resp.statusCode() : -1;
-                    getLogger().info("Latido enviado, HTTP " + code);
-                }
-            });
+            String bodyJson = buildHeartbeatPayload(url, instanceId, serverLabel, paperMc, sf, sfVer);
+            WebhookSender.sendAsync(this, url, bodyJson.getBytes(StandardCharsets.UTF_8));
         } catch (Exception e) {
             getLogger().log(Level.WARNING, "No se pudo preparar el latido", e);
         }
+    }
+
+    private String buildHeartbeatPayload(
+            String url,
+            String instanceId,
+            String serverLabel,
+            String paperMc,
+            boolean slimefunPresent,
+            String slimefunVersion
+    ) {
+        String pluginVer = getPluginMeta().getVersion();
+        if (pluginVer == null || pluginVer.isEmpty()) {
+            pluginVer = getDescription().getVersion();
+        }
+        String ts = Instant.now().toString();
+        if (WebhookSender.isDiscordWebhookUrl(url)) {
+            String desc = "**instanceId:** `" + instanceId + "` | **MC:** " + paperMc
+                    + " | **Slimefun:** " + (slimefunPresent ? "sí (`" + slimefunVersion + "`)" : "no")
+                    + " | **Plugin:** `" + pluginVer + "` | **UTC:** " + ts;
+            return "{\"username\":\"DrakesLabPresence\",\"embeds\":[{\"title\":\"Drakes lab heartbeat\",\"description\":\""
+                    + JsonStrings.esc(desc) + "\",\"color\":5814783,\"fields\":[{\"name\":\"Servidor\",\"value\":\""
+                    + JsonStrings.esc(JsonStrings.truncate(serverLabel, 900)) + "\",\"inline\":false}]}]}";
+        }
+        return "{"
+                + "\"schema\":\"" + SCHEMA_PRESENCE + "\","
+                + "\"instanceId\":\"" + JsonStrings.esc(instanceId) + "\","
+                + "\"serverLabel\":\"" + JsonStrings.esc(serverLabel) + "\","
+                + "\"minecraftVersion\":\"" + JsonStrings.esc(paperMc) + "\","
+                + "\"bukkitVersion\":\"" + JsonStrings.esc(Bukkit.getVersion()) + "\","
+                + "\"pluginVersion\":\"" + JsonStrings.esc(pluginVer) + "\","
+                + "\"slimefunPresent\":" + slimefunPresent + ","
+                + "\"slimefunVersion\":\"" + JsonStrings.esc(slimefunVersion) + "\","
+                + "\"timestampUtc\":\"" + JsonStrings.esc(ts) + "\""
+                + "}";
     }
 
     private String loadOrCreateInstanceId() throws java.io.IOException {
@@ -159,98 +317,58 @@ public final class DrakesLabPresencePlugin extends JavaPlugin {
         }
     }
 
-    private String buildPayloadJson(
-            String url,
-            String instanceId,
-            String serverLabel,
-            String paperMc,
-            boolean slimefunPresent,
-            String slimefunVersion
-    ) {
-            String pluginVer = getPluginMeta().getVersion();
-            if (pluginVer == null || pluginVer.isEmpty()) {
-                pluginVer = getDescription().getVersion();
-            }
-        String ts = Instant.now().toString();
-        if (url.contains("discord.com/api/webhooks") || url.contains("discordapp.com/api/webhooks")) {
-            String desc = "**instanceId:** `" + instanceId + "` | **MC:** " + paperMc
-                    + " | **Slimefun:** " + (slimefunPresent ? "sí (`" + slimefunVersion + "`)" : "no")
-                    + " | **Plugin:** `" + pluginVer + "` | **UTC:** " + ts;
-            return "{\"username\":\"DrakesLabPresence\",\"embeds\":[{\"title\":\"Drakes lab heartbeat\",\"description\":\""
-                    + jstr(desc) + "\",\"color\":5814783,\"fields\":[{\"name\":\"Servidor\",\"value\":\""
-                    + jstr(truncate(serverLabel, 900)) + "\",\"inline\":false}]}]}";
-        }
-        return "{"
-                + "\"schema\":\"" + SCHEMA + "\","
-                + "\"instanceId\":\"" + jstr(instanceId) + "\","
-                + "\"serverLabel\":\"" + jstr(serverLabel) + "\","
-                + "\"minecraftVersion\":\"" + jstr(paperMc) + "\","
-                + "\"bukkitVersion\":\"" + jstr(Bukkit.getVersion()) + "\","
-                + "\"pluginVersion\":\"" + jstr(pluginVer) + "\","
-                + "\"slimefunPresent\":" + slimefunPresent + ","
-                + "\"slimefunVersion\":\"" + jstr(slimefunVersion) + "\","
-                + "\"timestampUtc\":\"" + jstr(ts) + "\""
-                + "}";
+    String resolvePresenceWebhookUrl() {
+        String u = getConfig().getString("webhook-url", "");
+        return u != null ? u.trim() : "";
     }
 
-    private static String jstr(String s) {
-        if (s == null) {
-            return "";
+    String resolveEventsWebhookUrl() {
+        String ev = getConfig().getString("webhook-events-url", "");
+        if (ev != null && !ev.isBlank()) {
+            return ev.trim();
         }
-        return s.replace("\\", "\\\\").replace("\"", "\\\"");
+        return resolvePresenceWebhookUrl();
     }
 
-    private static String truncate(String s, int max) {
-        return s.length() <= max ? s : s.substring(0, max) + "…";
+    private String resolveServerLabel() {
+        String serverLabel = getConfig().getString("server-label", "");
+        if (serverLabel == null || serverLabel.isBlank()) {
+            serverLabel = Bukkit.getServer().getName();
+        }
+        return JsonStrings.truncate(serverLabel, 500);
     }
 
-    private static boolean isAllowedHttpsUrl(String url) {
-        if (!url.startsWith("https://")) {
-            return false;
+    private void registerGameEventsIfNeeded() {
+        if (!anyPlayerLikeEventEnabled()) {
+            return;
         }
-        try {
-            URI u = URI.create(url);
-            String host = u.getHost();
-            if (host == null) {
-                return false;
-            }
-            String h = host.toLowerCase(Locale.ROOT);
-            if (h.equals("localhost") || h.equals("127.0.0.1") || h.endsWith(".local")) {
-                return false;
-            }
-            if (h.startsWith("10.") || h.startsWith("192.168.") || isPrivate172Host(h)) {
-                return false;
-            }
-            return u.getScheme().equalsIgnoreCase("https");
-        } catch (IllegalArgumentException e) {
-            return false;
+        gameEventListener = new GameEventListener(this);
+        Bukkit.getPluginManager().registerEvents(gameEventListener, this);
+        getLogger().info("Eventos de jugador hacia Discord: listener registrado.");
+    }
+
+    private boolean anyPlayerLikeEventEnabled() {
+        return getConfig().getBoolean("events.player-join", false)
+                || getConfig().getBoolean("events.player-quit", false)
+                || getConfig().getBoolean("events.player-death", false)
+                || getConfig().getBoolean("events.advancement", false);
+    }
+
+    private void unregisterGameEvents() {
+        if (gameEventListener != null) {
+            HandlerList.unregisterAll(gameEventListener);
+            gameEventListener = null;
         }
     }
 
-    private static boolean isPrivate172Host(String host) {
-        if (!host.startsWith("172.")) {
-            return false;
+    private void cancelTasks() {
+        int h = heartbeatTaskId.getAndSet(-1);
+        if (h != -1) {
+            Bukkit.getScheduler().cancelTask(h);
         }
-        String[] p = host.split("\\.");
-        if (p.length < 2) {
-            return false;
+        int s = startupTaskId.getAndSet(-1);
+        if (s != -1) {
+            Bukkit.getScheduler().cancelTask(s);
         }
-        try {
-            int oct2 = Integer.parseInt(p[1]);
-            return oct2 >= 16 && oct2 <= 31;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    private static String hmacSha256Hex(String secret, byte[] body) throws Exception {
-        Mac mac = Mac.getInstance("HmacSHA256");
-        mac.init(new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), "HmacSHA256"));
-        byte[] raw = mac.doFinal(body);
-        StringBuilder sb = new StringBuilder(raw.length * 2);
-        for (byte b : raw) {
-            sb.append(String.format(Locale.ROOT, "%02x", b));
-        }
-        return sb.toString();
     }
 }

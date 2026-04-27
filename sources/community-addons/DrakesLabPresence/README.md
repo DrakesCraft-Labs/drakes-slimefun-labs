@@ -1,54 +1,36 @@
 # DrakesLabPresence
 
-Addon **opcional** (DrakesCraft Labs) para saber **dónde** se está ejecutando el laboratorio (Paper + tu stack Slimefun Drake) **sin meter secretos en el JAR**.
+Addon **opcional** (DrakesCraft Labs) para enlazar tu servidor Paper con **Discord u otros relays HTTP** mediante **webhooks HTTPS** que tú configuras. Pensado como capa ligera de “puente” **solo saliente** (servidor → Discord), sin meter tokens de bot ni secretos de terceros en el JAR.
 
-## Qué hace
+## Qué hace hoy
 
-- Genera un `instance-id` estable en `plugins/DrakesLabPresence/data.yml` (por servidor / carpeta de datos).
-- Si `enabled: true` y `webhook-url` apunta a un **HTTPS** público, envía periódicamente un JSON (o un embed de **Discord**) con: nombre del servidor, versión de MC, si Slimefun está cargado, versión del plugin, marca de tiempo UTC.
-- Opcional: cabecera `X-Drakes-Signature: sha256=…` (HMAC del cuerpo) si configuras `shared-secret` (misma clave en tu relay).
+1. **Presencia (latido)** — Igual que antes: si `enabled: true` y `webhook-url` es HTTPS público, envía cada `heartbeat-minutes` un JSON o embed con `instance-id`, versión de MC, Slimefun, etc. (`schema: drakeslab-presence/1` en relays no Discord).
+2. **Eventos de servidor** (opt-in) — `events.server-startup` / `events.server-shutdown`: un POST al arrancar (tras `startup-delay-seconds`) y uno síncrono best-effort al apagar/recargar.
+3. **Eventos de juego** (opt-in) — Hacia `webhook-events-url` **o** la misma `webhook-url` si no definís canal aparte:
+   - `player-join`, `player-quit`, `player-death`, `advancement`
+   - `events.rate-limit-per-minute` para no inundar el canal
+   - `events.show-player-uuid` para incluir UUID en payload/embed
+4. **Relay genérico** — Si la URL **no** es de Discord, los eventos usan `schema: drakeslab-bridge/1` con campo `event` y `data` { clave: valor }.
+5. **Firma opcional** — Misma cabecera `X-Drakes-Signature: sha256=…` (HMAC del cuerpo) si configurás `shared-secret`.
+6. **Comandos** — `/drakeslabpresence reload` y `/drakeslabpresence test` (embed o JSON según URL).
 
-## Qué **no** hace (a propósito)
+## Qué **no** hace (y alternativas)
 
-- No envía correo ni abre issues en GitHub **directamente**: no es seguro incrustar tokens SMTP ni PAT de GitHub en un plugin público.
-- No “espía” jugadores ni IPs en el JSON (la IP origen la ve solo quien recibe el POST HTTP).
+- **No** es un bot de Discord con sesión permanente: no lee mensajes del canal ni ejecuta comandos de Discord → Minecraft. Eso requiere **token de bot** + librería (p. ej. JDA) o un servicio aparte; no lo empaquetamos aquí por seguridad y tamaño.
+- Para chat bidireccional masivo y enlace maduro servidor ↔ Discord, la opción habitual en el ecosistema es **[DiscordSRV](https://github.com/DiscordSRV/DiscordSRV)** u otro plugin establecido; DrakesLabPresence puede **complementar** (p. ej. solo presencia + alertas técnicas a un webhook privado).
+- **GitHub / correo directo** — Igual que antes: montá un **relay** (Worker, n8n, VPS) que reciba el POST y llame a APIs con credenciales que **no** viven en el servidor de Minecraft.
 
-## Notificación rápida: Discord
+## Configuración rápida (Discord)
 
-1. En tu servidor de Discord: *Canal → Editar → Integraciones → Webhooks → Nuevo webhook*.
-2. Copia la URL `https://discord.com/api/webhooks/...`.
-3. En `plugins/DrakesLabPresence/config.yml`: `enabled: true`, `webhook-url: "<pega aquí>"`.
-4. Reinicia o `/drakeslabpresence reload`. Tras `startup-delay-seconds` deberías ver un mensaje del webhook.
+1. Webhook en el canal de **presencia** (latidos poco frecuentes).
+2. (Opcional) Otro webhook en canal de **alertas / eventos** y poné `webhook-events-url`.
+3. `enabled: true`, activá solo los flags de `events` que quieras (los de jugador van **false** por defecto por privacidad).
+4. Reinicio o `/drakeslabpresence reload`. Probad con `/drakeslabpresence test`.
 
-## GitHub o correo (relay)
+## Privacidad y operadores
 
-Monta un endpoint **tuyo** (Cloudflare Worker, Fly.io, n8n, small VPS) que:
-
-1. Reciba el POST (y verifique `X-Drakes-Signature` si usas `shared-secret`).
-2. Llame a la API de GitHub (`issues`, `repository_dispatch`) con un **PAT** que solo vive en el servidor del relay, **no** en Minecraft.
-
-Ejemplo de cuerpo genérico (no Discord):
-
-```json
-{
-  "schema": "drakeslab-presence/1",
-  "instanceId": "uuid",
-  "serverLabel": "paper",
-  "minecraftVersion": "1.21.1",
-  "bukkitVersion": "...",
-  "pluginVersion": "1.0.0-DRAKE-SNAPSHOT",
-  "slimefunPresent": true,
-  "slimefunVersion": "…",
-  "timestampUtc": "2026-04-28T12:00:00Z"
-}
-```
-
-**Correo:** muchos relays (Zapier, Make, n8n) aceptan webhook HTTP y disparan “Send email”.
-
-## Ética y operadores
-
-Por defecto `enabled: false`. Solo quien controla el servidor debe activar el envío; avisa en tu documentación de staff si lo usas en un survival público.
+Por defecto no se reenvían entradas/salidas/muertes. Si las activás, informá en las normas del servidor / staff. El rate limit evita abusos por farms de muertes o picos de jugadores.
 
 ## English summary
 
-Opt-in heartbeat to **your** HTTPS URL (Discord webhook works out of the box). Optional HMAC header for a private relay. No GitHub tokens or SMTP credentials ship inside the plugin; use your own small service to forward to GitHub Issues or email.
+Lightweight **outbound-only** bridge: periodic presence heartbeat, optional startup/shutdown posts, optional player/advancement events to **your** HTTPS webhooks (Discord or generic JSON `drakeslab-bridge/1`). Optional HMAC. No Discord bot token in the JAR; use DiscordSRV or a custom bot service for full bidirectional chat.

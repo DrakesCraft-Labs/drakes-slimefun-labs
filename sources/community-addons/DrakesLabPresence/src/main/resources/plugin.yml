@@ -3,14 +3,14 @@ version: ${project.version}
 main: com.github.drakescraft_labs.drakeslabpresence.DrakesLabPresencePlugin
 api-version: "1.21"
 authors: [DrakesCraft-Labs]
-description: Optional heartbeat to a private HTTPS webhook (Discord, relay). Opt-in; no tokens in JAR.
+description: Optional HTTPS webhooks — presence heartbeat + configurable game events toward Discord or your relay. Opt-in; no bot tokens in JAR.
 website: https://github.com/DrakesCraft-Labs/drakes-slimefun-labs
 softdepend: [Slimefun]
 
 commands:
   drakeslabpresence:
-    description: Reload config
-    usage: /<command> reload
+    description: Reload config or send a test webhook
+    usage: /<command> reload|test
     permission: drakeslabpresence.admin
 
 permissions:

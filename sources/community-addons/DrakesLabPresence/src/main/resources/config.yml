@@ -1,23 +1,40 @@
-# DrakesLabPresence — latido opcional hacia TU webhook (nunca hardcodeado en el código).
-# Debe estar explícitamente en true y configurada la URL para enviar nada.
+# DrakesLabPresence — webhooks HTTPS hacia URLs que configures (nunca hardcodeadas).
+# enabled + webhook-url son el mínimo para el latido de presencia.
 
 enabled: false
 
-# URL HTTPS (webhook de Discord, Cloudflare Worker, n8n, etc.). Ver README del addon.
+# Latido periódico (presencia / laboratorio): versión MC, Slimefun, instance-id, etc.
 webhook-url: ""
+
+# Opcional: canal distinto para eventos de juego (join, muerte, …). Si vacío, se usa webhook-url.
+webhook-events-url: ""
 
 # Secreto compartido (opcional). Si no está vacío, se envía cabecera
 # X-Drakes-Signature: sha256=<hex HMAC-SHA256 del cuerpo UTF-8> para que tu relay verifique origen.
 shared-secret: ""
 
-# Identificador legible en mensajes (opcional). Si vacío, se usa server.properties "server-name".
+# Identificador legible en embeds (opcional). Si vacío, se usa el nombre Bukkit del servidor.
 server-label: ""
 
-# Minutos entre latidos (mínimo 15).
+# Minutos entre latidos de presencia (mínimo 15).
 heartbeat-minutes: 360
 
-# Segundos de espera tras /reload o arranque antes del primer POST.
+# Segundos tras arranque/reload antes del primer latido y del aviso de arranque (si está activo).
 startup-delay-seconds: 60
 
-# Loguear en consola cada envío (útil al depurar el relay).
+# Loguear en consola cada POST (útil al depurar el relay).
 debug: false
+
+# Eventos hacia webhook-events-url (o webhook-url si el primero está vacío).
+# Todo opt-in: por defecto no se envía nada de jugadores.
+events:
+  server-startup: false
+  server-shutdown: false
+  player-join: false
+  player-quit: false
+  player-death: false
+  advancement: false
+  # Máximo de mensajes de evento por minuto (join/muerte/logro…). 0 = sin límite.
+  rate-limit-per-minute: 12
+  # Si true, el JSON/embed incluye el UUID del jugador (join/quit/muerte/logro).
+  show-player-uuid: false
