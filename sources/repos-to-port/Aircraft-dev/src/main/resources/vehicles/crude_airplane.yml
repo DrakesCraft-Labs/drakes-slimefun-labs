@@ -19,7 +19,8 @@ weight:
 
 engine:
   location: [0.0, 0.0, 0.0]
-  force: 100.0
+  # Vector3d (thrust); scalar "100.0" breaks YAML parsing (expects a list of three numbers).
+  force: [100.0, 0.0, 0.0]
   fuels: [coal]
 
 collisionTolerance:

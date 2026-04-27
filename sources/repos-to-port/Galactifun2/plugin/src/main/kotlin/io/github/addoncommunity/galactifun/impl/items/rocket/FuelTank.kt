@@ -16,7 +16,7 @@ import io.github.seggan.sf4k.serial.blockstorage.setBlockStorage
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
-import io.github.bakedlibs.dough.items.CustomItemStack
+import dev.drake.dough.items.CustomItemStack
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import net.kyori.adventure.text.Component

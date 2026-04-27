@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler
-import io.github.bakedlibs.dough.blocks.BlockPosition
+import dev.drake.dough.blocks.BlockPosition
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import org.bukkit.Location
 import org.bukkit.block.Block

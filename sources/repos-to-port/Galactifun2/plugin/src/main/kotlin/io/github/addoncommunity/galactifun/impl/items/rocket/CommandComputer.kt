@@ -18,7 +18,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler
-import io.github.bakedlibs.dough.blocks.BlockPosition
+import dev.drake.dough.blocks.BlockPosition
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu
 import net.kyori.adventure.text.format.NamedTextColor

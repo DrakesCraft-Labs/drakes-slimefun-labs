@@ -10,7 +10,7 @@ import io.github.addoncommunity.galactifun.impl.managers.PlanetManager
 import io.github.addoncommunity.galactifun.units.*
 import io.github.addoncommunity.galactifun.util.general.mergeMaps
 import io.github.addoncommunity.galactifun.util.processSlimefunBlocks
-import io.github.bakedlibs.dough.blocks.BlockPosition
+import dev.drake.dough.blocks.BlockPosition
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import kotlin.math.ln
 import kotlin.time.Duration.Companion.seconds

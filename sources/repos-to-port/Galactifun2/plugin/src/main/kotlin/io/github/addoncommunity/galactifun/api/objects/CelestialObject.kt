@@ -9,7 +9,7 @@ import io.github.addoncommunity.galactifun.units.Mass
 import io.github.addoncommunity.galactifun.units.Velocity.Companion.metersPerSecond
 import io.github.addoncommunity.galactifun.util.bukkit.plus
 import io.github.addoncommunity.galactifun.util.general.LazyDouble
-import io.github.bakedlibs.dough.items.CustomItemStack
+import dev.drake.dough.items.CustomItemStack
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils
 import kotlinx.datetime.Instant
 import net.kyori.adventure.text.Component

@@ -52,7 +52,7 @@ dependencies {
 
     implementation("org.metamechanists:DisplayModelLib:34")
 
-    implementation("io.github.seggan:sf4k:0.6.0")
+    implementation(project(":sf4k-bakedlibs"))
 
     testImplementation(kotlin("test"))
     testImplementation("io.strikt:strikt-core:0.34.0")

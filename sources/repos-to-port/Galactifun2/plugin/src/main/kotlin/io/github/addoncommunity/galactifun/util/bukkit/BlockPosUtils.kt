@@ -1,10 +1,10 @@
 package io.github.addoncommunity.galactifun.util.bukkit
 
-import io.github.bakedlibs.dough.blocks.BlockPosition
+import dev.drake.dough.blocks.BlockPosition
 import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
 
-/** Drake/bakedlibs [BlockPosition]; prefer over sf4k's `Block.position` (legacy dough type). */
+/** Drake dough [BlockPosition] ([dev.drake.dough.blocks.BlockPosition]); prefer over sf4k's `Block.position` where relevant. */
 val Block.blockPosition: BlockPosition
     get() = BlockPosition(this)
 

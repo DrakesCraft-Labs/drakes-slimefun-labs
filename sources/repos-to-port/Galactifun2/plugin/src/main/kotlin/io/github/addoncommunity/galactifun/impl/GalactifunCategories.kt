@@ -3,7 +3,7 @@ package io.github.addoncommunity.galactifun.impl
 import io.github.addoncommunity.galactifun.util.bukkit.key
 import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup
-import io.github.bakedlibs.dough.items.CustomItemStack
+import dev.drake.dough.items.CustomItemStack
 import org.bukkit.Material
 
 object GalactifunCategories {

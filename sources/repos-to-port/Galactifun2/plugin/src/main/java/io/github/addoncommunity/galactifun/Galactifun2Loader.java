@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -24,8 +25,45 @@ public class Galactifun2Loader implements PluginLoader {
         MavenLibraryResolver resolver = new MavenLibraryResolver();
         PluginLibraries pluginLibraries = load();
         pluginLibraries.asDependencies().forEach(resolver::addDependency);
-        pluginLibraries.asRepositories().forEach(resolver::addRepository);
+        pluginLibraries.asRepositories()
+                .map(Galactifun2Loader::rewriteMavenCentralMirror)
+                .forEach(resolver::addRepository);
         classpathBuilder.addLibrary(resolver);
+    }
+
+    /**
+     * Paper rejects raw Maven Central URLs ({@code repo.maven.apache.org} / {@code repo1.maven.org}) in
+     * {@link MavenLibraryResolver#addRepository}; use Paper's default mirror instead.
+     */
+    private static RemoteRepository rewriteMavenCentralMirror(RemoteRepository repository) {
+        String url = repository.getUrl();
+        if (url == null) {
+            return repository;
+        }
+        String lower = url.toLowerCase(Locale.ROOT);
+        if (lower.startsWith("https://repo.maven.apache.org/")
+                || lower.startsWith("http://repo.maven.apache.org/")
+                || lower.startsWith("https://repo1.maven.org/")
+                || lower.startsWith("http://repo1.maven.org/")) {
+            return new RemoteRepository.Builder(
+                    repository.getId(),
+                    repository.getContentType(),
+                    paperDefaultCentralMirror()
+            ).build();
+        }
+        return repository;
+    }
+
+    /** Same fallback order as {@code MavenLibraryResolver} on current Paper (without relying on compile-time constant). */
+    private static String paperDefaultCentralMirror() {
+        String central = System.getenv("PAPER_DEFAULT_CENTRAL_REPOSITORY");
+        if (central == null || central.isBlank()) {
+            central = System.getProperty("org.bukkit.plugin.java.LibraryLoader.centralURL");
+        }
+        if (central == null || central.isBlank()) {
+            central = "https://maven-central.storage-download.googleapis.com/maven2";
+        }
+        return central;
     }
 
     private PluginLibraries load() {

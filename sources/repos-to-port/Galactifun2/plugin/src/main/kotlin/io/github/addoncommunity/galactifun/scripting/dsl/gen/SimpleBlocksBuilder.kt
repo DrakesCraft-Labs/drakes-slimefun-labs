@@ -1,7 +1,7 @@
 package io.github.addoncommunity.galactifun.scripting.dsl.gen
 
 import io.github.addoncommunity.galactifun.scripting.PlanetDsl
-import io.github.bakedlibs.dough.collections.RandomizedSet
+import dev.drake.dough.collections.RandomizedSet
 import org.bukkit.Material
 
 

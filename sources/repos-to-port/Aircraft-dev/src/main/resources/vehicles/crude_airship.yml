@@ -17,7 +17,7 @@ weight:
 
 engine:
   location: [0.0, 0.0, 0.0]
-  force: 80.0
+  force: [80.0, 0.0, 0.0]
   fuels: [fuel, water]
 
 collisionTolerance:
