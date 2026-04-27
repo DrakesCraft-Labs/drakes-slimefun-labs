@@ -5,7 +5,7 @@
 ## Start here
 
 1. **[docs/README.md](../README.md)** — canonical index (bilingual pointers + tables).
-2. **[README.md](../../README.md)** — repository overview and generated module table (`python scripts/generate_plugin_matrix.py`).
+2. **[README.md](../../README.md)** — bilingual intro (EN/ES: goals, reactor commands, Python scripts, **Slimefun Discord** expectations) + generated module table (`python scripts/generate_plugin_matrix.py`).
 3. **[PLUGIN_MATRIX.md](../es/PLUGIN_MATRIX.md)** — audited per-module rows (Spanish headers; do not hand-edit).
 
 ## Guides

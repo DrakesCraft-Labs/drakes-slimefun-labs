@@ -5,7 +5,7 @@
 ## Por dónde empezar
 
 1. **[docs/README.md](../README.md)** — índice canónico del monorepo.
-2. **[README.md](../../README.md)** — visión general y tabla de módulos generada (`python scripts/generate_plugin_matrix.py`).
+2. **[README.md](../../README.md)** — introducción bilingüe (EN/ES: qué es, objetivos, comandos del reactor, scripts Python, aviso para **Discord de Slimefun**) + tabla de módulos generada (`python scripts/generate_plugin_matrix.py`).
 3. **[PLUGIN_MATRIX.md](PLUGIN_MATRIX.md)** — filas auditadas por módulo (no editar a mano).
 
 ## Guías

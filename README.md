@@ -6,7 +6,73 @@
 [![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
 [![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
 
-**Rama `1.21-latin` — línea estable.** Un solo reactor **Maven + Gradle** (Java **21**) con **Slimefun 4 Drake**, Dough, librerías internas y **muchos addons** ya alineados a la API **Paper 1.21.x**. El objetivo del laboratorio es simple: *que compile en CI, que arranque en Paper real y que el pack se pueda desplegar*; el resto es mejora continua.
+---
+
+## English · What this repository is
+
+**Drakes Slimefun Labs** is an open **Maven + Gradle monorepo** (Java **21**) from [**DrakesCraft Labs**](https://github.com/DrakesCraft-Labs). It ships a **forked Slimefun 4** (“Drake” core), **Dough**, internal patches (e.g. Commons Lang), and **dozens of ported/community addons** aligned with **Paper 1.21.x**. Treat it as a **build and porting lab**: GitHub Actions compiles the full reactor; optional **smoke** runs Paper locally; **Releases** provide a **ZIP of plugin JARs** when maintainers run the workflow manually.
+
+**Goals:** one dependency graph, reproducible CI, and a clear path from upstream-style addons → Paper 1.21 API → Slimefun shaded classpath (including **relocated Dough** types under `com.github.drakescraft_labs.slimefun4.libraries.dough.*`). **Non-goals:** promising “every recipe on every public server is QA’d”; gameplay polish still happens on real survival (see reference server below).
+
+**Default branch:** `1.21-latin` (stable lab line). Experimental **Paper 26.x** work lives on **`26.X-ToTheStars`** — **do not merge** those two histories (see the red-line section later in this README).
+
+### Using the reactor (commands)
+
+| Goal | Command |
+|------|---------|
+| Regenerate the big module table + `docs/es/PLUGIN_MATRIX.md` | `python scripts/generate_plugin_matrix.py` |
+| Compile **all** Maven modules (fail-at-end) | `mvn -B -DskipTests compile -fae` |
+| Full `package` (same pressure as CI / release) | `mvn -B -DskipTests package -fae` |
+| One addon + its Maven dependencies | `mvn -B -pl sources/community-addons/MyAddon -am -DskipTests package` |
+| Install Drake APIs into `~/.m2` (for Gradle addons) | `mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion -am` |
+| Gradle from repo root (example) | `./gradlew :sources:community-addons:SlimefunTranslation:shadowJar --no-daemon` |
+
+**Python tooling:** full list and flags in [`scripts/README.md`](scripts/README.md) (`manager.py`, `port_paper_121.py`, `fix_dough_compilation_imports.py`, smoke orchestrator, release collector, etc.). **Smoke:** [`scripts/smoke/README.md`](scripts/smoke/README.md).
+
+### Posting in the official Slimefun Discord (expectations)
+
+**Technically:** CI is green for the full reactor on `1.21-latin`; releases ship a ZIP; smoke profiles exist for Paper **1.21.1** and **1.21.11**. **For the community:** present this repo as a **third-party fork / lab**, not “official Slimefun”. Link this README + **latest [GitHub Release](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/releases)**, state **Paper 1.21.x + Java 21**, and that **gameplay, balance, and cross-plugin quirks** are still validated on real servers. That avoids misleading casual server owners.
+
+---
+
+## Español · Qué es este repositorio
+
+**Drakes Slimefun Labs** es un **monorepo Maven + Gradle** (Java **21**) de [**DrakesCraft Labs**](https://github.com/DrakesCraft-Labs): incluye **Slimefun 4 fork** (“Drake”), **Dough**, parches internos (p. ej. Commons Lang) y **muchos addons** portados o de comunidad, alineados a **Paper 1.21.x**. Es un **laboratorio de compilación y porte**: el **CI** valida el reactor; el **smoke** levanta Paper de prueba; las **Releases** publican un **ZIP de JARs** cuando un mantenedor dispara el workflow.
+
+**Qué se persigue:** un solo grafo de dependencias, builds reproducibles y un camino claro desde addons estilo upstream → API Paper 1.21 → classpath de Slimefun sombreado (incluidos tipos **Dough relocados** bajo `com.github.drakescraft_labs.slimefun4.libraries.dough.*`). **Qué no prometemos:** que cada receta o interacción esté pulida en todo servidor público; eso sigue en **supervivencia real** (servidor de referencia más abajo).
+
+**Rama por defecto:** `1.21-latin` (línea estable del laboratorio). El trabajo **Paper 26.x** va en **`26.X-ToTheStars`**; **no fusiones** esas dos historias (apartado “línea roja” más abajo).
+
+### Cómo usar el reactor (comandos)
+
+| Objetivo | Comando |
+|----------|---------|
+| Regenerar tabla larga del README + `docs/es/PLUGIN_MATRIX.md` | `python scripts/generate_plugin_matrix.py` |
+| Compilar **todo** el reactor Maven (falla al final si algo rompe) | `mvn -B -DskipTests compile -fae` |
+| `package` completo (misma presión que CI / release) | `mvn -B -DskipTests package -fae` |
+| Un addon Maven y sus dependencias | `mvn -B -pl sources/community-addons/MiAddon -am -DskipTests package` |
+| Publicar APIs Drake en `~/.m2` (addons Gradle) | `mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion -am` |
+| Gradle desde la raíz (ejemplo) | `./gradlew :sources:community-addons:SlimefunTranslation:shadowJar --no-daemon` |
+
+**Scripts Python:** catálogo y opciones en [`scripts/README.md`](scripts/README.md) (`manager.py`, `port_paper_121.py`, `fix_dough_compilation_imports.py`, orquestador de smoke, JARs de release, etc.). **Smoke:** [`scripts/smoke/README.md`](scripts/smoke/README.md).
+
+### Scripts Python (resumen rápido)
+
+| Script | Para qué sirve |
+|--------|----------------|
+| `generate_plugin_matrix.py` | Sincroniza inventario de módulos con CI y el README / matriz. |
+| `manager.py` | Auditoría y reparaciones masivas de POMs / imports (usar con diff revisado). |
+| `port_paper_121.py` | Parches repetibles de API Paper 1.21.1 (`--dry-run` primero). |
+| `fix_dough_compilation_imports.py` | Alinea imports de `ProtectionManager` con el Slimefun sombreado. |
+| `fix_graalvm_js_community_poms.py` / `ci_hygiene_fixes.py` | GraalVM “community” + pasada de higiene antes de `package`. |
+| `smoke/smoke_orchestrate.py` | Orquesta descarga Paper, JARs y arranque de prueba. |
+| `release/collect_monorepo_jars.py` | Usado por el workflow de release para armar el ZIP. |
+
+Detalle, flags y ejemplos: **[`scripts/README.md`](scripts/README.md)**.
+
+### ¿Conviene anunciarlo en el Discord de Slimefun?
+
+**Sí, con matices.** A nivel **técnico** el repo está en buena forma para compartirlo: CI del monorepo, releases en GitHub, documentación y scripts. A nivel **comunidad**, conviene presentarlo como **fork / laboratorio de DrakesCraft**, no como “el Slimefun oficial”: aclara **Paper 1.21.x**, **Java 21**, enlace al **último release**, y que el **gameplay en survival** sigue depender de pruebas reales (p. ej. [DrakesCraft](https://drakescraft.cl)). Así no generas expectativas de producto cerrado en gente que solo busca un jar “plug and play” sin leer.
 
 ### Listo en el laboratorio (no bloquea seguir iterando)
 
@@ -225,22 +291,18 @@ drakes-slimefun-labs/
 
 ---
 
-## Comandos utiles
+## Comandos útiles (copiar y pegar)
+
+Las tablas **English / Español** arriba cubren el día a día. Aquí van recetas largas que suele pegar el equipo:
 
 ```bash
-# Regenerar matriz + README (tabla alineada)
-python scripts/generate_plugin_matrix.py
-
 # Parche masivo Paper 1.21.1 (dry-run primero)
 python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
 
 # Smoke completo local (Paper + JARs; tarda; subir timeout si hace falta)
 python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 420
 
-# Build base Maven (ejemplo)
-mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
-
-# Verificacion local del corte completo
+# Verificación local alineada con el job Gradle del CI (tras install del núcleo Maven)
 mvn -B -DskipTests compile -fae
 ./gradlew :sources:batch-2-expansion:Galactifun:compileJava :sources:community-addons:Bump:compileJava :sources:community-addons:CustomItemGenerators:compileJava :sources:community-addons:FastMachines:compileJava :sources:community-addons:SlimefunTranslation:compileJava --no-daemon
 
@@ -248,7 +310,7 @@ mvn -B -DskipTests compile -fae
 mvn -B -DskipTests install -pl sources/repos-to-port/InfinityExpansion -am
 ```
 
-El **release** del ZIP de plugins se lanza desde GitHub: *Actions → Release monorepo JARs → Run workflow* (elige un tag nuevo cada vez).
+**Release ZIP:** GitHub → *Actions* → **Release monorepo JARs** → *Run workflow* (tag único cada vez). Requiere que el reactor `package` sea verde (incluye paso Gradle de SlimefunTranslation, ver workflow).
 
 ---
 

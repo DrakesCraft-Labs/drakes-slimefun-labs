@@ -17,7 +17,7 @@ La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://git
 
 | Objetivo | Documento |
 |----------|-------------|
-| Visión general del repo y tabla de módulos | [README raíz](../README.md) (`python scripts/generate_plugin_matrix.py`) |
+| Visión general (EN+ES al inicio), reactor, scripts, Discord | [README raíz](../README.md) (`python scripts/generate_plugin_matrix.py`) |
 | Matriz auditada por módulo (no editar a mano) | [es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) |
 | Qué queda a nivel build / historial técnico | [es/pending-modules.md](es/pending-modules.md) |
 | Arranque local y convenciones | [en/development-setup.md](en/development-setup.md) · [es/development-setup.md](es/development-setup.md) |
