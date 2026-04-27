@@ -1,0 +1,23 @@
+# DrakesLabPresence — latido opcional hacia TU webhook (nunca hardcodeado en el código).
+# Debe estar explícitamente en true y configurada la URL para enviar nada.
+
+enabled: false
+
+# URL HTTPS (webhook de Discord, Cloudflare Worker, n8n, etc.). Ver README del addon.
+webhook-url: ""
+
+# Secreto compartido (opcional). Si no está vacío, se envía cabecera
+# X-Drakes-Signature: sha256=<hex HMAC-SHA256 del cuerpo UTF-8> para que tu relay verifique origen.
+shared-secret: ""
+
+# Identificador legible en mensajes (opcional). Si vacío, se usa server.properties "server-name".
+server-label: ""
+
+# Minutos entre latidos (mínimo 15).
+heartbeat-minutes: 360
+
+# Segundos de espera tras /reload o arranque antes del primer POST.
+startup-delay-seconds: 60
+
+# Loguear en consola cada envío (útil al depurar el relay).
+debug: false

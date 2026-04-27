@@ -22,6 +22,7 @@ La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://git
 | Qué queda a nivel build / historial técnico | [es/pending-modules.md](es/pending-modules.md) |
 | Arranque local y convenciones | [en/development-setup.md](en/development-setup.md) · [es/development-setup.md](es/development-setup.md) |
 | Smoke test (servidor real) | [en/smoke-test-guide.md](en/smoke-test-guide.md) · [es/smoke-test-guide.md](es/smoke-test-guide.md) |
+| **DrakesLabPresence** (latido HTTPS opcional hacia tu webhook; ver en qué servidores corre el pack) | [README del addon](../sources/community-addons/DrakesLabPresence/README.md) |
 | Roles (QA / beta), acuerdos de equipo y “campo de pruebas” | [es/colaboracion-y-qa.md](es/colaboracion-y-qa.md) |
 | Scripts Python y PowerShell | [../scripts/README.md](../scripts/README.md) |
 | Tablero GitHub Projects (org) | [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md) |
