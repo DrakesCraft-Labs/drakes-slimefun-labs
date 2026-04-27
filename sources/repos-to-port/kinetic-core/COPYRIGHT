@@ -1,0 +1,54 @@
+KINETIC CORE - COPYRIGHT NOTICE
+================================
+
+Copyright (c) 2025 Antonio Trento
+All rights reserved.
+
+Author: Antonio Trento
+Website: https://antoniotrento.net
+Portfolio: https://antoniotrento.net/portfolio/kinetic-core/
+
+PROJECT INFORMATION
+-------------------
+Project Name: Kinetic Core
+Description: Salesforce Integration Library with Bulk API v2 Support
+GitHub: https://github.com/antonio-backend-projects/kinetic-core
+PyPI: https://pypi.org/project/kinetic-core/
+
+ECOSYSTEM
+---------
+Kinetic Core is the foundational library powering the KineticMCP ecosystem.
+KineticMCP Website: https://kineticmcp.com
+
+KineticMCP provides AI-powered Salesforce integration tools, combining the
+capabilities of Kinetic Core with Model Context Protocol (MCP) to enable
+intelligent automation and data management.
+
+LICENSE
+-------
+This software is licensed under the MIT License.
+See the LICENSE file in the root directory of this source tree for details.
+
+ATTRIBUTION
+-----------
+When using Kinetic Core in your projects, attribution is appreciated:
+"Powered by Kinetic Core by Antonio Trento (https://antoniotrento.net)"
+
+TRADEMARKS
+----------
+"Kinetic Core" and "KineticMCP" are trademarks of Antonio Trento.
+
+CONTACT
+-------
+For questions, support, or collaboration:
+- GitHub Issues: https://github.com/antonio-backend-projects/kinetic-core/issues
+- Email: info@antoniotrento.net
+- Website: https://kineticmcp.com
+
+ACKNOWLEDGMENTS
+---------------
+This project is built on the foundation of open-source technologies and
+the Salesforce platform. We are grateful to the open-source community
+for their contributions to the ecosystem.
+
+Last Updated: January 2, 2025

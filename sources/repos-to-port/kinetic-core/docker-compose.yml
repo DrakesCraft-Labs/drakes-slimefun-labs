@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # The main toolkit CLI service
+  toolkit:
+    build: .
+    # Volume mount removed to ensure installed package is used
+    # But we explicitly mount certs, config, logs, and data folders
+    volumes:
+      - ./certs:/app/certs
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - ./data:/app/data
+    # Mount .env if it exists, otherwise environment variables can be passed explicitly
+    env_file:
+      - .env
+    command: ["--help"]
+
+  # Service specifically for running tests
+  tests:
+    build: .
+    # Volume mount removed
+    # volumes:
+    #   - .:/app
+    entrypoint: ["pytest"]
+    command: ["-v"]

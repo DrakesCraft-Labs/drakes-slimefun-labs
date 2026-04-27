@@ -1,0 +1,46 @@
+# Salesforce Sync Configuration Example
+#
+# This configuration file defines a data synchronization pipeline
+# from a source (JSON, CSV, database) to Salesforce.
+
+# Source data configuration
+source:
+  type: json  # Options: json, csv, database
+  path: data/accounts.json  # Path to source file
+
+# Pipeline configuration
+pipeline:
+  sobject: Account  # Salesforce object to sync to
+  mode: upsert  # Options: insert, update, upsert, delete
+  external_id_field: External_Key__c  # Required for upsert mode
+  batch_size: 200  # Number of records per batch
+  stop_on_error: false  # Continue on errors (collect all errors)
+
+  # Field mapping configuration
+  mapping:
+    # Simple field mapping (source -> target)
+    customer_name: Name
+    customer_email: Email
+    customer_phone: Phone
+
+    # Field mapping with transformation
+    industry_code:
+      target: Industry
+      transform: uppercase  # Built-in: lowercase, uppercase, strip, int, float, bool
+
+    # Field mapping with default value
+    status:
+      target: Status__c
+      default: Active
+
+    # Nested field access (dot notation)
+    address.city: BillingCity
+    address.state: BillingState
+    address.postal_code: BillingPostalCode
+
+# Authentication (optional, can use environment variables instead)
+# auth:
+#   method: jwt  # or oauth
+#   client_id: YOUR_CLIENT_ID
+#   username: user@example.com
+#   private_key_path: /path/to/server.key

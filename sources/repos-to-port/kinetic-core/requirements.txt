@@ -1,0 +1,24 @@
+# Salesforce Toolkit - Requirements
+# Production dependencies
+
+# HTTP client for REST API
+requests>=2.31.0
+
+# JWT authentication
+PyJWT>=2.8.0
+cryptography>=41.0.7
+
+# Configuration files (YAML support)
+PyYAML>=6.0.1
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Optional: Database connectors (uncomment as needed)
+# mysql-connector-python>=8.0.33
+# psycopg2-binary>=2.9.9
+# pymongo>=4.6.1
+
+# Optional: Data manipulation (uncomment if needed)
+# pandas>=2.1.4
+# numpy>=1.26.3
