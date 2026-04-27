@@ -9,9 +9,12 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
+import io.github.addoncommunity.galactifun.units.Force
+import io.github.addoncommunity.galactifun.units.Volume
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import java.lang.reflect.Constructor
+import kotlin.time.Duration
 
 class ItemBuilder {
 
@@ -40,12 +43,43 @@ class ItemBuilder {
             ?: error("No constructor (ItemGroup, SlimefunItemStack, RecipeType, ItemStack[], …) for ${clazz.name} with ${otherArgs.size} trailing args")
         ctor.isAccessible = true
         try {
-            val item = ctor.newInstance(category, sfi, recipeType, recipe, *otherArgs) as SlimefunItem
+            val args = buildConstructorArgs(ctor, category, sfi, recipeType, recipe, otherArgs)
+            val item = ctor.newInstance(*args) as SlimefunItem
             item.register(Galactifun2)
         } catch (e: ReflectiveOperationException) {
             throw RuntimeException("Failed to construct ${clazz.name}", e)
         }
         return sfi
+    }
+
+    /**
+     * Los `value class` de Kotlin (p. ej. [Volume], [Force], [Duration]) se exponen en el constructor JVM
+     * como primitivos; hay que desempaquetar antes de [Constructor.newInstance].
+     */
+    private fun buildConstructorArgs(
+        ctor: Constructor<out SlimefunItem>,
+        category: ItemGroup,
+        sfi: SlimefunItemStack,
+        recipeType: RecipeType,
+        recipe: Array<out ItemStack?>,
+        otherArgs: Array<out Any?>
+    ): Array<Any?> {
+        val p = ctor.parameterTypes
+        val head: Array<Any?> = arrayOf(category, sfi, recipeType, recipe)
+        val tail = Array(otherArgs.size) { i ->
+            coerceJvmValue(p[4 + i], otherArgs[i])
+        }
+        return arrayOf(*head, *tail)
+    }
+
+    private fun coerceJvmValue(param: Class<*>, arg: Any?): Any? {
+        if (arg == null) return null
+        return when {
+            param == java.lang.Double.TYPE && arg is Volume -> arg.cubicMeters
+            param == java.lang.Double.TYPE && arg is Force -> arg.newtons
+            param == java.lang.Long.TYPE && arg is Duration -> arg.inWholeNanoseconds
+            else -> arg
+        }
     }
 
     private fun findStandardSlimefunConstructor(
