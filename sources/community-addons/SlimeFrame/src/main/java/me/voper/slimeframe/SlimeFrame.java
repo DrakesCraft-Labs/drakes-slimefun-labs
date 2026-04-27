@@ -1,5 +1,7 @@
 package me.voper.slimeframe;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,6 +47,8 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimeFrame-drake");
+
         instance = this;
         saveDefaultConfig();
 

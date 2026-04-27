@@ -1,5 +1,7 @@
 package dev.sefiraat.cultivation;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Bushes;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Crafting;
 import dev.sefiraat.cultivation.implementation.slimefun.items.Foods;
@@ -47,6 +49,8 @@ public class Cultivation extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Cultivation-drake");
+
         instance = this;
 
         getLogger().info("########################################");

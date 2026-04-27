@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.drakeslabpresence;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
@@ -30,6 +32,8 @@ public final class DrakesLabPresencePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "DrakesLabPresence-drake");
+
         saveDefaultConfig();
         if (getCommand("drakeslabpresence") != null) {
             getCommand("drakeslabpresence").setExecutor(this::onCommand);

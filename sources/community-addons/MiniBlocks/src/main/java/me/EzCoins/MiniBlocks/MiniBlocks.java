@@ -1,5 +1,7 @@
 package me.EzCoins.MiniBlocks;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
@@ -38,6 +40,8 @@ public final class MiniBlocks extends AbstractAddon implements SlimefunAddon {
 
     @Override
     protected void enable() {
+        DrakesLabsReleaseUpdate.schedule(this, "MiniBlocks-drake");
+
         plugin = this;
         getLogger().info("------------------------");
         getLogger().info("|         MiniBlocks ~ EzCoins          |");

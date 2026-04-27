@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.slimefunluckyblocks;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -101,6 +103,8 @@ public class SlimefunLuckyBlocks extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimefunLuckyBlocks-drake");
+
         cfg = new Config(this);
 
         // Setting up bStats

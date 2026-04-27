@@ -1,5 +1,7 @@
 package me.char321.sfadvancements;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
@@ -61,6 +63,8 @@ public final class SFAdvancements extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "sfadvancements-drake");
+
         instance = this;
 
         config = new Config(this);

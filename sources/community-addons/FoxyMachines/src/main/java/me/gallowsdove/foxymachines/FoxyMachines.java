@@ -1,5 +1,7 @@
 package me.gallowsdove.foxymachines;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.common.Events;
 import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.infinitylib.core.AbstractAddon;

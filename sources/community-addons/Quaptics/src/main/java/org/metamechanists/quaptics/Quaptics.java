@@ -1,5 +1,7 @@
 package org.metamechanists.quaptics;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import co.aikar.commands.PaperCommandManager;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
@@ -53,6 +55,8 @@ public final class Quaptics extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Quaptics-drake");
+
         if (!PaperLib.isPaper()) {
             getLogger().severe("Quaptics requires Paper to run!");
             getServer().getPluginManager().disablePlugin(this);

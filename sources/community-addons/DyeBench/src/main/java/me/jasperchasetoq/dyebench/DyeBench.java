@@ -1,5 +1,7 @@
 package me.jasperchasetoq.dyebench;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
 
@@ -17,6 +19,8 @@ public class DyeBench extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "DyeBench-drake");
+
         DyeBenchItemSetup.setup(this);
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();

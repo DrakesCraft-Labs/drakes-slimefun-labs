@@ -23,6 +23,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
         <!-- Spigot/Paper -->
         <dependency>
             <groupId>io.papermc.paper</groupId>

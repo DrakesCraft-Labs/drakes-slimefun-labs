@@ -1,5 +1,7 @@
 package io.github.sefiraat.crystamaehistoria;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.google.common.base.Preconditions;
 import de.slikey.effectlib.EffectManager;
 import dev.drake.infinitylib.core.AbstractAddon;

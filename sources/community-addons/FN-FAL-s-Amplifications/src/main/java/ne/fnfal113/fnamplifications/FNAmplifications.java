@@ -1,5 +1,7 @@
 package ne.fnfal113.fnamplifications;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import javax.annotation.Nonnull;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
@@ -27,6 +29,8 @@ public final class FNAmplifications extends JavaPlugin implements SlimefunAddon 
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "FNAmplifications-drake");
+
         setInstance(this);
 
 

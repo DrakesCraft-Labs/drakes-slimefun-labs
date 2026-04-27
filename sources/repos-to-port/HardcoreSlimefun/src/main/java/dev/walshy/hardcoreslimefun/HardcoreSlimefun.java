@@ -1,5 +1,7 @@
 package dev.walshy.hardcoreslimefun;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.walshy.hardcoreslimefun.events.AndroidEvents;
 import dev.walshy.hardcoreslimefun.events.Events;
 import dev.walshy.hardcoreslimefun.utils.Config;
@@ -27,6 +29,8 @@ public class HardcoreSlimefun extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "HardcoreSlimefun-drake");
+
         setInstance(this);
         saveDefaultConfig();
 

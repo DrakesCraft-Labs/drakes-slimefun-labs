@@ -92,6 +92,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>3.0.2</version>

@@ -91,4 +91,4 @@ Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon doc
 
 ## Después del “build verde”
 
-El monorepo en **`1.21-latin`** ya tiene como objetivo principal **CI + smoke + release ZIP**. Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.
+El monorepo en **`1.21-latin`** ya tiene como objetivo principal **CI + smoke + release** (muchos JAR como assets de un solo GitHub Release). Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.

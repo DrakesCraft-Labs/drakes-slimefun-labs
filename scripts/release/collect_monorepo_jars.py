@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Copia un jar por módulo Maven del reactor (rutas <module> del pom raíz) hacia un directorio plano
-para empaquetar releases (ZIP / GitHub Release).
+Copia un jar por módulo Maven del reactor (rutas <module> del pom raíz) hacia un directorio plano.
+El workflow release-monorepo-jars adjunta cada .jar (y manifest.json) como assets del GitHub Release.
 
 Uso (desde la raíz del repo, tras mvn package):
   python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars

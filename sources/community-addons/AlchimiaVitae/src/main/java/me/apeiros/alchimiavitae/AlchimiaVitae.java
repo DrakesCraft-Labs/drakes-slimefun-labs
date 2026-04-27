@@ -1,5 +1,7 @@
 package me.apeiros.alchimiavitae;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.core.AbstractAddon;
 
 

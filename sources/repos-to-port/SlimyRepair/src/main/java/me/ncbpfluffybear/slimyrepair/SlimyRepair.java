@@ -1,5 +1,7 @@
 package me.ncbpfluffybear.slimyrepair;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.collections.Pair;
@@ -24,6 +26,8 @@ public class SlimyRepair extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimyRepair-drake");
+
         instance = this;
 
         // Read something from your config.yml

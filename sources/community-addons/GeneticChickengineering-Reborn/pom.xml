@@ -85,6 +85,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
         <!-- Paper API -->
         <dependency>
             <groupId>org.bstats</groupId>

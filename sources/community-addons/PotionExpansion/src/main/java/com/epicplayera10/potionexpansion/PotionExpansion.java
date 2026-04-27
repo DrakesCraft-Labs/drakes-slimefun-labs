@@ -1,5 +1,7 @@
 package com.epicplayera10.potionexpansion;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.epicplayera10.potionexpansion.commands.PotionExpansionCommand;
 import com.epicplayera10.potionexpansion.commands.PotionExpansionTab;
 import com.epicplayera10.potionexpansion.listeners.DrinkMilkListener;
@@ -25,6 +27,8 @@ public class PotionExpansion extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "PotionExpansion-drake");
+
         instance = this;
 
         setupMetrics();

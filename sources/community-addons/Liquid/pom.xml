@@ -84,6 +84,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
 
                 <dependency>
             <groupId>org.projectlombok</groupId>

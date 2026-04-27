@@ -1,5 +1,7 @@
 package dev.j3fftw.headlimiter;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 
 import dev.j3fftw.headlimiter.blocklimiter.Group;
@@ -27,6 +29,8 @@ public final class HeadLimiter extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "HeadLimiter-drake");
+
         instance = this;
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();

@@ -1,5 +1,7 @@
 package com.xmooncorp.magic8ball;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.xmooncorp.magic8ball.core.ConfigBasedLocalization;
 import com.xmooncorp.magic8ball.implementation.Items;
 import com.xmooncorp.magic8ball.implementation.resources.Magic8BallFragmentResource;
@@ -21,6 +23,8 @@ public class Magic8Ball extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Magic8Ball-drake");
+
 
         instance = this;
         config = new Config(this);

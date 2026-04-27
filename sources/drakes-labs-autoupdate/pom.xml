@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.drakescraft_labs</groupId>
+        <artifactId>drakes-slimefun-labs</artifactId>
+        <version>11-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.github.drakescraft_labs</groupId>
+    <artifactId>drakes-labs-autoupdate</artifactId>
+    <version>11-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>drakes-labs-autoupdate</name>
+    <description>Comprueba GitHub Releases del monorepo y descarga un JAR más nuevo a la carpeta updates/ del servidor.</description>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-artifact</artifactId>
+            <version>3.9.9</version>
+        </dependency>
+    </dependencies>
+</project>

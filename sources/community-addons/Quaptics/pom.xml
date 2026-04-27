@@ -101,6 +101,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.metamechanists</groupId>
             <artifactId>MetaLib</artifactId>
             <version>46</version>

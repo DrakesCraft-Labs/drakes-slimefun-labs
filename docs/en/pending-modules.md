@@ -83,6 +83,6 @@ A module is considered closed when:
 <!-- DRAKES-STATUS:BEGIN -->
 > Sync cut: **2026-04-24** (Maven + Gradle build); README/docs **2026-04-25** (“what’s left” aligned with community + DrakesCraft).
 > Baseline: **Paper 1.21.x + Java 21** on **`1.21-latin`**.
-> CI: **Monorepo 1.21** (full reactor + Gradle). Optional smoke + **ZIP release** documented in README / `github-maintenance.md`.
+> CI: **Monorepo 1.21** (full reactor + Gradle). Optional smoke + **multi-JAR release** documented in README / `github-maintenance.md`.
 > What’s next: **gameplay polish on servers** (open-ended, not a finite lab checklist).
 <!-- DRAKES-STATUS:END -->

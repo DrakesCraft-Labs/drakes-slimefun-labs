@@ -1,5 +1,7 @@
 package io.ncbpfluffybear.fluffymachines;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import dev.drake.dough.collections.Pair;
@@ -49,6 +51,8 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
     @SneakyThrows
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "FluffyMachines-drake");
+
         instance = this;
         // Read something from your config.yml
         Config cfg = new Config(this);

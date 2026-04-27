@@ -1,5 +1,7 @@
 package net.guizhanss.ultimategenerators2
 
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate
+
 import com.google.common.base.Preconditions
 import dev.drake.dough.updater.BlobBuildUpdater
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon
@@ -54,6 +56,8 @@ class UltimateGenerators2 : AbstractAddon(
     private var debugEnabled = false
 
     override fun enable() {
+        DrakesLabsReleaseUpdate.schedule(this, "UltimateGenerators2-drake")
+
         log(Level.INFO, "=====================")
         log(Level.INFO, " UltimateGenerators2 ")
         log(Level.INFO, "      by ybw0014     ")

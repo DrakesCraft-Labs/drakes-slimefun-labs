@@ -1,5 +1,7 @@
 package io.ncbpfluffybear.slimecustomizer;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
@@ -50,6 +52,8 @@ public class SlimeCustomizer extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimeCustomizer-drake");
+
 
         instance = this;
         itemsFolder = new File(this.getDataFolder(), "saveditems");

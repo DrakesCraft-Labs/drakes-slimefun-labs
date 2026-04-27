@@ -1,5 +1,7 @@
 package org.metamechanists.kinematiccore;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -21,6 +23,8 @@ public class KinematicCore extends JavaPlugin implements KinematicAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "kinematic-core-drake");
+
         instance = this;
         AddonStorage.init();
         EntityStorage.init();

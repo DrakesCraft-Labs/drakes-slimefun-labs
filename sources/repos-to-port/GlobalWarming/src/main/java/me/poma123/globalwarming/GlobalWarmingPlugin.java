@@ -1,5 +1,7 @@
 package me.poma123.globalwarming;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -50,6 +52,8 @@ public class GlobalWarmingPlugin extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "GlobalWarming-drake");
+
         instance = this;
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {

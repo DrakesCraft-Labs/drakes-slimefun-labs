@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   build_and_release:
-    name: Maven package + ZIP + GitHub Release
+    name: Maven package + JARs (release assets)
     runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:
@@ -57,17 +57,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Collect plugin JARs
-        run: |
-          python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars
-          (cd dist && zip -r ../monorepo-plugins.zip monorepo-jars)
+        run: python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars
 
-      - name: Upload build artifact (ZIP)
+      - name: Upload build artifact (carpeta de JARs)
         uses: actions/upload-artifact@v7
         with:
           name: monorepo-plugins-${{ inputs.tag }}
-          path: monorepo-plugins.zip
+          path: dist/monorepo-jars/
 
-      - name: Create GitHub Release
+      - name: Create GitHub Release (un asset .jar por addon)
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ inputs.tag }}
@@ -75,6 +73,8 @@ jobs:
           draft: ${{ inputs.draft }}
           prerelease: ${{ inputs.prerelease }}
           generate_release_notes: true
-          files: monorepo-plugins.zip
+          files: |
+            dist/monorepo-jars/*.jar
+            dist/monorepo-jars/manifest.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

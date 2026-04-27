@@ -1,5 +1,7 @@
 package me.justahuman.spiritsunchained;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
@@ -45,6 +47,8 @@ public class SpiritsUnchained extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SpiritsUnchained-drake");
+
         instance = this;
 
 

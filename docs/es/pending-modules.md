@@ -85,6 +85,6 @@ Un modulo se considera cerrado cuando:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronización: **2026-04-24** (build Maven + Gradle); README/docs **2026-04-25** (mensaje “qué queda” alineado con comunidad + DrakesCraft).
 > Baseline técnico: **Paper 1.21.x + Java 21** en rama **`1.21-latin`**.
-> CI: **Monorepo 1.21** (reactor completo + Gradle). Smoke y **release ZIP** opcionales documentados en README / `github-maintenance.md`.
+> CI: **Monorepo 1.21** (reactor completo + Gradle). Smoke y **release multi-JAR** opcionales documentados en README / `github-maintenance.md`.
 > Lo que sigue: **gameplay y pulido en servidor** (no es lista cerrada del laboratorio).
 <!-- DRAKES-STATUS:END -->

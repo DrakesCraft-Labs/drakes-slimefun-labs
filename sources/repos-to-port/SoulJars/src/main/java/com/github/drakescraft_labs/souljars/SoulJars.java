@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.souljars;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -37,6 +39,8 @@ public class SoulJars extends JavaPlugin implements Listener, SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SoulJars-drake");
+
         cfg = new Config(this);
 
         // Setting up bStats

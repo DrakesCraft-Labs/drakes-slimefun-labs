@@ -1,5 +1,7 @@
 package me.apeiros.villagerutil;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.concurrent.ThreadLocalRandom;
 
 import dev.drake.infinitylib.core.AbstractAddon;

@@ -1,5 +1,7 @@
 package me.sfiguz7.transcendence;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.api.researches.Research;
@@ -52,6 +54,8 @@ public class TranscEndence extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "TranscEndence-drake");
+
 
         instance = this;
 

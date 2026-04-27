@@ -1,5 +1,7 @@
 package io.github.sefiraat.slimetinker;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.text.MessageFormat;
 
 import javax.annotation.Nonnull;
@@ -52,6 +54,8 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimeTinker-drake");
+
 
 
 

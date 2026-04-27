@@ -8,7 +8,7 @@ Fuente de verdad para **Drakes Slimefun Labs** en la rama **`1.21-latin`**: **Pa
 |-------------------------------|-------------------------|
 | Compilación del reactor en **CI Monorepo 1.21** | Bugs de gameplay, balance, interacciones con otros plugins |
 | **Smoke** Paper 1.21.1 / 1.21.11 (perfiles en `scripts/smoke/`) | Pruebas largas en survival, reportes de jugadores |
-| **Release** opcional: ZIP de JARs ([workflow](../.github/workflows/release-monorepo-jars.yml)) | Pasta fina **addon por addon** (Chagui, comunidad, staff) |
+| **Release** opcional: muchos `.jar` en un solo GitHub Release ([workflow](../.github/workflows/release-monorepo-jars.yml)) | Pasta fina **addon por addon** (Chagui, comunidad, staff) |
 | Matriz y tablas generadas | **[DrakesCraft](https://drakescraft.cl)** (Chile) como servidor de referencia del pack |
 
 La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**; no sustituye a `1.21-latin` hasta que ese porte esté listo.
@@ -26,7 +26,7 @@ La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://git
 | Roles (QA / beta), acuerdos de equipo y “campo de pruebas” | [es/colaboracion-y-qa.md](es/colaboracion-y-qa.md) |
 | Scripts Python y PowerShell | [../scripts/README.md](../scripts/README.md) |
 | Tablero GitHub Projects (org) | [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md) |
-| Actions, releases ZIP, PRs, alertas | [github-maintenance.md](github-maintenance.md) |
+| Actions, releases (assets JAR), PRs, alertas | [github-maintenance.md](github-maintenance.md) |
 | Contexto rápido del monorepo (copiar/pegar) | [es/contexto-rapido-repo.md](es/contexto-rapido-repo.md) · [en/repo-session-brief.md](en/repo-session-brief.md) |
 | Guía de trabajo en el repositorio | [es/guia-monorepo.md](es/guia-monorepo.md) · [en/monorepo-work-guide.md](en/monorepo-work-guide.md) |
 

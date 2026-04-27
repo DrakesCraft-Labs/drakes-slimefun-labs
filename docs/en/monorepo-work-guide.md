@@ -14,7 +14,7 @@
 3. Separate **POM / resolution failures** from **Paper / Slimefun API** failures before editing.
 4. **Shaded Slimefun:** after Slimefun `package`, Dough lives under `com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`. Addons using `Slimefun.getProtectionManager()` must align imports with the **relocated** types on the addon classpath. Helper: `python scripts/fix_dough_compilation_imports.py` (excludes core modules).
 5. **Smoke:** `scripts/smoke/` (`run-smoke-server.ps1`, `smoke_orchestrate.py`); **ProtocolLib** via Python script + PowerShell fallback. Profiles include `*-paper-12111` for Paper 1.21.11.
-6. **Releases:** manual workflow **Release monorepo JARs** produces a **ZIP** of jars — see `docs/github-maintenance.md`.
+6. **Releases:** manual workflow **Release monorepo JARs** uploads **each plugin `.jar`** as assets on one GitHub Release — see `docs/github-maintenance.md`.
 7. If module **status** vs the org board changes, refresh the matrix and align [Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) per `docs/PROJECT_BOARD_SYNC.md`.
 
 ## Reference command

@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.liquid;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.liquid.categories.MixerCategory;
 import com.github.drakescraft_labs.liquid.machinery.Centrifuge;
 import com.github.drakescraft_labs.liquid.machinery.Crystallizer;
@@ -30,6 +32,8 @@ public class Liquid extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Liquid-drake");
+
         instance = this;
 
         saveDefaultConfig();

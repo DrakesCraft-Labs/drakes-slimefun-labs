@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.extraheads;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import javax.annotation.Nonnull;
 
 import org.bstats.bukkit.Metrics;
@@ -27,6 +29,8 @@ public class ExtraHeads extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "ExtraHeads-drake");
+
         instance = this;
 
         // registry and config

@@ -1,5 +1,7 @@
 package me.kaiyan.missilewarfare;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import dev.drake.dough.config.Config;
 import me.kaiyan.missilewarfare.items.CustomItems;
@@ -43,6 +45,8 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "MissileWarfare-drake");
+
         int pluginId = 14904; // <-- Replace with the id of your plugin!
         metrics = new Metrics(this, pluginId);
 

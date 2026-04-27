@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.mobcapturer;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import javax.annotation.Nonnull;
 
 import org.bstats.bukkit.Metrics;
@@ -41,6 +43,8 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "MobCapturer-drake");
+
         setInstance(this);
 
         Config cfg = new Config(this);

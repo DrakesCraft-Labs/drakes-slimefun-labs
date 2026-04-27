@@ -1,5 +1,7 @@
 package me.justahuman.moreresearches;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import co.aikar.commands.BukkitCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.PaperCommandManager;
@@ -20,6 +22,8 @@ public class MoreResearches extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "MoreResearches-drake");
+
         instance = this;
 
         saveDefaultConfig();

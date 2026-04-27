@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.villagertrade;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.logging.Level;

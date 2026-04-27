@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.slimefunorechunks;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,6 +20,8 @@ public class OreChunks extends JavaPlugin implements SlimefunAddon {
 
 	@Override
 	public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SlimefunOreChunks-drake");
+
 		Config cfg = new Config(this);
 
 		

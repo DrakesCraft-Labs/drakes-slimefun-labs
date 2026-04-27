@@ -1,5 +1,7 @@
 package me.schntgaispock.wildernether;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.Random;
 
 import java.util.concurrent.ThreadLocalRandom;

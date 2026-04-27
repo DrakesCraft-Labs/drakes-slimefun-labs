@@ -1,5 +1,7 @@
 package me.jasperchasetoq.compressioncraft;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.core.AbstractAddon;
 
 import dev.drake.dough.config.Config;

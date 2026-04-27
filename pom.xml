@@ -56,6 +56,7 @@
         <module>sources/slimefun-core/Slimefun4-src</module>
         <module>sources/batch-2-expansion/SefiLib</module>
         <module>sources/batch-2-expansion/InfinityLib</module>
+        <module>sources/drakes-labs-autoupdate</module>
 
         <!-- Batch 1: Repos to Port (26 modules) -->
         <module>sources/repos-to-port/Aircraft-dev</module>
@@ -171,6 +172,12 @@
             <version>${dough.version}</version>
             <scope>compile</scope>
         </dependency>
+
+            <dependency>
+                <groupId>com.github.drakescraft_labs</groupId>
+                <artifactId>drakes-labs-autoupdate</artifactId>
+                <version>11-SNAPSHOT</version>
+            </dependency>
 
 
             <!-- ProtocolLib -->

@@ -1,5 +1,7 @@
 package io.github.sefiraat.simplestorage;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.simplestorage.categories.Categories;
 import io.github.sefiraat.simplestorage.configuration.ManagerConfiguration;
@@ -47,6 +49,8 @@ public class SimpleStorage extends AbstractAddon {
 
     @Override
     protected void enable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SimpleStorage-drake");
+
 
 
 

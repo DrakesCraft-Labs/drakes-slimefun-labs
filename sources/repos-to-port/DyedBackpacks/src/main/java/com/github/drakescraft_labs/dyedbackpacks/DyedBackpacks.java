@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.dyedbackpacks;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bstats.bukkit.Metrics;
@@ -30,6 +32,8 @@ public class DyedBackpacks extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "DyedBackpacks-drake");
+
         Config cfg = new Config(this);
 
 

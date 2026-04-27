@@ -1,5 +1,7 @@
 package ne.fnfal113.relicsofcthonia;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import lombok.Getter;
@@ -24,6 +26,8 @@ public final class RelicsOfCthonia extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "RelicsOfCthonia-drake");
+
         instance = this;
 
 

@@ -1,6 +1,8 @@
 package io.github.sefiraat.emctech;
 
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.text.MessageFormat;
 
 import javax.annotation.Nonnull;
@@ -43,6 +45,8 @@ public class EmcTech extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "EMCTech-drake");
+
         instance = this;
 
         getLogger().info("########################################");

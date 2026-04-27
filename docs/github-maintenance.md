@@ -124,13 +124,13 @@ Ver [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md). La CLI necesita scopes `read
 
 ## Release de todos los JAR del monorepo
 
-El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a mano (*Actions → Release monorepo JARs → Run workflow*). Ejecuta `mvn -B -DskipTests package` en el reactor, recopila un jar por módulo con `scripts/release/collect_monorepo_jars.py`, genera `monorepo-plugins.zip` y crea un **GitHub Release** con ese ZIP adjunto.
+El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a mano (*Actions → Release monorepo JARs → Run workflow*). Ejecuta `mvn -B -DskipTests package` en el reactor, recopila un jar por módulo con `scripts/release/collect_monorepo_jars.py` y crea un **GitHub Release** adjuntando **cada `.jar` por separado** (más `manifest.json`) como assets del mismo tag. Así el auto-updater del laboratorio solo descarga el jar del addon que toca, sin un ZIP monolítico.
 
 - **Tag**: obligatorio y único (por ejemplo `v11-plugins-2026-04-25`). Si el tag ya existe, el paso de release fallará hasta que elijas otro.
 - **Draft / Prerelease**: útil la primera vez para revisar notas y adjuntos antes de publicar.
-- Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` dentro del ZIP con la lista `missing_modules`; conviene revisar ese archivo si el ZIP parece incompleto.
+- Los módulos sin `target/*.jar` (no compilados) aparecen en `manifest.json` con la lista `missing_modules`; conviene revisar ese archivo si faltan plugins en el release.
 
-Tras publicar, el despliegue típico en survival es manual (por ejemplo en **[DrakesCraft](https://drakescraft.cl)**); el ZIP es un solo paquete coherente para actualizar el pack sin publicar un release por cada addon.
+Tras publicar, el despliegue típico en survival sigue siendo manual (por ejemplo en **[DrakesCraft](https://drakescraft.cl)**); con muchos assets en un solo release puedes descargar solo los jars que necesites o automatizar con el updater por nombre de artefacto.
 
 ## Fallos de Actions ya cubiertos en `1.21-latin` (referencia)
 

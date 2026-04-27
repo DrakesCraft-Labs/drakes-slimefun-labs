@@ -16,7 +16,7 @@ Before coding:
 Typical build: mvn -B -pl <module-path> -am -DskipTests package
 
 Smoke: scripts/smoke/ + smoke_orchestrate.py (profiles include Paper 1.21.11 variants).
-Release ZIP: release-monorepo-jars.yml (manual Actions).
+Multi-JAR release: release-monorepo-jars.yml (manual Actions).
 Reference survival server (Chile): https://drakescraft.cl — gameplay polish: community + Chagui + Issues.
 ```
 
@@ -26,7 +26,7 @@ Reference survival server (Chile): https://drakescraft.cl — gameplay polish: c
 |-------|--------|
 | Lab vs gameplay backlog | `docs/en/pending-modules.md`, root `README.md` |
 | Paper smoke + ProtocolLib | `scripts/smoke/README.md` |
-| ZIP releases | `docs/github-maintenance.md` |
+| Multi-JAR releases | `docs/github-maintenance.md` |
 | Long-form monorepo work guide | `docs/en/monorepo-work-guide.md` |
 | What 26.x is | branch `26.X-ToTheStars` → `docs/paper-26-base.md` on GitHub |
 

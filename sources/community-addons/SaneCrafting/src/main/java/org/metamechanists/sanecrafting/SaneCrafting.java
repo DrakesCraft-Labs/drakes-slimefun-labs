@@ -1,5 +1,7 @@
 package org.metamechanists.sanecrafting;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import org.bukkit.event.server.ServerLoadEvent;
 import lombok.Getter;
@@ -24,6 +26,8 @@ public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SaneCrafting-drake");
+
         instance = this;
 
         if (getConfig().getBoolean("auto-update") && !getPluginVersion().contains("MODIFIED")) {

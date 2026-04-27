@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.infinityexpansion;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 import java.util.logging.Level;
 
@@ -41,6 +43,8 @@ public class InfinityExpansion extends AbstractAddon {
 
     @Override
     protected void enable() {
+        DrakesLabsReleaseUpdate.schedule(this, "InfinityExpansion-drake");
+
 
         String autoUpdates = String.valueOf(autoUpdatesEnabled());
 

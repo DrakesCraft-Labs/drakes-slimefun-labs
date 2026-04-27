@@ -1,5 +1,7 @@
 package io.github.schntgaispock.gastronomicon;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

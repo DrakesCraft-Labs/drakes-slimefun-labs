@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.exoticgarden;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.exoticgarden.items.BonemealableItem;
 import com.github.drakescraft_labs.exoticgarden.items.Crook;
 import com.github.drakescraft_labs.exoticgarden.items.CustomFood;
@@ -84,6 +86,8 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "ExoticGarden-drake");
+
         PaperLib.suggestPaper(this);
 
         if (!schematicsFolder.exists()) {

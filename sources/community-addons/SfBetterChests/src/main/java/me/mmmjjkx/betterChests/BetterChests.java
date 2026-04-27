@@ -1,5 +1,7 @@
 package me.mmmjjkx.betterChests;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import io.github.schntgaispock.slimehud.SlimeHUD;
 import io.github.schntgaispock.slimehud.util.HudBuilder;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
@@ -22,6 +24,8 @@ public final class BetterChests extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "BetterChests-drake");
+
         INSTANCE = this;
 
         saveDefaultConfig();

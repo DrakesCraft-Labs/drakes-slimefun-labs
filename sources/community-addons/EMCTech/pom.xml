@@ -124,6 +124,11 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>drakes-labs-autoupdate</artifactId>
+        </dependency>
+
         <!-- Core -->
         <dependency>
             <groupId>io.papermc.paper</groupId>

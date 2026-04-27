@@ -1,5 +1,7 @@
 package io.github.sefiraat.danktech2;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import io.github.sefiraat.danktech2.commands.DankTechMain;
 import io.github.sefiraat.danktech2.core.DankPackInstance;
 import io.github.sefiraat.danktech2.managers.ConfigManager;
@@ -51,6 +53,8 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "DankTech2-drake");
+
         instance = this;
 
         getLogger().info("########################################");

@@ -1,5 +1,7 @@
 package dev.sefiraat.netheopoiesis;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.sefiraat.netheopoiesis.api.plant.netheos.NetheoBalls;
 import dev.sefiraat.netheopoiesis.implementation.Items;
 import dev.sefiraat.netheopoiesis.managers.ConfigManager;
@@ -47,6 +49,8 @@ public class Netheopoiesis extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Netheopoiesis-drake");
+
         instance = this;
 
         getLogger().info("########################################");

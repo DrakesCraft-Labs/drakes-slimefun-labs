@@ -16,7 +16,7 @@ Antes de codificar:
 Build típico: mvn -B -pl <ruta-modulo> -am -DskipTests package
 
 Smoke: scripts/smoke/ / smoke_orchestrate.py (perfiles foundation, monorepo-all, paper 1.21.11 en JSON).
-Release ZIP: workflow release-monorepo-jars.yml (Actions manual).
+Release (muchos `.jar` en un solo tag): workflow release-monorepo-jars.yml (Actions manual).
 Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + Chagui + Issues.
 ```
 
@@ -26,7 +26,7 @@ Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + 
 |------|--------|
 | Qué queda “lab vs juego” | `docs/es/pending-modules.md`, `README.md` |
 | Smoke Paper + ProtocolLib | `scripts/smoke/README.md` |
-| Releases ZIP | `docs/github-maintenance.md` |
+| Releases (assets JAR) | `docs/github-maintenance.md` |
 | Guía larga de trabajo en el monorepo | `docs/es/guia-monorepo.md` |
 | 26.x qué es / conclusión | rama `26.X-ToTheStars` → `docs/paper-26-base.md` en GitHub |
 

@@ -1,5 +1,7 @@
 package com.github.drakescraft_labs.coloredenderchests;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +25,8 @@ public class ColoredEnderChests extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "ColoredEnderChests-drake");
+
         cfg = new Config(this);
 
         // Setting up bStats

@@ -1,5 +1,7 @@
 package me.fnfal113.sfchunkinfo;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import me.fnfal113.sfchunkinfo.commands.ScanChunk;
@@ -14,6 +16,8 @@ public final class SfChunkInfo extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "SfChunkInfo-drake");
+
         setInstance(this);
 
 

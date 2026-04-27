@@ -1,5 +1,7 @@
 package me.profelements.dynatech;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.updater.GitHubBuildsUpdater;
@@ -35,6 +37,8 @@ public class DynaTech extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "DynaTech-drake");
+
         instance = this;
         final int TICK_TIME = Slimefun.getTickerTask().getTickRate();
         exoticGardenInstalled = Bukkit.getServer().getPluginManager().isPluginEnabled("ExoticGarden");

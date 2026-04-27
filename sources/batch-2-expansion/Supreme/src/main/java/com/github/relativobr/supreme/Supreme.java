@@ -1,5 +1,7 @@
 package com.github.relativobr.supreme;
 
+
+import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import static com.github.relativobr.supreme.util.CompatibilySupremeLegacy.loadComponents;
 import static com.github.relativobr.supreme.util.CompatibilySupremeLegacy.loadCoreResource;
 import static com.github.relativobr.supreme.util.CompatibilySupremeLegacy.loadGear;
@@ -134,6 +136,8 @@ public class Supreme extends JavaPlugin implements SlimefunAddon {
 
   @Override
   public void onEnable() {
+        DrakesLabsReleaseUpdate.schedule(this, "Supreme-drake");
+
 
     instance = this;
 
