@@ -27,6 +27,12 @@ Concurrency cancels in-progress runs on the same branch to reduce “war zone”
 - Addon-level production readiness still requires runtime smoke checks.
 - A passing pipeline is a required condition, not a sufficient production guarantee.
 
+### Monorepo GitHub Release (many JARs, one tag)
+
+The **Release monorepo JARs** workflow (`.github/workflows/release-monorepo-jars.yml`, see [github-maintenance.md](../github-maintenance.md)) builds `mvn package`, runs `scripts/release/collect_monorepo_jars.py`, and publishes **one `.jar` asset per Maven module** plus `manifest.json`. That is a **lab distribution** for selective downloads—not a claim that every addon is equally gameplay-ready.
+
+Addons that depend on **`drakes-labs-autoupdate`** call `DrakesLabsReleaseUpdate.schedule(...)` and compare the running jar to **`releases/latest`** of `DrakesCraft-Labs/drakes-slimefun-labs`, then download **only their matching asset** into the server **`updates/`** folder (unless disabled). Operational notes: [docs/wiki/runtime-drakes-autoupdate.md](../wiki/runtime-drakes-autoupdate.md). Mass injection helper: `scripts/inject_drakes_autoupdate.py` (see [scripts/README.md](../../scripts/README.md)).
+
 ## Next milestones
 
 1. Keep `maven_full_reactor` and `gradle_green` stable.
@@ -34,8 +40,6 @@ Concurrency cancels in-progress runs on the same branch to reduce “war zone”
 3. Track runtime validation status per addon group.
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
-> Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
+> Sync: **2026-04-27**. Baseline: **Paper 1.21.x + Java 21** on `1.21-latin`.
+> CI: **CI Monorepo 1.21**; JAR releases: **Release monorepo JARs** + autoupdater docs under `docs/wiki/`.
 <!-- DRAKES-STATUS:END -->

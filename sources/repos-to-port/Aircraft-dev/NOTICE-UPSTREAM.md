@@ -26,6 +26,10 @@ mvn -pl sources/repos-to-port/Aircraft-dev -am package -DskipTests
 
 El JAR queda en `sources/repos-to-port/Aircraft-dev/target/`.
 
+## YAML de vehículos (fork Drake)
+
+En runtime los esquemas viven en `plugins/Aircraft/vehicles/`. Este fork empaqueta seis vehículos, usa `VehicleConfigs` + `vehicles/.schema_revision` para volcar defaults cuando cambia el formato (MetaLib / vectores), y documenta el detalle en la wiki del monorepo: [`docs/wiki/runtime-aircraft-yaml.md`](../../../../docs/wiki/runtime-aircraft-yaml.md).
+
 ## Cambios respecto al upstream
 
 - `pom.xml`: padre del reactor, `paper-api` y `slimefun-core` del laboratorio, `sefilib-drake`, repos Maven (Paper, MetaMechanists, etc.).

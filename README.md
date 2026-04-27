@@ -15,6 +15,7 @@ Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefu
 | Recurso | URL |
 |---|---|
 | **Indice de documentacion** | [`docs/README.md`](docs/README.md) |
+| **Wiki (updater, despliegue, Aircraft)** | [`docs/wiki/README.md`](docs/wiki/README.md) |
 | **Mantenimiento GitHub** (runs, PRs, alertas) | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
 | **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
 | **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |

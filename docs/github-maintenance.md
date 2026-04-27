@@ -132,6 +132,8 @@ El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a m
 
 Tras publicar, el despliegue típico en survival sigue siendo manual (por ejemplo en **[DrakesCraft](https://drakescraft.cl)**); con muchos assets en un solo release puedes descargar solo los jars que necesites o automatizar con el updater por nombre de artefacto.
 
+**Despliegue directo en `plugins/`:** si tu panel o convención no usa la carpeta `updates/`, puedes copiar el `.jar` publicado (o el compilado en `sources/.../target/`) **sobre el archivo existente** en `plugins/`, manteniendo la carpeta `plugins/<NombreDelPlugin>/` de datos. Guía breve: [wiki/runtime-drakes-autoupdate.md](wiki/runtime-drakes-autoupdate.md).
+
 ## Fallos de Actions ya cubiertos en `1.21-latin` (referencia)
 
 

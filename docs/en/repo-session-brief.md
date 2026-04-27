@@ -24,6 +24,7 @@ Reference survival server (Chile): https://drakescraft.cl — gameplay polish: c
 
 | Topic | Where |
 |-------|--------|
+| Lab wiki (updater, deploy, Aircraft YAML) | `docs/wiki/README.md` |
 | Lab vs gameplay backlog | `docs/en/pending-modules.md`, root `README.md` |
 | Paper smoke + ProtocolLib | `scripts/smoke/README.md` |
 | Multi-JAR releases | `docs/github-maintenance.md` |

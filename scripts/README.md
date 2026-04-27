@@ -16,12 +16,32 @@ Automatización para **Drakes Slimefun Labs**: porteo Paper 1.21.1, coherencia M
 | Smoke (perfiles, Paper, logs) | [smoke/README.md](smoke/README.md) |
 | Guía smoke EN/ES | [../docs/en/smoke-test-guide.md](../docs/en/smoke-test-guide.md) · [../docs/es/smoke-test-guide.md](../docs/es/smoke-test-guide.md) |
 | Actions y limpieza en GitHub | [../docs/github-maintenance.md](../docs/github-maintenance.md) |
+| Wiki (updater, Aircraft YAML, despliegue) | [../docs/wiki/README.md](../docs/wiki/README.md) |
 
 ## Herramientas principales
 
+### `inject_drakes_autoupdate.py`
+
+Añade la dependencia Maven `drakes-labs-autoupdate` y la llamada `DrakesLabsReleaseUpdate.schedule(this, "<artifactId>")` en el `onEnable`/`enable` de los módulos plugin del reactor (según `plugin.yml` y clase principal). Útil al portar addons nuevos al monorepo.
+
+```bash
+python scripts/inject_drakes_autoupdate.py --dry-run
+python scripts/inject_drakes_autoupdate.py
+```
+
+Detalle de runtime (GitHub `releases/latest`, carpeta `updates/`, desactivación): [docs/wiki/runtime-drakes-autoupdate.md](../docs/wiki/runtime-drakes-autoupdate.md).
+
+### `release/collect_monorepo_jars.py`
+
+Tras `mvn package` en la raíz, copia **un jar sombreado por módulo** Maven a un directorio plano (p. ej. `dist/monorepo-jars`) y escribe `manifest.json`. Lo usa el workflow **Release monorepo JARs** antes de subir assets.
+
+```bash
+python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars
+```
+
 ### `generate_plugin_matrix.py`
 
-Regenera `docs/es/PLUGIN_MATRIX.md` y la tabla larga del `README.md` raíz. Ejecutarlo siempre que cambie el inventario de módulos en `pom.xml` / `settings.gradle.kts` o el mapeo en CI.
+Regenera `docs/es/PLUGIN_MATRIX.md` y la tabla larga del `README.md` raíz (incluye columna **Updater GH** por dependencia `drakes-labs-autoupdate`). Ejecutarlo siempre que cambie el inventario de módulos en `pom.xml` / `settings.gradle.kts` o el mapeo en CI.
 
 ```bash
 python scripts/generate_plugin_matrix.py
@@ -91,4 +111,6 @@ Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon doc
 
 ## Después del “build verde”
 
-El monorepo en **`1.21-latin`** ya tiene como objetivo principal **CI + smoke + release** (muchos JAR como assets de un solo GitHub Release). Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.
+El monorepo en **`1.21-latin`** apunta a **CI + smoke + release** (muchos JAR como assets de un solo GitHub Release cuando el equipo dispara el workflow). Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.
+
+Para probar un jar concreto sin pasar por `updates/`, muchos hosts permiten **sustituir solo el `.jar` dentro de `plugins/`** conservando la carpeta de datos del plugin; ver [docs/wiki/runtime-drakes-autoupdate.md](../docs/wiki/runtime-drakes-autoupdate.md).

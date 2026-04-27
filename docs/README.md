@@ -13,10 +13,16 @@ Fuente de verdad para **Drakes Slimefun Labs** en la rama **`1.21-latin`**: **Pa
 
 La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**; no sustituye a `1.21-latin` hasta que ese porte esté listo.
 
+## Wiki del laboratorio
+
+- **Índice wiki (mapa + runtime updater / Aircraft):** [wiki/README.md](wiki/README.md).
+- La **Wiki de GitHub** del repo (si existe) debe enlazar a `docs/wiki/` y a este `docs/README.md` para una sola fuente de verdad.
+
 ## Dónde empezar
 
 | Objetivo | Documento |
 |----------|-------------|
+| **Wiki (mapa, updater, Aircraft YAML)** | [wiki/README.md](wiki/README.md) |
 | Visión general (EN+ES al inicio), reactor, scripts, Discord | [README raíz](../README.md) (`python scripts/generate_plugin_matrix.py`) |
 | Matriz auditada por módulo (no editar a mano) | [es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) |
 | Qué queda a nivel build / historial técnico | [es/pending-modules.md](es/pending-modules.md) |
@@ -40,7 +46,7 @@ Si un texto discrepa del workflow en `.github/workflows/`, manda el **workflow**
 ## Qué queda fuera de esta carpeta
 
 - `sources/**/README.md`: documentación por addon o upstream; no es el manual central del laboratorio.
-- Wiki de GitHub (si existe): alinear con `docs/` cuando haga falta.
+- Wiki de GitHub (si existe): enlazar a [wiki/README.md](wiki/README.md) y a esta carpeta `docs/`; evitar duplicar texto largo fuera del repo.
 
 ## Compilación (addons y Slimefun sombreado)
 

@@ -4,6 +4,7 @@
 
 ## Por dónde empezar
 
+0. **[Wiki del laboratorio (mapa + runtime)](../wiki/README.md)** — updater GitHub, despliegue, Aircraft YAML.
 1. **[docs/README.md](../README.md)** — índice canónico del monorepo.
 2. **[README.md](../../README.md)** — introducción bilingüe (EN/ES: qué es, objetivos, comandos del reactor, scripts Python, aviso para **Discord de Slimefun**) + tabla de módulos generada (`python scripts/generate_plugin_matrix.py`).
 3. **[PLUGIN_MATRIX.md](PLUGIN_MATRIX.md)** — filas auditadas por módulo (no editar a mano).
@@ -17,7 +18,7 @@
 | Entorno local | [development-setup.md](development-setup.md) |
 | Smoke en Paper | [smoke-test-guide.md](smoke-test-guide.md) |
 | Checklist de migración | [migration-checklist.md](migration-checklist.md) |
-| CI / releases | [release-and-ci-strategy.md](release-and-ci-strategy.md) |
+| CI / releases | [release-and-ci-strategy.md](release-and-ci-strategy.md) · [wiki: updater + Aircraft](../wiki/README.md) |
 | Referencia técnica | [technical-reference-paper-1.21.1.md](technical-reference-paper-1.21.1.md) |
 | Actions, PRs, alertas | [github-maintenance.md](../github-maintenance.md) |
 

@@ -16,15 +16,17 @@ Eso implica que:
 - algunos todavía conservan versiones como `UNOFFICIAL`, `MODIFIED` o similares
 - el hecho de que un módulo compile no significa automáticamente que deba publicarse como release estable
 
-## Decisión principal
+## Decisión principal (actualizada)
 
-No se debe publicar una release masiva con todos los `.jar` del reactor como si fueran un solo producto listo para producción.
+Un **GitHub Release con muchos `.jar`** (uno por módulo Maven) **no** implica que todo el reactor tenga el mismo nivel de QA en juego: es un **artefacto de laboratorio** para descargas selectivas, CI verde previo y el **auto-updater** embebido (`drakes-labs-autoupdate` → `DrakesLabsReleaseUpdate`), que solo descarga el jar del addon que corresponde.
 
-En su lugar, la estrategia recomendada es:
+La estrategia sigue siendo prudente:
 
-1. usar CI para validar el reactor completo antes de cualquier cierre
-2. conservar artifacts descargables por workflow para revisión rápida
-3. publicar releases manuales o semimanuales solo para stacks o módulos seleccionados
+1. usar CI para validar el reactor completo antes de etiquetar
+2. usar **draft / prerelease** en el primer corte o cuando el equipo quiera revisar notas y `manifest.json`
+3. documentar en Issues/Project qué addons ya tuvieron smoke real; no promocionar “todo estable” sin evidencia
+
+Workflow manual: [`.github/workflows/release-monorepo-jars.yml`](../../.github/workflows/release-monorepo-jars.yml) (véase también [github-maintenance.md](../github-maintenance.md)).
 
 ## Qué sí conviene publicar
 
@@ -51,11 +53,11 @@ Solo si se documentan bien:
 - un batch de addons validados por build y smoke test
 - una familia de módulos con dependencia común
 
-## Qué no conviene hacer todavía
+## Qué conviene evitar
 
-- una release única con decenas de `.jar` mezclados
-- una etiqueta global que sugiera estabilidad homogénea de todo el reactor
-- automatizar publicación de releases para cada `push` sin filtro
+- Presentar un tag de monorepo como **“build de producción certificado”** sin matriz de riesgos por addon.
+- Publicar releases en **cada push** sin revisión humana del tag y del changelog.
+- Ignorar `manifest.json` del release si faltan módulos (`missing_modules`): revisar antes de anunciar el paquete.
 
 ## Arquitectura de CI (workflow unificado)
 
@@ -68,7 +70,11 @@ Un solo workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflo
 
 `concurrency` con `cancel-in-progress` reduce ruido en Actions cuando llegan muchos `push` seguidos.
 
-El corte local `2026-04-24` probo `mvn -B -DskipTests compile -fae` sobre los 81 modulos Maven y `compileJava` sobre los 5 proyectos Gradle. Ese pase ya fue promovido a CI; la accion recomendada ahora no es publicar todo, sino vigilar estabilidad del gate completo y validar runtime.
+El corte local `2026-04-24` probo `mvn -B -DskipTests compile -fae` sobre los módulos Maven del reactor y `compileJava` sobre los proyectos Gradle declarados. Ese pase está reflejado en **CI Monorepo 1.21**; la acción recomendada es mantener el gate verde y validar **runtime** en servidor (p. ej. [DrakesCraft](https://drakescraft.cl)) addon por addon.
+
+## Auto-updater y releases
+
+Los addons que declaran `drakes-labs-autoupdate` consultan el **último** release del repo `DrakesCraft-Labs/drakes-slimefun-labs` y, si el asset `.jar` es más nuevo que la versión en ejecución, copian **solo ese jar** a la carpeta `updates/` del servidor (salvo desactivación por JVM/env). Detalle operativo y despliegue manual en **`docs/wiki/runtime-drakes-autoupdate.md`**. Inyección masiva del hook: `scripts/inject_drakes_autoupdate.py` (ver `scripts/README.md`).
 
 ## Política de releases
 
@@ -87,8 +93,7 @@ Una release debe hacerse cuando:
 4. solo después evaluar automatización de releases
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Estado de sincronizacion: **2026-04-24**.
-> Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
-> Nota: quedan pendientes smoke tests de runtime y estrategia de releases; no hay bloqueos de compilacion en el corte actual.
+> Estado de sincronizacion: **2026-04-27**.
+> Baseline tecnico vigente: **Paper 1.21.x + Java 21** (rama `1.21-latin`).
+> CI principal: **CI Monorepo 1.21**; releases de jars: workflow **Release monorepo JARs** + auto-updater documentado en `docs/wiki/`.
 <!-- DRAKES-STATUS:END -->
