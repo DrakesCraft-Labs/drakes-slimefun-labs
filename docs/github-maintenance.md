@@ -2,6 +2,14 @@
 
 Guía operativa para mantener el repositorio **drakes-slimefun-labs** ordenado en GitHub. Los permisos requieren rol de mantenedor en la org o el repo.
 
+## Ramas largas (solo dos en el remoto)
+
+Política vigente: en **`DrakesCraft-Labs/drakes-slimefun-labs`** deben quedar **únicamente** las ramas **`1.21-latin`** (estable Paper 1.21.x) y **`26.X-ToTheStars`** (experimento 26.x). Cualquier `feat/*`, `feature/*` u otra rama de trabajo debe **integrarse por PR y borrarse** al terminar.
+
+**Dependabot** crea ramas `dependabot/...` mientras haya PRs abiertos; cerrar o fusionar el PR (con borrado de rama) las elimina. Si reaparecen, es el ciclo normal de bumps.
+
+**No mezclar** `1.21-latin` ↔ `26.X-ToTheStars` (merge/rebase cruzado); es política explícita del laboratorio.
+
 ## Historial largo de workflow runs
 
 GitHub **no** ofrece un botón “borrar todo el historial” de ejecuciones. Opciones reales:

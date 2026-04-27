@@ -36,8 +36,16 @@ Esta carpeta es el **índice operativo** del monorepo: enlaza guías ya existent
 
 ## Ramas y línea roja
 
-- **`1.21-latin`**: línea principal del laboratorio (Paper 1.21.x).
-- **`26.X-ToTheStars`**: experimento Paper API 26.x; **no** fusionar ni rebase cruzado con `1.21-latin` (corrompe POMs y reactor). Detalle en README raíz y reglas de Cursor del repo.
+Política del repo en GitHub: **solo dos ramas largas** en el remoto:
+
+| Rama | Rol |
+|------|-----|
+| **`1.21-latin`** | Línea estable Paper **1.21.x** + Java 21 (rama por defecto / `HEAD`). |
+| **`26.X-ToTheStars`** | Línea experimental Paper **API 26.x** (BOMs y supuestos distintos). |
+
+- **No** fusionar ni rebase cruzado entre `1.21-latin` y `26.X-ToTheStars` (corrompe `pom.xml`, módulos y CI). README raíz y reglas de Cursor del laboratorio.
+
+**Ramas de corta vida:** integración vía **PR**; tras fusionar, borrar la rama cabeza en GitHub para no acumular ruido. **Dependabot** abre ramas `dependabot/...` por cada PR de dependencias: al cerrar o fusionar el PR, GitHub puede borrar la rama; si reaparecen, es normal (nuevo bump). Para depender solo de las dos ramas largas, revisa y fusiona o cierra PRs de Dependabot con frecuencia, o ajusta `.github/dependabot.yml` (intervalo / límites) con criterio del equipo.
 
 ---
 
