@@ -581,7 +581,7 @@ public final class Items {
                 Groups.VEHICLES,
                 RecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        null, getItem("DUCK_PLUSH_MODERATE"), null,
+                        null, slimefunItemOrFallback("DUCK_PLUSH_MODERATE", Material.YELLOW_WOOL), null,
                         null, HOVERDUCK_AVIONICS_STACK, null,
                         null, HOVERDUCK_ANTIGRAV_SYSTEM_STACK, null,
                 });
@@ -596,13 +596,23 @@ public final class Items {
                 RecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         new ItemStack(Material.DEAD_BUSH), new ItemStack(Material.DEAD_BUSH), new ItemStack(Material.DEAD_BUSH),
-                        new ItemStack(Material.DEAD_BUSH), getItem("INFINITY_SINGULARITY"), new ItemStack(Material.DEAD_BUSH),
+                        new ItemStack(Material.DEAD_BUSH), slimefunItemOrFallback("INFINITY_SINGULARITY", Material.NETHER_STAR), new ItemStack(Material.DEAD_BUSH),
                         new ItemStack(Material.DEAD_BUSH), new ItemStack(Material.DEAD_BUSH), new ItemStack(Material.DEAD_BUSH),
                 });
     }
 
-    private static ItemStack getItem(String id) {
-        return Slimefun.getRegistry().getSlimefunItemIds().get(id).getItem();
+    /**
+     * Optional cross-addon ingredients (p. ej. plush de otro addon, singularidad de Infinity).
+     * Si el id no está registrado, se usa un material vanilla para no tumbar el enable del plugin.
+     */
+    private static @NotNull ItemStack slimefunItemOrFallback(@NotNull String id, @NotNull Material fallback) {
+        SlimefunItem item = SlimefunItem.getById(id);
+        if (item == null) {
+            Aircraft.getInstance().getLogger().warning(
+                    "Slimefun item '" + id + "' no está registrado (addon opcional ausente). Receta con respaldo vanilla: " + fallback);
+            return new ItemStack(fallback);
+        }
+        return item.getItem();
     }
 
     private Items() {}
