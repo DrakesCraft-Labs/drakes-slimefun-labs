@@ -64,7 +64,7 @@ Solo bloquea cuando la **cabeza del PR** es exactamente `26.X-ToTheStars` o `1.2
 ### Dónde mirar
 
 - **Dependabot alerts**: *Security → Dependabot alerts* en el repo (o API REST).
-- **Dependabot version updates**: los PRs automáticos siguen `.github/dependabot.yml` (GitHub Actions + POM raíz Maven). El YAML usa **`groups`**: suele haber **un PR semanal agrupado** para Actions y hasta **dos** para Maven (dependencias de producción vs desarrollo), en lugar de una rama por cada bump. Tras cambiar la config, conviene **cerrar** los PRs viejos “uno por librería” que ya no aporten.
+- **Dependabot version updates**: `.github/dependabot.yml` (Actions + Maven raíz). Política actual: **intervalo mensual** (menos correos y ramas `dependabot/*`); **máx. 1 PR** para Actions y **2** para Maven. Los grupos Maven separan **producción** (solo *patch* y *minor*; los *major* van en PR humano) y **desarrollo** (herramientas: *patch*, *minor* y *major*). Dependencias **ignoradas** para bumps automáticos: `io.papermc.paper:paper-api`, `net.md-5:bungeecord-chat` (coherentes con `paper.version` y smoke), y *major* de módulos `spring-*` puntuales. Tras tocar el YAML, **cierra** PRs viejos o usa **`@dependabot recreate`** en el PR que quieras refrescar.
 - **GitHub “Dependabot security updates”** y el grafo **Dependency review** pueden mostrar el mismo CVE en varios manifiestos; no es obligatorio tener *cero* filas duplicadas si el estado global es **fixed** o **dismissed** con motivo documentado.
 - **Code scanning**: solo aparece si hay análisis configurado (CodeQL u otro); si la API devuelve 404, no hay alertas de código que listar.
 

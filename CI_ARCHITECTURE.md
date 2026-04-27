@@ -1,5 +1,7 @@
 # 🛡️ DrakesLab CI Architecture & Lifecycle
 
+> **Nota (2026):** la operación real del monorepo está en **un solo workflow** [`.github/workflows/ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) y en las guías [`docs/es/release-and-ci-strategy.md`](docs/es/release-and-ci-strategy.md) / [`docs/en/release-and-ci-strategy.md`](docs/en/release-and-ci-strategy.md). Lo que sigue describe un modelo antiguo de “Gates” dispersos; conservarlo solo como contexto histórico.
+
 Este documento detalla el funcionamiento del ecosistema de Integración Continua (CI) modularizado para el monorepo de Slimefun.
 
 ## 🏗️ Estructura de Gates (Calidad Modular)

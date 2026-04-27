@@ -15,7 +15,7 @@ The repository is operated in an incremental-stability model:
 Single workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`):
 
 - **foundation**: Maven baseline (Dough, Slimefun, SefiLib, InfinityLib, commons-lang patch)
-- **maven_full_reactor**: all 81 Maven reactor modules with `mvn -B compile -DskipTests -fae`
+- **maven_full_reactor**: full Maven reactor (`mvn -B package -DskipTests -fae`) after publishing the core stack to `.m2` and building the SlimefunTranslation Gradle `shadowJar` (required by UltimateGenerators2).
 - **gradle_green**: `compileJava` for all 5 Gradle projects after publishing required Maven artifacts locally
 - **ci_summary**: optional umbrella check for branch protection
 

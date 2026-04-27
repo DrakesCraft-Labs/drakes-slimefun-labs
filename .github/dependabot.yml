@@ -1,17 +1,15 @@
-# Actualizaciones de dependencias con bajo ruido (no sustituye revision humana del port 1.21).
-#
-# groups: menos ramas dependabot/* — un PR agrupado por ecosistema (Actions) y por tipo
-# Maven (produccion vs desarrollo). Los PRs viejos “uno por dependencia” se pueden cerrar
-# tras fusionar o sustituir por los nuevos agrupados.
+# Dependabot: pocos PRs, revisables, alineados al monorepo Paper 1.21 + Java 21.
+# Política: majors de producción y bumps de API Paper → a mano (PR dedicado + CI + smoke).
+# Ver también: docs/github-maintenance.md
 
 version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "monday"
-    open-pull-requests-limit: 2
+    open-pull-requests-limit: 1
     groups:
       actions-all:
         patterns:
@@ -19,23 +17,42 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
+    commit-message:
+      prefix: "chore(ci)"
 
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "tuesday"
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 2
     groups:
+      # Solo patch/minor: los majors rompen transitivos (p. ej. Guava, Jackson) y el reactor 81 módulos.
       maven-production:
         dependency-type: "production"
+        update-types:
+          - "patch"
+          - "minor"
       maven-development:
         dependency-type: "development"
+        update-types:
+          - "patch"
+          - "minor"
+          - "major"
     labels:
       - "dependencies"
       - "java"
       - "maven"
+    commit-message:
+      prefix: "chore(deps)"
     ignore:
-      # Spring 7.x implica Jakarta 9+ / cambios de plataforma; subir solo en PR dedicado.
+      # API alineada con paper.version + smoke; subir solo en PR humano.
+      - dependency-name: "io.papermc.paper:paper-api"
+      - dependency-name: "net.md-5:bungeecord-chat"
+      # Spring 7.x → Jakarta 9+ / plataforma distinta.
       - dependency-name: "org.springframework:spring-context"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "org.springframework:spring-beans"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "org.springframework:spring-core"
         update-types: ["version-update:semver-major"]

@@ -36,7 +36,7 @@ No es deuda del reactor: es **vida real** en el juego.
 
 #### ¿Por qué GitHub muestra “más de dos” ramas?
 
-Además de **`1.21-latin`** y **`26.X-ToTheStars`**, GitHub lista ramas **`dependabot/...`**: son **una rama por cada PR automático** de Dependabot; no son líneas de producto paralelas y suelen cerrarse al mergear o descartar el PR. Por eso el contador de ramas crece sin que existan “tres productos” distintos.
+Además de **`1.21-latin`** y **`26.X-ToTheStars`**, GitHub lista ramas **`dependabot/...`**: son **ramas de PRs automáticos** (Dependabot); no son líneas de producto paralelas y se cierran al fusionar o descartar el PR. La cadencia y el agrupamiento están acotados en [`.github/dependabot.yml`](.github/dependabot.yml) (mensual, pocos PRs abiertos) para no inundar el repo; detalle en [`docs/github-maintenance.md`](docs/github-maintenance.md).
 
 ---
 

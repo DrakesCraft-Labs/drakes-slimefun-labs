@@ -62,7 +62,7 @@ Solo si se documentan bien:
 Un solo workflow [`.github/workflows/ci-monorepo-121.yml`](../../.github/workflows/ci-monorepo-121.yml) (`CI Monorepo 1.21`) con jobs encadenados:
 
 - **foundation**: stack Maven base (Dough, Slimefun, SefiLib, InfinityLib, parche `commons-lang`).
-- **maven_full_reactor**: los 81 modulos Maven del reactor con `mvn -B compile -DskipTests -fae`.
+- **maven_full_reactor**: reactor Maven completo (`mvn -B package -DskipTests -fae`) tras instalar núcleo en `.m2` y el `shadowJar` de SlimefunTranslation (coherente con UltimateGenerators2).
 - **gradle_green**: `compileJava` de los 5 proyectos Gradle (`Galactifun`, `Bump`, `CustomItemGenerators`, `FastMachines`, `SlimefunTranslation`) tras instalar artefactos Maven requeridos.
 - **ci_summary**: comprobacion opcional para branch protection.
 
