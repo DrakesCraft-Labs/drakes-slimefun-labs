@@ -1,4 +1,5 @@
-translation: [0.0, 0.0, 0.0]
+name: "&eHoverduck"
+translation: [0.0, 0.2, 0.0]
 mass: 20.0
 momentOfInertia: 100.0
 airDensity: 10.0

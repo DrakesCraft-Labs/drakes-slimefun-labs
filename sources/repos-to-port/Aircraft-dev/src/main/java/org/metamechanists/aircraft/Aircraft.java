@@ -33,8 +33,7 @@ public final class Aircraft extends JavaPlugin implements SlimefunAddon, Kinemat
         DrakesLabsReleaseUpdate.schedule(this, "Aircraft-drake");
 
         instance = this;
-        saveResource("vehicles/crude_airplane.yml", false);
-        saveResource("vehicles/crude_airship.yml", false);
+        VehicleConfigs.installBundledVehicleConfigs(this);
         Items.init();
         Groups.register();
         Hider.init();

@@ -1,4 +1,4 @@
-name: "&7Crude Airplane"
+name: "&7Crude Drone"
 translation: [-0.4, 0.7, 0.0]
 mass: 20.0
 momentOfInertia: 100.0
@@ -19,9 +19,8 @@ weight:
 
 engine:
   location: [0.0, 0.0, 0.0]
-  # Vector3d (thrust); scalar "100.0" breaks YAML parsing (expects a list of three numbers).
-  force: [100.0, 0.0, 0.0]
-  fuels: [coal]
+  force: [55.0, 0.0, 0.0]
+  fuels: [coal, water]
 
 collisionTolerance:
   up: 0.05
@@ -30,11 +29,17 @@ collisionTolerance:
 
 resources:
   coal:
-    capacity: 600.0
-    passiveEngineDrain: 0.1
+    capacity: 400.0
+    passiveEngineDrain: 0.08
     throttleDrain: 0.0
     type: COMBUSTIBLE
     guiKey: c
+  water:
+    capacity: 4000.0
+    passiveEngineDrain: 0.0
+    throttleDrain: 0.35
+    type: WATER
+    guiKey: w
 
 hud:
   horizon:
@@ -341,7 +346,7 @@ components:
       propeller:
         rotationAxis: [1.0, 0.0, 0.0]
         maxRotationRate: 2.0
-        fuels: [coal]
+        fuels: [coal, water]
     Axle:
       material: GRAY_CONCRETE
       size: [1.0, 0.1, 0.1]
@@ -350,7 +355,7 @@ components:
       propeller:
         rotationAxis: [1.0, 0.0, 0.0]
         maxRotationRate: 2.0
-        fuels: [coal]
+        fuels: [coal, water]
     CenterTop1:
       material: IRON_BLOCK
       size: [0.3, 0.3, 0.3]
@@ -585,5 +590,5 @@ components:
 
 gui:
   - "#########"
-  - "#ifi##c##"
+  - "#ifi#cw##"
   - "#p#######"

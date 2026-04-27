@@ -34,6 +34,15 @@ GATE_5_GRADLE_OK = {
 # - Proyectos Gradle declarados en settings.gradle.kts: compileJava -> BUILD SUCCESS
 LOCAL_BUILD_CUT = "2026-04-24"
 
+# Observaciones especificas por modulo (sobrescribe el texto generico de classify).
+MAVEN_MODULE_OBSERVATION_OVERRIDES: dict[str, tuple[str, str, str]] = {
+    "sources/repos-to-port/Aircraft-dev": (
+        "Listo (CI)",
+        "CI Monorepo · maven_full_reactor",
+        "`mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; en runtime los YAML de vehiculos van en `plugins/Aircraft/vehicles/` (empaquetados en el jar). El fork Drake usa `vehicles/.schema_revision` para volcar defaults cuando cambia el formato (MetaLib exige vectores como listas de tres numeros, etc.). Smoke en servidor recomendado.",
+    ),
+}
+
 # Gradle reactor (settings.gradle.kts)
 GRADLE_MODULES = {
     "sources/batch-2-expansion/Galactifun",
@@ -53,6 +62,8 @@ GRADLE_LOCAL_OK_NOTE = {
 def module_type(path: str) -> str:
     if "slimefun-core" in path and "Slimefun4" in path:
         return "core"
+    if "drakes-labs-autoupdate" in path:
+        return "libreria (updater)"
     if "dough-core" in path or "InfinityLib" in path or "SefiLib" in path:
         return "libreria"
     if "internal-metadata" in path:
@@ -68,6 +79,8 @@ def module_type(path: str) -> str:
 
 def classify(path: str) -> tuple[str, str, str]:
     """Devuelve (estado_corto, evidencia, observacion)."""
+    if path in MAVEN_MODULE_OBSERVATION_OVERRIDES:
+        return MAVEN_MODULE_OBSERVATION_OVERRIDES[path]
     name = Path(path).name
     if path in GATE_5_GRADLE_OK:
         return (
@@ -95,6 +108,39 @@ def classify(path: str) -> tuple[str, str, str]:
     )
 
 
+def github_updater_badge(path: str) -> str:
+    """Indica si el modulo integra el updater de releases GitHub del monorepo (dependencia drakes-labs-autoupdate)."""
+    if path == "sources/drakes-labs-autoupdate":
+        return "—"
+    if "internal-metadata" in path or "commons-lang-drake-patched" in path:
+        return "—"
+    if path in {
+        "sources/dough-core",
+        "sources/slimefun-core/Slimefun4-src",
+        "sources/batch-2-expansion/SefiLib",
+        "sources/batch-2-expansion/InfinityLib",
+    }:
+        return "—"
+    p = ROOT / path
+    pom = p / "pom.xml"
+    if pom.is_file():
+        try:
+            txt = pom.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            return "?"
+        return "Sí" if "drakes-labs-autoupdate" in txt else "No"
+    for rel in ("build.gradle.kts", "plugin/build.gradle.kts"):
+        g = p / rel
+        if g.is_file():
+            try:
+                t = g.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            if "drakes-labs-autoupdate" in t:
+                return "Sí"
+    return "No"
+
+
 def maven_modules() -> list[str]:
     tree = ET.parse(ROOT / "pom.xml")
     mods = []
@@ -104,16 +150,20 @@ def maven_modules() -> list[str]:
 
 
 def main() -> None:
-    rows: list[tuple[str, str, str, str, str, str]] = []
+    rows: list[tuple[str, str, str, str, str, str, str]] = []
     for path in sorted(maven_modules()):
         st, ev, obs = classify(path)
-        rows.append((path, Path(path).name, module_type(path), st, ev, obs))
+        rows.append(
+            (path, Path(path).name, module_type(path), st, ev, obs, github_updater_badge(path))
+        )
 
     for path in sorted(GRADLE_MODULES):
         if path in maven_modules():
             continue
         st, ev, obs = classify(path)
-        rows.append((path, Path(path).name, "addon (Gradle)", st, ev, obs))
+        rows.append(
+            (path, Path(path).name, "addon (Gradle)", st, ev, obs, github_updater_badge(path))
+        )
 
     lines = [
         "# Matriz de plugins y modulos (generada)",
@@ -127,12 +177,14 @@ def main() -> None:
         "- **En curso**: en reactor pero sin evidencia de build reciente por modulo.",
         "- **Bloqueado (build)**: fallo reproducible de compilacion en el reactor local.",
         "",
-        "| Modulo | Tipo | Estado | Evidencia | Ruta | Observaciones |",
-        "|---|---|:---:|---|---|---|",
+        "- **Updater GH**: columna **Sí** si el `pom.xml` / `build.gradle.kts` declara la dependencia `drakes-labs-autoupdate` (comprobacion de releases del repo del laboratorio). **—** en nucleo/librerias internas sin plugin.",
+        "",
+        "| Modulo | Tipo | Estado | Evidencia | Updater GH | Ruta | Observaciones |",
+        "|---|---|:---:|---|:---:|---|---|",
     ]
-    for path, name, typ, st, ev, obs in rows:
+    for path, name, typ, st, ev, obs, upd in rows:
         obs_one = obs.replace("|", "\\|")
-        lines.append(f"| {name} | {typ} | {st} | {ev} | `{path}` | {obs_one} |")
+        lines.append(f"| {name} | {typ} | {st} | {ev} | {upd} | `{path}` | {obs_one} |")
 
     out = ROOT / "docs" / "es" / "PLUGIN_MATRIX.md"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -140,13 +192,19 @@ def main() -> None:
     print(f"Wrote {out} ({len(rows)} rows)")
 
     # --- README principal (tabla incrustada, misma fuente de datos) ---
-    # rows: (path, name, typ, st, ev, obs)
+    # rows: (path, name, typ, st, ev, obs, upd)
     ci = sum(1 for r in rows if r[3] == "Listo (CI)")
     loc = sum(1 for r in rows if r[3] == "Listo (local)")
     prog = sum(1 for r in rows if r[3] == "En curso")
     blk = sum(1 for r in rows if r[3] == "Bloqueado (build)")
     total = len(rows)
-    table_only = "\n".join(lines[lines.index("| Modulo | Tipo | Estado | Evidencia | Ruta | Observaciones |") :])
+    table_only = "\n".join(
+        lines[
+            lines.index(
+                "| Modulo | Tipo | Estado | Evidencia | Updater GH | Ruta | Observaciones |"
+            ) :
+        ]
+    )
     pct_ci = 100.0 * ci / len(rows) if rows else 0.0
 
     readme = f"""# Drakes Slimefun Labs
@@ -230,6 +288,8 @@ Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas D
 ## Inventario completo de modulos y plugins
 
 Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (repos-to-port), `addon (Gradle)`.
+
+Columna **Updater GH**: dependencia `drakes-labs-autoupdate` presente en el modulo (ver `scripts/inject_drakes_autoupdate.py`).
 
 {table_only}
 

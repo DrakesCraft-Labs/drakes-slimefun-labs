@@ -1,6 +1,6 @@
-name: "&7Crude Airplane"
+name: "&7Cessna"
 translation: [-0.4, 0.7, 0.0]
-mass: 20.0
+mass: 16.0
 momentOfInertia: 100.0
 airDensity: 10.0
 frictionCoefficient: 0.1
@@ -20,7 +20,7 @@ weight:
 engine:
   location: [0.0, 0.0, 0.0]
   # Vector3d (thrust); scalar "100.0" breaks YAML parsing (expects a list of three numbers).
-  force: [100.0, 0.0, 0.0]
+  force: [140.0, 0.0, 0.0]
   fuels: [coal]
 
 collisionTolerance:

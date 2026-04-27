@@ -1,4 +1,5 @@
-translation: [0.0, 0.0, 0.0]
+name: "&6Metacoin UFO"
+translation: [0.0, 0.3, 0.0]
 mass: 20.0
 momentOfInertia: 100.0
 airDensity: 10.0
@@ -17,7 +18,7 @@ weight:
 
 engine:
   location: [0.0, 0.0, 0.0]
-  force: [80.0, 0.0, 0.0]
+  force: [220.0, 0.0, 0.0]
   fuels: [fuel, water]
 
 collisionTolerance:
