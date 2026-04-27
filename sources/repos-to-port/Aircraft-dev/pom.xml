@@ -129,7 +129,8 @@
     </dependencies>
 
     <build>
-        <finalName>${project.name} v${project.version}</finalName>
+        <!-- Sin espacios: coincide con el nombre desplegado en servidores (Aircraft-drake-*.jar). -->
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>

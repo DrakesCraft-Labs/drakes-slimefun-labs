@@ -615,6 +615,19 @@ public final class Items {
         return item.getItem();
     }
 
+    /**
+     * Tras recargar YAML, reaplica el schema al {@link VehicleItem} ya registrado (no volver a {@code register}).
+     */
+    private static void applyReloadedSchema(@NotNull SlimefunItem rebuiltItem, @NotNull VehicleEntitySchema schema) {
+        SlimefunItem registered = Slimefun.getRegistry().getSlimefunItemIds().get(rebuiltItem.getId());
+        if (registered instanceof VehicleItem vehicleItem) {
+            vehicleItem.schema = schema;
+        } else {
+            Aircraft.getInstance().getLogger().warning(
+                    "reload: no hay VehicleItem registrado para id " + rebuiltItem.getId() + " (omitido)");
+        }
+    }
+
     private Items() {}
 
     private static @Nullable VehicleEntitySchema loadVehicle(@NotNull String id, @NotNull ItemStack itemStack) {
@@ -712,37 +725,37 @@ public final class Items {
         VehicleEntitySchema crudeAirplaneSchema = loadVehicle("crude_airplane", CRUDE_AIRPLANE_STACK);
         if (crudeAirplaneSchema != null) {
             SlimefunItem newItem = crudeAirplane(crudeAirplaneSchema);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = crudeAirplaneSchema;
+            applyReloadedSchema(newItem, crudeAirplaneSchema);
         }
 
         VehicleEntitySchema crudeAirshipSchema = loadVehicle("crude_airship", CRUDE_AIRSHIP_STACK);
         if (crudeAirshipSchema != null) {
             SlimefunItem newItem = crudeAirship(crudeAirshipSchema);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = crudeAirshipSchema;
+            applyReloadedSchema(newItem, crudeAirshipSchema);
         }
 
         VehicleEntitySchema crudeDroneSchema = loadVehicle("crude_drone", CRUDE_DRONE_STACK);
         if (crudeDroneSchema != null) {
             SlimefunItem newItem = crudeDrone(crudeDroneSchema);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = crudeDroneSchema;
+            applyReloadedSchema(newItem, crudeDroneSchema);
         }
 
         VehicleEntitySchema cessnaSchema = loadVehicle("cessna", CESSNA_STACK);
         if (cessnaSchema != null) {
             SlimefunItem newItem = cessna(cessnaSchema);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = cessnaSchema;
+            applyReloadedSchema(newItem, cessnaSchema);
         }
 
         VehicleEntitySchema hoverduckSchema = loadVehicle("hoverduck", HOVERDUCK_STACK);
         if (hoverduckSchema != null) {
             SlimefunItem newItem = hoverduck(hoverduckSchema);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = hoverduckSchema;
+            applyReloadedSchema(newItem, hoverduckSchema);
         }
 
         VehicleEntitySchema metacoinUfo = loadVehicle("metacoin_ufo", METACOIN_UFO_STACK);
         if (metacoinUfo != null) {
             SlimefunItem newItem = metacoinUfo(metacoinUfo);
-            ((VehicleItem) Slimefun.getRegistry().getSlimefunItemIds().get(newItem.getId())).schema = metacoinUfo;
+            applyReloadedSchema(newItem, metacoinUfo);
         }
     }
 
