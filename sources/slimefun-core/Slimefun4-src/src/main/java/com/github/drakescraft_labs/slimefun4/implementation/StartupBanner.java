@@ -27,13 +27,11 @@ final class StartupBanner {
         return new String[] {
             "",
             "============================================================",
-            "      JACKSTAR  x  DRAKESCRAFT LABS  x  CHAGUI68",
+            "      DRAKESCRAFT LABS — Slimefun Drake",
             "============================================================",
             "      DRAKES SLIMEFUN LABS runtime smoke marker",
             "      Slimefun Drake build: " + version,
             "      Repo: https://github.com/DrakesCraft-Labs/drakes-slimefun-labs",
-            "      JackStar: https://github.com/JackStar6677-1",
-            "      Chagui68: thanks for the porting support",
             "============================================================",
             ""
         };

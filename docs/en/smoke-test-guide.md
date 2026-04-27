@@ -49,7 +49,7 @@ The manual workflow `Smoke Runtime 1.21` runs the same smoke runner in GitHub Ac
 
 ## Verification banner
 
-`Slimefun` startup prints a green DrakesCraft banner. The smoke runner checks that the log contains the **verification strings** configured for your profile in `scripts/smoke/smoke-profiles.json` (Drake pack markers, org repository link, etc.).
+`Slimefun` startup prints a DrakesCraft Labs banner. The smoke runner checks that the log contains the **verification strings** from `scripts/smoke/smoke-profiles.json` (smoke marker line, lab line, and GitHub repo path).
 
 If any expected token is missing, smoke fails — confirming the server loaded a current Drake jar rather than a stale or generic artifact.
 
@@ -57,7 +57,7 @@ If any expected token is missing, smoke fails — confirming the server loaded a
 
 - Paper reaches `Done`.
 - Log must not match the fatal regex list in `run-smoke-server.ps1` (including `Error occurred while enabling`, `Could not load plugin`, `NoClassDefFoundError`, `[SEVERE]`, and related load/exception patterns).
-- Banner markers are present (see **Verification Banner**).
+- Verification strings from the banner are present (see **Verification banner**).
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.

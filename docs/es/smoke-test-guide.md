@@ -49,7 +49,7 @@ El workflow manual `Smoke Runtime 1.21` ejecuta el mismo runner en GitHub Action
 
 ## Banner de verificación
 
-El arranque de `Slimefun` imprime un banner verde de DrakesCraft. El smoke comprueba que el log contenga las **cadenas de verificación** definidas para tu perfil en `scripts/smoke/smoke-profiles.json` (marcadores del pack Drake, enlace al repositorio de la org, etc.).
+El arranque de `Slimefun` imprime un banner de DrakesCraft Labs. El smoke comprueba que el log contenga las **cadenas de verificación** de `scripts/smoke/smoke-profiles.json` (marcador de smoke, línea del laboratorio y ruta del repo en GitHub).
 
 Si falta alguna cadena esperada, el smoke falla: así se confirma que el servidor cargó un JAR Drake actual y no un artefacto antiguo o genérico.
 
