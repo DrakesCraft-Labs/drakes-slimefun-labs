@@ -11,8 +11,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
-import kotlin.reflect.KClass
-import kotlin.reflect.full.primaryConstructor
+import java.lang.reflect.Constructor
 
 class ItemBuilder {
 
@@ -30,16 +29,42 @@ class ItemBuilder {
         lore += this.miniMessageToLegacy()
     }
 
-    fun build(clazz: KClass<out SlimefunItem>, vararg otherArgs: Any?): SlimefunItemStack {
+    fun build(clazz: Class<out SlimefunItem>, vararg otherArgs: Any?): SlimefunItemStack {
         val sfi = SlimefunItemStack(
             id,
             material.convert(),
             name.miniMessageToLegacy().legacyDefaultColor('f'),
             *lore.map { it.legacyDefaultColor('7') }.toTypedArray()
         )
-        val constructor = clazz.primaryConstructor ?: error("Primary constructor not found for $clazz")
-        constructor.call(category, sfi, recipeType, recipe, *otherArgs).register(Galactifun2)
+        val ctor = findStandardSlimefunConstructor(clazz, otherArgs.size)
+            ?: error("No constructor (ItemGroup, SlimefunItemStack, RecipeType, ItemStack[], …) for ${clazz.name} with ${otherArgs.size} trailing args")
+        ctor.isAccessible = true
+        try {
+            val item = ctor.newInstance(category, sfi, recipeType, recipe, *otherArgs) as SlimefunItem
+            item.register(Galactifun2)
+        } catch (e: ReflectiveOperationException) {
+            throw RuntimeException("Failed to construct ${clazz.name}", e)
+        }
         return sfi
+    }
+
+    private fun findStandardSlimefunConstructor(
+        clazz: Class<out SlimefunItem>,
+        trailingArgCount: Int
+    ): Constructor<out SlimefunItem>? {
+        val expected = 4 + trailingArgCount
+        @Suppress("UNCHECKED_CAST")
+        return clazz.declaredConstructors.asSequence()
+            .filter { it.parameterCount == expected && !it.isSynthetic }
+            .map { it as Constructor<out SlimefunItem> }
+            .firstOrNull { ctor ->
+                val p = ctor.parameterTypes
+                ItemGroup::class.java.isAssignableFrom(p[0]) &&
+                    SlimefunItemStack::class.java.isAssignableFrom(p[1]) &&
+                    RecipeType::class.java.isAssignableFrom(p[2]) &&
+                    p[3].isArray &&
+                    org.bukkit.inventory.ItemStack::class.java.isAssignableFrom(p[3].componentType)
+            }
     }
 }
 
@@ -67,11 +92,11 @@ inline fun <reified I : SlimefunItem> buildSlimefunItem(
     vararg otherArgs: Any?,
     builder: ItemBuilder.() -> Unit
 ): SlimefunItemStack {
-    return ItemBuilder().apply(builder).build(I::class, *otherArgs)
+    return ItemBuilder().apply(builder).build(I::class.java, *otherArgs)
 }
 
 inline fun buildSlimefunItem(
     builder: ItemBuilder.() -> Unit
 ): SlimefunItemStack {
-    return ItemBuilder().apply(builder).build(SlimefunItem::class)
+    return ItemBuilder().apply(builder).build(SlimefunItem::class.java)
 }
