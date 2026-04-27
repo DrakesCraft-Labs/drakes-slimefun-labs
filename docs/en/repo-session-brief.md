@@ -1,12 +1,12 @@
-# AI Start Prompt (copy/paste for a new session)
+# Repository session brief (copy / paste)
 
-Use this block as **short memory** for assistants.
+**Short context** block for a new work session or internal team notes.
 
 ```text
 Repo: DrakesCraft-Labs / drakes-slimefun-labs
 Stable branch: 1.21-latin (Paper 1.21.x API, Java 21). NOT a single plugin: Maven+Gradle monorepo (~86 modules).
-Experimental 26.x: 26.X-ToTheStars (Maven profile paper-26-preview). Do not mix into 1.21 without agreement.
-Human note: the 1.21.x sprint was extremely heavy; expect ~1 month before 26.x is pushed at full sprint pace; priority = keep 1.21-latin green + Issues + DrakesCraft.
+Experimental 26.x: 26.X-ToTheStars (Maven profile paper-26-preview). Do not mix into 1.21 without explicit maintainer agreement.
+Typical priority: keep 1.21-latin green + Issues + DrakesCraft reference server; expect roughly a one-month stabilization window before pushing 26.x at full sprint pace.
 
 Before coding:
 - Root README.md + docs/es/PLUGIN_MATRIX.md
@@ -27,7 +27,7 @@ Reference survival server (Chile): https://drakescraft.cl — gameplay polish: c
 | Lab vs gameplay backlog | `docs/en/pending-modules.md`, root `README.md` |
 | Paper smoke + ProtocolLib | `scripts/smoke/README.md` |
 | ZIP releases | `docs/github-maintenance.md` |
-| Long AI rules | `docs/en/ai-instructions.md` |
+| Long-form monorepo work guide | `docs/en/monorepo-work-guide.md` |
 | What 26.x is | branch `26.X-ToTheStars` → `docs/paper-26-base.md` on GitHub |
 
 ## Suggested focus order
@@ -35,15 +35,15 @@ Reference survival server (Chile): https://drakescraft.cl — gameplay polish: c
 1. Keep **CI Monorepo 1.21** green.
 2. Run **smoke** after large addon changes.
 3. Triage **Issues** from **DrakesCraft** / players.
-4. Keep **26.x** work on its branch without forcing timeline during the ~1 month recovery window.
+4. Keep **26.x** work on its branch without forcing timeline during the agreed recovery window.
 
 ## References
 
-- [AI instructions](ai-instructions.md)
+- [Monorepo work guide](monorepo-work-guide.md)
 - [Migration checklist](migration-checklist.md)
 - [Pending modules](pending-modules.md)
 - [Tomorrow handoff](tomorrow-handoff.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> **2026-04-25** — Expanded prompt (26.x cadence, DrakesCraft, smoke, release).
+> **2026-04-25** — Expanded brief (26.x cadence, DrakesCraft, smoke, release).
 <!-- DRAKES-STATUS:END -->

@@ -1,7 +1,5 @@
 # Crystamae Historia - Slimefun 6
 
-![Crystamae Historia Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/crystamae_historia_banner_v1776868037841_1776868089843.png)
-
 > [!NOTE]
 > ### *Magia Arcana y Cristalización para 1.21.1 / Java 21*
 > **Crystamae Historia** permite canalizar la esencia de las historias grabadas en los bloques para crear poderosos artefactos y hechizos. Ahora optimizado bajo el **Drake Framework**.
@@ -51,7 +49,7 @@ Descubre el poder de lo invisible. Utiliza el **Chronicler Panel** para extraer 
 ## 🚀 Instalación
 Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
-1. Instala el [Slimefun 6 Core](file:///c:/Users/Jack/Documents/GitHub/Experimentos/DrakesVanillaSlimefun+/sources/slimefun-core/Slimefun4-src).
+1. Instala el [Slimefun 6 Core](../../slimefun-core/Slimefun4-src) (árbol `sources/slimefun-core` de este monorepo).
 2. Descarga el JAR de CrystamaeHistoria desde Releases.
 3. Copia a `/plugins/`.
 
@@ -59,7 +57,7 @@ Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
 ## 🤝 Créditos y Autoría
 - **Autor Original**: [Sefiraat](https://github.com/Sefiraat)
-- **Drake Port**: [Pablo Elías](https://github.com/JackStar6677-1)
+- **Fork Drake:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
 - **Créditos Especiales**: MCTantrum, GentlemanCheesy.
 
 ---

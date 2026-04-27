@@ -1,7 +1,5 @@
 # 🧪 PotionExpansion
 
-![Cinematic Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/potion_expansion_banner_1776872626620.png)
-
 ## 👁️ Visión Alquímica Avanzada
 **PotionExpansion** revoluciona la minería en **Drake Slimefun** introduciendo pociones de visión que permiten detectar minerales a través de las paredes (X-Ray Legal). Inspirado en el clásico *Potions Master*, este addon ha sido refinado para la era moderna.
 

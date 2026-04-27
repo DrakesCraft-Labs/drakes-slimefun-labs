@@ -1,7 +1,5 @@
 # Infinity Expansion - Slimefun 6
 
-![Infinity Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/infinity_expansion_banner_v1776867947113_1776867974237.png)
-
 > [!NOTE]
 > ### *The Ultimate Endgame for 1.21.1 / Java 21*
 > Este addon ha sido portado y optimizado como parte del ecosistema **Slimefun 6** dentro del **Drake Framework**, diseñado para llevar la experiencia técnica al límite absoluto.
@@ -31,7 +29,7 @@
 ## 🚀 Instalación
 Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
-1. Asegúrate de tener instalado el [Slimefun 6 Core](file:///c:/Users/Jack/Documents/GitHub/Experimentos/DrakesVanillaSlimefun+/sources/slimefun-core/Slimefun4-src).
+1. Asegúrate de tener instalado el [Slimefun 6 Core](../../slimefun-core/Slimefun4-src) (árbol `sources/slimefun-core` de este monorepo).
 2. Descarga el JAR compilado desde los releases.
 3. Arrastra a tu carpeta `plugins/`.
 
@@ -52,7 +50,7 @@ Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 ## 🤝 Créditos y Autoría
 - **Autor Original**: [Mooy1](https://github.com/Mooy1)
 - **Mantenedor**: [Sefiraat](https://github.com/Sefiraat)
-- **Drake Port**: [Pablo Elías](https://github.com/JackStar6677-1) - Liderazgo de estabilización 1.21.1.
+- **Fork Drake / 1.21.1:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
 
 ---
 *Powered by DrakesCraft-Labs - 2026*

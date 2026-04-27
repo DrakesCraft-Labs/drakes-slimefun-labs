@@ -17,7 +17,7 @@ Actualmente, solo proporcionamos parches de seguridad para la rama de modernizac
 
 Si descubres un problema de seguridad en nuestro ecosistema de Slimefun, te agradecemos que lo reportes de forma responsable:
 
-1. **Contacto Privado**: Envía un reporte detallado a través de los canales privados de **DrakesCraft Labs** (ej. Discord de JackStar o correo de contacto del laboratorio si está habilitado).
+1. **Contacto privado**: envía un reporte detallado por los canales privados de **DrakesCraft Labs** (Discord de la organización o correo de contacto del laboratorio si está habilitado).
 2. **Detalles**: Incluye una descripción del fallo, pasos para reproducirlo y el impacto potencial.
 3. **Tiempo de Respuesta**: Nos comprometemos a acusar recibo en menos de 48 horas y a trabajar en una solución inmediata.
 

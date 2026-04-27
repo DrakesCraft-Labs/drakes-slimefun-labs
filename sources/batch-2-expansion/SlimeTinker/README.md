@@ -1,7 +1,5 @@
 # SlimeTinker - Slimefun 6
 
-![SlimeTinker Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/slime_tinker_banner_v1776868037302_1776868055387.png)
-
 > [!NOTE]
 > ### *La Forja Definitiva para 1.21.1 / Java 21*
 > **SlimeTinker** recrea la legendaria experiencia de *Tinker's Construct* en Vanilla Minecraft, ahora totalmente portado y optimizado como parte del **Drake Framework**.
@@ -37,7 +35,7 @@ Crea herramientas y armaduras únicas combinando metales de Slimefun Core y otro
 ## 🚀 Instalación
 Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
-1. Instala el [Slimefun 6 Core](file:///c:/Users/Jack/Documents/GitHub/Experimentos/DrakesVanillaSlimefun+/sources/slimefun-core/Slimefun4-src).
+1. Instala el [Slimefun 6 Core](../../slimefun-core/Slimefun4-src) (árbol `sources/slimefun-core` de este monorepo).
 2. Descarga el JAR de SlimeTinker desde Releases.
 3. Copia a `/plugins/`.
 
@@ -45,7 +43,7 @@ Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
 ## 🤝 Créditos y Autoría
 - **Autor Original**: [Sefiraat](https://github.com/Sefiraat)
-- **Drake Port**: [Pablo Elías](https://github.com/JackStar6677-1)
+- **Fork Drake:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
 - **Agradecimientos Especiales**: Riley (InfinityLib), Martin, Boomer, GentlemanCheesy.
 
 ---

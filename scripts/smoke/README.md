@@ -71,4 +71,4 @@ El workflow **Smoke Runtime 1.21** (`.github/workflows/smoke-runtime-121.yml`) e
 
 ## Banner de arranque
 
-El servidor de smoke debe mostrar el banner acordado (JackStar / DrakesCraft / Chagui68) para confirmar que el JAR Drake correcto está en `plugins/`.
+El servidor de smoke debe mostrar el banner acordado del pack Drake (cadenas listadas en `smoke-profiles.json` por perfil) para confirmar que el JAR correcto está en `plugins/`.

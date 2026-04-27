@@ -1,7 +1,5 @@
 # ⚙️ DynaTech
 
-![Cinematic Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/dynatech_banner_v2_1776872564187.png)
-
 ## 🏭 El Futuro de la Industria Automatizada
 **DynaTech** es la pieza central de la automatización en el ecosistema **Drake Slimefun**. Diseñado para maximizar la eficiencia mediante maquinaria dinámica, transporte inalámbrico y herramientas de alto rendimiento.
 

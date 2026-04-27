@@ -1,10 +1,10 @@
-# Instrucciones para la IA
+# Guía de trabajo en el monorepo
 
 ## Contexto base (léelo antes de tocar código)
 
 - **Qué es este repo:** monorepo **Maven + Gradle** (Java **21**), **un solo árbol de fuentes**, no un plugin suelto. Incluye **Slimefun 4 Drake**, **dough-core**, parches internos y **decenas de addons** bajo `sources/` (Maven) más proyectos **Gradle** (Galactifun, Bump, etc.) declarados en `settings.gradle.kts`.
 - **Rama estable 1.21.x:** **`1.21-latin`**. Baseline de compilación: **Paper 1.21.1-R0.1-SNAPSHOT** en el `pom.xml` raíz; smoke con Paper **1.21.1** y **1.21.11** según perfil (`scripts/smoke/smoke-profiles.json`).
-- **Rama experimental 26.x:** **`26.X-ToTheStars`** — porte hacia **Paper API 26.x** (perfil `paper-26-preview`). No mezclar trabajo masivo de 26.x en PRs contra `1.21-latin` sin acuerdo. **Calendencia:** el equipo prevé ~**un mes** de ventana antes de retomar 26.x a ritmo de sprint (el cierre 1.21.x fue muy intenso); mientras, prioridad **fixes y estabilidad en 1.21-latin**.
+- **Rama experimental 26.x:** **`26.X-ToTheStars`** — porte hacia **Paper API 26.x** (perfil `paper-26-preview`). No mezclar trabajo masivo de 26.x en PRs contra `1.21-latin` sin acuerdo. **Calendencia:** el equipo puede acotar ~**un mes** de ventana antes de retomar 26.x a ritmo de sprint (el cierre 1.21.x fue muy intenso); mientras, prioridad **fixes y estabilidad en 1.21-latin**.
 - **Validación en mundo real:** survival **[DrakesCraft](https://drakescraft.cl)** (Chile; IPs típicas `play.drakescraft.cl` / `mc.drakescraft.cl`). Pulido addon por addon: **comunidad**, **Chagui**, Issues.
 
 ## Reglas de trabajo
@@ -34,14 +34,14 @@ No dejar PRs a medio mezclar. Si algo no compila o no arranca en smoke, document
 
 ## Enlaces relacionados
 
-- [AI Start Prompt](ai-start-prompt.md)
+- [Resumen rápido del repositorio](contexto-rapido-repo.md)
 - [Checklist de migración](migration-checklist.md)
 - [Roadmap de estabilización](stabilization-roadmap.md)
 - [Módulos pendientes](pending-modules.md)
 - [README raíz](../../README.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> **2026-04-25** — Instrucciones IA ampliadas (smoke, Dough reloc, 26.x, DrakesCraft, calendencia ~1 mes).
+> **2026-04-25** — Guía ampliada (smoke, Dough reloc, 26.x, DrakesCraft, calendencia ~1 mes).
 > Baseline: **Paper 1.21.x + Java 21** en **`1.21-latin`**. CI: **Monorepo 1.21**.
 > **26.x:** rama `26.X-ToTheStars`, foco pausado ~1 mes antes de sprint fuerte.
 <!-- DRAKES-STATUS:END -->

@@ -1,12 +1,12 @@
-# AI Start Prompt (copiar / pegar al abrir sesión)
+# Resumen rápido del repositorio (copiar / pegar)
 
-Usa este bloque como **memoria corta** para asistentes o sesiones nuevas.
+Bloque de **contexto corto** útil al abrir una sesión de trabajo o para notas internas del equipo.
 
 ```text
-Repo: DrakesSlimefunLabs / drakes-slimefun-labs
+Repo: DrakesCraft-Labs / drakes-slimefun-labs
 Rama estable: 1.21-latin (Paper 1.21.x API, Java 21). NO es un solo plugin: monorepo Maven+Gradle (~86 módulos).
-Rama experimental 26.x: 26.X-ToTheStars (perfil Maven paper-26-preview). No mezclar con 1.21 sin acuerdo.
-Humano: el sprint 1.21.x fue muy duro; se asume ~1 mes antes de retomar 26.x a ritmo fuerte; prioridad = mantener 1.21-latin + Issues + DrakesCraft.
+Rama experimental 26.x: 26.X-ToTheStars (perfil Maven paper-26-preview). No mezclar con 1.21 sin acuerdo explícito del equipo.
+Prioridad habitual: mantener 1.21-latin + Issues + servidor de referencia DrakesCraft; ventana de ~1 mes de estabilización antes de empujar 26.x a ritmo de sprint fuerte.
 
 Antes de codificar:
 - README.md raíz + docs/es/PLUGIN_MATRIX.md
@@ -27,7 +27,7 @@ Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + 
 | Qué queda “lab vs juego” | `docs/es/pending-modules.md`, `README.md` |
 | Smoke Paper + ProtocolLib | `scripts/smoke/README.md` |
 | Releases ZIP | `docs/github-maintenance.md` |
-| Instrucciones largas para IA | `docs/es/ai-instructions.md` |
+| Guía larga de trabajo en el monorepo | `docs/es/guia-monorepo.md` |
 | 26.x qué es / conclusión | rama `26.X-ToTheStars` → `docs/paper-26-base.md` en GitHub |
 
 ## Próximo enfoque recomendado (orden sugerido)
@@ -35,15 +35,15 @@ Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + 
 1. Mantener **CI Monorepo 1.21** verde (`maven_full_reactor`, `foundation`, `gradle_green`).
 2. **Smoke** tras cambios grandes en addons sensibles (`python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --timeout 420` o mayor).
 3. **Issues** triage con lo que salga en **DrakesCraft** / jugadores.
-4. **26.x** solo en rama dedicada, sin urgencia hasta pasada la ventana ~1 mes si aplica al equipo.
+4. **26.x** solo en rama dedicada, sin urgencia hasta pasada la ventana acordada por el equipo si aplica.
 
 ## Referencias
 
-- [Instrucciones para la IA](ai-instructions.md)
+- [Guía de trabajo en el monorepo](guia-monorepo.md)
 - [Checklist de migración](migration-checklist.md)
 - [Módulos pendientes](pending-modules.md)
 - [Tomorrow handoff](tomorrow-handoff.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> **2026-04-25** — Prompt ampliado (26.x, cadencia, DrakesCraft, smoke, release).
+> **2026-04-25** — Resumen actualizado (26.x, cadencia, DrakesCraft, smoke, release).
 <!-- DRAKES-STATUS:END -->

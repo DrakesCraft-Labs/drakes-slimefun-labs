@@ -8,7 +8,7 @@ EnderCarryOn es un plugin para PaperMC basado en el mod CarryOn. Esta versión h
 - Renderizado 3D del bloque cargado en las manos del jugador (requiere Resource Pack).
 
 ## Dependencias Obligatorias
-Este plugin **requiere** [EnderCore](https://github.com/JackStar6677-1/EnderCore) para funcionar correctamente. Asegúrate de tener instalado `EnderCore v0.2.0` o superior.
+Este plugin **requiere** el módulo **EnderCore** compatible (consulta el árbol `deploy/` y releases del laboratorio). Asegúrate de tener instalado `EnderCore v0.2.0` o superior.
 
 ## 🎨 Resource Pack (Requerido)
 Para la versión 1.20.6, el sistema de texturas nativo de 1.21.3 no funciona. Por ello, es **obligatorio** usar el Resource Pack adaptado incluido en este repositorio.
@@ -30,7 +30,7 @@ En el `config.yml`, puedes ajustar:
 
 ## Créditos
 Basado en el mod **CarryOn** y el plugin original de **Endkind**.
-Esta versión 1.20.6 fue adaptada por JackStar6677-1.
+Adaptación 1.20.6 para el laboratorio DrakesCraft-Labs.
 
 ## Licencia
 Este proyecto está bajo la licencia [MIT](LICENSE).

@@ -21,7 +21,7 @@ Este proyecto es un derivado del trabajo monumental de la comunidad de Slimefun:
 - **Proyecto Original**: [`Slimefun/Slimefun4`](https://github.com/Slimefun/Slimefun4)
 - **Autor Original**: **[TheBusyBiscuit](https://github.com/TheBusyBiscuit)**
 - **Equipo de Slimefun**: Walshy y más de 200 colaboradores.
-- **Slimefun 6 / Drake Port**: **[Pablo Elías](https://github.com/JackStar6677-1)** (DrakesCraft-Labs)
+- **Slimefun 6 / fork Drake:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
 
 ---
 

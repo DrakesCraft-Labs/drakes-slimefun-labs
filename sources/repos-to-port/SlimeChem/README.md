@@ -1,7 +1,5 @@
 # 🧪 SlimeChem
 
-![Cinematic Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/slime_chem_banner_1776872494360.png)
-
 ## 🌌 El Corazón de la Alquimia Nuclear
 **SlimeChem** es un addon avanzado para el ecosistema **Drake Slimefun** enfocado en la química nuclear, la transmutación de elementos y la generación de energía mediante isótopos inestables.
 

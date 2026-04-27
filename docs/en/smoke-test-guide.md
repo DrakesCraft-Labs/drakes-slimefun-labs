@@ -47,17 +47,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\smoke\build-smoke-artifacts.p
 
 The manual workflow `Smoke Runtime 1.21` runs the same smoke runner in GitHub Actions. It is `workflow_dispatch` only to avoid noisy Actions history.
 
-## Verification Banner
+## Verification banner
 
-`Slimefun` startup prints a green DrakesCraft banner with:
+`Slimefun` startup prints a green DrakesCraft banner. The smoke runner checks that the log contains the **verification strings** configured for your profile in `scripts/smoke/smoke-profiles.json` (Drake pack markers, org repository link, etc.).
 
-- `JACKSTAR`
-- `DRAKESCRAFT`
-- `CHAGUI68`
-- repository link
-- JackStar profile link
-
-The smoke fails if these markers are missing. This confirms the server loaded a current Drake artifact rather than an old jar.
+If any expected token is missing, smoke fails — confirming the server loaded a current Drake jar rather than a stale or generic artifact.
 
 ## Success Criteria
 

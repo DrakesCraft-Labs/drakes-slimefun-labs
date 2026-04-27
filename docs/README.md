@@ -27,7 +27,8 @@ La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://git
 | Scripts Python y PowerShell | [../scripts/README.md](../scripts/README.md) |
 | Tablero GitHub Projects (org) | [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md) |
 | Actions, releases ZIP, PRs, alertas | [github-maintenance.md](github-maintenance.md) |
-| Prompt / instrucciones para IA | [es/ai-start-prompt.md](es/ai-start-prompt.md) · [en/ai-start-prompt.md](en/ai-start-prompt.md) y [es/ai-instructions.md](es/ai-instructions.md) · [en/ai-instructions.md](en/ai-instructions.md) |
+| Contexto rápido del monorepo (copiar/pegar) | [es/contexto-rapido-repo.md](es/contexto-rapido-repo.md) · [en/repo-session-brief.md](en/repo-session-brief.md) |
+| Guía de trabajo en el repositorio | [es/guia-monorepo.md](es/guia-monorepo.md) · [en/monorepo-work-guide.md](en/monorepo-work-guide.md) |
 
 ## Idiomas
 

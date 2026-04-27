@@ -1,7 +1,5 @@
 # Cultivation - Slimefun 6
 
-![Cultivation Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/cultivation_banner_v1776868037583_1776868071792.png)
-
 > [!NOTE]
 > ### *Agricultura y Cocina Técnica para 1.21.1 / Java 21*
 > **Cultivation** es la solución definitiva para el desarrollo agrícola en Slimefun. Introduce sistemas genéticos de plantas, árboles frutales y una cocina industrial completa, ahora optimizado bajo el **Drake Framework**.
@@ -43,7 +41,7 @@ Transforma tu base en una potencia agrícola. Desde la manipulación genética d
 ## 🚀 Instalación
 Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 
-1. Instala el [Slimefun 6 Core](file:///c:/Users/Jack/Documents/GitHub/Experimentos/DrakesVanillaSlimefun+/sources/slimefun-core/Slimefun4-src).
+1. Instala el [Slimefun 6 Core](../../slimefun-core/Slimefun4-src) (árbol `sources/slimefun-core` de este monorepo).
 2. Descarga el JAR de Cultivation desde Releases.
 3. Copia a `/plugins/`.
 
@@ -52,7 +50,7 @@ Este addon es compatible con el **Reactor Unificado** de DrakesCraft-Labs.
 ## 🤝 Créditos y Autoría
 - **Autor Original**: [Sefiraat](https://github.com/Sefiraat)
 - **Mantenedor Base**: [Chagui68](https://github.com/Chagui68)
-- **Drake Port**: [Pablo Elías](https://github.com/JackStar6677-1)
+- **Fork Drake:** [DrakesCraft-Labs](https://github.com/DrakesCraft-Labs)
 
 ---
 *Powered by DrakesCraft-Labs - 2026*

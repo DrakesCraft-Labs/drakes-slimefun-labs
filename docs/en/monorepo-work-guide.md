@@ -1,10 +1,10 @@
-# AI instructions
+# Monorepo work guide
 
 ## Base context (read before editing)
 
 - **What this repo is:** a **Maven + Gradle** monorepo (**Java 21**), **one source tree**, not a single plugin. It contains **Slimefun 4 (Drake fork)**, **dough-core**, internal patches, and **dozens of addons** under `sources/` (Maven) plus **Gradle** projects (Galactifun, Bump, …) from `settings.gradle.kts`.
 - **Stable 1.21.x branch:** **`1.21-latin`**. Compile baseline: **Paper 1.21.1-R0.1-SNAPSHOT** in the root `pom.xml`; smoke targets **Paper 1.21.1** and **1.21.11** depending on profile (`scripts/smoke/smoke-profiles.json`).
-- **Experimental 26.x branch:** **`26.X-ToTheStars`** — work toward **Paper API 26.x** (Maven profile `paper-26-preview`). Do not land large 26.x refactors on `1.21-latin` PRs without agreement. **Cadence:** maintainers expect roughly **one month** before resuming 26.x at sprint pace (the 1.21.x push was extremely heavy); meanwhile priority is **keep `1.21-latin` green**, Issues, and smoke when needed.
+- **Experimental 26.x branch:** **`26.X-ToTheStars`** — work toward **Paper API 26.x** (Maven profile `paper-26-preview`). Do not land large 26.x refactors on `1.21-latin` PRs without maintainer agreement. **Cadence:** the team may budget roughly **one month** before resuming 26.x at sprint pace (the 1.21.x push was extremely heavy); meanwhile priority is **keep `1.21-latin` green**, Issues, and smoke when needed.
 - **Real-world validation:** **[DrakesCraft](https://drakescraft.cl)** (Chile; typical joins `play.drakescraft.cl` / `mc.drakescraft.cl`). Per-addon polish: **community**, **Chagui**, GitHub **Issues**.
 
 ## Working rules
@@ -34,14 +34,14 @@ No half-merged PRs. If something does not compile or fails smoke, document the *
 
 ## Related links
 
-- [AI Start Prompt](ai-start-prompt.md)
+- [Repository session brief](repo-session-brief.md)
 - [Migration checklist](migration-checklist.md)
 - [Stabilization roadmap](stabilization-roadmap.md)
 - [Pending modules](pending-modules.md)
 - [Root README](../../README.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> **2026-04-25** — Expanded AI instructions (smoke, shaded Dough, 26.x branch, DrakesCraft, ~1 month cadence).
+> **2026-04-25** — Expanded work guide (smoke, shaded Dough, 26.x branch, DrakesCraft, ~1 month cadence).
 > Baseline: **Paper 1.21.x + Java 21** on **`1.21-latin`**. CI: **Monorepo 1.21**.
-> **26.x:** branch `26.X-ToTheStars`; heavy sprint deferred ~1 month after 1.21 burn-in.
+> **26.x:** branch `26.X-ToTheStars`; heavy sprint deferred per team agreement after 1.21 burn-in.
 <!-- DRAKES-STATUS:END -->

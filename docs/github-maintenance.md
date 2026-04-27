@@ -22,7 +22,7 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 2. Para cada PR: revisar CI, conflicto con `1.21-latin`, y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
-**Ramas divergentes:** no abras ni fusiones PRs que intenten unir `**1.21-latin`** con `**26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y `.cursor/rules/drakes-divergent-branches.mdc`.
+**Ramas divergentes:** no abras ni fusiones PRs que intenten unir `**1.21-latin`** con `**26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y la misma norma documentada para el equipo en la raíz del repositorio (reglas de ramas del laboratorio).
 
 Los merges los debe hacer alguien con contexto del porte; esta guía no sustituye revisión humana.
 
@@ -95,7 +95,7 @@ Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que to
 ### Alertas “del bot” (PRs / comentarios)
 
 - **Dependabot**: PRs con etiquetas `dependencies`, `java`, `maven` o `github-actions`; revisar CI y conflictos con `1.21-latin`.
-- **Copilot / otros bots**: mismo criterio que un PR humano: CI verde y alcance claro.
+- **Otras integraciones en PRs**: mismo criterio que un PR humano: CI verde y alcance claro.
 - **Issues**: si un bot abre un issue de seguridad, enlazar el GHSA y el commit o PR que lo mitiga.
 
 ## CI Maven: fundación vs reactor completo

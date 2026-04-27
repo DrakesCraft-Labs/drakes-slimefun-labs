@@ -1,7 +1,5 @@
 # ✨ ExtraUtils
 
-![Cinematic Banner](file:///C:/Users/Jack/.gemini/antigravity/brain/be765fcc-5abb-4aa7-a52c-c13f6ba52b83/extra_utils_banner_1776872521043.png)
-
 ## 🛠️ Utilidades de Nueva Generación
 **ExtraUtils** es el complemento esencial para cualquier arquitecto de Slimefun. Proporciona herramientas, encantamientos y utilidades que expanden los límites de lo que es posible en Drake Slimefun.
 

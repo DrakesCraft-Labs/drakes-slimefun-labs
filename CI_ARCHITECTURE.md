@@ -62,7 +62,7 @@ Añade el repositorio de DrakesLab a tu `pom.xml`:
 ```
 
 ---
-*Mantenido por Antigravity (DrakesCraft-Labs AI Assistant)*
+*Documentación de CI del laboratorio DrakesCraft-Labs.*
 
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
