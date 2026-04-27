@@ -73,6 +73,15 @@ jobs:
       - name: Set up Gradle (SlimefunTranslation JAR para UltimateGenerators2)
         uses: gradle/actions/setup-gradle@v6
 
+      # SlimefunTranslation usa mavenLocal(); este runner no hereda el .m2 del job fundación.
+      - name: Publicar API Slimefun/Dough en .m2 (antes del Gradle aislado de SlimefunTranslation)
+        run: |
+          mvn -B clean install -DskipTests \
+            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
+            -am
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: SlimefunTranslation shadowJar (API Drake en classpath de UG2)
         run: |
           cd sources/community-addons/SlimefunTranslation
