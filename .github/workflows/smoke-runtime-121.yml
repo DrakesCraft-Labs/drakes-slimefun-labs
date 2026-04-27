@@ -10,6 +10,7 @@ on:
         type: choice
         options:
           - foundation
+          - foundation-galactifun2
           - foundation-paper-12111
           - core-addons
           - monorepo-all

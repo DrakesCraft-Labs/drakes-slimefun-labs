@@ -31,6 +31,31 @@
         "CHAGUI68"
       ]
     },
+    "foundation-galactifun2": {
+      "description": "Paper 1.21.1 + Slimefun Drake + Galactifun2 (Gradle anidado + shadow -all.jar en plugins smoke).",
+      "mavenModules": [
+        "sources/slimefun-core/Slimefun4-src"
+      ],
+      "gradleTasks": [],
+      "nestedGradleProjects": [
+        {
+          "path": "sources/repos-to-port/Galactifun2",
+          "task": ":plugin:shadowJar",
+          "paperPluginName": "Galactifun2"
+        }
+      ],
+      "expectedPlugins": [
+        "Slimefun",
+        "Galactifun2"
+      ],
+      "requiredLogMarkers": [
+        "JACKSTAR",
+        "DRAKESCRAFT",
+        "CHAGUI68"
+      ],
+      "startupTimeoutSeconds": 180,
+      "postReadySleepSeconds": 15
+    },
     "core-addons": {
       "description": "Runtime smoke base con Slimefun y addons Maven de bajo riesgo.",
       "mavenModules": [
