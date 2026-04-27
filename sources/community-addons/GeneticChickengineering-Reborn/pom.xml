@@ -39,7 +39,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.2</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -150,7 +150,7 @@
         <dependency>
             <groupId>uk.antiperson.stackmob</groupId>
             <artifactId>StackMob</artifactId>
-            <version>5.8.10</version>
+            <version>5.10.5</version>
             <scope>provided</scope>
         </dependency>
 
