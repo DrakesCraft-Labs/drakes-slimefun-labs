@@ -35,8 +35,8 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.JsonUtils;
 
 /**
- * This Class represents a Metrics Service that sends data to https://bstats.org/
- * This data is used to analyse the usage of this {@link Plugin}.
+ * Servicio de métricas (bStats / MetricsModule) conservado por compatibilidad de API;
+ * en la línea Drake del lab {@link #start()} no realiza descargas ni envíos.
  * <p>
  * You can find more info in the README file of this Project on GitHub. <br>
  * <b>Note:</b> To start the metrics you will need to be calling {@link #start()}
@@ -105,62 +105,10 @@ public class MetricsService {
      * This method loads the metric module and starts the metrics collection.
      */
     public void start() {
-        if (!metricsModuleFile.exists()) {
-            plugin.getLogger().info(JAR_NAME + " does not exist, downloading...");
-
-            int latest = getLatestVersion();
-            if (latest <= 0) {
-                plugin.getLogger().info("No se pudo leer la última versión de MetricsModule desde GitHub; se intenta la revisión " + FALLBACK_METRICS_BUILD + ".");
-                latest = FALLBACK_METRICS_BUILD;
-            }
-            if (!download(latest) && latest != FALLBACK_METRICS_BUILD) {
-                plugin.getLogger().info("Reintento de métricas con revisión " + FALLBACK_METRICS_BUILD + "...");
-                download(FALLBACK_METRICS_BUILD);
-            }
-            if (!metricsModuleFile.exists()) {
-                plugin.getLogger().info("Métricas de Slimefun omitidas (descarga desde GitHub no disponible en este entorno).");
-                return;
-            }
-        }
-
-        try {
-            /*
-             * Load the jar file into a child class loader using the Slimefun
-             * PluginClassLoader as a parent.
-             */
-            moduleClassLoader = URLClassLoader.newInstance(new URL[] { metricsModuleFile.toURI().toURL() }, plugin.getClass().getClassLoader());
-            Class<?> metricsClass = moduleClassLoader.loadClass("dev.walshy.sfmetrics.MetricsModule");
-
-            metricVersion = metricsClass.getPackage().getImplementationVersion();
-
-            /*
-             * If it has not been newly downloaded, auto-updates are enabled
-             * AND there's a new version then cleanup, download and start
-             */
-            if (!hasDownloadedUpdate && hasAutoUpdates() && checkForUpdate(metricVersion)) {
-                plugin.getLogger().info("Cleaned up, now re-loading Metrics-Module!");
-                start();
-                return;
-            }
-
-            // Finally, we're good to start this.
-            Method start = metricsClass.getDeclaredMethod("start");
-            String version = metricsClass.getPackage().getImplementationVersion();
-
-            // This is required to be sync due to bStats.
-            Slimefun.runSync(() -> {
-                try {
-                    start.invoke(null);
-                    plugin.getLogger().info("Metrics build #" + version + " started.");
-                } catch (InvocationTargetException e) {
-                    plugin.getLogger().log(Level.WARNING, "An exception was thrown while starting the metrics module", e.getCause());
-                } catch (Exception | LinkageError e) {
-                    plugin.getLogger().log(Level.WARNING, "Failed to start metrics.", e);
-                }
-            });
-        } catch (Exception | LinkageError e) {
-            plugin.getLogger().log(Level.WARNING, "Failed to load the metrics module. Maybe the jar is corrupt?", e);
-        }
+        /*
+         * Drake / lab: sin MetricsModule, sin bStats y sin llamadas a api.github.com desde el core.
+         */
+        plugin.getLogger().fine("Slimefun: métricas (bStats / MetricsModule) desactivadas en esta línea de build.");
     }
 
     /**

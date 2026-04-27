@@ -47,7 +47,6 @@ dependencies {
     testImplementation("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
     testImplementation("com.github.drakescraft_labs:dough-core:1.3.1-DRAKE-v11-SNAPSHOT")
 
-    implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("co.aikar:acf-paper:0.5.1-SNAPSHOT")
 
     implementation("org.metamechanists:DisplayModelLib:34")
@@ -90,8 +89,6 @@ tasks.shadowJar {
     }
 
     mergeServiceFiles()
-    // Relocate if true or not set, always relocate bstats
-    doRelocate("org.bstats")
     if (System.getenv("RELOCATE") != "false") {
         doRelocate("io.github.seggan.kfun")
         doRelocate("co.aikar.commands")

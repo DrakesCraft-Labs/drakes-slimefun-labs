@@ -71,7 +71,6 @@ public class FlowerPowerItemSetup {
                 SlimefunItems.FLASK_OF_KNOWLEDGE, getItem(Material.IRON_BARS), SlimefunItems.FLASK_OF_KNOWLEDGE
         }).register(plugin);
 
-        // Essentials
         new SlimefunItem(FlowerPowerItems.FLOWERPOWER_CATEGORY, FlowerPowerItems.MAGICAL_WAND, RecipeType.MAGIC_WORKBENCH, new ItemStack[]{
                 null, null, getItem(Material.GLOWSTONE_DUST),
                 null, getItem(Material.BLAZE_ROD), null,

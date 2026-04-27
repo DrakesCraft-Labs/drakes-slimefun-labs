@@ -3,8 +3,7 @@ package me.voper.slimeframe.implementation.items.machines;
 import lombok.*;
 import lombok.experimental.Accessors;
 
-// Credits to Mooy1
-// https://github.com/Mooy1/InfinityLib/blob/master/src/main/java/io/github/mooy1/infinitylib/machines/MachineLayout.java
+// Crédito: diseño de layout de máquina (línea Mooy1 / InfinityLib); port en el lab Drake.
 
 @Setter
 @Getter

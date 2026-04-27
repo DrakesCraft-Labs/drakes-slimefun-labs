@@ -24,9 +24,6 @@ import me.voper.slimeframe.implementation.listeners.*;
 import me.voper.slimeframe.implementation.researches.Researches;
 import me.voper.slimeframe.implementation.tasks.ArmorMonitorTask;
 import me.voper.slimeframe.implementation.tasks.CoolantRaknoidsTask;
-import me.voper.slimeframe.utils.AutoUpdater;
-
-import org.bstats.bukkit.Metrics;
 import org.geysermc.geyser.api.GeyserApi;
 
 public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
@@ -73,9 +70,6 @@ public class SlimeFrame extends JavaPlugin implements SlimefunAddon {
         this.setupEvents();
         this.startTasks();
         this.logStart();
-
-        AutoUpdater autoUpdater = new AutoUpdater(this, this.getFile());
-        new Thread(autoUpdater).start();
 
     }
 

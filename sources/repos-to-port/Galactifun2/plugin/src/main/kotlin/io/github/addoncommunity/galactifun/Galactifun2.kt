@@ -32,7 +32,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.Instant
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.block.Biome
@@ -80,8 +79,6 @@ object Galactifun2 : AbstractAddon() {
             Bukkit.getPluginManager().disablePlugin(this)
             return
         }
-
-        Metrics(this, 23447)
 
         manager = PaperCommandManager(this)
         manager.enableUnstableAPI("help")

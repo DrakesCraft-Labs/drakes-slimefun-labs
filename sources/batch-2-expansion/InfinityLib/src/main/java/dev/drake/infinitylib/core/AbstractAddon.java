@@ -52,9 +52,10 @@ public abstract class AbstractAddon extends JavaPlugin implements SlimefunAddon 
      * Live Addon Constructor
      */
     public AbstractAddon(String githubUserName, String githubRepo, String autoUpdateBranch, String autoUpdateKey) {
-        boolean official = getDescription().getVersion().matches("DEV - \\d+ \\(git \\w+\\)");
-        this.updater = official ? new GitHubBuildsUpdater(this, getFile(),
-                githubUserName + "/" + githubRepo + "/" + autoUpdateBranch) : null;
+        /*
+         * Drake / lab: sin GitHubBuildsUpdater (no descargas ni consultas a builds de GitHub desde addons InfinityLib).
+         */
+        this.updater = null;
         this.environment = Environment.LIVE;
         this.githubUserName = githubUserName;
         this.autoUpdateBranch = autoUpdateBranch;
