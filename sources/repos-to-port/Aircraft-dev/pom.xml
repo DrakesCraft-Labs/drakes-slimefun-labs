@@ -27,7 +27,7 @@
         <!-- MetaMechanists libs: bump if upstream publishes versions built against newer Paper -->
         <metalib.version>80</metalib.version>
         <displaymodellib.version>33</displaymodellib.version>
-        <kinematiccore.version>33</kinematiccore.version>
+        <kinematiccore.version>33-DRAKE-1.21.11-SNAPSHOT</kinematiccore.version>
         <invui.version>1.31</invui.version>
     </properties>
 
@@ -89,8 +89,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.metamechanists</groupId>
-            <artifactId>KinematicCore</artifactId>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>kinematic-core-drake</artifactId>
             <version>${kinematiccore.version}</version>
             <scope>provided</scope>
         </dependency>

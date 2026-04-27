@@ -59,6 +59,7 @@
 
         <!-- Batch 1: Repos to Port (26 modules) -->
         <module>sources/repos-to-port/Aircraft-dev</module>
+        <module>sources/repos-to-port/KinematicCore</module>
         <module>sources/repos-to-port/ColoredEnderChests</module>
         <module>sources/repos-to-port/DyedBackpacks</module>
         <module>sources/repos-to-port/DynaTech</module>
