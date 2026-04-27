@@ -1,8 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/7_food/glow_berry_juice",
-		"layer1": "slimefun:item/7_food/glow_berry_juice"
-	}
-}

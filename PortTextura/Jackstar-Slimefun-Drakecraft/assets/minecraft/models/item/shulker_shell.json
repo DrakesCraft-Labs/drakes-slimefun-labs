@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/shulker_shell"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000812}, "model": "minecraft:slimefun/8_magical_items/synthetic_shulker_shell"}
+	]
+}

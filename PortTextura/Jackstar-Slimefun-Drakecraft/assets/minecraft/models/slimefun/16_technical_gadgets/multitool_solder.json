@@ -1,0 +1,7 @@
+{
+	"parent": "item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/16_technical_gadgets/multitool_solder"
+	}
+}

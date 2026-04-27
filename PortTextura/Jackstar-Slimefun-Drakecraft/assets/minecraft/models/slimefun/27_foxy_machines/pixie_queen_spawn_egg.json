@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/27_foxy_machines/pixie_queen_spawn_egg"
+	}
+}

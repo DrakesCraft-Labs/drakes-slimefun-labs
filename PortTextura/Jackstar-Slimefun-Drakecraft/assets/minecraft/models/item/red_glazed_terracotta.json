@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/red_glazed_terracotta",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004909}, "model": "minecraft:slimefun/22_flower_power/crystal_red"}
+	]
+}

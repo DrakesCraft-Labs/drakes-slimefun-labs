@@ -1,0 +1,61 @@
+{
+	"format_version": "1.21.11",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"texture_size": [32, 16],
+	"textures": {
+		"particle": "slimefun:item/28_energy_and_electricity/overlays/solar_generator_carbonado_overlay",
+		"solar": "slimefun:item/28_energy_and_electricity/overlays/solar_generator_carbonado_overlay"
+	},
+	"elements": [
+		{
+			"from": [-0.25, 0, -0.25],
+			"to": [16.25, 6.01, 16.25],
+			"faces": {
+				"north": {"uv": [11.5, 0, 8.5, 16], "rotation": 90, "texture": "#solar"},
+				"east": {"uv": [11.5, 16, 8.5, 0], "rotation": 90, "texture": "#solar"},
+				"south": {"uv": [11.5, 0, 8.5, 16], "rotation": 90, "texture": "#solar"},
+				"west": {"uv": [11.5, 16, 8.5, 0], "rotation": 90, "texture": "#solar"},
+				"up": {"uv": [1, 2, 7, 14], "rotation": 180, "texture": "#solar"},
+				"down": {"uv": [8.5, 0, 16, 16], "texture": "#solar"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1.5, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1.5, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [20, -150, 0],
+			"translation": [0, 2.25, 1],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"fixed": {
+			"rotation": [90, 90, 0],
+			"translation": [0, 0, 52],
+			"scale": [2, 2.25, 2]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

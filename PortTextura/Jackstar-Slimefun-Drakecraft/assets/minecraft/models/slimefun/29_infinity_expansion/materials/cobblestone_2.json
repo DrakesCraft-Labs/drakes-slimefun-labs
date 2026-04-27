@@ -1,0 +1,7 @@
+{
+        "parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/29_infinity_expansion/materials/cobblestone_2"
+	}
+}

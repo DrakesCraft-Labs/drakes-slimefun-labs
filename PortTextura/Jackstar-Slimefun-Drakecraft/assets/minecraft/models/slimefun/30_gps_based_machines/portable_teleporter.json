@@ -1,0 +1,13 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "slimefun:item/30_gps_based_machines/portable_teleporter"
+	},
+	"display": {
+		"gui": {
+			"scale": [1.25, 1.25, 1.25]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

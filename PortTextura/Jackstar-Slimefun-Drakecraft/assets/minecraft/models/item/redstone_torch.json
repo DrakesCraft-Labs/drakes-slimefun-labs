@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/redstone_torch"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002015}, "model": "minecraft:slimefun/24_galactifun/galactifun/nose_cone"},
+		
+		{ "predicate": { "custom_model_data": 3005805}, "model": "minecraft:slimefun/30_gps_based_machines/gps_marker_tool"}
+
+	]
+}

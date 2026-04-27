@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/diamond_shovel"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000407}, "model": "minecraft:slimefun/4_tools/explosive_shovel"},
+		{ "predicate": { "custom_model_data": 3000414}, "model": "minecraft:slimefun/4_tools/soulbound_shovel"}
+	]
+}

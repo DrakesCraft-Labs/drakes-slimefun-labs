@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/32_ore_chunks/aluminum_ore_chunk"
-	}
-}

@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/blue_stained_glass",
+	"author": "Jackstar (DrakesCraft Labs)",
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3005719}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_dust_washer"},
+		{ "predicate": { "custom_model_data": 3005720}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_dust_washer_2"},
+		{ "predicate": { "custom_model_data": 3005721}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_dust_washer_3"}
+	]
+}

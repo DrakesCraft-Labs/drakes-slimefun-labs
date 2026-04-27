@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/bone"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003921}, "model": "minecraft:slimefun/27_foxy_machines/purified_bone"},
+
+		{ "predicate": { "custom_model_data": 3004307}, "model": "minecraft:slimefun/27_foxy_machines/unholy_wither_skeleton_bone"}
+	]
+}

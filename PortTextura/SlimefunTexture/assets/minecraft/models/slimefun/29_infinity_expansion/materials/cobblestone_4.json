@@ -1,7 +1,0 @@
-{
-        "parent": "minecraft:block/cube_all",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/29_infinity_expansion/materials/cobblestone_4"
-	}
-}

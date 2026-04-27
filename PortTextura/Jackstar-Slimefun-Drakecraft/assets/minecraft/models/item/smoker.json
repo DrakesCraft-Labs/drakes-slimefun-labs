@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:block/smoker",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/smoker"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003305}, "model": "minecraft:slimefun/21_slimy_treetaps/rubber_factory"},
+
+		{ "predicate": { "custom_model_data": 3005737}, "model": "minecraft:slimefun/28_energy_and_electricity/auto_drier"},
+		{ "predicate": { "custom_model_data": 3005738}, "model": "minecraft:slimefun/28_energy_and_electricity/auto_brewer"}
+	]
+}

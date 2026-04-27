@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/red_concrete",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006582}, "model": "minecraft:slimefun/23_slime_tinker/materials/reinforced_draconium_block"}
-	]
-}

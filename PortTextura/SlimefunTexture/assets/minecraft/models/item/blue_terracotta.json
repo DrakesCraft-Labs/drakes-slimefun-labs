@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/blue_terracotta",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3005768}, "model": "minecraft:slimefun/28_energy_and_electricity/fluid_pump"}
-	]
-}

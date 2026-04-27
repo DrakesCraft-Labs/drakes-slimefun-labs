@@ -1,0 +1,19 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/shears"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001710}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_duralumin"},
+		{ "predicate": { "custom_model_data": 3001711}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_solder"},
+		{ "predicate": { "custom_model_data": 3001712}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_billon"},
+		{ "predicate": { "custom_model_data": 3001713}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_steel"},
+		{ "predicate": { "custom_model_data": 3001714}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_damascus_steel"},
+		{ "predicate": { "custom_model_data": 3001715}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_reinforced"},
+		{ "predicate": { "custom_model_data": 3001716}, "model": "minecraft:slimefun/16_technical_gadgets/multitool_carbonado"},
+
+		{ "predicate": { "custom_model_data": 3004109}, "model": "minecraft:slimefun/27_foxy_machines/berry_bush_trimmer"}
+	]
+}

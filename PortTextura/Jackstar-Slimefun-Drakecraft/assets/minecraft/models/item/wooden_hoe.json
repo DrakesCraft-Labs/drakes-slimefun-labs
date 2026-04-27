@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/wooden_hoe"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003300}, "model": "minecraft:slimefun/21_slimy_treetaps/tree_tap"},
+		{ "predicate": { "custom_model_data": 3005111}, "model": "minecraft:slimefun/18_exotic_garden/tools/crook"}
+	]
+}

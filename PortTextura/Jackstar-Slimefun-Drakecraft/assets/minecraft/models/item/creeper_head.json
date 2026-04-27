@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:item/template_skull",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003817}, "model": "minecraft:slimefun/17_hotbar_pets/hotbar_pet_creeper"}
+	]
+}

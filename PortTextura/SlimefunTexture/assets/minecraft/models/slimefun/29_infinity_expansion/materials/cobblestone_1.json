@@ -1,7 +1,0 @@
-{
-        "parent": "minecraft:block/andesite",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/29_infinity_expansion/materials/cobblestone_1"
-	}
-}

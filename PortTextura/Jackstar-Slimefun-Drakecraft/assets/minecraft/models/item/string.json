@@ -1,0 +1,15 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/string"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001011}, "model": "minecraft:slimefun/10_technical_components/copper_wire"},
+
+		{ "predicate": { "custom_model_data": 3001103}, "model": "minecraft:slimefun/11_misc_items/chain"},
+
+		{ "predicate": { "custom_model_data": 3003902}, "model": "minecraft:slimefun/27_foxy_machines/reinforced_string"}
+	]
+}

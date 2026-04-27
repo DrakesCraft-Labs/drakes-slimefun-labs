@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/glowstone_dust"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000520}, "model": "minecraft:slimefun/5_resources/gold_dust"},
+		{ "predicate": { "custom_model_data": 3000521}, "model": "minecraft:slimefun/5_resources/copper_dust"},
+		{ "predicate": { "custom_model_data": 3000535}, "model": "minecraft:slimefun/5_resources/sulfate"},
+
+		{ "predicate": { "custom_model_data": 3003604}, "model": "minecraft:slimefun/25_potion_expansion/diamond_powder"},
+		{ "predicate": { "custom_model_data": 3003605}, "model": "minecraft:slimefun/25_potion_expansion/gold_powder"},
+		{ "predicate": { "custom_model_data": 3003608}, "model": "minecraft:slimefun/25_potion_expansion/emerald_powder"},
+		{ "predicate": { "custom_model_data": 3003611}, "model": "minecraft:slimefun/25_potion_expansion/copper_powder"}
+	]
+}

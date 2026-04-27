@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/pink_glazed_terracotta",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006380}, "model": "minecraft:slimefun/valentines_day/rainbow_glazed_terracotta_valentine"}
-	]
-}

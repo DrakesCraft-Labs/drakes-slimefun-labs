@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/smooth_stone",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3002503}, "model": "minecraft:slimefun/29_infinity_expansion/basic_machines/basic_cobble_gen"}
-	]
-}

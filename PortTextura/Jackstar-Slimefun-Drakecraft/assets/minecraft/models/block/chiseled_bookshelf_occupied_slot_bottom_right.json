@@ -1,0 +1,18 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"textures": {
+		"1": "block/chiseled_bookshelf_occupied",
+		"particle": "block/chiseled_bookshelf_occupied"
+	},
+	"elements": [
+		{
+			"from": [1, 1, 0],
+			"to": [5, 7, 2],
+			"faces": {
+				"north": {"uv": [11, 9, 15, 15], "texture": "#1"},
+				"east": {"uv": [13, 9, 11, 15], "texture": "#1"},
+				"west": {"uv": [15, 9, 13, 15], "texture": "#1"}
+			}
+		}
+	]
+}

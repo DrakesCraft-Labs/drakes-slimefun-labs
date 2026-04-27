@@ -1,0 +1,16 @@
+{
+	"parent": "minecraft:block/acacia_button_inventory",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/acacia_button"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006507}, "model": "minecraft:slimefun/23_slime_tinker/materials/copper_nugget"},
+		{ "predicate": { "custom_model_data": 3006527}, "model": "minecraft:slimefun/23_slime_tinker/materials/bronze_nugget"},
+		{ "predicate": { "custom_model_data": 3006551}, "model": "minecraft:slimefun/23_slime_tinker/materials/redstone_alloy_nugget"},
+		{ "predicate": { "custom_model_data": 3006553}, "model": "minecraft:slimefun/23_slime_tinker/materials/boomerite_nugget"},
+		{ "predicate": { "custom_model_data": 3006587}, "model": "minecraft:slimefun/23_slime_tinker/materials/magsteel_nugget"},
+		{ "predicate": { "custom_model_data": 3006593}, "model": "minecraft:slimefun/23_slime_tinker/materials/adamantite_nugget"}
+	]
+}

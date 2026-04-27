@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/13_talisman/ender_talisman_hunter"
-	}
-}

@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/grass_block",
+	"author": "Jackstar (DrakesCraft Labs)",
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002504}, "model": "minecraft:slimefun/29_infinity_expansion/basic_machines/basic_virtual_farm"}
+	]
+}

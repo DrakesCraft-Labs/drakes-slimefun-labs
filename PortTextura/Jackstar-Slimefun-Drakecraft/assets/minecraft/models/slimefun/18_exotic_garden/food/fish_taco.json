@@ -1,0 +1,14 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "slimefun:item/18_exotic_garden/food/fish_taco"
+	},
+	"gui_light": "front",
+	"display": {
+		"gui": {
+			"translation": [-0.5, 0, 0]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

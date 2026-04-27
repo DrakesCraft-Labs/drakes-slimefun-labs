@@ -1,0 +1,46 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/iron_chestplate"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/iron_chestplate_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/iron_chestplate_iron_darker_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/iron_chestplate_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/iron_chestplate_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/iron_chestplate_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/iron_chestplate_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/iron_chestplate_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/iron_chestplate_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/iron_chestplate_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/iron_chestplate_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000607}, "model": "minecraft:slimefun/6_extragear/tin_chestplate"},
+		{ "predicate": { "custom_model_data": 3000612}, "model": "minecraft:slimefun/6_extragear/silver_chestplate"},
+		{ "predicate": { "custom_model_data": 3000617}, "model": "minecraft:slimefun/6_extragear/aluminum_chestplate"},
+		{ "predicate": { "custom_model_data": 3000622}, "model": "minecraft:slimefun/6_extragear/lead_chestplate"},
+		{ "predicate": { "custom_model_data": 3000627}, "model": "minecraft:slimefun/6_extragear/zinc_chestplate"},
+		{ "predicate": { "custom_model_data": 3000632}, "model": "minecraft:slimefun/6_extragear/magnesium_chestplate"},
+		{ "predicate": { "custom_model_data": 3000637}, "model": "minecraft:slimefun/6_extragear/steel_chestplate"},
+		{ "predicate": { "custom_model_data": 3000656}, "model": "minecraft:slimefun/6_extragear/cobalt_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3000917}, "model": "minecraft:slimefun/9_magical_armor/reinforced_slime_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3001201}, "model": "minecraft:slimefun/12_armor/damascus_steel_chestplate"},
+		{ "predicate": { "custom_model_data": 3001205}, "model": "minecraft:slimefun/12_armor/reinforced_alloy_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3001707}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_armored"},
+
+		{ "predicate": { "custom_model_data": 3001904}, "model": "minecraft:slimefun/24_galactifun/equipment/space_suit_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3002804}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_slime"},
+		{ "predicate": { "custom_model_data": 3002805}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_magma_cube"},
+		{ "predicate": { "custom_model_data": 3002806}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_cow"},
+		{ "predicate": { "custom_model_data": 3002807}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_sheep"},
+		{ "predicate": { "custom_model_data": 3002814}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_chicken"},
+		{ "predicate": { "custom_model_data": 3002819}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_bee"},
+		{ "predicate": { "custom_model_data": 3002820}, "model": "minecraft:slimefun/29_infinity_expansion/mob_simulation/data_card_villager"}
+	]
+}

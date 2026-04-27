@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/loom",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006405}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_swapping_station"}
-	]
-}

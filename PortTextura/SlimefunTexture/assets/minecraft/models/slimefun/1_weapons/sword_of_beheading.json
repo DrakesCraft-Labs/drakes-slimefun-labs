@@ -1,7 +1,0 @@
-{
-    "parent": "item/handheld",
-	"author": "Racingsky",
-    "textures": {
-        "layer0": "slimefun:item/1_weapons/sword_of_beheading"
-	}
-}

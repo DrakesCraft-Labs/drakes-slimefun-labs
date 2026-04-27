@@ -1,6 +1,0 @@
-{
-  "type": "custom_name",
-  "items": ["minecraft:copper_helmet", "minecraft:copper_chestplate", "minecraft:copper_leggings", "minecraft:copper_boots"],
-  "modelParent": "item/generated",
-  "modelPrefix": "item/racingsky/invisible_armor/invisible_copper/"
-}

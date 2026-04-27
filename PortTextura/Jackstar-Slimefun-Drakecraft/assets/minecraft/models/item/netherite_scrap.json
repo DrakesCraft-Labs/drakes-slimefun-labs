@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/netherite_scrap"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002419}, "model": "minecraft:slimefun/29_infinity_expansion/materials/magsteel_plate"},
+
+		{ "predicate": { "custom_model_data": 3003926}, "model": "minecraft:slimefun/27_foxy_machines/cursed_shard"}
+	]
+}

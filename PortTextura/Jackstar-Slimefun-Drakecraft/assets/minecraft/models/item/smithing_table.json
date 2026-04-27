@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:block/smithing_table",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002203}, "model": "minecraft:slimefun/24_galactifun/machines/assembly_table"},
+
+		{ "predicate": { "custom_model_data": 3002430}, "model": "minecraft:slimefun/29_infinity_expansion/materials/advanced_anvil"},
+
+		{ "predicate": { "custom_model_data": 3003306}, "model": "minecraft:slimefun/21_slimy_treetaps/resin_extractor"},
+		{ "predicate": { "custom_model_data": 3003307}, "model": "minecraft:slimefun/21_slimy_treetaps/resin_extractor_2"},
+
+		{ "predicate": { "custom_model_data": 3004001}, "model": "minecraft:slimefun/27_foxy_machines/improvement_forge"},
+
+		{ "predicate": { "custom_model_data": 3006402}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_table"},
+		{ "predicate": { "custom_model_data": 3006403}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_armour_table"}
+	]
+}

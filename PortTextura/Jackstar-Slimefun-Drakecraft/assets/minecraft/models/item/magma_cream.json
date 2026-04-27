@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/magma_cream"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004305}, "model": "minecraft:slimefun/27_foxy_machines/magma_essence"},
+
+
+		{ "predicate": { "custom_model_data": 3004903}, "model": "minecraft:slimefun/22_flower_power/magic_cream"}
+	]
+}

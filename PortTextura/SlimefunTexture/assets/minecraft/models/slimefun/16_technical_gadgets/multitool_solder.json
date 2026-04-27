@@ -1,7 +1,0 @@
-{
-	"parent": "item/handheld",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/16_technical_gadgets/multitool_solder"
-	}
-}

@@ -1,0 +1,38 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/iron_boots"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/iron_boots_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/iron_boots_iron_darker_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/iron_boots_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/iron_boots_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/iron_boots_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/iron_boots_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/iron_boots_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/iron_boots_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/iron_boots_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/iron_boots_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000609}, "model": "minecraft:slimefun/6_extragear/tin_boots"},
+		{ "predicate": { "custom_model_data": 3000614}, "model": "minecraft:slimefun/6_extragear/silver_boots"},
+		{ "predicate": { "custom_model_data": 3000619}, "model": "minecraft:slimefun/6_extragear/aluminum_boots"},
+		{ "predicate": { "custom_model_data": 3000624}, "model": "minecraft:slimefun/6_extragear/lead_boots"},
+		{ "predicate": { "custom_model_data": 3000629}, "model": "minecraft:slimefun/6_extragear/zinc_boots"},
+		{ "predicate": { "custom_model_data": 3000634}, "model": "minecraft:slimefun/6_extragear/magnesium_boots"},
+		{ "predicate": { "custom_model_data": 3000639}, "model": "minecraft:slimefun/6_extragear/steel_boots"},
+		{ "predicate": { "custom_model_data": 3000658}, "model": "minecraft:slimefun/6_extragear/cobalt_boots"},
+
+		{ "predicate": { "custom_model_data": 3000919}, "model": "minecraft:slimefun/9_magical_armor/reinforced_slime_boots"},
+
+		{ "predicate": { "custom_model_data": 3001203}, "model": "minecraft:slimefun/12_armor/damascus_steel_boots"},
+		{ "predicate": { "custom_model_data": 3001207}, "model": "minecraft:slimefun/12_armor/reinforced_alloy_boots"},
+
+		{ "predicate": { "custom_model_data": 3001726}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_armored"},
+
+		{ "predicate": { "custom_model_data": 3001906}, "model": "minecraft:slimefun/24_galactifun/equipment/space_suit_boots"}
+	]
+}

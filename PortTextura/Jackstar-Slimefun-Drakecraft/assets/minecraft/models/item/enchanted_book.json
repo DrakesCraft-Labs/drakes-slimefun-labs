@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/enchanted_book"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000000}, "model": "minecraft:slimefun/0_ui/slimefun_guide"},
+		{ "predicate": { "custom_model_data": 3000006}, "model": "minecraft:slimefun/0_ui/ui_home"},
+
+		{ "predicate": { "custom_model_data": 3001612}, "model": "minecraft:slimefun/15_magical_gadgets/tome_of_knowledge_sharing"},
+
+		{ "predicate": { "custom_model_data": 3002428}, "model": "minecraft:slimefun/29_infinity_expansion/materials/ender_flame"},
+
+		{ "predicate": { "custom_model_data": 3004919}, "model": "minecraft:slimefun/22_flower_power/exp_tome"}
+	]
+}

@@ -1,8 +1,0 @@
-{
-  "hook": "equippable",
-  "type": "custom_name",
-  "items": ["minecraft:netherite_helmet", "minecraft:netherite_chestplate", "minecraft:netherite_leggings", "minecraft:netherite_boots"],
-  "modelParent": "item/generated",
-  "modelPrefix": "item/racingsky/netherite_armor_variants/",
-  "assetGen": "equipment/humanoid"
-}

@@ -1,0 +1,8 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/16_technical_gadgets/jetpack_damascus_steel",
+		"layer1": "slimefun:item/16_technical_gadgets/jetpack_damascus_steel"
+	}
+}

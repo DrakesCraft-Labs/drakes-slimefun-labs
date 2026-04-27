@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/carved_pumpkin",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3004401}, "model": "minecraft:slimefun/27_foxy_machines/vile_pumpkin"}
-	]
-}

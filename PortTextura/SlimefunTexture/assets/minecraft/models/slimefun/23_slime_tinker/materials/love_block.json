@@ -1,7 +1,0 @@
-{
-        "parent": "minecraft:block/cube_all",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/23_slime_tinker/materials/love_block"
-	}
-}

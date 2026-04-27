@@ -1,8 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/christmas/christmas_chocolate_milk",
-		"layer1": "slimefun:item/christmas/christmas_chocolate_milk"
-	}
-}

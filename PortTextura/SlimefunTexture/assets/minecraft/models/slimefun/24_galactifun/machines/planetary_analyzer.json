@@ -1,7 +1,0 @@
-{
-	"parent": "minecraft:item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/24_galactifun/machines/planetary_analyzer"
-	}
-}

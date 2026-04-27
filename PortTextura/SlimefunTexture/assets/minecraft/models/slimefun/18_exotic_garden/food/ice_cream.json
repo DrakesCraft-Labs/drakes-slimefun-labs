@@ -1,8 +1,0 @@
-{
-	"credit": "Made by Racingsky",
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "slimefun:item/18_exotic_garden/food/ice_cream"
-	},
-	"author": "Racingsky"
-}

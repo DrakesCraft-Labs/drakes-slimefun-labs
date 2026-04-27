@@ -1,0 +1,8 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/template_lantern",
+	"textures": {
+		"particle": "block/copper_lantern",
+		"lantern": "block/copper_lantern"
+	}
+}

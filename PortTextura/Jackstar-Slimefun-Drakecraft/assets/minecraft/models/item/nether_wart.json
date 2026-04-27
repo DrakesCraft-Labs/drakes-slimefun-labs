@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/nether_wart"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000205}, "model": "minecraft:slimefun/2_useful_items/vitamins"},
+
+		{ "predicate": { "custom_model_data": 3001607}, "model": "minecraft:slimefun/15_magical_gadgets/magical_zombie_pills"}
+	]
+}

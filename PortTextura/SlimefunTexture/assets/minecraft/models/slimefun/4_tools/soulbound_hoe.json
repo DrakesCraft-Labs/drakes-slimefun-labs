@@ -1,8 +1,0 @@
-{
-	"parent": "item/handheld",
-	"author": "Racingsky",
-	"textures": {
-	"layer0": "slimefun:item/4_tools/soulbound_hoe"}
-		
-
-}

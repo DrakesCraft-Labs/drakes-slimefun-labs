@@ -1,0 +1,6 @@
+{
+  "type": "custom_name",
+  "items": ["minecraft:chainmail_helmet", "minecraft:chainmail_chestplate", "minecraft:chainmail_leggings", "minecraft:chainmail_boots"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/jackstar/invisible_armor/invisible_chainmail/"
+}

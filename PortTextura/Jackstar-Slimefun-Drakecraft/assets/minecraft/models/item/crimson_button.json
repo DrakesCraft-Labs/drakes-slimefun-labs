@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/crimson_button_inventory",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/crimson_button"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006580}, "model": "minecraft:slimefun/23_slime_tinker/materials/reinforced_draconium_nugget"},
+		{ "predicate": { "custom_model_data": 3006595}, "model": "minecraft:slimefun/23_slime_tinker/materials/magnonium_nugget"}
+	]
+}

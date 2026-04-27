@@ -1,8 +1,0 @@
-{
-        "parent": "minecraft:block/cube_all",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/christmas/rainbow_wool_xmas"
-	}
-}
-

@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/barrier"
+	},
+	
+	"overrides": [		
+		{ "predicate": { "custom_model_data": 3000002}, "model": "minecraft:slimefun/0_ui/ui_locked"},
+		{ "predicate": { "custom_model_data": 3000003}, "model": "minecraft:slimefun/0_ui/ui_locked"}
+	]
+}

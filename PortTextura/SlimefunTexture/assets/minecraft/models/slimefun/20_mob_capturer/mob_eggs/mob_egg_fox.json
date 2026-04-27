@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/20_mob_capturer/mob_eggs/mob_egg_fox"
-	}
-}

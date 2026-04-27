@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/melon_seeds"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003925}, "model": "minecraft:slimefun/27_foxy_machines/vile_seeds"}
+	]
+}

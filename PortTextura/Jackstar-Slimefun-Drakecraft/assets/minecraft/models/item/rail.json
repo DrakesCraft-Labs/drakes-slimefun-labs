@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/rail"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004105}, "model": "minecraft:slimefun/27_foxy_machines/boosted_rail"}
+	]
+}

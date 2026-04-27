@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/27_foxy_machines/headless_horseman_spawn_egg",
-		"layer1": "slimefun:item/27_foxy_machines/headless_horseman_spawn_egg"
-	}
-}

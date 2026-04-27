@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/15_magical_gadgets/tome_of_knowledge_sharing"
-	}
-}

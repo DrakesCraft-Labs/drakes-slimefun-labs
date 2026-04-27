@@ -1,0 +1,53 @@
+{
+	"format_version": "1.21.11",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/cross",
+	"textures": {
+		"particle": "block/warped_fungus",
+		"cross": "block/warped_fungus"
+	},
+	"elements": [
+		{
+			"from": [7.5, 0, 7.5],
+			"to": [8.5, 5, 8.5],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 6.48, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [8, 11, 7, 16], "texture": "#cross"},
+				"east": {"uv": [7, 11, 8, 16], "texture": "#cross"},
+				"south": {"uv": [8, 11, 7, 16], "texture": "#cross"},
+				"west": {"uv": [7, 11, 8, 16], "texture": "#cross"},
+				"up": {"uv": [7, 11, 8, 12], "rotation": 270, "texture": "#cross"},
+				"down": {"uv": [7, 15, 8, 16], "rotation": 90, "texture": "#cross"}
+			}
+		},
+		{
+			"from": [7.5, 5, 4],
+			"to": [8.5, 9, 12],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 7.38, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [3, 7, 4, 11], "texture": "#cross"},
+				"east": {"uv": [13, 7, 3, 11], "texture": "#cross"},
+				"south": {"uv": [13, 7, 12, 11], "texture": "#cross"},
+				"west": {"uv": [3, 7, 13, 11], "texture": "#cross"},
+				"up": {"uv": [3, 7, 13, 8], "rotation": 90, "texture": "#cross"},
+				"down": {"uv": [13, 10, 3, 11], "rotation": 90, "texture": "#cross"}
+			}
+		},
+		{
+			"from": [4, 5, 7.5],
+			"to": [12, 9.01, 8.5],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 7.38, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [13, 7, 3, 11], "texture": "#cross"},
+				"east": {"uv": [13, 7, 12, 11], "texture": "#cross"},
+				"south": {"uv": [3, 7, 13, 11], "texture": "#cross"},
+				"west": {"uv": [3, 7, 4, 11], "texture": "#cross"},
+				"up": {"uv": [3, 7, 13, 8], "texture": "#cross"},
+				"down": {"uv": [13, 10, 3, 11], "rotation": 180, "texture": "#cross"}
+			}
+		}
+	]
+}

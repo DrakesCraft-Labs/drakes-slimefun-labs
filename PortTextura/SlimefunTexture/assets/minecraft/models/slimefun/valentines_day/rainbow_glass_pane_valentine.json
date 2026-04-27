@@ -1,8 +1,0 @@
-{
-        "parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/valentines_day/rainbow_glass_pane_valentine"
-	}
-}
-

@@ -1,9 +1,0 @@
-{
-	"parent": "minecraft:block/green_stained_glass",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3005753}, "model": "minecraft:slimefun/28_energy_and_electricity/food_fabricator"},
-		{ "predicate": { "custom_model_data": 3005754}, "model": "minecraft:slimefun/28_energy_and_electricity/food_fabricator_2"}
-	]
-}

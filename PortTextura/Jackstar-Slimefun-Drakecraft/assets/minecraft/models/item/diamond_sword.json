@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/diamond_sword"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000105}, "model": "minecraft:slimefun/1_weapons/soulbound_sword"}
+	]
+}

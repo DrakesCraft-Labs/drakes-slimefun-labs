@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/ancient_debris",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3002304}, "model": "minecraft:slimefun/24_galactifun/blocks/fallen_meteor"}
-	]
-}

@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/rotten_flesh"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000710}, "model": "minecraft:slimefun/7_food/monster_jerky"}
+	]
+}

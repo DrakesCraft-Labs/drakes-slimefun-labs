@@ -1,0 +1,28 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/brick"
+	},
+	
+	"overrides": [
+
+		{ "predicate": { "custom_model_data": 3000504}, "model": "minecraft:slimefun/5_resources/bronze_ingot"},
+		{ "predicate": { "custom_model_data": 3000528}, "model": "minecraft:slimefun/5_resources/copper_ingot"},
+		{ "predicate": { "custom_model_data": 3000554}, "model": "minecraft:slimefun/5_resources/redstone_alloy"},
+
+		{ "predicate": { "custom_model_data": 3002413}, "model": "minecraft:slimefun/29_infinity_expansion/materials/magsteel"},
+		{ "predicate": { "custom_model_data": 3002416}, "model": "minecraft:slimefun/29_infinity_expansion/materials/adamantite"},
+
+		{ "predicate": { "custom_model_data": 3006209}, "model": "minecraft:slimefun/christmas/christmas_caramel"},
+
+		{ "predicate": { "custom_model_data": 3006501}, "model": "minecraft:slimefun/23_slime_tinker/materials/seared_brick"},
+		{ "predicate": { "custom_model_data": 3006503}, "model": "minecraft:slimefun/23_slime_tinker/materials/seared_tank"},
+		{ "predicate": { "custom_model_data": 3006554}, "model": "minecraft:slimefun/23_slime_tinker/materials/boomerite_ingot"},
+		{ "predicate": { "custom_model_data": 3006563}, "model": "minecraft:slimefun/23_slime_tinker/materials/fondness_ingot"},
+		{ "predicate": { "custom_model_data": 3006565}, "model": "minecraft:slimefun/23_slime_tinker/materials/devotion_ingot"},
+		{ "predicate": { "custom_model_data": 3006567}, "model": "minecraft:slimefun/23_slime_tinker/materials/passion_ingot"},
+		{ "predicate": { "custom_model_data": 3006569}, "model": "minecraft:slimefun/23_slime_tinker/materials/love_ingot"},
+		{ "predicate": { "custom_model_data": 3006581}, "model": "minecraft:slimefun/23_slime_tinker/materials/reinforced_draconium_ingot"}
+	]
+}

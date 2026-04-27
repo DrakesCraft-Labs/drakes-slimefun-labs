@@ -1,8 +1,0 @@
-{
-	"credit": "Made by Racingsky",
-	"parent": "minecraft:block/template_lantern",
-	"textures": {
-		"particle": "block/weathered_copper_lantern",
-		"lantern": "block/weathered_copper_lantern"
-	}
-}

@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/shroomlight",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002207}, "model": "minecraft:slimefun/24_galactifun/machines/space_heater"},
+		{ "predicate": { "custom_model_data": 3002208}, "model": "minecraft:slimefun/24_galactifun/machines/space_heater_2"},
+		{ "predicate": { "custom_model_data": 3002209}, "model": "minecraft:slimefun/24_galactifun/machines/space_heater_3"},
+
+		{ "predicate": { "custom_model_data": 3003311}, "model": "minecraft:slimefun/21_slimy_treetaps/amber_block"}
+	]
+}

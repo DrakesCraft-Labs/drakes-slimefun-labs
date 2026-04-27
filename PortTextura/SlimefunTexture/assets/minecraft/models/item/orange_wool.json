@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/orange_wool",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006300}, "model": "minecraft:slimefun/halloween/rainbow_wool_halloween"}
-	]
-}

@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/red_sand",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002302}, "model": "minecraft:slimefun/24_galactifun/blocks/mars_dust"}
+	]
+}

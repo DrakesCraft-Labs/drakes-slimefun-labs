@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/iron_pickaxe"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000405}, "model": "minecraft:slimefun/4_tools/pickaxe_of_containment"},
+		{ "predicate": { "custom_model_data": 3000409}, "model": "minecraft:slimefun/4_tools/cobalt_pickaxe"},
+		{ "predicate": { "custom_model_data": 3000411}, "model": "minecraft:slimefun/4_tools/climbing_pick"}
+	]
+}

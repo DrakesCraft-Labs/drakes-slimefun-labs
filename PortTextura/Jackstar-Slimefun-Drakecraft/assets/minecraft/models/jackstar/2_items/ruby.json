@@ -1,0 +1,19 @@
+{
+	"format_version": "1.21.6",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "jackstar:item/2_items/ruby"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 3, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"gui": {
+			"translation": [-0.5, 0.5, 0]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

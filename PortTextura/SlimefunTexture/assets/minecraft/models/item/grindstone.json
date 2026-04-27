@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/grindstone",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006406}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_mod_station"}
-	]
-}

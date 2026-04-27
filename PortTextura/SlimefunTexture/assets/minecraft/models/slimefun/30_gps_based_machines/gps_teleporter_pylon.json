@@ -1,7 +1,0 @@
-{
-        "parent": "minecraft:block/cube_all",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/30_gps_based_machines/gps_teleporter_pylon"
-	}
-}

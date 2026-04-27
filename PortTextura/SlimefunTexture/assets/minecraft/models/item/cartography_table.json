@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/cartography_table",
-	"author": "Racingsky",
-
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006404}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_repair_bench"}
-	]
-}

@@ -1,0 +1,7 @@
+{
+        "parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/30_gps_based_machines/gps_teleporter_pylon"
+	}
+}

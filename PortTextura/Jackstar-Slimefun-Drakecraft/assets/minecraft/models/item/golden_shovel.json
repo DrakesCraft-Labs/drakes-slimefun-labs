@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/golden_shovel"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003303}, "model": "minecraft:slimefun/21_slimy_treetaps/tree_scraper"}
+	]
+}

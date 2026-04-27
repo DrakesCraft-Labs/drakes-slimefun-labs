@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/cooked_beef"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000702}, "model": "minecraft:slimefun/7_food/beef_jerky"}
+	]
+}

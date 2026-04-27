@@ -1,0 +1,37 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/iron_helmet"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/iron_helmet_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/iron_helmet_iron_darker_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/iron_helmet_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/iron_helmet_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/iron_helmet_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/iron_helmet_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/iron_helmet_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/iron_helmet_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/iron_helmet_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/iron_helmet_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000606}, "model": "minecraft:slimefun/6_extragear/tin_helmet"},
+		{ "predicate": { "custom_model_data": 3000611}, "model": "minecraft:slimefun/6_extragear/silver_helmet"},
+		{ "predicate": { "custom_model_data": 3000616}, "model": "minecraft:slimefun/6_extragear/aluminum_helmet"},
+		{ "predicate": { "custom_model_data": 3000621}, "model": "minecraft:slimefun/6_extragear/lead_helmet"},
+		{ "predicate": { "custom_model_data": 3000626}, "model": "minecraft:slimefun/6_extragear/zinc_helmet"},
+		{ "predicate": { "custom_model_data": 3000631}, "model": "minecraft:slimefun/6_extragear/magnesium_helmet"},
+		{ "predicate": { "custom_model_data": 3000636}, "model": "minecraft:slimefun/6_extragear/steel_helmet"},
+		{ "predicate": { "custom_model_data": 3000655}, "model": "minecraft:slimefun/6_extragear/cobalt_helmet"},
+
+		{ "predicate": { "custom_model_data": 3000916}, "model": "minecraft:slimefun/9_magical_armor/reinforced_slime_helmet"},
+
+		{ "predicate": { "custom_model_data": 3001200}, "model": "minecraft:slimefun/12_armor/damascus_steel_helmet"},
+		{ "predicate": { "custom_model_data": 3001204}, "model": "minecraft:slimefun/12_armor/reinforced_alloy_helmet"},
+
+		{ "predicate": { "custom_model_data": 3001717}, "model": "minecraft:slimefun/16_technical_gadgets/solar_helmet"}
+
+	]
+}

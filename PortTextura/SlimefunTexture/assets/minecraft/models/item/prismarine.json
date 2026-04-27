@@ -1,9 +1,0 @@
-{
-	"parent": "minecraft:block/prismarine",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3002210}, "model": "minecraft:slimefun/24_galactifun/machines/ion_disperser"},
-		{ "predicate": { "custom_model_data": 3002211}, "model": "minecraft:slimefun/24_galactifun/machines/ion_disperser_2"}
-	]
-}

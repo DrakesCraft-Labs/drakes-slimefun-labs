@@ -1,7 +1,0 @@
-{
-	"parent": "item/handheld_rod",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/27_foxy_machines/poseidons_fishing_rod_cast"
-	}
-}

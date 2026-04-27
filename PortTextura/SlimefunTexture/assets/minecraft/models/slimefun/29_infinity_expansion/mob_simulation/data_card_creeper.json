@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/29_infinity_expansion/mob_simulation/data_card_creeper"
-	}
-}

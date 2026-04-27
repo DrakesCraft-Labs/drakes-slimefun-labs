@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/bookshelf",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3005748}, "model": "minecraft:slimefun/28_energy_and_electricity/book_binder"}
-	]
-}

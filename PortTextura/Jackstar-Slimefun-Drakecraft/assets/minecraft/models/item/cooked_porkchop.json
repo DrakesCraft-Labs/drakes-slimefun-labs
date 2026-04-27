@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/cooked_porkchop"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000703}, "model": "minecraft:slimefun/7_food/pork_jerky"}
+	]
+}

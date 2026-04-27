@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/light_weighted_pressure_plate",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3003914}, "model": "minecraft:slimefun/27_foxy_machines/demonic_plate"}
-	]
-}

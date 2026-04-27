@@ -1,9 +1,0 @@
-{
-	"parent": "minecraft:block/orientable",
-	"author": "Racingsky",
-	"textures": {
-		"front": "slimefun:item/27_foxy_machines/vile_pumpkin",
-		"side": "slimefun:item/27_foxy_machines/vile_pumpkin_side",
-		"top": "slimefun:item/27_foxy_machines/vile_pumpkin_top"
-	}
-}

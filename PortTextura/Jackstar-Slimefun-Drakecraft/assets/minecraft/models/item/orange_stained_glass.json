@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/orange_stained_glass",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006301}, "model": "minecraft:slimefun/halloween/rainbow_glass_halloween"}
+	]
+}

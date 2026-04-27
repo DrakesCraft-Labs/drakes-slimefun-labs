@@ -1,0 +1,41 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/leather_boots",
+  		 "layer1": "minecraft:item/leather_boots_overlay"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/leather_boots_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/leather_boots_iron_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/leather_boots_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/leather_boots_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/leather_boots_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/leather_boots_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/leather_boots_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/leather_boots_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/leather_boots_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/leather_boots_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000604}, "model": "minecraft:slimefun/6_extragear/copper_boots"},
+
+		{ "predicate": { "custom_model_data": 3000903}, "model": "minecraft:slimefun/9_magical_armor/ender_boots"},
+		{ "predicate": { "custom_model_data": 3000907}, "model": "minecraft:slimefun/9_magical_armor/slime_boots"},
+		{ "predicate": { "custom_model_data": 3000911}, "model": "minecraft:slimefun/9_magical_armor/glowstone_boots"},
+		{ "predicate": { "custom_model_data": 3000915}, "model": "minecraft:slimefun/9_magical_armor/rainbow_boots"},
+		{ "predicate": { "custom_model_data": 3000920}, "model": "minecraft:slimefun/9_magical_armor/farmer_shoes"},
+		{ "predicate": { "custom_model_data": 3000921}, "model": "minecraft:slimefun/9_magical_armor/boots_of_the_stomper"},
+
+		{ "predicate": { "custom_model_data": 3001211}, "model": "minecraft:slimefun/12_armor/cactus_boots"},
+		{ "predicate": { "custom_model_data": 3001223}, "model": "minecraft:slimefun/12_armor/hazmat_boots"},
+
+		{ "predicate": { "custom_model_data": 3001719}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_duralumin"},
+		{ "predicate": { "custom_model_data": 3001720}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_solder"},
+		{ "predicate": { "custom_model_data": 3001721}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_billon"},
+		{ "predicate": { "custom_model_data": 3001722}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_steel"},
+		{ "predicate": { "custom_model_data": 3001723}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_damascus_steel"},
+		{ "predicate": { "custom_model_data": 3001724}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_reinforced"},
+		{ "predicate": { "custom_model_data": 3001725}, "model": "minecraft:slimefun/16_technical_gadgets/jetboots_carbonado"}
+	]
+}

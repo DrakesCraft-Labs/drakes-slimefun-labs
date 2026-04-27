@@ -1,0 +1,8 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/2_useful_items/medicine",
+		"layer1": "slimefun:item/2_useful_items/medicine"
+	}
+}

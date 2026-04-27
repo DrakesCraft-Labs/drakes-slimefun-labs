@@ -1,0 +1,6 @@
+{
+  "type": "custom_name",
+  "items": ["minecraft:iron_helmet", "minecraft:iron_chestplate", "minecraft:iron_leggings", "minecraft:iron_boots"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/jackstar/invisible_armor/invisible_iron/"
+}

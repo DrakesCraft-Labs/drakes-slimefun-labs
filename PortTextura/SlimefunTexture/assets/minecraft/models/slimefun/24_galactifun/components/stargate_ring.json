@@ -1,8 +1,0 @@
-{
-        "parent": "minecraft:block/cube_column",
-	"author": "Racingsky",
-	 "textures": {
-	    "side": "slimefun:item/24_galactifun/components/stargate_ring",
-	    "end": "slimefun:item/24_galactifun/components/stargate_ring_top"
-  }
-}

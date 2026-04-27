@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/quartz_slab",
+	"author": "Jackstar (DrakesCraft Labs)",
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001709}, "model": "minecraft:slimefun/16_technical_gadgets/hologram_projector"}
+	]
+}

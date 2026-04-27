@@ -1,0 +1,7 @@
+{
+	"parent": "item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+	"layer0": "jackstar:item/1_handheld/swords/reaper_copper"}
+
+}

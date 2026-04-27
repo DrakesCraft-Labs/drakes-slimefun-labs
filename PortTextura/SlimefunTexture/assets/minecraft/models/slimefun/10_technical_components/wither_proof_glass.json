@@ -1,7 +1,0 @@
-{
-	"parent": "minecraft:block/cube_all",
-	"author": "Racingsky",
-	"textures": {
-		"all": "slimefun:item/10_technical_components/wither_proof_glass"
-	}
-}

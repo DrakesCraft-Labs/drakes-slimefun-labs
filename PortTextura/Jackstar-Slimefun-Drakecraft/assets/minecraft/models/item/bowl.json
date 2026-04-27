@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/bowl"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000314}, "model": "minecraft:slimefun/3_basic_machines/automated_panning_machine"},
+
+		{ "predicate": { "custom_model_data": 3000400}, "model": "minecraft:slimefun/4_tools/gold_pan"},
+		{ "predicate": { "custom_model_data": 3000401}, "model": "minecraft:slimefun/4_tools/nether_gold_pan"}
+	]
+}

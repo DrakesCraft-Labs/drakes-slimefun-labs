@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/pink_terracotta",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006378}, "model": "minecraft:slimefun/valentines_day/rainbow_clay_valentine"},
+
+		{ "predicate": { "custom_model_data": 3006516}, "model": "minecraft:slimefun/23_slime_tinker/materials/magnesium_block"}
+	]
+}

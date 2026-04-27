@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/anvil",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000303}, "model": "minecraft:slimefun/3_basic_machines/armor_forge"},
+		{ "predicate": { "custom_model_data": 3002214}, "model": "minecraft:slimefun/24_galactifun/machines/diamond_anvil"}
+	],
+  "oversized_in_gui": true
+}

@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/pink_stained_glass",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006376}, "model": "minecraft:slimefun/valentines_day/rainbow_glass_valentine"}
-	]
-}

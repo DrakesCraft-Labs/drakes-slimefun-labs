@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/purple_glazed_terracotta",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3004912}, "model": "minecraft:slimefun/22_flower_power/crystal_purple"}
-	]
-}

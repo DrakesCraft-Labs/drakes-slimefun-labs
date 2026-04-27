@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/iron_hoe"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003301}, "model": "minecraft:slimefun/21_slimy_treetaps/reinforced_tree_tap"}
+	]
+}

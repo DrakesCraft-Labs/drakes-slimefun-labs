@@ -1,0 +1,34 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/sugar"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000522}, "model": "minecraft:slimefun/5_resources/tin_dust"},
+		{ "predicate": { "custom_model_data": 3000523}, "model": "minecraft:slimefun/5_resources/silver_dust"},
+		{ "predicate": { "custom_model_data": 3000525}, "model": "minecraft:slimefun/5_resources/aluminum_dust"},
+		{ "predicate": { "custom_model_data": 3000526}, "model": "minecraft:slimefun/5_resources/zinc_dust"},
+		{ "predicate": { "custom_model_data": 3000527}, "model": "minecraft:slimefun/5_resources/magnesium_dust"},
+		{ "predicate": { "custom_model_data": 3000555}, "model": "minecraft:slimefun/5_resources/magnesium_salt"},
+
+		{ "predicate": { "custom_model_data": 3000709}, "model": "minecraft:slimefun/7_food/magic_sugar"},
+
+		{ "predicate": { "custom_model_data": 3001101}, "model": "minecraft:slimefun/11_misc_items/wheat_flour"},
+		{ "predicate": { "custom_model_data": 3001106}, "model": "minecraft:slimefun/11_misc_items/salt"},
+
+		{ "predicate": { "custom_model_data": 3003609}, "model": "minecraft:slimefun/25_potion_expansion/quartz_powder"},
+
+		{ "predicate": { "custom_model_data": 3003924}, "model": "minecraft:slimefun/27_foxy_machines/pixie_dust"},
+
+		{ "predicate": { "custom_model_data": 3004913}, "model": "minecraft:slimefun/22_flower_power/charm_movement_speed"},
+		{ "predicate": { "custom_model_data": 3004914}, "model": "minecraft:slimefun/22_flower_power/charm_attack_speed"},
+		{ "predicate": { "custom_model_data": 3004915}, "model": "minecraft:slimefun/22_flower_power/charm_fly_speed"},
+		{ "predicate": { "custom_model_data": 3004916}, "model": "minecraft:slimefun/22_flower_power/charm_damage"},
+		{ "predicate": { "custom_model_data": 3004917}, "model": "minecraft:slimefun/22_flower_power/charm_health"},
+		{ "predicate": { "custom_model_data": 3004918}, "model": "minecraft:slimefun/22_flower_power/charm_knockback_resistance"},
+
+		{ "predicate": { "custom_model_data": 3005106}, "model": "minecraft:slimefun/18_exotic_garden/tools/cornmeal"}
+	]
+}

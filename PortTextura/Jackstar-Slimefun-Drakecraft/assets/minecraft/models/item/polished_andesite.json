@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:block/polished_andesite",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002301}, "model": "minecraft:slimefun/24_galactifun/blocks/moon_rock"},
+
+		{ "predicate": { "custom_model_data": 3002401}, "model": "minecraft:slimefun/29_infinity_expansion/materials/cobblestone_1"},
+		{ "predicate": { "custom_model_data": 3002402}, "model": "minecraft:slimefun/29_infinity_expansion/materials/cobblestone_2"}
+
+	]
+}

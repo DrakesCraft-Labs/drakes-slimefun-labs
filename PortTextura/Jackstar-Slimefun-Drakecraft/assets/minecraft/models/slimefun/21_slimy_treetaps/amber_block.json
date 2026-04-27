@@ -1,0 +1,7 @@
+{
+        "parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/21_slimy_treetaps/amber_block"
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/leather_chestplate",
+  		 "layer1": "minecraft:item/leather_chestplate_overlay"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/leather_chestplate_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/leather_chestplate_iron_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/leather_chestplate_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/leather_chestplate_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/leather_chestplate_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/leather_chestplate_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/leather_chestplate_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/leather_chestplate_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/leather_chestplate_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/leather_chestplate_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000602}, "model": "minecraft:slimefun/6_extragear/copper_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3000901}, "model": "minecraft:slimefun/9_magical_armor/ender_chestplate"},
+		{ "predicate": { "custom_model_data": 3000905}, "model": "minecraft:slimefun/9_magical_armor/slime_chestplate"},
+		{ "predicate": { "custom_model_data": 3000909}, "model": "minecraft:slimefun/9_magical_armor/glowstone_chestplate"},
+		{ "predicate": { "custom_model_data": 3000913}, "model": "minecraft:slimefun/9_magical_armor/rainbow_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3001209}, "model": "minecraft:slimefun/12_armor/cactus_chestplate"},
+		{ "predicate": { "custom_model_data": 3001221}, "model": "minecraft:slimefun/12_armor/hazmat_chestplate"},
+
+		{ "predicate": { "custom_model_data": 3001700}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_duralumin"},
+		{ "predicate": { "custom_model_data": 3001701}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_solder"},
+		{ "predicate": { "custom_model_data": 3001702}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_billon"},
+		{ "predicate": { "custom_model_data": 3001703}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_steel"},
+		{ "predicate": { "custom_model_data": 3001704}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_damascus_steel"},
+		{ "predicate": { "custom_model_data": 3001705}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_reinforced"},
+		{ "predicate": { "custom_model_data": 3001706}, "model": "minecraft:slimefun/16_technical_gadgets/jetpack_carbonado"},
+		{ "predicate": { "custom_model_data": 3001708}, "model": "minecraft:slimefun/16_technical_gadgets/parachute"}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"parent": "minecraft:block/piston_inventory",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/piston"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000305}, "model": "minecraft:slimefun/3_basic_machines/compressor"},
+
+		{ "predicate": { "custom_model_data": 3002202}, "model": "minecraft:slimefun/24_galactifun/machines/circuit_press"},
+
+		{ "predicate": { "custom_model_data": 3005749}, "model": "minecraft:slimefun/28_energy_and_electricity/refinery"}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/glass_bottle"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000318}, "model": "minecraft:slimefun/3_basic_machines/juicer"},
+
+		{ "predicate": { "custom_model_data": 3001613}, "model": "minecraft:slimefun/15_magical_gadgets/flask_of_knowledge"}
+	]
+}

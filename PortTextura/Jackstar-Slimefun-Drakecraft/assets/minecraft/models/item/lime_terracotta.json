@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/lime_terracotta",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3005736}, "model": "minecraft:slimefun/28_energy_and_electricity/bio_reactor"},
+		{ "predicate": { "custom_model_data": 3005761}, "model": "minecraft:slimefun/28_energy_and_electricity/crop_growth_accel"},
+		{ "predicate": { "custom_model_data": 3005762}, "model": "minecraft:slimefun/28_energy_and_electricity/crop_growth_accel_2"}
+	]
+}

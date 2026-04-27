@@ -1,8 +1,0 @@
-{
-	"credit": "Made by Racingsky",
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "slimefun:item/29_infinity_expansion/basic_machines/basic_virtual_farm",
-		"layer1": "slimefun:item/29_infinity_expansion/basic_machines/basic_virtual_farm"
-	}
-}

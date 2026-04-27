@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/netherite_sword"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004202}, "model": "minecraft:slimefun/27_foxy_machines/cursed_sword"},
+		{ "predicate": { "custom_model_data": 3004203}, "model": "minecraft:slimefun/27_foxy_machines/celestial_sword"},
+		{ "predicate": { "custom_model_data": 3004204}, "model": "minecraft:slimefun/27_foxy_machines/elucidator"}
+	]
+}

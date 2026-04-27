@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/netherite_block",
-	"author": "Racingsky",
-	
-	"overrides": [
-		{ "predicate": { "custom_model_data": 3006584}, "model": "minecraft:slimefun/23_slime_tinker/materials/void_block"}
-	]
-}

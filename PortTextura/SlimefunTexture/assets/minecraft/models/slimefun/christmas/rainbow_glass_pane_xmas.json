@@ -1,8 +1,0 @@
-{
-        "parent": "item/generated",
-	"author": "Racingsky",
-	"textures": {
-		"layer0": "slimefun:item/christmas/rainbow_glass_pane_xmas"
-	}
-}
-

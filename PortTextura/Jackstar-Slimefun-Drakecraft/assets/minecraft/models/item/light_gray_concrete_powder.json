@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/light_gray_concrete_powder",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002300}, "model": "minecraft:slimefun/24_galactifun/blocks/moon_dust"}
+	]
+}

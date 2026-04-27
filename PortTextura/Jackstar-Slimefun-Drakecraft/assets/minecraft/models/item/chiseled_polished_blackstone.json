@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/chiseled_polished_blackstone",
+	"author": "Jackstar (DrakesCraft Labs)",
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006401}, "model": "minecraft:slimefun/23_slime_tinker/workstations/tinkers_smeltery_core"}
+
+	]
+}
