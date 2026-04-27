@@ -1,0 +1,15 @@
+/bin
+/.settings
+/target
+/.idea
+/.kotlin
+*.iml
+.project
+.classpath
+dependency-reduced-pom.xml
+.DS_Store
+launch.cmd
+/paper/
+.gradle/
+build/
+run/

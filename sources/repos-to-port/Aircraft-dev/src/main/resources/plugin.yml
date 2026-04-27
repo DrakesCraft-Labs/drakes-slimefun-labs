@@ -1,0 +1,23 @@
+name: Aircraft
+version: '${project.version}'
+author: Idra
+main: org.metamechanists.aircraft.Aircraft
+api-version: '1.21'
+
+depend:
+  - Slimefun
+  - ProtocolLib
+  - KinematicCore
+
+softdepend:
+  - Furnished
+
+commands:
+  aircraft:
+    description: /aircraft
+    usage: /aircraft <subcommand>
+
+permissions:
+  aircraft.command.reload:
+    default: op
+    description: Reloads the plugin

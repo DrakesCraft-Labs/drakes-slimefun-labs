@@ -135,6 +135,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Galactifun2: proyecto Gradle aparte (Kotlin + buildSrc); no forma parte del composite raíz.
+      - name: Galactifun2 (Gradle aislado, compileKotlin)
+        run: |
+          cd sources/repos-to-port/Galactifun2
+          chmod +x ./gradlew
+          ./gradlew --no-daemon :plugin:compileKotlin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   # Job ligero para branch protection: marcar un solo check "CI Monorepo 1.21 / ci_summary".
   # Solo se ejecuta si todos los needs tuvieron éxito (comportamiento por defecto de GitHub).
   ci_summary:

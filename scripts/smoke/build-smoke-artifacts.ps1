@@ -141,6 +141,38 @@ function Test-JarContainsDoughConfig {
     }
 }
 
+function Invoke-NestedGradleProject {
+    param(
+        [string]$ProjectRoot,
+        [string]$Task
+    )
+
+    if (-not (Test-Path -LiteralPath $ProjectRoot)) {
+        throw "Nested Gradle: no existe el directorio $ProjectRoot"
+    }
+
+    $gwBat = Join-Path $ProjectRoot "gradlew.bat"
+    $gw = Join-Path $ProjectRoot "gradlew"
+    Push-Location $ProjectRoot
+    try {
+        if (Test-Path -LiteralPath $gwBat) {
+            & $gwBat --no-daemon $Task
+        }
+        elseif (Test-Path -LiteralPath $gw) {
+            & $gw --no-daemon $Task
+        }
+        else {
+            throw "Nested Gradle: no hay gradlew ni gradlew.bat en $ProjectRoot"
+        }
+        if ($LASTEXITCODE -ne 0) {
+            throw "Nested Gradle fallo (exit $LASTEXITCODE) en $ProjectRoot con tarea $Task"
+        }
+    }
+    finally {
+        Pop-Location
+    }
+}
+
 function Merge-DoughIntoAddonJar {
     param(
         [string]$DoughJarPath,
@@ -236,6 +268,18 @@ try {
         }
     }
 
+    $nestedGradle = @()
+    if ($profileConfig.PSObject.Properties.Name -contains "nestedGradleProjects") {
+        $nestedGradle = @($profileConfig.nestedGradleProjects)
+    }
+    foreach ($ng in $nestedGradle) {
+        $rel = [string]$ng.path
+        $projRoot = Join-Path $root ($rel -replace '/', [IO.Path]::AltDirectorySeparatorChar)
+        $task = if ($ng.PSObject.Properties.Name -contains "task" -and $ng.task) { [string]$ng.task } else { ":plugin:shadowJar" }
+        Write-Host "==> Nested Gradle $rel : $task" -ForegroundColor Cyan
+        Invoke-NestedGradleProject -ProjectRoot $projRoot -Task $task
+    }
+
     Get-ChildItem $pluginsDir -Filter "*.jar" -File -ErrorAction SilentlyContinue | Remove-Item -Force
 
     $copied = @()
@@ -279,6 +323,33 @@ try {
             }
             Write-Host "   + $($jar.Name)" -ForegroundColor Green
         }
+    }
+
+    foreach ($ng in $nestedGradle) {
+        $rel = [string]$ng.path
+        $projRoot = Join-Path $root ($rel -replace '/', [IO.Path]::AltDirectorySeparatorChar)
+        $libs = Join-Path $projRoot "plugin/build/libs"
+        if (-not (Test-Path -LiteralPath $libs)) {
+            throw "Nested Gradle: no existe $libs (falta shadowJar?)"
+        }
+        $jar = Get-ChildItem $libs -Filter "*-all.jar" -File | Sort-Object LastWriteTimeUtc -Descending | Select-Object -First 1
+        if (-not $jar) {
+            throw "Nested Gradle: no hay *-all.jar en $libs"
+        }
+        $destination = Join-Path $pluginsDir $jar.Name
+        Copy-Item $jar.FullName $destination -Force
+        $copied += [pscustomobject]@{
+            module = $rel
+            jar = $jar.FullName
+            copiedTo = $destination
+        }
+        $paperName = if ($ng.PSObject.Properties.Name -contains "paperPluginName" -and $ng.paperPluginName) {
+            [string]$ng.paperPluginName
+        } else {
+            "Galactifun2"
+        }
+        $expectedPlugins.Add($paperName) | Out-Null
+        Write-Host "   + $($jar.Name) (nested $rel)" -ForegroundColor Green
     }
 
     $mergeDough = $false

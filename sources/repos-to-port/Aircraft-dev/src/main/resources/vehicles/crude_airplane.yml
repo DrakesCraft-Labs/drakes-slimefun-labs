@@ -1,0 +1,583 @@
+name: "&7Crude Airplane"
+translation: [-0.4, 0.7, 0.0]
+mass: 20.0
+momentOfInertia: 100.0
+airDensity: 10.0
+frictionCoefficient: 0.1
+steeringSpeed: 0.1
+  
+
+damping:
+  velocity: 0.001
+  angularVelocity: 0.1
+  groundRoll: 1.5
+  groundPitch: 0.5
+
+weight:
+  location: [0.0, 0.0, 0.0]
+  acceleration: -6.0
+
+engine:
+  location: [0.0, 0.0, 0.0]
+  force: 100.0
+  fuels: [coal]
+
+collisionTolerance:
+  up: 0.05
+  down: 1.0
+  sideways: 0.5
+
+resources:
+  coal:
+    capacity: 600.0
+    passiveEngineDrain: 0.1
+    throttleDrain: 0.0
+    type: COMBUSTIBLE
+
+hud:
+  horizon:
+    position: [0.5, -0.2, 0.0]
+    rotation: [0.0, 0.0, 0.0]
+
+    altitudeTextColor: [200, 255, 255]
+    altitudeBracketsColor: [0, 0, 255]
+    altitudeBracketsText: "[     ]"
+
+    velocityIndicatorColor: [130, 0, 255]
+    velocityIndicatorText: "<--         -->"
+
+    majorColor: [0, 255, 255]
+    minorColor: [0, 180, 255]
+    detailColor: [0, 150, 180]
+    majorText: "--------"
+    minorText: "-------"
+    detailText: "------"
+
+    horizonDegreeColor: [100, 180, 255]
+  
+  compass:
+    position: [0.49, -0.47, 0.0]
+    rotation: [0.0, 0.0, 0.0]
+    
+    majorColor: [0, 255, 255]
+    minorColor: [0, 180, 255]
+    detailColor: [0, 150, 180]
+    majorText: "|"
+    minorText: "|"
+    detailText: "|"
+    majorSize: 0.2
+    minorSize: 0.15
+    detailSize: 0.1
+
+    directionColor: [180, 255, 255]
+    directionSize: 0.12
+    directionOffset: -0.035
+    directionTextN: "N"
+    directionTextE: "E"
+    directionTextS: "S"
+    directionTextW: "W"
+
+    degreeColor: [0, 180, 255]
+    degreeSize: 0.08
+    degreeOffset: -0.03
+
+    notchText: "▼"
+    notchColor: [0, 0, 255]
+    notchSize: 0.1
+    notchOffset: 0.06
+  
+  bottomPanel:
+    position: [0.49, -0.556, 0.0]
+    rotation: [0.0, 0.0, 0.0]
+
+    throttle:
+      barMaterial: LIGHT_BLUE_CONCRETE
+      barWidth: 0.2
+      barHeight: 0.02
+      barVerticalOffset: 0.0
+      barHorizontalOffset: -0.03
+
+      textColor: [255, 255, 255]
+      textSize: 0.1
+      textVerticalOffset: 0.006
+      textHorizontalOffset: 0.12
+
+    resources:
+      coal:
+        barMaterial: BLACK_CONCRETE
+        barWidth: 0.2
+        barHeight: 0.02
+        barVerticalOffset: -0.03
+        barHorizontalOffset: -0.03
+
+        textColor: [255, 255, 255]
+        textSize: 0.1
+        textVerticalOffset: -0.024
+        textHorizontalOffset: 0.12
+
+components:
+  AerodynamicFrontWing:
+    Main:
+      mirror: true
+      material: AIR
+      size: [1.0, 0.001, 2.0]
+      location: [0.0, 0.7, 1.7]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.3
+        liftCoefficient: 2.07
+    LeftControlSurface:
+      material: AIR
+      size: [0.3, 0.001, 1.0]
+      location: [-0.65, 0.7, -2.0]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.1
+        liftCoefficient: 0.9
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [d]
+        signalsDown: [a]
+    RightControlSurface:
+      material: AIR
+      size: [0.3, 0.001, 1.0]
+      location: [-0.65, 0.7, 2.0]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.1
+        liftCoefficient: 0.9
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [a]
+        signalsDown: [d]
+  
+  AerodynamicBackWing:
+    Main:
+      mirror: true
+      material: AIR
+      size: [0.5, 0.001, 1.0]
+      location: [-4.0, 0.7, -1.0]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.1
+        liftCoefficient: 0.52
+    LeftControlSurface:
+      material: AIR
+      size: [0.3, 0.001, 0.6]
+      location: [-4.4, 0.7, -0.73]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.1
+        liftCoefficient: 0.9
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [w]
+        signalsDown: [s]
+    RightControlSurface:
+      material: AIR
+      size: [0.3, 0.001, 0.6]
+      location: [-4.4, 0.7, 0.73]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 0.1
+        liftCoefficient: 0.9
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [w]
+        signalsDown: [s]
+
+  AerodynamicTail:
+    Tail:
+      material: AIR
+      size: [0.5, 1.0, 0.0001]
+      location: [-3.0, 0.7, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      aerodynamic:
+        dragCoefficient: 1.0
+        liftCoefficient: 2.0
+
+  FrontWing:
+    Main1:
+      mirror: true
+      material: WHITE_WOOL
+      size: [1.05, 0.2, 1.1]
+      location: [0.0, 0.0, 1.25]
+      rotation: [0.0, 0.0, 0.0]
+    Main2:
+      mirror: true
+      material: WHITE_WOOL
+      size: [1.05, 0.2, 1.1]
+      location: [0.0, 0.0, 2.35]
+      rotation: [0.0, 0.0, 0.0]
+    BackInner:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.2, 0.5]
+      location: [-0.7, 0.0, 0.95]
+      rotation: [0.0, 0.0, 0.0]
+    BackOuter:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.2, 0.3]
+      location: [-0.7, 0.0, 2.35]
+      rotation: [0.0, 0.0, 0.0]
+    BackOuterDiagonal:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.196, 0.525]
+      location: [-0.57, 0.0, 2.585]
+      rotation: [0.0, 0.72, 0.0]
+    FrontOuter1:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.2, 0.8]
+      location: [0.7, 0.0, 2.1]
+      rotation: [0.0, 0.0, 0.0]
+    FrontOuter2:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.2, 1.0]
+      location: [0.7, 0.0, 1.2]
+      rotation: [0.0, 0.0, 0.0]
+    FrontOuterDiagonal:
+      mirror: true
+      material: WHITE_WOOL
+      size: [0.35, 0.196, 0.525]
+      location: [0.57, 0.0, 2.585]
+      rotation: [0.0, -0.72, 0.0]
+    ControlSurfaceLeft:
+      material: CYAN_WOOL
+      size: [0.35, 0.12, 1.001]
+      location: [-0.65, 0.0, -1.7]
+      rotation: [0.0, 0.0, 0.0]
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [d]
+        signalsDown: [a]
+    ControlSurfaceRight:
+      material: CYAN_WOOL
+      size: [0.35, 0.12, 1.001]
+      location: [-0.65, 0.0, 1.7]
+      rotation: [0.0, 0.0, 0.0]
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [a]
+        signalsDown: [d]
+    
+
+  LogFrame:
+    Front1:
+      mirror: true
+      material: OAK_LOG
+      size: [0.3, 1.0, 0.3]
+      location: [0.45, 0.0, 0.7]
+      rotation: [0.0, 0.0, 1.571]
+    Front2:
+      mirror: true
+      material: OAK_LOG
+      size: [0.3, 1.0, 0.3]
+      location: [-0.55, 0.0, 0.7]
+      rotation: [0.0, 0.0, 1.571]
+    FrontFrontDiagonal:
+      mirror: true
+      material: OAK_LOG
+      size: [0.299, 0.5, 0.299]
+      location: [1.03, 0.0, 0.565]
+      rotation: [0.0, 0.785, 1.57]
+    FrontFrontBeam:
+      material: OAK_LOG
+      size: [0.297, 0.98, 0.297]
+      location: [1.17, 0.0, 0.0]
+      rotation: [1.57, 1.57, 0.0]
+    MiddleSides:
+      mirror: true
+      material: OAK_LOG
+      size: [0.297, 1.2, 0.297]
+      location: [-1.43, 0.0, 0.37]
+      rotation: [0.0, -0.65, 1.57]
+    Middle:
+      material: OAK_LOG
+      size: [0.293, 1.4, 0.293]
+      location: [-2.5, 0.0, 0.0]
+      rotation: [0.0, 0.0, 1.57]
+    BackDiagonal:
+      mirror: true
+      material: OAK_LOG
+      size: [0.296, 0.5, 0.296]
+      location: [-3.3, 0.0, 0.17]
+      rotation: [0.0, 0.65, 1.57]
+    BackCenter:
+      material: OAK_LOG
+      size: [0.29, 1.4, 0.29]
+      location: [-3.91, 0.0, 0.0]
+      rotation: [0.0, 0.0, 1.57]
+    BackSides:
+      mirror: true
+      material: OAK_LOG
+      size: [0.3, 1.2, 0.3]
+      location: [-4.01, 0.0, 0.288]
+      rotation: [0.0, 0.0, 1.57]
+  
+  Engine:
+    Propeller:
+      material: LIGHT_GRAY_CONCRETE
+      size: [0.1, 0.2, 0.8]
+      location: [1.4, 0.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      propeller:
+        rotationAxis: [1.0, 0.0, 0.0]
+        maxRotationRate: 2.0
+        fuels: [coal]
+    Axle:
+      material: GRAY_CONCRETE
+      size: [1.0, 0.1, 0.1]
+      location: [1.0, 0.0, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      propeller:
+        rotationAxis: [1.0, 0.0, 0.0]
+        maxRotationRate: 2.0
+        fuels: [coal]
+    CenterTop1:
+      material: IRON_BLOCK
+      size: [0.3, 0.3, 0.3]
+      location: [0.6, 0.15, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    CenterTop2:
+      material: IRON_BLOCK
+      size: [0.3, 0.3, 0.3]
+      location: [0.3, 0.15, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    CenterBottom1:
+      material: IRON_BLOCK
+      size: [0.3, 0.3, 0.3]
+      location: [0.6, -0.15, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    CenterBottom2:
+      material: IRON_BLOCK
+      size: [0.3, 0.3, 0.3]
+      location: [0.3, -0.15, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    CenterSide1:
+      mirror: true
+      material: IRON_BLOCK
+      size: [0.299, 0.3, 0.3]
+      location: [0.6, 0.0, -0.15]
+      rotation: [0.0, 0.0, 0.0]
+    CenterSide2:
+      mirror: true
+      material: IRON_BLOCK
+      size: [0.299, 0.3, 0.3]
+      location: [0.3, 0.0, -0.15]
+      rotation: [0.0, 0.0, 0.0]
+    PistonSide1:
+      mirror: true
+      material: PISTON
+      size: [0.2, 0.2, 0.2]
+      location: [0.3, 0.15, -0.15]
+      rotation: [0.785, 0.0, 0.0]
+    PistonSide2:
+      mirror: true
+      material: PISTON
+      size: [0.2, 0.2, 0.2]
+      location: [0.6, 0.15, -0.15]
+      rotation: [0.785, 0.0, 0.0]
+    FuelTankSide:
+      mirror: true
+      material: RED_CONCRETE
+      size: [0.5, 0.2, 0.2]
+      location: [0.45, 0.0, -0.23]
+      rotation: [0.0, 0.0, 0.0]
+  
+  Wheels:
+    Support:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.199, 1.2, 0.199]
+      location: [0.135, -0.6, 0.8]
+      rotation: [-0.4, 0.0, 0.0]
+    Wheel1:
+      mirror: true
+      material: BLACK_CONCRETE
+      size: [0.2, 0.5, 0.2]
+      location: [0.135, -1.1, 1.1]
+      rotation: [0.0, 0.0, 0.0]
+    Wheel2:
+      mirror: true
+      material: BLACK_CONCRETE
+      size: [0.2, 0.5, 0.2]
+      location: [0.135, -1.1, 1.1]
+      rotation: [0.0, 0.0, 0.785]
+    Wheel3:
+      mirror: true
+      material: BLACK_CONCRETE
+      size: [0.2, 0.5, 0.2]
+      location: [0.135, -1.1, 1.1]
+      rotation: [0.0, 0.0, 1.571]
+    Wheel4:
+      mirror: true
+      material: BLACK_CONCRETE
+      size: [0.2, 0.5, 0.2]
+      location: [0.135, -1.1, 1.1]
+      rotation: [0.0, 0.0, -0.785]
+  
+  CockpitFrame:
+    Floor1:
+      material: OAK_PLANKS
+      size: [0.8, 0.2, 0.8]
+      location: [-0.4, -0.4, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Floor2:
+      material: OAK_PLANKS
+      size: [0.8, 0.2, 0.8]
+      location: [0.4, -0.4, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    Diagonal1:
+      mirror: true
+      material: STRIPPED_OAK_LOG
+      size: [0.2, 0.6, 0.2]
+      location: [0.699, -0.2, 0.5]
+      rotation: [0.7, 0.0, 0.0]
+    Diagonal2:
+      mirror: true
+      material: STRIPPED_OAK_LOG
+      size: [0.2, 0.6, 0.2]
+      location: [-0.699, -0.2, 0.5]
+      rotation: [0.7, 0.0, 0.0]
+    FrontBeam:
+      material: STRIPPED_OAK_LOG
+      size: [0.2, 0.6, 0.2]
+      location: [0.9, -0.2, 0.0]
+      rotation: [0.0, 0.0, -0.7]
+    BackBeam:
+      material: STRIPPED_OAK_LOG
+      size: [0.2, 1.2, 0.2]
+      location: [-1.2, -0.2, 0.0]
+      rotation: [0.0, 0.0, 1.2]
+  
+  Hud:
+    Compass:
+      material: STRIPPED_ACACIA_WOOD
+      size: [0.05, 0.12, 0.5]
+      location: [0.135, 0.22, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    ThrottleBackground:
+      material: GRAY_CONCRETE
+      size: [0.001, 0.02, 0.2]
+      location: [0.091, 0.15, -0.03]
+      rotation: [0.0, 0.0, 0.0]
+    CoalBarBackground:
+      material: GRAY_CONCRETE
+      size: [0.001, 0.02, 0.2]
+      location: [0.091, 0.15, -0.03]
+      rotation: [0.0, 0.0, 0.0]
+    BottomPanel:
+      material: STRIPPED_BIRCH_WOOD
+      size: [0.05, 0.18, 0.5]
+      location: [0.135, 0.07, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    BottomCenter:
+      material: GRAY_CONCRETE
+      size: [0.2, 0.28, 0.9]
+      location: [0.135, -0.16, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+    BottomSides:
+      mirror: true
+      material: GRAY_CONCRETE
+      size: [0.199, 0.35, 0.45]
+      location: [0.135, -0.1, 0.5]
+      rotation: [-0.43, 0.0, 0.0]
+  
+  BackWingRight:
+    Main1:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.5, 0.2, 0.5]
+      location: [-4.0, 0.0, 0.65]
+      rotation: [0.0, 0.0, 0.0]
+    Main2:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.5, 0.2, 0.6]
+      location: [-4.0, 0.0, 1.2]
+      rotation: [0.0, 0.0, 0.0]
+    BackStraight:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.3, 0.2, 0.2]
+      location: [-4.4, 0.0, 1.15]
+      rotation: [0.0, 0.0, 0.0]
+    BackDiagonal:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.385, 0.199, 0.2]
+      location: [-4.34, 0.0, 1.3]
+      rotation: [0.0, -0.69, 0.0]
+    FrontStraight:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.3, 0.2, 0.9]
+      location: [-3.6, 0.0, 0.8]
+      rotation: [0.0, 0.0, 0.0]
+    FrontDiagonal:
+      mirror: true
+      group: body
+      material: WHITE_WOOL
+      size: [0.385, 0.199, 0.2]
+      location: [-3.665, 0.0, 1.3]
+      rotation: [0.0, 0.69, 0.0]
+    ControlSurfaceLeft:
+      material: CYAN_WOOL
+      size: [0.25, 0.15, 0.62]
+      location: [-4.37, 0.0, -0.74]
+      rotation: [0.0, 0.0, 0.0]
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [w]
+        signalsDown: [s]
+    ControlSurfaceRight:
+      group: body
+      material: CYAN_WOOL
+      size: [0.25, 0.15, 0.62]
+      location: [-4.37, 0.0, 0.74]
+      rotation: [0.0, 0.0, 0.0]
+      hinged:
+        rotationAxis: [0.0, 0.0, 1.0]
+        rotationRate: 0.1
+        rotationMax: 0.3
+        signalsUp: [w]
+        signalsDown: [s]
+
+  Tail:
+    TailDiagonal:
+      group: tail
+      material: WHITE_WOOL
+      size: [0.3, 0.7, 0.199]
+      location: [-3.7, 0.3, 0.0]
+      rotation: [0.0, 0.0, 0.4]
+    
+    TailStraight:
+      group: tail
+      material: WHITE_WOOL
+      size: [0.7, 0.76, 0.2]
+      location: [-4.05, 0.3, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      

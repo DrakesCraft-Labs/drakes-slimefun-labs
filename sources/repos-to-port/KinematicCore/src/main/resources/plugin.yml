@@ -1,0 +1,5 @@
+name: KinematicCore
+version: '${project.version}'
+author: Idra
+main: org.metamechanists.kinematiccore.KinematicCore
+api-version: '1.21'
