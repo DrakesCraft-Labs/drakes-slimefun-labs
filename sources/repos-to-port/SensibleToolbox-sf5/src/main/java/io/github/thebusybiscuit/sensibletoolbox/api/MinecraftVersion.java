@@ -51,6 +51,24 @@ public enum MinecraftVersion {
     MINECRAFT_1_18(18, "1.18.x"),
 
     /**
+     * This constant represents Minecraft (Java Edition) Version 1.19
+     * (The "The Wild Update")
+     */
+    MINECRAFT_1_19(19, "1.19.x"),
+
+    /**
+     * This constant represents Minecraft (Java Edition) Version 1.20
+     * (The "Trails & Tales" Update)
+     */
+    MINECRAFT_1_20(20, "1.20.x"),
+
+    /**
+     * This constant represents Minecraft (Java Edition) Version 1.21
+     * (The "Tricky Trials" cycle)
+     */
+    MINECRAFT_1_21(21, "1.21.x"),
+
+    /**
      * This constant represents an exceptional state in which we were unable
      * to identify the Minecraft Version we are using
      */
