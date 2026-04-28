@@ -91,6 +91,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.listeners.MiningAndr
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.MultiBlockListener;
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.NetworkListener;
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.PlayerProfileListener;
+import com.github.drakescraft_labs.slimefun4.implementation.listeners.PluginShutdownSaveListener;
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.RadioactivityListener;
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.SeismicAxeListener;
 import com.github.drakescraft_labs.slimefun4.implementation.listeners.SlimefunBootsListener;
@@ -667,6 +668,9 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
 
         // Clear the Slimefun Guide History upon Player Leaving
         new PlayerProfileListener(this);
+
+        // Red de seguridad: fuerza saveConfig() de plugins al deshabilitarse.
+        new PluginShutdownSaveListener(this);
     }
 
     /**
