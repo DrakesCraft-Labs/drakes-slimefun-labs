@@ -3,22 +3,30 @@ name: Drake YAML Linter
 on:
   push:
     paths:
-    - '**.yml'
+      - '.github/**/*.yml'
+      - '.github/**/*.yaml'
+      - '.yamllint'
   pull_request:
     branches:
-    - 1.21-latin
+      - 1.21-latin
+    paths:
+      - '.github/**/*.yml'
+      - '.github/**/*.yaml'
+      - '.yamllint'
 
 permissions:
   contents: read
 
 jobs:
   linter:
-
     name: YAML Linter
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: YAML Linter
-      uses: ibiqlik/action-yamllint@v3.1.1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: YAML Linter
+        uses: ibiqlik/action-yamllint@v3.1.1
+        with:
+          file_or_dir: .github .yamllint
+          config_file: .yamllint

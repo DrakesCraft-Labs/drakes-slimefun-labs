@@ -1,9 +1,13 @@
 name: Drake Merge Conflicts
 
 on:
-  push:
+  pull_request_target:
     branches:
-    - 1.21-latin
+      - 1.21-latin
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: read
@@ -16,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: mschilde/auto-label-merge-conflicts@master
-      with:
-        CONFLICT_LABEL_NAME: '⚡ Merge Conflicts'
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: mschilde/auto-label-merge-conflicts@master
+        with:
+          CONFLICT_LABEL_NAME: '⚡ Merge Conflicts'
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
