@@ -56,6 +56,42 @@
       "startupTimeoutSeconds": 180,
       "postReadySleepSeconds": 15
     },
+    "recent-addons-paper-12111": {
+      "description": "Paper 1.21.11 + tanda chica de addons recientes: KinematicCore, Aircraft, SensibleToolbox, DynaTech y Galactifun2.",
+      "minecraftVersion": "1.21.11",
+      "mavenModules": [
+        "sources/slimefun-core/Slimefun4-src",
+        "sources/repos-to-port/KinematicCore",
+        "sources/repos-to-port/Aircraft-dev",
+        "sources/repos-to-port/SensibleToolbox-sf5",
+        "sources/repos-to-port/DynaTech"
+      ],
+      "gradleTasks": [],
+      "nestedGradleProjects": [
+        {
+          "path": "sources/repos-to-port/Galactifun2",
+          "task": ":plugin:shadowJar",
+          "paperPluginName": "Galactifun2"
+        }
+      ],
+      "expectedPlugins": [
+        "Slimefun",
+        "KinematicCore",
+        "Aircraft",
+        "SensibleToolbox",
+        "DynaTech",
+        "Galactifun2"
+      ],
+      "strictExpectedPlugins": true,
+      "mergeDoughIntoAddonJars": true,
+      "startupTimeoutSeconds": 240,
+      "postReadySleepSeconds": 15,
+      "requiredLogMarkers": [
+        "DRAKES SLIMEFUN LABS runtime smoke marker",
+        "DRAKESCRAFT LABS",
+        "DrakesCraft-Labs/drakes-slimefun-labs"
+      ]
+    },
     "core-addons": {
       "description": "Runtime smoke base con Slimefun y addons Maven de bajo riesgo.",
       "mavenModules": [

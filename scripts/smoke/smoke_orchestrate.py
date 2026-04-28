@@ -53,7 +53,7 @@ def resolve_mvn() -> str:
 def mvn_package(root: Path) -> int:
     mvn = resolve_mvn()
     return run(
-        [mvn, "-B", "-DskipTests", "package", "-q"],
+        [mvn, "-B", "-Dmaven.test.skip=true", "package", "-q"],
         root,
     )
 
@@ -62,7 +62,7 @@ def mvn_package_pl(root: Path, modules_csv: str) -> int:
     """Compila solo los módulos indicados (argumento -pl de Maven, rutas relativas al reactor)."""
     mvn = resolve_mvn()
     return run(
-        [mvn, "-B", "-DskipTests", "package", "-q", "-pl", modules_csv],
+        [mvn, "-B", "-Dmaven.test.skip=true", "package", "-q", "-pl", modules_csv],
         root,
     )
 
@@ -106,7 +106,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Smoke: Maven + artifacts + servidor")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("mvn-package", help="mvn -B -DskipTests package -q en la raíz del repo")
+    sub.add_parser("mvn-package", help="mvn -B -Dmaven.test.skip=true package -q en la raíz del repo")
 
     mpl = sub.add_parser(
         "mvn-package-pl",

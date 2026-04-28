@@ -243,7 +243,7 @@ try {
 
     if ($reactorAll) {
         Write-Host "==> Maven reactor completo (smoke profile $Profile)" -ForegroundColor Cyan
-        & $mvn -B -DskipTests package
+        & $mvn -B "-Dmaven.test.skip=true" package
         if ($LASTEXITCODE -ne 0) {
             throw "Fallo Maven package reactor completo para perfil smoke '$Profile'"
         }
@@ -252,7 +252,7 @@ try {
         $mavenModules = @($profileConfig.mavenModules)
         if ($mavenModules.Count -gt 0) {
             Write-Host "==> Maven smoke package: $($mavenModules -join ', ')" -ForegroundColor Cyan
-            & $mvn -B -DskipTests package -pl ($mavenModules -join ",") -am
+            & $mvn -B "-Dmaven.test.skip=true" package -pl ($mavenModules -join ",") -am
             if ($LASTEXITCODE -ne 0) {
                 throw "Fallo Maven package para perfil smoke '$Profile'"
             }

@@ -26,6 +26,8 @@ Opciones útiles:
 - `--skip-build-artifacts` — reusar `.smoke/<perfil>/artifacts` existentes.
 - `mvn-package-pl --pl sources/community-addons/MiAddon,sources/community-addons/Otro` — compilar solo módulos listados.
 
+Los scripts de smoke usan `-Dmaven.test.skip=true` al empaquetar con Maven para que tests legacy no rompan el objetivo real del smoke: validar carga y enable en runtime sobre Paper/Purpur.
+
 ## PowerShell directo
 
 ```powershell
