@@ -5,7 +5,6 @@ import io.github.addoncommunity.galactifun.Galactifun2
 import io.github.addoncommunity.galactifun.launchAsync
 import it.unimi.dsi.fastutil.longs.Long2LongOpenHashMap
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import java.lang.ref.WeakReference
 import java.util.concurrent.locks.ReentrantReadWriteLock
@@ -24,7 +23,7 @@ class DoubleChunkGrid {
 
     init {
         val ref = WeakReference(this)
-        Galactifun2.launchAsync(Dispatchers.IO) {
+        Galactifun2.launchAsync {
             while (true) {
                 val time = System.currentTimeMillis()
                 val grid = ref.get() ?: break

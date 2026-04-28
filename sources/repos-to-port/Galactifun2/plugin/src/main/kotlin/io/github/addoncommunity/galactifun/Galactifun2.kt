@@ -29,6 +29,7 @@ import com.github.drakescraft_labs.slimefun4.api.MinecraftVersion
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import kotlinx.datetime.Instant
 import net.kyori.adventure.text.format.NamedTextColor
@@ -151,6 +152,11 @@ object Galactifun2 : AbstractAddon() {
                 ###################################################""".trimIndent()
             )
         }
+    }
+
+    override suspend fun onDisableAsync() {
+        Bukkit.getScheduler().cancelTasks(this)
+        delay(50)
     }
 
     override fun getJavaPlugin(): JavaPlugin = this
