@@ -6,7 +6,7 @@ Objetivo: comprobar que los JAR no solo compilan, sino que **cargan** en un serv
 
 | Archivo | Rol |
 |---------|-----|
-| `smoke-profiles.json` | Lista de módulos y plugins por perfil (`foundation`, `core-addons`, `monorepo-all`, etc.). |
+| `smoke-profiles.json` | Lista de módulos y plugins por perfil (`foundation-paper-12111`, `recent-addons-paper-12111`, `core-addons`, `monorepo-all-paper-12111`, etc.). |
 | `build-smoke-artifacts.ps1` | Empaqueta con Maven los módulos del perfil y copia JAR a `.smoke/<perfil>/artifacts/plugins`. |
 | `run-smoke-server.ps1` | Descarga Paper si falta, arranca servidor temporal, valida el log y apaga con `stop`. Opcional **`-ServerJarPath`** (Purpur/Paper local) evita la descarga. |
 | `fetch_smoke_optional_deps.py` | Descarga dependencias opcionales (p. ej. ProtocolLib) para addons que las declaran duras. |
@@ -17,7 +17,7 @@ Objetivo: comprobar que los JAR no solo compilan, sino que **cargan** en un serv
 Desde la raíz del repositorio:
 
 ```bash
-python scripts/smoke/smoke_orchestrate.py full --profile monorepo-all --clean --timeout 120
+python scripts/smoke/smoke_orchestrate.py full --profile foundation-paper-12111 --clean --timeout 120
 ```
 
 Opciones útiles:
@@ -31,8 +31,8 @@ Los scripts de smoke usan `-Dmaven.test.skip=true` al empaquetar con Maven para 
 ## PowerShell directo
 
 ```powershell
-pwsh -NoProfile -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation -Clean
-pwsh -NoProfile -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation -Clean -TimeoutSeconds 120
+pwsh -NoProfile -File .\scripts\smoke\build-smoke-artifacts.ps1 -Profile foundation-paper-12111 -Clean
+pwsh -NoProfile -File .\scripts\smoke\run-smoke-server.ps1 -Profile foundation-paper-12111 -Clean -TimeoutSeconds 120
 ```
 
 **Purpur (u otro fork) local** — mismo script, sin subir el `.jar` al repo:
@@ -44,7 +44,7 @@ pwsh -NoProfile -File .\scripts\smoke\run-smoke-server.ps1 `
   -NoBuild -Clean -TimeoutSeconds 180
 ```
 
-O con el orquestador: `python scripts/smoke/smoke_orchestrate.py run-server --profile foundation --server-jar "C:\...\purpur-....jar" --minecraft 1.21.11 --no-build --clean --timeout 180`
+O con el orquestador: `python scripts/smoke/smoke_orchestrate.py run-server --profile foundation-paper-12111 --server-jar "C:\...\purpur-....jar" --minecraft 1.21.11 --no-build --clean --timeout 180`
 
 ### ProtocolLib (GPL-2.0, proyecto ajeno)
 
@@ -59,8 +59,10 @@ O con el orquestador: `python scripts/smoke/smoke_orchestrate.py run-server --pr
 
 ## Perfiles
 
-- **`foundation`**: Paper + Slimefun core Drake; debe mantenerse verde como mínimo.
-- **`monorepo-all`**: conjunto amplio de addons del monorepo; tarda más y exige más RAM/disco.
+- **`foundation-paper-12111`**: base mínima actual; Paper 1.21.11 + Slimefun core Drake. Debe mantenerse verde como mínimo.
+- **`recent-addons-paper-12111`**: tanda chica útil para validar addons nuevos sin irte al monorepo completo.
+- **`monorepo-all-paper-12111`**: conjunto amplio actual del monorepo; tarda más y exige más RAM/disco.
+- **`foundation`** y **`monorepo-all`**: perfiles legacy de 1.21.1, mantenidos por compatibilidad mientras terminan de desaparecer del flujo manual.
 - Otros perfiles: ver `smoke-profiles.json`.
 
 ## Comprobaciones en el log

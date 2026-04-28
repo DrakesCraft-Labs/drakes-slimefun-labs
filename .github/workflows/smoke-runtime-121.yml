@@ -6,17 +6,18 @@ on:
       profile:
         description: "Smoke profile from scripts/smoke/smoke-profiles.json"
         required: true
-        default: "foundation"
+        default: "foundation-paper-12111"
         type: choice
         options:
+          - foundation-paper-12111
+          - recent-addons-paper-12111
           - foundation
           - foundation-galactifun2
-          - foundation-paper-12111
           - core-addons
-          - monorepo-all
           - monorepo-all-paper-12111
+          - monorepo-all
       minecraft_version:
-        description: "Override Paper MC version (empty = use profile default, usually 1.21.1)"
+        description: "Override Paper MC version (empty = use profile default, normalmente 1.21.11)"
         required: false
         default: ""
         type: string
