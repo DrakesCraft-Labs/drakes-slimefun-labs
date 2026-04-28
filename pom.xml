@@ -64,6 +64,8 @@
         <module>sources/repos-to-port/ColoredEnderChests</module>
         <module>sources/repos-to-port/DyedBackpacks</module>
         <module>sources/repos-to-port/DynaTech</module>
+        <module>sources/repos-to-port/ChestTerminal-sf5</module>
+        <module>sources/repos-to-port/SensibleToolbox-sf5</module>
         <module>sources/repos-to-port/EcoPower</module>
         <module>sources/repos-to-port/ElectricSpawners</module>
         <module>sources/repos-to-port/ExoticGarden</module>

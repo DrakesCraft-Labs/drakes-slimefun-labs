@@ -21,25 +21,21 @@ repositories {
 }
 
 dependencies {
-    fun DependencyHandlerScope.libraryAndTest(dependency: Any) {
-        paperLibrary(dependency)
-        testImplementation(dependency)
-    }
-
     fun DependencyHandlerScope.compileOnlyAndTest(dependency: Any) {
         compileOnly(dependency)
         testImplementation(dependency)
     }
 
-    paperLibrary(kotlin("stdlib"))
-    libraryAndTest("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0-RC2")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0") // For some reason libraryloader doesn't like this
-    libraryAndTest(kotlin("reflect"))
-
-    libraryAndTest(kotlin("scripting-common"))
-    libraryAndTest(kotlin("scripting-jvm"))
-    libraryAndTest(kotlin("scripting-jvm-host"))
-    libraryAndTest(kotlin("script-runtime"))
+    // Kotlin + coroutines van en el shadow JAR relocados: paperLibrary mezclaba classloaders y rompía
+    // kotlin-reflect (KClassImpl) en Paper 1.21.11+ con BytecodeModifyingURLClassLoader.
+    implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0-RC2")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+    implementation(kotlin("reflect"))
+    implementation(kotlin("scripting-common"))
+    implementation(kotlin("scripting-jvm"))
+    implementation(kotlin("scripting-jvm-host"))
+    implementation(kotlin("script-runtime"))
 
     compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     compileOnly("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
@@ -94,15 +90,11 @@ tasks.shadowJar {
         doRelocate("co.aikar.commands")
         doRelocate("co.aikar.locales")
         doRelocate("org.metamechanists.displaymodellib")
+        relocate("kotlin", "io.github.addoncommunity.galactifun.shadowlibs.kotlin")
+        relocate("kotlinx", "io.github.addoncommunity.galactifun.shadowlibs.kotlinx")
+        relocate("com.github.shynixn.mccoroutine", "io.github.addoncommunity.galactifun.shadowlibs.mccoroutine")
     } else {
         archiveClassifier = "unrelocated"
-    }
-
-    dependencies {
-        exclude(dependency("org.jetbrains.kotlin:kotlin-stdlib"))
-        exclude(dependency("org.jetbrains.kotlin:kotlin-stdlib-jdk8"))
-        exclude(dependency("org.jetbrains.kotlin:kotlin-stdlib-jdk7"))
-        exclude(dependency("org.jetbrains.kotlin:kotlin-stdlib-common"))
     }
 
     archiveBaseName = "galactifun2"
@@ -111,12 +103,12 @@ tasks.shadowJar {
 paper {
     name = rootProject.name
     main = "io.github.addoncommunity.galactifun.Galactifun2"
-    loader = "io.github.addoncommunity.galactifun.Galactifun2Loader"
     bootstrapper = "io.github.addoncommunity.galactifun.Galactifun2Bootstrapper"
     version = project.version.toString()
     author = "Seggan"
     apiVersion = "1.21"
-    generateLibrariesJson = true
+    // Sin paper-libraries: Kotlin va en el shadow JAR (ver comentario en dependencies).
+    generateLibrariesJson = false
 
     serverDependencies {
         register("Multiverse-Core") {

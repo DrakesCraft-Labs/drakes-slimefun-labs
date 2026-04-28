@@ -5,13 +5,12 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
-import me.profelements.dynatech.items.electric.abstracts.AMachine;
-import org.bukkit.Material;
+import me.profelements.dynatech.items.abstracts.AbstractElectricTicker;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class WirelessCharger extends AMachine {
+public class WirelessCharger extends AbstractElectricTicker {
 
     private final double radius;
 
@@ -21,7 +20,12 @@ public class WirelessCharger extends AMachine {
     }
 
     @Override
-    public void tick(Block b) {
+    protected boolean checkTickPreconditions(Block b) {
+        return true;
+    }
+
+    @Override
+    protected void tick(Block b, SlimefunItem slimefunItem) {
         if (getCharge(b.getLocation()) < getEnergyConsumption()) {
             return;
         }
@@ -33,35 +37,15 @@ public class WirelessCharger extends AMachine {
                 for (ItemStack item : p.getInventory()) {
                     SlimefunItem sfItem = SlimefunItem.getByItem(item);
 
-                    if (sfItem instanceof Rechargeable) {
-                        Rechargeable rcItem = (Rechargeable) sfItem;
+                    if (sfItem instanceof Rechargeable rcItem && rcItem.getItemCharge(item) != rcItem.getMaxItemCharge(item)) {
                         
-                        if (rcItem.getItemCharge(item) != rcItem.getMaxItemCharge(item)) {
-                            
-                            removeCharge(b.getLocation(), getEnergyConsumption());
-                            rcItem.addItemCharge(item, getEnergyConsumption());
-                            p.updateInventory();
+                        removeCharge(b.getLocation(), getEnergyConsumption());
+                        rcItem.addItemCharge(item, getEnergyConsumption());
+                        p.updateInventory();
 
-                        }
                     }
                 }
             }
         }
-    }
-
-    @Override
-    public String getMachineIdentifier() {
-        return "WIRElESS_CHARGER";
-    }
-
-    @Override
-    public boolean isGraphical() {
-        return false;
-    }
-
-    @Override
-    public ItemStack getProgressBar() {
-        return new ItemStack(Material.END_ROD);
-    }
-    
+    }    
 }

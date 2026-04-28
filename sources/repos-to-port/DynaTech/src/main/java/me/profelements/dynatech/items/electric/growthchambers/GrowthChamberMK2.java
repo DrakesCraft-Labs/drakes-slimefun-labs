@@ -2,34 +2,49 @@ package me.profelements.dynatech.items.electric.growthchambers;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
-import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
-import me.profelements.dynatech.DynaTech;
-import me.profelements.dynatech.items.electric.abstracts.AMachine;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import me.profelements.dynatech.items.abstracts.AbstractElectricMachine;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrowthChamberMK2 extends AMachine {
-    
-    private static int[] BORDER = new int[] {};
-    private static int[] BORDER_IN = new int[] {0,8,9,10,11,12,14,15,16,17};
-    private static int[] BORDER_OUT = new int[] {18,19,20,21,22,23,24,25,26,27,35,36,44,45,53};
-    
-    private ItemSetting<Boolean> exoticGardenIntegration = new ItemSetting<Boolean>(this, "exotic-garden-integration", true);
+public class GrowthChamberMK2 extends AbstractElectricMachine {
+   
+    private static final int[] INPUT_SLOTS = new int[] {1,2,3,4,5,6,7};
+    private static final int[] OUTPUT_SLOTS = new int[] {28,29,30,31,32,33,34,37,38,39,40,41,42,43,46,47,48,49,50,51,52};
+
+    private static final int[] INPUT_BORDER_SLOTS = new int[] {0,8,9,10,11,12,14,15,16,17};
+    private static final int[] OUTPUT_BORDER_SLOTS = new int[] {18,19,20,21,22,23,24,25,26,27,35,36,44,45,53};
+    private static final int[] BACKGROUND_SLOTS = new int[] {}; 
+
+    private static final ItemStack PROGRESS_ITEM = new ItemStack(Material.DIAMOND_HOE);
+
+
+    private ItemSetting<Boolean> exoticGardenIntegration = new ItemSetting<>(this, "exotic-garden-integration", true);
 
     public GrowthChamberMK2(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
 
         addItemSetting(exoticGardenIntegration);
     }
-
+    
     @Override
+    public void postRegister() { 
+        registerDefaultRecipes();
+    }
+
+
     protected void registerDefaultRecipes() {
 
         registerRecipe(9, new ItemStack(Material.COCOA_BEANS), new ItemStack(Material.COCOA_BEANS, 9));
@@ -47,7 +62,7 @@ public class GrowthChamberMK2 extends AMachine {
         registerRecipe(12, new ItemStack(Material.LARGE_FERN), new ItemStack(Material.LARGE_FERN, 9));
         registerRecipe(9, new ItemStack(Material.VINE), new ItemStack(Material.VINE, 9));
 
-    // Flowers
+        // Flowers
         registerRecipe(9, new ItemStack(Material.DANDELION), new ItemStack(Material.DANDELION, 9));
         registerRecipe(9, new ItemStack(Material.POPPY), new ItemStack(Material.POPPY, 3));
         registerRecipe(9, new ItemStack(Material.BLUE_ORCHID), new ItemStack(Material.BLUE_ORCHID, 9));
@@ -79,91 +94,74 @@ public class GrowthChamberMK2 extends AMachine {
         registerRecipe(30, new ItemStack[] {new ItemStack(Material.DARK_OAK_SAPLING)}, new ItemStack[] {new ItemStack(Material.DARK_OAK_SAPLING , 9), new ItemStack(Material.DARK_OAK_LOG, 18), new ItemStack(Material.APPLE, 6), new ItemStack(Material.DARK_OAK_LEAVES, 9), new ItemStack(Material.STICK, 6)});
         registerRecipe(30, new ItemStack[] {new ItemStack(Material.JUNGLE_SAPLING)}, new ItemStack[] {new ItemStack(Material.JUNGLE_SAPLING, 9), new ItemStack(Material.JUNGLE_LOG, 18), new ItemStack(Material.APPLE, 6), new ItemStack(Material.JUNGLE_LEAVES, 9), new ItemStack(Material.STICK, 6)});
         registerRecipe(30, new ItemStack[] {new ItemStack(Material.ACACIA_SAPLING)}, new ItemStack[] {new ItemStack(Material.ACACIA_SAPLING, 9), new ItemStack(Material.ACACIA_LOG, 18), new ItemStack(Material.APPLE, 6), new ItemStack(Material.ACACIA_LEAVES, 9), new ItemStack(Material.STICK, 6)});
-
+        registerRecipe(30, new ItemStack[] {new ItemStack(Material.MANGROVE_PROPAGULE)}, new ItemStack[] {new ItemStack(Material.MANGROVE_PROPAGULE, 9), new ItemStack(Material.MANGROVE_LOG, 18), new ItemStack(Material.MANGROVE_LEAVES, 9) });
+        registerRecipe(30, new ItemStack[] {new ItemStack(Material.CHERRY_SAPLING)}, new ItemStack[] {new ItemStack(Material.CHERRY_SAPLING, 9), new ItemStack(Material.CHERRY_LOG, 18), new ItemStack(Material.CHERRY_LEAVES, 9) }); 
     }
 
-    @Override
-    public MachineRecipe findNextRecipe(BlockMenu inv) {
-        if (DynaTech.isExoticGardenInstalled() && exoticGardenIntegration.getValue()) {
-            for (int inputSlot : getInputSlots()) {
-                ItemStack item = inv.getItemInSlot(inputSlot);
-                if (item != null && SlimefunItem.getByItem(item) != null) {
-                    SlimefunItem sfItem = SlimefunItem.getByItem(item);
-                    if (sfItem.getId().contains("_BUSH") || sfItem.getId().contains("_PLANT") || sfItem.getId().contains("_SAPLING")) {
-                        if (sfItem.getId().contains("_BUSH")) {
-                            ItemStack fruit = SlimefunItem.getById(sfItem.getId().replace("_BUSH", "")).getItem().clone();
-                            fruit.setAmount(3);
-                            MachineRecipe recipe = new MachineRecipe(20, new ItemStack[] {sfItem.getItem()}, new ItemStack[] {sfItem.getItem(), fruit});
-
-                            inv.consumeItem(inputSlot);
-
-                            return recipe;
-                        } else 
-                        if (sfItem.getId().contains("_PLANT")) {
-                            ItemStack fruit = SlimefunItem.getById(sfItem.getId().replace("_PLANT", "")) != null ? SlimefunItem.getById(sfItem.getId().replace("_PLANT", "")).getItem().clone() : SlimefunItem.getById(sfItem.getId().replace("_PLANT", "_ESSENCE")).getItem().clone();
-                            fruit.setAmount(3);
-                            MachineRecipe recipe = new MachineRecipe(10, new ItemStack[] {sfItem.getItem()}, new ItemStack[] {sfItem.getItem(), fruit});
-
-                            inv.consumeItem(inputSlot);
-
-                            return recipe;
-                        } else
-                        if (sfItem.getId().contains("_SAPLING")) {
-                            ItemStack fruit = SlimefunItem.getById(sfItem.getId().replace("_SAPLING", "")).getItem().clone();
-                            fruit.setAmount(3); 
-                            MachineRecipe recipe = new MachineRecipe(60, new ItemStack[] {sfItem.getItem()}, new ItemStack[] {sfItem.getItem(), fruit});
-
-                            inv.consumeItem(inputSlot);
-
-                            return recipe;
-                        }          
-
-                    }
-                }
-            }
-        }
-        return super.findNextRecipe(inv);
-
-    } 
-
-    @Override
-    public boolean isGraphical() {
-        return true;
-    }
-    
-    @Override
-    public String getMachineIdentifier() {
-        return "GROWTH_CHAMBER_MK2";
-    }
-
-
-    @Override
-    public List<int[]> getBorders() {
-        List<int[]> borders = new ArrayList<>();
-        borders.add(BORDER);
-        borders.add(BORDER_IN);
-        borders.add(BORDER_OUT);
-        
-        return borders;
-    }
-    
     @Override
     public int[] getInputSlots() {
-        return new int[] {1,2,3,4,5,6,7};
+        return INPUT_SLOTS; 
     }
+
     @Override
     public int[] getOutputSlots() {
-        return new int[] {28,29,30,31,32,33,34,37,38,39,40,41,42,43,46,47,48,49,50,51,52};
+        return OUTPUT_SLOTS; 
     }
 
     @Override
     public ItemStack getProgressBar() {
-        return new ItemStack(Material.DIAMOND_HOE);
+        return PROGRESS_ITEM;   
     }
     
     @Override
-    public int getProgressBarSlot() {
+    protected int getProgressSlot() {
         return 13;
     }
-    
+
+    @Override
+	public List<ItemStack> getDisplayRecipes() {
+		List<ItemStack> display = new ArrayList<>(); 
+        for (MachineRecipe recipe : recipes) {
+           display.add(recipe.getInput()[0]);
+           if (recipe.getOutput().length > 1) {
+            display.add(recipe.getOutput()[1]);
+           } else {
+            display.add(recipe.getOutput()[0]);
+           }
+        }
+        return display;
+	}
+
+	@Override
+	protected void setupMenu(BlockMenuPreset preset) {
+		for (int slot : BACKGROUND_SLOTS) {
+            preset.addItem(slot, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
+        }
+
+        for (int slot : INPUT_BORDER_SLOTS) {
+            preset.addItem(slot, ChestMenuUtils.getInputSlotTexture(), ChestMenuUtils.getEmptyClickHandler());
+        }
+
+        for (int slot : OUTPUT_BORDER_SLOTS) {
+            preset.addItem(slot, ChestMenuUtils.getOutputSlotTexture(), ChestMenuUtils.getEmptyClickHandler());
+        }
+        
+        preset.addItem(getProgressSlot(), new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "), ChestMenuUtils.getEmptyClickHandler());
+
+        for (int slot : getOutputSlots()) {
+            preset.addMenuClickHandler(slot,new ChestMenu.AdvancedMenuClickHandler() {
+                @Override
+                public boolean onClick(InventoryClickEvent e, Player p, int slot, ItemStack cursor, ClickAction action) {
+                    return cursor.getType().isAir();
+                }
+
+                @Override
+                public boolean onClick(Player p, int slot, ItemStack item, ClickAction action) {
+                    return false;
+                }
+            });
+        }
+	}
+
+
 }

@@ -36,14 +36,6 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
     public static int blocksExploded = 0;
 
     @Override
-    public void onLoad() {
-        if (getServer().getPluginManager().getPlugin("WorldGuard") != null
-                && getServer().getPluginManager().getPlugin("WorldEdit") != null) {
-            WorldGuardLoader.load(this);
-        }
-    }
-
-    @Override
     public void onEnable() {
         DrakesLabsReleaseUpdate.schedule(this, "MissileWarfare-drake");
 
@@ -115,10 +107,19 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
             }
         }.runTaskTimer(this, 0, cfg.getInt("other.cleanup-wait-time"));
 
-        getLogger().info("Checking For Towny");
-        if (getServer().getPluginManager().getPlugin("Towny") != null) {
-            TownyLoader.setup();
-        }
+        getLogger().info("Checking For WorldGuard/Towny");
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (getServer().getPluginManager().getPlugin("WorldGuard") != null
+                        && getServer().getPluginManager().getPlugin("WorldEdit") != null) {
+                    WorldGuardLoader.load(MissileWarfare.this);
+                }
+                if (getServer().getPluginManager().getPlugin("Towny") != null) {
+                    TownyLoader.setup();
+                }
+            }
+        }.runTaskLater(this, 0L);
 
         getServer().getPluginManager().registerEvents(new ExplosionEventListener(), this);
     }

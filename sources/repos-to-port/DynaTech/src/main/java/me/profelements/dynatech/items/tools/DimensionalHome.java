@@ -8,10 +8,9 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import dev.drake.dough.config.Config;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import io.papermc.lib.PaperLib;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import me.profelements.dynatech.DynaTech;
-import me.profelements.dynatech.DynaTechItems;
+import me.profelements.dynatech.registries.Items;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -25,10 +24,10 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 public class DimensionalHome extends SlimefunItem {
-    
+
     private static final NamespacedKey CHUNK_KEY = new NamespacedKey(DynaTech.getInstance(), "chunk-key");
     private static final World DIM_HOME_WORLD = Bukkit.getServer().getWorld("dimensionalhome");
-    private final Config CURRENT_HIGHEST_CHUNK_ID = new Config("plugins/DynaTech/current-chunk-highest.yml");
+    private static final Config CURRENT_HIGHEST_CHUNK_ID = new Config("plugins/DynaTech/current-chunk-highest.yml");
     private int id = CURRENT_HIGHEST_CHUNK_ID.getInt("current-chunk-highest-id");
 
     public DimensionalHome(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
@@ -38,24 +37,24 @@ public class DimensionalHome extends SlimefunItem {
 
     public ItemUseHandler onRightClick() {
         return new ItemUseHandler() {
-			@Override
-			public void onRightClick(PlayerRightClickEvent e) {
-			    e.cancel();
+            @Override
+            public void onRightClick(PlayerRightClickEvent e) {
+                e.cancel();
 
                 Player p = e.getPlayer();
                 ItemStack item = e.getItem();
                 int chunkKey = PersistentDataAPI.getInt(item.getItemMeta(), CHUNK_KEY);
 
-                if (SlimefunUtils.isItemSimilar(item, DynaTechItems.DIMENSIONAL_HOME, true)) {
+                if (SlimefunUtils.isItemSimilar(item, Items.DIMENSIONAL_HOME.stack(), true)) {
                     if (chunkKey > 0) {
                         if (p.getLocation().getWorld() != DIM_HOME_WORLD) {
                             Location dimHomeLocation = new Location(DIM_HOME_WORLD, 16 * chunkKey + 8d, 65, 8);
-                            PaperLib.teleportAsync(p, dimHomeLocation);
+                            p.teleportAsync(dimHomeLocation);
                         } else {
-                            if (p.getBedSpawnLocation() != null) {
-                                PaperLib.teleportAsync(p, p.getBedSpawnLocation());
+                            if (p.getRespawnLocation() != null) {
+                                p.teleportAsync(p.getRespawnLocation());
                             } else {
-                                PaperLib.teleportAsync(p, Bukkit.getServer().getWorlds().get(0).getSpawnLocation());
+                                p.teleportAsync(Bukkit.getServer().getWorlds().get(0).getSpawnLocation());
                             }
                         }
                     } else {
@@ -63,7 +62,7 @@ public class DimensionalHome extends SlimefunItem {
                         updateLore(item);
                     }
                 }
-			} 
+            }
         };
     }
 
@@ -71,21 +70,21 @@ public class DimensionalHome extends SlimefunItem {
         ItemMeta im = item.getItemMeta();
         List<String> lore = im.getLore();
 
-        for (int line = 0; line < lore.size(); line++ ) {
+        for (int line = 0; line < lore.size(); line++) {
             if (lore.get(line).contains("CHUNK ID: <id>")) {
                 id++;
                 lore.set(line, lore.get(line).replace("<id>", String.valueOf(id)));
                 PersistentDataAPI.setInt(im, CHUNK_KEY, id);
-                
+
                 // THIS IS PROBABLY BAD AND A BAD WAY TO KEEP AN CHUNK ID
                 CURRENT_HIGHEST_CHUNK_ID.setValue("current-chunk-highest-id", id);
                 CURRENT_HIGHEST_CHUNK_ID.save();
             }
-    
+
         }
 
         im.setLore(lore);
         item.setItemMeta(im);
     }
-    
+
 }

@@ -1,0 +1,34 @@
+name: Drake Validate JSON
+
+on:
+  push:
+    paths:
+    - '**/wiki.json'
+  pull_request:
+    paths:
+    - '**/wiki.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+
+    name: Validate JSON
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Validate all wiki.json files
+      shell: bash
+      run: |
+        files=$(git ls-files '*wiki.json')
+        if [ -z "$files" ]; then
+          echo "No wiki.json files found, skipping."
+          exit 0
+        fi
+        for f in $files; do
+          echo "Validating $f"
+          jq empty "$f"
+        done

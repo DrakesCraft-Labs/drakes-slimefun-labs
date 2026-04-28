@@ -1,26 +1,30 @@
 package me.profelements.dynatech.items.backpacks;
 
-import com.github.drakescraft_labs.exoticgarden.items.CustomFood;
+import dev.drake.dough.collections.Pair;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.items.backpacks.SlimefunBackpack;
-import me.profelements.dynatech.DynaTech;
+import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PicnicBasket extends SlimefunBackpack {
+        
+    protected static Map<ItemStack, Pair<Integer, Float>> foods = new HashMap<>();
 
     private final List<Material> defaultBlacklist = new ArrayList<>();
 
-    private final ItemSetting<List<String>> blacklistedMaterials = new ItemSetting<>(this, "blacklisted-materials", ToStringList(getDefaultBlacklist()));
+    private final ItemSetting<List<String>> blacklistedMaterials = new ItemSetting<>(this, "blacklisted-materials", toStringList(getDefaultBlacklist()));
 
     public PicnicBasket(int size, ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(size, itemGroup, item, recipeType, recipe);
@@ -30,16 +34,21 @@ public class PicnicBasket extends SlimefunBackpack {
         addItemSetting(blacklistedMaterials);
     }
 
+
+    @Override
+    public void postRegister() {
+        registerDefaultFoods();
+    }
+
+
     @Override
     public boolean isItemAllowed(@Nonnull ItemStack item, @Nullable SlimefunItem itemAsSlimefunItem) {
-        if (DynaTech.isExoticGardenInstalled()) {
-            if (itemAsSlimefunItem instanceof CustomFood) {
-                return true;
-            } else {
-                return item.getType().isEdible() && !blacklistedMaterials.getValue().contains(item.getType().toString());
+        for (ItemStack stack : getFoods().keySet()) {
+                if (SlimefunUtils.isItemSimilar(stack, item, false, false)) {
+                    return true; 
+                }
             }
-        }
-        return item.getType().isEdible() && !blacklistedMaterials.getValue().contains(item.getType().toString());
+        return false;
     }
 
     private List<Material> getDefaultBlacklist() {
@@ -55,12 +64,13 @@ public class PicnicBasket extends SlimefunBackpack {
         defaultBlacklist.add(Material.SUSPICIOUS_STEW);
         defaultBlacklist.add(Material.MUSHROOM_STEW);
         defaultBlacklist.add(Material.RABBIT_STEW);
+        defaultBlacklist.add(Material.BEETROOT_SOUP);
         defaultBlacklist.add(Material.HONEY_BOTTLE);
 
         return defaultBlacklist;
     }
 
-    private List<String> ToStringList(List<Material> mats) {
+    private List<String> toStringList(List<Material> mats) {
         List<String> materials = new ArrayList<>();
 
         for (Material mat : mats) {
@@ -69,4 +79,49 @@ public class PicnicBasket extends SlimefunBackpack {
 
         return materials;
     }
+
+    @Nonnull
+    public static Map<ItemStack, Pair<Integer, Float>> getFoods() {
+        return foods;
+    }
+ 
+    private static void registerDefaultFoods() {
+        registerFood(new ItemStack(Material.APPLE), new Pair<>(4, 3F)); 
+        registerFood(new ItemStack(Material.MELON_SLICE), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.SWEET_BERRIES), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.GLOW_BERRIES), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.CARROT), new Pair<>(3, 3F));
+        registerFood(new ItemStack(Material.GOLDEN_CARROT), new Pair<>(6, 15F));
+        registerFood(new ItemStack(Material.POTATO), new Pair<>(1, 1F));
+        registerFood(new ItemStack(Material.BAKED_POTATO), new Pair<>(5, 6F));
+        registerFood(new ItemStack(Material.BEETROOT), new Pair<>(1, 1F));
+        registerFood(new ItemStack(Material.DRIED_KELP), new Pair<>(1, 1F));
+        registerFood(new ItemStack(Material.BEEF), new Pair<>(3, 1F));
+        registerFood(new ItemStack(Material.COOKED_BEEF), new Pair<>(8, 13F));
+        registerFood(new ItemStack(Material.PORKCHOP), new Pair<>(3, 1F));
+        registerFood(new ItemStack(Material.COOKED_PORKCHOP), new Pair<>(8, 13F));
+        registerFood(new ItemStack(Material.MUTTON), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.COOKED_MUTTON), new Pair<>(6, 9F));
+        registerFood(new ItemStack(Material.CHICKEN), new Pair<>(1, 1F));
+        registerFood(new ItemStack(Material.COOKED_CHICKEN), new Pair<>(6, 7F));
+        registerFood(new ItemStack(Material.RABBIT), new Pair<>(3, 1F));
+        registerFood(new ItemStack(Material.COOKED_RABBIT), new Pair<>(5, 6F));
+        registerFood(new ItemStack(Material.COD), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.COOKED_COD), new Pair<>(5, 6F));
+        registerFood(new ItemStack(Material.SALMON), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.COOKED_SALMON), new Pair<>(6, 9F));
+        registerFood(new ItemStack(Material.TROPICAL_FISH), new Pair<>(1, 1F));
+        registerFood(new ItemStack(Material.BREAD), new Pair<>(5, 6F));
+        registerFood(new ItemStack(Material.COOKIE), new Pair<>(2, 1F));
+        registerFood(new ItemStack(Material.CAKE), new Pair<>(14, 14F));
+        registerFood(new ItemStack(Material.PUMPKIN_PIE), new Pair<>(8, 5F));
+    }
+        
+
+    public static void registerFood(ItemStack item, Pair<Integer, Float> pair) {
+        getFoods().put(item, pair);
+    }
+
+
+	
 }

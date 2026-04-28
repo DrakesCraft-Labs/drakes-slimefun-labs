@@ -87,14 +87,15 @@ public class ExtraGear extends JavaPlugin implements SlimefunAddon {
         registerArmor(ArmorSet.IRON, "COBALT", SlimefunItems.COBALT_INGOT, Arrays.asList(new Pair<>(Enchantment.PROTECTION, 7), new Pair<>(Enchantment.UNBREAKING, 7)));
     }
 
-    private void registerSword(Material type, String component, ItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
+    private void registerSword(Material type, String component, SlimefunItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
         SlimefunItemStack is = new SlimefunItemStack(component + "_SWORD", type, "&r" + ChatUtils.humanize(component) + " Sword");
 
         for (Pair<Enchantment, Integer> enchantment : enchantments) {
             is.addUnsafeEnchantment(enchantment.getFirstValue(), enchantment.getSecondValue());
         }
 
-        SlimefunItem slimefunItem = new SlimefunItem(itemGroup, is, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, item, null, null, item, null, null, new ItemStack(Material.STICK), null });
+        ItemStack ingredient = item.item();
+        SlimefunItem slimefunItem = new SlimefunItem(itemGroup, is, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, ingredient, null, null, ingredient, null, null, new ItemStack(Material.STICK), null });
         slimefunItem.register(this);
 
         researchId++;
@@ -104,7 +105,7 @@ public class ExtraGear extends JavaPlugin implements SlimefunAddon {
         research.register();
     }
 
-    private void registerArmor(ArmorSet armorset, String component, ItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
+    private void registerArmor(ArmorSet armorset, String component, SlimefunItemStack item, List<Pair<Enchantment, Integer>> enchantments) {
         String humanizedComponent = ChatUtils.humanize(component);
         SlimefunItemStack[] armor = { new SlimefunItemStack(component + "_HELMET", armorset.getHelmet(), "&f" + humanizedComponent + " Helmet"),
                 new SlimefunItemStack(component + "_CHESTPLATE", armorset.getChestplate(), "&f" + humanizedComponent + " Chestplate"),
@@ -117,16 +118,17 @@ public class ExtraGear extends JavaPlugin implements SlimefunAddon {
             }
         }
 
-        SlimefunItem helmet = new SlimefunItem(itemGroup, armor[0], RecipeType.ARMOR_FORGE, new ItemStack[] { item, item, item, item, null, item, null, null, null });
+        ItemStack ingredient = item.item();
+        SlimefunItem helmet = new SlimefunItem(itemGroup, armor[0], RecipeType.ARMOR_FORGE, new ItemStack[] { ingredient, ingredient, ingredient, ingredient, null, ingredient, null, null, null });
         helmet.register(this);
 
-        SlimefunItem chestplate = new SlimefunItem(itemGroup, armor[1], RecipeType.ARMOR_FORGE, new ItemStack[] { item, null, item, item, item, item, item, item, item });
+        SlimefunItem chestplate = new SlimefunItem(itemGroup, armor[1], RecipeType.ARMOR_FORGE, new ItemStack[] { ingredient, null, ingredient, ingredient, ingredient, ingredient, ingredient, ingredient, ingredient });
         chestplate.register(this);
 
-        SlimefunItem leggings = new SlimefunItem(itemGroup, armor[2], RecipeType.ARMOR_FORGE, new ItemStack[] { item, item, item, item, null, item, item, null, item });
+        SlimefunItem leggings = new SlimefunItem(itemGroup, armor[2], RecipeType.ARMOR_FORGE, new ItemStack[] { ingredient, ingredient, ingredient, ingredient, null, ingredient, ingredient, null, ingredient });
         leggings.register(this);
 
-        SlimefunItem boots = new SlimefunItem(itemGroup, armor[3], RecipeType.ARMOR_FORGE, new ItemStack[] { null, null, null, item, null, item, item, null, item });
+        SlimefunItem boots = new SlimefunItem(itemGroup, armor[3], RecipeType.ARMOR_FORGE, new ItemStack[] { null, null, null, ingredient, null, ingredient, ingredient, null, ingredient });
         boots.register(this);
 
         researchId++;

@@ -22,7 +22,7 @@ Sin eso, los subcomandos `gh project` fallan por permisos.
 
 1. Regenerar la matriz (comando anterior).
 2. Abrir el Project 1 en el navegador.
-3. Por cada módulo del monorepo: alinear la columna de estado con la columna **Estado** de `PLUGIN_MATRIX.md` y copiar o resumir **Observaciones**.
+3. Por cada módulo del monorepo: alinear la columna de estado con la columna **Estado** de `PLUGIN_MATRIX.md`, revisar **Updater GH** (dependencia `drakes-labs-autoupdate`) y copiar o resumir **Observaciones**.
 4. Añadir tarjetas para módulos nuevos en `sources/...` que aún no estén en el tablero.
 
 ## Sugerencia de mapeo

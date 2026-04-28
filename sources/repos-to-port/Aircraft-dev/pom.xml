@@ -28,7 +28,7 @@
         <metalib.version>80</metalib.version>
         <displaymodellib.version>33</displaymodellib.version>
         <kinematiccore.version>33-DRAKE-1.21.11-SNAPSHOT</kinematiccore.version>
-        <invui.version>1.31</invui.version>
+        <invui.version>1.49</invui.version>
     </properties>
 
     <repositories>

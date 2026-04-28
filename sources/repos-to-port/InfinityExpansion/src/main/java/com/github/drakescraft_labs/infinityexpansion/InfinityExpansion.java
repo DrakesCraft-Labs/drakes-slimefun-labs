@@ -27,9 +27,8 @@ import com.github.drakescraft_labs.infinityexpansion.items.storage.StorageSaveFi
 import dev.drake.infinitylib.common.Scheduler;
 import dev.drake.infinitylib.core.AbstractAddon;
 import org.bstats.bukkit.Metrics;
-import org.bstats.charts.SimplePie;
 
-public class InfinityExpansion extends AbstractAddon {
+public final class InfinityExpansion extends AbstractAddon {
 
     public InfinityExpansion(JavaPluginLoader loader, PluginDescriptionFile description, File dataFolder, File file) {
         super(loader, description, dataFolder, file,
@@ -45,8 +44,7 @@ public class InfinityExpansion extends AbstractAddon {
     protected void enable() {
         DrakesLabsReleaseUpdate.schedule(this, "InfinityExpansion-drake");
 
-
-        String autoUpdates = String.valueOf(autoUpdatesEnabled());
+        new Metrics(this, 8991);
 
 
         Plugin lx = getServer().getPluginManager().getPlugin("LiteXpansion");

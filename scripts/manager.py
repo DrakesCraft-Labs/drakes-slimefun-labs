@@ -469,7 +469,9 @@ def rebrand_imports(dry_run=False):
         r"com\.github\.drakescraft-labs": "com.github.drakescraft_labs",
         # Restaurar librerías externas que NO deben rebrandearse en imports
         r"com\.github\.drakescraft_labs\.guizhanlib": "net.guizhanss.guizhanlib",
-        r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter"
+        r"com\.github\.drakescraft_labs\.errorreporter": "io.github.seggan.errorreporter",
+        # Updater monorepo (paquete labupdate): no confundir con rebranding Slimefun/dough
+        r"com\.github\.drakescraft_labs\.slimefun4\.libraries\.dough\.labupdate": "com.github.drakescraft_labs.labupdate",
     }
     
     # Reglas de limpieza de telemetría obsoleta (bStats/InfinityLib Metrics)
@@ -503,7 +505,12 @@ def rebrand_imports(dry_run=False):
                     
                     # Alineación de sombras para Dough en expansiones y addons
                     # Slimefun-core y dough-core deben usar dev.drake.dough directamente
-                    if "dough-core" not in root and "slimefun-core" not in root:
+                    # drakes-labs-autoupdate no usa Dough; evitar tocar imports/paquetes de ese módulo.
+                    if (
+                        "dough-core" not in root
+                        and "slimefun-core" not in root
+                        and "drakes-labs-autoupdate" not in root
+                    ):
                         new_content = re.sub(r"dev\.drake\.dough", r"com.github.drakescraft_labs.slimefun4.libraries.dough", new_content)
                     
                     if new_content != content:

@@ -34,7 +34,12 @@ public final class RecipeBookResearchPatch implements Listener {
         for (SlimefunItem item : Slimefun.getRegistry().getEnabledSlimefunItems()) {
             String recipeId = Util.generateRecipeId(item.getItem());
             if (recipeId != null) {
-                e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), recipeId));
+                NamespacedKey key = new NamespacedKey(SaneCrafting.getInstance(), recipeId);
+                if (Bukkit.getServer().getRecipe(key) != null) {
+                    e.getPlayer().discoverRecipe(key);
+                } else {
+                    e.getPlayer().undiscoverRecipe(key);
+                }
             }
         }
     }
@@ -47,7 +52,12 @@ public final class RecipeBookResearchPatch implements Listener {
             }
             String recipeId = Util.generateRecipeId(item.getItem());
             if (recipeId != null) {
-                e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), recipeId));
+                NamespacedKey key = new NamespacedKey(SaneCrafting.getInstance(), recipeId);
+                if (Bukkit.getServer().getRecipe(key) != null) {
+                    e.getPlayer().discoverRecipe(key);
+                } else {
+                    e.getPlayer().undiscoverRecipe(key);
+                }
             }
         }
     }
