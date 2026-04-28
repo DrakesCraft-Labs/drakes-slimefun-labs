@@ -49,8 +49,11 @@ public final class KeyboardHandler {
             @Override
             public void onPacketReceiving(PacketEvent event) {
                 PacketContainer packet = event.getPacket();
-                float rightleft = packet.getFloat().readSafely(0);
-                float forwardbackwards = packet.getFloat().readSafely(1);
+                Float rightleft = packet.getFloat().readSafely(0);
+                Float forwardbackwards = packet.getFloat().readSafely(1);
+                if (rightleft == null || forwardbackwards == null) {
+                    return;
+                }
                 handleKey(event.getPlayer(), rightleft, forwardbackwards);
             }
         });

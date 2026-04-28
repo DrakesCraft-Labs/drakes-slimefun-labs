@@ -163,7 +163,10 @@ public class Advancement {
         BaseComponent sub = new TextComponent(getName());
         sub.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(getDescription())));
         component.addExtra(sub);
-        Bukkit.spigot().broadcast(component);
+        // Compatible con APIs modernas donde Bukkit.spigot().broadcast(BaseComponent) ya no existe.
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            online.spigot().sendMessage(component);
+        }
     }
 
     @Override

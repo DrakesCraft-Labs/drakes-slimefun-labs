@@ -32,14 +32,23 @@ public final class RecipeBookResearchPatch implements Listener {
         }
 
         for (SlimefunItem item : Slimefun.getRegistry().getEnabledSlimefunItems()) {
-            e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), Util.generateRecipeId(item.getItem())));
+            String recipeId = Util.generateRecipeId(item.getItem());
+            if (recipeId != null) {
+                e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), recipeId));
+            }
         }
     }
 
     @EventHandler
     public static void onResearch(@NotNull ResearchUnlockEvent e) {
         for (SlimefunItem item : e.getResearch().getAffectedItems()) {
-            e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), Util.generateRecipeId(item.getItem())));
+            if (item == null) {
+                continue;
+            }
+            String recipeId = Util.generateRecipeId(item.getItem());
+            if (recipeId != null) {
+                e.getPlayer().discoverRecipe(new NamespacedKey(SaneCrafting.getInstance(), recipeId));
+            }
         }
     }
 

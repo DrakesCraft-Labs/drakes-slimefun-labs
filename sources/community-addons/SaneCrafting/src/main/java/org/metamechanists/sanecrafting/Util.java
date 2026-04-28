@@ -12,8 +12,12 @@ public final class Util {
     private Util() {}
 
     // Technically could lead to clashes if two shaped recipes for same item but... hopefully not...
-    public static @NotNull String generateRecipeId(@NotNull ItemStack output) {
-        return generateRecipeId(SlimefunItem.getByItem(output));
+    public static @Nullable String generateRecipeId(@NotNull ItemStack output) {
+        SlimefunItem item = SlimefunItem.getByItem(output);
+        if (item == null) {
+            return null;
+        }
+        return generateRecipeId(item);
     }
 
     public static @NotNull String generateRecipeId(@NotNull SlimefunItem item) {

@@ -1,6 +1,8 @@
 package com.github.drakescraft_labs.slimefun4.core.commands.subcommands;
 
 import java.util.Collection;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -148,7 +150,7 @@ class VersionsCommand extends SubCommand {
                 secondaryColor = ChatColor.DARK_GREEN;
                 String authors = String.join(", ", plugin.getDescription().getAuthors());
 
-                if (plugin instanceof SlimefunAddon addon && addon.getBugTrackerURL() != null) {
+                if (plugin instanceof SlimefunAddon addon && isValidHttpUrl(addon.getBugTrackerURL())) {
                     // @formatter:off
                     hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder()
                         .append("Author(s): ")
@@ -175,7 +177,7 @@ class VersionsCommand extends SubCommand {
                 primaryColor = ChatColor.RED;
                 secondaryColor = ChatColor.DARK_RED;
 
-                if (plugin instanceof SlimefunAddon addon && addon.getBugTrackerURL() != null) {
+                if (plugin instanceof SlimefunAddon addon && isValidHttpUrl(addon.getBugTrackerURL())) {
                     // @formatter:off
                     hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder()
                         .append("This plugin is disabled.\nCheck the console for an error message.")
@@ -186,9 +188,7 @@ class VersionsCommand extends SubCommand {
                     ));
                     // @formatter:on
 
-                    if (addon.getBugTrackerURL() != null) {
-                        clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, addon.getBugTrackerURL());
-                    }
+                    clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, addon.getBugTrackerURL());
                 } else {
                     hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Plugin is disabled. Check the console for an error and report on their issues tracker."));
                 }
@@ -206,6 +206,19 @@ class VersionsCommand extends SubCommand {
                 .event((ClickEvent) null)
                 .event((HoverEvent) null);
             // @formatter:on
+        }
+    }
+
+    private boolean isValidHttpUrl(String value) {
+        if (value == null || value.isBlank()) {
+            return false;
+        }
+        try {
+            URI uri = new URI(value.trim());
+            String scheme = uri.getScheme();
+            return "http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme);
+        } catch (URISyntaxException ignored) {
+            return false;
         }
     }
 }

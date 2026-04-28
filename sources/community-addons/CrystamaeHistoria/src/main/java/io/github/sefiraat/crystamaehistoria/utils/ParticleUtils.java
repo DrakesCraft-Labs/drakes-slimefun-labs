@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import lombok.experimental.UtilityClass;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
@@ -16,6 +17,23 @@ import java.util.concurrent.ThreadLocalRandom;
 @UtilityClass
 public class ParticleUtils {
 
+    private static void spawnParticleSafe(World world, Particle particle, Location at) {
+        Class<?> dataType = particle.getDataType();
+        try {
+            if (dataType == Void.class) {
+                world.spawnParticle(particle, at, 1);
+            } else if (dataType == Color.class) {
+                world.spawnParticle(particle, at, 1, Color.WHITE);
+            } else if (dataType == Float.class) {
+                world.spawnParticle(particle, at, 1, 1.0f);
+            } else {
+                world.spawnParticle(particle, at, 1);
+            }
+        } catch (IllegalArgumentException ignored) {
+            // Algunos particles requieren payload específico por versión; evitamos romper el ticker.
+        }
+    }
+
     @ParametersAreNonnullByDefault
     public static void displayParticleEffect(Entity entity, Particle particle, double rangeRadius) {
         displayParticleEffect(entity.getLocation(), particle, rangeRadius, 5);
@@ -27,7 +45,7 @@ public class ParticleUtils {
             double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
             double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
             double z = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            location.getWorld().spawnParticle(particle, location.clone().add(x, y, z), 1);
+            spawnParticleSafe(location.getWorld(), particle, location.clone().add(x, y, z));
         }
     }
 
