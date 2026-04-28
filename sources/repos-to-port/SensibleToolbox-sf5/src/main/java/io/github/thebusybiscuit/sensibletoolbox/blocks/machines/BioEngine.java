@@ -1,6 +1,8 @@
 package io.github.thebusybiscuit.sensibletoolbox.blocks.machines;
 
 import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.Set;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
@@ -25,6 +27,14 @@ public class BioEngine extends Generator {
 
     private static final int TICK_FREQUENCY = 10;
     private static final FuelItems fuelItems = new FuelItems();
+    private static final Set<Material> TALL_FLOWERS_COMPAT = EnumSet.of(
+        Material.SUNFLOWER,
+        Material.LILAC,
+        Material.ROSE_BUSH,
+        Material.PEONY,
+        Material.LARGE_FERN,
+        Material.PITCHER_PLANT
+    );
     private final double slowBurnThreshold;
     private FuelValues currentFuel;
 
@@ -69,7 +79,7 @@ public class BioEngine extends Generator {
             fuelItems.addFuel(new ItemStack(flower), true, 11, 80);
         }
 
-        for (Material flower : Tag.TALL_FLOWERS.getValues()) {
+        for (Material flower : TALL_FLOWERS_COMPAT) {
             fuelItems.addFuel(new ItemStack(flower), true, 11, 80);
         }
 

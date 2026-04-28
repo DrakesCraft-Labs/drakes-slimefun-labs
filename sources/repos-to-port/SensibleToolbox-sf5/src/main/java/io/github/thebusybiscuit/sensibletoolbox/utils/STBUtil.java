@@ -4,9 +4,11 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
@@ -47,6 +49,15 @@ import me.desht.dhutils.blocks.BlockUtil;
  * A collection of miscellaneous utility methods.
  */
 public final class STBUtil {
+    private static final Set<Material> TALL_FLOWERS_COMPAT = EnumSet.of(
+        Material.SUNFLOWER,
+        Material.LILAC,
+        Material.ROSE_BUSH,
+        Material.PEONY,
+        Material.LARGE_FERN,
+        Material.PITCHER_PLANT
+    );
+
 
     /**
      * The block faces directly adjacent to a block.
@@ -104,7 +115,7 @@ public final class STBUtil {
             return true;
         }
 
-        if (Tag.TALL_FLOWERS.isTagged(type)) {
+        if (TALL_FLOWERS_COMPAT.contains(type)) {
             return true;
         }
 
