@@ -1,6 +1,9 @@
 name: Release monorepo JARs
 
 on:
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
     inputs:
       tag:
@@ -20,6 +23,11 @@ on:
 
 permissions:
   contents: write
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  RELEASE_DRAFT: ${{ github.event_name == 'workflow_dispatch' && inputs.draft || 'false' }}
+  RELEASE_PRERELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.prerelease || 'false' }}
 
 jobs:
   build_and_release:
@@ -42,7 +50,7 @@ jobs:
       # UltimateGenerators2 referencia el JAR de SlimefunTranslation por systemPath (mismo orden que CI monorepo).
       - name: Instalar núcleo Maven y shadowJar SlimefunTranslation
         run: |
-          mvn -B clean install -DskipTests \
+          mvn -B clean install -Dmaven.test.skip=true \
             -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
             -am
           cd sources/community-addons/SlimefunTranslation
@@ -52,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Maven package (reactor)
-        run: mvn -B -DskipTests package
+        run: mvn -B -Dmaven.test.skip=true package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -62,16 +70,16 @@ jobs:
       - name: Upload build artifact (carpeta de JARs)
         uses: actions/upload-artifact@v7
         with:
-          name: monorepo-plugins-${{ inputs.tag }}
+          name: monorepo-plugins-${{ env.RELEASE_TAG }}
           path: dist/monorepo-jars/
 
       - name: Create GitHub Release (un asset .jar por addon)
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ inputs.tag }}
-          name: ${{ inputs.tag }}
-          draft: ${{ inputs.draft }}
-          prerelease: ${{ inputs.prerelease }}
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
+          draft: ${{ env.RELEASE_DRAFT }}
+          prerelease: ${{ env.RELEASE_PRERELEASE }}
           generate_release_notes: true
           files: |
             dist/monorepo-jars/*.jar

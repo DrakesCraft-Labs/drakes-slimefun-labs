@@ -92,9 +92,20 @@ jobs:
       # `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath de los addons.
       - name: Empaquetar los 81 módulos Maven del reactor
         run: |
-          mvn -B package -DskipTests -fae
+          mvn -B package -Dmaven.test.skip=true -fae
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Recolectar JARs del monorepo
+        if: github.event_name != 'pull_request'
+        run: python scripts/release/collect_monorepo_jars.py --out dist/ci-monorepo-jars
+
+      - name: Subir artifacts JAR del monorepo
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: monorepo-jars-${{ github.sha }}
+          path: dist/ci-monorepo-jars/
 
   gradle_green:
     name: Gradle · reactor completo

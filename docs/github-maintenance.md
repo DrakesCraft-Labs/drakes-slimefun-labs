@@ -111,9 +111,9 @@ Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que to
 El workflow **CI Monorepo 1.21** (`.github/workflows/ci-monorepo-121.yml`) define dos comportamientos distintos:
 
 1. **Maven · fundación** ejecuta `mvn clean compile` solo sobre el stack base (Dough, Slimefun core, SefiLib, InfinityLib, commons-lang parcheado). **No** se ejecuta el *shade* de Slimefun, por tanto **no existen** paquetes `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath. **SefiLib** e **InfinityLib** deben importar `**dev.drake.dough.protection.*`**. El script `scripts/fix_dough_compilation_imports.py` **excluye** esos árboles para no sustituir imports por los tipos sombreados.
-2. **Maven · reactor completo** ejecuta `mvn package` sobre todo el reactor. Ahí Slimefun **sí** empaqueta con shade antes de los addons que dependen de él, así que los addons pueden usar `**com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`** (ver script anterior y comentarios en `docs/README.md`).
+2. **Maven · reactor completo** ejecuta `mvn package -Dmaven.test.skip=true` sobre todo el reactor. Ahí Slimefun **sí** empaqueta con shade antes de los addons que dependen de él, así que los addons pueden usar `**com.github.drakescraft_labs.slimefun4.libraries.dough.protection.*`** (ver script anterior y comentarios en `docs/README.md`). Se usa `maven.test.skip=true` y no solo `skipTests` porque algunos módulos del laboratorio arrastran tests legacy que hoy no forman parte del objetivo del port y rompen `testCompile`.
 
-El workflow **Release monorepo JARs** también usa `package`, coherente con el reactor completo.
+El workflow **Release monorepo JARs** también usa `package -Dmaven.test.skip=true`, coherente con el reactor completo.
 
 ## GraalVM (RykenSlimeCustomizer) y CI
 
@@ -132,7 +132,9 @@ Ver [PROJECT_BOARD_SYNC.md](PROJECT_BOARD_SYNC.md). La CLI necesita scopes `read
 
 ## Release de todos los JAR del monorepo
 
-El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) se lanza a mano (*Actions → Release monorepo JARs → Run workflow*). Ejecuta `mvn -B -DskipTests package` en el reactor, recopila un jar por módulo con `scripts/release/collect_monorepo_jars.py` y crea un **GitHub Release** adjuntando **cada `.jar` por separado** (más `manifest.json`) como assets del mismo tag. Así el auto-updater del laboratorio solo descarga el jar del addon que toca, sin un ZIP monolítico.
+El workflow **Release monorepo JARs** (`release-monorepo-jars.yml`) puede lanzarse **a mano** (*Actions → Release monorepo JARs → Run workflow*) o **automáticamente al hacer push de un tag `v*`**. Ejecuta `mvn -B -Dmaven.test.skip=true package` en el reactor, recopila un jar por módulo con `scripts/release/collect_monorepo_jars.py` y crea un **GitHub Release** adjuntando **cada `.jar` por separado** (más `manifest.json`) como assets del mismo tag. Así el auto-updater del laboratorio solo descarga el jar del addon que toca, sin un ZIP monolítico.
+
+Además, el workflow **CI Monorepo 1.21** ahora sube un artifact `monorepo-jars-<sha>` en cada **push exitoso a `1.21-latin`** (no en PRs), usando la misma recolección de jars. Eso permite descargar builds rápidos sin tener que abrir un release formal.
 
 - **Tag**: obligatorio y único (por ejemplo `v11-plugins-2026-04-25`). Si el tag ya existe, el paso de release fallará hasta que elijas otro.
 - **Draft / Prerelease**: útil la primera vez para revisar notas y adjuntos antes de publicar.
