@@ -1,0 +1,12 @@
+/bin/
+/target/
+/.idea/
+/.settings/
+*.iml
+.classpath
+.project
+*.sh
+dependency-reduced-pom.xml
+/dependency-reduced-pom.xml
+/build/
+/.gradle/

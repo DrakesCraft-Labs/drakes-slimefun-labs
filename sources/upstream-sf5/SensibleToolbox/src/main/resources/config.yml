@@ -1,0 +1,45 @@
+colored_console: true
+rename_level_cost: 5
+particle_effects: 2
+debug_level: 0
+save_interval: 30
+
+database:
+  table_prefix: "stb_"
+
+holograms:
+  enabled: true
+  duration-in-seconds: 3
+
+energy:
+  tick_rate: 10
+
+noisy_machines: true
+explode_item_drop_chance: 50
+default_access: public
+default_redstone: ignore
+creative_ender_access: false
+
+gui:
+  texture:
+    input: CYAN_STAINED_GLASS_PANE
+    output: ORANGE_STAINED_GLASS_PANE
+    bg: BLUE_STAINED_GLASS_PANE
+    label: BOOK
+    button: OAK_BUTTON
+
+item_settings:
+  paintbrush:
+    wood_staining: true
+  paintroller:
+    wood_staining: true
+  paintcan:
+    paint_per_dye: 25
+  autobuilder:
+    scu_per_op: 30
+  multibuilder:
+    scu_per_op: 30
+
+options:
+  auto-update: true
+  glowing_items: false

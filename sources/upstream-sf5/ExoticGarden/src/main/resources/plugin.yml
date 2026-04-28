@@ -1,0 +1,11 @@
+name: ExoticGarden
+version: ${version}
+author: TheBusyBiscuit
+description: A Slimefun Addon that adds new Plants and dishes to the game
+website: https://github.com/TheBusyBiscuit/ExoticGarden
+
+api-version: '1.16'
+main: io.github.thebusybiscuit.exoticgarden.ExoticGarden
+
+depend:
+- Slimefun

@@ -1,0 +1,14 @@
+build/
+.gradle/
+bin/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.log
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+target/
+dependency-reduced-pom.xml

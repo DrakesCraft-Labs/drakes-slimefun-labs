@@ -1,0 +1,25 @@
+## CHANGE this to the name of your plugin.
+name: MissileWarfare
+
+## CHANGE this to your username.
+author: kaiyan2006
+
+## CHANGE this to a meaninful but short description of your plugin.
+description: A addon for slimefun that aims to incorporate missiles into the game, slowing down combat
+
+## CHANGE this to the path of the class that extends JavaPlugin.
+main: me.kaiyan.missilewarfare.MissileWarfare
+
+## You can change this to link to your website or repository. You can also remove this line if you want to.
+website: https://github.com/koiboi-dev/AdvancedWarfare
+
+## This value is automatically replaced by the version specified in your build.gradle.kts file.
+## Do not change this.
+version: ${version}
+
+## This is the minimum minecraft version required to run your plugin.
+api-version: '1.16'
+
+## This is required and marks Slimefun as a plugin dependency.
+depend: [Slimefun]
+softdepend: [WorldGuard, WorldEdit]

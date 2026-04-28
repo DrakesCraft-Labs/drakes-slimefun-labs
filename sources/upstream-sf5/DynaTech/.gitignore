@@ -1,0 +1,17 @@
+/bin/
+/.settings/
+/target/
+/.idea/
+*.iml
+.project
+.classpath
+dependency-reduced-pom.xml
+.DS_Store
+/.vscode
+Notes.txt
+.factorypath
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
