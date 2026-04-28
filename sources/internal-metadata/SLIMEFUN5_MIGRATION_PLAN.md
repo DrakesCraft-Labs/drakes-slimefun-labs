@@ -64,6 +64,22 @@ Para cada plugin importado desde sf5:
 - `SensibleToolbox-sf5`: bridge/compat API terminado para stack Drake, compilacion OK (con `-Dmaven.test.skip=true`) y modulo agregado al reactor root.
 - Verificacion reactor: build conjunto de `ChestTerminal-sf5` + `SensibleToolbox-sf5` en root OK (skip tests).
 
+## Repos standalone creados en la organizacion (2026-04-28)
+
+Se inicio la separacion gradual de addons inestables a repos individuales dentro de `DrakesCraft-Labs`:
+
+- `https://github.com/DrakesCraft-Labs/SensibleToolbox-drake`
+- `https://github.com/DrakesCraft-Labs/Galactifun2-drake`
+- `https://github.com/DrakesCraft-Labs/DynaTech-drake`
+- `https://github.com/DrakesCraft-Labs/Aircraft-drake`
+- `https://github.com/DrakesCraft-Labs/SlimeTinker-drake`
+- `https://github.com/DrakesCraft-Labs/ChestTerminal-drake`
+- `https://github.com/DrakesCraft-Labs/SaneCrafting-drake`
+- `https://github.com/DrakesCraft-Labs/MissileWarfare-drake`
+- `https://github.com/DrakesCraft-Labs/CrystamaeHistoria-drake`
+
+Cada repo fue bootstrappeado con rama `1.21-latin` y README explicando objetivo/valor del addon para Slimefun y el stack Drake.
+
 ## Nota de seguridad de ramas
 
 No mezclar ni proponer merge entre lineas `1.21-latin` y `26.X-ToTheStars`.

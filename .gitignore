@@ -37,3 +37,6 @@ wiki_temp/
 
 # Maven portable / tooling local (no versionar)
 .tools/
+
+# Exportes locales de repos separados
+split-repos/
