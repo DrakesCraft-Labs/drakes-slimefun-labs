@@ -44,7 +44,11 @@ public class VehicleInteractor extends KinematicEntity<Interaction, KinematicEnt
     @Override
     public void onRightClick(@NotNull Player player) {
         VehicleEntity vehicleEntity = (VehicleEntity) KinematicEntity.get(this.vehicleEntity);
-        assert vehicleEntity != null;
+        if (vehicleEntity == null) {
+            // Stale interactor: parent vehicle is gone or not loaded.
+            // Ignore the interaction to avoid NPE spam.
+            return;
+        }
         MainGui.show(vehicleEntity, player);
     }
 }

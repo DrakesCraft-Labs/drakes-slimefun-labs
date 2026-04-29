@@ -19,7 +19,17 @@ public class EntityListener implements Listener {
     public static void onRightClick(@NotNull PlayerInteractEntityEvent event) {
         KinematicEntity<?, ?> kinematicEntity = EntityStorage.instance().get(event.getRightClicked().getUniqueId());
         if (kinematicEntity != null) {
-            kinematicEntity.onRightClick(event.getPlayer());
+            try {
+                kinematicEntity.onRightClick(event.getPlayer());
+            } catch (RuntimeException exception) {
+                KinematicCore.instance().getLogger().warning(
+                        "Failed handling right-click for kinematic entity "
+                                + kinematicEntity.uuid() + " (" + kinematicEntity.getClass().getSimpleName() + ")"
+                );
+                KinematicCore.instance().getLogger().warning(
+                        "Interaction ignored to prevent server-side exception spam."
+                );
+            }
         }
     }
 }
