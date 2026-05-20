@@ -141,7 +141,7 @@
         <dependency>
             <groupId>uk.antiperson.stackmob</groupId>
             <artifactId>StackMob</artifactId>
-            <version>5.8.10</version>
+            <version>5.10.6</version>
             <scope>provided</scope>
         </dependency>
 
