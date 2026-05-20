@@ -22,7 +22,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.EntityInteractHandler
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import dev.drake.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 
 import me.apeiros.villagerutil.Setup;
 import me.apeiros.villagerutil.util.UUIDTagType;

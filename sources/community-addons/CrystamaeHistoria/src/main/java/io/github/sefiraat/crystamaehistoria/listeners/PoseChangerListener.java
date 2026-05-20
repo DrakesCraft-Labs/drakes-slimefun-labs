@@ -10,7 +10,7 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPoseType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import net.kyori.adventure.text.Component;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;

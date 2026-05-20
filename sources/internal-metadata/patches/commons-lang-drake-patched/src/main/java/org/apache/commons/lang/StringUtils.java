@@ -21,4 +21,12 @@ public class StringUtils {
         }
         return new String(chs, 0, count);
     }
+
+    public static boolean isNumeric(String str) {
+        return org.apache.commons.lang3.StringUtils.isNumeric(str);
+    }
+
+    public static String repeat(String str, int repeat) {
+        return org.apache.commons.lang3.StringUtils.repeat(str, repeat);
+    }
 }

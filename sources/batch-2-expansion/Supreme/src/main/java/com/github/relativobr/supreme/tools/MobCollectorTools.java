@@ -21,7 +21,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.Rechargeable;
 import com.github.drakescraft_labs.slimefun4.core.handlers.EntityInteractHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import org.bukkit.Material;
 import org.bukkit.Sound;

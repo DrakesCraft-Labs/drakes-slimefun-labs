@@ -22,7 +22,7 @@ import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetCompo
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
