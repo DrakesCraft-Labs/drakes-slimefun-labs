@@ -43,8 +43,8 @@
         <guava.version>33.6.0-jre</guava.version>
         <spring.version>6.2.18</spring.version>
         <commons-io.version>2.22.0</commons-io.version>
-        <jackson.version>2.19.4</jackson.version>
-        <log4j2.version>2.25.4</log4j2.version>
+        <jackson.version>2.21</jackson.version>
+        <log4j2.version>2.26.0</log4j2.version>
         <json.version>20231013</json.version>
         <plexus-utils.version>3.6.1</plexus-utils.version>
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
