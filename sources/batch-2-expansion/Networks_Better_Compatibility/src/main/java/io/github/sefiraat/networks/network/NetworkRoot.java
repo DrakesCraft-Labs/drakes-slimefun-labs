@@ -498,6 +498,7 @@ public class NetworkRoot extends NetworkNode {
                     stackToReturn.setAmount(1);
                     request.receiveAmount(1);
                     itemStack.setAmount(itemStack.getAmount() - 1);
+                    blockMenu.markDirty();
                 }
 
                 // Escape if fulfilled request
@@ -538,6 +539,7 @@ public class NetworkRoot extends NetworkNode {
                     stackToReturn.setAmount(1);
                     request.receiveAmount(1);
                     itemStack.setAmount(itemStack.getAmount() - 1);
+                    blockMenu.markDirty();
                 }
 
                 // Escape if fulfilled request
@@ -548,11 +550,13 @@ public class NetworkRoot extends NetworkNode {
                 if (request.getAmount() <= itemStack.getAmount()) {
                     stackToReturn.setAmount(stackToReturn.getAmount() + request.getAmount());
                     itemStack.setAmount(itemStack.getAmount() - request.getAmount());
+                    blockMenu.markDirty();
                     return stackToReturn;
                 } else {
                     stackToReturn.setAmount(stackToReturn.getAmount() + itemStack.getAmount());
                     request.receiveAmount(itemStack.getAmount());
                     itemStack.setAmount(0);
+                    blockMenu.markDirty();
                 }
             }
         }
@@ -758,6 +762,7 @@ public class NetworkRoot extends NetworkNode {
 
                 itemStack.setAmount(itemStackAmount + amountToAdd);
                 incoming.setAmount(incomingStackAmount - amountToAdd);
+                blockMenu.markDirty();
             }
             // Given we have found a match, it doesn't matter if the item moved or not, we
             // will not bring it in

@@ -32,11 +32,11 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 /**
  * This static utility class offers various methods that provide access to the
  * Settings menu of our {@link SlimefunGuide}.
- * 
+ *
  * This menu is used to allow a {@link Player} to change things such as the {@link Language}.
- * 
+ *
  * @author TheBusyBiscuit
- * 
+ *
  * @see SlimefunGuide
  *
  */
@@ -111,7 +111,7 @@ public final class SlimefunGuideSettings {
         });
 
         // @formatter:off
-        menu.addItem(4, new CustomItemStack(Material.WRITABLE_BOOK, 
+        menu.addItem(4, new CustomItemStack(Material.WRITABLE_BOOK,
             ChatColor.GREEN + locale.getMessage(p, "guide.title.versions"),
             "&7&o" + locale.getMessage(p, "guide.tooltips.versions-notice"),
             "",
@@ -122,7 +122,7 @@ public final class SlimefunGuideSettings {
         // @formatter:on
 
         // @formatter:off
-        menu.addItem(6, new CustomItemStack(Material.COMPARATOR, 
+        menu.addItem(6, new CustomItemStack(Material.COMPARATOR,
            "&e" + locale.getMessage(p, "guide.title.source"),
            "", "&7Last Activity: &a" + NumberUtils.getElapsedTime(github.getLastUpdate()) + " ago",
            "&7Forks: &e" + github.getForks(),
@@ -181,28 +181,24 @@ public final class SlimefunGuideSettings {
             return false;
         });
 
-        if (Slimefun.getUpdater().getBranch().isOfficial()) {
-            // @formatter:off
-            menu.addItem(49, new CustomItemStack(Material.REDSTONE_TORCH,
-                "&4" + locale.getMessage(p, "guide.title.bugs"),
-                "",
-                "&7&oBug reports have to be made in English!",
-                "",
-                "&7Open Issues: &a" + github.getOpenIssues(),
-                "&7Pending Pull Requests: &a" + github.getPendingPullRequests(),
-                "",
-                "&7\u21E8 &eClick to go to the Slimefun4 Bug Tracker"
-            ));
-            // @formatter:on
+        // @formatter:off
+        menu.addItem(49, new CustomItemStack(Material.REDSTONE_TORCH,
+            "&4" + locale.getMessage(p, "guide.title.bugs"),
+            "",
+            "&7&oBug reports have to be made in English!",
+            "",
+            "&7Open Issues: &a" + github.getOpenIssues(),
+            "&7Pending Pull Requests: &a" + github.getPendingPullRequests(),
+            "",
+            "&7\u21E8 &eClick to go to the Slimefun4 Bug Tracker"
+        ));
+        // @formatter:on
 
-            menu.addMenuClickHandler(49, (pl, slot, item, action) -> {
-                pl.closeInventory();
-                ChatUtils.sendURL(pl, "https://github.com/Slimefun/Slimefun4/issues");
-                return false;
-            });
-        } else {
-            menu.addItem(49, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
-        }
+        menu.addMenuClickHandler(49, (pl, slot, item, action) -> {
+            pl.closeInventory();
+            ChatUtils.sendURL(pl, "https://github.com/Slimefun/Slimefun4/issues");
+            return false;
+        });
 
         menu.addItem(51, new CustomItemStack(Material.TOTEM_OF_UNDYING, ChatColor.RED + locale.getMessage(p, "guide.work-in-progress")), (pl, slot, item, action) -> {
             // Add something here
@@ -233,10 +229,10 @@ public final class SlimefunGuideSettings {
      * This method checks if the given {@link Player} has enabled the {@link FireworksOption}
      * in their {@link SlimefunGuide}.
      * If they enabled this setting, they will see fireworks when they unlock a {@link Research}.
-     * 
+     *
      * @param p
      *            The {@link Player}
-     * 
+     *
      * @return Whether this {@link Player} wants to see fireworks when unlocking a {@link Research}
      */
     public static boolean hasFireworksEnabled(@Nonnull Player p) {
@@ -271,7 +267,7 @@ public final class SlimefunGuideSettings {
      *            Type of the {@link SlimefunGuideOption}
      * @param <V>
      *            Type of the {@link SlimefunGuideOption} value
-     * 
+     *
      * @return The value of given {@link SlimefunGuideOption}
      */
     @Nonnull

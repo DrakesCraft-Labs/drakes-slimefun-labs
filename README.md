@@ -8,6 +8,8 @@
 
 Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefun 4** sobre baseline unificado **Paper 1.21.1 + Java 21**. Este repositorio agrupa el core Drake, librerias compartidas y decenas de addons en un reactor **Maven + Gradle** coherente.
 
+> Rama base vigente: `main`. La rama `1.21-latin` queda como linea historica/deprecada para comparar el baseline anterior, no como rama activa de desarrollo.
+
 ---
 
 ## Enlaces rapidos

@@ -13,7 +13,8 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
+import dev.drake.dough.protection.ProtectionManager;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
@@ -22,9 +23,11 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -240,7 +243,7 @@ public abstract class NetworkDirectional extends NetworkObject {
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
                 return this.getSlimefunItem().canUse(player, false)
-                        && Slimefun.getProtectionManager().hasPermission(player, block.getLocation(),
+                        && Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), block.getLocation(),
                                 Interaction.INTERACT_BLOCK);
             }
 
@@ -272,7 +275,7 @@ public abstract class NetworkDirectional extends NetworkObject {
             final Location location = targetMenu.getLocation();
             final SlimefunItem item = BlockStorage.check(location);
             if (item.canUse(player, true)
-                    && Slimefun.getProtectionManager().hasPermission(player, blockMenu.getLocation(),
+                    && Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), blockMenu.getLocation(),
                             Interaction.INTERACT_BLOCK)) {
                 targetMenu.open(player);
             }

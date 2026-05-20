@@ -26,10 +26,13 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.LimitedUseItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
+import dev.drake.dough.protection.ProtectionManager;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -86,7 +89,7 @@ public class NetworkRake extends LimitedUseItem {
             final SlimefunItem slimefunItem = BlockStorage.check(block);
             if (slimefunItem != null
                 && viableObjects.contains(slimefunItem.getClass())
-                && Slimefun.getProtectionManager().hasPermission(player, block, Interaction.BREAK_BLOCK)
+                && Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), block, Interaction.BREAK_BLOCK)
             ) {
                 final BlockBreakEvent event = new BlockBreakEvent(block, player);
                 Networks.getPluginManager().callEvent(event);

@@ -104,10 +104,9 @@ public class AnalyticsService {
     // If a value is no longer used, just send null or replace it with a new value - don't shift the order
     @ParametersAreNonnullByDefault
     private void send(String id, double[] doubles, String[] blobs) {
-        // If not enabled or not official build (e.g. local build) or a unit test, just ignore.
+        // If not enabled or a unit test, just ignore.
         if (
             !enabled
-            || !Slimefun.getUpdater().getBranch().isOfficial()
             || Slimefun.instance().isUnitTest()
         ) return;
 

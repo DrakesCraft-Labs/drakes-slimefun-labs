@@ -79,7 +79,7 @@ public final class PostSetup {
         }
 
         Bukkit.getPluginManager().callEvent(new SlimefunItemRegistryFinalizedEvent());
-        
+
         loadOreGrinderRecipes();
         loadSmelteryRecipes();
 
@@ -96,17 +96,12 @@ public final class PostSetup {
         sender.sendMessage("");
         sender.sendMessage(ChatColor.GREEN + "Slimefun is an Open-Source project that is kept alive by a large community.");
         sender.sendMessage(ChatColor.GREEN + "Consider helping us maintain this project by contributing on GitHub!");
-
-        if (Slimefun.getUpdater().getBranch().isOfficial()) {
-            sender.sendMessage("");
-            sender.sendMessage(ChatColor.GREEN + " - Source Code:  https://github.com/Slimefun/Slimefun4");
-            sender.sendMessage(ChatColor.GREEN + " - Wiki:         https://github.com/Slimefun/Slimefun4/wiki");
-            sender.sendMessage(ChatColor.GREEN + " - Addons:       https://github.com/Slimefun/Slimefun4/wiki/Addons");
-            sender.sendMessage(ChatColor.GREEN + " - Bug Reports:  https://github.com/Slimefun/Slimefun4/issues");
-            sender.sendMessage(ChatColor.GREEN + " - Discord:      https://discord.gg/slimefun");
-        } else {
-            sender.sendMessage(ChatColor.GREEN + " - UNOFFICIALLY MODIFIED BUILD - NO OFFICIAL SUPPORT GIVEN");
-        }
+        sender.sendMessage("");
+        sender.sendMessage(ChatColor.GREEN + " - Source Code: https://github.com/Slimefun/Slimefun4");
+        sender.sendMessage(ChatColor.GREEN + " - Wiki: https://github.com/Slimefun/Slimefun4/wiki");
+        sender.sendMessage(ChatColor.GREEN + " - Addons: https://github.com/Slimefun/Slimefun4/wiki/Addons");
+        sender.sendMessage(ChatColor.GREEN + " - Bug Reports: https://github.com/Slimefun/Slimefun4/issues");
+        sender.sendMessage(ChatColor.GREEN + " - Discord: https://discord.gg/slimefun");
 
         sender.sendMessage("");
 
@@ -118,7 +113,7 @@ public final class PostSetup {
     /**
      * This method counts the amount of {@link SlimefunItem SlimefunItems} registered
      * by Slimefun itself and not by any addons.
-     * 
+     *
      * @return The amount of {@link SlimefunItem SlimefunItems} added by Slimefun itself
      */
     private static int countNonAddonItems() {

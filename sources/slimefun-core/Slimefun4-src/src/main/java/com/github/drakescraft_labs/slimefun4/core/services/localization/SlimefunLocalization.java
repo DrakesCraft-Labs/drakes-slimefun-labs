@@ -68,7 +68,7 @@ public abstract class SlimefunLocalization implements Keyed {
      * This returns the chat prefix for our messages.
      * Every message (unless explicitly omitted) will have this
      * prefix prepended.
-     * 
+     *
      * @return The chat prefix
      */
     public @Nonnull String getChatPrefix() {
@@ -143,7 +143,7 @@ public abstract class SlimefunLocalization implements Keyed {
      */
     protected void loadEmbeddedLanguages() {
         for (LanguagePreset lang : LanguagePreset.values()) {
-            if (lang.isReadyForRelease() || Slimefun.getUpdater().getBranch() != SlimefunBranch.STABLE) {
+            if (lang.isReadyForRelease()) {
                 addLanguage(lang.getLanguageCode(), lang.getTexture());
             }
         }

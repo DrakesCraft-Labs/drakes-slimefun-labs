@@ -18,7 +18,7 @@
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>Networks-drake</artifactId>
     <version>11-SNAPSHOT</version>
-    <name>Networks</name>
+    <name>NetworksV6-Drake</name>
 
     <build>
         <finalName>${project.name}-v${project.version}</finalName>
@@ -81,7 +81,7 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-    
+
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>

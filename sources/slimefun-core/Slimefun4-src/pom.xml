@@ -13,7 +13,7 @@
 
     <artifactId>slimefun-core</artifactId>
     <version>${slimefun.drake.version}</version>
-    <name>Slimefun</name>
+    <name>Slimefun-1.2.DEV</name>
     <description>The core of the DrakesCraft experience. A modernized, Java 21-powered version of Slimefun 4 with integrated fixes and optimizations for the 1.21.1 environment.</description>
     <inceptionYear>2013</inceptionYear>
     <packaging>jar</packaging>
@@ -200,6 +200,9 @@
                         <relocation>
                             <pattern>dev.drake.dough</pattern>
                             <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.dough</shadedPattern>
+                            <excludes>
+                                <exclude>dev.drake.dough.protection.**</exclude>
+                            </excludes>
                         </relocation>
                     </relocations>
 

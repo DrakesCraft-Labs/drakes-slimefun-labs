@@ -98,6 +98,7 @@ public class NetworkPusher extends NetworkDirectional {
                 ItemStack retrieved = definition.getNode().getRoot().getItemStack(itemRequest);
                 if (retrieved != null) {
                     targetMenu.pushItem(retrieved, slots);
+                    targetMenu.markDirty();
                     if (definition.getNode().getRoot().isDisplayParticles()) {
                         showParticle(blockMenu.getLocation(), direction);
                     }

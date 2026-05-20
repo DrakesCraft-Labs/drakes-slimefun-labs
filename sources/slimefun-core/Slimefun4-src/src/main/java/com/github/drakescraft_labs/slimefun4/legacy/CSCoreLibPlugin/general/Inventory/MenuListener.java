@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.Plugin;
 
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.AdvancedMenuClickHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.MenuClickHandler;
 
@@ -33,6 +34,7 @@ public class MenuListener implements Listener {
         ChestMenu menu = menus.remove(e.getPlayer().getUniqueId());
 
         if (menu != null) {
+            markDirty(menu);
             menu.getMenuCloseHandler().onClose((Player) e.getPlayer());
         }
     }
@@ -42,6 +44,8 @@ public class MenuListener implements Listener {
         ChestMenu menu = menus.get(e.getWhoClicked().getUniqueId());
 
         if (menu != null) {
+            markDirty(menu);
+
             if (e.getRawSlot() < e.getInventory().getSize()) {
                 MenuClickHandler handler = menu.getMenuClickHandler(e.getSlot());
 
@@ -55,6 +59,12 @@ public class MenuListener implements Listener {
             } else {
                 e.setCancelled(!menu.getPlayerInventoryClickHandler().onClick((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), new ClickAction(e.isRightClick(), e.isShiftClick())));
             }
+        }
+    }
+
+    private void markDirty(ChestMenu menu) {
+        if (menu instanceof DirtyChestMenu dirtyMenu) {
+            dirtyMenu.markDirty();
         }
     }
 

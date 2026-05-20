@@ -30,6 +30,7 @@ public class PersistentQuantumStorageType implements PersistentDataType<Persiste
     public static final NamespacedKey AMOUNT = Keys.newKey("amount");
     public static final NamespacedKey MAX_AMOUNT = Keys.newKey("max_amount");
     public static final NamespacedKey VOID = Keys.newKey("void");
+    public static final NamespacedKey SUPPORTS_CUSTOM_MAX_AMOUNT = Keys.newKey("supports_custom_max_amount");
 
     @Override
     @Nonnull
@@ -53,6 +54,7 @@ public class PersistentQuantumStorageType implements PersistentDataType<Persiste
         container.set(AMOUNT, PersistentDataType.INTEGER, complex.getAmount());
         container.set(MAX_AMOUNT, PersistentDataType.INTEGER, complex.getLimit());
         container.set(VOID, PersistentDataType.BOOLEAN, complex.isVoidExcess());
+        container.set(SUPPORTS_CUSTOM_MAX_AMOUNT, PersistentDataType.BOOLEAN, complex.supportsCustomMaxAmount());
         return container;
     }
 
@@ -64,7 +66,8 @@ public class PersistentQuantumStorageType implements PersistentDataType<Persiste
         final int amount = primitive.get(AMOUNT, PersistentDataType.INTEGER);
         final int limit = primitive.get(MAX_AMOUNT, PersistentDataType.INTEGER);
         final boolean voidExcess = primitive.get(VOID, PersistentDataType.BOOLEAN);
+        final boolean supportsCustomMaxAmount = primitive.get(SUPPORTS_CUSTOM_MAX_AMOUNT, PersistentDataType.BOOLEAN);
 
-        return new QuantumCache(item, amount, limit, voidExcess);
+        return new QuantumCache(item, amount, limit, voidExcess, supportsCustomMaxAmount);
     }
 }
