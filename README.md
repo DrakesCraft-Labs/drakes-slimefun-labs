@@ -1,227 +1,177 @@
-# Drakes Slimefun Labs
+<p align="center">
+  <img src="docs/assets/readme/slimefun-foundry-hero.svg" alt="DrakesCraft Slimefun Foundry" width="100%">
+</p>
 
-[![Java 21](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://adoptium.net/)
-[![Paper 1.21.1](https://img.shields.io/badge/Paper-1.21.1-3b82f6?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![CI Monorepo](https://img.shields.io/badge/CI-Monorepo%201.21-16a34a?style=for-the-badge&logo=githubactions)](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml)
-[![Monorepo](https://img.shields.io/badge/Monorepo-Slimefun%20Ecosystem-7c3aed?style=for-the-badge)](#inventario-completo-de-modulos-y-plugins)
-[![GPLv3](https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge)](LICENSE)
+<p align="center">
+  <a href="https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml"><img alt="CI Monorepo 1.21" src="https://img.shields.io/badge/CI-Monorepo%201.21-1f9d55?style=for-the-badge&logo=githubactions&logoColor=white"></a>
+  <img alt="Java 21" src="https://img.shields.io/badge/Java-21-f97316?style=for-the-badge&logo=openjdk&logoColor=white">
+  <img alt="Paper 1.21.1" src="https://img.shields.io/badge/Paper-1.21.1-38bdf8?style=for-the-badge">
+  <img alt="Maven and Gradle" src="https://img.shields.io/badge/Maven%20%2B%20Gradle-Hybrid%20Reactor-8b5cf6?style=for-the-badge">
+  <a href="LICENSE"><img alt="GPLv3" src="https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge"></a>
+</p>
 
-Laboratorio de integracion, porteo y estabilizacion para el ecosistema **Slimefun 4** sobre baseline unificado **Paper 1.21.1 + Java 21**. Este repositorio agrupa el core Drake, librerias compartidas y decenas de addons en un reactor **Maven + Gradle** coherente.
+<p align="center">
+  <strong>DrakesCraft Slimefun Foundry</strong> is the engineering home for the DrakesCraft Slimefun stack: a curated monorepo that ports, repairs, secures, builds, and documents Slimefun 4 plus a large addon ecosystem for modern Paper servers.
+</p>
 
-> Rama base vigente: `main`. La rama `1.21-latin` queda como linea historica/deprecada para comparar el baseline anterior, no como rama activa de desarrollo.
+<p align="center">
+  <a href="#what-this-is">What this is</a> ·
+  <a href="#why-it-exists">Why it exists</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#repository-map">Repository map</a> ·
+  <a href="#build-and-qa">Build and QA</a>
+</p>
 
 ---
 
-## Enlaces rapidos
+## What This Is
 
-| Recurso | URL |
+This repository is not a loose mirror of old plugins. It is a controlled compatibility foundry for the **DrakesCraft** server network and the wider Slimefun ecosystem.
+
+The goal is to keep Slimefun usable on a modern server baseline:
+
+- **Minecraft/Paper:** Paper `1.21.1` family.
+- **Runtime:** Java `21`.
+- **Core:** Drake-maintained Slimefun 4 fork, Dough fork, internal compatibility patches, and shared libraries.
+- **Addons:** community addons, ports, experimental modules, and production-ready modules grouped in one auditable workspace.
+- **Workflow:** Maven + Gradle reactors, CI gates, smoke-test guides, GitHub release tooling, and security maintenance.
+
+In plain terms: this is where old, fragile, abandoned, or scattered Slimefun pieces get rebuilt into a stack that can actually survive on DrakesCraft.
+
+## Why It Exists
+
+Slimefun has a huge addon ecosystem, but many plugins were built for older Bukkit/Paper APIs, stale dependencies, abandoned libraries, or single-addon build assumptions. That creates a familiar problem for a real survival server: one addon can compile, another can boot, another can silently corrupt state, and the full pack becomes hard to trust.
+
+DrakesCraft Slimefun Foundry exists to solve that as a system:
+
+| Problem | Foundry answer |
 |---|---|
-| **Indice de documentacion** | [`docs/README.md`](docs/README.md) |
-| **Wiki (updater, despliegue, Aircraft)** | [`docs/wiki/README.md`](docs/wiki/README.md) |
-| **Mantenimiento GitHub** (runs, PRs, alertas) | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
-| **GitHub Project (estado org)** | [DrakesCraft-Labs / Project 1](https://github.com/orgs/DrakesCraft-Labs/projects/1) |
-| **Actions (CI)** | [Workflow runs](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions) |
-| **Issues** | [Issues](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/issues) |
-| **Matriz detallada (generada)** | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
-| **Como sincronizar el tablero** | [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md) |
-| **Docs ES (indice)** | [`docs/es/home.md`](docs/es/home.md) |
-| **Docs EN (indice)** | [`docs/en/home.md`](docs/en/home.md) |
+| Addons targeting old APIs | Port source code to Paper 1.21.1 and Java 21. |
+| Incompatible dependency trees | Centralize dependency management in the root reactor. |
+| Abandoned vulnerable libraries | Replace, patch, shade, or isolate them with documented rationale. |
+| Forks with useful fixes | Audit first, integrate selectively, keep history readable. |
+| Builds that only work on one machine | CI, reproducible commands, and module matrix docs. |
+| Runtime uncertainty | Smoke-test guides and DrakesCraft as the reference survival environment. |
 
-> La matriz y la tabla de este README se generan con `python scripts/generate_plugin_matrix.py` para evitar desalineacion manual.
+## Project Direction
 
----
+The active baseline is **`main`**. The older **`1.21-latin`** line is kept as historical reference and comparison base, not as the main development target.
 
-## Tablero GitHub Projects
+The long-term direction is:
 
-El estado de alto nivel del porteo se gestiona en el [**Project 1 de la organizacion**](https://github.com/orgs/DrakesCraft-Labs/projects/1).
+1. Keep the full 1.21.x pack compiling and secure.
+2. Convert more modules from "compiles" to "runtime-smoked".
+3. Document behavior clearly enough that staff, QA testers, and future contributors can help without needing to understand the entire reactor.
+4. Keep experimental work separated from production plugin identity, especially for sensitive modules like Networks.
+5. Prepare the project for future Paper/Minecraft lines without mixing incompatible branches blindly.
 
-Para actualizarlo desde tu equipo con la CLI, autoriza scopes de Projects:
+## Architecture
 
-```bash
-gh auth refresh -h github.com -s read:project,project
-```
+<p align="center">
+  <img src="docs/assets/readme/foundry-architecture.svg" alt="Foundry architecture diagram" width="100%">
+</p>
 
-Luego alinea cada tarjeta con la columna **Estado** y las **Observaciones** de la tabla inferior (o del archivo `docs/es/PLUGIN_MATRIX.md`). Guia paso a paso: [`docs/PROJECT_BOARD_SYNC.md`](docs/PROJECT_BOARD_SYNC.md).
+The monorepo is built around a few deliberate layers:
 
----
+| Layer | Purpose |
+|---|---|
+| **Foundation** | Slimefun core, Dough, SefiLib, InfinityLib, compatibility patches. |
+| **Production ports** | Addons that are intended to behave like normal server plugins once built. |
+| **Experimental modules** | Work that must not collide with production plugin names, commands, or data. |
+| **Automation** | CI, release collectors, matrix generation, porting scripts, smoke helpers. |
+| **Docs** | Spanish and English operational documentation, QA agreements, migration notes, and plugin matrix. |
 
-## Resumen de estado (auditable)
+## Current Status
 
-> Corte generado automaticamente a partir de `ci-monorepo-121.yml`, reactor `pom.xml`, `settings.gradle.kts` y evidencia de compilacion local documentada en el script.
+The repository currently tracks a full Slimefun pack rather than a single plugin:
 
-| Estado | Cantidad | Significado |
-|---:|---:|---|
-| **Listo (CI)** | **90** | Aparece en `ci-monorepo-121.yml` (`maven_full_reactor`, `foundation` o `gradle_green`) y compila alli. |
-| **Listo (local)** | **0** | `mvn compile -fae` o `gradlew <proyecto>:compileJava` verde en revision auditada; **pendiente** promover a un job de `ci-monorepo-121.yml`. |
-| **En curso** | **0** | En reactor Maven/Gradle; sin build verificado por modulo o solo parches aplicados (`port_paper_121`, etc.). |
-| **Bloqueado (build)** | **0** | Fallo reproducible de compilacion en el reactor local. |
-| **Total modulos** | **90** | Maven + Gradle en reactor; ver conteo exacto en esta fila. |
+| Area | Status |
+|---|---|
+| Maven reactor | Full reactor package verified locally. |
+| Gradle addons | Integrated through the root Gradle workflow where applicable. |
+| Dependabot alerts | Clean after the latest security pass. |
+| Networks | Production and experimental identities separated. |
+| Chagui fork work | Audited and integrated selectively; no blind merge. |
+| Runtime QA | Still the real next frontier: gameplay, menus, recipes, persistence, and plugin interactions. |
 
-### Barra de proporcion (CI vs resto)
+Detailed module status lives in [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md). That file is generated and should stay as the audit table; this README is the public-facing explanation.
 
-```text
-Listo CI:     90/90  (100.0%)
-Listo local:  0/90
-En curso:     0/90
-Bloqueado:    0/90
-```
-
----
-
-## Metodologia (criterios)
-
-1. **Listo (CI)**: modulo cubierto por un job de [`ci-monorepo-121.yml`](.github/workflows/ci-monorepo-121.yml) (`foundation`, `maven_full_reactor`, `gradle_green`).
-2. **Listo (local)**: compilacion Maven/Gradle exitosa en la misma revision que el script (no reemplaza CI).
-3. **En curso**: modulo declarado en `pom.xml` o `settings.gradle.kts` sin evidencia anterior.
-4. **Bloqueado (build)**: error de `compileJava` / `compileKotlin` en build local documentado en `docs/es/pending-modules.md`.
-
-Herramientas de porteo: `scripts/port_paper_121.py` (API Bukkit 1.21.1 y rutas Dough), `scripts/manager.py audit`, bridges locales de compatibilidad para addons Gradle (`MenuBlock`, `TickingMenuBlock`, `DrakeItemBuilderCompat`) y bridges BusyBiscuit en Slimefun core (`io.github.thebusybiscuit.slimefun4.*`).
-
----
-
-## Inventario completo de modulos y plugins
-
-Leyenda de **Tipo**: `core`, `libreria`, `interno`, `addon`, `addon (port)` (repos-to-port), `addon (Gradle)`.
-
-Columna **Updater GH**: dependencia `drakes-labs-autoupdate` presente en el modulo (ver `scripts/inject_drakes_autoupdate.py`).
-
-| Modulo | Tipo | Estado | Evidencia | Updater GH | Ruta | Observaciones |
-|---|---|:---:|---|:---:|---|---|
-| Cultivation_Updated | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/Cultivation_Updated` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| InfinityLib | libreria | Listo (CI) | CI Monorepo · foundation | — | `sources/batch-2-expansion/InfinityLib` | Stack base Paper 1.21.1 + Java 21. |
-| LiteXpansion | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/LiteXpansion` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Networks_Better_Compatibility | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/Networks_Better_Compatibility` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SMG | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/SMG` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SefiLib | libreria | Listo (CI) | CI Monorepo · foundation | — | `sources/batch-2-expansion/SefiLib` | Stack base Paper 1.21.1 + Java 21. |
-| SlimeTinker | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/SlimeTinker` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Supreme | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/Supreme` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| TranscEndence | addon / expansion | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/batch-2-expansion/TranscEndence` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| AdvancedTech | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/AdvancedTech` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| AlchimiaVitae | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/AlchimiaVitae` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Better-Nuclear-Generator | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Better-Nuclear-Generator` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| CompressionCraft | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/CompressionCraft` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| CrystamaeHistoria | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/CrystamaeHistoria` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| DankTech2 | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/DankTech2` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| DrakesLabPresence | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/DrakesLabPresence` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| DyeBench | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/DyeBench` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| EMCTech | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/EMCTech` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Element-Manipulation | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Element-Manipulation` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ExtraTools | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/ExtraTools` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| FN-FAL-s-Amplifications | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/FN-FAL-s-Amplifications` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| FlowerPower | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/FlowerPower` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| FoxyMachines | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/FoxyMachines` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Gastronomicon | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Gastronomicon` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| GeneticChickengineering-Reborn | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/GeneticChickengineering-Reborn` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Geyser-Slimefun-Heads | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Geyser-Slimefun-Heads` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| HeadLimiter | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/HeadLimiter` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Liquid | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Liquid` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Magic-8-Ball | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Magic-8-Ball` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| MapJammers | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/MapJammers` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| MiniBlocks | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/MiniBlocks` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| MissileWarfare | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/MissileWarfare` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| MoreResearches | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/MoreResearches` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Netheopoiesis | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Netheopoiesis` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| PotionExpansion | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/PotionExpansion` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Quaptics | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Quaptics` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| RelicsOfCthonia | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/RelicsOfCthonia` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| RykenSlimeCustomizer-EN | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/RykenSlimeCustomizer-EN` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SaneCrafting | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SaneCrafting` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SfBetterChests | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SfBetterChests` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SfChunkInfo | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SfChunkInfo` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Simple-Storage | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Simple-Storage` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimeCustomizer | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SlimeCustomizer` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimeFrame | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SlimeFrame` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimeHUD | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SlimeHUD` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimefunAdvancements | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SlimefunAdvancements` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SmallSpace | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SmallSpace` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SpiritsUnchained | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/SpiritsUnchained` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| UltimateGenerators2 | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/UltimateGenerators2` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| VillagerTrade | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/VillagerTrade` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| VillagerUtil | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/VillagerUtil` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Wildernether | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/Wildernether` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| WorldEditSlimefun | addon | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/community-addons/WorldEditSlimefun` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| dough-core | libreria | Listo (CI) | CI Monorepo · foundation | — | `sources/dough-core` | Stack base Paper 1.21.1 + Java 21. |
-| drakes-labs-autoupdate | libreria (updater) | Listo (CI) | CI Monorepo · maven_full_reactor | — | `sources/drakes-labs-autoupdate` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| commons-lang-drake-patched | interno | Listo (CI) | CI Monorepo · foundation | — | `sources/internal-metadata/patches/commons-lang-drake-patched` | Stack base Paper 1.21.1 + Java 21. |
-| Aircraft-dev | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/Aircraft-dev` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; en runtime los YAML de vehiculos van en `plugins/Aircraft/vehicles/` (empaquetados en el jar). El fork Drake usa `vehicles/.schema_revision` para volcar defaults cuando cambia el formato (MetaLib exige vectores como listas de tres numeros, etc.). Smoke en servidor recomendado. |
-| ColoredEnderChests | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/ColoredEnderChests` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| DyedBackpacks | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/DyedBackpacks` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| DynaTech | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/DynaTech` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| EcoPower | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/EcoPower` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ElectricSpawners | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/ElectricSpawners` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ExoticGarden | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/ExoticGarden` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ExtraGear | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/ExtraGear` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ExtraHeads | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/ExtraHeads` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| ExtraUtils | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | No | `sources/repos-to-port/ExtraUtils` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| FluffyMachines | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/FluffyMachines` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| GlobalWarming | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/GlobalWarming` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| HardcoreSlimefun | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/HardcoreSlimefun` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| HotbarPets | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/HotbarPets` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| InfinityExpansion | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/InfinityExpansion` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| KinematicCore | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/KinematicCore` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| MobCapturer | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/MobCapturer` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| PrivateStorage | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/PrivateStorage` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SFCalc | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SFCalc` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SFMobDrops | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SFMobDrops` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SimpleUtils | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SimpleUtils` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimeChem | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SlimeChem` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimefunOreChunks | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SlimefunOreChunks` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimyRepair | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SlimyRepair` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SlimyTreeTaps | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SlimyTreeTaps` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SoulJars | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SoulJars` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| SoundMuffler | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/SoundMuffler` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| luckyblocks-sf | addon (port) | Listo (CI) | CI Monorepo · maven_full_reactor | Sí | `sources/repos-to-port/luckyblocks-sf` | `mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; falta smoke en servidor si el addon tiene mecanicas sensibles. |
-| Slimefun4-src | core | Listo (CI) | CI Monorepo · foundation | — | `sources/slimefun-core/Slimefun4-src` | Stack base Paper 1.21.1 + Java 21. |
-| Galactifun | addon (Gradle) | Listo (CI) | CI Monorepo · gradle_green | No | `sources/batch-2-expansion/Galactifun` | Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow. |
-| Bump | addon (Gradle) | Listo (CI) | CI Monorepo · gradle_green | No | `sources/community-addons/Bump` | Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow. |
-| CustomItemGenerators | addon (Gradle) | Listo (CI) | CI Monorepo · gradle_green | No | `sources/community-addons/CustomItemGenerators` | Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow. |
-| FastMachines | addon (Gradle) | Listo (CI) | CI Monorepo · gradle_green | No | `sources/community-addons/FastMachines` | Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow. |
-| SlimefunTranslation | addon (Gradle) | Listo (CI) | CI Monorepo · gradle_green | No | `sources/community-addons/SlimefunTranslation` | Compila en job `gradle_green` (`compileJava`); Maven base e integraciones requeridas se instalan antes en el mismo workflow. |
-
----
-
-## Arbol resumido del monorepo
+## Repository Map
 
 ```text
 drakes-slimefun-labs/
-├─ .github/workflows/     # ci-monorepo-121.yml (CI unificado)
-├─ docs/                  # guias ES/EN + PROJECT_BOARD_SYNC + PLUGIN_MATRIX
-├─ scripts/               # generate_plugin_matrix.py, port_paper_121.py, manager.py
+├─ .github/workflows/                  CI, release, maintenance automation
+├─ docs/                               central documentation in ES/EN
+├─ scripts/                            matrix generation, porting, smoke helpers
 ├─ sources/
-│  ├─ slimefun-core/Slimefun4-src
-│  ├─ dough-core/
-│  ├─ batch-2-expansion/
-│  ├─ community-addons/
-│  ├─ repos-to-port/
-│  └─ internal-metadata/
-├─ pom.xml
-└─ settings.gradle.kts
+│  ├─ slimefun-core/Slimefun4-src       Drake Slimefun core
+│  ├─ dough-core/                       Drake Dough fork
+│  ├─ drakes-labs-autoupdate/           shared updater library
+│  ├─ batch-2-expansion/                active expansion batch
+│  ├─ community-addons/                 community addon integrations
+│  ├─ repos-to-port/                    ported upstream addons
+│  └─ internal-metadata/patches/        controlled compatibility patches
+├─ pom.xml                             Maven reactor root
+└─ settings.gradle.kts                 Gradle reactor root
 ```
 
----
+## Build And QA
 
-## Comandos utiles
+Use these commands from the repository root.
 
-```bash
-# Regenerar matriz + README (tabla alineada)
+```powershell
+# Full Maven reactor, same practical gate used for broad local verification.
+mvn -f pom.xml -DskipTests package
+
+# Regenerate the generated module matrix.
 python scripts/generate_plugin_matrix.py
 
-# Parche masivo Paper 1.21.1 (dry-run primero)
-python scripts/port_paper_121.py --dry-run --path sources/community-addons/MiAddon
-
-# Build base Maven (ejemplo)
-mvn -B clean install -DskipTests -pl sources/dough-core,sources/slimefun-core/Slimefun4-src -am
-
-# Verificacion local del corte completo
-mvn -B -DskipTests compile -fae
-./gradlew :sources:batch-2-expansion:Galactifun:compileJava :sources:community-addons:Bump:compileJava :sources:community-addons:CustomItemGenerators:compileJava :sources:community-addons:FastMachines:compileJava :sources:community-addons:SlimefunTranslation:compileJava --no-daemon
-
-# Dependencia local necesaria para FastMachines cuando Gradle resuelve InfinityExpansion-drake
-mvn -B -DskipTests install -pl sources/repos-to-port/InfinityExpansion -am
+# Build the SlimefunTranslation artifact required by UltimateGenerators2 in local runs.
+cd sources/community-addons/SlimefunTranslation
+.\gradlew.bat shadowJar --no-daemon
 ```
 
----
+The project intentionally separates build success from runtime confidence. A module can compile and still need smoke testing in a Paper server before it should be trusted in production.
 
-## Licencia
+Recommended runtime checks:
 
-Proyecto bajo **GPLv3**. Ver [`LICENSE`](LICENSE).
+- Server boot with the full plugin pack.
+- Slimefun guide opening and category navigation.
+- Machines, generators, cargo/network behavior, and persistence after restart.
+- Economy, protection, WorldEdit, Towny, mcMMO, and other integration-sensitive paths.
+- Logs for warnings that do not fail compilation but matter in a live server.
+
+## Documentation
+
+| Need | Start here |
+|---|---|
+| Central documentation index | [`docs/README.md`](docs/README.md) |
+| Spanish landing docs | [`docs/es/home.md`](docs/es/home.md) |
+| English landing docs | [`docs/en/home.md`](docs/en/home.md) |
+| Generated plugin matrix | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
+| Smoke testing guide | [`docs/es/smoke-test-guide.md`](docs/es/smoke-test-guide.md) |
+| GitHub maintenance | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
+| Chagui fork audit | [`docs/chagui-fork-audit.md`](docs/chagui-fork-audit.md) |
+| Runtime wiki notes | [`docs/wiki/README.md`](docs/wiki/README.md) |
+
+## Naming Proposal
+
+The current repository slug is still `drakes-slimefun-labs` for compatibility with existing links and remotes.
+
+Recommended public name:
+
+```text
+DrakesCraft Slimefun Foundry
+```
+
+Recommended future repository slug:
+
+```text
+slimefun-foundry
+```
+
+That name is shorter, more memorable, and better reflects the project: not just "labs", but a place where the stack is forged, tested, hardened, and released.
+
+## License
+
+This repository is licensed under **GPLv3**. See [`LICENSE`](LICENSE).

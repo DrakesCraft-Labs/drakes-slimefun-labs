@@ -1,6 +1,6 @@
 # Documentación del monorepo
 
-Fuente de verdad para **Drakes Slimefun Labs** en la rama **`1.21-latin`**: **Paper 1.21.x**, **Java 21**, reactor Maven + proyectos Gradle en la raíz.
+Fuente de verdad para **DrakesCraft Slimefun Foundry** en la rama **`main`**: **Paper 1.21.x**, **Java 21**, reactor Maven + proyectos Gradle en la raiz.
 
 ## Qué está hecho vs qué sigue
 
@@ -11,7 +11,7 @@ Fuente de verdad para **Drakes Slimefun Labs** en la rama **`1.21-latin`**: **Pa
 | **Release** opcional: muchos `.jar` en un solo GitHub Release ([workflow](../.github/workflows/release-monorepo-jars.yml)) | Pasta fina **addon por addon** (Chagui, comunidad, staff) |
 | Matriz y tablas generadas | **[DrakesCraft](https://drakescraft.cl)** (Chile) como servidor de referencia del pack |
 
-La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**; no sustituye a `1.21-latin` hasta que ese porte esté listo.
+La linea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/tree/26.X-ToTheStars)**; no sustituye a `main` hasta que ese porte este listo.
 
 ## Wiki del laboratorio
 
@@ -23,7 +23,7 @@ La línea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://git
 | Objetivo | Documento |
 |----------|-------------|
 | **Wiki (mapa, updater, Aircraft YAML)** | [wiki/README.md](wiki/README.md) |
-| Visión general (EN+ES al inicio), reactor, scripts, Discord | [README raíz](../README.md) (`python scripts/generate_plugin_matrix.py`) |
+| Vision general del proyecto, reactor, scripts y direccion tecnica | [README raiz](../README.md) |
 | Matriz auditada por módulo (no editar a mano) | [es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) |
 | Qué queda a nivel build / historial técnico | [es/pending-modules.md](es/pending-modules.md) |
 | Arranque local y convenciones | [en/development-setup.md](en/development-setup.md) · [es/development-setup.md](es/development-setup.md) |
@@ -54,7 +54,7 @@ En el reactor, el `package` de **Slimefun** sombrea Dough bajo `com.github.drake
 
 ## Estado operativo (referencia rápida)
 
-- Rama estable **1.21.x**: `1.21-latin`.
+- Rama estable **1.21.x**: `main`.
 - CI principal: **CI Monorepo 1.21** (`.github/workflows/ci-monorepo-121.yml`).
 - Smoke opcional: **Smoke Runtime 1.21** (`workflow_dispatch`).
 - Servidor de referencia del pack: **[drakescraft.cl](https://drakescraft.cl)**.
