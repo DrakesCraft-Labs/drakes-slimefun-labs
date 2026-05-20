@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.blocks.BlockPosition;
 import dev.drake.dough.collections.Pair;
 import dev.drake.dough.data.persistent.PersistentDataAPI;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import lombok.experimental.UtilityClass;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import org.bukkit.Bukkit;
