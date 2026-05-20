@@ -12,13 +12,16 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import dev.drake.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
+import dev.drake.dough.protection.ProtectionManager;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -82,7 +85,7 @@ public class NetworkQuantumWorkbench extends SlimefunItem {
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
                 return BlockStorage.check(block).canUse(player, false)
-                    && Slimefun.getProtectionManager().hasPermission(player, block.getLocation(), Interaction.INTERACT_BLOCK);
+                    && Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), block.getLocation(), Interaction.INTERACT_BLOCK);
             }
 
             @Override
@@ -146,7 +149,8 @@ public class NetworkQuantumWorkbench extends SlimefunItem {
                         oldCache.getItemStack().clone(),
                         oldCache.getAmount(),
                         newQuantum.getMaxAmount(),
-                        oldCache.isVoidExcess()
+                        oldCache.isVoidExcess(),
+                        oldCache.supportsCustomMaxAmount()
                     );
                     DataTypeMethods.setCustom(newMeta, Keys.QUANTUM_STORAGE_INSTANCE, PersistentQuantumStorageType.TYPE, newCache);
                     newCache.addMetaLore(newMeta);
@@ -155,6 +159,7 @@ public class NetworkQuantumWorkbench extends SlimefunItem {
             }
 
             menu.pushItem(crafted, OUTPUT_SLOT);
+            menu.markDirty();
             for (int recipeSlot : RECIPE_SLOTS) {
                 if (menu.getItemInSlot(recipeSlot) != null) {
                     menu.consumeItem(recipeSlot, 1, true);

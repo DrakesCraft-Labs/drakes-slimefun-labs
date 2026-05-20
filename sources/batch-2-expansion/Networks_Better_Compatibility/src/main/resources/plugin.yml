@@ -1,8 +1,8 @@
-name: Networks
-author: Sefiraat, Chagui68
-description: No idea yet
+name: NetworksV6-Drake
+authors: [Sefiraat, Chagui68, DrakesCraft-Labs]
+description: Networks V6 ported and stabilized for Drake Labs 1.21.x.
 main: io.github.sefiraat.networks.Networks
-website: https://github.com/Chagui68/Networks_Better_Compatibility
+website: https://github.com/DrakesCraft-Labs/drakes-slimefun-labs
 version: ${project.version}
 api-version: "1.21"
 depend:

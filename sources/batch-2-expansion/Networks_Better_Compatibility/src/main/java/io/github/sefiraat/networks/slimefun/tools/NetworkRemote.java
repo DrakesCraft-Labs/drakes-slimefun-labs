@@ -13,11 +13,14 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
+import dev.drake.dough.protection.ProtectionManager;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -52,7 +55,7 @@ public class NetworkRemote extends SlimefunItem {
                             if (optional.isPresent()) {
                                 final Block block = optional.get();
                                 final SlimefunItem slimefunItem = BlockStorage.check(block);
-                                if (Slimefun.getProtectionManager().hasPermission(player, block,
+                                if (Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), block,
                                         Interaction.INTERACT_BLOCK)
                                         && slimefunItem instanceof NetworkGrid) {
                                     setGrid(e.getItem(), block, player);
@@ -105,7 +108,7 @@ public class NetworkRemote extends SlimefunItem {
         BlockMenu blockMenu = BlockStorage.getInventory(location);
         SlimefunItem slimefunItem = BlockStorage.check(location);
         if (slimefunItem instanceof NetworkGrid
-                && Slimefun.getProtectionManager().hasPermission(player, location, Interaction.INTERACT_BLOCK)) {
+                && Slimefun.getProtectionManager().hasPermission(Bukkit.getOfflinePlayer(player.getUniqueId()), location, Interaction.INTERACT_BLOCK)) {
             blockMenu.open(player);
         } else {
             player.sendMessage(Theme.ERROR + "The bound grid can no longer be found.");

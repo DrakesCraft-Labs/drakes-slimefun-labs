@@ -29,7 +29,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
-        
+
         <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
         <slimefun.version>RC-37</slimefun.version>
         <slimefun.drake.version>11.0-Drake-1.21.1-SNAPSHOT</slimefun.drake.version>
@@ -37,7 +37,7 @@
         <infinitylib.version>1.3.11-DRAKE-SNAPSHOT</infinitylib.version>
         <sefilib.version>0.3.1-DRAKE-SNAPSHOT</sefilib.version>
         <maven.deploy.skip>true</maven.deploy.skip>
-        
+
         <!-- Security Patches (2026 Standards) -->
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <guava.version>33.6.0-jre</guava.version>
@@ -94,6 +94,7 @@
         <module>sources/batch-2-expansion/Cultivation_Updated</module>
         <module>sources/batch-2-expansion/LiteXpansion</module>
         <module>sources/batch-2-expansion/Networks_Better_Compatibility</module>
+        <module>sources/batch-2-expansion/Networks-Experimental</module>
         <module>sources/batch-2-expansion/SlimeTinker</module>
         <module>sources/batch-2-expansion/SMG</module>
         <module>sources/batch-2-expansion/Supreme</module>
@@ -379,7 +380,7 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            
+
             <!-- Maven Enforcer Plugin: Strict dependency and environment check -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

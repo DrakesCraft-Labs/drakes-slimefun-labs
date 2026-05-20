@@ -1,24 +1,17 @@
 package dev.drake.dough.updater;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import javax.annotation.Nonnull;
+import org.bukkit.plugin.Plugin;
 import java.util.logging.Level;
 
-import javax.annotation.Nonnull;
-
-import org.bukkit.plugin.Plugin;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import dev.drake.dough.common.CommonPatterns;
-import dev.drake.dough.versions.PrefixedVersion;
-
-public class GitHubBuildsUpdater extends AbstractPluginUpdater<PrefixedVersion> {
-
-    private static final String API_URL = "https://thebusybiscuit.github.io/builds/";
-
+/**
+ * Stub implementation of GitHubBuildsUpdater after removal of auto-update functionality.
+ * Provides constructors matching the original API but performs no actions.
+ */
+public class GitHubBuildsUpdater {
+    private final Plugin plugin;
+    private final File file;
     private final String repository;
     private final String prefix;
 
@@ -27,39 +20,18 @@ public class GitHubBuildsUpdater extends AbstractPluginUpdater<PrefixedVersion> 
     }
 
     public GitHubBuildsUpdater(@Nonnull Plugin plugin, @Nonnull File file, @Nonnull String repo, @Nonnull String prefix) {
-        super(plugin, file, extractBuild(prefix, plugin));
-
+        this.plugin = plugin;
+        this.file = file;
         this.repository = repo;
         this.prefix = prefix;
+        if (plugin != null) {
+            plugin.getLogger().log(Level.INFO, "GitHubBuildsUpdater stub init for repo {0} with prefix {1}", new Object[]{repo, prefix});
+        }
     }
 
-    @Override
     public void start() {
-        try {
-            URL versionsURL = new URL(API_URL + repository + "/builds.json");
-
-            scheduleAsyncUpdateTask(new UpdaterTask<PrefixedVersion>(this, versionsURL) {
-
-                @Override
-                public UpdateInfo parse(String result) throws MalformedURLException {
-                    JsonObject json = (JsonObject) new JsonParser().parse(result);
-
-                    if (json == null) {
-                        getLogger().log(Level.WARNING, "The Auto-Updater could not connect to github.io, is it down?");
-                        return null;
-                    }
-
-                    int latestVersion = json.get("last_successful").getAsInt();
-                    URL downloadURL = new URL(API_URL + repository + '/' + CommonPatterns.SLASH.split(repository)[1] + '-' + latestVersion + ".jar");
-                    PrefixedVersion latest = new PrefixedVersion(prefix, latestVersion);
-                    getLatestVersion().complete(latest);
-
-                    return new UpdateInfo(downloadURL, latest);
-                }
-
-            });
-        } catch (MalformedURLException e) {
-            getLogger().log(Level.SEVERE, "Auto-Updater URL is malformed", e);
+        if (plugin != null) {
+            plugin.getLogger().log(Level.INFO, "GitHubBuildsUpdater stub start() called; auto-update disabled.");
         }
     }
 }

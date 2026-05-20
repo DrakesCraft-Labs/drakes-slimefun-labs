@@ -55,6 +55,7 @@ public class NetworkUtils {
                 if (stackToDrop != null && stackToDrop.getType() != Material.AIR) {
                     blockMenu.getLocation().getWorld().dropItem(blockMenu.getLocation(), stackToDrop.clone());
                     stackToDrop.setAmount(0);
+                    blockMenu.markDirty();
                 }
             }
         }
@@ -69,6 +70,7 @@ public class NetworkUtils {
                             final ItemStack stackClone = StackUtils.getAsQuantity(stack, 1);
                             stack.setAmount(stack.getAmount() - 1);
                             blockMenu.replaceExistingItem(directional.getItemSlots()[i], stackClone);
+                            blockMenu.markDirty();
                             player.sendMessage(
                                     Theme.SUCCESS + "Item [" + i + "]: " + Theme.PASSIVE + "Item added into filter");
                             worked = true;
