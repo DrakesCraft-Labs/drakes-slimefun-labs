@@ -46,7 +46,8 @@
         <jackson.version>2.19.4</jackson.version>
         <log4j2.version>2.25.4</log4j2.version>
         <json.version>20231013</json.version>
-        <plexus-utils.version>3.6.1</plexus-utils.version>
+        <plexus-utils.version>4.0.3</plexus-utils.version>
+        <maven-shade.plexus-utils.version>3.6.1</maven-shade.plexus-utils.version>
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
     </properties>
 
@@ -359,7 +360,7 @@
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-utils</artifactId>
-                            <version>${plexus-utils.version}</version>
+                            <version>${maven-shade.plexus-utils.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
