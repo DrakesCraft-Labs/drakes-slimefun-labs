@@ -1,12 +1,12 @@
 # Inicio de documentación (Español)
 
-**Rama estable:** `1.21-latin` · **Paper 1.21.x** · **Java 21**. El pulido fino addon por addon lo llevan la **comunidad**, **Chagui** y el survival **[DrakesCraft](https://drakescraft.cl)** (Chile).
+**Rama estable:** `main` · **Paper 1.21.x** · **Java 21**. El pulido fino addon por addon lo llevan la **comunidad**, **Chagui** y el survival **[DrakesCraft](https://drakescraft.cl)** (Chile).
 
 ## Por dónde empezar
 
 0. **[Wiki del laboratorio (mapa + runtime)](../wiki/README.md)** — updater GitHub, despliegue, Aircraft YAML.
 1. **[docs/README.md](../README.md)** — índice canónico del monorepo.
-2. **[README.md](../../README.md)** — introducción bilingüe (EN/ES: qué es, objetivos, comandos del reactor, scripts Python, aviso para **Discord de Slimefun**) + tabla de módulos generada (`python scripts/generate_plugin_matrix.py`).
+2. **[README.md](../../README.md)** — portada publica del proyecto: vision, arquitectura, comandos, QA, estado y mapa del repositorio.
 3. **[PLUGIN_MATRIX.md](PLUGIN_MATRIX.md)** — filas auditadas por módulo (no editar a mano).
 
 ## Guías

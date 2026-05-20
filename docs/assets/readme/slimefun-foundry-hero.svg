@@ -1,0 +1,72 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">DrakesCraft Slimefun Foundry</title>
+  <desc id="desc">Animated hero banner for the DrakesCraft Slimefun Foundry README.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#06131f"/>
+      <stop offset="0.42" stop-color="#0d2d2b"/>
+      <stop offset="0.72" stop-color="#261b46"/>
+      <stop offset="1" stop-color="#121826"/>
+    </linearGradient>
+    <linearGradient id="slag" x1="260" y1="84" x2="1020" y2="334" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.5" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.16 0 0 0 0 0.96 0 0 0 0 0.72 0 0 0 0.75 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#ffffff" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+    <style>
+      .panel { fill: rgba(8, 18, 32, 0.74); stroke: rgba(255,255,255,0.16); }
+      .eyebrow { font: 700 22px 'Segoe UI', Arial, sans-serif; letter-spacing: 4px; fill: #9ae6c7; }
+      .title { font: 800 74px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .subtitle { font: 500 26px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .badge { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .small { font: 600 15px 'Segoe UI', Arial, sans-serif; fill: #94a3b8; }
+      .pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin: center; }
+      .slide { animation: slide 7s linear infinite; }
+      .flicker { animation: flicker 2.6s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { opacity: .55; transform: scale(.985); } 50% { opacity: 1; transform: scale(1.015); } }
+      @keyframes slide { from { transform: translateX(-220px); } to { transform: translateX(220px); } }
+      @keyframes flicker { 0%,100% { opacity: .62; } 35% { opacity: 1; } 63% { opacity: .72; } }
+    </style>
+  </defs>
+
+  <rect width="1280" height="420" rx="28" fill="url(#bg)"/>
+  <rect width="1280" height="420" rx="28" fill="url(#grid)"/>
+  <path class="slide" d="M-30 356C176 274 288 390 498 306C704 224 826 118 1044 180C1166 214 1254 190 1328 138" stroke="url(#slag)" stroke-opacity="0.24" stroke-width="28"/>
+  <path class="slide" d="M-70 92C120 160 292 54 470 118C650 182 780 296 964 246C1110 206 1196 230 1348 304" stroke="#38bdf8" stroke-opacity="0.12" stroke-width="20"/>
+
+  <g filter="url(#softGlow)" class="pulse">
+    <circle cx="1000" cy="132" r="66" fill="#34d399" fill-opacity="0.2"/>
+    <circle cx="1060" cy="250" r="90" fill="#f59e0b" fill-opacity="0.15"/>
+    <circle cx="892" cy="284" r="54" fill="#38bdf8" fill-opacity="0.18"/>
+  </g>
+
+  <g transform="translate(64 54)">
+    <rect class="panel" width="1152" height="312" rx="24"/>
+    <rect x="28" y="28" width="92" height="92" rx="20" fill="#0f172a" stroke="#34d399" stroke-opacity="0.45"/>
+    <path class="flicker" d="M74 45L98 80H82L94 112L50 70H70L58 45H74Z" fill="url(#slag)"/>
+    <text x="148" y="64" class="eyebrow">DRAKESCRAFT LABS</text>
+    <text x="148" y="145" class="title">Slimefun Foundry</text>
+    <text x="148" y="194" class="subtitle">A modern Paper 1.21.1 + Java 21 forge for Slimefun core, addons, QA, and releases.</text>
+
+    <g transform="translate(148 232)">
+      <rect width="164" height="44" rx="12" fill="#102a43" stroke="#38bdf8" stroke-opacity="0.4"/>
+      <text x="20" y="29" class="badge">93 modules</text>
+      <rect x="184" width="180" height="44" rx="12" fill="#123524" stroke="#34d399" stroke-opacity="0.44"/>
+      <text x="204" y="29" class="badge">CI reactor</text>
+      <rect x="384" width="196" height="44" rx="12" fill="#3a2507" stroke="#f59e0b" stroke-opacity="0.5"/>
+      <text x="404" y="29" class="badge">runtime smoke</text>
+      <rect x="600" width="174" height="44" rx="12" fill="#2a184b" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="620" y="29" class="badge">security pass</text>
+    </g>
+
+    <text x="944" y="292" text-anchor="end" class="small">ports · patches · builds · docs · survival QA</text>
+  </g>
+</svg>

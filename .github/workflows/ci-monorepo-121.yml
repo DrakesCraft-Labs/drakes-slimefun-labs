@@ -9,13 +9,13 @@ name: CI Monorepo 1.21
 
 on:
   push:
-    branches: ["1.21-latin"]
+    branches: ["main", "1.21-latin"]
     paths-ignore:
       - "**.md"
       - "docs/**"
       - ".gitignore"
   pull_request:
-    branches: ["1.21-latin"]
+    branches: ["main", "1.21-latin"]
     paths-ignore:
       - "**.md"
       - "docs/**"
