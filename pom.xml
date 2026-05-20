@@ -43,7 +43,8 @@
         <guava.version>33.6.0-jre</guava.version>
         <spring.version>6.2.18</spring.version>
         <commons-io.version>2.22.0</commons-io.version>
-        <jackson.version>2.19.4</jackson.version>
+        <jackson.version>2.21.1</jackson.version>
+        <jackson.annotations.version>2.21</jackson.annotations.version>
         <log4j2.version>2.25.4</log4j2.version>
         <json.version>20231013</json.version>
         <plexus-utils.version>4.0.3</plexus-utils.version>
@@ -277,7 +278,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
+                <version>${jackson.annotations.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
