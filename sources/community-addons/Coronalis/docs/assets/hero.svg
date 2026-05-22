@@ -1,43 +1,173 @@
-<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cTitle cDesc">
-  <title id="cTitle">Coronalis Slimefun Addon</title>
-  <desc id="cDesc">Coronalis — deep-sky radio interferometry addon.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="100%" role="img" aria-labelledby="corTitle corDesc">
+  <title id="corTitle">Coronalis — addon Slimefun de radioastronomía</title>
+  <desc id="corDesc">Radar, señales de fase, radiotelescopios y naves en el vacío profundo.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="420">
-      <stop offset="0%" stop-color="#05030d"/>
-      <stop offset="50%" stop-color="#1a1035"/>
-      <stop offset="100%" stop-color="#2a1848"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <radialGradient id="bg" cx="55%" cy="45%" r="85%">
+      <stop offset="0%" stop-color="#2a1848"/>
+      <stop offset="45%" stop-color="#120a24"/>
+      <stop offset="100%" stop-color="#05030d"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f6e7a8"/>
-      <stop offset="100%" stop-color="#c9a227"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#9a7b1a"/>
     </linearGradient>
-    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="0">
+    <linearGradient id="violet" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#e879f9"/>
+      <stop offset="50%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#5b21b6"/>
     </linearGradient>
+    <linearGradient id="beam" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.7"/>
+      <stop offset="40%" stop-color="#a855f7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#05030d" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="radarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ade80" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="radarClip"><circle cx="200" cy="210" r="118"/></clipPath>
     <style>
-      .ey { font: 700 20px 'Segoe UI', Arial; letter-spacing: 6px; fill: #e879f9; }
-      .ti { font: 800 72px 'Segoe UI', Arial; fill: url(#gold); }
-      .su { font: 500 22px 'Segoe UI', Arial; fill: #cbd5e1; }
-      .ba { font: 700 16px 'Segoe UI', Arial; fill: #e2e8f0; }
-      .mo { font: 600 13px Consolas, monospace; fill: #4ade80; }
-      .pulse { animation: p 2.5s ease-in-out infinite; }
-      .wave { stroke-dasharray: 8 12; animation: d 7s linear infinite; }
-      @keyframes p { 0%,100%{opacity:.5} 50%{opacity:1} }
-      @keyframes d { to { stroke-dashoffset: -40; } }
+      .ey{font:700 14px 'Segoe UI',Arial;fill:#e879f9;letter-spacing:5px}
+      .ti{font:800 58px 'Segoe UI',Arial;fill:url(#gold);filter:url(#glow)}
+      .su{font:500 17px 'Segoe UI',Arial;fill:#cbd5e1}
+      .mo{font:600 12px Consolas,monospace;fill:#4ade80}
+      .st{animation:tw 3s ease-in-out infinite}
+      .st2{animation:tw 2.2s ease-in-out infinite .6s}
+      .st3{animation:tw 4s ease-in-out infinite 1.2s}
+      .wave{stroke-dasharray:6 14;animation:ds 6s linear infinite}
+      .pulse{animation:rp 3s ease-out infinite}
+      .sweep{animation:sw 4s linear infinite;transform-origin:200px 210px}
+      .blip{animation:bl 4s ease-in-out infinite}
+      .ship1{animation:sh1 18s linear infinite}
+      .ship2{animation:sh2 22s linear infinite reverse}
+      .scan{animation:sc 7s linear infinite}
+      @keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}
+      @keyframes ds{to{stroke-dashoffset:-40}}
+      @keyframes rp{0%{r:8;opacity:.8}100%{r:140;opacity:0}}
+      @keyframes sw{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+      @keyframes bl{0%,100%{opacity:.2}50%{opacity:1}}
+      @keyframes sh1{0%{transform:translate(0,0)}100%{transform:translate(40px,-18px)}}
+      @keyframes sh2{0%{transform:translate(0,0) rotate(-8deg)}100%{transform:translate(-55px,12px) rotate(-8deg)}}
+      @keyframes sc{0%{transform:translateX(-80px);opacity:0}10%,90%{opacity:.6}100%{transform:translateX(900px);opacity:0}}
     </style>
   </defs>
-  <rect width="1280" height="420" rx="28" fill="url(#bg)"/>
-  <path class="wave" d="M-30 280 C280 180,560 200,980 270" stroke="url(#violet)" stroke-width="2" fill="none" opacity=".5"/>
-  <g transform="translate(56 54)">
-    <rect width="740" height="300" rx="22" fill="rgba(8,4,18,.75)" stroke="rgba(201,162,39,.3)"/>
-    <text x="36" y="50" class="ey">CORONALIS DEEP ARRAY</text>
-    <text x="34" y="130" class="ti">Coronalis</text>
-    <text x="36" y="174" class="su">Slimefun · fase UV · radiotelescopios · descubrimientos XP</text>
-    <text x="36" y="220" class="ba">JackStar6677 · ecosistema Auroralis / Void / Stellar</text>
-    <g class="pulse" transform="translate(36 250)">
-      <circle cx="8" cy="10" r="6" fill="#4ade80"/>
-      <text x="26" y="15" class="mo">PHASE LOCK · 10 Hz TELEMETRY</text>
+
+  <rect width="1280" height="420" fill="url(#bg)"/>
+
+  <!-- estrellas -->
+  <g fill="#fff" opacity=".7">
+    <circle cx="90" cy="45" r="1.2" class="st"/>
+    <circle cx="420" cy="32" r="1" class="st2"/>
+    <circle cx="780" cy="58" r="1.5" fill="#f6e7a8" class="st3"/>
+    <circle cx="1050" cy="38" r="1" class="st"/>
+    <circle cx="1180" cy="95" r="1.3" class="st2"/>
+    <circle cx="340" cy="380" r="1" class="st3"/>
+    <circle cx="920" cy="360" r="1.1" class="st"/>
+    <circle cx="640" cy="25" r="0.8" class="st2"/>
+  </g>
+  <g stroke="#fff" stroke-opacity=".12" stroke-width=".6">
+    <line x1="780" y1="58" x2="850" y2="30"/>
+    <line x1="850" y1="30" x2="920" y2="55"/>
+    <line x1="90" y1="45" x2="140" y2="70"/>
+  </g>
+
+  <!-- rejilla UV -->
+  <g stroke="#7c3aed" stroke-opacity=".12" stroke-width=".5">
+    <line x1="480" y1="60" x2="1240" y2="60"/><line x1="480" y1="120" x2="1240" y2="120"/>
+    <line x1="480" y1="180" x2="1240" y2="180"/><line x1="480" y1="240" x2="1240" y2="240"/>
+    <line x1="480" y1="300" x2="1240" y2="300"/><line x1="480" y1="360" x2="1240" y2="360"/>
+    <line x1="560" y1="40" x2="560" y2="400"/><line x1="720" y1="40" x2="720" y2="400"/>
+    <line x1="880" y1="40" x2="880" y2="400"/><line x1="1040" y1="40" x2="1040" y2="400"/>
+  </g>
+
+  <!-- radar -->
+  <g transform="translate(0,0)">
+    <circle cx="200" cy="210" r="125" fill="url(#radarGlow)" stroke="rgba(74,222,128,.35)" stroke-width="1.5"/>
+    <circle cx="200" cy="210" r="95" fill="none" stroke="rgba(74,222,128,.2)" stroke-width="1"/>
+    <circle cx="200" cy="210" r="60" fill="none" stroke="rgba(74,222,128,.15)" stroke-width="1"/>
+    <circle cx="200" cy="210" r="25" fill="none" stroke="rgba(74,222,128,.25)" stroke-width="1"/>
+    <g clip-path="url(#radarClip)">
+      <path class="sweep" d="M200 210 L200 92 A118 118 0 0 1 318 210 Z" fill="url(#violet)" opacity=".35"/>
     </g>
+    <line x1="200" y1="92" x2="200" y2="328" stroke="rgba(74,222,128,.15)" stroke-width=".5"/>
+    <line x1="82" y1="210" x2="318" y2="210" stroke="rgba(74,222,128,.15)" stroke-width=".5"/>
+    <circle class="blip" cx="248" cy="175" r="4" fill="#4ade80" filter="url(#glow)"/>
+    <circle class="blip" cx="165" cy="245" r="3" fill="#e879f9" style="animation-delay:1.2s"/>
+    <circle class="blip" cx="230" cy="255" r="2.5" fill="#f6e7a8" style="animation-delay:2.1s"/>
+    <text x="200" y="355" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#4ade80" opacity=".85">RADAR 10 Hz</text>
+  </g>
+
+  <!-- pulsos de señal -->
+  <g transform="translate(380 210)">
+    <circle class="pulse" cx="0" cy="0" r="8" fill="none" stroke="#e879f9" stroke-width="1.5" style="animation-delay:0s"/>
+    <circle class="pulse" cx="0" cy="0" r="8" fill="none" stroke="#d4af37" stroke-width="1" style="animation-delay:1s"/>
+    <circle class="pulse" cx="0" cy="0" r="8" fill="none" stroke="#4ade80" stroke-width=".8" style="animation-delay:2s"/>
+  </g>
+
+  <!-- ondas de correlación -->
+  <path class="wave" d="M350 280 C520 160,720 200,950 290" fill="none" stroke="url(#violet)" stroke-width="2" opacity=".55"/>
+  <path class="wave" d="M350 310 C500 240,750 260,980 320" fill="none" stroke="url(#gold)" stroke-width="1.2" opacity=".4" style="animation-duration:8s"/>
+
+  <!-- haz del telescopio -->
+  <path d="M1080 320 L920 40 L860 40 Z" fill="url(#beam)" opacity=".5"/>
+
+  <!-- radiotelescopio principal -->
+  <g transform="translate(1000 200) scale(.85)">
+    <path d="M60 100 L40 40 L80 40 Z" fill="#1a142c" stroke="url(#gold)" stroke-width="1.5"/>
+    <rect x="55" y="40" width="10" height="20" fill="url(#gold)"/>
+    <path d="M0 20 Q60 65 120 20 C105 -5 15 -5 0 20 Z" fill="url(#gold)" filter="url(#glow)" opacity=".95"/>
+    <line x1="0" y1="20" x2="60" y2="-20" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="120" y1="20" x2="60" y2="-20" stroke="url(#gold)" stroke-width="1.5"/>
+    <circle cx="60" cy="-20" r="6" fill="#e879f9"/>
+  </g>
+  <g transform="translate(720 250) scale(.5)">
+    <path d="M0 20 Q60 60 120 20 Z" fill="url(#gold)" opacity=".7"/>
+    <line x1="60" y1="20" x2="60" y2="55" stroke="#7c3aed" stroke-width="2"/>
+  </g>
+
+  <!-- naves -->
+  <g class="ship1" transform="translate(520 95)">
+    <path d="M0 8 L28 0 L32 6 L28 14 L0 8 Z" fill="#2d2640" stroke="#e879f9" stroke-width="1"/>
+    <path d="M6 8 L22 4 L22 12 L6 8 Z" fill="url(#violet)" opacity=".6"/>
+    <circle cx="30" cy="7" r="2" fill="#4ade80" class="st"/>
+    <line x1="-12" y1="8" x2="0" y2="8" stroke="#e879f9" stroke-width="1" opacity=".5"/>
+  </g>
+  <g class="ship2" transform="translate(860 120)">
+    <path d="M0 10 L36 2 L40 10 L36 18 L0 10 Z" fill="#1a142c" stroke="url(#gold)" stroke-width="1"/>
+    <rect x="14" y="6" width="10" height="8" rx="1" fill="#7c3aed" opacity=".5"/>
+    <circle cx="38" cy="10" r="2.5" fill="#f6e7a8"/>
+  </g>
+  <g transform="translate(600 320) scale(.7)" opacity=".85">
+    <ellipse cx="20" cy="12" rx="18" ry="8" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="3 4"/>
+    <path d="M8 12 L32 12 M20 4 L20 20" stroke="#a855f7" stroke-width=".8" opacity=".6"/>
+  </g>
+
+  <!-- barrido telemetría -->
+  <rect class="scan" x="0" y="198" width="120" height="2" fill="#e879f9" opacity=".4" rx="1"/>
+
+  <!-- panel título -->
+  <g transform="translate(380 48)">
+    <rect width="520" height="200" rx="18" fill="rgba(8,4,18,.82)" stroke="rgba(201,162,39,.25)" stroke-width="1"/>
+    <text x="28" y="38" class="ey">CORONALIS ARRAY LABS</text>
+    <text x="26" y="98" class="ti">Coronalis</text>
+    <text x="28" y="128" class="su">Slimefun &#183; interferometría &#183; descubrimientos XP</text>
+    <g transform="translate(28 148)">
+      <circle cx="8" cy="10" r="5" fill="#4ade80" class="st"/>
+      <text x="22" y="14" class="mo">PHASE LOCK &#183; VLBI &#183; DEEP SKY</text>
+    </g>
+    <text x="28" y="178" font-family="Consolas,monospace" font-size="11" fill="#94a3b8">JackStar6677 &#183; Paper 1.21 &#183; Coronalis-drake</text>
+  </g>
+
+  <!-- satélite pequeño -->
+  <g transform="translate(1150 280)">
+    <rect x="0" y="8" width="14" height="10" fill="#2d2640" stroke="#d4af37" stroke-width=".8"/>
+    <line x1="-16" y1="13" x2="0" y2="13" stroke="#7c3aed" stroke-width="1"/>
+    <line x1="14" y1="13" x2="30" y2="13" stroke="#7c3aed" stroke-width="1"/>
+    <circle cx="7" cy="13" r="3" fill="#e879f9" class="st2"/>
   </g>
 </svg>
