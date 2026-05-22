@@ -6,172 +6,172 @@
   <a href="https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml"><img alt="CI Monorepo 1.21" src="https://img.shields.io/badge/CI-Monorepo%201.21-1f9d55?style=for-the-badge&logo=githubactions&logoColor=white"></a>
   <img alt="Java 21" src="https://img.shields.io/badge/Java-21-f97316?style=for-the-badge&logo=openjdk&logoColor=white">
   <img alt="Paper 1.21.1" src="https://img.shields.io/badge/Paper-1.21.1-38bdf8?style=for-the-badge">
-  <img alt="Maven and Gradle" src="https://img.shields.io/badge/Maven%20%2B%20Gradle-Hybrid%20Reactor-8b5cf6?style=for-the-badge">
-  <a href="LICENSE"><img alt="GPLv3" src="https://img.shields.io/badge/License-GPLv3-ef4444?style=for-the-badge"></a>
+  <img alt="Maven y Gradle" src="https://img.shields.io/badge/Maven%20%2B%20Gradle-Reactor%20H%C3%ADbrido-8b5cf6?style=for-the-badge">
+  <a href="LICENSE"><img alt="GPLv3" src="https://img.shields.io/badge/Licencia-GPLv3-ef4444?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-  <strong>DrakesCraft Slimefun Foundry</strong> is the engineering home for the DrakesCraft Slimefun stack: a curated monorepo that ports, repairs, secures, builds, and documents Slimefun 4 plus a large addon ecosystem for modern Paper servers.
+  <strong>DrakesCraft Slimefun Foundry</strong> es el espacio de ingeniería del stack Slimefun de DrakesCraft: un monorepo curado que adapta, repara, asegura, compila y documenta Slimefun 4 junto con un extenso ecosistema de addons para servidores Paper modernos.
 </p>
 
 <p align="center">
-  <a href="#what-this-is">What this is</a> ·
-  <a href="#why-it-exists">Why it exists</a> ·
-  <a href="#architecture">Architecture</a> ·
-  <a href="#repository-map">Repository map</a> ·
-  <a href="#build-and-qa">Build and QA</a>
+  <a href="#qué-es-esto">Qué es esto</a> ·
+  <a href="#por-qué-existe">Por qué existe</a> ·
+  <a href="#arquitectura">Arquitectura</a> ·
+  <a href="#mapa-del-repositorio">Mapa del repositorio</a> ·
+  <a href="#compilación-y-control-de-calidad-qa">Compilación y QA</a>
 </p>
 
 ---
 
-## What This Is
+## Qué es esto
 
-This repository is not a loose mirror of old plugins. It is a controlled compatibility foundry for the **DrakesCraft** server network and the wider Slimefun ecosystem.
+Este repositorio no es un simple espejo desorganizado de plugins antiguos. Es una forja de compatibilidad controlada para la red de servidores **DrakesCraft** y el ecosistema general de Slimefun.
 
-The goal is to keep Slimefun usable on a modern server baseline:
+El objetivo es mantener Slimefun usable sobre una base de servidor moderna:
 
-- **Minecraft/Paper:** Paper `1.21.1` family.
-- **Runtime:** Java `21`.
-- **Core:** Drake-maintained Slimefun 4 fork, Dough fork, internal compatibility patches, and shared libraries.
-- **Addons:** community addons, ports, experimental modules, and production-ready modules grouped in one auditable workspace.
-- **Workflow:** Maven + Gradle reactors, CI gates, smoke-test guides, GitHub release tooling, and security maintenance.
+- **Minecraft/Paper:** Familia de Paper `1.21.1`.
+- **Entorno de ejecución:** Java `21`.
+- **Núcleo (Core):** Fork de Slimefun 4 mantenido por Drake, fork de Dough, parches de compatibilidad internos y librerías compartidas.
+- **Addons:** Addons de la comunidad, adaptaciones (ports), módulos experimentales y módulos listos para producción agrupados en un único espacio de trabajo auditable.
+- **Flujo de trabajo:** Reactores de Maven + Gradle, validación de integración continua (CI), guías de pruebas de humo, herramientas de lanzamiento en GitHub y mantenimiento de seguridad.
 
-In plain terms: this is where old, fragile, abandoned, or scattered Slimefun pieces get rebuilt into a stack that can actually survive on DrakesCraft.
+En términos sencillos: aquí es donde las piezas obsoletas, frágiles, abandonadas o dispersas de Slimefun se reconstruyen en un stack robusto que realmente puede sobrevivir en DrakesCraft.
 
-## Why It Exists
+## Por qué existe
 
-Slimefun has a huge addon ecosystem, but many plugins were built for older Bukkit/Paper APIs, stale dependencies, abandoned libraries, or single-addon build assumptions. That creates a familiar problem for a real survival server: one addon can compile, another can boot, another can silently corrupt state, and the full pack becomes hard to trust.
+Slimefun posee un ecosistema de addons inmenso, pero muchos plugins fueron creados para APIs antiguas de Bukkit/Paper, dependencias obsoletas, librerías abandonadas o asumiendo la compilación de un único addon. Esto genera un problema típico para un servidor de supervivencia real: un addon puede compilar, otro puede iniciar y otro puede corromper silenciosamente los datos, haciendo que el pack completo sea difícil de confiar.
 
-DrakesCraft Slimefun Foundry exists to solve that as a system:
+DrakesCraft Slimefun Foundry existe para resolver esto de forma integral:
 
-| Problem | Foundry answer |
+| Problema | Solución de Foundry |
 |---|---|
-| Addons targeting old APIs | Port source code to Paper 1.21.1 and Java 21. |
-| Incompatible dependency trees | Centralize dependency management in the root reactor. |
-| Abandoned vulnerable libraries | Replace, patch, shade, or isolate them with documented rationale. |
-| Forks with useful fixes | Audit first, integrate selectively, keep history readable. |
-| Builds that only work on one machine | CI, reproducible commands, and module matrix docs. |
-| Runtime uncertainty | Smoke-test guides and DrakesCraft as the reference survival environment. |
+| Addons orientados a APIs antiguas | Adaptar el código fuente a Paper 1.21.1 y Java 21. |
+| Árboles de dependencias incompatibles | Centralizar la gestión de dependencias en el reactor raíz. |
+| Librerías abandonadas y vulnerables | Reemplazarlas, parchearlas, sombrearlas (shade) o aislarlas con justificación documentada. |
+| Forks con arreglos útiles | Auditar primero, integrar selectivamente y mantener el historial legible. |
+| Compilaciones que solo funcionan en una máquina | CI, comandos reproducibles y documentación de la matriz de módulos. |
+| Incertidumbre en producción | Guías de pruebas de humo y uso de DrakesCraft como entorno de supervivencia de referencia. |
 
-## Project Direction
+## Dirección del proyecto
 
-The active baseline is **`main`**. The older **`main`** line is kept as historical reference and comparison base, not as the main development target.
+La base de desarrollo activa es **`main`**. Las ramas anteriores se mantienen únicamente como referencia histórica y base de comparación, no como el objetivo de desarrollo principal.
 
-The long-term direction is:
+La dirección a largo plazo es:
 
-1. Keep the full 1.21.x pack compiling and secure.
-2. Convert more modules from "compiles" to "runtime-smoked".
-3. Document behavior clearly enough that staff, QA testers, and future contributors can help without needing to understand the entire reactor.
-4. Keep experimental work separated from production plugin identity, especially for sensitive modules like Networks.
-5. Prepare the project for future Paper/Minecraft lines without mixing incompatible branches blindly.
+1. Mantener todo el paquete compatible con la versión 1.21.x de forma segura y compilable.
+2. Convertir más módulos del estado de "compila" a "verificado en ejecución".
+3. Documentar el comportamiento de forma clara para que el equipo técnico, evaluadores de QA y futuros colaboradores puedan ayudar sin tener que comprender todo el reactor.
+4. Mantener el trabajo experimental separado de la identidad de los plugins de producción, especialmente para módulos sensibles como Networks.
+5. Preparar el proyecto para futuras versiones de Paper/Minecraft sin mezclar ramas incompatibles a ciegas.
 
-## Architecture
+## Arquitectura
 
 <p align="center">
-  <img src="docs/assets/readme/foundry-architecture.svg" alt="Foundry architecture diagram" width="100%">
+  <img src="docs/assets/readme/foundry-architecture.svg" alt="Diagrama de arquitectura de Foundry" width="100%">
 </p>
 
-The monorepo is built around a few deliberate layers:
+El monorepo está construido sobre unas capas muy específicas:
 
-| Layer | Purpose |
+| Capa | Propósito |
 |---|---|
-| **Foundation** | Slimefun core, Dough, SefiLib, InfinityLib, compatibility patches. |
-| **Production ports** | Addons that are intended to behave like normal server plugins once built. |
-| **Experimental modules** | Work that must not collide with production plugin names, commands, or data. |
-| **Automation** | CI, release collectors, matrix generation, porting scripts, smoke helpers. |
-| **Docs** | Spanish and English operational documentation, QA agreements, migration notes, and plugin matrix. |
+| **Base (Foundation)** | Slimefun core, Dough, SefiLib, InfinityLib, parches de compatibilidad. |
+| **Ports de producción** | Addons que se comportan como plugins normales una vez compilados. |
+| **Módulos experimentales** | Trabajo que no debe colisionar con nombres de plugins de producción, comandos o datos. |
+| **Automatización** | CI, colectores de lanzamiento, generación de matrices, scripts de portabilidad, asistentes de humo. |
+| **Documentación** | Documentación operativa en español e inglés, acuerdos de QA, notas de migración y matriz de plugins. |
 
-## Current Status
+## Estado actual
 
-The repository currently tracks a full Slimefun pack rather than a single plugin:
+El repositorio rastrea un paquete completo de Slimefun en lugar de un único plugin:
 
-| Area | Status |
+| Área | Estado |
 |---|---|
-| Maven reactor | Full reactor package verified locally. |
-| Gradle addons | Integrated through the root Gradle workflow where applicable. |
-| Dependabot alerts | Clean after the latest security pass. |
-| Networks | Codigo en [NetworksV6-drake](https://github.com/DrakesCraft-Labs/NetworksV6-drake); el monorepo solo consume el artefacto Maven. |
-| Chagui fork work | Audited and integrated selectively; no blind merge. |
-| Runtime QA | Still the real next frontier: gameplay, menus, recipes, persistence, and plugin interactions. |
+| Reactor Maven | Paquete completo del reactor verificado localmente. |
+| Addons Gradle | Integrados a través del flujo Gradle raíz cuando corresponde. |
+| Alertas Dependabot | Limpias tras la última revisión de seguridad. |
+| Networks | Código en [NetworksV6-drake](https://github.com/DrakesCraft-Labs/NetworksV6-drake); el monorepo solo consume el artefacto Maven. |
+| Trabajo de fork Chagui | Auditado e integrado selectivamente; sin fusiones a ciegas. |
+| QA en juego | Sigue siendo la frontera real: jugabilidad, menús, recetas, persistencia e interacción entre plugins. |
 
-Detailed module status lives in [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md). That file is generated and should stay as the audit table; this README is the public-facing explanation.
+El estado detallado de cada módulo se encuentra en [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md). Dicho archivo se genera automáticamente y actúa como tabla de auditoría; este README es la explicación de cara al público.
 
-## Repository Map
+## Mapa del repositorio
 
 ```text
 drakes-slimefun-labs/
-├─ .github/workflows/                  CI, release, maintenance automation
-├─ docs/                               central documentation in ES/EN
-├─ scripts/                            matrix generation, porting, smoke helpers
+├─ .github/workflows/                  Automatización de CI, releases y mantenimiento
+├─ docs/                               Documentación central en ES/EN
+├─ scripts/                            Generación de matrices, portabilidad y asistentes de pruebas
 ├─ sources/
-│  ├─ slimefun-core/Slimefun4-src       Drake Slimefun core
-│  ├─ dough-core/                       Drake Dough fork
-│  ├─ drakes-labs-autoupdate/           shared updater library
-│  ├─ batch-2-expansion/                active expansion batch
-│  ├─ community-addons/                 community addon integrations
-│  ├─ repos-to-port/                    ported upstream addons
-│  └─ internal-metadata/patches/        controlled compatibility patches
-├─ pom.xml                             Maven reactor root
-└─ settings.gradle.kts                 Gradle reactor root
+│  ├─ slimefun-core/Slimefun4-src       Núcleo de Slimefun adaptado para Drake
+│  ├─ dough-core/                       Fork de Dough adaptado para Drake
+│  ├─ drakes-labs-autoupdate/           Librería compartida de actualización
+│  ├─ batch-2-expansion/                Lote de expansión activo
+│  ├─ community-addons/                 Integraciones de addons de la comunidad
+│  ├─ repos-to-port/                    Addons adaptados desde upstream
+│  └─ internal-metadata/patches/        Parches de compatibilidad controlados
+├─ pom.xml                             Raíz del reactor Maven
+└─ settings.gradle.kts                 Raíz del reactor Gradle
 ```
 
-## Build And QA
+## Compilación y QA
 
-Use these commands from the repository root.
+Utiliza estos comandos desde la raíz del repositorio:
 
 ```powershell
-# Full Maven reactor, same practical gate used for broad local verification.
+# Reactor Maven completo, el mismo control utilizado para validación local.
 mvn -f pom.xml -DskipTests package
 
-# Regenerate the generated module matrix.
+# Regenerar la matriz de módulos generada.
 python scripts/generate_plugin_matrix.py
 
-# Build the SlimefunTranslation artifact required by UltimateGenerators2 in local runs.
+# Compilar el artefacto SlimefunTranslation requerido por UltimateGenerators2 localmente.
 cd sources/community-addons/SlimefunTranslation
 .\gradlew.bat shadowJar --no-daemon
 ```
 
-The project intentionally separates build success from runtime confidence. A module can compile and still need smoke testing in a Paper server before it should be trusted in production.
+El proyecto separa intencionalmente el éxito de la compilación de la confianza en tiempo de ejecución. Un módulo puede compilar correctamente y aun así necesitar pruebas de humo en un servidor Paper antes de poder considerarse seguro para producción.
 
-Recommended runtime checks:
+Comprobaciones recomendadas en juego:
 
-- Server boot with the full plugin pack.
-- Slimefun guide opening and category navigation.
-- Machines, generators, cargo/network behavior, and persistence after restart.
-- Economy, protection, WorldEdit, Towny, mcMMO, and other integration-sensitive paths.
-- Logs for warnings that do not fail compilation but matter in a live server.
+- Inicio del servidor con el pack completo de plugins sin errores de consola.
+- Apertura de la guía Slimefun y navegación por sus categorías.
+- Comportamiento de máquinas, generadores, transporte/redes y persistencia tras reiniciar el servidor.
+- Interacciones con economía, protección de terrenos, WorldEdit, Towny, mcMMO y otros plugins.
+- Revisión de advertencias (warnings) en logs que no fallen en la compilación pero importen en un servidor activo.
 
-## Documentation
+## Documentación
 
-| Need | Start here |
+| Necesidad | Empieza aquí |
 |---|---|
-| Central documentation index | [`docs/README.md`](docs/README.md) |
-| Spanish landing docs | [`docs/es/home.md`](docs/es/home.md) |
-| English landing docs | [`docs/en/home.md`](docs/en/home.md) |
-| Generated plugin matrix | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
-| Smoke testing guide | [`docs/es/smoke-test-guide.md`](docs/es/smoke-test-guide.md) |
-| GitHub maintenance | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
-| Chagui fork audit | [`docs/chagui-fork-audit.md`](docs/chagui-fork-audit.md) |
-| Runtime wiki notes | [`docs/wiki/README.md`](docs/wiki/README.md) |
+| Índice de documentación central | [`docs/README.md`](docs/README.md) |
+| Página de inicio en español | [`docs/es/home.md`](docs/es/home.md) |
+| Página de inicio en inglés | [`docs/en/home.md`](docs/en/home.md) |
+| Matriz de plugins generada | [`docs/es/PLUGIN_MATRIX.md`](docs/es/PLUGIN_MATRIX.md) |
+| Guía de pruebas de humo | [`docs/es/smoke-test-guide.md`](docs/es/smoke-test-guide.md) |
+| Mantenimiento de GitHub | [`docs/github-maintenance.md`](docs/github-maintenance.md) |
+| Auditoría del fork de Chagui | [`docs/chagui-fork-audit.md`](docs/chagui-fork-audit.md) |
+| Notas de la wiki de ejecución | [`docs/wiki/README.md`](docs/wiki/README.md) |
 
-## Naming Proposal
+## Propuesta de nomenclatura
 
-The current repository slug is still `drakes-slimefun-labs` for compatibility with existing links and remotes.
+El slug actual del repositorio sigue siendo `drakes-slimefun-labs` para mantener compatibilidad con enlaces y remotos existentes.
 
-Recommended public name:
+Nombre público recomendado:
 
 ```text
 DrakesCraft Slimefun Foundry
 ```
 
-Recommended future repository slug:
+Slug de repositorio futuro recomendado:
 
 ```text
 slimefun-foundry
 ```
 
-That name is shorter, more memorable, and better reflects the project: not just "labs", but a place where the stack is forged, tested, hardened, and released.
+Este nombre es más corto, memorable y refleja mejor la naturaleza del proyecto: no solo un "laboratorio", sino un espacio donde el stack se forja, se prueba, se asegura y se publica.
 
-## License
+## Licencia
 
-This repository is licensed under **GPLv3**. See [`LICENSE`](LICENSE).
+Este repositorio se distribuye bajo la licencia **GPLv3**. Ver [`LICENSE`](LICENSE).
