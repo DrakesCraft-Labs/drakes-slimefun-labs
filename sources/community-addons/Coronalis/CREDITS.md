@@ -4,8 +4,8 @@
 
 ## Nombre
 
-**Coronalis** es marca de proyecto original en el ecosistema Jack (junto a AuroralisStar, VoidWhisper, StellarDaybook). No debe confundirse con AstroControlSim ni con propiedad intelectual de terceros.
+**Coronalis** es marca de proyecto original en el ecosistema Jack (junto a AuroralisStar, VoidWhisper, StellarDaybook). Addon Slimefun independiente; código en este repositorio y en `drakes-slimefun-labs/sources/community-addons/Coronalis`.
 
-## Inspiración técnica
+## Agradecimientos
 
-Mecánicas adaptadas desde el simulador [AstroControlSim](https://github.com/JackStar6677-1/AstroControlSim) (telemetría, PID, paquetes de 86 bytes). El código y el plugin viven solo en este módulo y en el repo **Coronalis**.
+Inspiración en radioastronomía amateur y en la comunidad Paper / Slimefun.
