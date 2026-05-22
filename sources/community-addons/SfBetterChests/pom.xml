@@ -101,7 +101,7 @@
 
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>Networks-drake</artifactId>
+            <artifactId>NetworksV6-drake</artifactId>
             <version>11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>

@@ -90,7 +90,7 @@ The repository currently tracks a full Slimefun pack rather than a single plugin
 | Maven reactor | Full reactor package verified locally. |
 | Gradle addons | Integrated through the root Gradle workflow where applicable. |
 | Dependabot alerts | Clean after the latest security pass. |
-| Networks | Production and experimental identities separated. |
+| Networks | Codigo en [NetworksV6-drake](https://github.com/DrakesCraft-Labs/NetworksV6-drake); el monorepo solo consume el artefacto Maven. |
 | Chagui fork work | Audited and integrated selectively; no blind merge. |
 | Runtime QA | Still the real next frontier: gameplay, menus, recipes, persistence, and plugin interactions. |
 

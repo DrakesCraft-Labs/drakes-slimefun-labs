@@ -95,8 +95,6 @@
         <!-- Batch 2 & Community (Active) -->
         <module>sources/batch-2-expansion/Cultivation_Updated</module>
         <module>sources/batch-2-expansion/LiteXpansion</module>
-        <module>sources/batch-2-expansion/Networks_Better_Compatibility</module>
-        <module>sources/batch-2-expansion/Networks-Experimental</module>
         <module>sources/batch-2-expansion/SlimeTinker</module>
         <module>sources/batch-2-expansion/SMG</module>
         <module>sources/batch-2-expansion/Supreme</module>
@@ -315,7 +313,7 @@
         </dependency>
             <dependency>
                 <groupId>com.github.drakescraft_labs</groupId>
-                <artifactId>Networks-drake</artifactId>
+                <artifactId>NetworksV6-drake</artifactId>
                 <version>11-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>

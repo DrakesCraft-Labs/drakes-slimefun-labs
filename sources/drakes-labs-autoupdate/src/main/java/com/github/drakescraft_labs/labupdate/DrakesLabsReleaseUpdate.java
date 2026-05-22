@@ -45,8 +45,7 @@ import com.google.gson.JsonParser;
  */
 public final class DrakesLabsReleaseUpdate {
 
-    private static final String REPO = "DrakesCraft-Labs/drakes-slimefun-labs";
-    private static final String API_LATEST = "https://api.github.com/repos/" + REPO + "/releases/latest";
+    private static final String DEFAULT_REPO = "DrakesCraft-Labs/drakes-slimefun-labs";
     private static final String USER_AGENT = "DrakesLabs-AutoUpdate/1.2";
     private static final String MONOREPO_ZIP_NAME = "monorepo-plugins.zip";
     private static final String MONOREPO_ENTRY_PREFIX = "monorepo-jars/";
@@ -62,15 +61,23 @@ public final class DrakesLabsReleaseUpdate {
      * @param mavenArtifactId  {@code <artifactId>} del módulo Maven (p. ej. {@code ExoticGarden-drake})
      */
     public static void schedule(JavaPlugin plugin, String mavenArtifactId) {
+        schedule(plugin, mavenArtifactId, DEFAULT_REPO);
+    }
+
+    /**
+     * @param githubRepo repositorio {@code owner/name} del que leer releases (p. ej. addon standalone)
+     */
+    public static void schedule(JavaPlugin plugin, String mavenArtifactId, String githubRepo) {
         if (mavenArtifactId == null || mavenArtifactId.isBlank()) {
             return;
         }
         if (isDisabled()) {
             return;
         }
+        final String repo = (githubRepo == null || githubRepo.isBlank()) ? DEFAULT_REPO : githubRepo.trim();
         final String token = githubToken();
         final String aid = mavenArtifactId.trim();
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> run(plugin, aid, token));
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> run(plugin, aid, repo, token));
     }
 
     private static boolean isDisabled() {
@@ -90,10 +97,11 @@ public final class DrakesLabsReleaseUpdate {
         return t != null && !t.isBlank() ? t.trim() : null;
     }
 
-    private static void run(JavaPlugin plugin, String mavenArtifactId, String token) {
+    private static void run(JavaPlugin plugin, String mavenArtifactId, String githubRepo, String token) {
         File zipScratch = null;
         try {
-            String json = httpGetJson(API_LATEST, token);
+            String apiLatest = "https://api.github.com/repos/" + githubRepo + "/releases/latest";
+            String json = httpGetJson(apiLatest, token);
             if (json == null || json.isBlank()) {
                 return;
             }
