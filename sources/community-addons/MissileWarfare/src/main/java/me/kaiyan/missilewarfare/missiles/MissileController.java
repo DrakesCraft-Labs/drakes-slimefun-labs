@@ -11,6 +11,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -232,18 +233,25 @@ public class MissileController {
         }
     }
 
+    public void spawnTNTRaw(){
+        world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
+            tnt.setFuseTicks(0);
+            tnt.setYield((float) power);
+        });
+    }
+
     public void spawnExplosionWithCheck(){
         if (MissileWarfare.townyEnabled){
             boolean explode = TownyLoader.exploded(nearestPlayer, pos.toLocation(world));
             if (explode){
-                world.createExplosion(pos.toLocation(world), (float) power, false, true);
+                spawnTNTRaw();
                 return;
             } else {
                 if (MissileWarfare.worldGuardEnabled){
                     WorldGuardLoader.explode(world, pos, power, armourStand, nearestPlayer);
                     return;
                 } else {
-                    world.createExplosion(pos.toLocation(world), (float) power, false, true);
+                    spawnTNTRaw();
                     return;
                 }
             }
@@ -252,7 +260,7 @@ public class MissileController {
             WorldGuardLoader.explode(world, pos, power, armourStand, nearestPlayer);
             return;
         }
-        world.createExplosion(pos.toLocation(world), (float) power, false, true);
+        spawnTNTRaw();
     }
 
     public void explode(BukkitRunnable run){

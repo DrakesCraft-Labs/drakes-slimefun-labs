@@ -99,6 +99,7 @@
         <module>sources/batch-2-expansion/SMG</module>
         <module>sources/batch-2-expansion/Supreme</module>
         <module>sources/batch-2-expansion/TranscEndence</module>
+        <module>sources/batch-2-expansion/Slimefun-Disc</module>
         <module>sources/community-addons/AlchimiaVitae</module>
         <module>sources/community-addons/CrystamaeHistoria</module>
         <module>sources/community-addons/DankTech2</module>
@@ -121,7 +122,6 @@
         <module>sources/community-addons/SfChunkInfo</module>
         <module>sources/community-addons/Simple-Storage</module>
         <module>sources/community-addons/SlimeCustomizer</module>
-        <module>sources/community-addons/UltimateGenerators2</module>
         <module>sources/community-addons/VillagerUtil</module>
 
         <!-- New Integrations (Batch 3) -->
@@ -428,6 +428,10 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/DrakesCraft-Labs/drakes-slimefun-labs</url>
+        </repository>
         <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>

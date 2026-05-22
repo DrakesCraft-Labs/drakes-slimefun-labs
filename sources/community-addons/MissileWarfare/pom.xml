@@ -12,7 +12,7 @@
 
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>MissileWarfare-drake</artifactId>
-    <version>1.11-SNAPSHOT.13</version>
+    <version>1.13-SNAPSHOT.13</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>

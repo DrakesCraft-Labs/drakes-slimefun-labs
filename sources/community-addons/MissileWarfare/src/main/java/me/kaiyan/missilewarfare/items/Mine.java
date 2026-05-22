@@ -5,13 +5,17 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
-import me.kaiyan.missilewarfare.MissileWarfare;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import me.kaiyan.missilewarfare.MissileWarfare;
 import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.Location;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,7 +28,7 @@ public class Mine extends SlimefunItem implements Listener {
             @Override
             public void onPlayerPlace(BlockPlaceEvent blockPlaceEvent) {
                 Material type = blockPlaceEvent.getBlockAgainst().getType();
-                if (type == Material.BEDROCK || type == Material.ICE){
+                if (type == Material.BEDROCK || type == Material.ICE) {
                     return;
                 }
                 blockPlaceEvent.getBlockPlaced().setType(type);
@@ -35,11 +39,25 @@ public class Mine extends SlimefunItem implements Listener {
         MissileWarfare.getInstance().getServer().getPluginManager().registerEvents(this, MissileWarfare.getInstance());
     }
 
-    @EventHandler
-    public void onPlayerMove(PlayerMoveEvent event){
-        if (BlockStorage.check(event.getFrom().getBlock().getRelative(BlockFace.DOWN), getId())){
-            event.getPlayer().getWorld().createExplosion(event.getTo(), MissileWarfare.getInstance().getConfig().getInt("mine.explosivepower"));
-            event.getPlayer().damage(Math.random()*MissileWarfare.getInstance().getConfig().getLong("mine.maxranddamage"));
-        }
-    }
+@EventHandler
+public void onPlayerMove(PlayerMoveEvent event){
+Block block = event.getFrom().getBlock().getRelative(BlockFace.DOWN);
+if (BlockStorage.check(block, getId())){
+Player player = event.getPlayer();
+Location loc = block.getLocation();
+
+BlockStorage.getStorage(loc.getWorld()).clearBlockInfo(loc);
+block.setType(Material.AIR);
+
+for (int i = 0; i < 50; i++) {
+player.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, loc.clone().add(0.5, 0.5, 0.5), 0, Math.random() - 0.5, Math.random() * 2, Math.random() - 0.5, 0.25, null, true);
+player.getWorld().spawnParticle(Particle.FLAME, loc.clone().add(0.5, 0.5, 0.5), 0, Math.random() - 0.5, Math.random() * 2, Math.random() - 0.5, 0.25, null, true);
+}
+
+org.bukkit.entity.TNTPrimed tnt = (org.bukkit.entity.TNTPrimed) player.getWorld().spawnEntity(loc.clone().add(0.5, 0.5, 0.5), org.bukkit.entity.EntityType.TNT);
+tnt.setFuseTicks(0);
+
+player.damage(Math.random() * MissileWarfare.getInstance().getConfig().getDouble("mine.maxranddamage"));
+}
+}
 }
