@@ -47,6 +47,9 @@ updates:
     commit-message:
       prefix: "chore(deps)"
     ignore:
+      # Artifacts internos publicados en GitHub Packages: se suben desde el
+      # monorepo y Dependabot no debe intentar resolverlos sin credenciales.
+      - dependency-name: "com.github.drakescraft_labs:*"
       # API alineada con paper.version + smoke; subir solo en PR humano.
       - dependency-name: "io.papermc.paper:paper-api"
       - dependency-name: "net.md-5:bungeecord-chat"
