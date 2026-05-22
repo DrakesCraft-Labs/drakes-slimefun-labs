@@ -1,0 +1,9 @@
+name: Coronalis
+version: ${project.version}
+main: com.github.jackstar.coronalis.Coronalis
+api-version: '1.21'
+description: Addon Slimefun Coronalis — array de radio, correlación de fase y catálogo de descubrimientos con XP.
+depend:
+  - Slimefun
+author: JackStar6677-1
+website: https://github.com/JackStar6677-1/Coronalis

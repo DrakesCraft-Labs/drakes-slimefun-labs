@@ -125,6 +125,7 @@
         <module>sources/community-addons/VillagerUtil</module>
 
         <!-- New Integrations (Batch 3) -->
+        <module>sources/community-addons/Coronalis</module>
         <module>sources/community-addons/AdvancedTech</module>
         <module>sources/community-addons/Better-Nuclear-Generator</module>
         <module>sources/community-addons/CompressionCraft</module>
