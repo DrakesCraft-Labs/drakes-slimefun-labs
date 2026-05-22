@@ -1,0 +1,8 @@
+name: Slimefun-Disc
+description: Custom music discs that play .nbs song files through Slimefun
+version: ${project.version}
+api-version: "1.21"
+author: Chagui68, Drakes_Labs
+depend:
+  - Slimefun
+main: dev.drake.disc.SlimefunDisc

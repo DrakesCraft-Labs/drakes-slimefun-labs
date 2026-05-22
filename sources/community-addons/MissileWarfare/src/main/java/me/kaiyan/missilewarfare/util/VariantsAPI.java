@@ -79,9 +79,12 @@ public class VariantsAPI {
         return "NONE";
     }
 
-    public static int getIntTypeFromSlimefunitem(SlimefunItem item){
-        return getIntTypeFromSlimefunitemID(item.getId());
-    }
+public static int getIntTypeFromSlimefunitem(SlimefunItem item){
+if (item == null) {
+return 0;
+}
+return getIntTypeFromSlimefunitemID(item.getId());
+}
 
     public static int getIntTypeFromSlimefunitemID(String id){
         switch (id) {
@@ -227,14 +230,14 @@ public class VariantsAPI {
             spawnParticleCompat(world, Particle.END_ROD, pos, 0, -velocity.getX()+((rand.nextDouble()-0.5)*0.25), -velocity.getY()+((rand.nextDouble()-0.5)*0.25), -velocity.getZ()+((rand.nextDouble()-0.5)*0.25), 0.3, true);
         } else if (type == 4 || type == 9){
             //ACCURATE MISSILES
-            spawnParticleCompat(world, Particle.CRIT, pos, 0, -velocity.getX()+((rand.nextDouble()-0.5)*0.25), -velocity.getY()+((rand.nextDouble()-0.5)*0.25), -velocity.getZ()+((rand.nextDouble()-0.5)*0.25), 0.3, true);
+            spawnParticleCompat(world, Particle.CRIT, pos, 0, -velocity.getX()+((rand.nextDouble()-0.5)*0.25), -velocity.getY()+((rand.nextDouble()-0.5)*0.25), -velocity.getZ()+((rand.nextDouble()-0.5)*0.5), 0.3, true);
         }
         if (type == 6 || type == 7 || type == 8 || type == 9 || type == 10){
             // 'Missile' TYPES
-            world.spawnParticle(Particle.HAPPY_VILLAGER, pos.toLocation(world), 1);
+            spawnParticleCompat(world, Particle.HAPPY_VILLAGER, pos, 1, 0, 0, 0, 0, true);
         }
-        if (type == 10 || type == 11 || type == 12){
-            world.spawnParticle(Particle.DRAGON_BREATH, pos.toLocation(world), 1);
-        }
+    if (type == 10 || type == 11 || type == 12){
+        spawnParticleCompat(world, Particle.DRAGON_BREATH, pos, 1, 0, 0, 0, 0, true);
     }
+}
 }

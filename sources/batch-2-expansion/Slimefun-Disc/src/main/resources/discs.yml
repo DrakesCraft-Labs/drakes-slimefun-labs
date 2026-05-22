@@ -1,0 +1,71 @@
+# Slimefun-Disc discs.yml
+# Configure each disc individually. Only songs listed here will be registered.
+#
+# Each entry requires:
+#   file: The .nbs filename inside the songs/ folder (case-sensitive)
+#
+# Optional fields:
+#   name: Display name override (uses the song's internal name if not set)
+#   recipe-type: ENHANCED_CRAFTING_TABLE, MAGIC_WORKBENCH, ARMOR_FORGE, etc.
+#   uncraftable: true (disc can only be obtained via commands)
+#   recipe: 9 items (3x3 grid, left-to-right, top-to-bottom)
+#   loot-table: (optional)
+#
+# Recipe slots use Material names (e.g. DIAMOND, IRON_INGOT) or
+# Slimefun item IDs (e.g. STEEL_INGOT, DISC_MOLD).
+# Use "none" or leave empty for empty slots.
+
+discs:
+  albatraoz:
+    file: "I'm an Albatraoz.nbs"
+    name: "Albatraoz"
+    uncraftable: true
+
+  bohemian:
+    file: "Bohemian_Rhapsody_-_Queen.nbs"
+    name: "&6Bohemian Rhapsody - Queen"
+    uncraftable: true
+  lonely_day:
+    file: "Lonely_Day_System_of_a_Down.nbs"
+    name: "&6Lonely Day - System of a Down"
+    recipe-type: ENHANCED_CRAFTING_TABLE
+    recipe:
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - DISC_MOLD
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+
+  solider_side:
+    file: "Solider_Side_-_System_of_Down.nbs"
+    name: "&6Solider Side - System of a Down"
+    recipe-type: ENHANCED_CRAFTING_TABLE
+    recipe:
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - DISC_MOLD
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+      - IRON_INGOT
+
+  mezmerizer:
+    file: "Mezmerizer.nbs"
+    name: "&6Mezmerizer"
+    recipe-type: ENHANCED_CRAFTING_TABLE
+    recipe:
+      - GOLD_INGOT
+      - GOLD_INGOT
+      - GOLD_INGOT
+      - GOLD_INGOT
+      - DISC_MOLD
+      - GOLD_INGOT
+      - GOLD_INGOT
+      - GOLD_INGOT
+      - GOLD_INGOT

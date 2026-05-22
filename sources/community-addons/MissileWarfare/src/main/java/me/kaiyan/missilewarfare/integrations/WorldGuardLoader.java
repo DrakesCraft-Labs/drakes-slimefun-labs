@@ -15,6 +15,7 @@ import me.kaiyan.missilewarfare.MissileWarfare;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
@@ -50,18 +51,27 @@ public class WorldGuardLoader {
         }
     }
 
+    private static void spawnTNT(World world, Vector pos, double power){
+        world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
+            tnt.setFuseTicks(0);
+            tnt.setYield((float) power);
+        });
+    }
+
     public static void explode(World world, Vector pos, double power, Entity armourStand, Player nearestPlayer){
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(new BukkitWorld(world));
         if (regions == null){
-            world.createExplosion(pos.toLocation(world), (float) power, false, true, armourStand);
+            spawnTNT(world, pos, power);
         } else {
             ApplicableRegionSet set = regions.getApplicableRegions(BlockVector3.at(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()));
             if (WorldGuardPlugin.inst().wrapPlayer(nearestPlayer) != null){
-                world.createExplosion(pos.toLocation(world), (float) power, false, true, armourStand);
+                spawnTNT(world, pos, power);
                 return;
             }
-            world.createExplosion(pos.toLocation(world), (float) power, false, set.testState(WorldGuardPlugin.inst().wrapPlayer(nearestPlayer), WorldGuardLoader.ALLOW_MISSILE_EXPLODE), armourStand);
+            if (set.testState(WorldGuardPlugin.inst().wrapPlayer(nearestPlayer), WorldGuardLoader.ALLOW_MISSILE_EXPLODE)){
+                spawnTNT(world, pos, power);
+            }
         }
     }
 }

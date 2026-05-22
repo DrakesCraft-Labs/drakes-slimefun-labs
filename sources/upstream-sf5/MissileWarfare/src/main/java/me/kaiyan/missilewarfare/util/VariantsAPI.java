@@ -21,7 +21,16 @@ import java.util.Random;
  */
 public class VariantsAPI {
 
-    public static Random rand = new Random();
+public static Random rand = new Random();
+
+private static void spawnParticleCompat(World world, Particle particle, Vector pos, int count, double offsetX, double offsetY, double offsetZ, double extra, boolean force) {
+Class<?> dataType = particle.getDataType();
+Object data = null;
+if (dataType == Float.class) {
+data = 1.0f;
+}
+world.spawnParticle(particle, pos.toLocation(world), count, offsetX, offsetY, offsetZ, extra, data, force);
+}
 
     /**
      * Returns the short string code for the given missile type integer.
@@ -84,15 +93,18 @@ public class VariantsAPI {
         return "NONE";
     }
 
-    /**
-     * Returns the integer type identifier for the given Slimefun item.
-     *
-     * @param item the Slimefun item
-     * @return the type integer, or {@code 0} if unrecognised
-     */
-    public static int getIntTypeFromSlimefunitem(@Nonnull SlimefunItem item) {
-        return getIntTypeFromSlimefunitemID(item.getId());
-    }
+/**
+ * Returns the integer type identifier for the given Slimefun item.
+ *
+ * @param item the Slimefun item
+ * @return the type integer, or {@code 0} if unrecognised
+ */
+public static int getIntTypeFromSlimefunitem(SlimefunItem item) {
+if (item == null) {
+return 0;
+}
+return getIntTypeFromSlimefunitemID(item.getId());
+}
 
     /**
      * Returns the integer type identifier for the given Slimefun item ID string.
@@ -266,28 +278,28 @@ public class VariantsAPI {
      * @param pos      the current missile position
      * @param velocity the current missile velocity
      */
-    public static void spawnMissileTrail(@Nonnull World world, int type, @Nonnull Vector pos,
-                                         @Nonnull Vector velocity) {
-        world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, pos.toLocation(world), 0, 0, 0, 0, 0.1, null, true);
-        world.spawnParticle(Particle.FLAME, pos.toLocation(world), 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, null, true);
-        world.spawnParticle(Particle.FLAME, pos.toLocation(world), 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, null, true);
-        world.spawnParticle(Particle.FLAME, pos.toLocation(world), 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, null, true);
-        if (type == 2 || type == 7) {
-            // HE missiles
-            world.spawnParticle(Particle.ANGRY_VILLAGER, pos.toLocation(world), 0, 0, 0, 0, 0.1, null, true);
-        } else if (type == 3 || type == 8) {
-            // Long range
-            world.spawnParticle(Particle.END_ROD, pos.toLocation(world), 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.25), 0.3, null, true);
-        } else if (type == 4 || type == 9) {
-            // Accurate missiles
-            world.spawnParticle(Particle.CRIT, pos.toLocation(world), 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.25), 0.3, null, true);
-        }
-        if (type == 6 || type == 7 || type == 8 || type == 9 || type == 10) {
-            // 'Missile' types
-            world.spawnParticle(Particle.HAPPY_VILLAGER, pos.toLocation(world), 1);
-        }
-        if (type == 10 || type == 11 || type == 12) {
-            world.spawnParticle(Particle.DRAGON_BREATH, pos.toLocation(world), 1);
-        }
-    }
+public static void spawnMissileTrail(@Nonnull World world, int type, @Nonnull Vector pos,
+    @Nonnull Vector velocity) {
+spawnParticleCompat(world, Particle.CAMPFIRE_COSY_SMOKE, pos, 0, 0, 0, 0, 0.1, true);
+spawnParticleCompat(world, Particle.FLAME, pos, 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, true);
+spawnParticleCompat(world, Particle.FLAME, pos, 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, true);
+spawnParticleCompat(world, Particle.FLAME, pos, 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.5), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.5), 0.25, true);
+if (type == 2 || type == 7) {
+// HE missiles
+spawnParticleCompat(world, Particle.ANGRY_VILLAGER, pos, 0, 0, 0, 0, 0.1, true);
+} else if (type == 3 || type == 8) {
+// Long range
+spawnParticleCompat(world, Particle.END_ROD, pos, 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.25), 0.3, true);
+} else if (type == 4 || type == 9) {
+// Accurate missiles
+spawnParticleCompat(world, Particle.CRIT, pos, 0, -velocity.getX() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getY() + ((rand.nextDouble() - 0.5) * 0.25), -velocity.getZ() + ((rand.nextDouble() - 0.5) * 0.25), 0.3, true);
+}
+if (type == 6 || type == 7 || type == 8 || type == 9 || type == 10) {
+// 'Missile' types
+spawnParticleCompat(world, Particle.HAPPY_VILLAGER, pos, 1, 0, 0, 0, 0, true);
+}
+if (type == 10 || type == 11 || type == 12) {
+spawnParticleCompat(world, Particle.DRAGON_BREATH, pos, 1, 0, 0, 0, 0, true);
+}
+}
 }

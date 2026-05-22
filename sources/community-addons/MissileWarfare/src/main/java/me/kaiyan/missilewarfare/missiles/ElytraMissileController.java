@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -101,7 +102,10 @@ public class ElytraMissileController {
         world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, pos.toLocation(world), 0, 0, 0, 0, 0.1, null, true);
         world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, (pos.toLocation(world).subtract(velocity.divide(new Vector(2,2,2)))), 0, 0, 0, 0, 0.1, null, true);
         if (other.getLocation().distanceSquared(pos.toLocation(world)) < (speed*speed)*1.1){
-            world.createExplosion(pos.toLocation(world), power, false, false, player);
+            world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
+                tnt.setFuseTicks(0);
+                tnt.setYield(power);
+            });
             for (int i = 0; i < 40; i++) {
                 world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, pos.toLocation(world), 0, Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5, 0.1, null, true);
                 world.spawnParticle(Particle.FLAME, pos.toLocation(world), 0, Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5, 0.1, null,true);
@@ -121,7 +125,10 @@ public class ElytraMissileController {
             }
         }
         if (world.getBlockAt(pos.toLocation(world)).getType() != Material.AIR) {
-            world.createExplosion(pos.toLocation(world), power, false, false, player);
+            world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
+                tnt.setFuseTicks(0);
+                tnt.setYield(power);
+            });
             run.cancel();
             PlayerID.targets.remove(player);
         }
