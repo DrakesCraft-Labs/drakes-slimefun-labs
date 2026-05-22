@@ -1,0 +1,22 @@
+# XP de Minecraft (barra verde), no niveles de investigación Slimefun
+discovery-xp:
+  first_target_lock: 6
+  tracking_lock: 10
+  first_correlation: 25
+  target_nebulosa_del_cangrejo: 30
+  target_sagitario_astar: 35
+  target_pulsar_psr_b1919+21: 28
+  target_nebulosa_cabeza_de_caballo: 32
+  target_galaxia_de_andromeda: 30
+  target_exoplaneta_kepler-186f: 34
+  target_agujero_negro_m87star: 40
+  record_analysis: 200
+  record_repeat: 40
+
+research-unlock-bonus-xp: 10
+
+messages:
+  prefix: "&5[Coronalis] &7"
+  new-discovery: "&aNuevo descubrimiento: &f%name% &7(+%xp% XP)"
+  repeat-discovery: "&7Señal ya catalogada: &f%name% &7(+%xp% XP)"
+  research-bonus: "&eInvestigación desbloqueada: &f%research% &7(+%xp% XP)"

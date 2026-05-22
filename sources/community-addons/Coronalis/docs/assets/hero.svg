@@ -1,0 +1,43 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cTitle cDesc">
+  <title id="cTitle">Coronalis Slimefun Addon</title>
+  <desc id="cDesc">Coronalis — deep-sky radio interferometry addon.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="420">
+      <stop offset="0%" stop-color="#05030d"/>
+      <stop offset="50%" stop-color="#1a1035"/>
+      <stop offset="100%" stop-color="#2a1848"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6e7a8"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#e879f9"/>
+    </linearGradient>
+    <style>
+      .ey { font: 700 20px 'Segoe UI', Arial; letter-spacing: 6px; fill: #e879f9; }
+      .ti { font: 800 72px 'Segoe UI', Arial; fill: url(#gold); }
+      .su { font: 500 22px 'Segoe UI', Arial; fill: #cbd5e1; }
+      .ba { font: 700 16px 'Segoe UI', Arial; fill: #e2e8f0; }
+      .mo { font: 600 13px Consolas, monospace; fill: #4ade80; }
+      .pulse { animation: p 2.5s ease-in-out infinite; }
+      .wave { stroke-dasharray: 8 12; animation: d 7s linear infinite; }
+      @keyframes p { 0%,100%{opacity:.5} 50%{opacity:1} }
+      @keyframes d { to { stroke-dashoffset: -40; } }
+    </style>
+  </defs>
+  <rect width="1280" height="420" rx="28" fill="url(#bg)"/>
+  <path class="wave" d="M-30 280 C280 180,560 200,980 270" stroke="url(#violet)" stroke-width="2" fill="none" opacity=".5"/>
+  <g transform="translate(56 54)">
+    <rect width="740" height="300" rx="22" fill="rgba(8,4,18,.75)" stroke="rgba(201,162,39,.3)"/>
+    <text x="36" y="50" class="ey">CORONALIS DEEP ARRAY</text>
+    <text x="34" y="130" class="ti">Coronalis</text>
+    <text x="36" y="174" class="su">Slimefun · fase UV · radiotelescopios · descubrimientos XP</text>
+    <text x="36" y="220" class="ba">JackStar6677 · ecosistema Auroralis / Void / Stellar</text>
+    <g class="pulse" transform="translate(36 250)">
+      <circle cx="8" cy="10" r="6" fill="#4ade80"/>
+      <text x="26" y="15" class="mo">PHASE LOCK · 10 Hz TELEMETRY</text>
+    </g>
+  </g>
+</svg>
