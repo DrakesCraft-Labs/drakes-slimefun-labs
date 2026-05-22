@@ -55,7 +55,7 @@ DrakesCraft Slimefun Foundry exists to solve that as a system:
 
 ## Project Direction
 
-The active baseline is **`main`**. The older **`1.21-latin`** line is kept as historical reference and comparison base, not as the main development target.
+The active baseline is **`main`**. The older **`main`** line is kept as historical reference and comparison base, not as the main development target.
 
 The long-term direction is:
 

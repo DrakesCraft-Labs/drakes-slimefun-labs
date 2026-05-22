@@ -40,6 +40,6 @@ Addons that depend on **`drakes-labs-autoupdate`** call `DrakesLabsReleaseUpdate
 3. Track runtime validation status per addon group.
 
 <!-- DRAKES-STATUS:BEGIN -->
-> Sync: **2026-04-27**. Baseline: **Paper 1.21.x + Java 21** on `1.21-latin`.
+> Sync: **2026-04-27**. Baseline: **Paper 1.21.x + Java 21** on `main`.
 > CI: **CI Monorepo 1.21**; JAR releases: **Release monorepo JARs** + autoupdater docs under `docs/wiki/`.
 <!-- DRAKES-STATUS:END -->
