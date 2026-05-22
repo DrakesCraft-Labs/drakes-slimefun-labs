@@ -15,7 +15,6 @@ import com.github.jackstar.coronalis.implementation.setup.ItemSetup;
 
 /**
  * Addon Slimefun Coronalis — radiotelescopios, correlación de fase y catálogo XP.
- * Proyecto independiente del simulador AstroControlSim (otro repo, otro nombre).
  */
 public class Coronalis extends JavaPlugin implements SlimefunAddon {
 

@@ -1,22 +1,42 @@
-# XP de Minecraft (barra verde), no niveles de investigación Slimefun
+# ──────────────────────────────────────────────────────────────────────────────
+# Coronalis — Configuración de XP y Mensajes
+# ──────────────────────────────────────────────────────────────────────────────
+# XP de Minecraft (barra verde), no niveles de investigación Slimefun.
+
+# XP de descubrimiento por primera vez (primera correlación o análisis)
 discovery-xp:
   first_target_lock: 6
   tracking_lock: 10
   first_correlation: 25
-  target_nebulosa_del_cangrejo: 30
-  target_sagitario_astar: 35
-  target_pulsar_psr_b1919+21: 28
-  target_nebulosa_cabeza_de_caballo: 32
-  target_galaxia_de_andromeda: 30
-  target_exoplaneta_kepler-186f: 34
-  target_agujero_negro_m87star: 40
+
+  # XP por análisis del Eco de Fase (clic derecho)
   record_analysis: 200
   record_repeat: 40
 
+  # XP por objetivo — se multiplica por el tier automáticamente
+  # EASY ×1.0  |  INTERMEDIATE ×1.1  |  HARD ×1.5  |  LEGENDARY ×2.0–2.5
+  target_nebulosa_cabeza_de_caballo: 30
+  target_nebulosa_del_cangrejo:      35
+  target_galaxia_de_andromeda:       35
+  target_pulsar_psr_b1919+21:        48
+  target_sagitario_astar:            50
+  target_exoplaneta_kepler-186f:     60
+  target_agujero_negro_m87star:      70
+
+# ── Eventos Cósmicos ──────────────────────────────────────────────────────────
+cosmic-events:
+  # Probabilidad de que se dispare un evento por ciclo de 5 min (1 en N)
+  chance-denominator: 3
+  # Duración mínima / máxima en segundos
+  min-duration-seconds: 60
+  max-duration-seconds: 180
+
+# XP bonus al desbloquear una investigación Slimefun
 research-unlock-bonus-xp: 10
 
+# ── Mensajes en chat ─────────────────────────────────────────────────────────
 messages:
   prefix: "&5[Coronalis] &7"
-  new-discovery: "&aNuevo descubrimiento: &f%name% &7(+%xp% XP)"
+  new-discovery:    "&aDescubrimiento nuevo: &f%name% &7(+%xp% XP)"
   repeat-discovery: "&7Señal ya catalogada: &f%name% &7(+%xp% XP)"
-  research-bonus: "&eInvestigación desbloqueada: &f%research% &7(+%xp% XP)"
+  research-bonus:   "&eInvestigación desbloqueada: &f%research% &7(+%xp% XP)"

@@ -1,23 +1,23 @@
 # GitHub · Coronalis
 
-## Repo público del producto
+## Repo público
 
 **https://github.com/JackStar6677-1/Coronalis**
 
-Este directorio en el monorepo es la **fuente de compilación**. El README de cara al mundo puede vivir en el repo `Coronalis` (carpeta hermana en `Documentos/GitHub/Coronalis`).
+Fuente de compilación en monorepo: `drakes-slimefun-labs/sources/community-addons/Coronalis`
 
 ## Descripción sugerida
 
-> Coronalis (Coronalis) — addon Slimefun: radiotelescopios, telemetría, PID, interferometría y XP por descubrimientos. Por JackStar6677. No es AstroControlSim.
+> Coronalis — addon Slimefun: radiotelescopios, telemetría, PID, interferometría y XP por descubrimientos. Por JackStar6677.
 
 ## Topics
 
-`coronalis` `voices-of-the-void` `slimefun-addon` `paper-plugin` `minecraft` `radio-astronomy` `jackstar6677`
+`coronalis` `slimefun-addon` `paper-plugin` `minecraft` `radio-astronomy` `jackstar6677`
 
 ## Social preview
 
 `docs/assets/banner-github-social.svg` (1280×640; exportar PNG si hace falta).
 
-## Nombres prohibidos en este módulo
+## Nombre del plugin
 
-No renombrar el plugin a `AstroControlSim` — ese nombre es exclusivo del simulador C++.
+Mantener **Coronalis** en `plugin.yml` y paquete `com.github.jackstar.coronalis`. No reutilizar nombres de otros productos (simuladores, juegos comerciales, etc.).

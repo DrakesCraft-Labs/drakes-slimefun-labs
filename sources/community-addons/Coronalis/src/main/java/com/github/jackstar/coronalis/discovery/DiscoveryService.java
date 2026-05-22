@@ -33,13 +33,25 @@ public final class DiscoveryService {
     /**
      * Registra un hito; devuelve true si era la primera vez para ese jugador.
      */
-    public boolean tryDiscover(@Nonnull Player player, @Nonnull String discoveryId, @Nonnull String displayName, @Nonnull String configXpPath) {
+    public boolean tryDiscover(@Nonnull Player player, @Nonnull String discoveryId,
+                              @Nonnull String displayName, @Nonnull String configXpPath) {
+        return tryDiscoverWithMultiplier(player, discoveryId, displayName, configXpPath, 1.0);
+    }
+
+    /**
+     * Como {@link #tryDiscover} pero aplica un multiplicador flotante de XP.
+     * Útil para combinar tier del objetivo y eventos cósmicos.
+     *
+     * @param multiplier Factor multiplicativo del XP base (e.g. 2.0 = doble XP).
+     */
+    public boolean tryDiscoverWithMultiplier(@Nonnull Player player, @Nonnull String discoveryId,
+                                            @Nonnull String displayName, @Nonnull String configXpPath,
+                                            double multiplier) {
         try {
             boolean firstTime = mark(player, discoveryId);
-            int xp = plugin.getConfig().getInt(configXpPath, firstTime ? 10 : 5);
-            if (!firstTime) {
-                xp = Math.max(1, xp / 4);
-            }
+            int baseXp = plugin.getConfig().getInt(configXpPath, firstTime ? 10 : 5);
+            if (!firstTime) baseXp = Math.max(1, baseXp / 4);
+            int xp = Math.max(1, (int) Math.round(baseXp * multiplier));
 
             player.giveExp(xp);
             player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.9f, firstTime ? 1.3f : 0.9f);

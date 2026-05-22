@@ -618,10 +618,8 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         if (evActive && ev.xpMultiplier > 1.0)            evLore.add("§a↑ XP ×" + ev.xpMultiplier);
         if (evActive && ev.correlationSpeedMult > 1.0)    evLore.add("§b↑ Velocidad correlación ×" + ev.correlationSpeedMult);
         if (evActive && ev.blocksSignal)                   evLore.add("§c✗ Correlación BLOQUEADA");
-        menu.replaceExistingItem(PANEL_EVENT, new CustomItemStack(
-            evActive ? Material.NETHER_STAR : Material.GRAY_DYE,
-            evLore.toArray(new String[0])
-        ));
+        Material evMat = evActive ? Material.NETHER_STAR : Material.GRAY_DYE;
+        menu.replaceExistingItem(PANEL_EVENT, new CustomItemStack(evMat, evLore));
 
         // Botón: Slew
         menu.replaceExistingItem(BUTTON_SLEW, new CustomItemStack(Material.LEVER,
