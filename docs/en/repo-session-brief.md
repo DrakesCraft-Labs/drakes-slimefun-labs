@@ -4,9 +4,10 @@
 
 ```text
 Repo: DrakesCraft-Labs / drakes-slimefun-labs
-Stable branch: 1.21-latin (Paper 1.21.x API, Java 21). NOT a single plugin: Maven+Gradle monorepo (~86 modules).
+Stable branch: main (Paper 1.21.x API, Java 21). NOT a single plugin: Maven+Gradle monorepo (~86 modules).
+Networks addon: standalone repo DrakesCraft-Labs/NetworksV6-drake on main (1.21-latin obsoleto).
 Experimental 26.x: 26.X-ToTheStars (Maven profile paper-26-preview). Do not mix into 1.21 without explicit maintainer agreement.
-Typical priority: keep 1.21-latin green + Issues + DrakesCraft reference server; expect roughly a one-month stabilization window before pushing 26.x at full sprint pace.
+Typical priority: keep main green + Issues + DrakesCraft reference server; expect roughly a one-month stabilization window before pushing 26.x at full sprint pace.
 
 Before coding:
 - Root README.md + docs/es/PLUGIN_MATRIX.md
