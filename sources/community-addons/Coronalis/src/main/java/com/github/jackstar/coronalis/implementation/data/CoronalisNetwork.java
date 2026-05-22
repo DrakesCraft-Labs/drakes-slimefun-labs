@@ -33,6 +33,9 @@ public final class CoronalisNetwork {
      */
     private final Map<Location, TelescopeState> telescopes = new ConcurrentHashMap<>();
 
+    /** Núcleos de energía SU conectados por cable a la consola. */
+    private final Set<Location> energyNodes = Collections.newSetFromMap(new ConcurrentHashMap<>());
+
     /** Energía actual en Signal Units (SU). */
     private volatile int signalUnits = 0;
 
@@ -46,8 +49,12 @@ public final class CoronalisNetwork {
     public static final int SU_COST_SLEW    = 10;
     /** Energía necesaria por click de correlación. */
     public static final int SU_COST_CORRELATE = 50;
+    /** Energía necesaria por paso de calibración individual. */
+    public static final int SU_COST_CALIBRATE = 20;
     /** Consumo de standby por telescopio cada tick (2s). */
     public static final int SU_DRAIN_PER_SCOPE = 2;
+    /** Energía generada por cada núcleo SU en cada tick de red (4s). */
+    public static final int SU_GENERATION_PER_CORE = 80;
 
     public CoronalisNetwork(@Nonnull Location consoleLoc) {
         this.consoleLoc = consoleLoc.clone();
@@ -71,6 +78,10 @@ public final class CoronalisNetwork {
 
     public void removeTelescope(@Nonnull Location loc) {
         telescopes.remove(loc);
+    }
+
+    public void clearTelescopes() {
+        telescopes.clear();
     }
 
     @Nonnull
@@ -102,6 +113,15 @@ public final class CoronalisNetwork {
         return (double) getCalibratedCount() / telescopes.size();
     }
 
+    public double getAverageCalibrationFactor() {
+        if (telescopes.isEmpty()) return 0.0;
+        double total = 0.0;
+        for (TelescopeState state : telescopes.values()) {
+            total += state.getCalibrationFactor();
+        }
+        return total / telescopes.size();
+    }
+
     @Nullable
     public TelescopeState getTelescopeState(@Nonnull Location loc) {
         return telescopes.get(loc);
@@ -112,6 +132,23 @@ public final class CoronalisNetwork {
     public int getSignalUnits() { return signalUnits; }
     public int getMaxSignalUnits() { return maxSignalUnits; }
     public void setMaxSignalUnits(int max) { this.maxSignalUnits = max; }
+
+    public void clearEnergyNodes() {
+        energyNodes.clear();
+    }
+
+    public void addEnergyNode(@Nonnull Location loc) {
+        energyNodes.add(loc.clone());
+    }
+
+    public int getEnergyNodeCount() {
+        return energyNodes.size();
+    }
+
+    @Nonnull
+    public Set<Location> getEnergyNodes() {
+        return Collections.unmodifiableSet(energyNodes);
+    }
 
     /** Añade SU (producidos por generadores). No excede el máximo. */
     public synchronized void addSU(int amount) {
@@ -132,6 +169,10 @@ public final class CoronalisNetwork {
     public synchronized void drainStandbySU() {
         int cost = telescopes.size() * SU_DRAIN_PER_SCOPE;
         signalUnits = Math.max(0, signalUnits - cost);
+    }
+
+    public synchronized void generateSU() {
+        addSU(energyNodes.size() * SU_GENERATION_PER_CORE);
     }
 
     public boolean hasSU(int amount) {

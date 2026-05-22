@@ -56,14 +56,37 @@ public final class Items {
             "&9&oCoronalis Array Command"
     );
 
+    public static final SlimefunItemStack CORONALIS_COAXIAL_CABLE = new SlimefunItemStack(
+            "CORONALIS_COAXIAL_CABLE",
+            Material.CHAIN,
+            "&8Cable Coaxial de Fase",
+            "&7Bloque conductor para enlazar consolas,",
+            "&7núcleos SU y radiotelescopios Coronalis.",
+            "&7La red valida continuidad bloque a bloque.",
+            "",
+            "&5&oCoronalis Array Infrastructure"
+    );
+
+    public static final SlimefunItemStack CORONALIS_SIGNAL_CORE = new SlimefunItemStack(
+            "CORONALIS_SIGNAL_CORE",
+            Material.LODESTONE,
+            "&bNúcleo de Energía SU",
+            "&7Genera Signal Units para alimentar",
+            "&7movimiento PID, calibración y correlación.",
+            "&7Debe conectarse a la consola con cable coaxial.",
+            "",
+            "&9&oCoronalis Array Power"
+    );
+
     /* Bloques Funcionales */
     public static final SlimefunItemStack CORONALIS_RADIO_TELESCOPE = new SlimefunItemStack(
             "CORONALIS_RADIO_TELESCOPE",
             "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM5MzhjYTFkYjBiYzhhMTc3M2RlOTRkNzNjYzFmODU5OTM0M2M1YjI3NDQ3NDliY2VkM2QxMWNjMTlhIn19fQ==",
             "&6Escucha del Vacío — Antena",
             "&7Unidad de antena parabólica del observatorio.",
-            "&7Debe colocarse cerca de la consola de control",
-            "&7(máximo a 15 bloques de distancia).",
+            "&7Debe conectarse por cable coaxial",
+            "&7a una consola de control.",
+            "&7Máximo operativo: 50 por red.",
             "",
             "&5&oCoronalis Array Labs"
     );

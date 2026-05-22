@@ -47,6 +47,9 @@ public class AccessManager implements Listener {
     // Jugadores en proceso de cambio de contraseña: owner → consola
     private final Map<UUID, Location> awaitingNewPassword = new ConcurrentHashMap<>();
 
+    // Última consola bloqueada que intentó abrir cada jugador.
+    private final Map<UUID, Location> lastDeniedConsole = new ConcurrentHashMap<>();
+
     // ── Inicialización ────────────────────────────────────────────────────────
 
     public void register() {
@@ -131,6 +134,16 @@ public class AccessManager implements Listener {
         player.sendMessage("§5> §f");
     }
 
+    public boolean promptLastDeniedPassword(@Nonnull Player player) {
+        Location consoleLoc = lastDeniedConsole.get(player.getUniqueId());
+        if (consoleLoc == null) {
+            player.sendMessage("§5[Coronalis] §cNo tienes una consola protegida pendiente. Intenta abrirla primero.");
+            return false;
+        }
+        promptPassword(player, consoleLoc);
+        return true;
+    }
+
     // ── Gestión de whitelist ──────────────────────────────────────────────────
 
     /**
@@ -168,6 +181,24 @@ public class AccessManager implements Listener {
         }
         Coronalis.log("[AccessManager] " + targetName + " invitado a consola " + fmtLoc(consoleLoc)
             + " por " + owner.getName());
+    }
+
+    /**
+     * Añade acceso tras introducir contraseña sin requerir que el propietario esté online.
+     */
+    public void grantPasswordAccess(@Nonnull Location consoleLoc, @Nonnull UUID target,
+                                    @Nonnull String targetName) {
+        String raw = BlockStorage.getLocationInfo(consoleLoc, "cc_whitelist");
+        List<String> entries = raw == null || raw.isBlank()
+            ? new ArrayList<>()
+            : new ArrayList<>(Arrays.asList(raw.split(",")));
+        String uuid = target.toString();
+        if (!entries.contains(uuid)) {
+            entries.add(uuid);
+            BlockStorage.addBlockInfo(consoleLoc, "cc_whitelist", String.join(",", entries));
+        }
+        Coronalis.log("[AccessManager] Acceso por contraseña concedido a " + targetName
+            + " en consola " + fmtLoc(consoleLoc));
     }
 
     /**
@@ -243,10 +274,8 @@ public class AccessManager implements Listener {
                 return;
             }
             if (checkPassword(consoleLoc, msg)) {
-                // Añadir a whitelist para esta sesión (auto-whitelist temporal)
                 Bukkit.getScheduler().runTask(Coronalis.instance(), () -> {
-                    addToWhitelist(consoleLoc, uuid, player.getName(),
-                        Objects.requireNonNull(getOwnerPlayer(consoleLoc), "owner"));
+                    grantPasswordAccess(consoleLoc, uuid, player.getName());
                     player.sendMessage("§5[Coronalis] §a✔ Contraseña correcta. Acceso concedido.");
                     player.sendMessage("§5[Coronalis] §7Abre la consola de nuevo para operar.");
                 });
@@ -351,6 +380,7 @@ public class AccessManager implements Listener {
     public void showAccessDenied(@Nonnull Player player, @Nonnull Location consoleLoc,
                                  @Nonnull AccessResult result) {
         String ownerName = getOwnerName(consoleLoc);
+        lastDeniedConsole.put(player.getUniqueId(), consoleLoc.clone());
         player.sendMessage("");
         player.sendMessage("§5┌─────────────────────────────────────┐");
         player.sendMessage("§5│  §d§lCoronalis Array Command Terminal  §5│");
