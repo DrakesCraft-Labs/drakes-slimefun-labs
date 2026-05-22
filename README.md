@@ -81,6 +81,33 @@ El monorepo está construido sobre unas capas muy específicas:
 | **Automatización** | CI, colectores de lanzamiento, generación de matrices, scripts de portabilidad, asistentes de humo. |
 | **Documentación** | Documentación operativa en español e inglés, acuerdos de QA, notas de migración y matriz de plugins. |
 
+### Reactor Híbrido (Maven + Gradle)
+
+Para gestionar un ecosistema tan diverso, Foundry emplea un modelo de compilación híbrido coordinado que combina proyectos Maven y proyectos Gradle en un flujo único y ordenado:
+
+```mermaid
+graph TD
+    subgraph Reactor Maven [pom.xml raíz]
+        Core["sources/slimefun-core<br/>(Fork de Slimefun 4)"]
+        Dough["sources/dough-core<br/>(Fork de Dough)"]
+        Autoupdate["sources/drakes-labs-autoupdate"]
+    end
+    subgraph Reactor Gradle [settings.gradle.kts raíz]
+        Translation["sources/community-addons/SlimefunTranslation"]
+        Addons["sources/community-addons/*<br/>(Batch 2 / Upstream / Ports)"]
+    end
+    subgraph Artefacto Final
+        JAR["Producción de JARs optimizados y limpios de duplicados"]
+    end
+
+    Core -->|Depende de| Dough
+    Translation -->|ShadowJar compilado| Core
+    Addons -->|Consumen core & libs| Core
+    ReactorMaven --> JAR
+    ReactorGradle --> JAR
+```
+
+
 ## Estado actual
 
 El repositorio rastrea un paquete completo de Slimefun en lugar de un único plugin:
