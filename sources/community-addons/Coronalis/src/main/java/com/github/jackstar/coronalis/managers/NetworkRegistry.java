@@ -36,7 +36,7 @@ public class NetworkRegistry {
     private final Map<String, CoronalisNetwork> networks = new ConcurrentHashMap<>();
 
     /** Límite BFS de bloques a explorar por validación de cable. */
-    private static final int BFS_LIMIT = 500;
+    private static final int BFS_LIMIT = 900;
 
     /** Radio de detección de redes rivales (bloques). */
     public static final int RIVAL_DETECT_RADIUS = 200;
@@ -91,7 +91,7 @@ public class NetworkRegistry {
      * @param targetConsole  Ubicación de la consola que se quiere alcanzar.
      * @return true si hay un camino de cable continuo entre los dos bloques.
      */
-    public boolean isConnectedBycable(@Nonnull Location start, @Nonnull Location targetConsole) {
+    public boolean isConnectedByCable(@Nonnull Location start, @Nonnull Location targetConsole) {
         if (start.getWorld() == null || !start.getWorld().equals(targetConsole.getWorld())) return false;
 
         Set<Location> visited = new HashSet<>();
@@ -130,7 +130,19 @@ public class NetworkRegistry {
                                                    @Nonnull List<Location> candidates) {
         List<Location> connected = new ArrayList<>();
         for (Location candidate : candidates) {
-            if (isConnectedBycable(candidate, consoleLoc)) {
+            if (isConnectedByCable(candidate, consoleLoc)) {
+                connected.add(candidate);
+            }
+        }
+        return connected;
+    }
+
+    @Nonnull
+    public List<Location> findConnectedEnergyNodes(@Nonnull Location consoleLoc) {
+        List<Location> candidates = findBlocksInRadius(consoleLoc, 50, "CORONALIS_SIGNAL_CORE");
+        List<Location> connected = new ArrayList<>();
+        for (Location candidate : candidates) {
+            if (isConnectedByCable(candidate, consoleLoc)) {
                 connected.add(candidate);
             }
         }
@@ -145,13 +157,14 @@ public class NetworkRegistry {
         try {
             CoronalisNetwork net = getOrCreate(consoleLoc);
 
-            // Limpiar lista actual
-            List<Location> oldScopes = new ArrayList<>(net.getTelescopes().keySet());
-            for (Location loc : oldScopes) net.removeTelescope(loc);
+            // Limpiar listas dinámicas antes de recalcular enlaces.
+            net.clearTelescopes();
+            net.clearEnergyNodes();
 
             // Escanear telescopios en radio 50 bloques
             List<Location> candidates = findTelescopesInRadius(consoleLoc, 50);
             List<Location> connected  = findConnectedTelescopes(consoleLoc, candidates);
+            List<Location> energyNodes = findConnectedEnergyNodes(consoleLoc);
 
             int added = 0;
             for (Location loc : connected) {
@@ -163,13 +176,37 @@ public class NetworkRegistry {
                     break;
                 }
             }
+            for (Location loc : energyNodes) {
+                net.addEnergyNode(loc);
+            }
+            net.setMaxSignalUnits(1000 + (net.getEnergyNodeCount() * 500));
 
             Coronalis.log("[NetworkRegistry] Red " + net.getId()
-                + " reconstruida: " + added + " telescopio(s) conectado(s).");
+                + " reconstruida: " + added + " telescopio(s), "
+                + net.getEnergyNodeCount() + " núcleo(s) SU.");
 
         } catch (Exception e) {
             Coronalis.instance().getLogger().log(Level.WARNING,
                 "[NetworkRegistry] Error al reconstruir red en " + consoleLoc, e);
+        }
+    }
+
+    public void rebuildNetworksNear(@Nonnull Location loc, int radius) {
+        if (loc.getWorld() == null) return;
+        for (Location consoleLoc : findBlocksInRadius(loc, radius, "CORONALIS_CONTROL_CONSOLE")) {
+            rebuildNetwork(consoleLoc);
+        }
+    }
+
+    public void tickAll() {
+        for (CoronalisNetwork network : networks.values()) {
+            try {
+                network.generateSU();
+                network.drainStandbySU();
+            } catch (Exception e) {
+                Coronalis.instance().getLogger().log(Level.WARNING,
+                    "[NetworkRegistry] Error al alimentar red " + network.getId(), e);
+            }
         }
     }
 
@@ -251,6 +288,15 @@ public class NetworkRegistry {
         List<Location> result = new ArrayList<>();
         if (center.getWorld() == null) return result;
 
+        result.addAll(findBlocksInRadius(center, radius, "CORONALIS_RADIO_TELESCOPE"));
+        return result;
+    }
+
+    @Nonnull
+    private static List<Location> findBlocksInRadius(@Nonnull Location center, int radius, @Nonnull String slimefunId) {
+        List<Location> result = new ArrayList<>();
+        if (center.getWorld() == null) return result;
+
         for (int x = -radius; x <= radius; x++) {
             for (int y = -10; y <= 10; y++) {
                 for (int z = -radius; z <= radius; z++) {
@@ -259,7 +305,7 @@ public class NetworkRegistry {
                         center.getBlockX() + x,
                         center.getBlockY() + y,
                         center.getBlockZ() + z);
-                    if ("CORONALIS_RADIO_TELESCOPE".equals(slimefunId(b))) {
+                    if (slimefunId.equals(slimefunId(b))) {
                         result.add(b.getLocation());
                     }
                 }

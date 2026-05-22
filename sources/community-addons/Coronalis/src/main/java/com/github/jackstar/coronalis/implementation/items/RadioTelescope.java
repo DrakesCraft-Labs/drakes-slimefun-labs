@@ -25,9 +25,8 @@ import javax.annotation.Nullable;
  * Radiotelescopio de Antena Coronalis.
  *
  * <p>No tiene GUI propia: su función es existir en el mundo y ser detectado
- * por la {@link ControlConsole} para aumentar la sensibilidad del array.
- * Al colocarse o romperse, recalcula el conteo de telescopios en todas las
- * Consolas de Control dentro de un radio de 15 bloques horizontales × 3 verticales.</p>
+ * por cable coaxial por la {@link ControlConsole} para aumentar la sensibilidad del array.
+ * Al colocarse o romperse, recalcula las redes cercanas sin escaneos globales.</p>
  *
  * <p>ID de Slimefun: {@code CORONALIS_RADIO_TELESCOPE}</p>
  */
@@ -62,7 +61,7 @@ public class RadioTelescope extends SlimefunItem implements Listener {
             10, 0.3, 0.3, 0.3, 0.05
         );
         block.getWorld().playSound(block.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 0.6f, 1.5f);
-        player.sendMessage("§5[Coronalis] §d📡 Telescopio conectado a la red de Coronalis.");
+        player.sendMessage("§5[Coronalis] §d📡 Telescopio instalado. Conéctalo por cable coaxial a una consola.");
 
         Location loc = block.getLocation().clone();
         Coronalis.instance().getServer().getScheduler()
@@ -93,27 +92,18 @@ public class RadioTelescope extends SlimefunItem implements Listener {
     // ── Helper ───────────────────────────────────────────────────────────────
 
     /**
-     * Actualiza el conteo de telescopios en todas las Consolas activas
-     * dentro del radio de alcance.
+     * Actualiza redes cercanas tras cambios físicos de antenas.
      */
     static void refreshNearbyConsoles(@Nonnull Location loc, @Nullable Player player) {
+        Coronalis.instance().getNetworkRegistry().rebuildNetworksNear(loc, 64);
         for (Location consoleLoc : ControlConsole.ACTIVE_CONSOLES) {
-            if (consoleLoc.getWorld() == null
-                    || !consoleLoc.getWorld().equals(loc.getWorld())) continue;
-
-            if (Math.abs(consoleLoc.getX() - loc.getX()) <= 15
-             && Math.abs(consoleLoc.getY() - loc.getY()) <= 3
-             && Math.abs(consoleLoc.getZ() - loc.getZ()) <= 15) {
-
+            if (consoleLoc.getWorld() == null || !consoleLoc.getWorld().equals(loc.getWorld())) continue;
+            if (consoleLoc.distance(loc) <= 64) {
                 int count = ControlConsole.countTelescopesAt(consoleLoc);
                 BlockStorage.addBlockInfo(consoleLoc, "connected_telescopes", String.valueOf(count));
-
                 var menu = BlockStorage.getInventory(consoleLoc);
                 if (menu != null) ControlConsole.updateMenuVisuals(menu, consoleLoc);
-
-                if (player != null) {
-                    player.sendMessage("  §7└─ Red actualizada: §a" + count + " telescopio(s) detectado(s).");
-                }
+                if (player != null) player.sendMessage("  §7└─ Red actualizada: §a" + count + " telescopio(s) cableado(s).");
             }
         }
     }

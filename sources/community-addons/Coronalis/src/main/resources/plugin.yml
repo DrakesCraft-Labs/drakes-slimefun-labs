@@ -7,3 +7,12 @@ depend:
   - Slimefun
 author: JackStar6677-1
 website: https://github.com/JackStar6677-1/Coronalis
+commands:
+  coronalis:
+    description: Terminal de acceso Coronalis.
+    usage: /coronalis auth
+    aliases: [cor]
+permissions:
+  coronalis.admin:
+    description: Permite administrar cualquier consola Coronalis.
+    default: op

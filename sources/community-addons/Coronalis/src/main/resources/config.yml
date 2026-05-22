@@ -8,6 +8,7 @@ discovery-xp:
   first_target_lock: 6
   tracking_lock: 10
   first_correlation: 25
+  first_full_calibration: 18
 
   # XP por análisis del Eco de Fase (clic derecho)
   record_analysis: 200

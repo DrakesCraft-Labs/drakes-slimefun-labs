@@ -4,11 +4,17 @@ import com.github.jackstar.coronalis.Coronalis;
 import com.github.jackstar.coronalis.discovery.DiscoveryService;
 import com.github.jackstar.coronalis.implementation.Items;
 import com.github.jackstar.coronalis.implementation.data.CelestialTarget;
+import com.github.jackstar.coronalis.implementation.data.CoronalisNetwork;
+import com.github.jackstar.coronalis.implementation.data.TelescopeState;
+import com.github.jackstar.coronalis.managers.AccessManager;
 import com.github.jackstar.coronalis.managers.CosmicEventManager;
+import com.github.jackstar.coronalis.managers.SoundManager;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
+import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
@@ -55,7 +61,7 @@ import java.util.logging.Level;
  *  Fila 5: [B][B][B][IN][B][OUT][B][B][B]
  * </pre>
  */
-public class ControlConsole extends SlimefunItem implements InventoryBlock {
+public class ControlConsole extends SlimefunItem implements InventoryBlock, EnergyNetComponent {
 
     // ── Slots ────────────────────────────────────────────────────────────────
 
@@ -73,6 +79,9 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
     private static final int BUTTON_REPAIR    = 30;
     private static final int BUTTON_AUTO      = 32;  // ← NUEVO: toggle auto
     private static final int BUTTON_CORRELATE = 34;
+    private static final int BUTTON_CALIBRATE = 38;
+    private static final int BUTTON_INVITE    = 42;
+    private static final int BUTTON_PASSWORD  = 44;
 
     private static final int[] BORDER_SLOTS = buildBorder();
 
@@ -80,7 +89,8 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         Set<Integer> active = new HashSet<>(Arrays.asList(
             PANEL_TELESCOPES, PANEL_TARGET, PANEL_TELEMETRY, PANEL_PID, PANEL_FAULT, PANEL_EVENT,
             INPUT_SLOT, OUTPUT_SLOT,
-            BUTTON_SLEW, BUTTON_REPAIR, BUTTON_AUTO, BUTTON_CORRELATE
+            BUTTON_SLEW, BUTTON_REPAIR, BUTTON_AUTO, BUTTON_CORRELATE,
+            BUTTON_CALIBRATE, BUTTON_INVITE, BUTTON_PASSWORD
         ));
         for (CelestialTarget t : CelestialTarget.values()) active.add(t.menuSlot);
         List<Integer> border = new ArrayList<>();
@@ -114,6 +124,9 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
     private static final int FAULT_CHANCE_STORM  = 4;
 
     private static final String[] FAULT_TYPES = { "MOTOR_STUCK", "PID_OVERLOAD", "BEARING_FAILURE" };
+    private static final int ENERGY_CAPACITY_J = 8192;
+    private static final int JOULES_PER_SU = 4;
+    private static final int ENERGY_IMPORT_PER_TICK_J = 512;
 
     // ── Registro de consolas activas ─────────────────────────────────────────
 
@@ -148,6 +161,8 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
                 Location loc = b.getLocation();
                 ACTIVE_CONSOLES.add(loc);
                 initBlockStorage(loc);
+                Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+                Coronalis.instance().getNetworkRegistry().rebuildNetwork(loc);
                 updateMenuVisuals(menu, loc);
                 registerHandlers(menu, loc);
             }
@@ -156,9 +171,16 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             public int[] getSlotsAccessedByItemTransport(@Nonnull DirtyChestMenu menu,
                                                          @Nonnull ItemTransportFlow flow,
                                                          @Nullable ItemStack item) {
-                return flow == ItemTransportFlow.INSERT
+                if (flow == ItemTransportFlow.WITHDRAW) {
+                    return new int[]{ OUTPUT_SLOT };
+                }
+                if (flow != ItemTransportFlow.INSERT || item == null) {
+                    return new int[0];
+                }
+                SlimefunItem sfIn = SlimefunItem.getByItem(item);
+                return sfIn != null && sfIn.getId().equals("CORONALIS_DATA_CELL")
                     ? new int[]{ INPUT_SLOT }
-                    : new int[]{ OUTPUT_SLOT };
+                    : new int[0];
             }
 
             @Override
@@ -168,9 +190,24 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
             @Override
             public boolean canOpen(@Nonnull Block b, @Nonnull Player p) {
-                return p.hasPermission("slimefun.inventory.bypass")
-                    || com.github.drakescraft_labs.slimefun4.implementation.Slimefun
-                        .getProtectionManager().hasPermission(p, b, Interaction.INTERACT_BLOCK);
+                if (!p.hasPermission("slimefun.inventory.bypass")
+                    && !com.github.drakescraft_labs.slimefun4.implementation.Slimefun
+                        .getProtectionManager().hasPermission(p, b, Interaction.INTERACT_BLOCK)) {
+                    return false;
+                }
+                Location loc = b.getLocation();
+                AccessManager access = Coronalis.instance().getAccessManager();
+                access.claimOwnership(loc, p);
+                AccessManager.AccessResult result = access.checkAccess(loc, p);
+                if (!access.isGranted(result)) {
+                    access.showAccessDenied(p, loc, result);
+                    return false;
+                }
+                if (!claimOperator(loc, p)) {
+                    return false;
+                }
+                Coronalis.instance().getSoundManager().startAmbient(p);
+                return true;
             }
         };
     }
@@ -222,6 +259,18 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             onCorrelate(menu, loc, player);
             return false;
         });
+        menu.addMenuClickHandler(BUTTON_CALIBRATE, (player, slot, item, action) -> {
+            onCalibrate(menu, loc, player);
+            return false;
+        });
+        menu.addMenuClickHandler(BUTTON_INVITE, (player, slot, item, action) -> {
+            Coronalis.instance().getAccessManager().promptInvite(player, loc);
+            return false;
+        });
+        menu.addMenuClickHandler(BUTTON_PASSWORD, (player, slot, item, action) -> {
+            Coronalis.instance().getAccessManager().promptSetPassword(player, loc);
+            return false;
+        });
     }
 
     // ── BlockStorage ─────────────────────────────────────────────────────────
@@ -237,6 +286,7 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         BlockStorage.addBlockInfo(loc, "correlation_progress","0");
         BlockStorage.addBlockInfo(loc, "auto_mode",           "false");
         BlockStorage.addBlockInfo(loc, "connected_telescopes", String.valueOf(countTelescopesAt(loc)));
+        BlockStorage.addBlockInfo(loc, "cc_operator",         "");
     }
 
     // ── Auto-ticker (llamado desde Coronalis#onEnable scheduler) ─────────────
@@ -267,6 +317,12 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
     private static void autoTick(@Nonnull Location loc, @Nonnull BlockMenu menu) {
         if (!"NORMAL".equals(getStr(loc, "fault_state"))) return;
+        CoronalisNetwork network = Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+        importExternalEnergy(loc, network);
+        if (network.getTelescopeCount() == 0 || network.getCalibratedCount() < network.getTelescopeCount()) {
+            updateMenuVisuals(menu, loc);
+            return;
+        }
 
         double curAz = getDbl(loc, "current_az");
         double curEl = getDbl(loc, "current_el");
@@ -279,6 +335,11 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
         // 1. Si no está alineado: avanzar PID
         if (dist >= ALIGNED_THRESHOLD) {
+            if (!network.drainSU(CoronalisNetwork.SU_COST_SLEW)) {
+                Coronalis.instance().getSoundManager().playEnergyLow(loc);
+                updateMenuVisuals(menu, loc);
+                return;
+            }
             double stepAz = clamp(diffAz * KP, -MAX_STEP_AZ, MAX_STEP_AZ);
             double stepEl = clamp(diffEl * KP, -MAX_STEP_EL, MAX_STEP_EL);
             BlockStorage.addBlockInfo(loc, "current_az", String.valueOf(round1(curAz + stepAz)));
@@ -296,6 +357,11 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         if (sfIn == null || !sfIn.getId().equals("CORONALIS_DATA_CELL")) return;
 
         int scopes = getInt(BlockStorage.getLocationInfo(loc, "connected_telescopes"), 0);
+        if (!network.drainSU(CoronalisNetwork.SU_COST_CORRELATE)) {
+            Coronalis.instance().getSoundManager().playEnergyLow(loc);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
         int inc    = (int) Math.round((AUTO_BASE + scopes * AUTO_PER_SCOPE) * ev.getCorrelationSpeedMult());
         int prog   = Math.min(100, getInt(BlockStorage.getLocationInfo(loc, "correlation_progress"), 0) + inc);
         BlockStorage.addBlockInfo(loc, "correlation_progress", String.valueOf(prog));
@@ -311,6 +377,8 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
     private void onSelectTarget(@Nonnull BlockMenu menu, @Nonnull Location loc,
                                 @Nonnull CelestialTarget target, @Nonnull Player player) {
+        touchOperator(loc, player);
+        Coronalis.instance().getNetworkRegistry().rebuildNetwork(loc);
         int scopes = countTelescopesAt(loc);
         BlockStorage.addBlockInfo(loc, "connected_telescopes", String.valueOf(scopes));
 
@@ -327,6 +395,8 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         BlockStorage.addBlockInfo(loc, "correlation_progress", "0");
 
         player.playSound(loc, Sound.UI_BUTTON_CLICK, 1f, 1.5f);
+        Coronalis.log("[Coronalis/Console] " + player.getName() + " target_lock "
+            + target.displayName + " scopes=" + scopes + " loc=" + fmtLoc(loc));
         player.sendMessage("§5[Coronalis] §dObjetivo fijado: " + target.tier.color + "§l" + target.displayName
             + "  §7" + target.tier.label);
 
@@ -336,6 +406,9 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
     }
 
     private void onManualSlew(@Nonnull BlockMenu menu, @Nonnull Location loc, @Nonnull Player player) {
+        touchOperator(loc, player);
+        CoronalisNetwork network = Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+        importExternalEnergy(loc, network);
         String fault = getStr(loc, "fault_state");
         if (!"NORMAL".equals(fault)) {
             player.playSound(loc, Sound.BLOCK_NOTE_BLOCK_BASS, 1f, 0.5f);
@@ -353,9 +426,16 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
         if (dist < ALIGNED_THRESHOLD) {
             player.playSound(loc, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1.2f);
+            Coronalis.instance().getSoundManager().playAt(loc, SoundManager.CoronalisSound.SLEW_DONE);
             player.sendMessage("§5[Coronalis] §aTelescopios perfectamente alineados en el objetivo.");
             Coronalis.instance().getDiscoveryService().tryDiscover(
                 player, "tracking_lock", "Bloqueo de seguimiento (TRACKING)", "discovery-xp.tracking_lock");
+            updateMenuVisuals(menu, loc);
+            return;
+        }
+
+        if (!network.drainSU(CoronalisNetwork.SU_COST_SLEW)) {
+            warnNoEnergy(player, loc, network, CoronalisNetwork.SU_COST_SLEW);
             updateMenuVisuals(menu, loc);
             return;
         }
@@ -375,10 +455,12 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             String faultType = FAULT_TYPES[random.nextInt(FAULT_TYPES.length)];
             BlockStorage.addBlockInfo(loc, "fault_state", faultType);
             player.playSound(loc, Sound.ENTITY_GENERIC_EXPLODE, 0.7f, 1.5f);
+            Coronalis.instance().getSoundManager().playFaultAlert(player);
             player.sendMessage("§5[Coronalis] §c🚨 ¡FALLA MECÁNICA! Sistema: §e" + faultType
                 + (storm ? " §7(Tormenta Magnética activa)" : ""));
         } else {
             player.playSound(loc, Sound.BLOCK_IRON_TRAPDOOR_OPEN, 0.8f, 1.2f);
+            Coronalis.instance().getSoundManager().playSlewSequence(loc, newDist);
             player.sendMessage("§5[Coronalis] §7PID ejecutado. Error restante: §c" + newDist + "°");
         }
 
@@ -386,17 +468,20 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
     }
 
     private void onRepair(@Nonnull BlockMenu menu, @Nonnull Location loc, @Nonnull Player player) {
+        touchOperator(loc, player);
         if ("NORMAL".equals(getStr(loc, "fault_state"))) {
             player.sendMessage("§5[Coronalis] §aTodos los sistemas operan dentro del rango normal.");
             return;
         }
         BlockStorage.addBlockInfo(loc, "fault_state", "NORMAL");
         player.playSound(loc, Sound.BLOCK_ANVIL_USE, 1f, 1f);
+        Coronalis.instance().getSoundManager().play(player, SoundManager.CoronalisSound.CALIBRATE);
         player.sendMessage("§5[Coronalis] §aSistemas reparados y calibrados. Estado: §aNORMAL.");
         updateMenuVisuals(menu, loc);
     }
 
     private void onToggleAuto(@Nonnull BlockMenu menu, @Nonnull Location loc, @Nonnull Player player) {
+        touchOperator(loc, player);
         boolean current = "true".equals(BlockStorage.getLocationInfo(loc, "auto_mode"));
         BlockStorage.addBlockInfo(loc, "auto_mode", current ? "false" : "true");
         player.sendMessage("§5[Coronalis] §dModo automático: " + (current ? "§cDESACTIVADO" : "§aACTIVADO"));
@@ -406,6 +491,20 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
     }
 
     private void onCorrelate(@Nonnull BlockMenu menu, @Nonnull Location loc, @Nonnull Player player) {
+        touchOperator(loc, player);
+        CoronalisNetwork network = Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+        importExternalEnergy(loc, network);
+        if (network.getTelescopeCount() == 0) {
+            player.sendMessage("§5[Coronalis] §cNo hay radiotelescopios conectados por cable a esta consola.");
+            return;
+        }
+        if (network.getCalibratedCount() < network.getTelescopeCount()) {
+            player.sendMessage("§5[Coronalis] §cArray sin calibrar: §e" + network.getCalibratedCount()
+                + "/" + network.getTelescopeCount() + " §cradiotelescopios listos. Usa §dCalibrar Array§c.");
+            Coronalis.instance().getSoundManager().play(player, SoundManager.CoronalisSound.FAULT);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
         if (!"NORMAL".equals(getStr(loc, "fault_state"))) {
             player.playSound(loc, Sound.BLOCK_NOTE_BLOCK_BASS, 1f, 0.5f);
             player.sendMessage("§5[Coronalis] §cCorrelación bloqueada por falla activa: " + getStr(loc, "fault_state"));
@@ -444,6 +543,12 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             return;
         }
 
+        if (!network.drainSU(CoronalisNetwork.SU_COST_CORRELATE)) {
+            warnNoEnergy(player, loc, network, CoronalisNetwork.SU_COST_CORRELATE);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
+
         int scopes = getInt(BlockStorage.getLocationInfo(loc, "connected_telescopes"), countTelescopesAt(loc));
         int inc    = (int) Math.round((MANUAL_BASE + scopes * MANUAL_PER_SCOPE) * ev.getCorrelationSpeedMult());
         int prog   = Math.min(100, getInt(BlockStorage.getLocationInfo(loc, "correlation_progress"), 0) + inc);
@@ -453,9 +558,67 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             finalizeCorrelation(loc, menu, player);
         } else {
             player.playSound(loc, Sound.BLOCK_BEACON_AMBIENT, 1f, 1.8f);
+            Coronalis.instance().getSoundManager().playCorrelationTick(loc, prog);
+            Coronalis.log("[Coronalis/Signal] " + player.getName() + " correlate progress="
+                + prog + "% scopes=" + scopes + " SU=" + network.getSignalUnits() + "/" + network.getMaxSignalUnits());
             player.sendMessage("§5[Coronalis] §7Correlación: §b" + prog + "%  §7(+" + inc + "% con " + scopes + " telescopio(s))");
             updateMenuVisuals(menu, loc);
         }
+    }
+
+    private void onCalibrate(@Nonnull BlockMenu menu, @Nonnull Location loc, @Nonnull Player player) {
+        touchOperator(loc, player);
+        Coronalis.instance().getNetworkRegistry().rebuildNetwork(loc);
+        CoronalisNetwork network = Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+        importExternalEnergy(loc, network);
+        if (network.getTelescopeCount() == 0) {
+            player.sendMessage("§5[Coronalis] §cNo hay radiotelescopios conectados por cable.");
+            Coronalis.instance().getSoundManager().play(player, SoundManager.CoronalisSound.FAULT);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
+        if (!network.drainSU(CoronalisNetwork.SU_COST_CALIBRATE)) {
+            warnNoEnergy(player, loc, network, CoronalisNetwork.SU_COST_CALIBRATE);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
+
+        TelescopeState selected = null;
+        TelescopeState.CalibParam selectedParam = null;
+        for (TelescopeState state : network.getTelescopes().values()) {
+            for (TelescopeState.CalibParam param : TelescopeState.CalibParam.values()) {
+                if (state.get(param) < 100) {
+                    selected = state;
+                    selectedParam = param;
+                    break;
+                }
+            }
+            if (selected != null) break;
+        }
+
+        if (selected == null || selectedParam == null) {
+            player.sendMessage("§5[Coronalis] §aTodos los radiotelescopios están calibrados al 100%.");
+            Coronalis.instance().getSoundManager().play(player, SoundManager.CoronalisSound.ENERGY_FULL);
+            updateMenuVisuals(menu, loc);
+            return;
+        }
+
+        selected.advance(selectedParam, 20);
+        selected.incrementCalibCount();
+        int value = selected.get(selectedParam);
+        Coronalis.instance().getSoundManager().playCalibStep(player, value);
+        Coronalis.log("[Coronalis/Calib] " + player.getName() + " scope=" + fmtLoc(selected.getLoc())
+            + " param=" + selectedParam.name() + " value=" + value + "% SU="
+            + network.getSignalUnits() + "/" + network.getMaxSignalUnits());
+        player.sendMessage("§5[Coronalis] §dCalibración " + selectedParam.label + "§7 en "
+            + fmtLoc(selected.getLoc()) + ": " + TelescopeState.bar(value));
+
+        if (selected.isFullyCalibrated()) {
+            player.sendMessage("§5[Coronalis] §aRadiotelescopio sincronizado completamente con el array.");
+            Coronalis.instance().getDiscoveryService().tryDiscover(
+                player, "first_full_telescope_calibration", "Primera calibración completa", "discovery-xp.first_full_calibration");
+        }
+        updateMenuVisuals(menu, loc);
     }
 
     // ── Finalización de correlación ──────────────────────────────────────────
@@ -507,6 +670,9 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
 
         if (player != null) {
             player.playSound(loc, Sound.UI_TOAST_CHALLENGE_COMPLETE, 1f, 1f);
+            Coronalis.instance().getSoundManager().playDiscovery(player, loc);
+            Coronalis.log("[Coronalis/Signal] " + player.getName() + " finalized target="
+                + target.displayName + " loc=" + fmtLoc(loc));
             player.sendMessage("");
             player.sendMessage("§5§l[✦ Coronalis] §r§a⭐ ¡Señal correlacionada con éxito!");
             player.sendMessage("§d  Objetivo: §e" + target.displayName + "  §7| " + target.tier.label);
@@ -538,8 +704,15 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         double tarEl   = getDbl(loc, "target_el");
         String fault   = getStr(loc, "fault_state");
         int    progress = getInt(BlockStorage.getLocationInfo(loc, "correlation_progress"), 0);
-        int    scopes   = getInt(BlockStorage.getLocationInfo(loc, "connected_telescopes"), 0);
+        CoronalisNetwork network = Coronalis.instance().getNetworkRegistry().getOrCreate(loc);
+        importExternalEnergy(loc, network);
+        int    scopes   = network.getTelescopeCount();
+        BlockStorage.addBlockInfo(loc, "connected_telescopes", String.valueOf(scopes));
         boolean autoOn  = "true".equals(BlockStorage.getLocationInfo(loc, "auto_mode"));
+        List<CoronalisNetwork> rivals = Coronalis.instance().getNetworkRegistry().findRivalNetworks(network);
+        long interfering = rivals.stream()
+            .filter(rival -> Coronalis.instance().getNetworkRegistry().isInterferingWith(network, rival))
+            .count();
 
         double diffAz = tarAz - curAz;
         double diffEl = tarEl - curEl;
@@ -559,9 +732,12 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         // Panel: Red de Antenas
         menu.replaceExistingItem(PANEL_TELESCOPES, new CustomItemStack(Material.BEACON,
             "§d📡 Red de Antenas Coronalis",
-            "§7Telescopios detectados: §a" + scopes,
+            "§7Telescopios cableados: §a" + scopes + "§7/§e" + CoronalisNetwork.MAX_TELESCOPES,
+            "§7Calibrados: §b" + network.getCalibratedCount() + "§7/§b" + scopes,
+            "§7Eficiencia: §e" + Math.round(network.getAverageCalibrationFactor() * 100.0) + "%",
             "§7Baseline interferométrico: §e" + (scopes * 15) + " m",
             "§7Modo: " + (autoOn ? "§aAUTOMÁTICO" : "§7MANUAL"),
+            "§7Redes cercanas: §d" + rivals.size() + (interfering > 0 ? " §c(" + interfering + " interfiriendo)" : ""),
             "",
             "§7Velocidad correlación manual: §b+" + (MANUAL_BASE + scopes * MANUAL_PER_SCOPE) + "% / clic"
         ));
@@ -580,6 +756,10 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             "§d📊 Telemetría (10Hz)",
             "§7Az actual: §e" + curAz + "°",
             "§7El actual: §e" + curEl + "°",
+            "§7Energía SU: §b" + network.getSignalUnits() + "§7/§b" + network.getMaxSignalUnits()
+                + " §8(" + Math.round(network.getSUPercent()) + "%)",
+            "§7Buffer eléctrico: §e" + getExternalCharge(loc) + "§7/§e" + ENERGY_CAPACITY_J + " J",
+            "§7Núcleos SU: §a" + network.getEnergyNodeCount(),
             "",
             "§7Error de apuntado: §c" + error + "°",
             "§7Estado: " + stateStr
@@ -638,6 +818,33 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
             "§eClic para limpiar fallas activas."
         ));
 
+        menu.replaceExistingItem(BUTTON_CALIBRATE, new CustomItemStack(Material.AMETHYST_SHARD,
+            "§dCalibrar Array",
+            "§7Ajusta Azimut, Elevación, Frecuencia,",
+            "§7Fase y Ganancia de cada radiotelescopio.",
+            "§7Costo: §b" + CoronalisNetwork.SU_COST_CALIBRATE + " SU §7por paso.",
+            "",
+            "§7Progreso global: §e" + Math.round(network.getAverageCalibrationFactor() * 100.0) + "%",
+            "§dClic para calibrar el siguiente parámetro."
+        ));
+
+        menu.replaceExistingItem(BUTTON_INVITE, new CustomItemStack(Material.WRITABLE_BOOK,
+            "§aInvitar Operador",
+            "§7Solo el propietario puede invitar jugadores.",
+            "§7El nombre se escribe por chat y se intercepta.",
+            "",
+            "§dClic para abrir flujo de invitación."
+        ));
+
+        menu.replaceExistingItem(BUTTON_PASSWORD, new CustomItemStack(Material.ENDER_EYE,
+            "§6Contraseña de Terminal",
+            "§7Permite que un invitado use §d/coronalis auth",
+            "§7tras intentar abrir una consola protegida.",
+            "§7Estado: " + (Coronalis.instance().getAccessManager().hasPassword(loc) ? "§aConfigurada" : "§cSin contraseña"),
+            "",
+            "§dClic para cambiarla o quitarla."
+        ));
+
         // Botón: Auto ← NUEVO
         menu.replaceExistingItem(BUTTON_AUTO, new CustomItemStack(
             autoOn ? Material.LIME_CONCRETE : Material.GRAY_CONCRETE,
@@ -671,20 +878,7 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
      */
     public static int countTelescopesAt(@Nonnull Location loc) {
         if (loc.getWorld() == null) return 0;
-        int count = 0;
-        int r = 15;
-        for (int x = -r; x <= r; x++) {
-            for (int y = -3; y <= 3; y++) {
-                for (int z = -r; z <= r; z++) {
-                    if (x == 0 && y == 0 && z == 0) continue;
-                    Block b = loc.getWorld().getBlockAt(
-                        loc.getBlockX() + x, loc.getBlockY() + y, loc.getBlockZ() + z);
-                    SlimefunItem sf = BlockStorage.check(b);
-                    if (sf != null && sf.getId().equals("CORONALIS_RADIO_TELESCOPE")) count++;
-                }
-            }
-        }
-        return count;
+        return Coronalis.instance().getNetworkRegistry().getOrCreate(loc).getTelescopeCount();
     }
 
     // ── Utilidades ────────────────────────────────────────────────────────────
@@ -714,10 +908,70 @@ public class ControlConsole extends SlimefunItem implements InventoryBlock {
         return Math.round(v * 10.0) / 10.0;
     }
 
+    private static boolean claimOperator(@Nonnull Location loc, @Nonnull Player player) {
+        String operator = getStr(loc, "cc_operator");
+        if (operator.isBlank() || operator.equals(player.getUniqueId().toString())
+            || player.hasPermission("coronalis.admin")) {
+            touchOperator(loc, player);
+            return true;
+        }
+        player.sendMessage("§5[Coronalis] §cTerminal bloqueada por otro operador. Una consola no admite uso simultáneo.");
+        player.sendMessage("§5[Coronalis] §7Pide al operador actual que cierre turno o espera a que libere el sistema.");
+        Coronalis.instance().getSoundManager().play(player, SoundManager.CoronalisSound.FAULT);
+        return false;
+    }
+
+    private static void touchOperator(@Nonnull Location loc, @Nonnull Player player) {
+        BlockStorage.addBlockInfo(loc, "cc_operator", player.getUniqueId().toString());
+    }
+
+    private static void warnNoEnergy(@Nonnull Player player, @Nonnull Location loc,
+                                     @Nonnull CoronalisNetwork network, int required) {
+        player.sendMessage("§5[Coronalis] §cEnergía SU insuficiente: §e" + network.getSignalUnits()
+            + "§7/§e" + required + " §cSU requeridas.");
+        player.sendMessage("§5[Coronalis] §7Conecta §bNúcleos de Energía SU §7o una red eléctrica Slimefun a la consola.");
+        Coronalis.instance().getSoundManager().playEnergyLow(loc);
+    }
+
+    private static void importExternalEnergy(@Nonnull Location loc, @Nonnull CoronalisNetwork network) {
+        SlimefunItem item = BlockStorage.check(loc.getBlock());
+        if (!(item instanceof ControlConsole console)) return;
+        int charge = console.getCharge(loc);
+        if (charge <= 0 || network.getSignalUnits() >= network.getMaxSignalUnits()) return;
+
+        int usedJ = Math.min(charge, ENERGY_IMPORT_PER_TICK_J);
+        int su = Math.max(1, usedJ / JOULES_PER_SU);
+        network.addSU(su);
+        console.removeCharge(loc, usedJ);
+        Coronalis.log("[Coronalis/Energy] Importados " + usedJ + " J -> " + su
+            + " SU en " + fmtLoc(loc));
+    }
+
+    private static int getExternalCharge(@Nonnull Location loc) {
+        SlimefunItem item = BlockStorage.check(loc.getBlock());
+        return item instanceof ControlConsole console ? console.getCharge(loc) : 0;
+    }
+
+    @Nonnull
+    private static String fmtLoc(@Nonnull Location loc) {
+        return loc.getBlockX() + "," + loc.getBlockY() + "," + loc.getBlockZ();
+    }
+
     // ── InventoryBlock ────────────────────────────────────────────────────────
 
     @Nonnull @Override
     public int[] getInputSlots()  { return new int[]{ INPUT_SLOT  }; }
     @Nonnull @Override
     public int[] getOutputSlots() { return new int[]{ OUTPUT_SLOT }; }
+
+    @Nonnull
+    @Override
+    public EnergyNetComponentType getEnergyComponentType() {
+        return EnergyNetComponentType.CONSUMER;
+    }
+
+    @Override
+    public int getCapacity() {
+        return ENERGY_CAPACITY_J;
+    }
 }
