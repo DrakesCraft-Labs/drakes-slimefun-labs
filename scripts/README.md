@@ -111,6 +111,6 @@ Los `README.md` dentro de `sources/repos-to-port/` u otros árboles de addon doc
 
 ## Después del “build verde”
 
-El monorepo en **`1.21-latin`** apunta a **CI + smoke + release** (muchos JAR como assets de un solo GitHub Release cuando el equipo dispara el workflow). Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.
+El monorepo en **`main`** apunta a **CI + smoke + release** (muchos JAR como assets de un solo GitHub Release cuando el equipo dispara el workflow). Lo que sigue es **gameplay** en servidores reales; el survival de referencia del equipo es **[DrakesCraft](https://drakescraft.cl)** (Chile), donde **Chagui** y la comunidad van encontrando detalle addon por addon.
 
 Para probar un jar concreto sin pasar por `updates/`, muchos hosts permiten **sustituir solo el `.jar` dentro de `plugins/`** conservando la carpeta de datos del plugin; ver [docs/wiki/runtime-drakes-autoupdate.md](../docs/wiki/runtime-drakes-autoupdate.md).

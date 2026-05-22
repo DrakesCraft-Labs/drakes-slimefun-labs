@@ -40,7 +40,7 @@ Política del repo en GitHub: **solo dos ramas largas** en el remoto:
 
 | Rama | Rol |
 |------|-----|
-| **`1.21-latin`** | Línea estable Paper **1.21.x** + Java 21 (rama por defecto / `HEAD`). |
+| **`main`** | Línea estable Paper **1.21.x** + Java 21 (rama por defecto / `HEAD`). |
 | **`26.X-ToTheStars`** | Línea experimental Paper **API 26.x** (BOMs y supuestos distintos). |
 
 - **No** fusionar ni rebase cruzado entre `1.21-latin` y `26.X-ToTheStars` (corrompe `pom.xml`, módulos y CI). README raíz y reglas de Cursor del laboratorio.

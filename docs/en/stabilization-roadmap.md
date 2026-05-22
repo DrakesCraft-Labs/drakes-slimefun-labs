@@ -101,6 +101,6 @@ At the end of the backlog, the team should still do:
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> Main CI on `1.21-latin`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
+> Main CI on `main`: **CI Monorepo 1.21** covers the full Maven reactor + 5 Gradle projects.
 > Note: runtime smoke tests and release strategy remain; there are no compile blockers in the current cut.
 <!-- DRAKES-STATUS:END -->

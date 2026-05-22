@@ -62,6 +62,6 @@ Si falta alguna cadena esperada, el smoke falla: así se confirma que el servido
 <!-- DRAKES-STATUS:BEGIN -->
 > Estado de sincronizacion: **2026-04-24**.
 > Baseline tecnico vigente: **Paper 1.21.1 + Java 21**.
-> CI principal en `1.21-latin`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
+> CI principal en `main`: **CI Monorepo 1.21** cubre reactor Maven completo + 5 Gradle.
 > Nota: existe base runtime smoke local y workflow manual `Smoke Runtime 1.21`.
 <!-- DRAKES-STATUS:END -->

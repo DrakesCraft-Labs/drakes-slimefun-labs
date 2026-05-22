@@ -4,7 +4,7 @@ Guía operativa para mantener el repositorio **drakes-slimefun-labs** ordenado e
 
 ## Ramas largas (solo dos en el remoto)
 
-Política vigente: en **`DrakesCraft-Labs/drakes-slimefun-labs`** deben quedar **únicamente** las ramas **`1.21-latin`** (estable Paper 1.21.x) y **`26.X-ToTheStars`** (experimento 26.x). Cualquier `feat/*`, `feature/*` u otra rama de trabajo debe **integrarse por PR y borrarse** al terminar.
+Política vigente: en **`DrakesCraft-Labs/drakes-slimefun-labs`** deben quedar **únicamente** las ramas **`main`** (estable Paper 1.21.x) y **`26.X-ToTheStars`** (experimento 26.x). Cualquier `feat/*`, `feature/*` u otra rama de trabajo debe **integrarse por PR y borrarse** al terminar.
 
 **Dependabot** crea ramas `dependabot/...` mientras haya PRs abiertos; cerrar o fusionar el PR (con borrado de rama) las elimina. Si reaparecen, es el ciclo normal de bumps.
 
@@ -27,7 +27,7 @@ No confundas borrar *runs* con borrar *logs de artifact*; son ajustes distintos 
 ## Pull requests
 
 1. `gh pr list --repo DrakesCraft-Labs/drakes-slimefun-labs --state open`
-2. Para cada PR: revisar CI, conflicto con `1.21-latin`, y si el cambio sigue la política del monorepo.
+2. Para cada PR: revisar CI, conflicto con `main`, y si el cambio sigue la política del monorepo.
 3. **Merge** cuando CI esté verde y el alcance sea claro; **cerrar** con comentario si está obsoleta o duplica trabajo ya integrado.
 
 **Ramas divergentes:** no abras ni fusiones PRs que intenten unir `**1.21-latin`** con `**26.X-ToTheStars`** (ni al revés). Es política explícita del repo; ver README raíz (“Línea roja”) y la misma norma documentada para el equipo en la raíz del repositorio (reglas de ramas del laboratorio).
@@ -102,7 +102,7 @@ Tras subir versiones: `mvn -B -DskipTests package -fae` (o el subconjunto que to
 
 ### Alertas “del bot” (PRs / comentarios)
 
-- **Dependabot**: PRs con etiquetas `dependencies`, `java`, `maven` o `github-actions`; revisar CI y conflictos con `1.21-latin`.
+- **Dependabot**: PRs con etiquetas `dependencies`, `java`, `maven` o `github-actions`; revisar CI y conflictos con `main`.
 - **Otras integraciones en PRs**: mismo criterio que un PR humano: CI verde y alcance claro.
 - **Issues**: si un bot abre un issue de seguridad, enlazar el GHSA y el commit o PR que lo mitiga.
 
