@@ -59,6 +59,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Instalar API Networks publicada y verificada
+        run: bash scripts/ci/install-networks-api.sh
+
       - name: Maven package (reactor)
         run: mvn -B -Dmaven.test.skip=true package
         env:
