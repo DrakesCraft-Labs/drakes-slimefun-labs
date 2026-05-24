@@ -180,7 +180,7 @@
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>NetworksV6-drake</artifactId>
-            <version>11-SNAPSHOT</version>
+            <version>${networks.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
