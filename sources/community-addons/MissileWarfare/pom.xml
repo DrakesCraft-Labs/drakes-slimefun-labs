@@ -134,7 +134,7 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>dough-core</artifactId>
             <version>${dough.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     
         <dependency>

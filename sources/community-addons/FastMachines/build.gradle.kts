@@ -71,6 +71,16 @@ kotlin {
     }
 }
 
+val slimefunTranslationShadowJar = project(":sources:community-addons:SlimefunTranslation").tasks.named("shadowJar")
+
+tasks.named("compileKotlin") {
+    dependsOn(slimefunTranslationShadowJar)
+}
+
+tasks.named("compileJava") {
+    dependsOn(slimefunTranslationShadowJar)
+}
+
 // Shadow necesita el JAR de Kotlin como entrada; el clasificador "thin" evita confundirlo con el fat JAR del servidor.
 tasks.named<Jar>("jar") {
     enabled = true

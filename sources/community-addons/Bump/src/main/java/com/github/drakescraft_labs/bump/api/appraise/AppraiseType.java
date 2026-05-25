@@ -176,7 +176,7 @@ public class AppraiseType {
      */
     @ParametersAreNonnullByDefault
     public final AppraiseType setDescription(String... description) {
-        Validate.noNullElements(description);
+        Validate.noNullElements(description, "Description cannot contain null elements");
         return setDescription(Arrays.asList(description));
     }
 
@@ -190,7 +190,7 @@ public class AppraiseType {
     @ParametersAreNonnullByDefault
     public final AppraiseType setDescription(List<String> description) {
         checkState();
-        Validate.noNullElements(description);
+        Validate.noNullElements(description, "Description cannot contain null elements");
         this.description = description;
         return this;
     }
@@ -337,7 +337,7 @@ public class AppraiseType {
      */
     @ParametersAreNonnullByDefault
     public final AppraiseType addValidSlimefunItemIds(String... slimefunItemIds) {
-        Validate.noNullElements(slimefunItemIds);
+        Validate.noNullElements(slimefunItemIds, "Slimefun item ids cannot contain null elements");
         return addValidSlimefunItemIds(Arrays.asList(slimefunItemIds));
     }
 
@@ -351,7 +351,7 @@ public class AppraiseType {
     @ParametersAreNonnullByDefault
     public final AppraiseType addValidSlimefunItemIds(Collection<String> slimefunItemIds) {
         checkState();
-        Validate.noNullElements(slimefunItemIds);
+        Validate.noNullElements(slimefunItemIds, "Slimefun item ids cannot contain null elements");
         validSlimefunItemIds.addAll(slimefunItemIds);
         return this;
     }
@@ -365,7 +365,7 @@ public class AppraiseType {
      */
     @ParametersAreNonnullByDefault
     public final AppraiseType addValidEquipmentSlots(EquipmentSlot... equipmentSlots) {
-        Validate.noNullElements(equipmentSlots);
+        Validate.noNullElements(equipmentSlots, "Equipment slots cannot contain null elements");
         return addValidEquipmentSlots(Arrays.asList(equipmentSlots));
     }
 
@@ -379,7 +379,7 @@ public class AppraiseType {
     @ParametersAreNonnullByDefault
     public final AppraiseType addValidEquipmentSlots(Collection<EquipmentSlot> equipmentSlots) {
         checkState();
-        Validate.noNullElements(equipmentSlots);
+        Validate.noNullElements(equipmentSlots, "Equipment slots cannot contain null elements");
         validEquipmentSlots.addAll(equipmentSlots);
         return this;
     }

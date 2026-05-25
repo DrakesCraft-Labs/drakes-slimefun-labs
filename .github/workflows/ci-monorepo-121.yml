@@ -46,16 +46,30 @@ jobs:
           distribution: temurin
           cache: maven
 
-      # Usar `compile`, no `install`: con `install` Slimefun ejecuta shade y los addons
-      # resuelven ProtectionManager contra tipos relocados (com.github...Interaction), rompiendo
-      # el codigo fuente que usa dev.drake.dough.protection.Interaction.
-      - name: Compilar stack base (Dough + Slimefun + libs internas)
+      - name: Empaquetar stack base (Dough + Slimefun + libs internas)
         run: |
-          mvn -B clean compile -DskipTests \
+          mvn -B clean package -DskipTests \
             -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/internal-metadata/patches/commons-lang-drake-patched \
             -am
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verificar API Dough expuesta por Slimefun
+        run: |
+          JAR="$(find sources/slimefun-core/Slimefun4-src/target -maxdepth 1 -type f -name 'Slimefun-*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
+          test -n "$JAR"
+          jar tf "$JAR" | grep -q '^dev/drake/dough/collections/Pair.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/items/CustomItemStack.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/data/persistent/PersistentDataAPI.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/protection/Interaction.class$'
+
+      - name: Verificar que las librerias internas no dupliquen Dough
+        run: |
+          for DIR in sources/batch-2-expansion/SefiLib sources/batch-2-expansion/InfinityLib; do
+            JAR="$(find "$DIR/target" -maxdepth 1 -type f -name '*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
+            test -n "$JAR"
+            ! jar tf "$JAR" | grep -q '^dev/drake/dough/'
+          done
 
   maven_full_reactor:
     name: Maven · reactor completo
@@ -90,13 +104,20 @@ jobs:
           chmod +x ./gradlew
           ./gradlew --no-daemon shadowJar
 
-      # `package` (no solo `compile`): Slimefun debe ejecutar shade para que existan
-      # `com.github.drakescraft_labs.slimefun4.libraries.dough.*` en el classpath de los addons.
       - name: Empaquetar los 81 módulos Maven del reactor
         run: |
           mvn -B package -Dmaven.test.skip=true -fae
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verificar que los addons no empaqueten API Dough duplicada
+        run: |
+          while IFS= read -r JAR; do
+            if jar tf "$JAR" | grep -q '^dev/drake/dough/'; then
+              echo "::error file=$JAR::El addon incluye API Dough; debe usar la copia provista por Slimefun."
+              exit 1
+            fi
+          done < <(find sources -path '*/target/*.jar' -type f ! -name 'original-*' ! -name '*-sources.jar' ! -path 'sources/dough-core/*' ! -path 'sources/slimefun-core/*')
 
       - name: Recolectar JARs del monorepo
         if: github.event_name != 'pull_request'
@@ -135,18 +156,26 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Compilar los 5 proyectos Gradle del reactor
+      - name: Empaquetar los 5 proyectos Gradle del reactor
         run: |
           chmod +x ./gradlew
           ./gradlew --no-daemon \
             :sources:community-addons:SlimefunTranslation:shadowJar \
-            :sources:community-addons:Bump:compileJava \
-            :sources:batch-2-expansion:Galactifun:compileJava \
-            :sources:community-addons:CustomItemGenerators:compileJava \
-            :sources:community-addons:FastMachines:compileKotlin \
-            :sources:community-addons:SlimefunTranslation:compileJava
+            :sources:community-addons:Bump:shadowJar \
+            :sources:batch-2-expansion:Galactifun:shadowJar \
+            :sources:community-addons:CustomItemGenerators:shadowJar \
+            :sources:community-addons:FastMachines:shadowJar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verificar que los JARs Gradle no empaqueten API Dough duplicada
+        run: |
+          while IFS= read -r JAR; do
+            if jar tf "$JAR" | grep -q '^dev/drake/dough/'; then
+              echo "::error file=$JAR::El addon Gradle incluye API Dough; debe usar la copia provista por Slimefun."
+              exit 1
+            fi
+          done < <(find sources -path '*/build/libs/*.jar' -type f ! -name '*-sources.jar')
 
       # Galactifun2: proyecto Gradle aparte (Kotlin + buildSrc); no forma parte del composite raíz.
       - name: Galactifun2 (Gradle aislado, compileKotlin)

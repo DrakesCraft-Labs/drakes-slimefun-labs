@@ -64,6 +64,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Verificar API Dough expuesta por Slimefun
+        run: |
+          JAR="$(find sources/slimefun-core/Slimefun4-src/target -maxdepth 1 -type f -name 'Slimefun-*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
+          test -n "$JAR"
+          jar tf "$JAR" | grep -q '^dev/drake/dough/collections/Pair.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/items/CustomItemStack.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/data/persistent/PersistentDataAPI.class$'
+          jar tf "$JAR" | grep -q '^dev/drake/dough/protection/Interaction.class$'
+
+      - name: Verificar que los addons no empaqueten API Dough duplicada
+        run: |
+          while IFS= read -r JAR; do
+            if jar tf "$JAR" | grep -q '^dev/drake/dough/'; then
+              echo "::error file=$JAR::El addon incluye API Dough; debe usar la copia provista por Slimefun."
+              exit 1
+            fi
+          done < <(find sources -path '*/target/*.jar' -type f ! -name 'original-*' ! -name '*-sources.jar' ! -path 'sources/dough-core/*' ! -path 'sources/slimefun-core/*')
+
       - name: Collect plugin JARs
         run: python scripts/release/collect_monorepo_jars.py --out dist/monorepo-jars
 

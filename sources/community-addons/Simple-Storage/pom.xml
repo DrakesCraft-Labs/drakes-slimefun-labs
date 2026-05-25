@@ -35,6 +35,28 @@
                 </includes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${maven.shade.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <includes>
+                                    <include>com.github.drakescraft_labs:infinitylib-drake</include>
+                                </includes>
+                            </artifactSet>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
@@ -64,7 +86,6 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>infinitylib-drake</artifactId>
             <version>${infinitylib.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
