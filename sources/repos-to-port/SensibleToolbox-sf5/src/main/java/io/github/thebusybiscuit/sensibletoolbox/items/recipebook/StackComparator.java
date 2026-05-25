@@ -5,7 +5,7 @@ import java.util.Comparator;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.items.ItemUtils;
 
 class StackComparator implements Comparator<ItemStack> {
 

@@ -61,7 +61,7 @@ public final class ConfigUtils {
      */
     @Nonnull
     public static Set<Material> parseMaterials(@Nonnull List<String> materialList) throws InvalidConfigurationException {
-        Validate.noNullElements(materialList);
+        Validate.noNullElements(materialList, "Material list cannot contain null elements");
 
         Set<Material> materials = new HashSet<>();
         for (String value : materialList) {
@@ -100,7 +100,7 @@ public final class ConfigUtils {
      */
     @Nonnull
     public static Set<EquipmentSlot> parseEquipmentSlots(@Nonnull List<String> slotList) throws InvalidConfigurationException {
-        Validate.noNullElements(slotList);
+        Validate.noNullElements(slotList, "Equipment slot list cannot contain null elements");
 
         Set<EquipmentSlot> equipmentSlots = new HashSet<>();
         for (String value : slotList) {

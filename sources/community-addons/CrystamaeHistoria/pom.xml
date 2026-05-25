@@ -50,6 +50,8 @@
                             <artifactSet>
                                 <includes>
                                     <include>com.elmakers.mine.bukkit:EffectLib</include>
+                                    <include>com.github.drakescraft_labs:sefilib-drake</include>
+                                    <include>com.github.drakescraft_labs:infinitylib-drake</include>
                                 </includes>
                             </artifactSet>
                         </configuration>
@@ -86,7 +88,6 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>infinitylib-drake</artifactId>
             <version>${infinitylib.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
@@ -104,7 +105,6 @@
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>sefilib-drake</artifactId>
             <version>${sefilib.version}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
