@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactive;
 import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.UnplaceableBlock;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;

@@ -1,6 +1,6 @@
 package io.github.thebusybiscuit.sensibletoolbox.api.gui.gadgets;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import io.github.thebusybiscuit.sensibletoolbox.api.LightMeterHolder;
 import io.github.thebusybiscuit.sensibletoolbox.api.gui.InventoryGUI;
