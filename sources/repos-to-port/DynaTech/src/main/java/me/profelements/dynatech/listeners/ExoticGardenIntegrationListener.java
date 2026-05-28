@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import com.github.drakescraft_labs.exoticgarden.ExoticGardenRecipeTypes;
 import com.github.drakescraft_labs.exoticgarden.items.CustomFood;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;

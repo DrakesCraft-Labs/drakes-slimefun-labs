@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.universe.attributes.atmosphere.AtmosphericEffect;
 import com.github.drakescraft_labs.galactifun.api.universe.attributes.atmosphere.Gas;
 import com.github.drakescraft_labs.galactifun.api.worlds.PlanetaryWorld;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;

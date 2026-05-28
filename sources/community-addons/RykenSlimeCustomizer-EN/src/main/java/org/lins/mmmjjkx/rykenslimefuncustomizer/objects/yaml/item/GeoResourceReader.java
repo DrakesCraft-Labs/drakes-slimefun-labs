@@ -4,7 +4,7 @@ import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;

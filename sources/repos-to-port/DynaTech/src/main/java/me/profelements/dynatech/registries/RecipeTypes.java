@@ -1,9 +1,9 @@
 package me.profelements.dynatech.registries;
 
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import dev.drake.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.MachineRecipe;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import me.profelements.dynatech.items.electric.MaterialHive;
 import me.profelements.dynatech.items.electric.machines.Orechid;

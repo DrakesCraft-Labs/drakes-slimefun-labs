@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.LuckLevel;
 import com.github.drakescraft_labs.slimefunluckyblocks.surprises.Surprise;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 public final class PotatOSSurprise implements Surprise {
 	

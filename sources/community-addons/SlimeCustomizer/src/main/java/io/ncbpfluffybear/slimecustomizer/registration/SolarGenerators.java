@@ -7,7 +7,7 @@ import io.ncbpfluffybear.slimecustomizer.objects.CustomSolarGenerator;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 

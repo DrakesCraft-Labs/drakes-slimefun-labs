@@ -7,8 +7,8 @@ import org.bukkit.inventory.ItemStack;
 
 import dev.drake.infinitylib.common.StackUtils;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import dev.drake.dough.items.ItemStackSnapshot;
-import dev.drake.dough.items.ItemUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemStackSnapshot;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
 
 @Getter
 public final class CraftingBlockRecipe {

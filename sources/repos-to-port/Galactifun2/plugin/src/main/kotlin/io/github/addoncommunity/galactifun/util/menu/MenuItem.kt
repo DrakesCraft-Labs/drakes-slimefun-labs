@@ -4,7 +4,7 @@ import io.github.addoncommunity.galactifun.util.bukkit.legacyDefaultColor
 import io.github.addoncommunity.galactifun.util.bukkit.miniMessageToLegacy
 import io.github.addoncommunity.galactifun.util.general.RequiredProperty
 import io.github.addoncommunity.galactifun.util.items.MaterialType
-import dev.drake.dough.items.CustomItemStack
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack

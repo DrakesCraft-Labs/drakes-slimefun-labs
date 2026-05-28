@@ -1,11 +1,11 @@
 package com.github.drakescraft_labs.slimechem.implementation.atomic;
 
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.Isotope;
 import com.github.drakescraft_labs.slimechem.implementation.attributes.Ingredient;
 import lombok.Getter;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;

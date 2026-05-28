@@ -2,7 +2,7 @@ package com.github.drakescraft_labs.liquid;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

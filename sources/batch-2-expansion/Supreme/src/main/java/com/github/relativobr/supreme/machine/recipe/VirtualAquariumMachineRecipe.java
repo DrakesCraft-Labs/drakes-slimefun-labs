@@ -1,7 +1,7 @@
 package com.github.relativobr.supreme.machine.recipe;
 
 import com.github.relativobr.supreme.Supreme;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;

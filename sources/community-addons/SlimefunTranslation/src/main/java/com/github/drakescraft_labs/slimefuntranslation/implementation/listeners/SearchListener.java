@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.chat.ChatInput;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.chat.ChatInput;
 
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 

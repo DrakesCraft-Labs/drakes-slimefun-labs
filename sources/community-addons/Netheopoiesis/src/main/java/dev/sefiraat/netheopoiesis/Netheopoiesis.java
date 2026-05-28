@@ -11,7 +11,7 @@ import dev.sefiraat.netheopoiesis.managers.MobManager;
 import dev.sefiraat.netheopoiesis.managers.SupportedPluginManager;
 import dev.sefiraat.netheopoiesis.managers.TaskManager;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

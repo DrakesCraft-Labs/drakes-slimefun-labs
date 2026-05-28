@@ -1,6 +1,6 @@
 package com.github.drakescraft_labs.sfcalc;
 
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import lombok.Getter;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.configuration.file.FileConfiguration;

@@ -1,7 +1,7 @@
 package me.vaan.mapjammer.runnables;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import me.vaan.mapjammer.implementation.Jammer;
 import me.vaan.mapjammer.util.ConfigStorage;
 import me.vaan.mapjammer.util.ShowHideInterface;

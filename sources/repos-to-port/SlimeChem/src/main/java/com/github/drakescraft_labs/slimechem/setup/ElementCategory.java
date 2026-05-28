@@ -10,7 +10,7 @@ import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuideMode;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunPlugin;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

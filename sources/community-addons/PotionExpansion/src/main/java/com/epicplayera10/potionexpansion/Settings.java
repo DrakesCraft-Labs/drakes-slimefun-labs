@@ -1,6 +1,6 @@
 package com.epicplayera10.potionexpansion;
 
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 
 import javax.annotation.Nonnull;
 

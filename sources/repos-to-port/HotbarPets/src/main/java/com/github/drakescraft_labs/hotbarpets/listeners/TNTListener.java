@@ -18,7 +18,7 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 
 import com.github.drakescraft_labs.hotbarpets.HotbarPets;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 
 public class TNTListener implements Listener {
 

@@ -41,10 +41,10 @@ import com.github.drakescraft_labs.exoticgarden.schematics.Schematic;
 import com.github.drakescraft_labs.exoticgarden.items.BonemealableItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.config.Config;
-import dev.drake.dough.protection.Interaction;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 public class PlantsListener implements Listener {

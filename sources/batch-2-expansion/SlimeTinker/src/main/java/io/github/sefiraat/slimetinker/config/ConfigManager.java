@@ -1,7 +1,7 @@
 package io.github.sefiraat.slimetinker.config;
 
 import io.github.sefiraat.slimetinker.SlimeTinker;
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 
 import java.io.File;
 import java.io.IOException;

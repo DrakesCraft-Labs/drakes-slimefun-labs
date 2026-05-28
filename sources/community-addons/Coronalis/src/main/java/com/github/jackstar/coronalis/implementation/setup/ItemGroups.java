@@ -4,9 +4,9 @@ import org.bukkit.NamespacedKey;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.jackstar.coronalis.Coronalis;
-import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 
 public final class ItemGroups {
 

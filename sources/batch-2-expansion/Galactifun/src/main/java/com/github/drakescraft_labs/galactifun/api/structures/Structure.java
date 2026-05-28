@@ -18,7 +18,7 @@ import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.Directional;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.drake.dough.common.CommonPatterns;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 
 /**
  * A structure that can be pasted

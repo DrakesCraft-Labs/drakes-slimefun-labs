@@ -126,9 +126,9 @@ class MenuBuilder {
 
             override fun canOpen(b: Block, p: Player): Boolean {
                 if (p.hasPermission("slimefun.inventory.bypass")) return true
-                val protection = Slimefun.getProtectionManager() as dev.drake.dough.protection.ProtectionManager
+                val protection = Slimefun.getProtectionManager() as com.github.drakescraft_labs.slimefun4.libraries.dough.protection.ProtectionManager
                 return sfi.canUse(p, true)
-                        && protection.hasPermission(p, b, dev.drake.dough.protection.Interaction.INTERACT_BLOCK)
+                        && protection.hasPermission(p, b, com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction.INTERACT_BLOCK)
             }
 
             override fun getSlotsAccessedByItemTransport(flow: ItemTransportFlow): IntArray {

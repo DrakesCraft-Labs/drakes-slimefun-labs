@@ -3,7 +3,7 @@ package me.lucasgithuber.elementmanipulation.utils;
 import dev.drake.infinitylib.groups.MultiGroup;
 import dev.drake.infinitylib.groups.SubGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import me.lucasgithuber.elementmanipulation.ElementManipulation;
 import me.lucasgithuber.elementmanipulation.category.DrugsGroup;

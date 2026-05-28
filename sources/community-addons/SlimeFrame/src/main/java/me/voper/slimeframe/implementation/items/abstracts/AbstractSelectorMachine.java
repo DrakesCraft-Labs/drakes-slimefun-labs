@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import org.apache.commons.lang.Validate;
-import dev.drake.dough.inventory.InvUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper;

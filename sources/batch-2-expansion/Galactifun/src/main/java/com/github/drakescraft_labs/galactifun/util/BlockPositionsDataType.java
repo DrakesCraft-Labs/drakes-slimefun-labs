@@ -10,7 +10,7 @@ import org.bukkit.World;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataType;
 
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 
 final class BlockPositionsDataType implements PersistentDataType<long[], Set<BlockPosition>> {
 

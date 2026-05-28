@@ -11,7 +11,7 @@ import io.github.addoncommunity.galactifun.units.abs
 import io.github.addoncommunity.galactifun.util.bukkit.*
 import io.github.seggan.sf4k.extensions.minus
 import io.github.seggan.sf4k.extensions.plus
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import kotlinx.coroutines.Job
 import me.mrCookieSlime.Slimefun.api.BlockStorage
 import net.kyori.adventure.text.format.NamedTextColor

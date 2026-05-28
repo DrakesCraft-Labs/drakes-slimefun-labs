@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.galactifun.api.universe.attributes.Orbit;
 import com.github.drakescraft_labs.galactifun.api.universe.types.UniversalType;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 /**

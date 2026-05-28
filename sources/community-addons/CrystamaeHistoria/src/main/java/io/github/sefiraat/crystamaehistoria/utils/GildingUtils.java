@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;

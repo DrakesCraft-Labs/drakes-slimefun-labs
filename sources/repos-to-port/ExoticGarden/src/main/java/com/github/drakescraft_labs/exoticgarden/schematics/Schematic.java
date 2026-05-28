@@ -21,8 +21,8 @@ import com.github.drakescraft_labs.exoticgarden.schematics.org.jnbt.NBTInputStre
 import com.github.drakescraft_labs.exoticgarden.schematics.org.jnbt.ShortTag;
 import com.github.drakescraft_labs.exoticgarden.schematics.org.jnbt.Tag;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 /*

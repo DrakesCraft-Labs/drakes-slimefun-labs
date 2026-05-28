@@ -16,7 +16,7 @@ import dev.drake.disc.SlimefunDisc;
 import dev.drake.disc.items.DiscMold;
 import dev.drake.disc.items.MusicDisc;
 import dev.drake.disc.setup.DiscConfig.DiscRecipe;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 public final class ItemSetup {
 

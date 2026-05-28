@@ -4,7 +4,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import net.guizhanss.fastmachines.FastMachines
 import net.guizhanss.fastmachines.core.recipes.Recipe
 import net.guizhanss.fastmachines.utils.consumeChoice

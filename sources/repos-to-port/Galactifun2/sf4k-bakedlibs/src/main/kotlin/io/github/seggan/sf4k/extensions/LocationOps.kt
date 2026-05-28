@@ -1,6 +1,6 @@
 package io.github.seggan.sf4k.extensions
 
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import org.bukkit.Location
 import org.bukkit.block.Block
 import org.bukkit.util.Vector

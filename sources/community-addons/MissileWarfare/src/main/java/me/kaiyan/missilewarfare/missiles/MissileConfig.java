@@ -1,6 +1,6 @@
 package me.kaiyan.missilewarfare.missiles;
 
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 import me.kaiyan.missilewarfare.items.MissileClass;
 import me.kaiyan.missilewarfare.util.VariantsAPI;
 

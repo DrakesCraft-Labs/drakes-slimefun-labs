@@ -5,7 +5,7 @@ import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import io.github.schntgaispock.slimehud.SlimeHUD;
 import io.github.schntgaispock.slimehud.util.HudBuilder;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import me.mmmjjkx.betterChests.items.BCItems;
 import me.mmmjjkx.betterChests.items.chests.SimpleDrawer;
 import me.mmmjjkx.betterChests.items.chests.ie.IEStorageCache;

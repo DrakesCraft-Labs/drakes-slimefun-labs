@@ -83,7 +83,7 @@ public class DirectRayGun extends AbstractRayGun {
                 5));
 
         if (result.getHitEntity() instanceof final LivingEntity livingEntity
-                && Slimefun.getProtectionManager().hasPermission(player, livingEntity.getLocation(), dev.drake.dough.protection.Interaction.ATTACK_ENTITY)) {
+                && Slimefun.getProtectionManager().hasPermission(player, livingEntity.getLocation(), com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction.ATTACK_ENTITY)) {
             livingEntity.damage(settings.getDamage());
             livingEntity.setVelocity(Vector.fromJOML(TransformationUtils.getDisplacement(handLocation, livingEntity.getEyeLocation()).mul(0.2F)));
         }

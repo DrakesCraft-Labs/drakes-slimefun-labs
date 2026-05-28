@@ -1,7 +1,7 @@
 package net.guizhanss.ultimategenerators2.implementation
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
-import dev.drake.dough.items.CustomItemStack
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack
 import net.guizhanss.ultimategenerators2.UltimateGenerators2
 import net.guizhanss.ultimategenerators2.utils.consts.Heads
 import org.bukkit.Color

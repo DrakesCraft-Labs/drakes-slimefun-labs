@@ -13,7 +13,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.MachineProcessHolde
 import com.github.drakescraft_labs.slimefun4.core.machines.MachineProcessor
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems
 import com.github.drakescraft_labs.slimefun4.implementation.operations.FuelOperation
-import dev.drake.dough.items.CustomItemStack
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack
 import com.github.drakescraft_labs.slimefun4.utils.NumberUtils
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper

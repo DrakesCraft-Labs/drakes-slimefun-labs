@@ -14,7 +14,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.items.multiblocks.EnhancedCraftingTable;
-import dev.drake.dough.items.ItemStackSnapshot;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemStackSnapshot;
 
 class FakeEnhancedCrafter extends EnhancedCraftingTable {
 

@@ -1,6 +1,6 @@
 package me.sfiguz7.transcendence.implementation.core.commands;
 
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import me.sfiguz7.transcendence.TranscEndence;
 import me.sfiguz7.transcendence.implementation.items.items.Daxi;
 import me.sfiguz7.transcendence.implementation.listeners.TranscEndenceGuideListener;

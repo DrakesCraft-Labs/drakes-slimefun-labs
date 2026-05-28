@@ -7,7 +7,7 @@ import dev.sefiraat.cultivation.implementation.slimefun.CultivationStacks;
 import dev.drake.sefilib.misc.Chance;
 import dev.drake.sefilib.misc.ParticleUtils;
 import dev.drake.sefilib.world.LocationUtils;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Location;
 import org.bukkit.Material;
