@@ -194,6 +194,10 @@
                             <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.paperlib</shadedPattern>
                         </relocation>
                         <relocation>
+                            <pattern>dev.drake.dough</pattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.dough</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>org.apache.commons.lang</pattern>
                             <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.commons.lang</shadedPattern>
                         </relocation>
