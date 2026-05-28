@@ -11,7 +11,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.MachineProcessHolde
 import com.github.drakescraft_labs.slimefun4.core.machines.MachineProcessor
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation
-import dev.drake.dough.inventory.InvUtils
+import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage

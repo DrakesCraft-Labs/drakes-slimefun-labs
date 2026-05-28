@@ -5,9 +5,9 @@ import io.github.sefiraat.simplestorage.items.Skulls;
 import io.github.sefiraat.simplestorage.utils.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.NestedItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.SubItemGroup;
-import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import org.bukkit.NamespacedKey;
 
 public final class Categories {

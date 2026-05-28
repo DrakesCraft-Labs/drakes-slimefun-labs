@@ -2,7 +2,7 @@ package io.ncbpfluffybear.flowerpower;
 
 
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 
 import io.ncbpfluffybear.flowerpower.setup.FlowerPowerItemSetup;
 import io.ncbpfluffybear.flowerpower.setup.ResearchSetup;

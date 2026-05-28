@@ -2,7 +2,7 @@ package me.fnfal113.sfchunkinfo;
 
 
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
-import dev.drake.dough.updater.BlobBuildUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import me.fnfal113.sfchunkinfo.commands.ScanChunk;
 import org.bstats.bukkit.Metrics;

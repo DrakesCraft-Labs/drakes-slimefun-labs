@@ -1,6 +1,6 @@
 package io.github.seggan.sf4k.serial.serializers
 
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.builtins.LongArraySerializer
 import org.bukkit.Bukkit

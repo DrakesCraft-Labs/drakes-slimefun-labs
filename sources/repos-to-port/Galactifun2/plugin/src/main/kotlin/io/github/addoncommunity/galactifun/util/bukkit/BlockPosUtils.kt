@@ -1,10 +1,10 @@
 package io.github.addoncommunity.galactifun.util.bukkit
 
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
 
-/** Drake dough [BlockPosition] ([dev.drake.dough.blocks.BlockPosition]); prefer over sf4k's `Block.position` where relevant. */
+/** Drake dough [BlockPosition] ([com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition]); prefer over sf4k's `Block.position` where relevant. */
 val Block.blockPosition: BlockPosition
     get() = BlockPosition(this)
 

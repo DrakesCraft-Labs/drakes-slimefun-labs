@@ -2,7 +2,7 @@ package org.lins.mmmjjkx.rykenslimefuncustomizer.objects.yaml.item;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import java.util.List;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;

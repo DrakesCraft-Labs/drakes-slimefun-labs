@@ -1,7 +1,7 @@
 package com.github.drakescraft_labs.sfcalc;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import dev.drake.dough.items.ItemUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

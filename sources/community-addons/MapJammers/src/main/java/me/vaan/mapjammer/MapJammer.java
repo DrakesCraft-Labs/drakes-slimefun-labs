@@ -4,7 +4,7 @@ package me.vaan.mapjammer;
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import me.vaan.mapjammer.implementation.Setup;
 import me.vaan.mapjammer.runnables.CheckPlayers;
 import me.vaan.mapjammer.util.ConfigStorage;

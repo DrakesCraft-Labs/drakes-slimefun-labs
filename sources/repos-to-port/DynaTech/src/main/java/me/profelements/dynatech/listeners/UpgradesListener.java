@@ -14,7 +14,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import dev.drake.dough.inventory.InvUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils;
 import com.github.drakescraft_labs.slimefun4.api.events.AsyncMachineOperationFinishEvent;
 import com.github.drakescraft_labs.slimefun4.implementation.operations.CraftingOperation;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;

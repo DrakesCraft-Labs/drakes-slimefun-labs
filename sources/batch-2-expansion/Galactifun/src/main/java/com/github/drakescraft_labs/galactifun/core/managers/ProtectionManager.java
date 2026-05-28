@@ -15,7 +15,7 @@ import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.universe.attributes.atmosphere.Atmosphere;
 import com.github.drakescraft_labs.galactifun.api.universe.attributes.atmosphere.AtmosphericEffect;
 import com.github.drakescraft_labs.galactifun.api.worlds.AlienWorld;
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 
 public final class ProtectionManager {
 

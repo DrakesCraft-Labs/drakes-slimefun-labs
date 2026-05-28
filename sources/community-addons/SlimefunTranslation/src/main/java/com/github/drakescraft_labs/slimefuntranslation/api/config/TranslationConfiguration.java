@@ -15,7 +15,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 
 import com.github.drakescraft_labs.slimefuntranslation.SlimefunTranslation;
 import com.github.drakescraft_labs.slimefuntranslation.api.translation.ItemTranslation;

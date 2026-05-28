@@ -16,7 +16,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import org.apache.commons.lang.Validate;
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.voper.slimeframe.implementation.items.abstracts.AbstractMachine;

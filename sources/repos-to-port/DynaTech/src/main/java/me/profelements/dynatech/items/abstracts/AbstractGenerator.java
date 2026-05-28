@@ -24,8 +24,8 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.MachineProcessHolde
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.machines.MachineProcessor;
 import com.github.drakescraft_labs.slimefun4.implementation.operations.FuelOperation;
-import dev.drake.dough.inventory.InvUtils;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.inventory.InvUtils;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import com.github.drakescraft_labs.slimefun4.utils.itemstack.ItemStackWrapper;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;

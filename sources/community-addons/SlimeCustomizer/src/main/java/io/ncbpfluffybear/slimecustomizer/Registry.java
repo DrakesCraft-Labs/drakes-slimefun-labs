@@ -2,7 +2,7 @@ package io.ncbpfluffybear.slimecustomizer;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
-import dev.drake.dough.collections.Pair;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;

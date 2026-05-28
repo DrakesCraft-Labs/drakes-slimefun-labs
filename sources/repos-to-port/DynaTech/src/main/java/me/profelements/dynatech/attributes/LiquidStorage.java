@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.base.Preconditions;
 
-import dev.drake.dough.blocks.BlockPosition;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition;
 import com.github.drakescraft_labs.slimefun4.core.attributes.ItemAttribute;
 import com.github.drakescraft_labs.slimefun4.utils.NumberUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;

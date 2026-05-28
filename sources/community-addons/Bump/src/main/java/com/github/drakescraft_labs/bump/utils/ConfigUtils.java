@@ -15,7 +15,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import com.github.drakescraft_labs.bump.utils.constant.Patterns;
 import com.github.drakescraft_labs.bump.utils.tags.BumpTag;
 import org.apache.commons.lang.Validate;
-import dev.drake.dough.common.CommonPatterns;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 
 import org.bukkit.configuration.file.FileConfiguration;
 

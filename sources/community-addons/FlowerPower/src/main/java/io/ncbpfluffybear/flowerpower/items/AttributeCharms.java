@@ -7,7 +7,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.settings.DoubleRangeSetti
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.ncbpfluffybear.flowerpower.FlowerPowerPlugin;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;

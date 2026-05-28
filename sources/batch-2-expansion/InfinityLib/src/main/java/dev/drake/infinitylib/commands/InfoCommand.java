@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 
 @ParametersAreNonnullByDefault
 final class InfoCommand extends SubCommand {

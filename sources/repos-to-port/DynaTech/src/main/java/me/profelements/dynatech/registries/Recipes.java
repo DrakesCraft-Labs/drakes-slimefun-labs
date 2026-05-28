@@ -6,9 +6,9 @@ import me.profelements.dynatech.utils.Recipe;
 import me.profelements.dynatech.utils.TimedRecipe;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
-import dev.drake.dough.items.CustomItemStack;
-import dev.drake.dough.skins.PlayerHead;
-import dev.drake.dough.skins.PlayerSkin;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.Material;

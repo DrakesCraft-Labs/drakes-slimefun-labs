@@ -4,7 +4,7 @@ package me.EzCoins.MiniBlocks;
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import dev.drake.infinitylib.core.AbstractAddon;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import me.EzCoins.MiniBlocks.core.Groups;
 import me.EzCoins.MiniBlocks.itemsetup.ItemSetup;
 import me.EzCoins.MiniBlocks.utils.CustomHead;

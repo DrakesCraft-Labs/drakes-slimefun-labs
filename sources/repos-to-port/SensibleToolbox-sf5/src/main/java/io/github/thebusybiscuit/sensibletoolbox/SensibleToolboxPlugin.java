@@ -23,7 +23,7 @@ import org.bukkit.scheduler.BukkitTask;
 import com.comphenix.protocol.ProtocolLib;
 
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
-import dev.drake.dough.protection.ProtectionManager;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.ProtectionManager;
 import io.github.thebusybiscuit.sensibletoolbox.api.AccessControl;
 import io.github.thebusybiscuit.sensibletoolbox.api.FriendManager;
 import io.github.thebusybiscuit.sensibletoolbox.api.MinecraftVersion;

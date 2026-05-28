@@ -3,7 +3,7 @@ package dev.drake.infinitylib.presets;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 /**
  * Compatibility class for InfinityLib MenuPreset.

@@ -3,7 +3,7 @@ package io.github.sefiraat.danktech2.utils.datatypes;
 import io.github.sefiraat.danktech2.slimefun.packs.DankPack;
 import io.github.sefiraat.danktech2.utils.Keys;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
-import dev.drake.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;

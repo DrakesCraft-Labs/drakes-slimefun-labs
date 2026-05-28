@@ -4,7 +4,7 @@ import org.bukkit.NamespacedKey;
 
 import com.github.drakescraft_labs.extraheads.ExtraHeads;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 
 import lombok.experimental.UtilityClass;

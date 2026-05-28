@@ -21,7 +21,7 @@ import com.github.drakescraft_labs.mobcapturer.MobCapturer;
 import com.github.drakescraft_labs.mobcapturer.events.MobCaptureEvent;
 import com.github.drakescraft_labs.mobcapturer.items.MobEgg;
 import com.github.drakescraft_labs.mobcapturer.setup.Keys;
-import dev.drake.dough.config.Config;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.config.Config;
 
 /**
  * Listener for pellet hit.

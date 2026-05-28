@@ -1,6 +1,6 @@
 package dev.j3fftw.litexpansion.utils;
 
-import dev.drake.dough.common.ChatColors;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;

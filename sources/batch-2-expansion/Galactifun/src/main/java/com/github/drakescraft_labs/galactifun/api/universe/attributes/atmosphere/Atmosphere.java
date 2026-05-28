@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 import com.github.drakescraft_labs.galactifun.Galactifun;
 import com.github.drakescraft_labs.galactifun.api.items.spacesuit.SpaceSuitProfile;
 import com.github.drakescraft_labs.galactifun.api.items.spacesuit.SpaceSuitStat;
-import dev.drake.dough.collections.RandomizedSet;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
 
 /**
  * An atmosphere of a celestial object, use {@link AtmosphereBuilder} to create

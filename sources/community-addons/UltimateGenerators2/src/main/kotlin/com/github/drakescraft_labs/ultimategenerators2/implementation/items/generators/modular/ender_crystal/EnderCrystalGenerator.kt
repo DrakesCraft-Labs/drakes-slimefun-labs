@@ -7,7 +7,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems
 import com.github.drakescraft_labs.slimefun4.implementation.operations.FuelOperation
-import dev.drake.dough.blocks.BlockPosition
+import com.github.drakescraft_labs.slimefun4.libraries.dough.blocks.BlockPosition
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage

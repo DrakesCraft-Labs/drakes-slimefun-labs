@@ -8,7 +8,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.BreedingPair;
 import dev.sefiraat.cultivation.api.utils.CultivationThemes;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.drake.sefilib.string.Theme;
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.groups.FlexItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
