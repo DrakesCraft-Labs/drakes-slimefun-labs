@@ -137,7 +137,7 @@ public class TickerTask implements Runnable {
         try {
             // Only continue if the Chunk is actually loaded
             if (chunk.isLoaded()) {
-                for (Location l : locations) {
+                for (Location l : locations.toArray(Location[]::new)) {
                     tickLocation(tickers, l);
                 }
             }
@@ -329,7 +329,7 @@ public class TickerTask implements Runnable {
     public Set<Location> getLocations(@Nonnull Chunk chunk) {
         Validate.notNull(chunk, "The Chunk cannot be null!");
 
-        Set<Location> locations = tickingLocations.getOrDefault(new ChunkPosition(chunk), new HashSet<>());
+        Set<Location> locations = tickingLocations.getOrDefault(new ChunkPosition(chunk), ConcurrentHashMap.newKeySet());
         return Collections.unmodifiableSet(locations);
     }
 
@@ -343,7 +343,7 @@ public class TickerTask implements Runnable {
         Validate.notNull(l, "Location cannot be null!");
 
         ChunkPosition chunk = new ChunkPosition(l.getWorld(), l.getBlockX() >> 4, l.getBlockZ() >> 4);
-        Set<Location> newValue = new HashSet<>();
+        Set<Location> newValue = ConcurrentHashMap.newKeySet();
         Set<Location> oldValue = tickingLocations.putIfAbsent(chunk, newValue);
 
         /**
