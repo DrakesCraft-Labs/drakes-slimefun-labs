@@ -6,7 +6,7 @@
 
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>NetworksV6-drake</artifactId>
-    <version>11.0.0-drake.4</version>
+    <version>11.0.0-drake.5</version>
     <packaging>jar</packaging>
 
     <name>NetworksV6-drake</name>
