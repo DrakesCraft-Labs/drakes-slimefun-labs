@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-readonly NETWORKS_VERSION="11.0.0-drake.3"
-readonly NETWORKS_SHA256="308c4774942189b1e5e14d0159f84d861888af100fcc51a0a860e130c8b62bfb"
+readonly NETWORKS_VERSION="11.0.0-drake.4"
+readonly NETWORKS_SHA256="b8b894a65d8e4d9ea0d9c10f90499aed00ecb9fddeb26cb26513564cf8f7d86c"
 readonly NETWORKS_URL="https://github.com/DrakesCraft-Labs/NetworksV6-drake/releases/download/v${NETWORKS_VERSION}/NetworksV6-Drake-v${NETWORKS_VERSION}.jar"
 readonly TARGET_DIR="${RUNNER_TEMP:-${TMPDIR:-/tmp}}/drakes-networks-api"
 readonly TARGET_JAR="${TARGET_DIR}/NetworksV6-Drake-v${NETWORKS_VERSION}.jar"
