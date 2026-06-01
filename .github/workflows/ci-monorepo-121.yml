@@ -54,21 +54,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verificar API Dough expuesta por Slimefun
+      - name: Verificar API Dough/commons legacy expuesta por Slimefun
         run: |
           JAR="$(find sources/slimefun-core/Slimefun4-src/target -maxdepth 1 -type f -name 'Slimefun-*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
           test -n "$JAR"
-          jar tf "$JAR" | grep -q '^dev/drake/dough/collections/Pair.class$'
-          jar tf "$JAR" | grep -q '^dev/drake/dough/items/CustomItemStack.class$'
-          jar tf "$JAR" | grep -q '^dev/drake/dough/data/persistent/PersistentDataAPI.class$'
-          jar tf "$JAR" | grep -q '^dev/drake/dough/protection/Interaction.class$'
+          jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/collections/Pair.class$'
+          jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/items/CustomItemStack.class$'
+          jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/data/persistent/PersistentDataAPI.class$'
+          jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/protection/Interaction.class$'
+          jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/commons/lang/Validate.class$'
 
       - name: Verificar que las librerias internas no dupliquen Dough
         run: |
           for DIR in sources/batch-2-expansion/SefiLib sources/batch-2-expansion/InfinityLib; do
             JAR="$(find "$DIR/target" -maxdepth 1 -type f -name '*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
             test -n "$JAR"
-            ! jar tf "$JAR" | grep -q '^dev/drake/dough/'
+            ! jar tf "$JAR" | grep -Eq '^(dev/drake/dough/|com/github/drakescraft_labs/slimefun4/libraries/dough/)'
           done
 
   maven_full_reactor:
@@ -116,7 +117,7 @@ jobs:
       - name: Verificar que los addons no empaqueten API Dough duplicada
         run: |
           while IFS= read -r JAR; do
-            if jar tf "$JAR" | grep -q '^dev/drake/dough/'; then
+            if jar tf "$JAR" | grep -Eq '^(dev/drake/dough/|com/github/drakescraft_labs/slimefun4/libraries/dough/)'; then
               echo "::error file=$JAR::El addon incluye API Dough; debe usar la copia provista por Slimefun."
               exit 1
             fi
@@ -174,7 +175,7 @@ jobs:
       - name: Verificar que los JARs Gradle no empaqueten API Dough duplicada
         run: |
           while IFS= read -r JAR; do
-            if jar tf "$JAR" | grep -q '^dev/drake/dough/'; then
+            if jar tf "$JAR" | grep -Eq '^(dev/drake/dough/|com/github/drakescraft_labs/slimefun4/libraries/dough/)'; then
               echo "::error file=$JAR::El addon Gradle incluye API Dough; debe usar la copia provista por Slimefun."
               exit 1
             fi
