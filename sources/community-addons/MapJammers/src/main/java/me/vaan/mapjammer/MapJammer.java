@@ -20,7 +20,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.dynmap.DynmapCommonAPI;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import xyz.jpenilla.squaremap.api.PlayerManager;
@@ -28,6 +27,7 @@ import xyz.jpenilla.squaremap.api.Squaremap;
 import xyz.jpenilla.squaremap.api.SquaremapProvider;
 
 import java.io.File;
+import java.lang.reflect.Method;
 
 public final class MapJammer extends JavaPlugin implements SlimefunAddon {
 
@@ -106,16 +106,16 @@ public final class MapJammer extends JavaPlugin implements SlimefunAddon {
         Plugin dynmap = pm.getPlugin("dynmap");
         if (dynmap != null && dynmap.isEnabled()) {
             try {
-                DynmapCommonAPI dynmapAPI = (DynmapCommonAPI) dynmap;
+                Method visibilityMethod = findDynmapVisibilityMethod(dynmap);
                 ShowHideInterface iface = new ShowHideInterface() {
                     @Override
                     public void show(Player p) {
-                        dynmapAPI.setPlayerVisiblity(p.getName(), true);
+                        setDynmapVisibility(dynmap, visibilityMethod, p, true);
                     }
 
                     @Override
                     public void hide(Player p) {
-                        dynmapAPI.setPlayerVisiblity(p.getName(), false);
+                        setDynmapVisibility(dynmap, visibilityMethod, p, false);
                     }
                 };
                 new CheckPlayers(iface).runTaskTimer(this, 0L, period);
@@ -124,6 +124,24 @@ public final class MapJammer extends JavaPlugin implements SlimefunAddon {
             } catch (Throwable t) {
                 getLogger().warning("dynmap está habilitado pero la API falló: " + t.getMessage());
             }
+        }
+    }
+
+    // Dynmap mantiene el nombre antiguo con typo en varias versiones, pero algunos forks corrigen la firma.
+    private Method findDynmapVisibilityMethod(Plugin dynmap) throws NoSuchMethodException {
+        try {
+            return dynmap.getClass().getMethod("setPlayerVisiblity", String.class, boolean.class);
+        } catch (NoSuchMethodException ignored) {
+            return dynmap.getClass().getMethod("setPlayerVisibility", String.class, boolean.class);
+        }
+    }
+
+    // La API se invoca por reflexión para no depender de un repositorio Maven inestable durante CI.
+    private void setDynmapVisibility(Plugin dynmap, Method visibilityMethod, Player player, boolean visible) {
+        try {
+            visibilityMethod.invoke(dynmap, player.getName(), visible);
+        } catch (ReflectiveOperationException | RuntimeException e) {
+            getLogger().warning("No se pudo actualizar visibilidad dynmap para " + player.getName() + ": " + e.getMessage());
         }
     }
 
