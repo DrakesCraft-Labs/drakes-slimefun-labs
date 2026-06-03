@@ -67,20 +67,20 @@ public class BeaconController1 extends BeaconController {
         final DisplayGroup displayGroup = new ModelBuilder()
                 .add("main", new ModelCuboid()
                         .material(Material.BLUE_CONCRETE)
-                        .size(0.5F, 1.0F, 0.5F))
+                        .scale(0.5F, 1.0F, 0.5F))
 
                 .add("module1", new ModelItem()
                         .item(getEmptyItemStack())
                         .brightness(Utils.BRIGHTNESS_ON)
-                        .size(0.25F)
-                        .location(MODULE_1_LOCATION)
-                        .rotation(0))
+                        .scale(0.25F)
+                        .translate(MODULE_1_LOCATION)
+                        .rotateY(0))
                 .add("module2", new ModelItem()
                         .item(getEmptyItemStack())
                         .brightness(Utils.BRIGHTNESS_ON)
-                        .size(0.25F)
-                        .location(MODULE_2_LOCATION)
-                        .rotation(Math.PI))
+                        .scale(0.25F)
+                        .translate(MODULE_2_LOCATION)
+                        .rotateY(Math.PI))
 
                 .buildAtBlockCenter(location);
 

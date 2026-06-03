@@ -32,7 +32,7 @@ public interface ComplexMultiblock {
     int DISPLAY_BRIGHTNESS = 15;
     float DISPLAY_SIZE = 0.75F;
     ModelCuboid GHOST_BLOCK_DISPLAY = new ModelCuboid()
-            .size(DISPLAY_SIZE)
+            .scale(DISPLAY_SIZE)
             .brightness(DISPLAY_BRIGHTNESS);
 
     private static boolean isStructureBlockValid(final @NotNull Block center, final @NotNull Vector offset, final ItemStack predicted) {

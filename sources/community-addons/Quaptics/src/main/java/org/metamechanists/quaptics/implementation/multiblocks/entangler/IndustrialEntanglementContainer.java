@@ -145,7 +145,7 @@ public class IndustrialEntanglementContainer extends EntanglementContainer {
                 
                 .add("item", new ModelItem()
                         .brightness(Utils.BRIGHTNESS_ON)
-                        .size(0.5F))
+                        .scale(0.5F))
                 .buildAtBlockCenter(location);
     }
 

@@ -57,14 +57,14 @@ public class InfusionPillar extends ConnectedBlock implements PowerAnimatedBlock
         return new ModelBuilder()
                 .add("pillar", new ModelCuboid()
                         .material(Material.BLUE_CONCRETE)
-                        .facing(player.getFacing())
-                        .size(0.3F, 0.4F, 0.3F)
-                        .location(0, -0.3F, 0))
+                        .lookAlong(player.getFacing())
+                        .scale(0.3F, 0.4F, 0.3F)
+                        .translate(0, -0.3F, 0))
                 .add("prism", new ModelCuboid()
                         .material(Material.LIGHT_BLUE_STAINED_GLASS)
                         .brightness(Utils.BRIGHTNESS_OFF)
-                        .facing(player.getFacing())
-                        .size(0.2F))
+                        .lookAlong(player.getFacing())
+                        .scale(0.2F))
                 .buildAtBlockCenter(location);
     }
     @Override

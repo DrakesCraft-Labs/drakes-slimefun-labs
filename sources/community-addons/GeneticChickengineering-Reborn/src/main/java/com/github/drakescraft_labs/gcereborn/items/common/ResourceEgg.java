@@ -1,5 +1,6 @@
 package com.github.drakescraft_labs.gcereborn.items.common;
 
+import java.lang.reflect.Method;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
@@ -19,8 +20,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.NotPlaceable;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.items.ItemUtils;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.core.genetics.DNA;
@@ -64,7 +64,7 @@ public class ResourceEgg extends SimpleSlimefunItem<ItemUseHandler> implements N
             }
             Block b = block.get();
             Block place = b.getRelative(e.getClickedFace());
-            if (!Slimefun.getProtectionManager().hasPermission(e.getPlayer(), place.getLocation(), Interaction.PLACE_BLOCK)) {
+            if (!hasPermissionCompat(e.getPlayer(), place.getLocation(), "PLACE_BLOCK")) {
                 GeneticChickengineering.getLocalization().sendMessage(e.getPlayer(), "no-permission");
                 return;
             }
@@ -83,5 +83,27 @@ public class ResourceEgg extends SimpleSlimefunItem<ItemUseHandler> implements N
                 }
             }
         };
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static boolean hasPermissionCompat(org.bukkit.entity.Player player, org.bukkit.Location location, String interactionName) {
+        Object manager = Slimefun.getProtectionManager();
+        for (Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass()) || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            Object target = parameterTypes[1].isAssignableFrom(location.getClass()) ? location : location.getBlock();
+            try {
+                Object interaction = Enum.valueOf((Class<Enum>) parameterTypes[2], interactionName);
+                return (boolean) method.invoke(manager, player, target, interaction);
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // Try the next compatible overload.
+            }
+        }
+        return true;
     }
 }

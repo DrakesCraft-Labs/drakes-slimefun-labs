@@ -21,7 +21,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.EnergyNetComponent;
 import com.github.drakescraft_labs.slimefun4.core.networks.energy.EnergyNetComponentType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -232,8 +232,7 @@ public class NodeMaterializer extends OwnedVariableTickRateNode implements Energ
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return Slimefun.getProtectionManager()
-                               .hasPermission(player, block.getLocation(), Interaction.INTERACT_BLOCK);
+                return PermissionCompat.hasPermission(player, block.getLocation(), "INTERACT_BLOCK");
             }
 
             @Override

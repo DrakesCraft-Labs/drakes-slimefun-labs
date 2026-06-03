@@ -39,7 +39,7 @@ public class BeaconTransmitter extends QuapticBlock {
         return new ModelBuilder()
                 .add("main", new ModelCuboid()
                         .material(Material.LIGHT_GRAY_CONCRETE)
-                        .size(0.2F, 1.01F, 0.2F))
+                        .scale(0.2F, 1.01F, 0.2F))
                 .buildAtBlockCenter(location);
     }
     @Override

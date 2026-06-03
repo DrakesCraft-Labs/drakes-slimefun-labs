@@ -10,7 +10,7 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
@@ -115,7 +115,7 @@ public abstract class QuapticBlock extends SlimefunItem {
                 return;
             }
 
-            if (!Slimefun.getProtectionManager().hasPermission(event.getPlayer(), block.getLocation(), Interaction.INTERACT_BLOCK)) {
+            if (!org.metamechanists.quaptics.utils.ProtectionCompat.hasPermission(event.getPlayer(), block.getLocation(), "INTERACT_BLOCK")) {
                 return;
             }
 
