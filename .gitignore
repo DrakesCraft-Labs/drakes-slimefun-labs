@@ -28,6 +28,8 @@ Desktop.ini
 # Excepciones (Necesitamos el wrapper de Gradle)
 !gradle/wrapper/gradle-wrapper.jar
 !**/gradle/wrapper/gradle-wrapper.jar
+!third-party/maven-repo/org/metamechanists/MetaLib/**/*.jar
+!third-party/maven-repo/org/metamechanists/DisplayModelLib/**/*.jar
 
 # Submódulos obsoletos / fantasmas
 wiki_temp/

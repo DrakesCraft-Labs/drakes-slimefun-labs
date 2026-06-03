@@ -1,7 +1,7 @@
 package dev.drake.sefilib.entity;
 
 import dev.drake.sefilib.version.Versions;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.SemanticVersion;
+import dev.drake.dough.versions.SemanticVersion;
 
 import java.util.Collections;
 import java.util.HashSet;

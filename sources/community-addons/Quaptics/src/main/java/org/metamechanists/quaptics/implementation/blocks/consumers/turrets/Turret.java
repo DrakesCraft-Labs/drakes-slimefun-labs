@@ -4,7 +4,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -56,19 +56,19 @@ public abstract class Turret extends ConnectedBlock implements PowerAnimatedBloc
         return new ModelBuilder()
                 .add("plate", new ModelCuboid()
                         .material(Material.POLISHED_ANDESITE)
-                        .size(0.6F))
+                        .scale(0.6F))
                 .add("barrel", new ModelCuboid()
                         .material(Material.GRAY_CONCRETE))
                 .add("power1", new ModelCuboid()
                         .material(settings.getTier().concreteMaterial)
                         .brightness(Utils.BRIGHTNESS_OFF)
-                        .size(0.6F, 0.2F, 1.1F)
-                        .location(0, -0.25F, 0))
+                        .scale(0.6F, 0.2F, 1.1F)
+                        .translate(0, -0.25F, 0))
                 .add("power2", new ModelCuboid()
                         .material(settings.getTier().concreteMaterial)
                         .brightness(Utils.BRIGHTNESS_OFF)
-                        .size(1.1F, 0.2F, 0.6F)
-                        .location(0, -0.25F, 0))
+                        .scale(1.1F, 0.2F, 0.6F)
+                        .translate(0, -0.25F, 0))
                 .buildAtBlockCenter(location);
     }
     @Override
@@ -179,7 +179,7 @@ public abstract class Turret extends ConnectedBlock implements PowerAnimatedBloc
             return;
         }
 
-        if (!Slimefun.getProtectionManager().hasPermission(player, target.get().getLocation(), Interaction.ATTACK_ENTITY)) {
+        if (!org.metamechanists.quaptics.utils.ProtectionCompat.hasPermission(player, target.get().getLocation(), "ATTACK_ENTITY")) {
             return;
         }
 

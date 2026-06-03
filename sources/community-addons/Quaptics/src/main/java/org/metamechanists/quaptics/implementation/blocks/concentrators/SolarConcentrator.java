@@ -72,11 +72,11 @@ public class SolarConcentrator extends ConnectedBlock implements PowerAnimatedBl
                 .add("center", new ModelCuboid()
                         .material(settings.getTier().concreteMaterial)
                         .brightness(Utils.BRIGHTNESS_OFF)
-                        .size(0.20F))
+                        .scale(0.20F))
                 .add("panel", new ModelItem()
                         .material(Material.GLASS_PANE)
-                        .rotation(Math.PI / 2, 0, Math.PI / 4)
-                        .size(0.90F))
+                        .rotate(Math.PI / 2, 0, Math.PI / 4)
+                        .scale(0.90F))
                 .buildAtBlockCenter(location);
     }
     @Override

@@ -20,7 +20,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPrese
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;

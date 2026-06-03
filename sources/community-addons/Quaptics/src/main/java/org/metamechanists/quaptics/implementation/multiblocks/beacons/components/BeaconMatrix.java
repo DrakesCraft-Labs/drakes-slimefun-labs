@@ -41,8 +41,8 @@ public class BeaconMatrix extends QuapticBlock {
                 .add("main", new ModelCuboid()
                         .material(Material.LIGHT_BLUE_CONCRETE)
                         .brightness(Utils.BRIGHTNESS_OFF)
-                        .size(1.2F, 1.2F, 1.2F)
-                        .rotation(Math.PI/4))
+                        .scale(1.2F, 1.2F, 1.2F)
+                        .rotateY(Math.PI/4))
                 .buildAtBlockCenter(location);
     }
 }

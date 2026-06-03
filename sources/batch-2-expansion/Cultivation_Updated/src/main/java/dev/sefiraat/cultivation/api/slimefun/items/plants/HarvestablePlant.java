@@ -7,7 +7,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.HarvestingTool;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.RandomizedSet;
+import dev.drake.dough.collections.RandomizedSet;
 import com.github.drakescraft_labs.slimefun4.api.events.PlayerRightClickEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;

@@ -4,8 +4,9 @@ import dev.sefiraat.cultivation.Cultivation;
 import dev.drake.sefilib.entity.LivingEntityCategory;
 import dev.drake.sefilib.entity.LivingEntityDefinition;
 import dev.drake.sefilib.entity.LivingEntitySelector;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.MinecraftVersion;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.UnknownServerVersionException;
+import dev.drake.dough.versions.SemanticVersion;
+import dev.drake.dough.versions.MinecraftVersion;
+import dev.drake.dough.versions.UnknownServerVersionException;
 import org.bukkit.Server;
 
 import java.util.Collections;
@@ -27,41 +28,27 @@ public final class EntityDefinitions {
         Server server = Cultivation.getInstance().getServer();
 
         try {
+            SemanticVersion serverVersion = getServerVersion();
             passiveMobs = LivingEntitySelector.start()
                 .includeCategories(LivingEntityCategory.PASSIVE)
-                .setVersion(MinecraftVersion.of(Cultivation.getInstance().getServer()))
+                .setVersion(serverVersion)
+                .process(LivingEntitySelector.MatchType.MATCH_ALL);
+            hostileMobs = LivingEntitySelector.start()
+                .includeCategories(LivingEntityCategory.HOSTILE)
+                .setVersion(serverVersion)
+                .process(LivingEntitySelector.MatchType.MATCH_ALL);
+            bossMobs = LivingEntitySelector.start()
+                .includeCategories(LivingEntityCategory.BOSS)
+                .setVersion(serverVersion)
+                .process(LivingEntitySelector.MatchType.MATCH_ALL);
+            flyingMobs = LivingEntitySelector.start()
+                .includeCategories(LivingEntityCategory.FLYING)
+                .setVersion(serverVersion)
                 .process(LivingEntitySelector.MatchType.MATCH_ALL);
         } catch (UnknownServerVersionException e) {
             passiveMobs = new HashSet<>();
-            server.getLogger().severe(e.getMessage());
-        }
-
-        try {
-            hostileMobs = LivingEntitySelector.start()
-                .includeCategories(LivingEntityCategory.HOSTILE)
-                .setVersion(MinecraftVersion.of(Cultivation.getInstance().getServer()))
-                .process(LivingEntitySelector.MatchType.MATCH_ALL);
-        } catch (UnknownServerVersionException e) {
             hostileMobs = new HashSet<>();
-            server.getLogger().severe(e.getMessage());
-        }
-
-        try {
-            bossMobs = LivingEntitySelector.start()
-                .includeCategories(LivingEntityCategory.BOSS)
-                .setVersion(MinecraftVersion.of(Cultivation.getInstance().getServer()))
-                .process(LivingEntitySelector.MatchType.MATCH_ALL);
-        } catch (UnknownServerVersionException e) {
             bossMobs = new HashSet<>();
-            server.getLogger().severe(e.getMessage());
-        }
-
-        try {
-            flyingMobs = LivingEntitySelector.start()
-                .includeCategories(LivingEntityCategory.FLYING)
-                .setVersion(MinecraftVersion.of(Cultivation.getInstance().getServer()))
-                .process(LivingEntitySelector.MatchType.MATCH_ALL);
-        } catch (UnknownServerVersionException e) {
             flyingMobs = new HashSet<>();
             server.getLogger().severe(e.getMessage());
         }
@@ -81,5 +68,14 @@ public final class EntityDefinitions {
 
     public static Set<LivingEntityDefinition> getFlyingMobs() {
         return flyingMobs;
+    }
+
+    private static SemanticVersion getServerVersion() throws UnknownServerVersionException {
+        MinecraftVersion version = MinecraftVersion.of(Cultivation.getInstance().getServer());
+        return new SemanticVersion(
+            version.getMajorVersion(),
+            version.getMinorVersion(),
+            version.getPatchVersion()
+        );
     }
 }

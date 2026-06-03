@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.implementation.blocks.consumers.launchpad;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -29,7 +29,7 @@ public class LaunchpadListener implements Listener {
             return;
         }
 
-        if (!Slimefun.getProtectionManager().hasPermission(event.getPlayer(), event.getPlayer().getLocation(), Interaction.INTERACT_BLOCK)) {
+        if (!org.metamechanists.quaptics.utils.ProtectionCompat.hasPermission(event.getPlayer(), event.getPlayer().getLocation(), "INTERACT_BLOCK")) {
             return;
         }
 

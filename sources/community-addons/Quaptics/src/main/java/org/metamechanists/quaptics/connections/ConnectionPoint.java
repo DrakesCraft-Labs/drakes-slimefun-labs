@@ -31,7 +31,7 @@ public class ConnectionPoint {
     private static final Color SELECTED_COLOR = Color.fromRGB(0, 255, 0);
     private static final ModelCuboid BLOCK_DISPLAY = new ModelCuboid()
             .brightness(Utils.BRIGHTNESS_OFF)
-            .size(SIZE);
+            .scale(SIZE);
 
     private final ConnectionPointType type;
     private final ConnectionGroupId groupId;

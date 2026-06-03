@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import me.jasperchasetoq.dyebench.DyeBenchItems;
 import me.jasperchasetoq.dyebench.implemention.items.pigments.DyePigments;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.electic.machines.MenuUtils;
@@ -563,24 +563,24 @@ public class TheDyeBench extends AContainer implements RecipeDisplayItem {
 
     protected void constructMenu(@Nonnull BlockMenuPreset preset) {
         for (int i : BACKGROUND) {
-            preset.addItem(i, MenuUtils.getWolfyMachineMenuBackgroundTile(), ChestMenuUtils.getEmptyClickHandler());
+            preset.addItem(i, MenuUtils.getWolfyMachineMenuBackgroundBorder(), ChestMenuUtils.getEmptyClickHandler());
         }
 
         for (int i : FIRST_INPUT_BORDER) {
-            preset.addItem(i, MenuUtils.getWolfyMachineMenuInputOneTile(), ChestMenuUtils.getEmptyClickHandler());
+            preset.addItem(i, MenuUtils.getWolfyMachineMenuInputOneBorder(), ChestMenuUtils.getEmptyClickHandler());
         }
 
         for (int i : SECOND_INPUT_BORDER) {
-            preset.addItem(i, MenuUtils.getWolfyMachineMenuInputTwoTile(), ChestMenuUtils.getEmptyClickHandler());
+            preset.addItem(i, MenuUtils.getWolfyMachineMenuInputTwoBorder(), ChestMenuUtils.getEmptyClickHandler());
         }
 
 
         for (int i : FIRST_OUTPUT_BORDER) {
-            preset.addItem(i, MenuUtils.getWolfyMachineMenuOutputOneTile(), ChestMenuUtils.getEmptyClickHandler());
+            preset.addItem(i, MenuUtils.getWolfyMachineMenuOutputOneBorder(), ChestMenuUtils.getEmptyClickHandler());
         }
 
         for (int i : SECOND_OUTPUT_BORDER) {
-            preset.addItem(i, MenuUtils.getWolfyMachineMenuOutputTwoTile(), ChestMenuUtils.getEmptyClickHandler());
+            preset.addItem(i, MenuUtils.getWolfyMachineMenuOutputTwoBorder(), ChestMenuUtils.getEmptyClickHandler());
         }
 
         for (int i : getOutputSlots()) {

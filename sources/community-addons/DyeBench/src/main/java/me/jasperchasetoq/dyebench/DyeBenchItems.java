@@ -8,7 +8,7 @@ import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.api.MachineLevel;
 import me.jasperchasetoq.wolfylibrary.slimefun.items.api.MachineType;
 import me.jasperchasetoq.wolfylibrary.slimefun.utils.ItemLore;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 

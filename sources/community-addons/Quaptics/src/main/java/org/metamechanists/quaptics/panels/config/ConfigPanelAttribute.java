@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.panels.config;
 
 import org.metamechanists.displaymodellib.sefilib.entity.display.DisplayGroup;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import dev.drake.dough.common.ChatColors;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -43,29 +43,29 @@ public class ConfigPanelAttribute {
                         .text(ChatColors.color(key))
                         .brightness(15)
                         .background(Color.fromARGB(0, 0, 0, 0))
-                        .size(size)
-                        .location(new Vector(-0.06, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
-                        .rotation(rotation))
+                        .scale(size)
+                        .translate(new Vector(-0.06, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
+                        .rotate(rotation))
                 .add("value", new ModelText()
                         .brightness(15)
                         .background(Color.fromARGB(0, 0, 0, 0))
-                        .size(size)
-                        .location(new Vector(0.41, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
-                        .rotation(rotation))
+                        .scale(size)
+                        .translate(new Vector(0.41, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
+                        .rotate(rotation))
                 .add("sub", new ModelText()
                         .text(ChatColors.color("&c-"))
                         .brightness(15)
                         .background(Color.fromARGB(0, 0, 0, 0))
-                        .size(size)
-                        .location(new Vector(0.22, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
-                        .rotation(rotation))
+                        .scale(size)
+                        .translate(new Vector(0.22, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
+                        .rotate(rotation))
                 .add("add", new ModelText()
                         .text(ChatColors.color("&a+"))
                         .brightness(15)
                         .background(Color.fromARGB(0, 0, 0, 0))
-                        .size(size)
-                        .location(new Vector(0.59, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
-                        .rotation(rotation))
+                        .scale(size)
+                        .translate(new Vector(0.59, OFFSET_Y, OFFSET_Z).rotateAroundY(rotation.y).toVector3f())
+                        .rotate(rotation))
                 .buildAtLocation(location.clone().add(offset))
                 .getParentUUID());
 
