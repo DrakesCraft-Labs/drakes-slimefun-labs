@@ -94,16 +94,16 @@ public class ReactorController extends ConnectedBlock implements ComplexMultiblo
                         .size(1.0F))
                 .add("panel1", new ModelCuboid()
                         .material(Material.CYAN_CONCRETE)
-                        .size(0.8F, 0.6F, 0.6F)
-                        .rotation(ModelDiamond.ROTATION))
+                        .scale(0.8F, 0.6F, 0.6F)
+                        .rotate(ModelDiamond.ROTATION))
                 .add("panel2", new ModelCuboid()
                         .material(Material.CYAN_CONCRETE)
-                        .size(0.6F, 0.8F, 0.6F)
-                        .rotation(ModelDiamond.ROTATION))
+                        .scale(0.6F, 0.8F, 0.6F)
+                        .rotate(ModelDiamond.ROTATION))
                 .add("panel3", new ModelCuboid()
                         .material(Material.CYAN_CONCRETE)
-                        .size(0.6F, 0.6F, 0.8F)
-                        .rotation(ModelDiamond.ROTATION))
+                        .scale(0.6F, 0.6F, 0.8F)
+                        .rotate(ModelDiamond.ROTATION))
                 .buildAtBlockCenter(location);
     }
     @Override

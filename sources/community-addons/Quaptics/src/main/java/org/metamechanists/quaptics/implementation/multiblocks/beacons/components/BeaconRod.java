@@ -39,7 +39,7 @@ public class BeaconRod extends QuapticBlock {
         return new ModelBuilder()
                 .add("main", new ModelCuboid()
                         .material(Material.GRAY_CONCRETE)
-                        .size(0.4F, 1.01F, 0.4F))
+                        .scale(0.4F, 1.01F, 0.4F))
                 .buildAtBlockCenter(location);
     }
     @Override

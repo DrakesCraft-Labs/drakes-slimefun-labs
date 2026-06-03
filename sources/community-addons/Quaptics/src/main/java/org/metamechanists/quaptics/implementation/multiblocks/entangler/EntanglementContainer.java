@@ -144,7 +144,7 @@ public class EntanglementContainer extends ConnectedBlock implements ItemHolderB
                         .thickness(0.1F))
                 .add("item", new ModelItem()
                         .brightness(Utils.BRIGHTNESS_ON)
-                        .size(0.5F))
+                        .scale(0.5F))
                 .buildAtBlockCenter(location);
     }
     @Override

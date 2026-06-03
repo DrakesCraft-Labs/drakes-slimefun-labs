@@ -19,7 +19,7 @@ public class MultiblockWandListener implements Listener {
             return;
         }
 
-        if (!Slimefun.getProtectionManager().hasPermission(event.getPlayer(), clickedEntity.getLocation(), com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction.INTERACT_ENTITY)) {
+        if (!org.metamechanists.quaptics.utils.ProtectionCompat.hasPermission(event.getPlayer(), clickedEntity.getLocation(), "INTERACT_ENTITY")) {
             return;
         }
 

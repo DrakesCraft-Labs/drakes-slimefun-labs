@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.sefiraat.emctech.utils.Theme;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.collections.Pair;
+import dev.drake.dough.collections.Pair;
 
 import dev.drake.sefilib.itemstacks.ItemStackGenerators;
 

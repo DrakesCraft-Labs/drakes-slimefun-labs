@@ -1,6 +1,6 @@
 package com.github.drakescraft_labs.slimechem.implementation.generators;
 
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import dev.drake.dough.items.CustomItemStack;
 
 import com.github.drakescraft_labs.slimechem.implementation.atomic.isotopes.Isotope;
 import com.github.drakescraft_labs.slimechem.lists.Categories;
@@ -17,8 +17,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -78,7 +77,7 @@ public class RTG extends SlimefunItem implements EnergyNetProvider {
             @Override
             public boolean canOpen(@Nonnull Block b, @Nonnull Player p) {
                 return p.hasPermission("slimefun.inventory.bypass") ||
-                    SlimefunPlugin.getProtectionManager().hasPermission(p, b.getLocation(), Interaction.INTERACT_BLOCK);
+                    hasPermissionCompat(p, b.getLocation(), "INTERACT_BLOCK");
             }
 
             @Override
@@ -193,5 +192,26 @@ public class RTG extends SlimefunItem implements EnergyNetProvider {
     @Override
     public int getCapacity() {
         return 0;
+    }
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static boolean hasPermissionCompat(Player player, Location location, String interactionName) {
+        Object manager = SlimefunPlugin.getProtectionManager();
+        for (java.lang.reflect.Method method : manager.getClass().getMethods()) {
+            if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
+                continue;
+            }
+            Class<?>[] parameterTypes = method.getParameterTypes();
+            if (!parameterTypes[0].isAssignableFrom(player.getClass()) || !parameterTypes[2].isEnum()) {
+                continue;
+            }
+            Object target = parameterTypes[1].isAssignableFrom(location.getClass()) ? location : location.getBlock();
+            try {
+                Object interaction = Enum.valueOf((Class<Enum>) parameterTypes[2], interactionName);
+                return (boolean) method.invoke(manager, player, target, interaction);
+            } catch (ReflectiveOperationException | IllegalArgumentException ignored) {
+                // Try another compatible overload.
+            }
+        }
+        return true;
     }
 }

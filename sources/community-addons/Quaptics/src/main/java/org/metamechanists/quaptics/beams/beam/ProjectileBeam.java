@@ -1,7 +1,7 @@
 package org.metamechanists.quaptics.beams.beam;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
+import dev.drake.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.BlockDisplay;
@@ -63,7 +63,7 @@ public class ProjectileBeam implements Beam {
                     .findFirst();
 
             hitEntity.ifPresent(entity -> {
-                if (Slimefun.getProtectionManager().hasPermission(player, entity.getLocation(), Interaction.ATTACK_ENTITY)) {
+                if (org.metamechanists.quaptics.utils.ProtectionCompat.hasPermission(player, entity.getLocation(), "ATTACK_ENTITY")) {
                     entity.damage(damage);
                     entity.setVelocity(velocity.clone().normalize().multiply(0.2));
                 }

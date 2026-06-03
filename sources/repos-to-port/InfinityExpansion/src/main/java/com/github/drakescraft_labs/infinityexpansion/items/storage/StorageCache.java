@@ -21,9 +21,9 @@ import org.bukkit.persistence.PersistentDataType;
 
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
 import dev.drake.infinitylib.machines.MachineLore;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.items.ItemUtils;
+import dev.drake.dough.common.ChatColors;
+import dev.drake.dough.items.CustomItemStack;
+import dev.drake.dough.items.ItemUtils;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
