@@ -2,7 +2,7 @@ package dev.drake.sefilib.entity;
 
 import com.google.common.collect.Sets;
 import dev.drake.sefilib.version.Versions;
-import dev.drake.dough.versions.SemanticVersion;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.versions.SemanticVersion;
 import org.bukkit.entity.EntityType;
 
 import javax.annotation.Nullable;

@@ -3,7 +3,7 @@ package org.metamechanists.quaptics;
 
 import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import co.aikar.commands.PaperCommandManager;
-import dev.drake.dough.updater.GitHubBuildsUpdater;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import io.papermc.lib.PaperLib;
 import lombok.Getter;
