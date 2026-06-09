@@ -20,28 +20,26 @@ import java.lang.reflect.Field;
 public class RecipeLorePatch {
     private final ItemStack ITEMSTACK = new CustomItemStack(Material.CRAFTING_TABLE, "&bShaped Crafting Recipe");
     private final NamespacedKey KEY = new NamespacedKey("minecraft", "shaped");
+    private boolean applied = false;
 
     public void apply() {
+        if (applied) {
+            return;
+        }
         try {
-            for (SlimefunItem item : Slimefun.getRegistry().getEnabledSlimefunItems()) {
-                if (!item.getRecipeType().equals(RecipeType.ENHANCED_CRAFTING_TABLE)) {
-                    continue;
-                }
+            Field recipeTypeItemField = RecipeType.class.getDeclaredField("item");
+            recipeTypeItemField.setAccessible(true);
+            recipeTypeItemField.set(RecipeType.ENHANCED_CRAFTING_TABLE, ITEMSTACK);
 
-                Field recipeTypeItemField = RecipeType.class.getDeclaredField("item");
-                recipeTypeItemField.setAccessible(true);
-                recipeTypeItemField.set(RecipeType.ENHANCED_CRAFTING_TABLE, ITEMSTACK);
-
-                Field recipeTypeKeyField = RecipeType.class.getDeclaredField("key");
-                recipeTypeKeyField.setAccessible(true);
-                recipeTypeKeyField.set(RecipeType.ENHANCED_CRAFTING_TABLE, KEY);
-            }
+            Field recipeTypeKeyField = RecipeType.class.getDeclaredField("key");
+            recipeTypeKeyField.setAccessible(true);
+            recipeTypeKeyField.set(RecipeType.ENHANCED_CRAFTING_TABLE, KEY);
+            
+            applied = true;
+            SaneCrafting.getInstance().getLogger().info("Applied RecipeLore patch");
         } catch (IllegalAccessException | IllegalArgumentException | SecurityException | NoSuchFieldException e) {
             SaneCrafting.getInstance().getLogger().info("Failed to apply ChangeRecipeTypePatch");
             e.printStackTrace();
-            return;
         }
-
-        SaneCrafting.getInstance().getLogger().info("Applied RecipeLore patch");
     }
 }

@@ -18,6 +18,7 @@ import java.util.Set;
 
 public final class UsableInWorkbenchPatch implements Listener {
     private static final Set<String> usableInWorkbench = new HashSet<>();
+    private static boolean applied = false;
 
     private UsableInWorkbenchPatch() {}
 
@@ -29,7 +30,11 @@ public final class UsableInWorkbenchPatch implements Listener {
             item.setUseableInWorkbench(true);
         }
 
+        if (applied) {
+            return;
+        }
         Bukkit.getServer().getPluginManager().registerEvents(new UsableInWorkbenchPatch(), SaneCrafting.getInstance());
+        applied = true;
         SaneCrafting.getInstance().getLogger().info("Applied UsableInWorkbench patch");
     }
 
