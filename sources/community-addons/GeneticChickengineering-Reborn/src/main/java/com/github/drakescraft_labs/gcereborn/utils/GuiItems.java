@@ -3,7 +3,7 @@ package com.github.drakescraft_labs.gcereborn.utils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import dev.drake.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import lombok.experimental.UtilityClass;
 
