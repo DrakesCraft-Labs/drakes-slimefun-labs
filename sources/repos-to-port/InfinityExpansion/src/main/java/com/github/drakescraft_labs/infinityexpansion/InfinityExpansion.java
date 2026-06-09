@@ -44,7 +44,11 @@ public final class InfinityExpansion extends AbstractAddon {
     protected void enable() {
         DrakesLabsReleaseUpdate.schedule(this, "InfinityExpansion-drake");
 
-        new Metrics(this, 8991);
+        try {
+            new Metrics(this, 8991);
+        } catch (Exception ignored) {
+            // bStats relocation warning — non-fatal, continue loading
+        }
 
 
         Plugin lx = getServer().getPluginManager().getPlugin("LiteXpansion");
