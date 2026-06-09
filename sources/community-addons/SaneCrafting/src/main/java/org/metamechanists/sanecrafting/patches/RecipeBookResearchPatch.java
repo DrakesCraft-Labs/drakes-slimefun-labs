@@ -18,10 +18,16 @@ import java.util.UUID;
 
 
 public final class RecipeBookResearchPatch implements Listener {
+    private static boolean applied = false;
+
     private RecipeBookResearchPatch() {}
 
     public static void apply() {
+        if (applied) {
+            return;
+        }
         Bukkit.getServer().getPluginManager().registerEvents(new RecipeBookResearchPatch(), SaneCrafting.getInstance());
+        applied = true;
         SaneCrafting.getInstance().getLogger().info("Applied RecipeBookResearch patch");
     }
 

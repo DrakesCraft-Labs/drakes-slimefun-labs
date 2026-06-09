@@ -43,6 +43,9 @@ public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {
             RecipeLorePatch.apply();
         };
 
+        // Run immediately during onEnable to avoid watchdog thread dumps on startup
+        applyPatches.run();
+
         // Tras STARTUP las recetas ya deben existir antes de que los jugadores sincronicen el libro de recetas
         // (delay 1 tick provocaba "unrecognized recipe" en el primer login).
         Bukkit.getPluginManager().registerEvents(new Listener() {
@@ -53,14 +56,6 @@ public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {
                     return;
                 }
                 applyPatches.run();
-                if (e.getType() == ServerLoadEvent.LoadType.STARTUP) {
-                    // Segundo pase: addons que registran recetas ECT algo más tarde
-                    Bukkit.getScheduler().runTaskLater(SaneCrafting.this, () -> {
-                        CraftingTablePatch.apply();
-                        RecipeBookResearchPatch.apply();
-                        RecipeLorePatch.apply();
-                    }, 20L);
-                }
             }
         }, this);
 

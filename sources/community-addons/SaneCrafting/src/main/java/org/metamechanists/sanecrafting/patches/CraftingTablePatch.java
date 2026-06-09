@@ -37,15 +37,14 @@ public class CraftingTablePatch {
         return enhancedCraftingTable.getRecipes();
     }
 
-    private void convertRecipe(List<ItemStack> input, ItemStack output) {
-        convertRecipe(generateRecipeId(output), input, output);
+    private boolean convertRecipe(List<ItemStack> input, ItemStack output) {
+        return convertRecipe(generateRecipeId(output), input, output);
     }
 
-    private void convertRecipe(String recipeId, List<ItemStack> input, ItemStack output) {
-        // Remove recipe if already registered
+    private boolean convertRecipe(String recipeId, List<ItemStack> input, ItemStack output) {
         NamespacedKey key = new NamespacedKey(SaneCrafting.getInstance(), recipeId);
         if (Bukkit.getServer().getRecipe(key) != null) {
-            Bukkit.getServer().removeRecipe(key);
+            return false;
         }
 
         // Convert to shape
@@ -74,7 +73,7 @@ public class CraftingTablePatch {
 
         // Skip if no recipe (just in case)
         if (shape.isEmpty()) {
-            return;
+            return false;
         }
 
         // Trim horizontal
@@ -102,6 +101,7 @@ public class CraftingTablePatch {
             recipe.setIngredient(entry.getKey(), entry.getValue());
         }
         Bukkit.getServer().addRecipe(recipe);
+        return true;
     }
 
     public void apply() {
@@ -120,22 +120,22 @@ public class CraftingTablePatch {
             }
 
             try {
-                convertRecipe(Arrays.asList(input), output);
+                if (convertRecipe(Arrays.asList(input), output)) {
+                    changedRecipes++;
+                }
             } catch (RuntimeException e) {
                 String name = PlainTextComponentSerializer.plainText().serialize(output.displayName());
                 SaneCrafting.getInstance().getLogger().severe("Failed to convert Enhanced Crafting Table recipe for " + name);
                 e.printStackTrace();
-                continue;
             }
-
-            changedRecipes++;
         }
 
         for (SlimefunItem item : Slimefun.getRegistry().getEnabledSlimefunItems()) {
             if (item instanceof VanillaItem vanillaItem && item.getRecipeType() == RecipeType.ENHANCED_CRAFTING_TABLE) {
                 try {
-                    convertRecipe(generateRecipeId(vanillaItem), Arrays.asList(vanillaItem.getRecipe()), vanillaItem.getRecipeOutput());
-                    changedRecipes++;
+                    if (convertRecipe(generateRecipeId(vanillaItem), Arrays.asList(vanillaItem.getRecipe()), vanillaItem.getRecipeOutput())) {
+                        changedRecipes++;
+                    }
                 } catch (RuntimeException e) {
                     String name = PlainTextComponentSerializer.plainText().serialize(vanillaItem.getItem().displayName());
                     SaneCrafting.getInstance().getLogger().severe("Failed to convert Enhanced Crafting Table recipe for " + name);
