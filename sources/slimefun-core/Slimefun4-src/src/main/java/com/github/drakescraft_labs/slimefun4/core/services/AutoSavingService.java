@@ -11,6 +11,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.world.WorldSaveEvent;
 
 import com.github.drakescraft_labs.slimefun4.api.player.PlayerProfile;
 import com.github.drakescraft_labs.slimefun4.core.debug.Debug;
@@ -26,9 +29,10 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
  * @author TheBusyBiscuit
  *
  */
-public class AutoSavingService {
+public class AutoSavingService implements Listener {
 
     private int interval;
+    private Slimefun plugin;
 
     /**
      * This method starts the {@link AutoSavingService} with the given interval.
@@ -40,9 +44,12 @@ public class AutoSavingService {
      */
     public void start(@Nonnull Slimefun plugin, int interval) {
         this.interval = interval;
+        this.plugin = plugin;
 
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllPlayers, 2000L, interval * 60L * 20L);
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllBlocks, 2000L, interval * 60L * 20L);
+
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
     /**
@@ -56,27 +63,31 @@ public class AutoSavingService {
         Debug.log(TestCase.PLAYER_PROFILE_DATA, "Saving all players data");
 
         while (iterator.hasNext()) {
-            PlayerProfile profile = iterator.next();
+            try {
+                PlayerProfile profile = iterator.next();
 
-            if (profile.isDirty()) {
-                players++;
-                profile.save();
+                if (profile.isDirty()) {
+                    players++;
+                    profile.save();
 
-                Debug.log(TestCase.PLAYER_PROFILE_DATA, "Saved data for {} ({})",
-                    profile.getPlayer() != null ? profile.getPlayer().getName() : "Unknown", profile.getUUID()
-                );
-            }
+                    Debug.log(TestCase.PLAYER_PROFILE_DATA, "Saved data for {} ({})",
+                        profile.getPlayer() != null ? profile.getPlayer().getName() : "Unknown", profile.getUUID()
+                    );
+                }
 
-            // Remove the PlayerProfile from memory if the player has left the server (marked from removal)
-            // and they're still not on the server
-            // At this point, we've already saved their profile so we can safely remove it
-            // without worry for having a data sync issue (e.g. data is changed but then we try to re-load older data)
-            if (profile.isMarkedForDeletion() && profile.getPlayer() == null) {
-                iterator.remove();
+                // Remove the PlayerProfile from memory if the player has left the server (marked from removal)
+                // and they're still not on the server
+                // At this point, we've already saved their profile so we can safely remove it
+                // without worry for having a data sync issue (e.g. data is changed but then we try to re-load older data)
+                if (profile.isMarkedForDeletion() && profile.getPlayer() == null) {
+                    iterator.remove();
 
-                Debug.log(TestCase.PLAYER_PROFILE_DATA, "Removed data from memory for {}",
-                    profile.getUUID()
-                );
+                    Debug.log(TestCase.PLAYER_PROFILE_DATA, "Removed data from memory for {}",
+                        profile.getUUID()
+                    );
+                }
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error saving player profile during auto-save", t);
             }
         }
 
@@ -92,14 +103,18 @@ public class AutoSavingService {
         Set<BlockStorage> worlds = new HashSet<>();
 
         for (World world : Bukkit.getWorlds()) {
-            BlockStorage storage = BlockStorage.getStorage(world);
+            try {
+                BlockStorage storage = BlockStorage.getStorage(world);
 
-            if (storage != null) {
-                storage.computeChanges();
+                if (storage != null) {
+                    storage.computeChanges();
 
-                if (storage.getChanges() > 0) {
-                    worlds.add(storage);
+                    if (storage.getChanges() > 0) {
+                        worlds.add(storage);
+                    }
                 }
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error computing block changes for world " + world.getName() + " during auto-save", t);
             }
         }
 
@@ -107,11 +122,43 @@ public class AutoSavingService {
             Slimefun.logger().log(Level.INFO, "Auto-saving block data... (Next auto-save: {0}m)", interval);
 
             for (BlockStorage storage : worlds) {
-                storage.save();
+                try {
+                    storage.save();
+                } catch (Throwable t) {
+                    Slimefun.logger().log(Level.SEVERE, "Error saving block data for world " + (storage.getWorld() != null ? storage.getWorld().getName() : "unknown") + " during auto-save", t);
+                }
             }
         }
 
-        BlockStorage.saveChunks();
+        try {
+            BlockStorage.saveChunks();
+        } catch (Throwable t) {
+            Slimefun.logger().log(Level.SEVERE, "Error saving chunks during auto-save", t);
+        }
+    }
+
+    /**
+     * Listen to WorldSaveEvent to automatically write BlockStorage data to disk.
+     * This ensures that Slimefun data is aligned with Minecraft world saves,
+     * preventing rollback exploits and desync issues.
+     */
+    @EventHandler
+    public void onWorldSave(WorldSaveEvent event) {
+        World world = event.getWorld();
+        BlockStorage storage = BlockStorage.getStorage(world);
+        if (storage != null && plugin != null) {
+            plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+                try {
+                    storage.computeChanges();
+                    if (storage.getChanges() > 0) {
+                        Slimefun.logger().log(Level.INFO, "Saving BlockStorage for world \"{0}\" on WorldSaveEvent ({1} changes queued)", new Object[] { world.getName(), storage.getChanges() });
+                        storage.save();
+                    }
+                } catch (Throwable t) {
+                    Slimefun.logger().log(Level.SEVERE, "Error saving block data for world " + world.getName() + " on WorldSaveEvent", t);
+                }
+            });
+        }
     }
 
     /**

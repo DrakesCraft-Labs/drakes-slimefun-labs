@@ -304,7 +304,7 @@ public class BlockStorage {
         return changes;
     }
 
-    public void save() {
+    public synchronized void save() {
         computeChanges();
 
         if (changes == 0) {
@@ -363,7 +363,7 @@ public class BlockStorage {
         return isMarkedForRemoval.get();
     }
 
-    public static void saveChunks() {
+    public static synchronized void saveChunks() {
         if (chunkChanges > 0) {
             File chunks = new File(PATH_CHUNKS + "chunks.sfc");
             Config cfg = new Config(PATH_CHUNKS + "chunks.temp");
@@ -390,6 +390,11 @@ public class BlockStorage {
     @Nonnull
     public Map<Location, Config> getRawStorage() {
         return ImmutableMap.copyOf(this.storage);
+    }
+
+    @Nonnull
+    public World getWorld() {
+        return this.world;
     }
 
     /**
