@@ -15,6 +15,7 @@ on:
       - "docs/**"
       - ".github/**"
       - ".gitignore"
+      - "PortTextura/**"
   pull_request:
     branches: ["main"]
     paths-ignore:
@@ -22,6 +23,7 @@ on:
       - "docs/**"
       - ".github/**"
       - ".gitignore"
+      - "PortTextura/**"
   workflow_dispatch:
 
 concurrency:
