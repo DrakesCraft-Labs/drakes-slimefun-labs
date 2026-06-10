@@ -237,6 +237,9 @@ public class MissileController {
         world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
             tnt.setFuseTicks(0);
             tnt.setYield((float) power);
+            if (nearestPlayer != null) {
+                tnt.setSource(nearestPlayer);
+            }
         });
     }
 

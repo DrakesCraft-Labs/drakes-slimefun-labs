@@ -108,6 +108,15 @@
                             <pattern>com.jeff_media.customblockdata</pattern>
                             <shadedPattern>me.voper.slimeframe.customblockdata</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>org.apache.commons.lang3</pattern>
+                            <shadedPattern>me.voper.slimeframe.shaded.lang3</shadedPattern>
+                        </relocation>
+                        <!-- Relocate old commons-lang path (used by shaded ACF) to same lang3 impl -->
+                        <relocation>
+                            <pattern>org.apache.commons.lang</pattern>
+                            <shadedPattern>me.voper.slimeframe.shaded.lang3</shadedPattern>
+                        </relocation>
                     </relocations>
                     <filters>
                         <filter>
@@ -149,11 +158,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>drakes-labs-autoupdate</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <scope>provided</scope>
@@ -184,6 +188,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>3.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>

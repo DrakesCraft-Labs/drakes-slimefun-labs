@@ -78,15 +78,9 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>ne.fnfal113.fnamplifications.bstats</shadedPattern>
                         </relocation>
-
                         <relocation>
-                            <pattern>dev.drake.dough.updater</pattern>
-                            <shadedPattern>ne.fnfal113.fnamplifications.dough.updater</shadedPattern>
-                        </relocation>
-                        <!-- a transitive dependency, necessary for dough-updater -->
-                        <relocation>
-                            <pattern>dev.drake.dough.versions</pattern>
-                            <shadedPattern>ne.fnfal113.fnamplifications.dough.versions</shadedPattern>
+                            <pattern>org.apache.commons.lang3</pattern>
+                            <shadedPattern>ne.fnfal113.fnamplifications.shaded.lang3</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -112,11 +106,6 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>drakes-labs-autoupdate</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

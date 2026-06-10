@@ -36,7 +36,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

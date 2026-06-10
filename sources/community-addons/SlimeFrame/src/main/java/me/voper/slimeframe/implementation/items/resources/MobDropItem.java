@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 
 import me.voper.slimeframe.core.attributes.AdvancedMobDrop;

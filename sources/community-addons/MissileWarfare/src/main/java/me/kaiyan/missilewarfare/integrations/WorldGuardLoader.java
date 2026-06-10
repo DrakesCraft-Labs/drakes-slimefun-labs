@@ -51,10 +51,13 @@ public class WorldGuardLoader {
         }
     }
 
-    private static void spawnTNT(World world, Vector pos, double power){
+    private static void spawnTNT(World world, Vector pos, double power, Player nearestPlayer){
         world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
             tnt.setFuseTicks(0);
             tnt.setYield((float) power);
+            if (nearestPlayer != null) {
+                tnt.setSource(nearestPlayer);
+            }
         });
     }
 
@@ -62,15 +65,12 @@ public class WorldGuardLoader {
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(new BukkitWorld(world));
         if (regions == null){
-            spawnTNT(world, pos, power);
+            spawnTNT(world, pos, power, nearestPlayer);
         } else {
             ApplicableRegionSet set = regions.getApplicableRegions(BlockVector3.at(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()));
-            if (WorldGuardPlugin.inst().wrapPlayer(nearestPlayer) != null){
-                spawnTNT(world, pos, power);
-                return;
-            }
-            if (set.testState(WorldGuardPlugin.inst().wrapPlayer(nearestPlayer), WorldGuardLoader.ALLOW_MISSILE_EXPLODE)){
-                spawnTNT(world, pos, power);
+            com.sk89q.worldguard.LocalPlayer localPlayer = nearestPlayer != null ? WorldGuardPlugin.inst().wrapPlayer(nearestPlayer) : null;
+            if (set.testState(localPlayer, WorldGuardLoader.ALLOW_MISSILE_EXPLODE)){
+                spawnTNT(world, pos, power, nearestPlayer);
             }
         }
     }

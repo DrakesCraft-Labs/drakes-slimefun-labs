@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 public class ChildGroup extends ItemGroup {
 

@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 
 import org.bukkit.inventory.ItemStack;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;

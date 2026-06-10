@@ -36,6 +36,17 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
     public static int blocksExploded = 0;
 
     @Override
+    public void onLoad() {
+        try {
+            Class.forName("com.sk89q.worldguard.WorldGuard");
+            Class.forName("com.sk89q.worldedit.bukkit.BukkitWorld");
+            WorldGuardLoader.load(this);
+        } catch (ClassNotFoundException e) {
+            getLogger().info("WorldGuard/WorldEdit not found, skipping custom flag registration.");
+        }
+    }
+
+    @Override
     public void onEnable() {
         DrakesLabsReleaseUpdate.schedule(this, "MissileWarfare-drake");
 
@@ -113,7 +124,9 @@ public class MissileWarfare extends JavaPlugin implements SlimefunAddon {
             public void run() {
                 if (getServer().getPluginManager().getPlugin("WorldGuard") != null
                         && getServer().getPluginManager().getPlugin("WorldEdit") != null) {
-                    WorldGuardLoader.load(MissileWarfare.this);
+                    getLogger().info("WorldGuard/WorldEdit detected (flag registered in onLoad).");
+                } else {
+                    worldGuardEnabled = false;
                 }
                 if (getServer().getPluginManager().getPlugin("Towny") != null) {
                     TownyLoader.setup();
