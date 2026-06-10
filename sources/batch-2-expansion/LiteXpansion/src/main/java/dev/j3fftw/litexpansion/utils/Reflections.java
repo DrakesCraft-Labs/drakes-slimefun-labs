@@ -23,9 +23,20 @@ public final class Reflections {
     public static void setField(@Nullable Object instance, @Nonnull String fieldName, @Nonnull Object newValue) {
         if (instance == null) return;
         try {
-            final Field f = instance.getClass().getDeclaredField(fieldName);
+            Field f = null;
+            Class<?> current = instance.getClass();
+            while (current != null) {
+                try {
+                    f = current.getDeclaredField(fieldName);
+                    break;
+                } catch (NoSuchFieldException e) {
+                    current = current.getSuperclass();
+                }
+            }
+            if (f == null) {
+                throw new NoSuchFieldException(fieldName);
+            }
             f.setAccessible(true); // NOSONAR
-
             f.set(instance, newValue); // NOSONAR
         } catch (ReflectiveOperationException e) {
             Log.warn("Failed to change field {} to {} in {}", fieldName, newValue, instance.getClass().getSimpleName());
@@ -34,9 +45,20 @@ public final class Reflections {
 
     public static Object getField(@Nonnull Class<?> clazz, @Nullable Object instance, @Nonnull String fieldName) {
         try {
-            final Field f = clazz.getDeclaredField(fieldName);
+            Field f = null;
+            Class<?> current = clazz;
+            while (current != null) {
+                try {
+                    f = current.getDeclaredField(fieldName);
+                    break;
+                } catch (NoSuchFieldException e) {
+                    current = current.getSuperclass();
+                }
+            }
+            if (f == null) {
+                throw new NoSuchFieldException(fieldName);
+            }
             f.setAccessible(true); // NOSONAR
-
             return f.get(instance);
         } catch (ReflectiveOperationException e) {
             Log.warn("Failed to get field {} in {}", fieldName, clazz.getSimpleName());
@@ -55,9 +77,20 @@ public final class Reflections {
 
     public static Field getRawField(@Nonnull Class<?> clazz, @Nonnull String fieldName) {
         try {
-            final Field f = clazz.getDeclaredField(fieldName);
+            Field f = null;
+            Class<?> current = clazz;
+            while (current != null) {
+                try {
+                    f = current.getDeclaredField(fieldName);
+                    break;
+                } catch (NoSuchFieldException e) {
+                    current = current.getSuperclass();
+                }
+            }
+            if (f == null) {
+                throw new NoSuchFieldException(fieldName);
+            }
             f.setAccessible(true); // NOSONAR
-
             return f;
         } catch (ReflectiveOperationException e) {
             Log.warn("Failed to get field {} in {}", fieldName, clazz.getSimpleName());

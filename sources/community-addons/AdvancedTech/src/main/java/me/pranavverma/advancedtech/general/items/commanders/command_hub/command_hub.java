@@ -44,15 +44,16 @@ import org.bukkit.Location;
 public class command_hub extends SlimefunItem implements HologramOwner, Listener {
 
     public static boolean readyToUse = false;
-    //Done
-    private boolean AdvancedSolarGenFound = false;
 
-    protected static final Map<Location, Object> CACHES = new HashMap<>();
+    private static final String GUI_TITLE = "Active Devices";
 
+    // El listener debe registrarse una unica vez; registrarlo en cada apertura
+    // del GUI duplicaba los handlers y degradaba el servidor progresivamente.
+    private boolean listenerRegistered = false;
 
     public command_hub(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        
+
 
         addItemHandler(onBreak());
         addItemHandler(onPlace());
@@ -66,20 +67,9 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
             public void tick(Block block, SlimefunItem slimefunItem, Config config) {
                 if (scanForCommandEngine(block)) {
                     updateHologram(block, "&aReady to Use");
-                    readyToUse = true;
-
                 } else {
                     updateHologram(block, "&cEngine NOT Found");
-                    readyToUse = false;
-                } 
-
-                if (scanForAdvancedSolarGen(block)) {
-                    AdvancedSolarGenFound = true;
-                    
-                    
-                } else {
-                    AdvancedSolarGenFound = false;
-                } 
+                }
             }
         });
 
