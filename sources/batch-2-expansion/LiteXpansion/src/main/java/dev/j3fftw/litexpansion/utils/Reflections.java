@@ -34,11 +34,11 @@ public final class Reflections {
                 }
             }
             if (f == null) {
-                throw new NoSuchFieldException(fieldName);
+                return;
             }
             f.setAccessible(true); // NOSONAR
             f.set(instance, newValue); // NOSONAR
-        } catch (ReflectiveOperationException e) {
+        } catch (IllegalAccessException e) {
             Log.warn("Failed to change field {} to {} in {}", fieldName, newValue, instance.getClass().getSimpleName());
         }
     }
