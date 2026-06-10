@@ -8,6 +8,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.items.multiblocks.En
 import lombok.experimental.UtilityClass;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
@@ -56,10 +57,12 @@ public class CraftingTablePatch {
                 int i = y*3 + x;
                 char character = itemCharacters.charAt(i);
                 ItemStack itemStack = input.get(i);
-                if (itemStack == null) {
+                if (itemStack == null || itemStack.getType() == Material.AIR) {
                     shape.set(y, shape.get(y).replace(character, ' '));
                 } else {
-                    ingredients.put(character, itemStack);
+                    ItemStack ingredient = itemStack.clone();
+                    ingredient.setAmount(1);
+                    ingredients.put(character, ingredient);
                 }
             }
         }
