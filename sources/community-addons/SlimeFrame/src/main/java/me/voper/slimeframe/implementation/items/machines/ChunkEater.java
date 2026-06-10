@@ -198,6 +198,11 @@ public class ChunkEater extends AbstractMachine {
 
         Chunk chunk = l.getChunk();
         setChunkInfo(chunk, getChunkInfo(chunk) - 1);
+
+        BlockPosition bp = new BlockPosition(l);
+        PROGRESS_MAP.remove(bp);
+        OWNERS_MAP.remove(bp);
+        ITERATOR_MAP.remove(bp);
     }
 
     @Override

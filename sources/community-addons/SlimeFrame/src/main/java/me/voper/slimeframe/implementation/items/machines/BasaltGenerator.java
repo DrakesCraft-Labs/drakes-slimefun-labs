@@ -97,6 +97,7 @@ public class BasaltGenerator extends AbstractMachine {
     @Override
     protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
         menu.dropItems(l, getOutputSlots());
+        PROGRESS_MAP.remove(new BlockPosition(l));
     }
 
     @Override

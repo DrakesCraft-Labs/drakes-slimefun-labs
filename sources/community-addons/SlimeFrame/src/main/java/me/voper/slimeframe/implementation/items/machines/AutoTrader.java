@@ -279,6 +279,9 @@ public class AutoTrader extends AbstractProcessorMachine implements RecipeDispla
     protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
         super.onBreak(e, menu, l);
         menu.dropItems(l, getContractSlot());
+        BlockPosition bp = new BlockPosition(l);
+        recipesMap.remove(bp);
+        selectedTradeMap.remove(bp);
     }
 
     @Nonnull

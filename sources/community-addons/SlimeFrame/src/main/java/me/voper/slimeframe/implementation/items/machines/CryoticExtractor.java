@@ -6,9 +6,11 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
@@ -125,6 +127,12 @@ public class CryoticExtractor extends AbstractMachine {
     @Override
     public int getStatusSlot() {
         return 4;
+    }
+
+    @Override
+    protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
+        menu.dropItems(l, getOutputSlots());
+        PROGRESS_MAP.remove(new BlockPosition(l));
     }
 
     private void updateProgress(BlockMenu menu, int progress) {
