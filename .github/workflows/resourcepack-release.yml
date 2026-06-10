@@ -52,22 +52,6 @@ jobs:
           files: Jackstar-Slimefun-Drakecraft.zip
           make_latest: true
 
-      - name: Deploy a pack.drakescraft.cl
-        env:
-          DEPLOY_KEY: ${{ secrets.STAR_DEPLOY_KEY }}
-        run: |
-          echo "$DEPLOY_KEY" > /tmp/deploy_key
-          chmod 600 /tmp/deploy_key
-          SHA1=$(sha1sum Jackstar-Slimefun-Drakecraft.zip | cut -d' ' -f1)
-          echo "$SHA1" > latest.sha1
-          scp -i /tmp/deploy_key -o StrictHostKeyChecking=no \
-            Jackstar-Slimefun-Drakecraft.zip latest.sha1 \
-            jack@100.86.86.50:/srv/resourcepack/
-          # Renombrar a latest.zip (URL fija que no cambia nunca)
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no jack@100.86.86.50 \
-            "mv /srv/resourcepack/Jackstar-Slimefun-Drakecraft.zip /srv/resourcepack/latest.zip"
-          rm /tmp/deploy_key
-
       - name: Notificar en Discord
         env:
           WEBHOOK: ${{ secrets.DISCORD_RESOURCEPACK_WEBHOOK }}
