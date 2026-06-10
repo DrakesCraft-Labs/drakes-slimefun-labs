@@ -73,7 +73,7 @@ jobs:
                   {\"name\": \"📦 Versión\", \"value\": \"\`$TAG\`\", \"inline\": true},
                   {\"name\": \"📁 Tamaño\", \"value\": \"\`$SIZE\`\", \"inline\": true},
                   {\"name\": \"🔐 SHA256\", \"value\": \"\`\`\`$SHA256\`\`\`\", \"inline\": false},
-                  {\"name\": \"⬇️ Descarga directa\", \"value\": \"[Jackstar-Slimefun-Drakecraft.zip]($DOWNLOAD_URL)\", \"inline\": false}
+                  {\"name\": \"⬇️ Descarga directa\", \"value\": \"[Jackstar-Slimefun-Drakecraft.zip](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/releases/download/$TAG/Jackstar-Slimefun-Drakecraft.zip)\", \"inline\": false}
                 ],
                 \"footer\": {\"text\": \"Pega la URL en server.properties → resource-pack=\"}
               }]
