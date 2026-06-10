@@ -17,6 +17,7 @@ Esta carpeta es el **índice operativo** del monorepo: enlaza guías ya existent
 | Scripts Python / smoke | [scripts/README.md](../../scripts/README.md) · [scripts/smoke/README.md](../../scripts/smoke/README.md) |
 | Tablero org (Project 1) | [docs/PROJECT_BOARD_SYNC.md](../PROJECT_BOARD_SYNC.md) |
 | Auto-updater + despliegue en servidor | [Runtime: DrakesLabs auto-updater](runtime-drakes-autoupdate.md) |
+| Resource Pack: Pipeline de texturas | [Runtime: Resource Pack (pack.drakescraft.cl)](runtime-resourcepack.md) |
 | Aircraft: YAML de vehículos y revisión en disco | [Runtime: Aircraft (YAML)](runtime-aircraft-yaml.md) |
 
 ---
@@ -71,6 +72,7 @@ This folder is the **lab wiki hub**: it links canonical docs under `docs/` and a
 | CI / release policy | [docs/en/release-and-ci-strategy.md](../en/release-and-ci-strategy.md) |
 | Scripts | [scripts/README.md](../../scripts/README.md) |
 | Auto-updater + deploy | [Runtime: DrakesLabs auto-updater](runtime-drakes-autoupdate.md) |
+| Resource Pack: Texture pipeline | [Runtime: Resource Pack (pack.drakescraft.cl)](runtime-resourcepack.md) |
 | Aircraft vehicle YAML | [Runtime: Aircraft (YAML)](runtime-aircraft-yaml.md) |
 
 **Do not cross-merge** `1.21-latin` ↔ `26.X-ToTheStars` (repo policy).
