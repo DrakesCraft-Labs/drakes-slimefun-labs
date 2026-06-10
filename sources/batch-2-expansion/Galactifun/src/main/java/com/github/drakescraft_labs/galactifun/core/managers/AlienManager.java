@@ -210,16 +210,26 @@ public final class AlienManager implements Listener {
     }
 
     public void onDisable() {
-        this.aliens().forEach(a -> {
-            if (a instanceof BossAlien<?> b) {
-                b.removeBossBars();
+        if (this.aliens != null) {
+            for (Alien<?> a : this.aliens.values()) {
+                if (a instanceof BossAlien<?> b) {
+                    try {
+                        b.removeBossBars();
+                    } catch (Throwable t) {
+                        Bukkit.getLogger().severe("[Galactifun] Failed to remove boss bar for alien: " + a.id() + ". Error: " + t.getMessage());
+                        t.printStackTrace();
+                    }
+                }
             }
-        });
-        this.config.set("uuids", this.alienIds.stream().map(UUID::toString).toList());
-        try {
-            this.config.save(new File("plugins/Galactifun", "uuids.yml"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        if (this.config != null && this.alienIds != null) {
+            try {
+                this.config.set("uuids", this.alienIds.stream().map(UUID::toString).toList());
+                this.config.save(new File("plugins/Galactifun", "uuids.yml"));
+            } catch (Throwable t) {
+                Bukkit.getLogger().severe("[Galactifun] Failed to save alien UUIDs during onDisable: " + t.getMessage());
+                t.printStackTrace();
+            }
         }
     }
 
