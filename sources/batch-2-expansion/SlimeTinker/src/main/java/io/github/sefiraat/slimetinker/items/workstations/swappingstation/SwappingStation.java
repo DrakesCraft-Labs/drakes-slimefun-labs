@@ -118,6 +118,7 @@ public class SwappingStation extends MenuBlock {
         blockMenu.pushItem(newTool, OUTPUT_SLOT);
         blockMenu.getItemInSlot(INPUT_ITEM).setAmount(blockMenu.getItemInSlot(INPUT_ITEM).getAmount() - 1);
         blockMenu.getItemInSlot(INPUT_PART).setAmount(blockMenu.getItemInSlot(INPUT_PART).getAmount() - 1);
+        blockMenu.markDirty();
     }
 
     private void swapArmour(BlockMenu blockMenu,
@@ -158,6 +159,7 @@ public class SwappingStation extends MenuBlock {
         blockMenu.pushItem(newArmour, OUTPUT_SLOT);
         blockMenu.getItemInSlot(INPUT_ITEM).setAmount(blockMenu.getItemInSlot(INPUT_ITEM).getAmount() - 1);
         blockMenu.getItemInSlot(INPUT_PART).setAmount(blockMenu.getItemInSlot(INPUT_PART).getAmount() - 1);
+        blockMenu.markDirty();
     }
 
     private void checkAndChangeExplosiveness(ItemStack newTool, ItemMeta im, String partMaterial, String partClass) {

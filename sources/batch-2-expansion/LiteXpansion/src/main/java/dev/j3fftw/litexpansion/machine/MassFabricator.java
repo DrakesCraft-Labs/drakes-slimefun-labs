@@ -137,6 +137,7 @@ public class MassFabricator extends SlimefunItem implements InventoryBlock, Ener
             progress.put(pos, ++currentProgress);
             ChestMenuUtils.updateProgressbar(inv, PROGRESS_SLOT, PROGRESS_AMOUNT - currentProgress,
                 PROGRESS_AMOUNT, progressItem);
+            inv.markDirty();
         } else {
             if (output != null && output.getAmount() > 0) {
                 output.setAmount(output.getAmount() + 1);
@@ -145,6 +146,7 @@ public class MassFabricator extends SlimefunItem implements InventoryBlock, Ener
             }
             progress.remove(pos);
             ChestMenuUtils.updateProgressbar(inv, PROGRESS_SLOT, PROGRESS_AMOUNT, PROGRESS_AMOUNT, progressItem);
+            inv.markDirty();
         }
     }
 

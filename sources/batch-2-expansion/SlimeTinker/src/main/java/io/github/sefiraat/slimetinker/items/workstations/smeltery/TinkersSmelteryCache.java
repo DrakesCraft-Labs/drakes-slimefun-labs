@@ -72,9 +72,11 @@ public final class TinkersSmelteryCache extends AbstractCache {
                 input.setAmount(input.getAmount() - 1);
                 blockMenu.pushItem(new ItemStack(Material.BUCKET), TinkersSmeltery.OUTPUT_SLOT);
                 levelLava += LAVA_PER_BUCKET;
+                blockMenu.markDirty();
             } else if (blockMenu.fits(new ItemStack(Material.LAVA_BUCKET), TinkersSmeltery.OUTPUT_SLOT)) {
                 input.setAmount(input.getAmount() - 1);
                 blockMenu.pushItem(new ItemStack(Material.LAVA_BUCKET), TinkersSmeltery.OUTPUT_SLOT);
+                blockMenu.markDirty();
             }
             return;
         }
@@ -90,6 +92,7 @@ public final class TinkersSmelteryCache extends AbstractCache {
             addMetal(result);
             input.setAmount(input.getAmount() - 1);
             levelLava -= result.getAmount();
+            blockMenu.markDirty();
         }
     }
 
@@ -279,6 +282,7 @@ public final class TinkersSmelteryCache extends AbstractCache {
         if (result.isInputBurns()) {
             inputItem.setAmount(inputItem.getAmount() - 1);
         }
+        blockMenu.markDirty();
     }
 
     private void clickMetalTank() {

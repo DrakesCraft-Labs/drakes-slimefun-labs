@@ -165,6 +165,7 @@ public class ArmourTable extends MenuBlock {
         blockMenu.getItemInSlot(INPUT_PLATES).setAmount(blockMenu.getItemInSlot(INPUT_PLATES).getAmount() - 1);
         blockMenu.getItemInSlot(INPUT_GAMBESON).setAmount(blockMenu.getItemInSlot(INPUT_GAMBESON).getAmount() - 1);
         blockMenu.getItemInSlot(INPUT_MAIL_LINK).setAmount(blockMenu.getItemInSlot(INPUT_MAIL_LINK).getAmount() - 1);
+        blockMenu.markDirty();
     }
 
     private boolean validate(ItemStack plates, ItemStack gambeson, ItemStack links) {

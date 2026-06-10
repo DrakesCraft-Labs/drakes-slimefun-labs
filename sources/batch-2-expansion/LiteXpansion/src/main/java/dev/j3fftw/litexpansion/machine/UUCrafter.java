@@ -125,6 +125,7 @@ public class UUCrafter extends SlimefunItem implements InventoryBlock, EnergyNet
                     this.removeCharge(location, getDefaultEnergyConsumption());
                     blockMenu.pushItem(output, OUTPUT_SLOT);
                     blockMenu.consumeItem(INPUT_SLOT, amount);
+                    blockMenu.markDirty();
                 }
                 break;
             }

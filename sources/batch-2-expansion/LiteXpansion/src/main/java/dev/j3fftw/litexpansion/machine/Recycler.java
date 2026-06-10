@@ -116,6 +116,7 @@ public class Recycler extends SlimefunItem implements InventoryBlock, EnergyNetC
         if (currentProgress == -1 && takePower(b)) {
             inv.consumeItem(INPUT_SLOT);
             progress.put(pos, 0);
+            inv.markDirty();
             return;
         }
 
@@ -132,6 +133,7 @@ public class Recycler extends SlimefunItem implements InventoryBlock, EnergyNetC
             }
             progress.remove(pos);
             ChestMenuUtils.updateProgressbar(inv, PROGRESS_SLOT, PROGRESS_AMOUNT, PROGRESS_AMOUNT, progressItem);
+            inv.markDirty();
         } else {
             progress.put(pos, ++currentProgress);
             ChestMenuUtils.updateProgressbar(inv, PROGRESS_SLOT, PROGRESS_AMOUNT - currentProgress, PROGRESS_AMOUNT,

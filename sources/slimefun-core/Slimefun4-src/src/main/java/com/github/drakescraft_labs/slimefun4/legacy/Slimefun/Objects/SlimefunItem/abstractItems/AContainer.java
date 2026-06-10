@@ -351,6 +351,7 @@ public abstract class AContainer extends SlimefunItem implements InventoryBlock,
                     }
 
                     processor.endOperation(b);
+                    inv.markDirty();
                 }
             }
         } else {
@@ -422,6 +423,7 @@ public abstract class AContainer extends SlimefunItem implements InventoryBlock,
                     inv.consumeItem(entry.getKey(), entry.getValue());
                 }
 
+                inv.markDirty();
                 return recipe;
             } else {
                 found.clear();

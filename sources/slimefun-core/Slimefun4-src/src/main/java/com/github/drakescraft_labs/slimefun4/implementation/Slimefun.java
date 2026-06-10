@@ -435,7 +435,11 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
 
         // Save all "universal" inventories (ender chests for example)
         for (UniversalBlockMenu menu : registry.getUniversalInventories().values()) {
-            menu.save();
+            try {
+                menu.save();
+            } catch (Throwable t) {
+                getLogger().log(Level.SEVERE, "An Error occurred while saving universal inventory menu during onDisable", t);
+            }
         }
 
         // Create a new backup zip

@@ -79,6 +79,8 @@ public final class LaunchPadCore extends TickingMenuBlock {
 
         string = BlockStorage.getLocationInfo(l, "fuelType");
 
+        boolean dirty = false;
+
         if (fuel < rocket.fuelCapacity()) {
             ItemStack fuelItem = menu.getItemInSlot(FUEL_SLOT);
             if (fuelItem != null) {
@@ -86,6 +88,7 @@ public final class LaunchPadCore extends TickingMenuBlock {
 
                 if ((string == null || id.equals(string)) && rocket.allowedFuels().containsKey(id)) {
                     menu.consumeItem(FUEL_SLOT);
+                    dirty = true;
                     BSUtils.addBlockInfo(l.getBlock(), "fuel", ++fuel);
                     if (string == null) {
                         BlockStorage.addBlockInfo(l, "fuelType", id);
@@ -115,9 +118,14 @@ public final class LaunchPadCore extends TickingMenuBlock {
                     }
 
                     menu.consumeItem(i);
+                    dirty = true;
                     break;
                 }
             }
+        }
+
+        if (dirty) {
+            menu.markDirty();
         }
 
         container.set(Rocket.CARGO_KEY, PersistentType.ITEM_STACK_LIST, cargo);

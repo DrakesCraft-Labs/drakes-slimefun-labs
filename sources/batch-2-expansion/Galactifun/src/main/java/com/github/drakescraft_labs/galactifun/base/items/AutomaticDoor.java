@@ -103,6 +103,7 @@ public final class AutomaticDoor extends MenuBlock {
                         menu.pushItem(itemStack.clone(), INPUT_SLOT);
                         startBlock = startBlock.getRelative(direction);
                     }
+                    menu.markDirty();
 
                     BlockStorage.addBlockInfo(l, ACTIVE, "false");
                 }
@@ -135,6 +136,7 @@ public final class AutomaticDoor extends MenuBlock {
                         menu.consumeItem(INPUT_SLOT);
                     }
                     if (closeDoor) {
+                        menu.markDirty();
                         BlockStorage.addBlockInfo(l, ACTIVE, "true");
                     }
                 }

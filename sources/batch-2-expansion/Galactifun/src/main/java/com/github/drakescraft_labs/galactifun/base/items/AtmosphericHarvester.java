@@ -73,6 +73,7 @@ public final class AtmosphericHarvester extends AbstractMachineBlock {
         if (gas == null) return false;
         ItemStack stack = gas.item().asQuantity(multiplier);
         menu.pushItem(stack, SLOTS);
+        menu.markDirty();
 
         return true;
     }

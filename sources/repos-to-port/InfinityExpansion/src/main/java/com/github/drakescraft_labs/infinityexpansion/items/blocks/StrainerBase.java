@@ -220,6 +220,7 @@ public final class StrainerBase extends TickingMenuBlock implements RecipeDispla
 
             }
         }
+        inv.markDirty();
     }
 
 }

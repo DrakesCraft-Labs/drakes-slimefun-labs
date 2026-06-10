@@ -73,10 +73,11 @@ public class RepairBench extends MenuBlock {
             boolean freeFix = ItemUtils.repairBenchCraftsman(newItem) && ThreadLocalRandom.current().nextInt(1, 5) == 1;
 
             if (!freeFix) {
-                blockMenu.getItemInSlot(INPUT_KIT).setAmount(blockMenu.getItemInSlot(INPUT_KIT).getAmount() -1);
+                blockMenu.getItemInSlot(INPUT_KIT).setAmount(blockMenu.getItemInSlot(INPUT_KIT).getAmount() - 1);
             } else {
                 player.sendMessage(ThemeUtils.SUCCESS + "Free repair!");
             }
+            blockMenu.markDirty();
         } else {
             player.sendMessage(ThemeUtils.WARNING + "The kit type does not match the item material.");
         }

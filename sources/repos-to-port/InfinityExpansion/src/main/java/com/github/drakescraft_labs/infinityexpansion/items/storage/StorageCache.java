@@ -135,6 +135,7 @@ public final class StorageCache {
             if (!this.valid) {
                 return false;
             }
+            int oldAmount = this.amount;
             if (this.amount == 1) {
                 if (action.isShiftClicked() && !action.isRightClicked()) {
                     depositAll(p);
@@ -160,6 +161,9 @@ public final class StorageCache {
                         withdraw(p, 1);
                     }
                 }
+            }
+            if (this.amount != oldAmount || isEmpty()) {
+                this.menu.markDirty();
             }
             return false;
         });
@@ -289,6 +293,7 @@ public final class StorageCache {
         }
         setDisplayName(ItemUtils.getItemName(stored));
         this.material = stored.getType();
+        this.menu.markDirty();
     }
 
     void input() {
@@ -360,9 +365,14 @@ public final class StorageCache {
         if (!this.valid) {
             return;
         }
+        int oldAmount = this.amount;
         // input output
         input();
         output();
+
+        if (this.amount != oldAmount) {
+            this.menu.markDirty();
+        }
 
         // store amount
         BlockStorage.addBlockInfo(this.menu.getLocation(), STORED_AMOUNT, String.valueOf(this.amount));
@@ -427,6 +437,7 @@ public final class StorageCache {
         input.setAmount(1);
 
         this.menu.replaceExistingItem(DISPLAY_SLOT, input);
+        this.menu.markDirty();
     }
 
     private void setEmpty() {
@@ -435,6 +446,7 @@ public final class StorageCache {
         this.material = null;
         this.menu.replaceExistingItem(DISPLAY_SLOT, EMPTY_ITEM);
         this.amount = 0;
+        this.menu.markDirty();
     }
 
     boolean matches(ItemStack item) {

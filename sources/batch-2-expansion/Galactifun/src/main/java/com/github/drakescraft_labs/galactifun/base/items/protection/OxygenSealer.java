@@ -151,6 +151,7 @@ public final class OxygenSealer extends MenuBlock implements EnergyNetComponent,
         // to protect against people looping back and forth one oxygen tank and tricking it into thinking there is oxygen
         if (Galactifun.slimefunTickCount() % 18 == 0 || BSUtils.getStoredBoolean(l, NO_OXYGEN)) {
             menu.consumeItem(OXYGEN_SLOT);
+            menu.markDirty();
             BSUtils.addBlockInfo(b, NO_OXYGEN, false);
         }
 
