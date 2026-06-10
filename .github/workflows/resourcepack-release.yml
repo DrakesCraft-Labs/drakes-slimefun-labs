@@ -52,13 +52,28 @@ jobs:
           files: Jackstar-Slimefun-Drakecraft.zip
           make_latest: true
 
+      - name: Deploy a pack.drakescraft.cl
+        env:
+          DEPLOY_KEY: ${{ secrets.STAR_DEPLOY_KEY }}
+        run: |
+          echo "$DEPLOY_KEY" > /tmp/deploy_key
+          chmod 600 /tmp/deploy_key
+          SHA1=$(sha1sum Jackstar-Slimefun-Drakecraft.zip | cut -d' ' -f1)
+          echo "$SHA1" > latest.sha1
+          scp -i /tmp/deploy_key -o StrictHostKeyChecking=no \
+            Jackstar-Slimefun-Drakecraft.zip latest.sha1 \
+            jack@100.86.86.50:/srv/resourcepack/
+          # Renombrar a latest.zip (URL fija que no cambia nunca)
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no jack@100.86.86.50 \
+            "mv /srv/resourcepack/Jackstar-Slimefun-Drakecraft.zip /srv/resourcepack/latest.zip"
+          rm /tmp/deploy_key
+
       - name: Notificar en Discord
         env:
           WEBHOOK: ${{ secrets.DISCORD_RESOURCEPACK_WEBHOOK }}
-          DOWNLOAD_URL: ${{ steps.release.outputs.url }}
           TAG: ${{ steps.ver.outputs.tag }}
         run: |
-          SHA256=$(sha256sum Jackstar-Slimefun-Drakecraft.zip | cut -d' ' -f1)
+          SHA1=$(sha1sum Jackstar-Slimefun-Drakecraft.zip | cut -d' ' -f1)
           SIZE=$(du -sh Jackstar-Slimefun-Drakecraft.zip | cut -f1)
 
           curl -s -X POST "$WEBHOOK" \
@@ -72,9 +87,9 @@ jobs:
                 \"fields\": [
                   {\"name\": \"📦 Versión\", \"value\": \"\`$TAG\`\", \"inline\": true},
                   {\"name\": \"📁 Tamaño\", \"value\": \"\`$SIZE\`\", \"inline\": true},
-                  {\"name\": \"🔐 SHA256\", \"value\": \"\`\`\`$SHA256\`\`\`\", \"inline\": false},
-                  {\"name\": \"⬇️ Descarga directa\", \"value\": \"[Jackstar-Slimefun-Drakecraft.zip](https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/releases/download/$TAG/Jackstar-Slimefun-Drakecraft.zip)\", \"inline\": false}
+                  {\"name\": \"🔐 SHA1\", \"value\": \"\`\`\`$SHA1\`\`\`\", \"inline\": false},
+                  {\"name\": \"⬇️ URL permanente\", \"value\": \"https://pack.drakescraft.cl/latest.zip\", \"inline\": false}
                 ],
-                \"footer\": {\"text\": \"Pega la URL en server.properties → resource-pack=\"}
+                \"footer\": {\"text\": \"resource-pack-sha1=$SHA1\"}
               }]
             }"
