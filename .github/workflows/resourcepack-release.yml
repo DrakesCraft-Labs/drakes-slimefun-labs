@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - 'PortTextura/Jackstar-Slimefun-Drakecraft/**'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Razón del build manual'
+        required: false
+        default: 'build manual'
 
 jobs:
   release:
@@ -44,8 +50,8 @@ jobs:
 
             ### Instalación en server.properties
             ```
-            resource-pack=<URL_DEL_ARCHIVO_ABAJO>
-            resource-pack-sha1=<SHA256>
+            resource-pack=https://pack.drakescraft.cl/latest.zip
+            resource-pack-sha1=<SHA1 — ver abajo>
             ```
 
             > Generado automáticamente al detectar cambios en `PortTextura/`.
