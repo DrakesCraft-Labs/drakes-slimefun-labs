@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import lombok.experimental.UtilityClass;
 
-import dev.drake.dough.common.CommonPatterns;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.CommonPatterns;
 
 @UtilityClass
 public final class StorageSaveFix {

@@ -1,7 +1,6 @@
 package com.github.drakescraft_labs.hotbarpets;
 
 
-import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.Listener;
@@ -33,7 +32,6 @@ public class HotbarPets extends JavaPlugin implements Listener, SlimefunAddon {
 
     @Override
     public void onEnable() {
-        DrakesLabsReleaseUpdate.schedule(this, "HotbarPets-drake");
 
         Config cfg = new Config(this);
 

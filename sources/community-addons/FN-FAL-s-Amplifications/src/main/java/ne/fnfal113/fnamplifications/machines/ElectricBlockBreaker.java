@@ -25,7 +25,7 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTrans
 import ne.fnfal113.fnamplifications.FNAmplifications;
 import ne.fnfal113.fnamplifications.utils.Utils;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

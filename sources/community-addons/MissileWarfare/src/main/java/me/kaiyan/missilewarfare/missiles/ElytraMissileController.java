@@ -1,6 +1,8 @@
 package me.kaiyan.missilewarfare.missiles;
 
 import me.kaiyan.missilewarfare.MissileWarfare;
+import me.kaiyan.missilewarfare.integrations.TownyLoader;
+import me.kaiyan.missilewarfare.integrations.WorldGuardLoader;
 import me.kaiyan.missilewarfare.util.PlayerID;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
@@ -96,16 +98,46 @@ public class ElytraMissileController {
         return velocity;
     }
 
+    public void spawnTNTRaw(){
+        world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
+            tnt.setFuseTicks(0);
+            tnt.setYield(power);
+            if (player != null) {
+                tnt.setSource(player);
+            }
+        });
+    }
+
+    public void spawnExplosionWithCheck(){
+        if (MissileWarfare.townyEnabled){
+            boolean explode = TownyLoader.exploded(player, pos.toLocation(world));
+            if (explode){
+                spawnTNTRaw();
+                return;
+            } else {
+                if (MissileWarfare.worldGuardEnabled){
+                    WorldGuardLoader.explode(world, pos, power, null, player);
+                    return;
+                } else {
+                    spawnTNTRaw();
+                    return;
+                }
+            }
+        }
+        if (MissileWarfare.worldGuardEnabled){
+            WorldGuardLoader.explode(world, pos, power, null, player);
+            return;
+        }
+        spawnTNTRaw();
+    }
+
     public void Update(BukkitRunnable run, Player other){
         Vector velocity = getVelocityIgnoreY();
         pos.add(velocity);
         world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, pos.toLocation(world), 0, 0, 0, 0, 0.1, null, true);
         world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, (pos.toLocation(world).subtract(velocity.divide(new Vector(2,2,2)))), 0, 0, 0, 0, 0.1, null, true);
         if (other.getLocation().distanceSquared(pos.toLocation(world)) < (speed*speed)*1.1){
-            world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
-                tnt.setFuseTicks(0);
-                tnt.setYield(power);
-            });
+            spawnExplosionWithCheck();
             for (int i = 0; i < 40; i++) {
                 world.spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, pos.toLocation(world), 0, Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5, 0.1, null, true);
                 world.spawnParticle(Particle.FLAME, pos.toLocation(world), 0, Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5, 0.1, null,true);
@@ -125,10 +157,7 @@ public class ElytraMissileController {
             }
         }
         if (world.getBlockAt(pos.toLocation(world)).getType() != Material.AIR) {
-            world.spawn(pos.toLocation(world), TNTPrimed.class, tnt -> {
-                tnt.setFuseTicks(0);
-                tnt.setYield(power);
-            });
+            spawnExplosionWithCheck();
             run.cancel();
             PlayerID.targets.remove(player);
         }

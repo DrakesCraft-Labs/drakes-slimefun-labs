@@ -1,7 +1,6 @@
 package com.github.drakescraft_labs.electricspawners;
 
 
-import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.logging.Level;
 
 import org.bstats.bukkit.Metrics;
@@ -23,7 +22,6 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
 
     @Override
     public void onEnable() {
-        DrakesLabsReleaseUpdate.schedule(this, "ElectricSpawners-drake");
 
         Config cfg = new Config(this);
 

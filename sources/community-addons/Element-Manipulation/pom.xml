@@ -56,6 +56,10 @@
                                     <pattern>dev.drake.dough</pattern>
                                     <shadedPattern>me.lucasgithuber.elementmanipulation.shaded.dough</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.apache.commons.lang3</pattern>
+                                    <shadedPattern>me.lucasgithuber.elementmanipulation.shaded.lang3</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
@@ -65,11 +69,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>drakes-labs-autoupdate</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
@@ -99,6 +98,11 @@
             <scope>provided</scope>
         </dependency>
     
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>

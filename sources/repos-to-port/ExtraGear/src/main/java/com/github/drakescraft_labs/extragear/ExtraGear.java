@@ -1,7 +1,6 @@
 package com.github.drakescraft_labs.extragear;
 
 
-import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +31,6 @@ public class ExtraGear extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public void onEnable() {
-        DrakesLabsReleaseUpdate.schedule(this, "ExtraGear-drake");
 
         Config cfg = new Config(this);
 
