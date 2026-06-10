@@ -12,8 +12,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import org.bukkit.Material;
 import org.bukkit.Tag;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
@@ -139,6 +141,12 @@ public class FlowerGenerator extends AbstractMachine {
     @Override
     public int getStatusSlot() {
         return 4;
+    }
+
+    @Override
+    protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
+        menu.dropItems(l, getOutputSlots());
+        PROGRESS_MAP.remove(new BlockPosition(l));
     }
 
 }

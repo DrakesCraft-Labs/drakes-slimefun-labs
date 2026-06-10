@@ -116,7 +116,8 @@ public class SimpleDrawer extends SlimefunItem implements NotHopperable {
             }
 
             if (taking) {
-                int count = Integer.parseInt(Objects.requireNonNull(container.itemCount.getText()));
+                String countText = container.itemCount.getText();
+                int count = countText != null ? Integer.parseInt(countText) : 0;
                 if (count == 0) {
                     p.sendMessage("§cThere is no item in this drawer.");
                     return;
@@ -165,7 +166,12 @@ public class SimpleDrawer extends SlimefunItem implements NotHopperable {
                 }
 
                 p.updateInventory();
-                storeItem(clicked.getLocation(), container.item.getItemStack(), Integer.parseInt(container.itemCount.getText()));
+                String newCountText = container.itemCount.getText();
+                int newCount = newCountText != null ? Integer.parseInt(newCountText) : 0;
+                ItemStack storedStack = container.item.getItemStack();
+                if (storedStack != null && storedStack.getType() != Material.AIR) {
+                    storeItem(clicked.getLocation(), storedStack, newCount);
+                }
             } else {
                 ItemStack handItem = p.getInventory().getItemInMainHand();
                 if (handItem.getType() == Material.AIR || handItem.getAmount() < 1) {
@@ -455,9 +461,9 @@ public class SimpleDrawer extends SlimefunItem implements NotHopperable {
         }
 
         if (theItem == null) {
-            container.item.setItemStack(item.asOne().clone());
+            ItemStack storedItem = item.asOne().clone();
+            container.item.setItemStack(storedItem);
             container.itemName.text(getItemName(item));
-            container.itemCount.text(Component.text(item.getAmount()));
 
             int toAdd = (int) Math.min(item.getAmount(), capacity > Integer.MAX_VALUE ? Integer.MAX_VALUE : capacity);
             item.setAmount(item.getAmount() - toAdd);
@@ -466,7 +472,8 @@ public class SimpleDrawer extends SlimefunItem implements NotHopperable {
                 item.setType(Material.AIR);
             }
 
-            storeItem(barrelLoc, item, item.getAmount());
+            container.itemCount.text(Component.text(toAdd));
+            storeItem(barrelLoc, storedItem, toAdd);
             return Pair.of(true, item.getAmount());
         }
 

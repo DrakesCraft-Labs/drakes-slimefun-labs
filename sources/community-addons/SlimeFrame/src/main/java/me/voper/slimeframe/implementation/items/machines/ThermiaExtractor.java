@@ -6,10 +6,12 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
@@ -182,6 +184,13 @@ public class ThermiaExtractor extends AbstractMachine {
 
     protected int[] getProgressSlots() {
         return new int[]{37, 28, 19, 10, 1};
+    }
+
+    @Override
+    protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
+        menu.dropItems(l, getInputSlots());
+        menu.dropItems(l, getOutputSlots());
+        COUNTER_MAP.remove(new BlockPosition(l));
     }
 
 }
