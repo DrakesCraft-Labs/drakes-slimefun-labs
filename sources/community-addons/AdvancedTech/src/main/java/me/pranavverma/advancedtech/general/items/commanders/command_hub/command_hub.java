@@ -106,7 +106,7 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
         Block block2 = e.getClickedBlock().get();
         if (block2 != null && BlockStorage.check(block2, BaseItems.command_hub_.getItemId())) {
             if (scanForCommandEngine(block2)) {
-                openGUI(e.getPlayer());
+                openGUI(e.getPlayer(), block2);
             }
         }
     }
@@ -158,12 +158,6 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
                     updateHologram(e.getBlock(), "&cEngine NOT Found");
                     readyToUse = false;
                 }
-
-                if (scanForAdvancedSolarGen(e.getBlock())) {
-                    AdvancedSolarGenFound = true;
-                } else {
-                    AdvancedSolarGenFound = false;
-                } 
             }
 
         };
@@ -175,7 +169,7 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
 
  
 
-    private void openGUI(Player player) {
+    private void openGUI(Player player, Block block) {
         int counter = 0;
         int i = 0;
         Inventory gui = Bukkit.createInventory(null, 9, "Active Devices");
@@ -198,7 +192,7 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
         gui.setItem(counter, commandHubItem);
 
 
-        if (AdvancedSolarGenFound) {
+        if (scanForAdvancedSolarGen(block)) {
             counter++;
 
             ItemStack AdvancedSolarGenItem = new ItemStack(PlayerHead.getItemStack(PlayerSkin.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWZkZDllNTg4ZDI0NjFkMmQzZDA1OGNiM2UwYWYyYjNhMzM2NzYwN2FhMTRkMTI0ZWQ5MmE4MzNmMjVmYjExMiJ9fX0=")));
