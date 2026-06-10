@@ -36,6 +36,7 @@ public abstract class AbstractMachineBlock extends TickingMenuBlock implements E
         }
         else if (process(b, menu)) {
             removeCharge(menu.getLocation(), energyPerTick);
+            menu.markDirty();
         }
     }
 

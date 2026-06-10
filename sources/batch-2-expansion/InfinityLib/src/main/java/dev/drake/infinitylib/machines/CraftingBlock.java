@@ -56,6 +56,7 @@ public class CraftingBlock extends MenuBlock {
                     onSuccessfulCraft(menu, output);
                     menu.pushItem(output, layout.outputSlots());
                     recipe.consume(input);
+                    menu.markDirty();
                     p.sendMessage(ChatColor.GREEN + "Successfully Crafted: " + ItemUtils.getItemName(output));
                 } else {
                     p.sendMessage(ChatColor.GOLD + "Not Enough Room!");
