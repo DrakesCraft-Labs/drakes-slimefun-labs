@@ -121,9 +121,21 @@ public class AutoSavingService {
      */
     public void shutdownSave() {
         Slimefun.logger().log(Level.INFO, "Slimefun: ejecutando guardado de apagado (jugadores, bloques y chunks)...");
-        saveAllPlayersShutdown();
-        saveAllBlocksShutdown();
-        BlockStorage.saveChunks();
+        try {
+            saveAllPlayersShutdown();
+        } catch (Throwable t) {
+            Slimefun.logger().log(Level.SEVERE, "Error fatal al guardar los perfiles de jugadores en el apagado", t);
+        }
+        try {
+            saveAllBlocksShutdown();
+        } catch (Throwable t) {
+            Slimefun.logger().log(Level.SEVERE, "Error fatal al guardar los bloques de BlockStorage en el apagado", t);
+        }
+        try {
+            BlockStorage.saveChunks();
+        } catch (Throwable t) {
+            Slimefun.logger().log(Level.SEVERE, "Error fatal al guardar los chunks de BlockStorage en el apagado", t);
+        }
     }
 
     private void saveAllPlayersShutdown() {
@@ -132,8 +144,12 @@ public class AutoSavingService {
 
         while (iterator.hasNext()) {
             PlayerProfile profile = iterator.next();
-            profile.save();
-            players++;
+            try {
+                profile.save();
+                players++;
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error al guardar el perfil del jugador " + profile.getUUID() + " en el apagado", t);
+            }
         }
 
         if (players > 0) {
@@ -148,9 +164,13 @@ public class AutoSavingService {
             BlockStorage storage = BlockStorage.getStorage(world);
 
             if (storage != null) {
-                // save() ya hace computeChanges() y no escribe si no hay cambios
-                storage.save();
-                worlds++;
+                try {
+                    // save() ya hace computeChanges() y no escribe si no hay cambios
+                    storage.save();
+                    worlds++;
+                } catch (Throwable t) {
+                    Slimefun.logger().log(Level.SEVERE, "Error al guardar BlockStorage para el mundo '" + world.getName() + "' en el apagado", t);
+                }
             }
         }
 

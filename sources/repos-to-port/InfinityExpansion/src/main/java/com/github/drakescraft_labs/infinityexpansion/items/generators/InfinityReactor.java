@@ -138,6 +138,7 @@ public final class InfinityReactor extends MenuBlock implements EnergyNetProvide
             }
             inv.consumeItem(INPUT_SLOTS[0]);
             inv.consumeItem(INPUT_SLOTS[1]);
+            inv.markDirty();
             BlockStorage.addBlockInfo(l, "progress", "1");
             return this.gen;
 
@@ -174,6 +175,7 @@ public final class InfinityReactor extends MenuBlock implements EnergyNetProvide
             }
             BlockStorage.addBlockInfo(l, "progress", String.valueOf(progress + 1));
             inv.consumeItem(INPUT_SLOTS[1]);
+            inv.markDirty();
             return this.gen;
 
         }

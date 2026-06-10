@@ -195,6 +195,7 @@ public class ZotOverloader extends SimpleSlimefunItem<BlockTicker> implements TE
                 } else {
                     inputItem.setAmount(inputItem.getAmount() - inpToBeRemoved);
                 }
+                menu.markDirty();
             }
 
             @Override

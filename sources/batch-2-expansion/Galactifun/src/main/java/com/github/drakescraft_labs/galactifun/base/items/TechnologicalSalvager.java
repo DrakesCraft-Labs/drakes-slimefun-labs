@@ -56,6 +56,7 @@ public class TechnologicalSalvager extends AbstractMachineBlock implements Machi
                     menu.pushItem(result.clone(), OUTPUT_SLOTS);
                 }
                 processor.endOperation(b);
+                menu.markDirty();
             } else {
                 operation.addProgress(1);
             }
@@ -85,6 +86,7 @@ public class TechnologicalSalvager extends AbstractMachineBlock implements Machi
                     ));
 
                     menu.consumeItem(i);
+                    menu.markDirty();
                     return true;
                 }
             }

@@ -270,6 +270,7 @@ public final class GearTransformer extends AbstractEnergyCrafter implements Reci
 
         inv.replaceExistingItem(INPUT_SLOTS[0], null);
         inv.consumeItem(INPUT_SLOTS[1], pair.getSecondValue());
+        inv.markDirty();
 
         inv.replaceExistingItem(STATUS_SLOT, new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&aTool Transformed!"));
     }

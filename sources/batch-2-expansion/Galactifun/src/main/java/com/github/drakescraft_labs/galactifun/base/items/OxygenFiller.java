@@ -58,6 +58,7 @@ public final class OxygenFiller extends AContainer {
                 removeCharge(b.getLocation(), getEnergyConsumption());
                 suit.setOxygen(meta, oxygen + getSpeed());
                 item.setItemMeta(meta);
+                inv.markDirty();
                 return true;
             }
         }
@@ -65,6 +66,7 @@ public final class OxygenFiller extends AContainer {
         if (inv.fits(item, getOutputSlots())) {
             inv.pushItem(item, getOutputSlots());
             inv.replaceExistingItem(slot, null);
+            inv.markDirty();
         }
         return false;
     }

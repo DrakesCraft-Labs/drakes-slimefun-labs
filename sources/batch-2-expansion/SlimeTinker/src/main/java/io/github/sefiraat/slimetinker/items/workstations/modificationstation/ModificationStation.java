@@ -119,6 +119,7 @@ public class ModificationStation extends MenuBlock {
         blockMenu.pushItem(newTool, OUTPUT_SLOT);
         item.setAmount(0);
         modItem.setAmount(leftoverAmount);
+        blockMenu.markDirty();
     }
 
     private void modArmour(BlockMenu blockMenu, Player player, ItemStack item, ItemStack modItem) {
@@ -179,6 +180,7 @@ public class ModificationStation extends MenuBlock {
         blockMenu.pushItem(newArmour, OUTPUT_SLOT);
         item.setAmount(0);
         modItem.setAmount(leftoverAmount);
+        blockMenu.markDirty();
     }
 
     @Override

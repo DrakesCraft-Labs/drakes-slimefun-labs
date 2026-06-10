@@ -144,6 +144,7 @@ public final class AdvancedAnvil extends AbstractEnergyCrafter {
         item2.setAmount(item2.getAmount() - 1);
         inv.pushItem(output, OUTPUT_SLOTS);
         removeCharge(l, this.energy);
+        inv.markDirty();
         update(inv);
     }
 

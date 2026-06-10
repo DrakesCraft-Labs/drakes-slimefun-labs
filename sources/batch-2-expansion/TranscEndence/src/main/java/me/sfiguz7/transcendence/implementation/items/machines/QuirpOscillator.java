@@ -171,6 +171,7 @@ public class QuirpOscillator extends SimpleSlimefunItem<BlockTicker> implements 
 
                     removeCharge(b.getLocation(), ENERGY_CONSUMPTION);
                     menu.pushItem(output, getOutputSlots());
+                    menu.markDirty();
                 }
             }
 

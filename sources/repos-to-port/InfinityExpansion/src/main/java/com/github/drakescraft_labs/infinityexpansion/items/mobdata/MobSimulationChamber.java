@@ -121,6 +121,7 @@ public final class MobSimulationChamber extends TickingMenuBlock implements Ener
                 p.playSound(l, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
                 BlockStorage.addBlockInfo(l, "xp", "O");
                 menu.replaceExistingItem(XP_SLOT, makeXpItem(0));
+                menu.markDirty();
             }
             return false;
         });
@@ -176,6 +177,7 @@ public final class MobSimulationChamber extends TickingMenuBlock implements Ener
         ItemStack item = card.drops.getRandom();
         if (inv.fits(item, OUTPUT_SLOTS)) {
             inv.pushItem(item.clone(), OUTPUT_SLOTS);
+            inv.markDirty();
         }
         else if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, NO_ROOM_ITEM);
