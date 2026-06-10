@@ -48,13 +48,15 @@ public class BackupService implements Runnable {
     public void run() {
         // Make sure that the directory exists.
         if (directory.exists()) {
-            List<File> backups = Arrays.asList(directory.listFiles());
-
-            if (backups.size() > MAX_BACKUPS) {
-                try {
-                    purgeBackups(backups);
-                } catch (IOException e) {
-                    Slimefun.logger().log(Level.WARNING, "Could not delete an old backup", e);
+            File[] files = directory.listFiles();
+            if (files != null) {
+                List<File> backups = Arrays.asList(files);
+                if (backups.size() > MAX_BACKUPS) {
+                    try {
+                        purgeBackups(backups);
+                    } catch (Exception e) {
+                        Slimefun.logger().log(Level.WARNING, "Could not delete an old backup", e);
+                    }
                 }
             }
 
@@ -81,48 +83,94 @@ public class BackupService implements Runnable {
     private void createBackup(@Nonnull ZipOutputStream output) throws IOException {
         Validate.notNull(output, "The Output Stream cannot be null!");
 
-        for (File folder : new File("data-storage/Slimefun/stored-blocks/").listFiles()) {
-            addDirectory(output, folder, "stored-blocks/" + folder.getName());
-        }
-
-        addDirectory(output, new File("data-storage/Slimefun/universal-inventories/"), "universal-inventories");
-        addDirectory(output, new File("data-storage/Slimefun/stored-inventories/"), "stored-inventories");
-
-        File chunks = new File("data-storage/Slimefun/stored-chunks/chunks.sfc");
-
-        if (chunks.exists()) {
-            byte[] buffer = new byte[1024];
-            ZipEntry entry = new ZipEntry("stored-chunks/chunks.sfc");
-            output.putNextEntry(entry);
-
-            try (FileInputStream input = new FileInputStream(chunks)) {
-                int length;
-
-                while ((length = input.read(buffer)) > 0) {
-                    output.write(buffer, 0, length);
+        File storedBlocks = new File("data-storage/Slimefun/stored-blocks/");
+        if (storedBlocks.exists()) {
+            File[] folders = storedBlocks.listFiles();
+            if (folders != null) {
+                for (File folder : folders) {
+                    if (folder != null && folder.isDirectory()) {
+                        try {
+                            addDirectory(output, folder, "stored-blocks/" + folder.getName());
+                        } catch (Exception e) {
+                            Slimefun.logger().log(Level.WARNING, "Failed to backup stored-blocks folder: " + folder.getName(), e);
+                        }
+                    }
                 }
             }
+        }
 
-            output.closeEntry();
+        try {
+            addDirectory(output, new File("data-storage/Slimefun/universal-inventories/"), "universal-inventories");
+        } catch (Exception e) {
+            Slimefun.logger().log(Level.WARNING, "Failed to backup universal-inventories", e);
+        }
+
+        try {
+            addDirectory(output, new File("data-storage/Slimefun/stored-inventories/"), "stored-inventories");
+        } catch (Exception e) {
+            Slimefun.logger().log(Level.WARNING, "Failed to backup stored-inventories", e);
+        }
+
+        try {
+            File chunks = new File("data-storage/Slimefun/stored-chunks/chunks.sfc");
+            if (chunks.exists()) {
+                byte[] buffer = new byte[1024];
+                ZipEntry entry = new ZipEntry("stored-chunks/chunks.sfc");
+                output.putNextEntry(entry);
+
+                try (FileInputStream input = new FileInputStream(chunks)) {
+                    int length;
+
+                    while ((length = input.read(buffer)) > 0) {
+                        output.write(buffer, 0, length);
+                    }
+                }
+
+                output.closeEntry();
+            }
+        } catch (Exception e) {
+            Slimefun.logger().log(Level.WARNING, "Failed to backup stored-chunks/chunks.sfc", e);
         }
     }
 
     private void addDirectory(@Nonnull ZipOutputStream output, @Nonnull File directory, @Nonnull String zipPath) throws IOException {
+        if (!directory.exists()) {
+            return;
+        }
+        File[] files = directory.listFiles();
+        if (files == null) {
+            return;
+        }
         byte[] buffer = new byte[1024];
 
-        for (File file : directory.listFiles()) {
-            ZipEntry entry = new ZipEntry(zipPath + '/' + file.getName());
-            output.putNextEntry(entry);
-
-            try (FileInputStream input = new FileInputStream(file)) {
-                int length;
-
-                while ((length = input.read(buffer)) > 0) {
-                    output.write(buffer, 0, length);
-                }
+        for (File file : files) {
+            if (file == null) {
+                continue;
             }
+            if (file.isDirectory()) {
+                try {
+                    addDirectory(output, file, zipPath + '/' + file.getName());
+                } catch (Exception e) {
+                    Slimefun.logger().log(Level.WARNING, "Failed to backup subdirectory: " + file.getPath(), e);
+                }
+                continue;
+            }
+            try {
+                ZipEntry entry = new ZipEntry(zipPath + '/' + file.getName());
+                output.putNextEntry(entry);
 
-            output.closeEntry();
+                try (FileInputStream input = new FileInputStream(file)) {
+                    int length;
+
+                    while ((length = input.read(buffer)) > 0) {
+                        output.write(buffer, 0, length);
+                    }
+                }
+
+                output.closeEntry();
+            } catch (Exception e) {
+                Slimefun.logger().log(Level.WARNING, "Failed to backup file: " + file.getPath(), e);
+            }
         }
     }
 
@@ -136,15 +184,31 @@ public class BackupService implements Runnable {
      *             An {@link IOException} is thrown if a {@link File} could not be deleted
      */
     private void purgeBackups(@Nonnull List<File> backups) throws IOException {
-        Collections.sort(backups, (a, b) -> {
-            LocalDateTime time1 = LocalDateTime.parse(a.getName().substring(0, a.getName().length() - 4), format);
-            LocalDateTime time2 = LocalDateTime.parse(b.getName().substring(0, b.getName().length() - 4), format);
+        List<File> validBackups = new java.util.ArrayList<>();
+        for (File f : backups) {
+            if (f != null && f.isFile() && f.getName().endsWith(".zip") && f.getName().length() > 4) {
+                validBackups.add(f);
+            }
+        }
 
-            return time2.compareTo(time1);
+        Collections.sort(validBackups, (a, b) -> {
+            try {
+                LocalDateTime time1 = LocalDateTime.parse(a.getName().substring(0, a.getName().length() - 4), format);
+                LocalDateTime time2 = LocalDateTime.parse(b.getName().substring(0, b.getName().length() - 4), format);
+                return time2.compareTo(time1);
+            } catch (Exception e) {
+                return Long.compare(b.lastModified(), a.lastModified());
+            }
         });
 
-        for (int i = backups.size() - MAX_BACKUPS; i > 0; i--) {
-            Files.delete(backups.get(i).toPath());
+        if (validBackups.size() > MAX_BACKUPS) {
+            for (int i = MAX_BACKUPS; i < validBackups.size(); i++) {
+                try {
+                    Files.delete(validBackups.get(i).toPath());
+                } catch (IOException e) {
+                    Slimefun.logger().log(Level.WARNING, "Could not delete old backup: " + validBackups.get(i).getName(), e);
+                }
+            }
         }
     }
 

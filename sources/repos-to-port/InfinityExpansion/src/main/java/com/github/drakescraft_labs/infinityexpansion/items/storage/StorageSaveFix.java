@@ -34,7 +34,15 @@ public final class StorageSaveFix {
                 "BASIC_STORAGE"
         };
 
-        for (File world : folder.listFiles()) {
+        File[] worlds = folder.listFiles();
+        if (worlds == null) {
+            return;
+        }
+
+        for (File world : worlds) {
+            if (world == null || !world.isDirectory()) {
+                continue;
+            }
             String name = world.getName();
             int locationBeginIndex = name.length() + 1;
             Map<String, String> locations = new HashMap<>();
@@ -59,7 +67,18 @@ public final class StorageSaveFix {
                 Iterator<String> iterator = lines.listIterator();
                 while (iterator.hasNext()) {
                     String line = iterator.next();
-                    String location = line.substring(locationBeginIndex, line.indexOf(':'));
+                    if (line == null) {
+                        iterator.remove();
+                        changed = true;
+                        continue;
+                    }
+                    int colonIndex = line.indexOf(':');
+                    if (locationBeginIndex >= line.length() || colonIndex == -1 || locationBeginIndex > colonIndex) {
+                        iterator.remove();
+                        changed = true;
+                        continue;
+                    }
+                    String location = line.substring(locationBeginIndex, colonIndex);
                     String correct = locations.get(location);
 
                     if (correct == null) {
@@ -69,11 +88,16 @@ public final class StorageSaveFix {
                         changed = true;
                         if (fixed++ < 25) {
                             String[] cords = CommonPatterns.SEMICOLON.split(location);
-                            logger.log(Level.INFO, "Fixed bugged " + correct + " in "
-                                    + name + " @ "
-                                    + cords[0] + ", "
-                                    + cords[1] + ", "
-                                    + cords[2]);
+                            if (cords.length >= 3) {
+                                logger.log(Level.INFO, "Fixed bugged " + correct + " in "
+                                        + name + " @ "
+                                        + cords[0] + ", "
+                                        + cords[1] + ", "
+                                        + cords[2]);
+                            } else {
+                                logger.log(Level.INFO, "Fixed bugged " + correct + " in "
+                                        + name + " @ " + location);
+                            }
                         }
                     }
                 }
