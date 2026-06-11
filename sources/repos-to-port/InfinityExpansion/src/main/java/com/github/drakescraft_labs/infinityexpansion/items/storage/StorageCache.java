@@ -74,6 +74,7 @@ public final class StorageCache {
     private boolean voidExcess;
     @Setter
     private int amount;
+    private int lastPersistedAmount = -1;
     private boolean valid = true;
 
     StorageCache(StorageUnit storageUnit, BlockMenu menu) {
@@ -274,7 +275,20 @@ public final class StorageCache {
     void reloadData() {
         Config config = BlockStorage.getLocationInfo(this.menu.getLocation());
         String amt = config.getString(STORED_AMOUNT);
-        this.amount = amt == null ? 0 : Integer.parseInt(amt);
+        // parse defensivo: un valor corrupto lanzaba NumberFormatException dentro
+        // del constructor del cache y dejaba el menu permanentemente inutilizable.
+        int parsed = 0;
+        if (amt != null) {
+            try {
+                parsed = Integer.parseInt(amt);
+            } catch (NumberFormatException ex) {
+                InfinityExpansion.log(java.util.logging.Level.WARNING,
+                    "Valor 'stored' corrupto (" + amt + ") en StorageUnit @ "
+                    + this.menu.getLocation() + " — se resetea a 0");
+            }
+        }
+        this.amount = Math.max(0, parsed);
+        this.lastPersistedAmount = this.amount;
         this.voidExcess = "true".equals(config.getString(VOID_EXCESS));
     }
 
@@ -374,8 +388,14 @@ public final class StorageCache {
             this.menu.markDirty();
         }
 
-        // store amount
-        BlockStorage.addBlockInfo(this.menu.getLocation(), STORED_AMOUNT, String.valueOf(this.amount));
+        // solo persistir cuando difiere de lo ya guardado: escribir cada tick
+        // marcaba el chunk data dirty permanentemente e inflaba el auto-save.
+        // Se compara contra lo persistido (no contra oldAmount) para capturar
+        // tambien los cambios hechos por click-handlers entre ticks.
+        if (this.amount != this.lastPersistedAmount) {
+            BlockStorage.addBlockInfo(this.menu.getLocation(), STORED_AMOUNT, String.valueOf(this.amount));
+            this.lastPersistedAmount = this.amount;
+        }
 
         // status
         if (this.menu.hasViewer()) {

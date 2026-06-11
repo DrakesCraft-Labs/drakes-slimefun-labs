@@ -106,6 +106,15 @@ public final class StorageUnit extends MenuBlock implements DistinctiveItem {
             @Override
             public void onPlayerBreak(BlockBreakEvent e, ItemStack item, List<ItemStack> drops) {
                 BlockMenu menu = BlockStorage.getInventory(e.getBlock());
+
+                // Menu null (chunk recien cargado / data corrupta): dropear al menos
+                // el item base en vez de lanzar NPE y no dropear nada.
+                if (menu == null) {
+                    StorageUnit.this.caches.remove(e.getBlock().getLocation());
+                    drops.add(getItem().clone());
+                    return;
+                }
+
                 StorageCache cache = StorageUnit.this.caches.remove(menu.getLocation());
                 menu.close();
                 if (cache != null && !cache.isEmpty()) {
@@ -138,12 +147,33 @@ public final class StorageUnit extends MenuBlock implements DistinctiveItem {
     protected void onPlace(@Nonnull BlockPlaceEvent e, @Nonnull Block b) {
         Pair<ItemStack, Integer> data = loadFromStack(e.getItemInHand());
         if (data != null) {
-            Scheduler.run(() -> {
-                StorageCache cache = this.caches.get(b.getLocation());
+            restoreContents(b, data, 0);
+        }
+    }
+
+    /**
+     * Restaura el contenido serializado en el PDC del item colocado.
+     * El cache se crea en onNewInstance (cuando BlockStorage instancia el menu),
+     * que puede tardar mas de un tick tras el place; sin los reintentos el
+     * contenido se perdia silenciosamente (issue #78 upstream: void al colocar).
+     */
+    private void restoreContents(Block b, Pair<ItemStack, Integer> data, int attempt) {
+        Scheduler.run(() -> {
+            StorageCache cache = this.caches.get(b.getLocation());
+            if (cache != null) {
                 cache.load(data.getFirstValue(), data.getFirstValue().getItemMeta());
                 cache.amount(data.getSecondValue());
-            });
-        }
+            }
+            else if (attempt < 20) {
+                restoreContents(b, data, attempt + 1);
+            }
+            else {
+                InfinityExpansion.log(java.util.logging.Level.WARNING,
+                    "No se pudo restaurar el contenido de un StorageUnit en "
+                    + b.getWorld().getName() + " " + b.getX() + "," + b.getY() + "," + b.getZ()
+                    + " (cache nunca se creo tras 20 ticks)");
+            }
+        });
     }
 
     @Override
