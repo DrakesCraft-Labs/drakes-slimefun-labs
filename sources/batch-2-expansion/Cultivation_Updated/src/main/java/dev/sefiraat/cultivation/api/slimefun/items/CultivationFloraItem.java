@@ -132,6 +132,10 @@ public abstract class CultivationFloraItem<T extends CultivationFloraItem<T>> ex
         ownerCache.put(location, uuid);
     }
 
+    public void removeOwner(@Nonnull Location location) {
+        ownerCache.remove(location);
+    }
+
     @ParametersAreNonnullByDefault
     protected void onTick(Block block, T flora, Config data) {
         Location location = block.getLocation();

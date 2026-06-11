@@ -246,6 +246,7 @@ public class ZotOverloader extends SimpleSlimefunItem<BlockTicker> implements TE
                 if (inv != null) {
                     inv.dropItems(b.getLocation(), getInputSlots());
                     inv.dropItems(b.getLocation(), getOutputSlots());
+                    inv.dropItems(b.getLocation(), ZOT_SLOT);
                 }
             }
         };

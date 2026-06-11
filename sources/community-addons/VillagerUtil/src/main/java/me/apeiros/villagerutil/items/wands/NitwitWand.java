@@ -38,6 +38,9 @@ public class NitwitWand extends SlimefunItem {
     // Creates and returns handler
     private EntityInteractHandler getEntityInteractHandler() {
         return (e, i, offhand) -> {
+            if (offhand) {
+                return;
+            }
             // Cancel event
             e.setCancelled(true);
             

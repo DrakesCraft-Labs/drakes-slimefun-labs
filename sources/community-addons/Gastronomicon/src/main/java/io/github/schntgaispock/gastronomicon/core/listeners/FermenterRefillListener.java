@@ -30,6 +30,10 @@ public class FermenterRefillListener implements Listener {
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK || !e.getPlayer().isSneaking())
             return;
 
+        // Guard against double-firing from offhand
+        if (e.getHand() != org.bukkit.inventory.EquipmentSlot.HAND)
+            return;
+
         if (e.getItem() == null) {
             return;
         }

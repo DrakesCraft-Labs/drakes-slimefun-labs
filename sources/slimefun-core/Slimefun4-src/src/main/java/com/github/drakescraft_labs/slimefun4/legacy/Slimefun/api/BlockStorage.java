@@ -1,10 +1,15 @@
 package com.github.drakescraft_labs.slimefun4.legacy.api;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -194,16 +199,16 @@ public class BlockStorage {
             Config blockInfo = parseBlockInfo(l, json);
 
             if (blockInfo != null && blockInfo.contains("id")) {
-                if (storage.putIfAbsent(l, blockInfo) != null) {
-                    /*
-                     * It should not be possible to have two blocks on the same location.
-                     * Ignore the new entry if a block is already present and print an
-                     * error to the console (if enabled).
-                     */
-                    if (Slimefun.getRegistry().logDuplicateBlockEntries()) {
-                        Slimefun.logger().log(Level.INFO, "Ignoring duplicate block @ {0}, {1}, {2} ({3} -> {4})", new Object[] { l.getBlockX(), l.getBlockY(), l.getBlockZ(), blockInfo.getString("id"), storage.get(l).getString("id") });
-                    }
+                Config existing = storage.putIfAbsent(l, blockInfo);
 
+                if (existing != null) {
+                    /*
+                     * Two different .sfb files claim ownership of the same block location.
+                     * Instead of silently discarding data, we apply a "richest-data-wins"
+                     * strategy: the Config with more keys (i.e. more stored state) is kept.
+                     * The loser is written to a recovery log so an admin can inspect it.
+                     */
+                    resolveDuplicateBlock(l, blockInfo, existing);
                     return;
                 }
 
@@ -215,6 +220,83 @@ public class BlockStorage {
             }
         } catch (Exception x) {
             Slimefun.logger().log(Level.WARNING, x, () -> "Failed to load " + file.getName() + '(' + key + ") for Slimefun " + Slimefun.getVersion());
+        }
+    }
+
+    /**
+     * Resolves a duplicate-block conflict by keeping whichever {@link Config} has more keys
+     * ("richest-data-wins") and appending the losing entry to a human-readable recovery log.
+     *
+     * @param l         the conflicting {@link Location}
+     * @param incoming  the newly-parsed block data that was NOT yet stored
+     * @param resident  the block data already present in {@link #storage}
+     */
+    private void resolveDuplicateBlock(Location l, Config incoming, Config resident) {
+        String incomingId = incoming.getString("id");
+        String residentId = resident.getString("id");
+
+        int incomingKeys = incoming.getKeys() != null ? incoming.getKeys().size() : 0;
+        int residentKeys = resident.getKeys() != null ? resident.getKeys().size() : 0;
+
+        // "Richest-data-wins": the block with more stored keys survives.
+        // If equal, prefer the one already in storage (no change needed).
+        boolean replaceResident = incomingKeys > residentKeys;
+
+        Config winner = replaceResident ? incoming : resident;
+        Config loser  = replaceResident ? resident : incoming;
+        String winnerId = winner.getString("id");
+        String loserId  = loser.getString("id");
+
+        if (replaceResident) {
+            storage.put(l, incoming);
+        }
+
+        // Always warn so it shows up in DrakesCraft Monitor's WARN summary
+        if (Slimefun.getRegistry().logDuplicateBlockEntries()) {
+            Slimefun.logger().log(Level.WARNING,
+                "[DuplicateBlock] Conflict @ {0},{1},{2}: keeping {3} ({4} keys) over {5} ({6} keys)",
+                new Object[] {
+                    l.getBlockX(), l.getBlockY(), l.getBlockZ(),
+                    winnerId, (replaceResident ? incomingKeys : residentKeys),
+                    loserId,  (replaceResident ? residentKeys : incomingKeys)
+                });
+        }
+
+        // Persist the losing entry to a recovery log for admin inspection
+        writeDuplicateRecoveryLog(l, loserId, loser, winnerId);
+    }
+
+    /**
+     * Appends a lost duplicate-block entry to
+     * {@code data-storage/Slimefun/duplicate-recovery/<world>.log} so that
+     * server admins can manually inspect and recover data if needed.
+     */
+    private void writeDuplicateRecoveryLog(Location l, String loserId, Config loserData, String winnerId) {
+        try {
+            File recoveryDir = new File("data-storage/Slimefun/duplicate-recovery");
+            if (!recoveryDir.exists()) {
+                recoveryDir.mkdirs();
+            }
+
+            File logFile = new File(recoveryDir, world.getName() + ".log");
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+            try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(logFile, true)))) {
+                pw.println("[" + timestamp + "] DUPLICATE @ " + l.getBlockX() + "," + l.getBlockY() + "," + l.getBlockZ());
+                pw.println("  KEPT    : " + winnerId);
+                pw.println("  DISCARDED: " + loserId);
+
+                // Dump all keys of the losing config so no data is truly gone
+                if (loserData.getKeys() != null) {
+                    for (String k : loserData.getKeys()) {
+                        pw.println("    " + k + " = " + loserData.getString(k));
+                    }
+                }
+
+                pw.println();
+            }
+        } catch (Exception ex) {
+            Slimefun.logger().log(Level.WARNING, "Could not write duplicate-block recovery log for world '" + world.getName() + "'", ex);
         }
     }
 
