@@ -699,7 +699,18 @@ public class Barrel extends NonHopperableBlock implements DoubleHologramOwner {
     }
 
     public int getStored(Block b) {
-        return Integer.parseInt(BlockStorage.getLocationInfo(b.getLocation(), "stored"));
+        // Parse defensivo: un valor null (barril "bugeado" a aire conservando
+        // data, ver Networks#229/#230) o corrupto lanzaba NumberFormatException
+        // en cada tick y dejaba el barril inservible. Se trata como vacío.
+        String raw = BlockStorage.getLocationInfo(b.getLocation(), "stored");
+        if (raw == null) {
+            return 0;
+        }
+        try {
+            return Math.max(0, Integer.parseInt(raw));
+        } catch (NumberFormatException ex) {
+            return 0;
+        }
     }
 
     public void setStored(Block b, int amount) {
