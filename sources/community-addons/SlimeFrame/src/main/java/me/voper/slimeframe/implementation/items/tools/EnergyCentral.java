@@ -137,6 +137,13 @@ public class EnergyCentral extends AbstractTickingContainer {
     }
 
     @Override
+    protected void onBreak(org.bukkit.event.block.BlockBreakEvent e, BlockMenu menu, Location l) {
+        super.onBreak(e, menu, l);
+        // Evita acumular progreso huerfano de centrales destruidas.
+        PROGRESS_MAP.remove(new BlockPosition(l));
+    }
+
+    @Override
     public int getStatusSlot() {
         return 4;
     }

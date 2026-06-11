@@ -29,16 +29,12 @@ import javax.annotation.Nonnull;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.event.Listener;
 import org.bukkit.event.Event.Result;
 import org.bukkit.plugin.java.JavaPlugin;
-import java.util.HashMap;
-import java.util.Map;
-import org.bukkit.Location;
 
 
 public class command_hub extends SlimefunItem implements HologramOwner, Listener {
@@ -172,7 +168,7 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
     private void openGUI(Player player, Block block) {
         int counter = 0;
         int i = 0;
-        Inventory gui = Bukkit.createInventory(null, 9, "Active Devices");
+        Inventory gui = Bukkit.createInventory(null, 9, GUI_TITLE);
         ItemStack emptyItem = new ItemStack(Material.BLACK_STAINED_GLASS_PANE);
         ItemMeta emptyMeta = emptyItem.getItemMeta();
         emptyMeta.setDisplayName(" ");
@@ -208,63 +204,31 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
 
 
 
-        Bukkit.getPluginManager().registerEvents(this, JavaPlugin.getPlugin(AdvancedTech.class));
+        if (!listenerRegistered) {
+            Bukkit.getPluginManager().registerEvents(this, JavaPlugin.getPlugin(AdvancedTech.class));
+            listenerRegistered = true;
+        }
         player.openInventory(gui);
     }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        HumanEntity human = event.getWhoClicked();
-        Inventory inventory = event.getClickedInventory();
-
-        if (!(human instanceof Player) || inventory == null || inventory.getSize() != 9) {
+        // Identificar el GUI por titulo evita cancelar clicks de inventarios
+        // de otros plugins que tambien usen 9 slots con paneles negros.
+        if (!GUI_TITLE.equals(event.getView().getTitle())) {
             return;
         }
 
-        ItemStack item0 = inventory.getItem(0);
-        ItemStack item6 = inventory.getItem(6);
-        ItemStack item7 = inventory.getItem(7);
-        ItemStack item8 = inventory.getItem(8);
-
-        if (item0 == null || item6 == null || item7 == null || item8 == null) {
-            return;
-        }
-
-        if (item0.hasItemMeta() && 
-            item8.getType() == Material.BLACK_STAINED_GLASS_PANE && 
-            item7.getType() == Material.BLACK_STAINED_GLASS_PANE && 
-            item6.getType() == Material.BLACK_STAINED_GLASS_PANE) {
-            
-            event.setResult(Result.DENY); // Cancel the click event
-            event.setCancelled(true);
-
-        }
+        event.setResult(Result.DENY);
+        event.setCancelled(true);
     }
 
     @EventHandler
     public void onInventoryDrag(InventoryDragEvent event) {
-        HumanEntity human = event.getWhoClicked();
-        Inventory inventory = event.getInventory();
-
-        if (!(human instanceof Player) || inventory == null || inventory.getSize() != 9) {
+        if (!GUI_TITLE.equals(event.getView().getTitle())) {
             return;
         }
 
-        ItemStack item0 = inventory.getItem(0);
-        ItemStack item6 = inventory.getItem(6);
-        ItemStack item7 = inventory.getItem(7);
-        ItemStack item8 = inventory.getItem(8);
-
-        if (item0 == null || item6 == null || item7 == null || item8 == null) {
-            return;
-        }
-
-        if (item0.hasItemMeta() && 
-            item8.getType() == Material.BLACK_STAINED_GLASS_PANE && 
-            item7.getType() == Material.BLACK_STAINED_GLASS_PANE && 
-            item6.getType() == Material.BLACK_STAINED_GLASS_PANE) {
-            
-            event.setCancelled(true); // Cancel the drag event
-        }
+        event.setCancelled(true);
     }
 }

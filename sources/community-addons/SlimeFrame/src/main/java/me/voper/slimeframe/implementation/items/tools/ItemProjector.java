@@ -111,7 +111,9 @@ public class ItemProjector extends AbstractTickingContainer {
         }
 
         menu.addMenuClickHandler(getSpinSlot(), (player, i, itemStack, clickAction) -> {
-            Boolean isSpinning = !IS_SPINNING_MAP.get(bp);
+            // getOrDefault evita unboxing-NPE en proyectores colocados antes de
+            // que existiera SPINNING_KEY en BlockStorage.
+            Boolean isSpinning = !IS_SPINNING_MAP.getOrDefault(bp, false);
             IS_SPINNING_MAP.put(bp, isSpinning);
             BlockStorage.addBlockInfo(b, SPINNING_KEY, isSpinning.toString());
 
@@ -172,8 +174,13 @@ public class ItemProjector extends AbstractTickingContainer {
     protected void onBreak(BlockBreakEvent e, BlockMenu menu, Location l) {
         super.onBreak(e, menu, l);
 
-        BukkitTask bukkitTask = SPINNING_TASK_MAP.get(new BlockPosition(menu.getBlock()));
+        final BlockPosition bp = new BlockPosition(menu.getBlock());
+
+        BukkitTask bukkitTask = SPINNING_TASK_MAP.remove(bp);
         if (bukkitTask != null) bukkitTask.cancel();
+
+        IS_SPINNING_MAP.remove(bp);
+        HOLOGRAM_MAP.remove(bp);
 
         menu.dropItems(l, getItemSlot());
         killArmorStand(menu.getBlock());
