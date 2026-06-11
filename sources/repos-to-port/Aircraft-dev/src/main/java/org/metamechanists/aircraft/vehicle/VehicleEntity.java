@@ -195,8 +195,13 @@ public class VehicleEntity extends KinematicEntity<Pig, VehicleEntitySchema> {
 
         // Resources
         for (String resource : resources.keySet()) {
-            double drainedThisTick = schema().getResources().get(resource).drainedThisTick(this);
-            drainResource(resource, drainedThisTick);
+            // El estado guardado puede contener un recurso que ya no existe en el
+            // schema (p.ej. tras actualizar el plugin) -> get() null -> NPE cada tick.
+            VehicleResource vehicleResource = schema().getResources().get(resource);
+            if (vehicleResource == null) {
+                continue;
+            }
+            drainResource(resource, vehicleResource.drainedThisTick(this));
         }
 
         // HUD
@@ -231,7 +236,10 @@ public class VehicleEntity extends KinematicEntity<Pig, VehicleEntitySchema> {
 
         // Pig velocity
         Vector3d pigVelocityJoml = absoluteVelocity().div(PHYSICS_UPDATES_PER_SECOND);
-        if (pigVelocityJoml.length() > 1.0e2) {
+        // OJO: NaN/Infinity escapan a "> 1.0e2" (toda comparacion con NaN es false)
+        // y aplicar una velocidad no-finita a la entidad corrompe el movimiento y
+        // tumba el servidor. Hay que validar finitud explicitamente.
+        if (!isFinite(pigVelocityJoml) || pigVelocityJoml.length() > 1.0e2) {
             pigVelocityJoml = new Vector3d(0.001, 0.0, 0.0);
         }
         Vector pigVelocity = Vector.fromJOML(pigVelocityJoml);
@@ -291,9 +299,9 @@ public class VehicleEntity extends KinematicEntity<Pig, VehicleEntitySchema> {
     }
 
     public boolean isEngineOn() {
-        return pilot != null && resources.keySet()
+        return pilot != null && resources.values()
                 .stream()
-                .noneMatch(resource -> resources.get(resource) <= 0);
+                .noneMatch(value -> value == null || value <= 0);
     }
 
     public @Nullable Player pilotAsPlayer() {
@@ -382,6 +390,25 @@ public class VehicleEntity extends KinematicEntity<Pig, VehicleEntitySchema> {
         if (angularVelocity.length() > 0.00001) { // Check to avoid dividing by 0 in normalize
             rotation.rotateAxis(angularVelocity.length() / PHYSICS_UPDATES_PER_SECOND, new Vector3d(angularVelocity).normalize());
         }
+
+        // Una sola operacion no-finita (masa 0, normalize de vector nulo, etc.)
+        // contamina velocity/rotation con NaN y a partir de ahi todo el estado
+        // queda corrupto permanentemente. Se sanea cada paso reseteando a un
+        // estado seguro en vez de dejar que el NaN se propague y crashee.
+        if (!isFinite(velocity)) {
+            velocity.set(0.0, 0.0, 0.0);
+        }
+        if (!isFinite(angularVelocity)) {
+            angularVelocity.set(0.0, 0.0, 0.0);
+        }
+        if (!Double.isFinite(rotation.x) || !Double.isFinite(rotation.y)
+                || !Double.isFinite(rotation.z) || !Double.isFinite(rotation.w)) {
+            rotation.identity();
+        }
+    }
+
+    private static boolean isFinite(@NotNull Vector3d v) {
+        return Double.isFinite(v.x) && Double.isFinite(v.y) && Double.isFinite(v.z);
     }
 
     public Vector3d acceleration(@NotNull Set<SpatialForce> forces) {
