@@ -92,7 +92,23 @@ public class BlockBreakListener implements Listener {
 
             EVENT_FRIEND_MAP.put(block.getLocation(), friend);
 
+            // BlockDropItemEvent no dispara en creativo ni con doTileDrops=false,
+            // dejando EventFriend (con referencia al Player) filtrado para siempre.
+            // El task corre al tick siguiente, despues de onDrops del mismo tick.
+            org.bukkit.Bukkit.getScheduler().runTask(
+                io.github.sefiraat.slimetinker.SlimeTinker.getInstance(),
+                () -> EVENT_FRIEND_MAP.remove(block.getLocation())
+            );
+
         }
+    }
+
+    @SuppressWarnings("unused")
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onBreakStateCleanup(BlockBreakEvent event) {
+        // El bloque dejo de existir: sin esto STATE_MAP crece con cada
+        // bloque colocado en el servidor y nunca libera memoria.
+        BlockUtils.getStateMap().remove(event.getBlock().getLocation());
     }
 
     @SuppressWarnings("unused")

@@ -64,6 +64,7 @@ public class UUCrafter extends SlimefunItem implements InventoryBlock, EnergyNet
                         blockMenu.dropItems(blockMenu.getLocation(), INPUT_SLOT, OUTPUT_SLOT);
                         blockMenu.dropItems(blockMenu.getLocation(), CRAFTING_SLOTS);
                     }
+                    whatIsRunning.remove(event.getBlock().getLocation());
                 }
             }
         );
@@ -93,7 +94,9 @@ public class UUCrafter extends SlimefunItem implements InventoryBlock, EnergyNet
             return;
         }
 
-        if (!whatIsRunning.get(location)) {
+        // getOrDefault: el ticker async puede correr antes de onNewInstance
+        // (orden de carga de chunks) y get() devolveria null -> unboxing NPE.
+        if (!whatIsRunning.getOrDefault(location, Boolean.FALSE)) {
             return;
         }
 
@@ -153,7 +156,7 @@ public class UUCrafter extends SlimefunItem implements InventoryBlock, EnergyNet
     }
 
     public void toggleRunning(BlockMenu blockMenu, Block block) {
-        boolean setTo = !whatIsRunning.get(block.getLocation());
+        boolean setTo = !whatIsRunning.getOrDefault(block.getLocation(), Boolean.FALSE);
         BlockStorage.addBlockInfo(block, "RUNNING", String.valueOf(setTo));
         whatIsRunning.put(block.getLocation(), setTo);
         ItemStack itemStack = setTo ? RUNNING : NOT_RUNNING;
