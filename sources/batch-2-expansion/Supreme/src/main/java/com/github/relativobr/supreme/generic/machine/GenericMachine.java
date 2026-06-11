@@ -133,8 +133,19 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
           inv.dropItems(b.getLocation(), getOutputSlots());
         }
         removeMapBlock(b);
+        onMachineRemoved(b);
       }
     };
+  }
+
+  /**
+   * Hook para que las subclases con mapas estaticos propios (VirtualGarden,
+   * VirtualAquarium, MobCollector) liberen su estado al romper el bloque.
+   * Sin esto sus mapas crecen indefinidamente y una maquina nueva en la misma
+   * ubicacion hereda el progreso/receta del bloque anterior.
+   */
+  protected void onMachineRemoved(Block b) {
+    // Por defecto no hace nada; la base ya limpia sus propios mapas en removeMapBlock.
   }
 
   protected void updateStatusReset(BlockMenu menu) {

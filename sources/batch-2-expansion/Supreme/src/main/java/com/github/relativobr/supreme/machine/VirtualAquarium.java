@@ -242,5 +242,10 @@ public class VirtualAquarium extends SimpleItemWithLargeContainerMachine {
     return getProcessing(b) != null;
   }
 
+  @Override
+  protected void onMachineRemoved(Block b) {
+    processing.remove(b);
+    progress.remove(b);
+  }
 
 }
