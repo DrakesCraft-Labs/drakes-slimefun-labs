@@ -116,7 +116,24 @@ public class DankGUI extends ChestMenu {
         }
     }
 
+    /**
+     * El GUI opera sobre la referencia viva del ItemStack con que se abrio.
+     * Si el jugador dropea el pack con el GUI abierto, NMS copia el stack a la
+     * entidad y deja la referencia en amount 0: seguir retirando items desde
+     * el GUI mientras el pack dropeado conserva el contenido era un dupe.
+     */
+    private boolean packIsGone(Player player) {
+        if (this.itemStack.getType() == Material.AIR || this.itemStack.getAmount() <= 0) {
+            player.closeInventory();
+            return true;
+        }
+        return false;
+    }
+
     private boolean setNewItem(Player player, int instanceSlot) {
+        if (packIsGone(player)) {
+            return false;
+        }
         loadInstance();
         ItemStack heldItem = player.getItemOnCursor();
         if (heldItem.getType() != Material.AIR
@@ -134,6 +151,9 @@ public class DankGUI extends ChestMenu {
     }
 
     private boolean addToExistingItem(Player player, int instanceSlot) {
+        if (packIsGone(player)) {
+            return false;
+        }
         loadInstance();
         ItemStack heldItem = player.getItemOnCursor();
         int maxAmount = this.dankPack.getCapacityPerSlot().getValue();
@@ -153,6 +173,9 @@ public class DankGUI extends ChestMenu {
     }
 
     private boolean interactWithItem(Player player, ClickAction clickAction, int instanceSlot) {
+        if (packIsGone(player)) {
+            return false;
+        }
         loadInstance();
 
         if (clickAction.isShiftClicked()) {
