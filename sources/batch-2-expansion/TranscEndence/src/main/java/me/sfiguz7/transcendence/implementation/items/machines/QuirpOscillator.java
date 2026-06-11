@@ -12,6 +12,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
+import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
@@ -23,9 +24,11 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class QuirpOscillator extends SimpleSlimefunItem<BlockTicker> implements TEInventoryBlock, EnergyNetComponent {
@@ -71,6 +74,21 @@ public class QuirpOscillator extends SimpleSlimefunItem<BlockTicker> implements 
         );
 
         createPreset(this, this::constructMenu);
+        addItemHandler(onBreak());
+    }
+
+    public BlockBreakHandler onBreak() {
+        return new BlockBreakHandler(false, false) {
+            @Override
+            public void onPlayerBreak(BlockBreakEvent e, ItemStack item, List<ItemStack> drops) {
+                Block b = e.getBlock();
+                var inv = BlockStorage.getInventory(b);
+                if (inv != null) {
+                    inv.dropItems(b.getLocation(), getOutputSlots());
+                    inv.dropItems(b.getLocation(), polarizerSlot);
+                }
+            }
+        };
     }
 
     private void constructMenu(BlockMenuPreset preset) {

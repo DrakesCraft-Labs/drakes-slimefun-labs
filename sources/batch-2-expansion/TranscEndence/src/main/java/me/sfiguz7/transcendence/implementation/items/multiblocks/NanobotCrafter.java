@@ -66,9 +66,10 @@ public class NanobotCrafter extends com.github.drakescraft_labs.slimefun4.core.m
 
         if (outputInv != null) {
             for (int j = 0; j < 9; j++) {
-                if (inv.getContents()[j].getType() != Material.AIR) {
-                    if (inv.getContents()[j].getAmount() > 1)
-                        inv.setItem(j, new CustomItemStack(inv.getContents()[j], inv.getContents()[j].getAmount() - 1));
+                ItemStack slot = inv.getContents()[j];
+                if (slot != null && slot.getType() != Material.AIR) {
+                    if (slot.getAmount() > 1)
+                        inv.setItem(j, new CustomItemStack(slot, slot.getAmount() - 1));
                     else inv.setItem(j, null);
                 }
             }
@@ -119,8 +120,9 @@ public class NanobotCrafter extends com.github.drakescraft_labs.slimefun4.core.m
         Inventory fakeInv = Bukkit.createInventory(null, 9, "Fake Inventory");
 
         for (int j = 0; j < inv.getContents().length; j++) {
-            ItemStack stack = inv.getContents()[j].getAmount() > 1 ?
-                new CustomItemStack(inv.getContents()[j], inv.getContents()[j].getAmount() - 1) : null;
+            ItemStack orig = inv.getContents()[j];
+            ItemStack stack = (orig != null && orig.getAmount() > 1)
+                ? new CustomItemStack(orig, orig.getAmount() - 1) : null;
             fakeInv.setItem(j, stack);
         }
 

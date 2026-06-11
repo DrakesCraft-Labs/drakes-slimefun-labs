@@ -102,6 +102,10 @@ public class ElectricSpiritBottler extends SlimefunItem implements EnergyNetComp
                     inv.dropItems(b.getLocation(), getInputSlots());
                     inv.dropItems(b.getLocation(), getOutputSlots());
                 }
+
+                // Clean up the catching state so the map entry doesn't leak
+                // if the block is broken while a spirit-catch animation is in flight
+                catching.remove(new BlockPosition(b.getWorld(), b.getX(), b.getY(), b.getZ()));
             }
         };
     }
@@ -171,6 +175,14 @@ public class ElectricSpiritBottler extends SlimefunItem implements EnergyNetComp
 
         final LivingEntity finalTarget = target;
         Bukkit.getScheduler().runTaskLater(SpiritsUnchained.getInstance(), () -> {
+            // Guard: block may have been broken before the animation completed
+            if (!catching.containsKey(pos)) {
+                // Block was broken; the spirit was already unlocked via onBreak cleanup;
+                // un-lock the spirit so it can be captured elsewhere
+                PersistentDataAPI.remove(finalTarget, Keys.spiritLocked);
+                ((Allay) finalTarget).setAware(true);
+                return;
+            }
             ParticleUtils.spawnParticleRadius(location, Particle.INSTANT_EFFECT, 1.5, 10, "");
             finalTarget.getWorld().playSound(finalTarget.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_BREAK, 1, 1);
             finalTarget.remove();

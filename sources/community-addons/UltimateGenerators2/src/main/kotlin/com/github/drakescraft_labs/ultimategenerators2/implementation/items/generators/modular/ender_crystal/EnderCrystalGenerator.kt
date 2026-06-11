@@ -56,6 +56,12 @@ class EnderCrystalGenerator(
         CRYSTAL_COUNT[loc] = 0
     }
 
+    override fun onNewInstance(menu: BlockMenu, b: Block) {
+        super.onNewInstance(menu, b)
+        // Ensure the map entry exists after chunk loads (onPlace is not called on load)
+        CRYSTAL_COUNT.putIfAbsent(BlockPosition(b), 0)
+    }
+
     override fun onBreak(e: BlockBreakEvent, menu: BlockMenu) {
         super.onBreak(e, menu)
         val loc: Location = menu.location
@@ -127,7 +133,7 @@ class EnderCrystalGenerator(
                 processor.endOperation(l)
                 return 0
             }
-        } else if (CRYSTAL_COUNT.getValue(pos) > 0) {
+        } else if (CRYSTAL_COUNT.getOrDefault(pos, 0) > 0) {
             val found: MutableMap<Int, Int> = HashMap()
             val fuel = findRecipe(inv, found)
 

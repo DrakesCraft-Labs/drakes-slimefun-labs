@@ -147,9 +147,12 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 								}
 							}
 						}
-						Bukkit.getPlayer(BlockStorage.getLocationInfo(l, "owner")).sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
-								ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED+
-								" LEAKED");
+						Player owner = Bukkit.getPlayer(BlockStorage.getLocationInfo(l, "owner"));
+						if (owner != null) {
+							owner.sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
+									ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED+
+									" LEAKED");
+						}
 						ticks.replace(l, 0);
 					}
 					return;
@@ -410,15 +413,19 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 		
 		if(coolant_out>32) {
 			lore.add(ChatColor.RED+"Heated Coolant in output");
-			p.sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
-			ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED
-			+" has "+ChatColor.YELLOW+coolant_out+ChatColor.RED+" coolant in output");
+			if (p != null) {
+				p.sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
+				ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED
+				+" has "+ChatColor.YELLOW+coolant_out+ChatColor.RED+" coolant in output");
+			}
 		}
 		if(uran_out>32) {
 			lore.add(ChatColor.RED+"Uran waste in output");
-			p.sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
-			ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED
-			+" has "+ChatColor.YELLOW+uran_out+ChatColor.RED+" uran waste in output");
+			if (p != null) {
+				p.sendMessage(ChatColor.DARK_RED+"[REACTOR]"+ChatColor.RED+" Reactor at"+
+				ChatColor.GOLD+" x: "+b.getLocation().getBlockX()+" y: "+b.getLocation().getBlockY()+" z: "+b.getLocation().getBlockZ()+ChatColor.RED
+				+" has "+ChatColor.YELLOW+uran_out+ChatColor.RED+" uran waste in output");
+			}
 		}
 		if(isRunning&&temp.get(b.getLocation())>5600) {
 			lore.add(ChatColor.DARK_RED+"High heat");
@@ -588,7 +595,7 @@ public class ReactorCore extends SimpleSlimefunItem<BlockTicker> implements Ener
 			ItemStack items = menu.getItemInSlot(i);
 			if(items!=null) {
 				SlimefunItem sfitems = SlimefunItem.getByItem(items);
-				if(sfitems.isItem(SlimefunItems.URANIUM)) {
+				if(sfitems != null && sfitems.isItem(SlimefunItems.URANIUM)) {
 					if(uran<=maxuran) {
 						int amount = items.getAmount();
 						int minus = maxuran-uran;
