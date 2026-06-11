@@ -159,6 +159,14 @@ public class ElectricBlockBreaker extends SlimefunItem implements InventoryBlock
                 public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                     BlockStorage.addBlockInfo(event.getBlock(), "owner", event.getPlayer().getUniqueId().toString());
                 }
+            },
+            new com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler() {
+                @Override
+                public void onBlockBreak(@Nonnull Block b) {
+                    // Sin esta limpieza el cache crece indefinidamente y un breaker
+                    // colocado en la misma ubicacion heredaria el estado del anterior.
+                    CACHE_MAP.remove(b.getLocation());
+                }
             }
         );
 
@@ -236,7 +244,7 @@ public class ElectricBlockBreaker extends SlimefunItem implements InventoryBlock
 
     public void onTick(@Nonnull Block b) {
         BlockMenu invMenu = BlockStorage.getInventory(b);
-        if (!(b.getBlockData() instanceof Dispenser)) {
+        if (invMenu == null || !(b.getBlockData() instanceof Dispenser)) {
             return;
         }
         Dispenser dispenser = (Dispenser) b.getBlockData();
@@ -246,6 +254,20 @@ public class ElectricBlockBreaker extends SlimefunItem implements InventoryBlock
 
         BlockBreakerCache cache = CACHE_MAP.get(b.getLocation());
 
+        // El cache puede no existir si el menu aun no genero newInstance
+        // (orden de carga de chunks tras un reinicio). Se reconstruye desde BlockStorage.
+        if (cache == null) {
+            String breakMode = BlockStorage.getLocationInfo(b.getLocation(), "breakBlockNaturally");
+            String isRunning = BlockStorage.getLocationInfo(b.getLocation(), "toggled_On");
+            String owner = BlockStorage.getLocationInfo(b.getLocation(), "owner");
+
+            cache = new BlockBreakerCache(0,
+                breakMode != null && Boolean.parseBoolean(breakMode),
+                isRunning != null && Boolean.parseBoolean(isRunning),
+                owner != null ? UUID.fromString(owner) : null);
+            CACHE_MAP.put(b.getLocation(), cache);
+        }
+
         if (getCharge(b.getLocation()) > 0) {
             invMenu.replaceExistingItem(4, NOT_RUNNING);
             if (cache.isOn) {
@@ -253,7 +275,9 @@ public class ElectricBlockBreaker extends SlimefunItem implements InventoryBlock
 
                 if (targetBlock.getType().isSolid() && !ILLEGAL.contains(targetBlock.getType()) && !(BlockStorage.hasBlockInfo(targetBlock))) {
 
-                    if (!Slimefun.getProtectionManager().hasPermission(
+                    // Sin owner registrado (bloque pre-existente o pegado con WorldEdit)
+                    // no hay contra quien validar la proteccion: no se rompe nada.
+                    if (cache.owner == null || !Slimefun.getProtectionManager().hasPermission(
                         Bukkit.getOfflinePlayer(cache.owner),
                         targetBlock,
                         Interaction.BREAK_BLOCK)

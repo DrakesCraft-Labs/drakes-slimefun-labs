@@ -146,18 +146,29 @@ public class AutoSavingService implements Listener {
     public void onWorldSave(WorldSaveEvent event) {
         World world = event.getWorld();
         BlockStorage storage = BlockStorage.getStorage(world);
-        if (storage != null && plugin != null) {
-            plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
-                try {
-                    storage.computeChanges();
-                    if (storage.getChanges() > 0) {
-                        Slimefun.logger().log(Level.INFO, "Saving BlockStorage for world \"{0}\" on WorldSaveEvent ({1} changes queued)", new Object[] { world.getName(), storage.getChanges() });
-                        storage.save();
-                    }
-                } catch (Throwable t) {
-                    Slimefun.logger().log(Level.SEVERE, "Error saving block data for world " + world.getName() + " on WorldSaveEvent", t);
+
+        if (storage == null || plugin == null) {
+            return;
+        }
+
+        Runnable saveTask = () -> {
+            try {
+                storage.computeChanges();
+                if (storage.getChanges() > 0) {
+                    Slimefun.logger().log(Level.INFO, "Saving BlockStorage for world \"{0}\" on WorldSaveEvent ({1} changes queued)", new Object[] { world.getName(), storage.getChanges() });
+                    storage.save();
                 }
-            });
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error saving block data for world " + world.getName() + " on WorldSaveEvent", t);
+            }
+        };
+
+        // Durante el apagado el scheduler rechaza tareas nuevas (IllegalPluginAccessException)
+        // y perderíamos el guardado más importante: el del save-all final. Se ejecuta en línea.
+        if (plugin.isEnabled()) {
+            plugin.getServer().getScheduler().runTaskAsynchronously(plugin, saveTask);
+        } else {
+            saveTask.run();
         }
     }
 
