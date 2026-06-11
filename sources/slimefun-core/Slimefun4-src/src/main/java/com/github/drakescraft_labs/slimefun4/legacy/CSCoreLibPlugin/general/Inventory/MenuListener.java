@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.plugin.Plugin;
 
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
@@ -60,6 +61,33 @@ public class MenuListener implements Listener {
                 e.setCancelled(!menu.getPlayerInventoryClickHandler().onClick((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), new ClickAction(e.isRightClick(), e.isShiftClick())));
             }
         }
+    }
+
+    /**
+     * Un {@link InventoryDragEvent} reparte items sobre varios slots sin pasar
+     * por {@link #onClick}, evadiendo todos los MenuClickHandler. La tecnica de
+     * "slot drag" (mantener click + arrastrar) explotaba esto para insertar items
+     * en slots bloqueados (display/plantilla) de barriles, storages y demas menus
+     * — base de varios dupes conocidos. Aqui se cancela cualquier drag que toque
+     * slots del menu top; el drag puramente dentro del inventario del jugador se permite.
+     */
+    @EventHandler
+    public void onDrag(InventoryDragEvent e) {
+        ChestMenu menu = menus.get(e.getWhoClicked().getUniqueId());
+
+        if (menu == null) {
+            return;
+        }
+
+        int topSize = e.getView().getTopInventory().getSize();
+        for (int rawSlot : e.getRawSlots()) {
+            if (rawSlot < topSize) {
+                e.setCancelled(true);
+                return;
+            }
+        }
+
+        markDirty(menu);
     }
 
     private void markDirty(ChestMenu menu) {
