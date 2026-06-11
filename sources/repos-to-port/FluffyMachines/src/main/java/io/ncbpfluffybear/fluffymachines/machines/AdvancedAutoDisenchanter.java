@@ -141,6 +141,10 @@ public class AdvancedAutoDisenchanter extends SlimefunItem implements EnergyNetC
                     inv.dropItems(b.getLocation(), BOOK_SLOT);
                     inv.dropItems(b.getLocation(), OUTPUT_SLOTS);
                 }
+
+                // Sin esto el progreso del bloque roto queda huerfano para siempre
+                // y un disenchanter nuevo en la misma posicion hereda el avance.
+                progress.remove(new BlockPosition(b.getWorld(), b.getX(), b.getY(), b.getZ()));
             }
         };
     }
