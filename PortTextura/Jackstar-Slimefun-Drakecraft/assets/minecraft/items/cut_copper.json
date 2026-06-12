@@ -1,0 +1,20 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/cut_copper"
+    },
+    "entries": [
+      {
+        "threshold": 3009006,
+        "model": {
+          "type": "minecraft:model",
+          "model": "jackstar:item/coronalis/tower_segment"
+        }
+      }
+    ]
+  }
+}

@@ -1,26 +1,154 @@
 {
-	"model": {
-	"type": "minecraft:range_dispatch",
-	"property": "minecraft:custom_model_data",
-	"index": 0,
-	"fallback": {
-		"type": "minecraft:model",
-		"model": "minecraft:item/daylight_detector"},
-
-
-	"entries": [
-	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
-	"cases": [
-		{"when": {"text":"","extra":[{"text":"Photovoltaic Cell","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/10_technical_components/solar_panel"}},
-		{"when": {"text":"","extra":[{"text":"Relic: 'Lenap Ayanhcenlos Ayanamolop","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/relics/lenap_ayanhcenlos_ayanamolop"}},
-		{"when": {"text":"","extra":[{"text":"Solar Generator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/solar_generator"}},
-		{"when": {"text":"","extra":[{"text":"Advanced Solar Generator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/solar_generator_advanced"}},
-		{"when": {"text":"","extra":[{"text":"Carbonado Solar Generator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/solar_generator_carbonado"}},
-		{"when": {"text":"","extra":[{"text":"Energized Solar Generator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/solar_generator_energized"}}
-	],
-
-
-	"fallback": {"type": "minecraft:model","model": "minecraft:item/daylight_detector"}}}
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/daylight_detector"
+    },
+    "entries": [
+      {
+        "threshold": 0,
+        "model": {
+          "type": "minecraft:select",
+          "property": "minecraft:component",
+          "component": "minecraft:custom_name",
+          "cases": [
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Photovoltaic Cell",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "blue",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/10_technical_components/solar_panel"
+              }
+            },
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Relic: 'Lenap Ayanhcenlos Ayanamolop",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "gray",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/24_galactifun/relics/lenap_ayanhcenlos_ayanamolop"
+              }
+            },
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Solar Generator",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "aqua",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/28_energy_and_electricity/solar_generator"
+              }
+            },
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Advanced Solar Generator",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "red",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/28_energy_and_electricity/solar_generator_advanced"
+              }
+            },
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Carbonado Solar Generator",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "dark_red",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/28_energy_and_electricity/solar_generator_carbonado"
+              }
+            },
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Energized Solar Generator",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "yellow",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/28_energy_and_electricity/solar_generator_energized"
+              }
+            }
+          ],
+          "fallback": {
+            "type": "minecraft:model",
+            "model": "minecraft:item/daylight_detector"
+          }
+        }
+      },
+      {
+        "threshold": 3009009,
+        "model": {
+          "type": "minecraft:model",
+          "model": "jackstar:item/coronalis/parabolic_dish"
+        }
+      }
     ]
   },
   "oversized_in_gui": true
