@@ -3320,3 +3320,17 @@ SU_CHARGED_STAIRS_III:                                                  0
 SU_SMOOTH_CHARGED_QUARTZ_III:                                           0
 SU_SMOOTH_CHARGED_STAIRS_III:                                           0
 SU_CHARGED_CORE_III:                                                    0
+
+# Coronalis - 3009000
+CORONALIS_COAXIAL_CABLE:                                                3009000
+CORONALIS_SIGNAL_CORE:                                                  3009001
+CORONALIS_SIGNAL_AMPLIFIER:                                             3009002
+CORONALIS_DATA_BANK:                                                    3009003
+CORONALIS_AUTO_CALIBRATOR:                                              3009004
+CORONALIS_FOUNDATION_ANCHOR:                                            3009005
+CORONALIS_TOWER_SEGMENT:                                                3009006
+CORONALIS_WATCH_PLATFORM:                                               3009007
+CORONALIS_RADIO_MAST:                                                   3009008
+CORONALIS_PARABOLIC_DISH:                                               3009009
+CORONALIS_SIGNAL_REPEATER:                                              3009010
+CORONALIS_FIELD_GUIDE:                                                  3009011
