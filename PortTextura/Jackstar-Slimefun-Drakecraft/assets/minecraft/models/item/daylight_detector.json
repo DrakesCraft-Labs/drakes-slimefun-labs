@@ -14,6 +14,7 @@
 		{ "predicate": { "custom_model_data": 3005708}, "model": "minecraft:slimefun/28_energy_and_electricity/solar_generator"},
 		{ "predicate": { "custom_model_data": 3005709}, "model": "minecraft:slimefun/28_energy_and_electricity/solar_generator_advanced"},
 		{ "predicate": { "custom_model_data": 3005710}, "model": "minecraft:slimefun/28_energy_and_electricity/solar_generator_carbonado"},
-		{ "predicate": { "custom_model_data": 3005711}, "model": "minecraft:slimefun/28_energy_and_electricity/solar_generator_energized"}
+		{ "predicate": { "custom_model_data": 3005711}, "model": "minecraft:slimefun/28_energy_and_electricity/solar_generator_energized"},
+		{ "predicate": { "custom_model_data": 3009009}, "model": "minecraft:slimefun/coronalis/parabolic_dish"}
 	]
 }
