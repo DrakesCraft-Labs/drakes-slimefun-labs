@@ -498,6 +498,13 @@
 
 		{ "predicate": { "custom_model_data": 3006212}, "model": "minecraft:slimefun/christmas/christmas_present"},
 
-		{ "predicate": { "custom_model_data": 3006352}, "model": "minecraft:slimefun/easter/easter_egg"}
+		{ "predicate": { "custom_model_data": 3006352}, "model": "minecraft:slimefun/easter/easter_egg"},
+		{ "predicate": { "custom_model_data": 3009012}, "model": "jackstar:item/coronalis/antenna_dish"},
+		{ "predicate": { "custom_model_data": 3009013}, "model": "jackstar:item/coronalis/receiver"},
+		{ "predicate": { "custom_model_data": 3009014}, "model": "jackstar:item/coronalis/pid_controller"},
+		{ "predicate": { "custom_model_data": 3009015}, "model": "jackstar:item/coronalis/data_cell"},
+		{ "predicate": { "custom_model_data": 3009016}, "model": "jackstar:item/coronalis/radio_telescope"},
+		{ "predicate": { "custom_model_data": 3009017}, "model": "jackstar:item/coronalis/control_console"},
+		{ "predicate": { "custom_model_data": 3009018}, "model": "jackstar:item/coronalis/phase_echo"}
 	]
 }

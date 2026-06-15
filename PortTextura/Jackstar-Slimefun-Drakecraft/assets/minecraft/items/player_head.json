@@ -733,7 +733,14 @@
 
 		
 	],
-	"fallback": {"type": "minecraft:special", "model": {"type": "minecraft:player_head"}, "base": "minecraft:item/template_skull", "transformation": {"translation": [0.5,0,0.5], "left_rotation": [1,0,0,0],"right_rotation": [0,0,0,1], "scale": [1,1,1]}}}}
+	"fallback": {"type": "minecraft:special", "model": {"type": "minecraft:player_head"}, "base": "minecraft:item/template_skull", "transformation": {"translation": [0.5,0,0.5], "left_rotation": [1,0,0,0],"right_rotation": [0,0,0,1], "scale": [1,1,1]}}}},
+    {"threshold":3009012,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/antenna_dish"}},
+    {"threshold":3009013,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/receiver"}},
+    {"threshold":3009014,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/pid_controller"}},
+    {"threshold":3009015,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/data_cell"}},
+    {"threshold":3009016,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/radio_telescope"}},
+    {"threshold":3009017,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/control_console"}},
+    {"threshold":3009018,"model":{"type":"minecraft:model","model":"jackstar:item/coronalis/phase_echo"}}
     ]
   },
   "oversized_in_gui": true
