@@ -17,9 +17,9 @@ ZIP publicado por el workflow actual porque viven fuera de la raíz del pack.
 - [x] Lámina 06: herramientas madera + piedra
 - [x] Lámina 07: herramientas hierro + oro
 - [x] Lámina 08: herramientas diamante + netherita
-- [ ] Recorte 32x32
-- [ ] Integración en `assets/minecraft/textures`
-- [ ] ZIP y verificación visual
+- [x] Recorte 32x32
+- [x] Integración en `assets/minecraft/textures`
+- [x] ZIP y verificación visual (Desplegado en producción)
 
 Checkpoint de fuentes generado: 2026-06-15. `contact-sheet.png` permite revisar
 las ocho láminas sin abrirlas individualmente.
