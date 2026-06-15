@@ -3334,3 +3334,10 @@ CORONALIS_RADIO_MAST:                                                   3009008
 CORONALIS_PARABOLIC_DISH:                                               3009009
 CORONALIS_SIGNAL_REPEATER:                                              3009010
 CORONALIS_FIELD_GUIDE:                                                  3009011
+CORONALIS_ANTENNA_DISH:                                                 3009012
+CORONALIS_RECEIVER:                                                     3009013
+CORONALIS_PID_CONTROLLER:                                               3009014
+CORONALIS_DATA_CELL:                                                    3009015
+CORONALIS_RADIO_TELESCOPE:                                              3009016
+CORONALIS_CONTROL_CONSOLE:                                              3009017
+CORONALIS_RECORD_DISCOVERED:                                            3009018
