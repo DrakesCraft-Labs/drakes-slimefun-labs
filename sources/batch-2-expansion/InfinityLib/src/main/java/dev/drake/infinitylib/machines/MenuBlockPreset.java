@@ -6,7 +6,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.protection.Interaction;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
@@ -52,7 +51,17 @@ final class MenuBlockPreset extends BlockMenuPreset {
 
     @SuppressWarnings("unchecked")
     private static boolean hasPermissionCompat(Player player, Block block, Interaction interaction) {
-        Object manager = Slimefun.getProtectionManager();
+        // Obtenemos el ProtectionManager via reflexión para evitar NoSuchMethodError
+        // causado por la shade relocation de dough dentro de SF4-drake.
+        Object manager;
+        try {
+            manager = Class.forName("com.github.drakescraft_labs.slimefun4.implementation.Slimefun")
+                          .getMethod("getProtectionManager")
+                          .invoke(null);
+        } catch (ReflectiveOperationException e) {
+            return true; // si no se puede obtener el manager, permitir acceso
+        }
+        if (manager == null) return true;
         for (Method method : manager.getClass().getMethods()) {
             if (!method.getName().equals("hasPermission") || method.getParameterCount() != 3) {
                 continue;

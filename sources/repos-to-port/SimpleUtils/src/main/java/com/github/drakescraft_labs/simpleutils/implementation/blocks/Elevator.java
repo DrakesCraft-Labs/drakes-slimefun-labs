@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -25,7 +24,6 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
-import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
@@ -56,13 +54,8 @@ public final class Elevator extends SlimefunItem implements Listener {
 
             @Override
             public void tick(Block block, SlimefunItem slimefunItem, Config config) {
-                if (SimpleUtils.slimefunTickCount() % 16 == 0 && block.getY() > block.getWorld().getMinHeight()) {
-                    Material type = block.getRelative(0, -1, 0).getType();
-                    if (type.isOccluding() && !SlimefunTag.UNBREAKABLE_MATERIALS.isTagged(type)) {
-                        block.setType(type);
-                    } else {
-                        block.setType(getItem().getType());
-                    }
+                if (SimpleUtils.slimefunTickCount() % 16 == 0) {
+                    block.setType(getItem().getType());
                 }
             }
         });

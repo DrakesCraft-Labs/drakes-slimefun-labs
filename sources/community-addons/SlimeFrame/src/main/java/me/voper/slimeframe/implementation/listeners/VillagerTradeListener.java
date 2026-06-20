@@ -82,7 +82,9 @@ public class VillagerTradeListener implements Listener {
 
     @Nonnull
     private static MerchantRecipe createTrade(ItemStack result, ItemStack ingredient) {
-        return createTrade(result, ingredient, new ItemStack(Material.AIR));
+        MerchantRecipe merchantRecipe = new MerchantRecipe(result, 0, 2, true);
+        merchantRecipe.setIngredients(List.of(ingredient));
+        return merchantRecipe;
     }
 
     @Nonnull

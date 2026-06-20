@@ -103,6 +103,11 @@
                             <pattern>dev.drake.infinitylib</pattern>
                             <shadedPattern>com.github.drakescraft_labs.simpleutils.infinitylib</shadedPattern>
                         </relocation>
+                        <!-- SF4 drake shades dough internally; rewrite our references to match -->
+                        <relocation>
+                            <pattern>dev.drake.dough</pattern>
+                            <shadedPattern>com.github.drakescraft_labs.slimefun4.libraries.dough</shadedPattern>
+                        </relocation>
                     </relocations>
                     <filters>
                         <filter>
