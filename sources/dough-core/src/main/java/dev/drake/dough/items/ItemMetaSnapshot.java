@@ -43,13 +43,20 @@ public class ItemMetaSnapshot {
         this(supplier.get());
     }
 
-    public ItemMetaSnapshot(@Nonnull ItemMeta meta) {
-        this.displayName = meta.hasDisplayName() ? Optional.of(meta.getDisplayName()) : Optional.empty();
-        this.lore = meta.hasLore() ? Optional.of(Collections.unmodifiableList(meta.getLore())) : Optional.empty();
-        this.customModelData = meta.hasCustomModelData() ? OptionalInt.of(meta.getCustomModelData()) : OptionalInt.empty();
-
-        this.itemFlags = meta.getItemFlags();
-        this.enchantments = meta.getEnchants();
+    public ItemMetaSnapshot(ItemMeta meta) {
+        if (meta == null) {
+            this.displayName = Optional.empty();
+            this.lore = Optional.empty();
+            this.customModelData = OptionalInt.empty();
+            this.itemFlags = Collections.emptySet();
+            this.enchantments = Collections.emptyMap();
+        } else {
+            this.displayName = meta.hasDisplayName() ? Optional.of(meta.getDisplayName()) : Optional.empty();
+            this.lore = meta.hasLore() ? Optional.of(Collections.unmodifiableList(meta.getLore())) : Optional.empty();
+            this.customModelData = meta.hasCustomModelData() ? OptionalInt.of(meta.getCustomModelData()) : OptionalInt.empty();
+            this.itemFlags = meta.getItemFlags();
+            this.enchantments = meta.getEnchants();
+        }
     }
 
     public @Nonnull Optional<String> getDisplayName() {
