@@ -2,7 +2,7 @@ package dev.drake.dough.versions;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 

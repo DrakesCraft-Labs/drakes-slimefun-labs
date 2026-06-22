@@ -199,7 +199,7 @@ public abstract class BeaconController extends ConnectedBlock implements ItemHol
                         .add(Vector.fromJOML(MODULE_BUTTON_OFFSET))
                         .add(Vector.fromJOML(relativeLocation)));
 
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction);
         traverser.set("groupId", groupId);
         traverser.set("slot", slot);
 

@@ -21,7 +21,7 @@ public class ConfigPanelListener implements Listener {
             return;
         }
 
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity);
         final String type = traverser.getString("buttonType");
         if (type == null) {
             return;

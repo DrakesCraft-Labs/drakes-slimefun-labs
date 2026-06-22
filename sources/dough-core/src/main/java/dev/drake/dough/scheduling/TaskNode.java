@@ -5,7 +5,7 @@ import java.util.function.IntConsumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 
 // TODO: Convert to Java 16 record
 class TaskNode {

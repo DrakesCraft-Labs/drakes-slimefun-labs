@@ -44,7 +44,7 @@ public class MultiblockWand extends SlimefunItem {
     }
 
     public static void tellPlayerBlock(final @NotNull Entity interaction, final Player player) {
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction);
         if (traverser.getString("blockName") == null) {
             return;
         }

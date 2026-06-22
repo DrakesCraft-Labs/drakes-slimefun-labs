@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 
 import dev.drake.dough.common.CommonPatterns;
 

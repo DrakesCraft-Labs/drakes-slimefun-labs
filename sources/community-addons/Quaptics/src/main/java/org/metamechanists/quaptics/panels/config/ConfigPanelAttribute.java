@@ -78,12 +78,12 @@ public class ConfigPanelAttribute {
                 .height(BUTTON_SIZE)
                 .build(location.clone().add(addButtonLocation));
 
-        final PersistentDataTraverser subButtonTraverser = new PersistentDataTraverser(subButton.getUniqueId());
+        final PersistentDataTraverser subButtonTraverser = new PersistentDataTraverser(subButton);
         subButtonTraverser.set("groupId", groupId);
         subButtonTraverser.set("name", name);
         subButtonTraverser.set("buttonType", "sub");
 
-        final PersistentDataTraverser addButtonTraverser = new PersistentDataTraverser(addButton.getUniqueId());
+        final PersistentDataTraverser addButtonTraverser = new PersistentDataTraverser(addButton);
         addButtonTraverser.set("groupId", groupId);
         addButtonTraverser.set("name", name);
         addButtonTraverser.set("buttonType", "add");

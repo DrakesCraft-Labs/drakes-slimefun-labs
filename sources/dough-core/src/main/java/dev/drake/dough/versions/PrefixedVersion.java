@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 
 /**
  * This {@link Version} implementation consists of two components.

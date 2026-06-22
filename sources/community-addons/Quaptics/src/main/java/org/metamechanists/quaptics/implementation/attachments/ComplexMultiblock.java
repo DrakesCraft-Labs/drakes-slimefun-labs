@@ -71,7 +71,7 @@ public interface ComplexMultiblock {
 
         final SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         final String blockName = slimefunItem != null ? slimefunItem.getItemName() : ChatUtils.humanize(itemStack.getType().name());
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(interaction);
         traverser.set("blockName", blockName);
 
         return List.of(blockDisplay.getUniqueId(), interaction.getUniqueId());

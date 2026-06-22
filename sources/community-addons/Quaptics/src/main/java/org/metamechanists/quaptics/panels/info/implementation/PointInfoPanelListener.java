@@ -28,7 +28,7 @@ public class PointInfoPanelListener implements Listener {
             return;
         }
 
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity);
         if (traverser.getString("connectionPointType") == null) {
             return;
         }

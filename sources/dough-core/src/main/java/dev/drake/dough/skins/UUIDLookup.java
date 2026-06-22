@@ -21,7 +21,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 import org.bukkit.plugin.Plugin;
 
 import dev.drake.dough.common.DoughLogger;

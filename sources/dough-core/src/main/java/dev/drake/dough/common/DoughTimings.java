@@ -1,6 +1,6 @@
 package dev.drake.dough.common;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 

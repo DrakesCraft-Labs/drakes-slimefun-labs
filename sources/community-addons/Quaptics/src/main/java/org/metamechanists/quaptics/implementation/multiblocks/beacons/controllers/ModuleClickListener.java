@@ -21,7 +21,7 @@ public class ModuleClickListener implements Listener {
             return;
         }
 
-        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity.getUniqueId());
+        final PersistentDataTraverser traverser = new PersistentDataTraverser(clickedEntity);
         final String slot = traverser.getString("slot");
         if (slot == null) {
             return;

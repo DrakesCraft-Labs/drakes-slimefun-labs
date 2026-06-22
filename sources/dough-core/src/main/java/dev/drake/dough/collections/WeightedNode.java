@@ -1,6 +1,6 @@
 package dev.drake.dough.collections;
 
-import org.apache.commons.lang.Validate;
+import dev.drake.dough.common.Validate;
 
 import javax.annotation.Nonnull;
 

@@ -79,6 +79,11 @@
 
     <repositories>
         <repository>
+            <id>drakes-local-descriptors</id>
+            <url>file://${maven.multiModuleProjectDirectory}/third-party/maven-repo</url>
+        </repository>
+
+        <repository>
             <id>org.metamechanists</id>
             <url>https://repo.metamechanists.org/releases/</url>
         </repository>
