@@ -72,7 +72,9 @@ public final class CustomCoreRecipe {
   }
 
   public static SlimefunItemStack getOutput(CustomCoreRecipe customCoreRecipe) {
-    return new SlimefunItemStack(customCoreRecipe.getMaterial(), 1);
+    SlimefunItemStack output = (SlimefunItemStack) customCoreRecipe.getMaterial().clone();
+    output.setAmount(1);
+    return output;
   }
 
 }
