@@ -33,6 +33,9 @@ public class AutoSavingService implements Listener {
 
     private int interval;
     private Slimefun plugin;
+    private int dynamicIntervalSeconds;
+    private int dynamicThreshold;
+    private int dynamicBatchSize;
 
     /**
      * This method starts the {@link AutoSavingService} with the given interval.
@@ -45,9 +48,15 @@ public class AutoSavingService implements Listener {
     public void start(@Nonnull Slimefun plugin, int interval) {
         this.interval = interval;
         this.plugin = plugin;
+        this.dynamicIntervalSeconds = Math.max(0, plugin.getConfig().getInt("performance.dynamic-block-autosave.interval-seconds", 30));
+        this.dynamicThreshold = Math.max(1, plugin.getConfig().getInt("performance.dynamic-block-autosave.threshold", 2048));
+        this.dynamicBatchSize = Math.max(1, plugin.getConfig().getInt("performance.dynamic-block-autosave.batch-size", 500));
 
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllPlayers, 2000L, interval * 60L * 20L);
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllBlocks, 2000L, interval * 60L * 20L);
+        if (dynamicIntervalSeconds > 0) {
+            plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveDirtyBlocksBatch, dynamicIntervalSeconds * 20L, dynamicIntervalSeconds * 20L);
+        }
 
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
@@ -134,6 +143,33 @@ public class AutoSavingService implements Listener {
             BlockStorage.saveChunks();
         } catch (Throwable t) {
             Slimefun.logger().log(Level.SEVERE, "Error saving chunks during auto-save", t);
+        }
+    }
+
+    /**
+     * This drains large BlockStorage queues in small batches. It avoids letting
+     * dirty block data pile up for the full periodic auto-save interval while
+     * also avoiding one huge disk I/O spike when busy Slimefun worlds are active.
+     */
+    private void saveDirtyBlocksBatch() {
+        for (World world : Bukkit.getWorlds()) {
+            try {
+                BlockStorage storage = BlockStorage.getStorage(world);
+
+                if (storage == null) {
+                    continue;
+                }
+
+                storage.computeChanges();
+                int queued = storage.getChanges();
+
+                if (queued >= dynamicThreshold) {
+                    Slimefun.logger().log(Level.INFO, "Dynamic block auto-save: draining up to {0} of {1} queued change(s) for world \"{2}\".", new Object[] { dynamicBatchSize, queued, world.getName() });
+                    storage.save(dynamicBatchSize);
+                }
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error draining dynamic block auto-save for world " + world.getName(), t);
+            }
         }
     }
 

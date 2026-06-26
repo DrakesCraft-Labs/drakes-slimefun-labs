@@ -387,16 +387,26 @@ public class BlockStorage {
     }
 
     public synchronized void save() {
+        save(Integer.MAX_VALUE);
+    }
+
+    public synchronized void save(int maxChangesToSave) {
         computeChanges();
 
         if (changes == 0) {
             return;
         }
 
-        Slimefun.logger().log(Level.INFO, "Saving block data for world \"{0}\" ({1} change(s) queued)", new Object[] { world.getName(), changes });
+        int remaining = maxChangesToSave <= 0 ? Integer.MAX_VALUE : maxChangesToSave;
+        Object drainLimit = remaining == Integer.MAX_VALUE ? "all" : remaining;
+        Slimefun.logger().log(Level.INFO, "Saving block data for world \"{0}\" ({1} change(s) queued, draining {2})", new Object[] { world.getName(), changes, drainLimit });
         Map<String, Config> cache = new HashMap<>(blocksCache);
 
         for (Map.Entry<String, Config> entry : cache.entrySet()) {
+            if (remaining <= 0) {
+                break;
+            }
+
             blocksCache.remove(entry.getKey());
             Config cfg = entry.getValue();
 
@@ -420,19 +430,36 @@ public class BlockStorage {
                     Slimefun.logger().log(Level.SEVERE, x, () -> "An Error occurred while copying a temporary File for Slimefun " + Slimefun.getVersion());
                 }
             }
+            remaining--;
         }
 
         Map<Location, BlockMenu> unsavedInventories = new HashMap<>(inventories);
         for (Map.Entry<Location, BlockMenu> entry : unsavedInventories.entrySet()) {
-            entry.getValue().save(entry.getKey());
+            if (remaining <= 0) {
+                break;
+            }
+
+            BlockMenu menu = entry.getValue();
+            if (menu.isDirty()) {
+                menu.save(entry.getKey());
+                remaining--;
+            }
         }
 
         Map<String, UniversalBlockMenu> unsavedUniversalInventories = new HashMap<>(Slimefun.getRegistry().getUniversalInventories());
         for (Map.Entry<String, UniversalBlockMenu> entry : unsavedUniversalInventories.entrySet()) {
-            entry.getValue().save();
+            if (remaining <= 0) {
+                break;
+            }
+
+            UniversalBlockMenu menu = entry.getValue();
+            if (menu.isDirty()) {
+                menu.save();
+                remaining--;
+            }
         }
 
-        changes = 0;
+        computeChanges();
     }
 
     public void saveAndRemove() {
