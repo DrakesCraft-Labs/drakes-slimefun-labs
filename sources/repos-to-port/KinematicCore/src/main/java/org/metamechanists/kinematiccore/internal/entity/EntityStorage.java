@@ -56,9 +56,18 @@ public final class EntityStorage extends PersistentStorage<UUID, KinematicEntity
      * because that would be an asynchronous call.
      */
     @Override
-    public void load(UUID uuid) {
+    public void load(@Nullable UUID uuid) {
+        if (uuid == null) {
+            return;
+        }
+
+        Entity entity = Bukkit.getEntity(uuid);
+        if (entity == null) {
+            return;
+        }
+
         super.load(uuid);
-        entityCache.put(uuid, Bukkit.getEntity(uuid));
+        entityCache.put(uuid, entity);
     }
 
     @Override
