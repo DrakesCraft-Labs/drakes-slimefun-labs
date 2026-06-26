@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  * An old remnant of CS-CoreLib.
@@ -28,6 +29,26 @@ public class ChestMenu {
     private MenuOpeningHandler open;
     private MenuCloseHandler close;
     private MenuClickHandler playerclick;
+
+    /**
+     * Converts custom ItemStack subclasses into a plain Bukkit ItemStack before
+     * inserting them into a live Inventory. Purpur 1.21.11 rejects custom
+     * subclasses such as SlimefunItemStack in CraftInventory#setItem.
+     */
+    private ItemStack sanitizeInventoryItem(ItemStack item) {
+        if (item == null || item.getClass() == ItemStack.class || item.getClass().getName().equals("org.bukkit.craftbukkit.inventory.CraftItemStack")) {
+            return item;
+        }
+
+        ItemStack copy = new ItemStack(item.getType(), item.getAmount());
+        ItemMeta meta = item.getItemMeta();
+
+        if (meta != null) {
+            copy.setItemMeta(meta.clone());
+        }
+
+        return copy;
+    }
 
     /**
      * Creates a new ChestMenu with the specified
@@ -225,12 +246,7 @@ public class ChestMenu {
             return;
         this.inv = Bukkit.createInventory(null, ((int) Math.ceil(this.items.size() / 9F)) * 9, title);
         for (int i = 0; i < this.items.size(); i++) {
-            ItemStack item = this.items.get(i);
-            if (item != null && (item instanceof com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack 
-                || item.getClass().getName().contains("SlimefunItemStack") 
-                || item.getClass().getName().contains("SupremeItemStack"))) {
-                item = new ItemStack(item);
-            }
+            ItemStack item = sanitizeInventoryItem(this.items.get(i));
             this.inv.setItem(i, item);
         }
     }
@@ -241,12 +257,7 @@ public class ChestMenu {
         else
             this.inv = Bukkit.createInventory(null, ((int) Math.ceil(this.items.size() / 9F)) * 9, title);
         for (int i = 0; i < this.items.size(); i++) {
-            ItemStack item = this.items.get(i);
-            if (item != null && (item instanceof com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack 
-                || item.getClass().getName().contains("SlimefunItemStack") 
-                || item.getClass().getName().contains("SupremeItemStack"))) {
-                item = new ItemStack(item);
-            }
+            ItemStack item = sanitizeInventoryItem(this.items.get(i));
             this.inv.setItem(i, item);
         }
     }
@@ -261,12 +272,7 @@ public class ChestMenu {
      */
     public void replaceExistingItem(int slot, ItemStack item) {
         setup();
-        if (item != null && (item instanceof com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack 
-            || item.getClass().getName().contains("SlimefunItemStack") 
-            || item.getClass().getName().contains("SupremeItemStack"))) {
-            item = new ItemStack(item);
-        }
-        this.inv.setItem(slot, item);
+        this.inv.setItem(slot, sanitizeInventoryItem(item));
     }
 
     /**
