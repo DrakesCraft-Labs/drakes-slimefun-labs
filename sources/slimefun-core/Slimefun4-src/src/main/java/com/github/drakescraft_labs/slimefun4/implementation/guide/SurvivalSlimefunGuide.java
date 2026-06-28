@@ -722,12 +722,12 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
 
             menu.replaceExistingItem(slot, displayItem);
 
-            if (page == 0) {
-                menu.addMenuClickHandler(slot, (pl, s, itemstack, action) -> {
+            menu.addMenuClickHandler(slot, (pl, s, itemstack, action) -> {
+                if (itemstack != null && itemstack.getType() != org.bukkit.Material.AIR) {
                     displayItem(profile, itemstack, 0, true);
-                    return false;
-                });
-            }
+                }
+                return false;
+            });
         } else {
             menu.replaceExistingItem(slot, null);
             menu.addMenuClickHandler(slot, ChestMenuUtils.getEmptyClickHandler());
