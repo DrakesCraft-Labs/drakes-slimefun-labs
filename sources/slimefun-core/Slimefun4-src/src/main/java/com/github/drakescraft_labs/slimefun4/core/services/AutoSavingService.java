@@ -164,7 +164,7 @@ public class AutoSavingService implements Listener {
                 int queued = storage.getChanges();
 
                 if (queued >= dynamicThreshold) {
-                    Slimefun.logger().log(Level.INFO, "Dynamic block auto-save: draining up to {0} of {1} queued change(s) for world \"{2}\".", new Object[] { dynamicBatchSize, queued, world.getName() });
+                    Slimefun.logger().log(Level.FINE, "Dynamic block auto-save: draining up to {0} of {1} queued change(s) for world \"{2}\".", new Object[] { dynamicBatchSize, queued, world.getName() });
                     storage.save(dynamicBatchSize);
                 }
             } catch (Throwable t) {

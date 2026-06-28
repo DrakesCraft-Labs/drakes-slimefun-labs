@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -398,16 +399,12 @@ public class BlockStorage {
         }
 
         int remaining = maxChangesToSave <= 0 ? Integer.MAX_VALUE : maxChangesToSave;
-        Object drainLimit = remaining == Integer.MAX_VALUE ? "all" : remaining;
-        Slimefun.logger().log(Level.INFO, "Saving block data for world \"{0}\" ({1} change(s) queued, draining {2})", new Object[] { world.getName(), changes, drainLimit });
-        Map<String, Config> cache = new HashMap<>(blocksCache);
 
-        for (Map.Entry<String, Config> entry : cache.entrySet()) {
-            if (remaining <= 0) {
-                break;
-            }
-
-            blocksCache.remove(entry.getKey());
+        // Usa iterator directo en lugar de copiar el mapa completo — O(k) en vez de O(n)
+        Iterator<Map.Entry<String, Config>> blockIt = blocksCache.entrySet().iterator();
+        while (blockIt.hasNext() && remaining > 0) {
+            Map.Entry<String, Config> entry = blockIt.next();
+            blockIt.remove();
             Config cfg = entry.getValue();
 
             if (cfg.getKeys().isEmpty()) {
@@ -433,12 +430,9 @@ public class BlockStorage {
             remaining--;
         }
 
-        Map<Location, BlockMenu> unsavedInventories = new HashMap<>(inventories);
-        for (Map.Entry<Location, BlockMenu> entry : unsavedInventories.entrySet()) {
-            if (remaining <= 0) {
-                break;
-            }
-
+        Iterator<Map.Entry<Location, BlockMenu>> invIt = inventories.entrySet().iterator();
+        while (invIt.hasNext() && remaining > 0) {
+            Map.Entry<Location, BlockMenu> entry = invIt.next();
             BlockMenu menu = entry.getValue();
             if (menu.isDirty()) {
                 menu.save(entry.getKey());
@@ -446,20 +440,16 @@ public class BlockStorage {
             }
         }
 
-        Map<String, UniversalBlockMenu> unsavedUniversalInventories = new HashMap<>(Slimefun.getRegistry().getUniversalInventories());
-        for (Map.Entry<String, UniversalBlockMenu> entry : unsavedUniversalInventories.entrySet()) {
-            if (remaining <= 0) {
-                break;
-            }
-
+        Iterator<Map.Entry<String, UniversalBlockMenu>> uniIt = Slimefun.getRegistry().getUniversalInventories().entrySet().iterator();
+        while (uniIt.hasNext() && remaining > 0) {
+            Map.Entry<String, UniversalBlockMenu> entry = uniIt.next();
             UniversalBlockMenu menu = entry.getValue();
             if (menu.isDirty()) {
                 menu.save();
                 remaining--;
             }
         }
-
-        computeChanges();
+        // computeChanges() redundante eliminado — el caller lo invoca antes de llamar save()
     }
 
     public void saveAndRemove() {
@@ -644,6 +634,12 @@ public class BlockStorage {
 
         if (cfg == emptyBlockData) {
             cfg = new BlockInfoConfig();
+        } else {
+            // Evita marcar dirty y serializar JSON si el valor no cambió (main-thread TPS)
+            String current = cfg.getString(key);
+            if (value == null ? current == null : value.equals(current)) {
+                return;
+            }
         }
 
         cfg.setValue(key, value);

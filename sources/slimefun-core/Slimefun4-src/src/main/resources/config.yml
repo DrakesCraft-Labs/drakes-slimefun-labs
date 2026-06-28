@@ -58,9 +58,9 @@ performance:
   dynamic-block-autosave:
     # Drain large BlockStorage queues in small batches instead of waiting for
     # the full periodic auto-save to flush everything at once.
-    interval-seconds: 30
-    threshold: 2048
-    batch-size: 500
+    interval-seconds: 10
+    threshold: 200
+    batch-size: 256
 
 research-ranks:
 - Chicken
