@@ -242,6 +242,11 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
     } else {
 
       if (this.getProgressTime(b) <= 0) {
+        final List<ItemStack> pendingOutputs = collectPendingOutputs(inv, itemProduction);
+        if (notHasSpaceOutput(inv, pendingOutputs.toArray(new ItemStack[0]))) {
+          invalidStatus(inv, "&cOutput full");
+          return;
+        }
 
         checkCloneOutput(inv, itemProduction.clone());
 
@@ -264,6 +269,55 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
         }
       }
     }
+  }
+
+  private List<ItemStack> collectPendingOutputs(BlockMenu inv, ItemStack itemStack) {
+    final List<ItemStack> pendingOutputs = new ArrayList<>();
+    addPendingOutput(pendingOutputs, itemStack, Supreme.getSupremeOptions().getMaxAmountTechGenerator());
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[1]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[2]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[3]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[4]), itemStack, pendingOutputs);
+    return pendingOutputs;
+  }
+
+  private void addPendingOutputFromMobTech(ItemStack input, ItemStack itemStack, List<ItemStack> pendingOutputs) {
+    if (input == null || itemStack == null) {
+      return;
+    }
+
+    SlimefunItem slimefunItem = SlimefunItem.getByItem(input);
+    if (!(slimefunItem instanceof MobTech mobTech)) {
+      return;
+    }
+
+    if (mobTech.getMobTechType() != MobTechType.ROBOTIC_CLONING
+        && mobTech.getMobTechType() != MobTechType.MUTATION_LUCK) {
+      return;
+    }
+
+    int amount = Math.min(input.getAmount() * mobTech.getMobTechTier(),
+        Supreme.getSupremeOptions().getMaxAmountTechGenerator());
+    addPendingOutput(pendingOutputs, itemStack, amount);
+    if (mobTech.getMobTechTier() >= 4) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+    if (mobTech.getMobTechTier() >= 6) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+    if (mobTech.getMobTechTier() >= 9) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+  }
+
+  private void addPendingOutput(List<ItemStack> pendingOutputs, ItemStack template, int amount) {
+    if (template == null || amount <= 0) {
+      return;
+    }
+
+    ItemStack clone = template.clone();
+    clone.setAmount(amount);
+    pendingOutputs.add(clone);
   }
 
   private void checkCloneOutput(BlockMenu inv, ItemStack itemStack) {
@@ -302,6 +356,12 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
 
   public int getProgressTime(Block b) {
     return progressTime.get(b) != null ? progressTime.get(b) : (getTimeProcess() * 2);
+  }
+
+  @Override
+  protected void onMachineRemoved(Block b) {
+    processing.remove(b);
+    progressTime.remove(b);
   }
 
   private void processTicks(Block b, BlockMenu inv, ItemStack result) {

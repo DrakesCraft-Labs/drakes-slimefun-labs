@@ -321,7 +321,9 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   protected Map<ItemStack, Integer> getConsumedItems(Block b) {
-    return consumedItemsMap.get(b);
+    // Older persisted machine states can survive without this cache entry.
+    // Recreate it instead of crashing on block break or partial processing.
+    return consumedItemsMap.computeIfAbsent(b, ignored -> new HashMap<>());
   }
 
   protected boolean isProcessing(Block b) {

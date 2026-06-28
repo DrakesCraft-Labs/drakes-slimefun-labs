@@ -155,7 +155,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
                 boolean researched = StatisticUtils.isDiscovered(player, child.getId());
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
-                    ItemStack itemStack = new ItemStack(child.getItem().clone());
+                    ItemStack itemStack = toMenuItem(child.getItem().clone());
                     if (child instanceof HarvestablePlant harvestablePlant) {
                         ItemStack possibleStack = harvestablePlant.getHarvestingResults().getRandom();
                         if (possibleStack != null) {
@@ -206,7 +206,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
         CultivationPlant father = (CultivationPlant) SlimefunItem.getById(pair.getFatherId());
 
         // Child
-        menu.replaceExistingItem(CHILD_SLOT, child.getItem().clone());
+        menu.replaceExistingItem(CHILD_SLOT, toMenuItem(child.getItem().clone()));
         menu.addMenuClickHandler(CHILD_SLOT, ChestMenuUtils.getEmptyClickHandler());
         for (int i : CHILD_INFO_SLOT) {
             menu.replaceExistingItem(i, CHILD_INFO);
@@ -214,7 +214,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
         }
 
         // Mother
-        menu.replaceExistingItem(MOTHER_SLOT, mother.getItem().clone());
+        menu.replaceExistingItem(MOTHER_SLOT, toMenuItem(mother.getItem().clone()));
         menu.addMenuClickHandler(MOTHER_SLOT, ChestMenuUtils.getEmptyClickHandler());
         for (int i : MOTHER_INFO_SLOT) {
             menu.replaceExistingItem(i, MOTHER_INFO);
@@ -222,7 +222,7 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
         }
 
         // Father
-        menu.replaceExistingItem(FATHER_SLOT, father.getItem().clone());
+        menu.replaceExistingItem(FATHER_SLOT, toMenuItem(father.getItem().clone()));
         menu.addMenuClickHandler(FATHER_SLOT, ChestMenuUtils.getEmptyClickHandler());
         for (int i : FATHER_INFO_SLOT) {
             menu.replaceExistingItem(i, FATHER_INFO);
@@ -238,6 +238,14 @@ public class PlantCodexFlexGroup extends FlexItemGroup {
             menu.replaceExistingItem(i, HELD_SLOT);
             menu.addMenuClickHandler(i, ChestMenuUtils.getEmptyClickHandler());
         }
+    }
+
+    /**
+     * Convierte SlimefunItemStack y otras subclases a un ItemStack Bukkit plano
+     * para evitar ClassCastException dentro del ChestMenu legacy en 1.21.11.
+     */
+    private ItemStack toMenuItem(ItemStack itemStack) {
+        return itemStack == null ? null : new ItemStack(itemStack);
     }
 
     @ParametersAreNonnullByDefault
