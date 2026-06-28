@@ -77,6 +77,9 @@ public class GardenCloche extends SlimefunItem implements EnergyNetComponent {
                     @Override
                     public void tick(Block block, SlimefunItem item, Config data) {
                         BlockMenu blockMenu = BlockStorage.getInventory(block);
+                        if (blockMenu == null) {
+                            return;
+                        }
                         ItemStack possiblePlant = blockMenu.getItemInSlot(PLANT_SLOT);
                         SlimefunItem slimefunItem = SlimefunItem.getByItem(possiblePlant);
                         Location location = block.getLocation();
@@ -89,6 +92,9 @@ public class GardenCloche extends SlimefunItem implements EnergyNetComponent {
                             double rand = ThreadLocalRandom.current().nextDouble();
                             if (rand < growthRate) {
                                 ItemStack itemStack = plant.getRandomItemWithDropModifier(profile);
+                                if (itemStack == null || !blockMenu.fits(itemStack, OUTPUT_SLOTS)) {
+                                    return;
+                                }
                                 blockMenu.pushItem(itemStack, OUTPUT_SLOTS);
                                 removeCharge(location, POWER_REQUIREMENT);
                             }
@@ -112,7 +118,7 @@ public class GardenCloche extends SlimefunItem implements EnergyNetComponent {
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return Machines.GARDEN_CLOCHE.canUse(player, false)
+                return GardenCloche.this.canUse(player, false)
                         && dev.sefiraat.cultivation.api.utils.ProtectionCompat.hasPermission(player, block.getLocation(), "INTERACT_BLOCK");
             }
 
