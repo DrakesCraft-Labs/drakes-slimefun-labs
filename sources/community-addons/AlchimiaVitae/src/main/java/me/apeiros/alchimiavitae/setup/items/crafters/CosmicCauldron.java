@@ -88,7 +88,7 @@ public class CosmicCauldron extends AbstractCrafter<SlimefunItemStack> {
                     w.playSound(l, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 1, 1);
                     w.playSound(l, Sound.BLOCK_BREWING_STAND_BREW, 1, 1);
                     w.playSound(l, Sound.ITEM_LODESTONE_COMPASS_LOCK, 2, 1);
-                    w.spawnParticle(Particle.FLASH, l, 1, 0.1, 0.1, 0.1);
+                    w.spawnParticle(Particle.WITCH, l, 8, 0.25, 0.25, 0.25);
                     w.spawnParticle(Particle.END_ROD, l, 200, 0.1, 4, 0.1);
 
                     // Cancel runnable

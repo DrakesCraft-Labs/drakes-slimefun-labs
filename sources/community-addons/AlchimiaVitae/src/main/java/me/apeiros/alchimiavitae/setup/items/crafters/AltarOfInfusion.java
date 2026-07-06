@@ -341,7 +341,7 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
                     // Pre-craft
                     w.playSound(l, Sound.ENTITY_ILLUSIONER_PREPARE_MIRROR, 1, 1);
                     w.playSound(l, Sound.BLOCK_BEACON_POWER_SELECT, 1.5F, 1);
-                    w.spawnParticle(Particle.FLASH, l, 2, 0.1, 0.1, 0.1);
+                    w.spawnParticle(Particle.WITCH, l, 12, 0.25, 0.25, 0.25);
 
                     // Decrease layer
                     layer--;
@@ -353,7 +353,7 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
                     w.playSound(l, Sound.ITEM_TOTEM_USE, 0.1F, 1);
                     w.playSound(l, Sound.BLOCK_BEACON_POWER_SELECT, 0.3F, 1);
                     w.playSound(l, Sound.BLOCK_LODESTONE_PLACE, 1.5F, 1);
-                    w.spawnParticle(Particle.FLASH, l, 2, 0.1, 0.1, 0.1);
+                    w.spawnParticle(Particle.WITCH, l, 12, 0.25, 0.25, 0.25);
 
                     // Decrease layer
                     layer--;
@@ -364,7 +364,7 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
                     w.playSound(l, Sound.ITEM_LODESTONE_COMPASS_LOCK, 1.5F, 1);
                     w.playSound(l, Sound.BLOCK_BEACON_POWER_SELECT, 0.3F, 1);
                     w.playSound(l, Sound.ITEM_TOTEM_USE, 0.3F, 1);
-                    w.spawnParticle(Particle.FLASH, l, 2, 0.1, 0.1, 0.1);
+                    w.spawnParticle(Particle.WITCH, l, 12, 0.25, 0.25, 0.25);
 
                     // Decrease layer
                     layer--;

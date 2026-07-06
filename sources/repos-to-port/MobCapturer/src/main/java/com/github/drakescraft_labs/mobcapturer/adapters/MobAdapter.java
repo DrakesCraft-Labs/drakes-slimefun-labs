@@ -93,17 +93,23 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         JsonObject attributes = json.getAsJsonObject("_attributes");
 
         for (Map.Entry<String, JsonElement> entry : attributes.entrySet()) {
-            AttributeInstance instance = entity.getAttribute(Attribute.valueOf(entry.getKey()));
+            Attribute attribute = getAttribute(entry.getKey());
+
+            if (attribute == null) {
+                continue;
+            }
+
+            AttributeInstance instance = entity.getAttribute(attribute);
 
             if (instance != null) {
                 for (AttributeModifier modifier : new ArrayList<>(instance.getModifiers())) {
                     instance.removeModifier(modifier);
                 }
 
-                JsonObject attribute = entry.getValue().getAsJsonObject();
-                instance.setBaseValue(attribute.get("base").getAsDouble());
+                JsonObject attributeJson = entry.getValue().getAsJsonObject();
+                instance.setBaseValue(attributeJson.get("base").getAsDouble());
 
-                JsonArray modifiers = attribute.getAsJsonArray("modifiers");
+                JsonArray modifiers = attributeJson.getAsJsonArray("modifiers");
 
                 for (JsonElement modifier : modifiers) {
                     JsonObject obj = modifier.getAsJsonObject();
@@ -198,7 +204,7 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 }
 
                 obj.add("modifiers", modifiers);
-                attributes.add(attribute.toString(), obj);
+                attributes.add(attribute.name(), obj);
             }
         }
 
@@ -229,6 +235,20 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         json.add("_scoreboardTags", tags);
 
         return json;
+    }
+
+    private static Attribute getAttribute(@Nonnull String name) {
+        try {
+            return Attribute.valueOf(name);
+        } catch (IllegalArgumentException ex) {
+            for (Attribute attribute : Attribute.values()) {
+                if (attribute.toString().equals(name)) {
+                    return attribute;
+                }
+            }
+
+            return null;
+        }
     }
 
 }
