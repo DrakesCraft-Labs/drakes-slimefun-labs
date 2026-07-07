@@ -188,17 +188,22 @@ public class ExperienceCauldron extends SlimefunItem implements Listener {
     private static void changeLevel(Block b, int i) {
         Material mat = b.getType();
 
-        if (useNewCauldrons() && mat == Material.CAULDRON) {
+        if (mat == Material.CAULDRON) {
             b.setType(Material.WATER_CAULDRON);
-            Levelled cauldron = (Levelled) b.getBlockData();
+            if (!(b.getBlockData() instanceof Levelled cauldron)) {
+                return;
+            }
+
             cauldron.setLevel(i);
             b.setBlockData(cauldron);
 
         } else { //Already water cauldron or version is pre 1.17
-            Levelled cauldron = (Levelled) b.getBlockData();
+            if (!(b.getBlockData() instanceof Levelled cauldron)) {
+                return;
+            }
 
             // Empty
-            if (i == -1 && cauldron.getLevel() == 1 && useNewCauldrons()) {
+            if (i == -1 && cauldron.getLevel() == 1 && mat == Material.WATER_CAULDRON) {
                 b.setType(Material.CAULDRON);
             } else {
                 cauldron.setLevel(cauldron.getLevel() + i);
@@ -212,23 +217,13 @@ public class ExperienceCauldron extends SlimefunItem implements Listener {
     private static int getCauldronLevel(Block b) {
         Material mat = b.getType();
 
-        if (useNewCauldrons()) {
-            if (mat == Material.CAULDRON) {
-                return 0;
-            } else if (mat == Material.WATER_CAULDRON) {
-                Levelled cauldron = (Levelled) b.getBlockData();
-                return cauldron.getLevel();
-            }
-        } else { // Version is pre 1.17
-            Levelled cauldron = (Levelled) b.getBlockData();
+        if (mat == Material.CAULDRON) {
+            return 0;
+        } else if (b.getBlockData() instanceof Levelled cauldron) {
             return cauldron.getLevel();
         }
 
         return 0;
-    }
-
-    private static boolean useNewCauldrons() {
-        return Constants.SERVER_VERSION.contains("1.17") || Constants.SERVER_VERSION.contains("1.18") || Constants.SERVER_VERSION.contains("1.19") || Constants.SERVER_VERSION.contains("1.20");
     }
 
     /**

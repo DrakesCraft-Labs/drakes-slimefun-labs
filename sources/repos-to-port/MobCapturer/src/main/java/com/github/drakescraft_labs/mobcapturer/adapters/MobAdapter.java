@@ -93,7 +93,15 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         JsonObject attributes = json.getAsJsonObject("_attributes");
 
         for (Map.Entry<String, JsonElement> entry : attributes.entrySet()) {
-            AttributeInstance instance = entity.getAttribute(Attribute.valueOf(entry.getKey()));
+            Attribute attribute;
+
+            try {
+                attribute = Attribute.valueOf(entry.getKey());
+            } catch (IllegalArgumentException x) {
+                continue;
+            }
+
+            AttributeInstance instance = entity.getAttribute(attribute);
 
             if (instance != null) {
                 for (AttributeModifier modifier : new ArrayList<>(instance.getModifiers())) {
@@ -115,7 +123,7 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
             }
         }
 
-        entity.setHealth(json.get("_health").getAsDouble());
+        entity.setHealth(clampHealth(entity, json.get("_health").getAsDouble()));
         entity.setAbsorptionAmount(json.get("_absorption").getAsDouble());
         entity.setRemoveWhenFarAway(json.get("_removeWhenFarAway").getAsBoolean());
 
@@ -155,6 +163,16 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         for (JsonElement tag : tags) {
             entity.addScoreboardTag(tag.getAsString());
         }
+    }
+
+    private static double clampHealth(@Nonnull LivingEntity entity, double health) {
+        AttributeInstance maxHealth = entity.getAttribute(Attribute.MAX_HEALTH);
+
+        if (maxHealth == null) {
+            return Math.max(0.0D, health);
+        }
+
+        return Math.max(0.0D, Math.min(health, maxHealth.getValue()));
     }
 
     @Nonnull
