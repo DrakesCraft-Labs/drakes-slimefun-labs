@@ -2052,9 +2052,9 @@ public final class SlimefunItemSetup {
         new ItemStack[] {new ItemStack(Material.RED_DYE), SlimefunItems.MAGIC_LUMP_3, new ItemStack(Material.CYAN_DYE), new ItemStack(Material.WHITE_WOOL), SlimefunItems.ENDER_RUNE, new ItemStack(Material.WHITE_WOOL), new ItemStack(Material.YELLOW_DYE), SlimefunItems.ENDER_LUMP_3, new ItemStack(Material.MAGENTA_DYE)})
         .register(plugin);
 
-        new SoulboundRune(itemGroups.magicalResources, SlimefunItems.SOULBOUND_RUNE, RecipeType.ANCIENT_ALTAR,
-        new ItemStack[] {SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ENDER_LUMP_3, SlimefunItems.ENDER_RUNE, SlimefunItems.ENDER_LUMP_3, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.MAGIC_LUMP_3})
-        .register(plugin);
+        // new SoulboundRune(itemGroups.magicalResources, SlimefunItems.SOULBOUND_RUNE, RecipeType.ANCIENT_ALTAR,
+        // new ItemStack[] {SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ENDER_LUMP_3, SlimefunItems.ENDER_RUNE, SlimefunItems.ENDER_LUMP_3, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.MAGIC_LUMP_3})
+        // .register(plugin);
 
         new EnchantmentRune(itemGroups.magicalResources, SlimefunItems.ENCHANTMENT_RUNE, RecipeType.ANCIENT_ALTAR,
         new ItemStack[] {SlimefunItems.MAGIC_LUMP_3, SlimefunItems.MAGICAL_GLASS, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.MAGICAL_GLASS, SlimefunItems.LIGHTNING_RUNE, SlimefunItems.MAGICAL_GLASS, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.MAGICAL_GLASS, SlimefunItems.MAGIC_LUMP_3})
