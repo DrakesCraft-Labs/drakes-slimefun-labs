@@ -33,14 +33,15 @@ El workflow que empaqueta y publica las texturas está definido en:
 [`.github/workflows/resourcepack-release.yml`](../../.github/workflows/resourcepack-release.yml)
 
 ### Disparadores
-* **Automático:** Push a la rama `main` afectando la ruta `PortTextura/Jackstar-Slimefun-Drakecraft/**`.
+* **Automático:** Push a la rama `main` afectando la ruta `PortTextura/Jackstar-Slimefun-Drakecraft/**`, el builder de variantes o el propio workflow.
 * **Manual:** Mediante `workflow_dispatch` en la interfaz de GitHub Actions.
 
 ### Acciones del CI
 1. **Calcular Versión:** Genera un tag dinámico basado en la fecha y el SHA del commit: `resourcepack-YYYYMMDD-shortSHA`.
-2. **Empaquetado:** Comprime la carpeta `PortTextura/Jackstar-Slimefun-Drakecraft` en un archivo ZIP de raíz limpia (con `pack.mcmeta` en la raíz del archivo), excluyendo archivos `.git`, `README.md` y configuraciones internas de modelos.
-3. **GitHub Release:** Sube el archivo ZIP y crea una release pública marcada como la más reciente (latest).
-4. **Notificación en Discord:** Envía un webhook al canal configurado de Discord con los siguientes datos:
+2. **Variante derivada:** Genera una build `sf-only`, pensada para conservar Slimefun/addons sin la capa de texturas vanilla recoloreadas.
+3. **Empaquetado:** Comprime esa variante en `Jackstar-Slimefun-Drakecraft.zip`, dejando ese nombre como asset canónico para la URL fija.
+4. **GitHub Release:** Sube ese ZIP y crea una release pública marcada como la más reciente (latest).
+5. **Notificación en Discord:** Envía un webhook al canal configurado de Discord con los siguientes datos:
    * Versión / Tag generado.
    * Tamaño del archivo.
    * Hash SHA1 (requerido por Minecraft).
