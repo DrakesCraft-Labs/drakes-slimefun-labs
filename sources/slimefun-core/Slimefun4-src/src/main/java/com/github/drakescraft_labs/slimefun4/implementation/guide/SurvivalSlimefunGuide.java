@@ -14,6 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Tag;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -22,6 +23,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.RecipeChoice.MaterialChoice;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import dev.drake.dough.chat.ChatInput;
 import dev.drake.dough.items.CustomItemStack;
@@ -68,6 +71,10 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.MenuClickHan
 public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
 
     private static final int MAX_ITEM_GROUPS = 36;
+    private static final String SFMASTER_CHEAT_PERMISSION = "slimefun.cheat.items";
+    private static final String SFMASTER_ACTIVE_PERMISSION = "odysseia.sfmaster.active";
+    private static final String SFMASTER_BYPASS_PERMISSION = "odysseia.sfmaster.bypass_marking";
+    private static final String SFMASTER_MARKER_LORE = ChatColor.RED + "Generado por SFMaster - No comerciable";
 
     private final int[] recipeSlots = { 3, 4, 5, 12, 13, 14, 21, 22, 23 };
     private final ItemStack item;
@@ -311,6 +318,7 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                                 clonedItem.setAmount(clonedItem.getMaxStackSize());
                             }
 
+                            markAsSfMasterItem(pl, clonedItem);
                             pl.getInventory().addItem(clonedItem);
                         }
                     } else {
@@ -328,6 +336,34 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                 return false;
             });
         }
+    }
+
+    private void markAsSfMasterItem(Player player, ItemStack item) {
+        boolean hasSfMasterPower = player.hasPermission(SFMASTER_ACTIVE_PERMISSION) || player.hasPermission(SFMASTER_CHEAT_PERMISSION);
+        if (!hasSfMasterPower || player.hasPermission(SFMASTER_BYPASS_PERMISSION)) {
+            return;
+        }
+
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return;
+        }
+
+        NamespacedKey key = NamespacedKey.fromString("odysseia:sfmaster_item");
+        if (key == null) {
+            return;
+        }
+
+        meta.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);
+
+        List<String> lore = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
+        if (!lore.contains(SFMASTER_MARKER_LORE)) {
+            lore.add("");
+            lore.add(SFMASTER_MARKER_LORE);
+        }
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
     }
 
     @Override

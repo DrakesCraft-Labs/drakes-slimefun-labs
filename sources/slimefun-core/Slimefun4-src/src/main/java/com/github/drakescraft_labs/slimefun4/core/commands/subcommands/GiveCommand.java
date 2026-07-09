@@ -3,12 +3,18 @@ package com.github.drakescraft_labs.slimefun4.core.commands.subcommands;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import dev.drake.dough.common.CommonPatterns;
 import dev.drake.dough.common.PlayerList;
@@ -24,6 +30,10 @@ class GiveCommand extends SubCommand {
     private static final String PLACEHOLDER_PLAYER = "%player%";
     private static final String PLACEHOLDER_ITEM = "%item%";
     private static final String PLACEHOLDER_AMOUNT = "%amount%";
+    private static final String SFMASTER_CHEAT_PERMISSION = "slimefun.cheat.items";
+    private static final String SFMASTER_ACTIVE_PERMISSION = "odysseia.sfmaster.active";
+    private static final String SFMASTER_BYPASS_PERMISSION = "odysseia.sfmaster.bypass_marking";
+    private static final String SFMASTER_MARKER_LORE = ChatColor.RED + "Generado por SFMaster - No comerciable";
 
     @ParametersAreNonnullByDefault
     GiveCommand(Slimefun plugin, SlimefunCommand cmd) {
@@ -65,7 +75,9 @@ class GiveCommand extends SubCommand {
 
             if (amount > 0) {
                 Slimefun.getLocalization().sendMessage(p, "messages.given-item", true, msg -> msg.replace(PLACEHOLDER_ITEM, sfItem.getItemName()).replace(PLACEHOLDER_AMOUNT, String.valueOf(amount)));
-                Map<Integer, ItemStack> excess = p.getInventory().addItem(new CustomItemStack(sfItem.getItem(), amount));
+                ItemStack grantedItem = new CustomItemStack(sfItem.getItem(), amount);
+                markAsSfMasterItem(sender, p, grantedItem);
+                Map<Integer, ItemStack> excess = p.getInventory().addItem(grantedItem);
                 if (Slimefun.getCfg().getBoolean("options.drop-excess-sf-give-items") && !excess.isEmpty()) {
                     for (ItemStack is : excess.values()) {
                         p.getWorld().dropItem(p.getLocation(), is);
@@ -91,6 +103,37 @@ class GiveCommand extends SubCommand {
         }
 
         return amount;
+    }
+
+    private void markAsSfMasterItem(CommandSender sender, Player recipient, ItemStack item) {
+        boolean senderHasSfMaster = sender instanceof Player player
+                && (player.hasPermission(SFMASTER_ACTIVE_PERMISSION) || player.hasPermission(SFMASTER_CHEAT_PERMISSION));
+        boolean recipientHasSfMaster = recipient.hasPermission(SFMASTER_ACTIVE_PERMISSION) || recipient.hasPermission(SFMASTER_CHEAT_PERMISSION);
+        boolean bypassMarking = sender instanceof Player player && player.hasPermission(SFMASTER_BYPASS_PERMISSION);
+
+        if ((!senderHasSfMaster && !recipientHasSfMaster) || bypassMarking) {
+            return;
+        }
+
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return;
+        }
+
+        NamespacedKey key = NamespacedKey.fromString("odysseia:sfmaster_item");
+        if (key == null) {
+            return;
+        }
+
+        meta.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);
+
+        List<String> lore = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
+        if (!lore.contains(SFMASTER_MARKER_LORE)) {
+            lore.add("");
+            lore.add(SFMASTER_MARKER_LORE);
+        }
+        meta.setLore(lore);
+        item.setItemMeta(meta);
     }
 
 }
