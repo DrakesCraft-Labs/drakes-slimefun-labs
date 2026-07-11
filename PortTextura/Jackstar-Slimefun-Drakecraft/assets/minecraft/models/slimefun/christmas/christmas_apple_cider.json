@@ -1,8 +1,0 @@
-{
-	"parent": "item/generated",
-	"author": "Jackstar (DrakesCraft Labs)",
-	"textures": {
-		"layer0": "slimefun:item/christmas/christmas_apple_cider",
-		"layer1": "slimefun:item/christmas/christmas_apple_cider"
-	}
-}

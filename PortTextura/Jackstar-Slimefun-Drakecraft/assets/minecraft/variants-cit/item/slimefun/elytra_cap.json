@@ -1,8 +1,0 @@
-{
-  "hook": "equippable",
-  "type": "custom_name",
-  "items": ["minecraft:leather_helmet"],
-  "modelParent": "item/generated",
-  "modelPrefix": "item/slimefun/elytra_cap/",
-  "assetGen": "equipment/humanoid"
-}

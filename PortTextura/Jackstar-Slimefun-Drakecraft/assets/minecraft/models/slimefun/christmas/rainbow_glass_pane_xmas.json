@@ -1,8 +1,0 @@
-{
-        "parent": "item/generated",
-	"author": "Jackstar (DrakesCraft Labs)",
-	"textures": {
-		"layer0": "slimefun:item/christmas/rainbow_glass_pane_xmas"
-	}
-}
-

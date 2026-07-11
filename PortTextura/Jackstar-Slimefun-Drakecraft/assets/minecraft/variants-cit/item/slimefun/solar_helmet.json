@@ -1,8 +1,0 @@
-{
-  "hook": "equippable",
-  "type": "custom_name",
-  "items": ["minecraft:iron_helmet"],
-  "modelParent": "item/generated",
-  "modelPrefix": "item/slimefun/solar_helmet/",
-  "assetGen": "equipment/humanoid"
-}

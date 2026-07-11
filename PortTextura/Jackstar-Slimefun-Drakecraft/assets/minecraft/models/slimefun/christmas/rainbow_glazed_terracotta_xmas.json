@@ -1,8 +1,0 @@
-{
-        "parent": "minecraft:block/cube_all",
-	"author": "Jackstar (DrakesCraft Labs)",
-	"textures": {
-		"all": "slimefun:item/christmas/rainbow_glazed_terracotta_xmas"
-	}
-}
-

@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/DrakesCraft-Labs/drakes-slimefun-labs/actions/workflows/ci-monorepo-121.yml"><img alt="CI Monorepo 1.21" src="https://img.shields.io/badge/CI-Monorepo%201.21-1f9d55?style=for-the-badge&logo=githubactions&logoColor=white"></a>
   <img alt="Java 21" src="https://img.shields.io/badge/Java-21-f97316?style=for-the-badge&logo=openjdk&logoColor=white">
-  <img alt="Paper 1.21.1" src="https://img.shields.io/badge/Paper-1.21.1-38bdf8?style=for-the-badge">
+  <img alt="Purpur 1.21.11" src="https://img.shields.io/badge/Purpur-1.21.11-38bdf8?style=for-the-badge">
   <img alt="Maven y Gradle" src="https://img.shields.io/badge/Maven%20%2B%20Gradle-Reactor%20H%C3%ADbrido-8b5cf6?style=for-the-badge">
   <a href="LICENSE"><img alt="GPLv3" src="https://img.shields.io/badge/Licencia-GPLv3-ef4444?style=for-the-badge"></a>
 </p>
@@ -30,7 +30,7 @@ Este repositorio no es un simple espejo desorganizado de plugins antiguos. Es un
 
 El objetivo es mantener Slimefun usable sobre una base de servidor moderna:
 
-- **Minecraft/Paper:** Familia de Paper `1.21.1`.
+- **Minecraft/Paper:** Familia de Purpur `1.21.11`.
 - **Entorno de ejecución:** Java `21`.
 - **Núcleo (Core):** Fork de Slimefun 4 mantenido por Drake, fork de Dough, parches de compatibilidad internos y librerías compartidas.
 - **Addons:** Addons de la comunidad, adaptaciones (ports), módulos experimentales y módulos listos para producción agrupados en un único espacio de trabajo auditable.
@@ -46,7 +46,7 @@ DrakesCraft Slimefun Foundry existe para resolver esto de forma integral:
 
 | Problema | Solución de Foundry |
 |---|---|
-| Addons orientados a APIs antiguas | Adaptar el código fuente a Paper 1.21.1 y Java 21. |
+| Addons orientados a APIs antiguas | Adaptar el código fuente a Purpur 1.21.11 y Java 21. |
 | Árboles de dependencias incompatibles | Centralizar la gestión de dependencias en el reactor raíz. |
 | Librerías abandonadas y vulnerables | Reemplazarlas, parchearlas, sombrearlas (shade) o aislarlas con justificación documentada. |
 | Forks con arreglos útiles | Auditar primero, integrar selectivamente y mantener el historial legible. |
@@ -142,8 +142,30 @@ drakes-slimefun-labs/
 └─ settings.gradle.kts                 Raíz del reactor Gradle
 ```
 
-## Compilación y QA
+## Guía Rápida para Desarrolladores (Cómo toquetear)
 
+Si eres un desarrollador nuevo (¡hola Chagui!) y quieres empezar a modificar y compilar los plugins, aquí tienes un resumen rápido:
+
+1. **Entender la División:** El repositorio está dividido en dos sistemas de construcción porque integra addons de muchos autores distintos.
+   - **Los Plugins Core (Maven):** Slimefun-Core, Dough, y utilidades principales. Estos están en el archivo `pom.xml` de la raíz.
+   - **Los Addons (Gradle):** La mayoría de expansiones comunitarias usan Gradle y están bajo el archivo `settings.gradle.kts`.
+
+2. **Cómo Compilar todo lo Principal (Maven):**
+   Si tocaste código dentro de `sources/slimefun-core` o `sources/dough-core`, el comando exacto para compilar tu código y empaquetar los JARs sin ejecutar los tests (que suelen tardar mucho) es:
+   ```powershell
+   mvn -f pom.xml -DskipTests package
+   ```
+   *Esto generará los JARs listos para usar en las carpetas `target/` de cada subproyecto.*
+
+3. **Cómo Compilar los Addons Comunitarios (Gradle):**
+   Si tocaste código dentro de un addon específico en `sources/community-addons/NombreDelAddon`, debes entrar a esa carpeta y usar el wrapper de Gradle:
+   ```powershell
+   cd sources/community-addons/NombreDelAddon
+   .\gradlew.bat shadowJar --no-daemon
+   ```
+   *(El JAR final quedará en `build/libs/`)*
+
+## Compilación y QA
 Utiliza estos comandos desde la raíz del repositorio:
 
 ```powershell

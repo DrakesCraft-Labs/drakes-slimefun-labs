@@ -17,6 +17,10 @@
 **/cache/
 **/tmp/
 **/temp/
+build_status.log
+walkthrough.md
+**/*.versionsBackup
+**/bin/
 
 # OS files
 Thumbs.db
