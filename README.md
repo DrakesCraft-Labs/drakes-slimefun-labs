@@ -150,14 +150,20 @@ Si eres un desarrollador nuevo (¡hola Chagui!) y quieres empezar a modificar y 
    - **Los Plugins Core (Maven):** Slimefun-Core, Dough, y utilidades principales. Estos están en el archivo `pom.xml` de la raíz.
    - **Los Addons (Gradle):** La mayoría de expansiones comunitarias usan Gradle y están bajo el archivo `settings.gradle.kts`.
 
-2. **Cómo Compilar todo lo Principal (Maven):**
+2. **Solucionar Errores Rojos en el IDE (Dependencias):**
+   Si tu IDE (IntelliJ, Eclipse, etc.) te marca librerías en rojo, es porque los addons de Gradle necesitan que el Core de Maven esté compilado e instalado en tu computadora primero. Para arreglarlo:
+   - Abre una terminal en la raíz del repositorio y ejecuta: `mvn clean install -DskipTests`
+   - Esto guardará los JARs base en tu caché local (`.m2`).
+   - Luego, en tu IDE, dale al botón de "Reload All Maven Projects" y "Reload All Gradle Projects". ¡Todo lo rojo debería desaparecer!
+
+3. **Cómo Compilar todo lo Principal (Maven):**
    Si tocaste código dentro de `sources/slimefun-core` o `sources/dough-core`, el comando exacto para compilar tu código y empaquetar los JARs sin ejecutar los tests (que suelen tardar mucho) es:
    ```powershell
    mvn -f pom.xml -DskipTests package
    ```
    *Esto generará los JARs listos para usar en las carpetas `target/` de cada subproyecto.*
 
-3. **Cómo Compilar los Addons Comunitarios (Gradle):**
+4. **Cómo Compilar los Addons Comunitarios (Gradle):**
    Si tocaste código dentro de un addon específico en `sources/community-addons/NombreDelAddon`, debes entrar a esa carpeta y usar el wrapper de Gradle:
    ```powershell
    cd sources/community-addons/NombreDelAddon
