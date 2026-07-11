@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/24_galactifun/machines/planetary_analyzer"
+	}
+}

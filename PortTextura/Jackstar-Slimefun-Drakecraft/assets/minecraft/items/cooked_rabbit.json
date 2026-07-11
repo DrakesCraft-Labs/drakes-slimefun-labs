@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/cooked_rabbit"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Rabbit Jerky","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/rabbit_jerky"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/cooked_rabbit"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

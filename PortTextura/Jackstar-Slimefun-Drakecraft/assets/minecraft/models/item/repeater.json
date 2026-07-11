@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/repeater"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003906}, "model": "minecraft:slimefun/27_foxy_machines/wireless_transmitter"}
+	]
+}

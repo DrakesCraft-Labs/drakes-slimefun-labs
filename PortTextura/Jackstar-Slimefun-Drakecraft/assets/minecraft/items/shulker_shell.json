@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/shulker_shell"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Synthetic Shulker Shell","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/synthetic_shulker_shell"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/shulker_shell"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

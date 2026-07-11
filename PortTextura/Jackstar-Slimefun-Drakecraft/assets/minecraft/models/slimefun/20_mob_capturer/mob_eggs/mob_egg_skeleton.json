@@ -1,0 +1,7 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/20_mob_capturer/mob_eggs/mob_egg_skeleton"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/18_exotic_garden/plants/sweet_potato_bush"
+	}
+}

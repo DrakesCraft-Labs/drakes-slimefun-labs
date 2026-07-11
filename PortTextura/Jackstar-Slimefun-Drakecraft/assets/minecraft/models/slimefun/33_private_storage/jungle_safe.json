@@ -1,0 +1,158 @@
+{
+	"format_version": "1.21.6",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"textures": {
+		"0": "slimefun:item/33_private_storage/chest_outline",
+		"1": "slimefun:item/33_private_storage/jungle_log",
+		"2": "slimefun:item/33_private_storage/jungle_log_top",
+		"particle": "slimefun:item/33_private_storage/chest_outline"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 14, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 1]},
+			"faces": {
+				"north": {"uv": [7, 8.25, 10.5, 5.75], "texture": "#0"},
+				"east": {"uv": [7, 4.75, 10.5, 8.25], "texture": "#0"},
+				"south": {"uv": [7, 4.75, 10.5, 8.25], "texture": "#0"},
+				"west": {"uv": [7, 4.75, 10.5, 8.25], "texture": "#0"},
+				"up": {"uv": [7, 4.75, 10.5, 8.25], "texture": "#0"},
+				"down": {"uv": [3.5, 4.75, 7, 8.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 5, 0],
+			"to": [6, 9, 1],
+			"rotation": {"angle": 0, "axis": "z", "origin": [6, 9, 0]},
+			"faces": {
+				"north": {"uv": [0.5, 1.25, 1, 0.25], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [1.25, 1.25, 1.5, 0.25], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [0, 0, 0.5, 1], "rotation": 180, "texture": "#0"},
+				"west": {"uv": [0.5, 1.25, 0.75, 0.25], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [1.25, 0, 0.75, 0.25], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0.75, 0, 0.25, 0.25], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 3, 0],
+			"to": [10, 5, 1],
+			"rotation": {"angle": 0, "axis": "z", "origin": [6, 5, 0]},
+			"faces": {
+				"north": {"uv": [0.5, 1.25, 1, 0.25], "rotation": 270, "texture": "#0"},
+				"east": {"uv": [0.75, 0, 0.25, 0.25], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 0, 0.5, 1], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [1.25, 0, 0.75, 0.25], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [1.25, 1.25, 1.5, 0.25], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0.5, 1.25, 0.75, 0.25], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 9, 0],
+			"to": [10, 11, 1],
+			"rotation": {"angle": 0, "axis": "z", "origin": [10, 9, 0]},
+			"faces": {
+				"north": {"uv": [0.5, 1.25, 1, 0.25], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [1.25, 0, 0.75, 0.25], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [0, 0, 0.5, 1], "rotation": 270, "texture": "#0"},
+				"west": {"uv": [0.75, 0, 0.25, 0.25], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0.5, 1.25, 0.75, 0.25], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [1.25, 1.25, 1.5, 0.25], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [10, 5, 0],
+			"to": [12, 9, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [10, 5, 0]},
+			"faces": {
+				"north": {"uv": [0.5, 1.25, 1, 0.25], "texture": "#0"},
+				"east": {"uv": [0.5, 1.25, 0.75, 0.25], "texture": "#0"},
+				"south": {"uv": [0, 0, 0.5, 1], "texture": "#0"},
+				"west": {"uv": [1.25, 1.25, 1.5, 0.25], "texture": "#0"},
+				"up": {"uv": [0.75, 0, 0.25, 0.25], "texture": "#0"},
+				"down": {"uv": [1.25, 0, 0.75, 0.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [2, 1, 0.99],
+			"to": [14, 13, 0.99],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8.25, 0.99]},
+			"faces": {
+				"north": {"uv": [2, 3, 14, 15], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0.99, 1, 2],
+			"to": [0.99, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 8.25, 7.99]},
+			"faces": {
+				"west": {"uv": [2, 3, 14, 15], "texture": "#1"}
+			}
+		},
+		{
+			"from": [2, 1, 15.025],
+			"to": [14, 13, 15.025],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.99, 8.25, 15]},
+			"faces": {
+				"south": {"uv": [2, 3, 14, 15], "texture": "#1"}
+			}
+		},
+		{
+			"from": [15.01, 1, 2],
+			"to": [15.01, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.99, 8.25, 8]},
+			"faces": {
+				"east": {"uv": [2, 3, 14, 15], "texture": "#1"}
+			}
+		},
+		{
+			"from": [2, -0.05, 2],
+			"to": [14, -0.05, 14],
+			"rotation": {"angle": 0, "axis": "z", "origin": [6, -1, 8]},
+			"faces": {
+				"down": {"uv": [2, 2, 14, 14], "rotation": 270, "texture": "#2"}
+			}
+		},
+		{
+			"from": [2, 14.05, 2],
+			"to": [14, 14.05, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 14, 8]},
+			"faces": {
+				"up": {"uv": [2, 2, 14, 14], "rotation": 270, "texture": "#2"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -135, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

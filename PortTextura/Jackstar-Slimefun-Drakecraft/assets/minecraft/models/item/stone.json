@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/stone",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002403}, "model": "minecraft:slimefun/29_infinity_expansion/materials/cobblestone_3"},
+		{ "predicate": { "custom_model_data": 3002404}, "model": "minecraft:slimefun/29_infinity_expansion/materials/cobblestone_4"}
+
+	]
+}

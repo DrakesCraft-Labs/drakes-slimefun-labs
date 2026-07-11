@@ -1,0 +1,61 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/emerald"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"Ruby"}, "model": {"type": "minecraft:model", "model": "jackstar/2_items/ruby"}},
+
+		{"when": {"text":"","extra":[{"text":"Synthetic Emerald","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/synthetic_emerald"}},
+		{"when": {"text":"","extra":[{"text":"Common Talisman","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/common_talisman"}},
+		{"when": {"text":"","extra":[{"text":"Talismans (Tier I)","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Anvil","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_anvil"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Miner","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_miner"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Farmer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_farmer"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Hunter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_hunter"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Lava Walker","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_lava"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Water Breather","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_water"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Angel","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_angel"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Firefighter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_fire"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Magician","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_magician"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Traveller","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_traveller"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Warrior","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_warrior"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Knight","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_knight"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Caveman","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_caveman"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Wise","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_wise"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Whirlwind","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_whirlwind"}},
+		{"when": {"text":"","extra":[{"text":"Talisman of the Wizard","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/talisman_wizard"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talismans (Tier II)","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Anvil","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_anvil"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Miner","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_miner"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Farmer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_farmer"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Hunter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_hunter"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Lava Walker","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_lava"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Water Breather","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_water"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Angel","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_angel"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Firefighter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_fire"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Magician","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_magician"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Traveller","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_traveller"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Warrior","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_warrior"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Knight","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_knight"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Caveman","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_caveman"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Wise","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_wise"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Whirlwind","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_whirlwind"}},
+		{"when": {"text":"","extra":[{"text":"Ender Talisman of the Wizard","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/13_talisman/ender_talisman_wizard"}},
+		{"when": {"text":"","extra":[{"text":"[Emerald] Oscillator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/oscillator_emerald"}},
+		{"when": {"text":"","extra":[{"text":"Equanimous Gem","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/equanimous_gem"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/emerald"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

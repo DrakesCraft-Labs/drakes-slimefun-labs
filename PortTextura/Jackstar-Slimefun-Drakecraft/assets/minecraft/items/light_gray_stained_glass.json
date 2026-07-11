@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/light_gray_stained_glass"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Hardened Glass","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/10_technical_components/hardened_glass"}},
+		{"when": {"text":"","extra":[{"text":"Heated Pressure Chamber","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/heated_pressure_chamber"}},
+		{"when": {"text":"","extra":[{"text":"Heated Pressure Chamber ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/heated_pressure_chamber_2"}},
+		{"when": {"text":"","extra":[{"text":"Heated Pressure Chamber","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/heated_pressure_chamber"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/light_gray_stained_glass"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

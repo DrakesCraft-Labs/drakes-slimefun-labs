@@ -1,0 +1,53 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/leather_chestplate",
+      "tints": [{"type": "minecraft:dye","default": -6265536}]},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Copper Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/copper_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Ender Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/ender_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Slime Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/slime_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Glowstone Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/glowstone_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Rainbow Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/rainbow_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Cactus Chestplate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/cactus_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Hazmat Suit","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/hazmat_chestplate"}},
+		{"when": {"text":"","extra":[{"text":"Technical Gadgets","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_steel"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"I","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_duralumin"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_solder"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_billon"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"IV","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_steel"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"V","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_damascus_steel"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"VI","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_reinforced"}},
+		{"when": {"text":"","extra":[{"text":"Electric Jetpack ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"VII","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/jetpack_carbonado"}},
+		{"when": {"text":"","extra":[{"text":"Parachute","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/parachute"}},
+		{"when": {"text":"","extra":[{"text":"Parachute","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/parachute"}}
+	],
+
+
+	"fallback": {"type": "minecraft:select","property": "minecraft:trim_material",
+          "cases": [
+            {"when": "minecraft:quartz","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_quartz_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:iron","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_iron_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:netherite","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_netherite_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:redstone","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_redstone_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:copper","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_copper_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:gold","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_gold_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:emerald","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_emerald_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:diamond","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_diamond_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:lapis","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_lapis_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:amethyst","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_amethyst_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:resin","model": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate_resin_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}}
+			],
+		"fallback": {"type": "minecraft:model","model": "minecraft:item/leather_chestplate", "tints": [{"type": "minecraft:dye","default": -6265536}]}}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

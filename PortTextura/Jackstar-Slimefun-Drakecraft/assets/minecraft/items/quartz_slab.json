@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/quartz_slab"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Hologram Projector","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/hologram_projector"}}	
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/quartz_slab"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

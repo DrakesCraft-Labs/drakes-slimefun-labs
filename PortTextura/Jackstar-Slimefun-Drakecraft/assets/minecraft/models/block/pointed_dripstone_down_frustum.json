@@ -1,0 +1,121 @@
+{
+	"format_version": "1.21.11",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/pointed_dripstone",
+	"textures": {
+		"particle": "block/pointed_dripstone_down_frustum",
+		"cross": "block/pointed_dripstone_down_frustum"
+	},
+	"elements": [
+		{
+			"from": [5, 0, 4.99822],
+			"to": [11, 2, 10.99822],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1, 7.99822]},
+			"faces": {
+				"north": {"uv": [4, 14, 12, 16], "texture": "#cross"},
+				"east": {"uv": [12, 14, 4, 16], "texture": "#cross"},
+				"south": {"uv": [4, 14, 12, 16], "texture": "#cross"},
+				"west": {"uv": [12, 14, 4, 16], "texture": "#cross"},
+				"up": {"uv": [4, 14, 12, 15], "texture": "#cross"},
+				"down": {"uv": [12, 15, 4, 16], "texture": "#cross"}
+			}
+		},
+		{
+			"from": [5, 2, 4.99822],
+			"to": [12, 5, 11.99822],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 3.5, 8.49822]},
+			"faces": {
+				"north": {"uv": [4, 11, 13, 14], "texture": "#cross"},
+				"east": {"uv": [13, 11, 4, 14], "texture": "#cross"},
+				"south": {"uv": [4, 11, 13, 14], "texture": "#cross"},
+				"west": {"uv": [13, 11, 4, 14], "texture": "#cross"},
+				"up": {"uv": [4, 11, 13, 12], "texture": "#cross"},
+				"down": {"uv": [13, 13, 4, 14], "texture": "#cross"}
+			}
+		},
+		{
+			"from": [4, 5, 3.99822],
+			"to": [12, 8, 11.99822],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 6.5, 7.99822]},
+			"faces": {
+				"north": {"uv": [3, 8, 13, 11], "texture": "#cross"},
+				"east": {"uv": [13, 8, 3, 11], "texture": "#cross"},
+				"south": {"uv": [3, 8, 13, 11], "texture": "#cross"},
+				"west": {"uv": [13, 8, 3, 11], "texture": "#cross"},
+				"up": {"uv": [3, 8, 13, 9], "texture": "#cross"},
+				"down": {"uv": [13, 10, 3, 11], "texture": "#cross"}
+			}
+		},
+		{
+			"from": [4, 8, 3.99822],
+			"to": [13, 11, 12.99822],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 9.5, 8.49822]},
+			"faces": {
+				"north": {"uv": [3, 5, 14, 8], "texture": "#cross"},
+				"east": {"uv": [14, 5, 3, 8], "texture": "#cross"},
+				"south": {"uv": [3, 5, 14, 8], "texture": "#cross"},
+				"west": {"uv": [14, 5, 3, 8], "texture": "#cross"},
+				"up": {"uv": [3, 5, 14, 6], "texture": "#cross"},
+				"down": {"uv": [14, 7, 3, 8], "texture": "#cross"}
+			}
+		},
+		{
+			"from": [3, 11, 2.99822],
+			"to": [13, 16, 12.99822],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 13.5, 7.99822]},
+			"faces": {
+				"north": {"uv": [2, 0, 14, 5], "texture": "#cross"},
+				"east": {"uv": [14, 0, 2, 5], "texture": "#cross"},
+				"south": {"uv": [2, 0, 14, 5], "texture": "#cross"},
+				"west": {"uv": [14, 0, 2, 5], "texture": "#cross"},
+				"up": {"uv": [14, 0, 2, 1], "texture": "#cross"},
+				"down": {"uv": [14, 4, 2, 5], "texture": "#cross"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -135, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8.25, 7.2525, 7.75],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1, 2, 3, 4]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/golden_carrot"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Corn on the Cob","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/food/corn_on_the_cob"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/golden_carrot"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

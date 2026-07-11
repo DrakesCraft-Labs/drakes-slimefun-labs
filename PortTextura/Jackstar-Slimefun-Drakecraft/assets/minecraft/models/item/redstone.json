@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/redstone"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002127}, "model": "minecraft:slimefun/24_galactifun/components/laserite_dust"},
+
+		{ "predicate": { "custom_model_data": 3002423}, "model": "minecraft:slimefun/29_infinity_expansion/materials/oscillator_redstone"},
+
+		{ "predicate": { "custom_model_data": 3003607}, "model": "minecraft:slimefun/25_potion_expansion/redstone_powder"},
+		{ "predicate": { "custom_model_data": 3003610}, "model": "minecraft:slimefun/25_potion_expansion/ancient_debris_powder"},
+
+		{ "predicate": { "custom_model_data": 3004300}, "model": "minecraft:slimefun/27_foxy_machines/blood"}
+	]
+}

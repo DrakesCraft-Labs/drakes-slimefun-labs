@@ -1,0 +1,54 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/iron_sword"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"Amethyst"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/amethyst_iron"}},
+		{"when": {"text":"Crystal"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/amethyst_iron"}},
+		{"when": {"text":"Dead Bush"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/dead_bush_iron"}},
+		{"when": {"text":"Reaper"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/reaper_iron"}},
+		{"when": {"text":"Scythe"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/reaper_iron"}},
+		{"when": {"text":"Dirt Sword"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/dirt_sword"}},
+		{"when": {"text":"Kelp Sword"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/kelp_sword"}},
+		{"when": {"text":"Fire Sword"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/fire_sword"}},
+		{"when": {"text":"Stick"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/swords/stick_iron"}},
+	
+		{"when": {"text":"","extra":[{"text":"Sword of Beheading","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/1_weapons/sword_of_beheading"}},
+		{"when": {"text":"","extra":[{"text":"Copper Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/copper_sword"}},
+		{"when": {"text":"","extra":[{"text":"Tin Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/tin_sword"}},
+		{"when": {"text":"","extra":[{"text":"Silver Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/silver_sword"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/aluminum_sword"}},
+		{"when": {"text":"","extra":[{"text":"Lead Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/lead_sword"}},
+		{"when": {"text":"","extra":[{"text":"Zinc Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/zinc_sword"}},
+		{"when": {"text":"","extra":[{"text":"Magnesium Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/magnesium_sword"}},
+		{"when": {"text":"","extra":[{"text":"Steel Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/steel_sword"}},
+		{"when": {"text":"","extra":[{"text":"Bronze Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/bronze_sword"}},
+		{"when": {"text":"","extra":[{"text":"Duralumin Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/duralumin_sword"}},
+		{"when": {"text":"","extra":[{"text":"Billon Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/billon_sword"}},
+		{"when": {"text":"","extra":[{"text":"Brass Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/brass_sword"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Brass Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/aluminum_brass_sword"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Bronze Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/aluminum_bronze_sword"}},
+		{"when": {"text":"","extra":[{"text":"Corinthian Bronze Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/corinthian_bronze_sword"}},
+		{"when": {"text":"","extra":[{"text":"Solder Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/solder_sword"}},
+		{"when": {"text":"","extra":[{"text":"Damascus Steel Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/damascus_steel_sword"}},
+		{"when": {"text":"","extra":[{"text":"Hardened Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/hardened_sword"}},
+		{"when": {"text":"","extra":[{"text":"Reinforced Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/reinforced_sword"}},
+		{"when": {"text":"","extra":[{"text":"Ferrosilicon Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/ferrosilicon_sword"}},
+		{"when": {"text":"","extra":[{"text":"Nickel Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/nickel_sword"}},
+		{"when": {"text":"","extra":[{"text":"Cobalt Sword","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/cobalt_sword"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/iron_sword"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

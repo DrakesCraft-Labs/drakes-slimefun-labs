@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/iron_hoe"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Reinforced Tree Tap","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/reinforced_tree_tap"}},
+		{"when": {"text":"","extra":[{"text":"Scythe","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/scythe"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/iron_hoe"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

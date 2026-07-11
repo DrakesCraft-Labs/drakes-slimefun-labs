@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/lava_bucket"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Bucket of Blood","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/bucket_of_blood"}},
+		{"when": {"text":"","extra":[{"text":"Io","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/universe/io"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/lava_bucket"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

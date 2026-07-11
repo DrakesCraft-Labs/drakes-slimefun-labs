@@ -1,0 +1,62 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:block/lodestone"
+    },
+    "entries": [
+      {
+        "threshold": 0,
+        "model": {
+          "type": "minecraft:select",
+          "property": "minecraft:component",
+          "component": "minecraft:custom_name",
+          "cases": [
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Large Fluffy Barrel",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "green",
+                    "bold": false
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/34_fluffy_machines/fluffy_barrel_large"
+              }
+            }
+          ],
+          "fallback": {
+            "type": "minecraft:model",
+            "model": "minecraft:block/lodestone"
+          }
+        }
+      },
+      {
+        "threshold": 3009001,
+        "model": {
+          "type": "minecraft:model",
+          "model": "jackstar:item/coronalis/signal_core"
+        }
+      },
+      {
+        "threshold": 3009005,
+        "model": {
+          "type": "minecraft:model",
+          "model": "jackstar:item/coronalis/foundation_anchor"
+        }
+      }
+    ]
+  },
+  "oversized_in_gui": true
+}

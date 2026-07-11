@@ -1,0 +1,23 @@
+{
+	"format_version": "1.21.6",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "block/exposed_copper_bars",
+		"bars": "block/exposed_copper_bars"
+	},
+	"elements": [
+		{
+			"from": [7.25, 1, 7.25],
+			"to": [8.75, 15, 8.75],
+			"faces": {
+				"north": {"uv": [9, 1, 7, 15], "texture": "#bars"},
+				"east": {"uv": [7, 1, 9, 15], "texture": "#bars"},
+				"south": {"uv": [9, 1, 7, 15], "texture": "#bars"},
+				"west": {"uv": [7, 1, 9, 15], "texture": "#bars"},
+				"up": {"uv": [7, 0, 9, 2], "texture": "#bars"},
+				"down": {"uv": [7, 14, 9, 16], "texture": "#bars"}
+			}
+		}
+	]
+}

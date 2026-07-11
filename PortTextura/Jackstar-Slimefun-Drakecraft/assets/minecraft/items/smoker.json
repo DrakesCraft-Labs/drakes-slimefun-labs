@@ -1,0 +1,28 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/smoker"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Rubber Factory","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/rubber_factory"}},
+		{"when": {"text":"","extra":[{"text":"Auto Drier","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/auto_drier"}},
+		{"when": {"text":"","extra":[{"text":"Auto Brewer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/auto_brewer"}},
+		{"when": {"text":"","extra":[{"text":"Warp Pad","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/warp_pad"}},
+		{"when": {"text":"","extra":[{"text":"Smart Factory","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/smart_factory"}},
+		{"when": {"text":"","extra":[{"text":"Big Fluffy Barrel","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/fluffy_barrel_big"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/smoker"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

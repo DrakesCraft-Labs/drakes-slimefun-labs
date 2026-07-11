@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/rabbit_hide"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000826}, "model": "minecraft:slimefun/8_magical_items/rainbow_leather"}
+	]
+}

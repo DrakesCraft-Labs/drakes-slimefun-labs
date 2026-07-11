@@ -1,0 +1,40 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/sugar"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Tin Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/tin_dust"}},
+		{"when": {"text":"","extra":[{"text":"Silver Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/silver_dust"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/aluminum_dust"}},
+		{"when": {"text":"","extra":[{"text":"Zinc Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/zinc_dust"}},
+		{"when": {"text":"","extra":[{"text":"Magnesium","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/magnesium_dust"}},
+		{"when": {"text":"","extra":[{"text":"Magnesium Salt","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/magnesium_salt"}},
+		{"when": {"text":"","extra":[{"text":"Magic Sugar","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/magic_sugar"}},
+		{"when": {"text":"","extra":[{"text":"Wheat Flour","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/wheat_flour"}},
+		{"when": {"text":"","extra":[{"text":"Salt","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/salt"}},
+		{"when": {"text":"","extra":[{"text":"Salt","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/salt"}},
+		{"when": {"text":"","extra":[{"text":"Quartz Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/quartz_powder"}},
+		{"when": {"text":"","extra":[{"text":"Pixie Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/pixie_dust"}},
+		{"when": {"text":"","extra":[{"text":"Movement Speed Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_movement_speed"}},
+		{"when": {"text":"","extra":[{"text":"Attack Speed Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_attack_speed"}},
+		{"when": {"text":"","extra":[{"text":"Fly Speed Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_fly_speed"}},
+		{"when": {"text":"","extra":[{"text":"Damage Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_damage"}},
+		{"when": {"text":"","extra":[{"text":"Health Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_health"}},
+		{"when": {"text":"","extra":[{"text":"Knockback Resistance Charm","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/charm_knockback_resistance"}},
+		{"when": {"text":"","extra":[{"text":"Cornmeal","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/tools/cornmeal"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/sugar"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

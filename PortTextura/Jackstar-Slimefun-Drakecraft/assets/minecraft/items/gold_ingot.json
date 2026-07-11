@@ -1,0 +1,49 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/gold_ingot"
+    },
+    "entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Brass Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/brass_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Brass Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/aluminum_brass_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Bronze Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/aluminum_bronze_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Corinthian Bronze Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/corinthian_bronze_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(24-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_24"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(22-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_22"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(20-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_20"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(18-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_18"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(16-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_16"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(14-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_14"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(12-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_12"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(10-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_10"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(8-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_8"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(6-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_6"}},
+		{"when": {"text":"","extra":[{"text":"Gold Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(4-Carat)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/carat_gold_4"}},
+		{"when": {"text":"","extra":[{"text":"Gilded Iron","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/gilded_iron"}},
+		{"when": {"text":"","extra":[{"text":"Blistering Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(33%)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/blistering_ingot_33"}},
+		{"when": {"text":"","extra":[{"text":"Blistering Ingot ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(66%)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/blistering_ingot_66"}},
+		{"when": {"text":"","extra":[{"text":"Blistering Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/blistering_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Volcanic Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/components/volcanic_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Blistering Volcanic Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/components/blistering_volcanic_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Machine Circuit","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/machine_circuit"}},
+		{"when": {"text":"","extra":[{"text":"Demonic Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/demonic_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Damienium","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/damienium"}},
+		{"when": {"text":"","extra":[{"text":"Sweet Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/sweet_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Sweetened Sweet Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/sweetened_sweet_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Nice Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/nice_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Anniversarium Ingot","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/anniversarium_ingot"}},
+		{"when": {"text":"","extra":[{"text":"Big Portable Charger","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/portable_charger_big"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/gold_ingot"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

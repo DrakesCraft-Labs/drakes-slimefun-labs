@@ -1,0 +1,19 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/red_bed"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Bed Pet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/17_hotbar_pets/hotbar_pet_bed"}}	
+	],
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/red_bed"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

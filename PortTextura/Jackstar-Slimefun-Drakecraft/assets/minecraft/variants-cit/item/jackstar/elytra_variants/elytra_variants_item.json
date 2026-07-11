@@ -1,0 +1,6 @@
+{
+  "type": "custom_name",
+  "items": ["minecraft:elytra"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/jackstar/elytra_variants/"
+}

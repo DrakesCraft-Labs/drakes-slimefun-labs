@@ -1,0 +1,22 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/stick"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000100}, "model": "minecraft:slimefun/1_weapons/grandmas_walking_stick"},
+		{ "predicate": { "custom_model_data": 3000101}, "model": "minecraft:slimefun/1_weapons/grandpas_walking_stick"},
+
+		{ "predicate": { "custom_model_data": 3000204}, "model": "minecraft:slimefun/2_useful_items/splint"},
+
+		{ "predicate": { "custom_model_data": 3001602}, "model": "minecraft:slimefun/15_magical_gadgets/staff_elemental"},
+		{ "predicate": { "custom_model_data": 3001603}, "model": "minecraft:slimefun/15_magical_gadgets/staff_elemental_wind"},
+		{ "predicate": { "custom_model_data": 3001604}, "model": "minecraft:slimefun/15_magical_gadgets/staff_elemental_water"},
+		{ "predicate": { "custom_model_data": 3001605}, "model": "minecraft:slimefun/15_magical_gadgets/staff_elemental_fire"},
+		{ "predicate": { "custom_model_data": 3001606}, "model": "minecraft:slimefun/15_magical_gadgets/staff_elemental_storm"},
+
+		{ "predicate": { "custom_model_data": 3004112}, "model": "minecraft:slimefun/27_foxy_machines/position_selector"}
+	]
+}

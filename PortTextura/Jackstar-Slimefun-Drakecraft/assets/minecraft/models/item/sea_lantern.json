@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/sea_lantern",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002213}, "model": "minecraft:slimefun/24_galactifun/machines/planetary_analyzer"},
+		{ "predicate": { "custom_model_data": 3002220}, "model": "minecraft:slimefun/24_galactifun/machines/chemical_reactor"}
+	]
+}

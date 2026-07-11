@@ -1,0 +1,73 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/oak_sapling"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Grape Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/grape_bush"}},
+		{"when": {"text":"","extra":[{"text":"Blueberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/blueberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Elderberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/elderberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Raspberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/raspberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Blackberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/blackberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Cranberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/cranberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Cowberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/cowberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Strawberry Bush","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/strawberry_bush"}},
+		{"when": {"text":"","extra":[{"text":"Tomato Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/tomato_bush"}},
+		{"when": {"text":"","extra":[{"text":"Lettuce Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/lettuce_bush"}},
+		{"when": {"text":"","extra":[{"text":"Tea Leaf Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/tea_leaf_bush"}},
+		{"when": {"text":"","extra":[{"text":"Cabbage Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/cabbage_bush"}},
+		{"when": {"text":"","extra":[{"text":"Sweet Potato Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/sweet_potato_bush"}},
+		{"when": {"text":"","extra":[{"text":"Mustard Seed Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/mustard_seed_bush"}},
+		{"when": {"text":"","extra":[{"text":"Curry Leaf Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/curry_leaf_bush"}},
+		{"when": {"text":"","extra":[{"text":"Onion Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/onion_bush"}},
+		{"when": {"text":"","extra":[{"text":"Garlic Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/garlic_bush"}},
+		{"when": {"text":"","extra":[{"text":"Cilantro Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/cilantro_bush"}},
+		{"when": {"text":"","extra":[{"text":"Black Pepper Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/black_pepper_bush"}},
+		{"when": {"text":"","extra":[{"text":"Corn Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/corn_bush"}},
+		{"when": {"text":"","extra":[{"text":"Pineapple Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/pineapple_bush"}},
+		{"when": {"text":"","extra":[{"text":"Red Bell Pepper Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/red_bell_pepper_bush"}},
+		{"when": {"text":"","extra":[{"text":"Oak Apple Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/oak_apple_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Coconut Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/coconut_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Cherry Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/cherry_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Pomegranate Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/pomegranate_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Lemon Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/lemon_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Plum Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/plum_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Lime Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/lime_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Orange Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/orange_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Peach Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/peach_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Pear Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/pear_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Dragon Fruit Sapling","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/plants/dragon_fruit_sapling"}},
+		{"when": {"text":"","extra":[{"text":"Dirt Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/dirt_plant"}},
+		{"when": {"text":"","extra":[{"text":"Coal Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/coal_plant"}},
+		{"when": {"text":"","extra":[{"text":"Iron Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/iron_plant"}},
+		{"when": {"text":"","extra":[{"text":"Gold Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/gold_plant"}},
+		{"when": {"text":"","extra":[{"text":"Copper Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/copper_plant"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/aluminum_plant"}},
+		{"when": {"text":"","extra":[{"text":"Tin Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/tin_plant"}},
+		{"when": {"text":"","extra":[{"text":"Silver Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/silver_plant"}},
+		{"when": {"text":"","extra":[{"text":"Lead Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/lead_plant"}},
+		{"when": {"text":"","extra":[{"text":"Redstone Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/redstone_plant"}},
+		{"when": {"text":"","extra":[{"text":"Lapis Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/lapis_plant"}},
+		{"when": {"text":"","extra":[{"text":"Ender Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/ender_plant"}},
+		{"when": {"text":"","extra":[{"text":"Quartz Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/quartz_plant"}},
+		{"when": {"text":"","extra":[{"text":"Diamond Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/diamond_plant"}},
+		{"when": {"text":"","extra":[{"text":"Emerald Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/emerald_plant"}},
+		{"when": {"text":"","extra":[{"text":"Netherite Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/netherite_plant"}},
+		{"when": {"text":"","extra":[{"text":"Glowstone Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/glowstone_plant"}},
+		{"when": {"text":"","extra":[{"text":"Obsidian Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/obsidian_plant"}},
+		{"when": {"text":"","extra":[{"text":"Slime Plant","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/slime_plant"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/oak_sapling"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/brown_terracotta"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Electric Gold Pan","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_gold_pan"}},
+		{"when": {"text":"","extra":[{"text":"Electric Gold Pan ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_gold_pan_2"}},
+		{"when": {"text":"","extra":[{"text":"Electric Gold Pan ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"(","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_gold_pan_3"}},
+		{"when": {"text":"","extra":[{"text":"Tree Growth Accelerator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/tree_growth_accel"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/brown_terracotta"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

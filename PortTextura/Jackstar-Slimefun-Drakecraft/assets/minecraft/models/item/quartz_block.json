@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/quartz_block",
+	"author": "Jackstar (DrakesCraft Labs)",
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002129}, "model": "minecraft:slimefun/24_galactifun/components/stargate_ring"},
+
+		{ "predicate": { "custom_model_data": 3002200}, "model": "minecraft:slimefun/24_galactifun/machines/oxygen_filler"}
+	]
+}

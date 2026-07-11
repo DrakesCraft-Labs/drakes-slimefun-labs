@@ -1,0 +1,40 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "entries": [
+      {
+        "threshold": 0,
+        "model": {
+          "type": "minecraft:select",
+          "property": "minecraft:component",
+          "component": "minecraft:custom_name",
+          "cases": [
+            {
+              "when": {"text":"","extra":[{"text":"Basic ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"Virtual Farm","italic":false,"color":"green"}]},
+              "model": {
+                "type": "minecraft:model",
+                "model": "slimefun/29_infinity_expansion/basic_machines/basic_virtual_farm"
+              }
+            },
+			{"when": {"text":"","extra":[{"text":"Earth"}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/universe/earth"}}
+
+          ],
+          "fallback": {
+            "type": "minecraft:model",
+            "model": "minecraft:block/grass_block",
+            "tints": [
+              {
+                "type": "minecraft:grass",
+                "temperature": 0,
+                "downfall": 0
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "oversized_in_gui": true
+}

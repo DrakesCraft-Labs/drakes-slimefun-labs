@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/lime_dye"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003907}, "model": "minecraft:slimefun/27_foxy_machines/nuclear_salt"}
+	]
+}

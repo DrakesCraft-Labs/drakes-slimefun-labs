@@ -1,0 +1,53 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/iron_block"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Heat Resistance Upgrade","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/equipment/heat_resistance_upgrade"}},
+		{"when": {"text":"","extra":[{"text":"Cold Resistance Upgrade","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/equipment/cold_resistance_upgrade"}},
+		{"when": {"text":"","extra":[{"text":"Radiation Resistance Upgrade","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/equipment/radiation_resistance_upgrade"}},
+		{"when": {"text":"","extra":[{"text":"Space Suit Upgrader","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/space_suit_upgrader"}},
+		{"when": {"text":"","extra":[{"text":"Machine Core","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/machine_core"}},
+		{"when": {"text":"","extra":[{"text":"Auto Anvil","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/auto_anvil"}},
+		{"when": {"text":"","extra":[{"text":"Auto Anvil ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"Mk.II","obfuscated":false,"clickEvent":{"action":"open_url","value":"http://Mk.II"},"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/auto_anvil_2"}},
+		{"when": {"text":"","extra":[{"text":"Iron Golem Assembler","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/iron_golem_assembler"}},
+		{"when": {"text":"","extra":[{"text":"GPS Teleporter Matrix","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/30_gps_based_machines/gps_teleporter_matrix"}},
+		{"when": {"text":"","extra":[{"text":"Silver Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/silver_block"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_block"}},
+		{"when": {"text":"","extra":[{"text":"Zinc Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/zinc_block"}},
+		{"when": {"text":"","extra":[{"text":"Tin Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/tin_block"}},
+		{"when": {"text":"","extra":[{"text":"Steel Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/steel_block"}},
+		{"when": {"text":"","extra":[{"text":"Damascus Steel Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/damascus_steel_block"}},
+		{"when": {"text":"","extra":[{"text":"Duralium Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/duralium_block"}},
+		{"when": {"text":"","extra":[{"text":"Hardened Metal Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/hardened_metal_block"}},
+		{"when": {"text":"","extra":[{"text":"Solder Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/solder_block"}},
+		{"when": {"text":"","extra":[{"text":"Billon Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/billon_block"}},
+		{"when": {"text":"","extra":[{"text":"Brass Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/brass_block"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Brass Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_brass_block"}},
+		{"when": {"text":"","extra":[{"text":"Nickel Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/nickel_block"}},
+		{"when": {"text":"","extra":[{"text":"Cobalt Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/cobalt_block"}},
+		{"when": {"text":"","extra":[{"text":"Reinforced Alloy Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/reinforced_alloy_block"}},
+		{"when": {"text":"","extra":[{"text":"Ferrosilicon Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/ferrosilicon_block"}},
+		{"when": {"text":"","extra":[{"text":"Sefirite Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/sefirite_block"}},
+		{"when": {"text":"","extra":[{"text":"Cringleium Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/cringleium_block"}},
+		{"when": {"text":"","extra":[{"text":"Smithium Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/smithium_block"}},
+		{"when": {"text":"","extra":[{"text":"Infinity Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/infinity_block"}},
+		{"when": {"text":"","extra":[{"text":"Titanium Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/titanium_block"}},
+		{"when": {"text":"","extra":[{"text":"Mythril Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/mythril_block"}},
+		{"when": {"text":"","extra":[{"text":"Electric Dust Recycler","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/electric_dust_recycler"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:block/iron_block"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

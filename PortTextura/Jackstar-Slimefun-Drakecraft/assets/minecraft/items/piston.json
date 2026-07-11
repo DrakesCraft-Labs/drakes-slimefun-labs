@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/piston"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Compressor","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/compressor"}},
+		{"when": {"text":"","extra":[{"text":"Circuit Press","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/circuit_press"}},
+		{"when": {"text":"","extra":[{"text":"Refinery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/refinery"}},
+		{"when": {"text":"","extra":[{"text":"Refinery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/refinery"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/piston"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

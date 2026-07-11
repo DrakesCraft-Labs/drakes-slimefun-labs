@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/feather"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001618}, "model": "minecraft:slimefun/15_magical_gadgets/elytra_scale"},
+
+		{ "predicate": { "custom_model_data": 3004306}, "model": "minecraft:slimefun/27_foxy_machines/parrot_feather"}
+	]
+}

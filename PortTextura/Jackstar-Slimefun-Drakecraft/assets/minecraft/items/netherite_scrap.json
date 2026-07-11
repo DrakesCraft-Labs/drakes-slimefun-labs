@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/netherite_scrap"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"MagSteel Plate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/magsteel_plate"}},
+		{"when": {"text":"","extra":[{"text":"Cursed Shard","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/cursed_shard"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/netherite_scrap"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

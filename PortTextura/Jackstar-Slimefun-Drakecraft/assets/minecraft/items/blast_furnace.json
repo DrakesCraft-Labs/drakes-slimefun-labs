@@ -1,0 +1,30 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:block/blast_furnace"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Makeshift Smeltery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/makeshift_smeltery"}},
+
+		{"when": {"text":"","extra":[{"text":"Crank Generator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/crank_generator"}},
+		{"when": {"text":"","extra":[{"text":"Generator Core","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/generator_core"}},
+		{"when": {"text":"","extra":[{"text":"Electric Dust Fabricator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/electric_dust_fabricator"}},
+		{"when": {"text":"","extra":[{"text":"Super Heated Furnace","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/super_heated_furnace"}},
+                {"when": {"text":"","extra":[{"text":"Foundry","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/foundry"}}
+
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:block/blast_furnace"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

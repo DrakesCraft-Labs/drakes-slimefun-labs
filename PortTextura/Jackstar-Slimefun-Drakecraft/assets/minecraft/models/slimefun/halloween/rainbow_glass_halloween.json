@@ -1,0 +1,8 @@
+{
+        "parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/halloween/rainbow_glass_halloween"
+	}
+}
+

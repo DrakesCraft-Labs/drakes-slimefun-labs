@@ -1,0 +1,14 @@
+{
+  	"parent": "minecraft:block/cube_bottom_top",
+	"author": "Jackstar (DrakesCraft Labs)",
+  	"textures": {
+    		"bottom": "minecraft:block/respawn_anchor_bottom",
+    		"side": "minecraft:block/respawn_anchor_side0",
+    		"top": "minecraft:block/respawn_anchor_top_off"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002431}, "model": "minecraft:slimefun/29_infinity_expansion/materials/infinity_workbench"}
+
+	]
+}

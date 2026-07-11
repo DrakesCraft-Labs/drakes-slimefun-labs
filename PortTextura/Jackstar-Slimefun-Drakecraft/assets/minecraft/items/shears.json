@@ -1,0 +1,29 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/shears"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"I","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_duralumin"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_solder"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_billon"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"IV","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_steel"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"V","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_damascus_steel"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"VI","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_reinforced"}},
+		{"when": {"text":"","extra":[{"text":"Multi Tool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"VII","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/multitool_carbonado"}},
+		{"when": {"text":"","extra":[{"text":"Sweet Berry Bush Trimmer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/berry_bush_trimmer"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/shears"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

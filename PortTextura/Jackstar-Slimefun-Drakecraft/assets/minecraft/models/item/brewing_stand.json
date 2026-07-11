@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "minecraft:item/brewing_stand"
+  },
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003600}, "model": "minecraft:slimefun/25_potion_expansion/alchemic_station"},
+
+		{ "predicate": { "custom_model_data": 3004002}, "model": "minecraft:slimefun/27_foxy_machines/potion_mixer"}
+	]
+}

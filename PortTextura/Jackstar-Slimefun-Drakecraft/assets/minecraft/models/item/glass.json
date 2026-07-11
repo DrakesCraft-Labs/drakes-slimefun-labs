@@ -1,0 +1,17 @@
+{
+	"parent": "minecraft:block/glass",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/glass"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000309}, "model": "minecraft:slimefun/3_basic_machines/pressure_chamber"},
+
+		{ "predicate": { "custom_model_data": 3001903}, "model": "minecraft:slimefun/24_galactifun/equipment/space_suit_helmet"},
+
+		{ "predicate": { "custom_model_data": 3002124}, "model": "minecraft:slimefun/24_galactifun/components/lunar_glass"},
+
+		{ "predicate": { "custom_model_data": 3002212}, "model": "minecraft:slimefun/24_galactifun/machines/observatory"}
+	]
+}

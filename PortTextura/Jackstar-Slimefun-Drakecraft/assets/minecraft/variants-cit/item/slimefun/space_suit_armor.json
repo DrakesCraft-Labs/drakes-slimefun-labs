@@ -1,0 +1,8 @@
+{
+  "hook": "equippable",
+  "type": "custom_name",
+  "items": ["minecraft:iron_chestplate", "minecraft:iron_leggings", "minecraft:iron_boots"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/slimefun/space_suit_armor/",
+  "assetGen": "equipment/humanoid"
+}

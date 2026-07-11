@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/detector_rail"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Boosted Detector Rail","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/boosted_detector_rail"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/detector_rail"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

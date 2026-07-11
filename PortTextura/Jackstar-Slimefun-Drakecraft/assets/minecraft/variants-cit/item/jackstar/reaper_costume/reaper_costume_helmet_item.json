@@ -1,0 +1,6 @@
+{
+  "type": "custom_name",
+  "items": ["minecraft:copper_helmet", "minecraft:chainmail_helmet", "minecraft:iron_helmet", "minecraft:golden_helmet", "minecraft:diamond_helmet", "minecraft:netherite_helmet"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/jackstar/reaper_costume/helmet/"
+}

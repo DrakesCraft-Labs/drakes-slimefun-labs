@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:block/lime_concrete"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Authorize User","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":true}]}, "model": {"type": "minecraft:model", "model": "minetorio/0_ui/ui_authorize"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:block/lime_concrete"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

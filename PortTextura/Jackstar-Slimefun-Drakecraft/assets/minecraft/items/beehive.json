@@ -1,0 +1,20 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {"type": "minecraft:select", "block_state_property": "honey_level", "cases": [{"model": {"type": "minecraft:model", "model": "minecraft:block/beehive_honey"}, "when": "5"}], "fallback": {"type": "minecraft:model","model": "minecraft:block/beehive_empty"}, "property": "minecraft:block_state"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Small Fluffy Barrel","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/fluffy_barrel_small"}}
+	],
+
+
+	"fallback": {"type": "minecraft:select", "block_state_property": "honey_level", "cases": [{"model": {"type": "minecraft:model", "model": "minecraft:block/beehive_honey"}, "when": "5"}], "fallback": {"type": "minecraft:model","model": "minecraft:block/beehive_empty"}, "property": "minecraft:block_state"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

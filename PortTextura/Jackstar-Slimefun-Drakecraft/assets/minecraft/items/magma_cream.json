@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/magma_cream"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Magma Essence","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/magma_essence"}},
+		{"when": {"text":"","extra":[{"text":"Magic Cream","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/magic_cream"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/magma_cream"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

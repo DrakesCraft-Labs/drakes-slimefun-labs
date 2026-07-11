@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/golden_sword"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000103}, "model": "minecraft:slimefun/1_weapons/blade_of_vampires"},
+
+		{ "predicate": { "custom_model_data": 3000652}, "model": "minecraft:slimefun/6_extragear/gilded_iron_sword"}
+	]
+}

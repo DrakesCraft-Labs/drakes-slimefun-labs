@@ -1,0 +1,17 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/diamond"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000513}, "model": "minecraft:slimefun/5_resources/synthetic_diamond"},
+
+		{ "predicate": { "custom_model_data": 3002016}, "model": "minecraft:slimefun/24_galactifun/galactifun/diamond_anvil_cell"},
+
+		{ "predicate": { "custom_model_data": 3002426}, "model": "minecraft:slimefun/29_infinity_expansion/materials/oscillator_diamond"},
+
+		{ "predicate": { "custom_model_data": 3002429}, "model": "minecraft:slimefun/29_infinity_expansion/materials/vein_miner_rune"}
+	]
+}

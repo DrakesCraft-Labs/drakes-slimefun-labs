@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/polished_andesite"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Quintuple Compressed Cobblestone","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/cobblestone_5"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/polished_andesite"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

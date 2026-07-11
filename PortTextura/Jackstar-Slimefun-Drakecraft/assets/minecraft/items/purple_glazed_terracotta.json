@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/purple_glazed_terracotta"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Purple Crystal","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/crystal_purple"}}	
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/purple_glazed_terracotta"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

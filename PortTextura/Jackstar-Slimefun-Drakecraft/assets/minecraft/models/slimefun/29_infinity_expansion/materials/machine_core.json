@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.11",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/cube_all",
+	"texture_size": [32, 16],
+	"textures": {
+		"particle": "slimefun:item/29_infinity_expansion/materials/machine_core",
+		"all": "slimefun:item/29_infinity_expansion/materials/machine_core"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 8, 16], "texture": "#all"},
+				"east": {"uv": [0, 0, 8, 16], "texture": "#all"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#all"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#all"},
+				"up": {"uv": [8, 0, 16, 16], "texture": "#all"},
+				"down": {"uv": [8, 0, 16, 16], "texture": "#all"}
+			}
+		}
+	],
+	"author": "Jackstar (DrakesCraft Labs)"
+}

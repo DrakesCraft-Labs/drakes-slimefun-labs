@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:block/beacon",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/beacon"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004004}, "model": "minecraft:slimefun/27_foxy_machines/chunk_loader"}
+	]
+}

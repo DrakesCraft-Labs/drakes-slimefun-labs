@@ -1,0 +1,32 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/crafting_table"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Basic Machines","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_crafting_table"}},				
+		{"when": {"text":"","extra":[{"text":"Enhanced Crafting Table","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_crafting_table"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Crafting Table","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_crafting_table"}},		
+		{"when": {"text":"","extra":[{"text":"Magic Workbench","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/magic_workbench"}},
+		{"when": {"text":"","extra":[{"text":"Magic Workbench","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/magic_workbench"}},		
+		{"when": {"text":"","extra":[{"text":"Charging Bench","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/charging_bench"}},
+		{"when": {"text":"","extra":[{"text":"Auto Crafting Table","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/auto_crafting_table"}},
+		{"when": {"text":"","extra":[{"text":"Auto Enhanced Crafting Table","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/auto_enhanced_crafting_table"}},
+
+		{"when": {"text":"","extra":[{"text":"Device Information","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true}]}, "model": {"type": "minecraft:model", "model": "minetorio/0_ui/ui_device_information_white"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/crafting_table"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

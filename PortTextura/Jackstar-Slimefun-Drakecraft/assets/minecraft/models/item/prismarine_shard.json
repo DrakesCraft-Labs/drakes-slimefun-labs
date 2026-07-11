@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/prismarine_shard"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003927}, "model": "minecraft:slimefun/27_foxy_machines/celestial_shard"}
+	]
+}

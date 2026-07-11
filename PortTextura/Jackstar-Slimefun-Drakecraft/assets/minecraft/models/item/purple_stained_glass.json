@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/purple_stained_glass",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001017}, "model": "minecraft:slimefun/10_technical_components/wither_proof_glass"},
+		
+		{ "predicate": { "custom_model_data": 3005811}, "model": "minecraft:slimefun/30_gps_based_machines/gps_teleporter_pylon"}
+	]
+}

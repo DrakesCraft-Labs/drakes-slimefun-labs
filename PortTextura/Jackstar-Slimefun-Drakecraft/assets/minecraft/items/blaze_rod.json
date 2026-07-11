@@ -1,0 +1,30 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/blaze_rod"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Mob Capturing Cannon","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/20_mob_capturer/mob_cannon"}},
+		{"when": {"text":"","extra":[{"text":"Electric Wind Staff","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/electric_wind_staff"}},
+		{"when": {"text":"","extra":[{"text":"Electric Fire Staff","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/electric_fire_staff"}},
+		{"when": {"text":"","extra":[{"text":"Electric Fire Staff ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/electric_fire_staff_2"}},
+		{"when": {"text":"","extra":[{"text":"Fill Wand","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/fill_wand"}},
+		{"when": {"text":"","extra":[{"text":"Sponge Wand","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/sponge_wand"}},
+		{"when": {"text":"","extra":[{"text":"Magical Wand","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/magical_wand"}},
+		{"when": {"text":"","extra":[{"text":"Warp Pad Configurator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/warp_pad_configurator"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/blaze_rod"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

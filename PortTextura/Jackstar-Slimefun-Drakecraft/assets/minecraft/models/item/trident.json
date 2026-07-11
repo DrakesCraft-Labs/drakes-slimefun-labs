@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/trident"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000106}, "model": "minecraft:slimefun/1_weapons/soulbound_trident"}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:block/redstone_block"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Minetorio Config","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":true}]}, "model": {"type": "minecraft:model", "model": "minetorio/0_ui/ui_config"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:block/redstone_block"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

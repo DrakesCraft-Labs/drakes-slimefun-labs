@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/snowball"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Heavy Cream","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/heavy_cream"}},
+		{"when": {"text":"","extra":[{"text":"Polar Fox Hide","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/polar_fox_hide"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/snowball"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

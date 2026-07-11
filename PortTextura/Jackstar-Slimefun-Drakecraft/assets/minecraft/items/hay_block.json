@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/hay_block"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Auto-Breeder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/auto_breeder"}},
+		{"when": {"text":"","extra":[{"text":"Animal Growth Accelerator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/animal_growth_accel"}},
+		{"when": {"text":"","extra":[{"text":"Produce Collector","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/produce_collector"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/hay_block"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

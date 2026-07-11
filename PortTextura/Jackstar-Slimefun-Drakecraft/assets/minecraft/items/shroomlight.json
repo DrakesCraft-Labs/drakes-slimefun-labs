@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/shroomlight"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Space Heater I","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/space_heater"}},
+		{"when": {"text":"","extra":[{"text":"Space Heater II","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/space_heater_2"}},
+		{"when": {"text":"","extra":[{"text":"Space Heater III","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/space_heater_3"}},
+		{"when": {"text":"","extra":[{"text":"Block of Amber","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/amber_block"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/shroomlight"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

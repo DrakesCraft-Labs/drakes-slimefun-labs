@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/24_galactifun/galactifun/super_fan"
+	}
+}

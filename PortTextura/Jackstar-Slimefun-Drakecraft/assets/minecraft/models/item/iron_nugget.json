@@ -1,0 +1,34 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/iron_nugget"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002418}, "model": "minecraft:slimefun/29_infinity_expansion/materials/void_bit"},
+
+		{ "predicate": { "custom_model_data": 3006509}, "model": "minecraft:slimefun/23_slime_tinker/materials/lead_nugget"},
+		{ "predicate": { "custom_model_data": 3006511}, "model": "minecraft:slimefun/23_slime_tinker/materials/silver_nugget"},
+		{ "predicate": { "custom_model_data": 3006513}, "model": "minecraft:slimefun/23_slime_tinker/materials/aluminum_nugget"},
+		{ "predicate": { "custom_model_data": 3006515}, "model": "minecraft:slimefun/23_slime_tinker/materials/magnesium_nugget"},
+		{ "predicate": { "custom_model_data": 3006517}, "model": "minecraft:slimefun/23_slime_tinker/materials/zinc_nugget"},
+		{ "predicate": { "custom_model_data": 3006519}, "model": "minecraft:slimefun/23_slime_tinker/materials/tin_nugget"},
+		{ "predicate": { "custom_model_data": 3006521}, "model": "minecraft:slimefun/23_slime_tinker/materials/steel_nugget"},
+		{ "predicate": { "custom_model_data": 3006523}, "model": "minecraft:slimefun/23_slime_tinker/materials/damascus_steel_nugget"},
+		{ "predicate": { "custom_model_data": 3006525}, "model": "minecraft:slimefun/23_slime_tinker/materials/duralium_nugget"},
+		{ "predicate": { "custom_model_data": 3006531}, "model": "minecraft:slimefun/23_slime_tinker/materials/hardened_metal_nugget"},
+		{ "predicate": { "custom_model_data": 3006535}, "model": "minecraft:slimefun/23_slime_tinker/materials/solder_nugget"},
+		{ "predicate": { "custom_model_data": 3006537}, "model": "minecraft:slimefun/23_slime_tinker/materials/billon_nugget"},
+		{ "predicate": { "custom_model_data": 3006543}, "model": "minecraft:slimefun/23_slime_tinker/materials/nickel_nugget"},
+		{ "predicate": { "custom_model_data": 3006545}, "model": "minecraft:slimefun/23_slime_tinker/materials/cobalt_nugget"},
+		{ "predicate": { "custom_model_data": 3006547}, "model": "minecraft:slimefun/23_slime_tinker/materials/reinforced_alloy_nugget"},
+		{ "predicate": { "custom_model_data": 3006549}, "model": "minecraft:slimefun/23_slime_tinker/materials/ferrosilicon_nugget"},
+		{ "predicate": { "custom_model_data": 3006556}, "model": "minecraft:slimefun/23_slime_tinker/materials/sefirite_nugget"},
+		{ "predicate": { "custom_model_data": 3006559}, "model": "minecraft:slimefun/23_slime_tinker/materials/cringleium_nugget"},
+		{ "predicate": { "custom_model_data": 3006574}, "model": "minecraft:slimefun/23_slime_tinker/materials/smithium_nugget"},
+		{ "predicate": { "custom_model_data": 3006585}, "model": "minecraft:slimefun/23_slime_tinker/materials/infinity_nugget"},
+		{ "predicate": { "custom_model_data": 3006589}, "model": "minecraft:slimefun/23_slime_tinker/materials/titanium_nugget"},
+		{ "predicate": { "custom_model_data": 3006591}, "model": "minecraft:slimefun/23_slime_tinker/materials/mythril_nugget"}
+	]
+}

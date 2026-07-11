@@ -1,0 +1,91 @@
+{
+	"model": {
+		"type": "minecraft:range_dispatch",
+		"property": "minecraft:custom_model_data",
+		"entries": [
+			{
+				"threshold": 0,
+				"model": {
+					"type": "minecraft:select",
+					"property": "minecraft:component",
+					"component": "minecraft:custom_name",
+					"cases": [
+						{
+							"when": {"text":"","extra":[{"text":"Basic Strainer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]},
+							"model": {
+								"type": "minecraft:condition",
+								"property": "minecraft:fishing_rod/cast",
+								"on_true": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/basic_strainer"
+								},
+								"on_false": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/basic_strainer"
+								}
+							}
+						},
+						{
+							"when": {"text":"","extra":[{"text":"Advanced Strainer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]},
+							"model": {
+								"type": "minecraft:condition",
+								"property": "minecraft:fishing_rod/cast",
+								"on_true": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/advanced_strainer"
+								},
+								"on_false": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/advanced_strainer"
+								}
+							}
+						},
+						{
+							"when": {"text":"","extra":[{"text":"Reinforced Strainer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]},
+							"model": {
+								"type": "minecraft:condition",
+								"property": "minecraft:fishing_rod/cast",
+								"on_true": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/reinforced_strainer"
+								},
+								"on_false": {
+									"type": "minecraft:model",
+									"model": "slimefun/29_infinity_expansion/basic_machines/reinforced_strainer"
+								}
+							}
+						},
+						{
+							"when": {"text":"","extra":[{"text":"Poseidon's Fishing Rod","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]},
+							"model": {
+								"type": "minecraft:condition",
+								"property": "minecraft:fishing_rod/cast",
+								"on_true": {
+									"type": "minecraft:model",
+									"model": "slimefun/27_foxy_machines/poseidons_fishing_rod_cast"
+								},
+								"on_false": {
+									"type": "minecraft:model",
+									"model": "slimefun/27_foxy_machines/poseidons_fishing_rod"
+								}
+							}
+						}
+					],
+					"fallback": {
+						"type": "minecraft:condition",
+						"property": "minecraft:fishing_rod/cast",
+						"on_true": {
+							"type": "minecraft:model",
+							"model": "minecraft:item/fishing_rod_cast"
+						},
+						"on_false": {
+							"type": "minecraft:model",
+							"model": "minecraft:item/fishing_rod"
+						}
+					}
+				}
+			}
+    ]
+  },
+  "oversized_in_gui": true
+}

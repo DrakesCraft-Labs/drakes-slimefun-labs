@@ -1,0 +1,21 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/glass_pane"
+    },
+    "entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Magical Glass","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/magical_glass"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/glass_pane"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

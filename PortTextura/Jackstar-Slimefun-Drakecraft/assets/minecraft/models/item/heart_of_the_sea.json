@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/heart_of_the_sea"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003919}, "model": "minecraft:slimefun/27_foxy_machines/poseidons_blessing"}
+	]
+}

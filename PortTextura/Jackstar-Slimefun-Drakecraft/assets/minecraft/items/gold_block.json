@@ -1,0 +1,25 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/gold_block"
+    },
+    "entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Electric Gold Refinery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/electric_gold_refinery"}},
+		{"when": {"text":"","extra":[{"text":"Nice Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/nice_block"}},
+		{"when": {"text":"","extra":[{"text":"Anniversarium Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/anniversarium_block"}},
+
+		{"when": {"text":"","extra":[{"text":"Whats Premium?","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":true}]}, "model": {"type": "minecraft:model", "model": "minetorio/0_ui/ui_premium"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/gold_block"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

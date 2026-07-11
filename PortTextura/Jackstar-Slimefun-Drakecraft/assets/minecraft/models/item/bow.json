@@ -1,0 +1,42 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/bow"
+	    },
+    "display": {
+		"thirdperson_righthand": {"rotation": [ -80, 260, -40 ], "translation": [ -1, -2, 2.5 ], "scale": [ 0.9, 0.9, 0.9 ]},
+        "thirdperson_lefthand": {"rotation": [ -80, -280, 40 ], "translation": [ -1, -2, 2.5 ], "scale": [ 0.9, 0.9, 0.9 ]},
+        "firstperson_righthand": {"rotation": [ 0, -90, 25 ], "translation": [ 1.13, 3.2, 1.13], "scale": [ 0.68, 0.68, 0.68 ]},
+        "firstperson_lefthand": {"rotation": [ 0, 90, -25 ], "translation": [ 1.13, 3.2, 1.13], "scale": [ 0.68, 0.68, 0.68 ]}},
+
+	"overrides": [
+        {"predicate": {"pulling": 1}, "model": "item/bow_pulling_0"},
+        {"predicate": {"pulling": 1, "pull": 0.65}, "model": "item/bow_pulling_1"},
+        {"predicate": {"pulling": 1, "pull": 0.9},  "model": "item/bow_pulling_2"},
+
+
+		{ "predicate": { "custom_model_data": 3000107}, "model": "minecraft:slimefun/1_weapons/soulbound_bow_standby"},
+		{ "predicate": { "custom_model_data": 3000107, "pulling": 1, "pull": 0}, "model": "minecraft:slimefun/1_weapons/soulbound_bow_pulling_0"},
+		{ "predicate": { "custom_model_data": 3000107, "pulling": 1, "pull": 0.65}, "model": "minecraft:slimefun/1_weapons/soulbound_bow_pulling_1"},
+		{ "predicate": { "custom_model_data": 3000107, "pulling": 1, "pull": 0.9}, "model": "minecraft:slimefun/1_weapons/soulbound_bow_pulling_2"},
+		{ "predicate": { "custom_model_data": 3000108}, "model": "minecraft:slimefun/1_weapons/explosive_bow_standby"},
+		{ "predicate": { "custom_model_data": 3000108, "pulling": 1}, "model": "minecraft:slimefun/1_weapons/explosive_bow_pulling_0"},
+		{ "predicate": { "custom_model_data": 3000108, "pulling": 1, "pull": 0.65}, "model": "minecraft:slimefun/1_weapons/explosive_bow_pulling_1"},
+		{ "predicate": { "custom_model_data": 3000108, "pulling": 1, "pull": 0.9}, "model": "minecraft:slimefun/1_weapons/explosive_bow_pulling_2"},
+		{ "predicate": { "custom_model_data": 3000109}, "model": "minecraft:slimefun/1_weapons/icy_bow_standby"},
+		{ "predicate": { "custom_model_data": 3000109, "pulling": 1}, "model": "minecraft:slimefun/1_weapons/icy_bow_pulling_0"},
+		{ "predicate": { "custom_model_data": 3000109, "pulling": 1, "pull": 0.65}, "model": "minecraft:slimefun/1_weapons/icy_bow_pulling_1"},
+		{ "predicate": { "custom_model_data": 3000109, "pulling": 1, "pull": 0.9}, "model": "minecraft:slimefun/1_weapons/icy_bow_pulling_2"},
+
+
+		{ "predicate": { "custom_model_data": 3004200}, "model": "minecraft:slimefun/27_foxy_machines/healing_bow_standby"},
+		{ "predicate": { "custom_model_data": 3004200, "pulling": 1}, "model": "minecraft:slimefun/27_foxy_machines/healing_bow_pulling_0"},
+		{ "predicate": { "custom_model_data": 3004200, "pulling": 1, "pull": 0.65}, "model": "minecraft:slimefun/27_foxy_machines/healing_bow_pulling_1"},
+		{ "predicate": { "custom_model_data": 3004200, "pulling": 1, "pull": 0.9}, "model": "minecraft:slimefun/27_foxy_machines/healing_bow_pulling_2"},
+		{ "predicate": { "custom_model_data": 3004201}, "model": "minecraft:slimefun/27_foxy_machines/acri_arcum_bow_standby"},
+		{ "predicate": { "custom_model_data": 3004201, "pulling": 1}, "model": "minecraft:slimefun/27_foxy_machines/acri_arcum_bow_pulling_0"},
+		{ "predicate": { "custom_model_data": 3004201, "pulling": 1, "pull": 0.65}, "model": "minecraft:slimefun/27_foxy_machines/acri_arcum_bow_pulling_1"},
+		{ "predicate": { "custom_model_data": 3004201, "pulling": 1, "pull": 0.9}, "model": "minecraft:slimefun/27_foxy_machines/acri_arcum_bow_pulling_2"}
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/6_extragear/aluminum_bronze_sword"
+	}
+}

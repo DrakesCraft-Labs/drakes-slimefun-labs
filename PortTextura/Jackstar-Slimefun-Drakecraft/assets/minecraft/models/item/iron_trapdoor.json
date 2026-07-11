@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/iron_trapdoor_bottom",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002022}, "model": "minecraft:slimefun/24_galactifun/galactifun/landing_hatch"},
+
+		{ "predicate": { "custom_model_data": 3002110}, "model": "minecraft:slimefun/24_galactifun/components/nozzle"}
+	]
+}

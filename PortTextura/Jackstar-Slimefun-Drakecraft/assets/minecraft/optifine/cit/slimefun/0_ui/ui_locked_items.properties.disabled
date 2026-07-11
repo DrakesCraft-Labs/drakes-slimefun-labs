@@ -1,0 +1,4 @@
+type=item
+items=minecraft:barrier
+nbt.display.Lore.*=LOCKED
+model=./ui_locked

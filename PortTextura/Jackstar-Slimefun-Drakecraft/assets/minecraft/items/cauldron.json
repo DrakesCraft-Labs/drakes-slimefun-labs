@@ -1,0 +1,28 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/cauldron"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Ore Washer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/ore_washer"}},
+		{"when": {"text":"","extra":[{"text":"Ore Washer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/ore_washer"}},
+		{"when": {"text":"","extra":[{"text":"Composter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/composter"}},
+		{"when": {"text":"","extra":[{"text":"Crucible","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/crucible"}},
+		{"when": {"text":"","extra":[{"text":"Magic Basin","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/magic_basin"}},
+		{"when": {"text":"","extra":[{"text":"Experience Cauldron","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/22_flower_power/exp_cauldron"}},
+		{"when": {"text":"","extra":[{"text":"Kitchen","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/tools/kitchen"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/cauldron"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

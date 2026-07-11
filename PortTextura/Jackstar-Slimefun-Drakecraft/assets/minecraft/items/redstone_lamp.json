@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:block/redstone_lamp"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Device Information","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":true}]}, "model": {"type": "minecraft:model", "model": "minetorio/0_ui/ui_device_information_orange"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:block/redstone_lamp"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "slimefun:item/27_foxy_machines/acri_arcum_bow_pulling_1"
+    }
+}

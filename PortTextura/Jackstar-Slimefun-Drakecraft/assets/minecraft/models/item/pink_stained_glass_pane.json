@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/pink_stained_glass"
+	},
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006377}, "model": "minecraft:slimefun/valentines_day/rainbow_glass_pane_valentine"}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/pumpkin_pie"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"F","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false},{"text":"r","italic":false,"color":"red"},{"text":"u","italic":false,"color":"green"},{"text":"i","italic":false,"color":"red"},{"text":"t","italic":false,"color":"green"},{"text":" ","italic":false,"color":"red"},{"text":"C","italic":false,"color":"green"},{"text":"a","italic":false,"color":"red"},{"text":"k","italic":false,"color":"green"},{"text":"e","italic":false,"color":"red"}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_fruit_cake"}},
+		{"when": {"text":"","extra":[{"text":"C","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false},{"text":"h","italic":false,"color":"red"},{"text":"r","italic":false,"color":"green"},{"text":"i","italic":false,"color":"red"},{"text":"s","italic":false,"color":"green"},{"text":"t","italic":false,"color":"red"},{"text":"m","italic":false,"color":"green"},{"text":"a","italic":false,"color":"red"},{"text":"s","italic":false,"color":"green"},{"text":" ","italic":false,"color":"red"},{"text":"C","italic":false,"color":"green"},{"text":"a","italic":false,"color":"red"},{"text":"k","italic":false,"color":"green"},{"text":"e","italic":false,"color":"red"}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_cake"}},
+		{"when": {"text":"","extra":[{"text":"Carrot Pie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/easter/carrot_pie"}},
+		{"when": {"text":"","extra":[{"text":"Apple Pie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/easter/easter_apple_pie"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/pumpkin_pie"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

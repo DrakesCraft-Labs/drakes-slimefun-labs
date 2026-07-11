@@ -1,0 +1,48 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/iron_helmet"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Tin Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/tin_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Silver Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/silver_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/aluminum_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Lead Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/lead_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Zinc Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/zinc_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Magnesium Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/magnesium_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Steel Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/steel_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Cobalt Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/cobalt_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Slime Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/reinforced_slime_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Damascus Steel Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/damascus_steel_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Reinforced Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/reinforced_alloy_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Solar Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/solar_helmet"}},
+		{"when": {"text":"","extra":[{"text":"High-Energy Solar Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/solar_helmet"}}
+	],
+
+
+	"fallback": {"type": "minecraft:select","property": "minecraft:trim_material",
+          "cases": [
+            {"when": "minecraft:quartz","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_quartz_trim"}},
+            {"when": "minecraft:iron","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_iron_trim"}},
+            {"when": "minecraft:netherite","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_netherite_trim"}},
+            {"when": "minecraft:redstone","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_redstone_trim"}},
+            {"when": "minecraft:copper","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_copper_trim"}},
+            {"when": "minecraft:gold","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_gold_trim"}},
+            {"when": "minecraft:emerald","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_emerald_trim"}},
+            {"when": "minecraft:diamond","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_diamond_trim"}},
+            {"when": "minecraft:lapis","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_lapis_trim"}},
+            {"when": "minecraft:amethyst","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_amethyst_trim"}},
+            {"when": "minecraft:resin","model": {"type": "minecraft:model","model": "minecraft:item/iron_helmet_resin_trim"}}
+			],
+		"fallback": {"type": "minecraft:model","model": "minecraft:item/iron_helmet"}}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

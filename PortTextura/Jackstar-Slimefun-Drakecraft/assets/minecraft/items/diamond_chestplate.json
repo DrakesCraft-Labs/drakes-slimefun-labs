@@ -1,0 +1,45 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/diamond_chestplate"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Zombie Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_zombie"}},
+		{"when": {"text":"","extra":[{"text":"Spider Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_spider"}},
+		{"when": {"text":"","extra":[{"text":"Skeleton Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_skeleton"}},
+		{"when": {"text":"","extra":[{"text":"Wither Skeleton Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_wither_skeleton"}},
+		{"when": {"text":"","extra":[{"text":"Endermen Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_endermen"}},
+		{"when": {"text":"","extra":[{"text":"Creeper Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_creeper"}},
+		{"when": {"text":"","extra":[{"text":"Guardian Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_guardian"}},
+		{"when": {"text":"","extra":[{"text":"Iron Golem Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_iron_golem"}},
+		{"when": {"text":"","extra":[{"text":"Blaze Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_blaze"}},
+		{"when": {"text":"","extra":[{"text":"Witch Data Card","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/mob_simulation/data_card_witch"}}
+	],
+
+
+	"fallback": {"type": "minecraft:select","property": "minecraft:trim_material",
+          "cases": [
+            {"when": "minecraft:quartz","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_quartz_trim"}},
+            {"when": "minecraft:iron","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_iron_trim"}},
+            {"when": "minecraft:netherite","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_netherite_trim"}},
+            {"when": "minecraft:redstone","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_redstone_trim"}},
+            {"when": "minecraft:copper","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_copper_trim"}},
+            {"when": "minecraft:gold","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_gold_trim"}},
+            {"when": "minecraft:emerald","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_emerald_trim"}},
+            {"when": "minecraft:diamond","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_diamond_trim"}},
+            {"when": "minecraft:lapis","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_lapis_trim"}},
+            {"when": "minecraft:amethyst","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_amethyst_trim"}},
+            {"when": "minecraft:resin","model": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate_resin_trim"}}
+			],
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/diamond_chestplate"}}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

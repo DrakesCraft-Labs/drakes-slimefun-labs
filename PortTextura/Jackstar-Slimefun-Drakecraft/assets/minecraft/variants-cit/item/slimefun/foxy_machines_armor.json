@@ -1,0 +1,8 @@
+{
+  "hook": "equippable",
+  "type": "custom_name",
+  "items": ["minecraft:netherite_helmet", "minecraft:netherite_chestplate", "minecraft:netherite_leggings", "minecraft:netherite_boots"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/slimefun/foxy_machines_armor/",
+  "assetGen": "equipment/humanoid"
+}

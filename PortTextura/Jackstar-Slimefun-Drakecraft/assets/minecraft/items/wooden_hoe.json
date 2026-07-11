@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/wooden_hoe"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Slimy TreeTaps","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/tree_tap"}},
+		{"when": {"text":"","extra":[{"text":"Tree Tap","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/tree_tap"}},
+		{"when": {"text":"","extra":[{"text":"Crook","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/tools/crook"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/wooden_hoe"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

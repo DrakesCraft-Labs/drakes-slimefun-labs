@@ -1,0 +1,26 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/bowl"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Automated Panning Machine","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/automated_panning_machine"}},
+		{"when": {"text":"","extra":[{"text":"Gold Pan","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/4_tools/gold_pan"}},
+		{"when": {"text":"","extra":[{"text":"Gold Pan","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/4_tools/gold_pan"}},
+		{"when": {"text":"","extra":[{"text":"Nether Gold Pan","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/4_tools/nether_gold_pan"}},
+		{"when": {"text":"","extra":[{"text":"Nether Gold Pan","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/4_tools/nether_gold_pan"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/bowl"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

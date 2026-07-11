@@ -1,0 +1,30 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/stick"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Grandmas Walking Stick","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/1_weapons/grandmas_walking_stick"}},
+		{"when": {"text":"","extra":[{"text":"Grandpas Walking Stick","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/1_weapons/grandpas_walking_stick"}},
+		{"when": {"text":"","extra":[{"text":"Splint","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/2_useful_items/splint"}},
+		{"when": {"text":"","extra":[{"text":"Elemental Staff","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/staff_elemental"}},
+		{"when": {"text":"","extra":[{"text":"Elemental Staff ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"Wind","italic":true,"color":"aqua"}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/staff_elemental_wind"}},
+		{"when": {"text":"","extra":[{"text":"Elemental Staff ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"Water","italic":true,"color":"dark_blue"}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/staff_elemental_water"}},
+		{"when": {"text":"","extra":[{"text":"Elemental Staff ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"Fire","italic":true,"color":"red"}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/staff_elemental_fire"}},
+		{"when": {"text":"","extra":[{"text":"Elemental Staff ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"Storm","italic":true,"color":"dark_gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/staff_elemental_storm"}},
+		{"when": {"text":"","extra":[{"text":"Position Selector","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/position_selector"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/stick"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

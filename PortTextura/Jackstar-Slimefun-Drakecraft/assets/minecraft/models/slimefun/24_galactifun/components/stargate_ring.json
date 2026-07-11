@@ -1,0 +1,8 @@
+{
+        "parent": "minecraft:block/cube_column",
+	"author": "Jackstar (DrakesCraft Labs)",
+	 "textures": {
+	    "side": "slimefun:item/24_galactifun/components/stargate_ring",
+	    "end": "slimefun:item/24_galactifun/components/stargate_ring_top"
+  }
+}

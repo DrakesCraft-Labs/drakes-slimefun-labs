@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/flint"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001104}, "model": "minecraft:slimefun/11_misc_items/hook"},
+
+		{ "predicate": { "custom_model_data": 3003601}, "model": "minecraft:slimefun/25_potion_expansion/pestle"}
+	]
+}

@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/activator_rail"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001000}, "model": "minecraft:slimefun/10_technical_components/basic_circuit_board"},
+
+		{ "predicate": { "custom_model_data": 3004106}, "model": "minecraft:slimefun/27_foxy_machines/boosted_activator_rail"}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/nether_star"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002409}, "model": "minecraft:slimefun/29_infinity_expansion/materials/singularity_fortune"},
+		{ "predicate": { "custom_model_data": 3002410}, "model": "minecraft:slimefun/29_infinity_expansion/materials/singularity_magic"},
+		{ "predicate": { "custom_model_data": 3002411}, "model": "minecraft:slimefun/29_infinity_expansion/materials/singularity_earth"},
+		{ "predicate": { "custom_model_data": 3002412}, "model": "minecraft:slimefun/29_infinity_expansion/materials/singularity_metal"}
+	]
+}

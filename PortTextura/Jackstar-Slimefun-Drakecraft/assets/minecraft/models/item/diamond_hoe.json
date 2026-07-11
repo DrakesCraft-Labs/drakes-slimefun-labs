@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/diamond_hoe"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000415}, "model": "minecraft:slimefun/4_tools/soulbound_hoe"},
+
+		{ "predicate": { "custom_model_data": 3003302}, "model": "minecraft:slimefun/21_slimy_treetaps/diamond_tree_tap"}
+	]
+}

@@ -1,0 +1,24 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/glass"
+    },
+    "entries": [
+		{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Pressure Chamber","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/pressure_chamber"}},
+		{"when": {"text":"","extra":[{"text":"Space Suit Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/equipment/space_suit_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Lunar Glass","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/components/lunar_glass"}},
+		{"when": {"text":"","extra":[{"text":"Observatory","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/observatory"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/glass"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

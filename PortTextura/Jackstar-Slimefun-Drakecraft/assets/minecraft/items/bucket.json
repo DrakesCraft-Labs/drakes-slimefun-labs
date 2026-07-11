@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/bucket"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Steel Thruster","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/10_technical_components/steel_thruster"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/bucket"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

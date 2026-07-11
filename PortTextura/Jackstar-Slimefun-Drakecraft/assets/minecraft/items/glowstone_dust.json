@@ -1,0 +1,27 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/glowstone_dust"
+    },
+    "entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Gold Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/gold_dust"}},
+		{"when": {"text":"","extra":[{"text":"Copper Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/copper_dust"}},
+		{"when": {"text":"","extra":[{"text":"Sulfate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/sulfate"}},
+		{"when": {"text":"","extra":[{"text":"Diamond Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/diamond_powder"}},
+		{"when": {"text":"","extra":[{"text":"Gold Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/gold_powder"}},
+		{"when": {"text":"","extra":[{"text":"Emerald Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/emerald_powder"}},
+		{"when": {"text":"","extra":[{"text":"Copper Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/copper_powder"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/glowstone_dust"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,78 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/potion",
+      "tints": [
+      {
+        "type": "minecraft:potion",
+        "default": -13083194}]},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Medicine","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/2_useful_items/medicine"}},
+		{"when": {"text":"","extra":[{"text":"Glow Berry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/glow_berry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Apple Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/apple_juice"}},
+		{"when": {"text":"","extra":[{"text":"Carrot Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/carrot_juice"}},
+		{"when": {"text":"","extra":[{"text":"Melon Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/melon_juice"}},
+		{"when": {"text":"","extra":[{"text":"Pumpkin Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/pumpkin_juice"}},
+		{"when": {"text":"","extra":[{"text":"Sweet Berry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/sweet_berry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Golden Apple Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/7_food/golden_apple_juice"}},
+		{"when": {"text":"","extra":[{"text":"Grape Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/grape_juice"}},
+		{"when": {"text":"","extra":[{"text":"Grape Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/grape_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Blueberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/blueberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Blueberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/blueberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Elderberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/elderberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Elderberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/elderberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Raspberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/raspberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Raspberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/raspberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Blackberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/blackberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Blackberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/blackberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Cranberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cranberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Cranberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cranberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Cowberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cowberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Cowberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cowberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Strawberry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/strawberry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Strawberry Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/strawberry_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Oak Apple Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/oak_apple_juice"}},
+		{"when": {"text":"","extra":[{"text":"Coconut Milk","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/coconut_milk"}},
+		{"when": {"text":"","extra":[{"text":"Cherry Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cherry_juice"}},
+		{"when": {"text":"","extra":[{"text":"Pomegranate Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/pomegranate_juice"}},
+		{"when": {"text":"","extra":[{"text":"Lemon Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/lemon_juice"}},
+		{"when": {"text":"","extra":[{"text":"Plum Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/plum_juice"}},
+		{"when": {"text":"","extra":[{"text":"Lime Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/lime_juice"}},
+		{"when": {"text":"","extra":[{"text":"Orange Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/orange_juice"}},
+		{"when": {"text":"","extra":[{"text":"Peach Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/peach_juice"}},
+		{"when": {"text":"","extra":[{"text":"Pear Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/pear_juice"}},
+		{"when": {"text":"","extra":[{"text":"Dragon Fruit Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/dragon_fruit_juice"}},
+		{"when": {"text":"","extra":[{"text":"Lime Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/lime_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Tomato Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/tomato_juice"}},
+		{"when": {"text":"","extra":[{"text":"Wine","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/wine"}},
+		{"when": {"text":"","extra":[{"text":"Lemon Iced Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/lemon_iced_tea"}},
+		{"when": {"text":"","extra":[{"text":"Raspberry Iced Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/raspberry_iced_tea"}},
+		{"when": {"text":"","extra":[{"text":"Peach Iced Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/peach_iced_tea"}},
+		{"when": {"text":"","extra":[{"text":"Strawberry Iced Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/strawberry_iced_tea"}},
+		{"when": {"text":"","extra":[{"text":"Cherry Iced Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/cherry_iced_tea"}},
+		{"when": {"text":"","extra":[{"text":"Thai Tea","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/thai_tea"}},
+		{"when": {"text":"","extra":[{"text":"Lemonade","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/lemonade"}},
+		{"when": {"text":"","extra":[{"text":"Pineapple Juice","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/pineapple_juice"}},
+		{"when": {"text":"","extra":[{"text":"Pineapple Smoothie","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/drinks/pineapple_smoothie"}},
+		{"when": {"text":"","extra":[{"text":"Glass of Milk","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_milk"}},
+		{"when": {"text":"","extra":[{"text":"Chocolate Milk","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_chocolate_milk"}},
+		{"when": {"text":"","extra":[{"text":"Egg Nog","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_egg_nog"}},
+		{"when": {"text":"","extra":[{"text":"Apple Cider","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_apple_cider"}},
+		{"when": {"text":"","extra":[{"text":"Hot Chocolate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/christmas/christmas_hot_chocolate"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/potion","tints": [{"type": "minecraft:potion","default": -13083194}]}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,37 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/firework_star"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Silicon","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/silicon"}},
+		{"when": {"text":"","extra":[{"text":"Magical Items","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_ender"}},
+		{"when": {"text":"","extra":[{"text":"Blank Rune","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/blank_rune"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Air","italic":false,"color":"aqua","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_air"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Earth","italic":false,"color":"red","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_earth"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Fire","italic":false,"color":"dark_red","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_fire"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Water","italic":false,"color":"dark_blue","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_water"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Ender","italic":false,"color":"dark_purple","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_ender"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Lightning","italic":false,"color":"yellow","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_lightning"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Rainbow","italic":false,"color":"light_purple","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_rainbow"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Soulbound","italic":false,"color":"dark_purple","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_soulbound"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Enchantment","italic":false,"color":"gold","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_enchantment"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Villagers","italic":false,"color":"dark_red","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ancient_rune_villager"}},
+		{"when": {"text":"","extra":[{"text":"Rubber","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/rubber"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Unbreakable","italic":false,"color":"dark_green","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/unbreakable_rune"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Rune ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"[","italic":false,"color":"dark_gray","bold":true},{"text":"Fireproof","italic":false,"color":"red","bold":true},{"text":"]","italic":false,"color":"dark_gray","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/ancient_rune_fireproof"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/firework_star"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

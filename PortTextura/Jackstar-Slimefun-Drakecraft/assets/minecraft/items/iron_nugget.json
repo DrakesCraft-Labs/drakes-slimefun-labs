@@ -1,0 +1,44 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/iron_nugget"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Void Bit","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/void_bit"}},
+		{"when": {"text":"","extra":[{"text":"Lead Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/lead_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Silver Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/silver_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Magnesium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/magnesium_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Zinc Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/zinc_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Tin Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/tin_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Steel Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/steel_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Damascus Steel Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/damascus_steel_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Duralium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/duralium_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Hardened Metal Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/hardened_metal_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Solder Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/solder_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Billon Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/billon_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Nickel Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/nickel_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Cobalt Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/cobalt_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Reinforced Alloy Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/reinforced_alloy_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Ferrosilicon Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/ferrosilicon_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Sefirite Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/sefirite_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Cringleium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/cringleium_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Smithium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/smithium_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Infinity Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/infinity_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Titanium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/titanium_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Mythril Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/mythril_nugget"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/iron_nugget"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,47 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/leather_helmet",
+      "tints": [{"type": "minecraft:dye","default": -6265536}]},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Copper Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/6_extragear/copper_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Magical Armor","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/ender_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Ender Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/ender_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Slime Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/slime_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Glowstone Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/glowstone_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Rainbow Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"light_purple","bold":true}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/rainbow_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Elytra Cap","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/9_magical_armor/elytra_cap"}},
+		{"when": {"text":"","extra":[{"text":"Cactus Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/cactus_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Scuba Helmet","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/12_armor/hazmat_helmet"}},
+		{"when": {"text":"","extra":[{"text":"Night Vision Goggles","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"green","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/16_technical_gadgets/night_vision_googles"}},
+		{"when": {"text":"","extra":[{"text":"Helicopter Hat","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/helicopter_hat"}}
+	],
+
+
+	"fallback": {"type": "minecraft:select","property": "minecraft:trim_material",
+          "cases": [
+            {"when": "minecraft:quartz","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_quartz_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:iron","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_iron_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:netherite","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_netherite_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:redstone","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_redstone_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:copper","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_copper_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:gold","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_gold_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:emerald","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_emerald_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:diamond","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_diamond_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:lapis","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_lapis_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:amethyst","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_amethyst_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}},
+            {"when": "minecraft:resin","model": {"type": "minecraft:model","model": "minecraft:item/leather_helmet_resin_trim", "tints": [{"type": "minecraft:dye","default": -6265536}]}}
+			],
+		"fallback": {"type": "minecraft:model","model": "minecraft:item/leather_helmet", "tints": [{"type": "minecraft:dye","default": -6265536}]}}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

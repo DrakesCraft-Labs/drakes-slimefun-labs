@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "slimefun:item/27_foxy_machines/creeper_spawn_egg_fallback"
+  }
+}

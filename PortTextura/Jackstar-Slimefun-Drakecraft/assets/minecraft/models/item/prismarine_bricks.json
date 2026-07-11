@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/prismarine_bricks",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002123}, "model": "minecraft:slimefun/24_galactifun/components/ender_block"}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/purple_terracotta",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006510}, "model": "minecraft:slimefun/23_slime_tinker/materials/lead_block"},
+		{ "predicate": { "custom_model_data": 3006596}, "model": "minecraft:slimefun/23_slime_tinker/materials/magnonium_block"}
+	]
+}

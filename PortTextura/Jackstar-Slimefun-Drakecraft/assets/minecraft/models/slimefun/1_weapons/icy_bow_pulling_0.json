@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "slimefun:item/1_weapons/icy_bow_pulling_0"
+    }
+}

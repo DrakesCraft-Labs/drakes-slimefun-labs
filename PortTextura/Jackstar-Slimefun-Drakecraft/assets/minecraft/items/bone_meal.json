@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/bone_meal"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Infernal Bonemeal","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/15_magical_gadgets/infernal_bonemeal"}},
+		{"when": {"text":"","extra":[{"text":"Pure Bone Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/pure_bone_dust"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/bone_meal"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

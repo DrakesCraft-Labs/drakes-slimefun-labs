@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/bone_meal"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001617}, "model": "minecraft:slimefun/15_magical_gadgets/infernal_bonemeal"},
+
+		{ "predicate": { "custom_model_data": 3003922}, "model": "minecraft:slimefun/27_foxy_machines/pure_bone_dust"}
+	]
+}

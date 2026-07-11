@@ -1,0 +1,36 @@
+{
+	"parent": "minecraft:block/furnace",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/furnace"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000307}, "model": "minecraft:slimefun/3_basic_machines/smeltery"},
+		{ "predicate": { "custom_model_data": 3000319}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace"},
+		{ "predicate": { "custom_model_data": 3000320}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_2"},
+		{ "predicate": { "custom_model_data": 3000321}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_3"},
+		{ "predicate": { "custom_model_data": 3000322}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_4"},
+		{ "predicate": { "custom_model_data": 3000323}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_5"},
+		{ "predicate": { "custom_model_data": 3000324}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_6"},
+		{ "predicate": { "custom_model_data": 3000325}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_7"},
+		{ "predicate": { "custom_model_data": 3000326}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_8"},
+		{ "predicate": { "custom_model_data": 3000327}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_9"},
+		{ "predicate": { "custom_model_data": 3000328}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_10"},
+		{ "predicate": { "custom_model_data": 3000329}, "model": "minecraft:slimefun/3_basic_machines/enhanced_furnace_11"},
+		{ "predicate": { "custom_model_data": 3000330}, "model": "minecraft:slimefun/3_basic_machines/reinforced_furnace"},
+		{ "predicate": { "custom_model_data": 3000331}, "model": "minecraft:slimefun/3_basic_machines/carbonado_edged_furnace"},
+
+		{ "predicate": { "custom_model_data": 3002215}, "model": "minecraft:slimefun/24_galactifun/machines/oxygen_sealer"},
+
+		{ "predicate": { "custom_model_data": 3005713}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_furnace"},
+		{ "predicate": { "custom_model_data": 3005714}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_furnace_2"},
+		{ "predicate": { "custom_model_data": 3005715}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_furnace_3"},
+		{ "predicate": { "custom_model_data": 3005728}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_ore_grinder"},
+		{ "predicate": { "custom_model_data": 3005729}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_ore_grinder_2"},
+		{ "predicate": { "custom_model_data": 3005730}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_ore_grinder_3"},
+		{ "predicate": { "custom_model_data": 3005733}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_ingot_pulverizer"},
+		{ "predicate": { "custom_model_data": 3005772}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_smeltery"},
+		{ "predicate": { "custom_model_data": 3005773}, "model": "minecraft:slimefun/28_energy_and_electricity/electric_smeltery_2"}
+	]
+}

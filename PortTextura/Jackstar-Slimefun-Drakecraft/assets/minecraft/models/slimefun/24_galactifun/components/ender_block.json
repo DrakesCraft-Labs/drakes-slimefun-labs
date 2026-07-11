@@ -1,0 +1,13 @@
+{
+        "parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	 "textures": {
+	    "down": "slimefun:item/24_galactifun/components/ender_block_bottom",
+ 	    "east": "slimefun:item/24_galactifun/components/ender_block_side",
+  	    "north": "slimefun:item/24_galactifun/components/ender_block_side",
+  	    "particle": "slimefun:item/24_galactifun/components/ender_block_top",
+   	    "south": "slimefun:item/24_galactifun/components/ender_block_side",
+  	    "up": "slimefun:item/24_galactifun/components/ender_block_top",
+  	    "west": "slimefun:item/24_galactifun/components/ender_block_side"
+  }
+}

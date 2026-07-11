@@ -1,0 +1,97 @@
+{
+	"format_version": "1.21.6",
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"1": "slimefun:item/3_basic_machines/automated_panning_machine",
+		"particle": "slimefun:item/3_basic_machines/overlays/automated_panning_machine_overlay",
+		"side": "slimefun:item/3_basic_machines/overlays/automated_panning_machine_overlay"
+	},
+	"elements": [
+		{
+			"from": [0, 3, 0],
+			"to": [16, 5, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 3, 0]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 3, 0],
+			"to": [2, 16, 16],
+			"faces": {
+				"north": {"uv": [14, 0, 16, 13], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 13], "texture": "#side"},
+				"south": {"uv": [0, 0, 2, 13], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 0, 2, 16], "texture": "#side", "cullface": "up"}
+			}
+		},
+		{
+			"from": [14, 3, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 13], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 13], "texture": "#side", "cullface": "east"},
+				"south": {"uv": [14, 0, 16, 13], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#side"},
+				"up": {"uv": [14, 0, 16, 16], "texture": "#side", "cullface": "up"}
+			}
+		},
+		{
+			"from": [2, 3, 0],
+			"to": [14, 16, 2],
+			"faces": {
+				"north": {"uv": [2, 0, 14, 13], "texture": "#side", "cullface": "north"},
+				"south": {"uv": [2, 0, 14, 13], "texture": "#side"},
+				"up": {"uv": [2, 0, 14, 2], "texture": "#side", "cullface": "up"}
+			}
+		},
+		{
+			"from": [2, 3, 14],
+			"to": [14, 16, 16],
+			"faces": {
+				"north": {"uv": [2, 0, 14, 13], "texture": "#side"},
+				"south": {"uv": [2, 0, 14, 13], "texture": "#side", "cullface": "south"},
+				"up": {"uv": [2, 14, 14, 16], "texture": "#side", "cullface": "up"}
+			}
+		},
+		{
+			"from": [3, 4, 16.05],
+			"to": [13, 16, 16.05],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 4, 16]},
+			"faces": {
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_righthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [20, -150, 0],
+			"translation": [0, 0, 1],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"fixed": {
+			"translation": [0, 0, 18],
+			"scale": [2.02, 2.02, 2.02]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

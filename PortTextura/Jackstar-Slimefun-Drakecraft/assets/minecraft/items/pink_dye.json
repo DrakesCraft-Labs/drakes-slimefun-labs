@@ -1,0 +1,26 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/pink_dye"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Fondness Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/fondness_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Devotion Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/devotion_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Passion Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/passion_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Love Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/love_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Love Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/love_block"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/pink_dye"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

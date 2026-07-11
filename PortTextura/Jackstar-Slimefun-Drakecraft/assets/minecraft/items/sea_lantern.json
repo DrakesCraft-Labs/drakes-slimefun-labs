@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/sea_lantern"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Planetary Analyzer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/planetary_analyzer"}},
+		{"when": {"text":"","extra":[{"text":"Chemical Reactor","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/chemical_reactor"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/sea_lantern"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,13 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "slimefun:item/0_ui/ui_previous_active"
+	},
+	"display": {
+		"gui": {
+			"scale": [1.125, 1.125, 1]
+		}
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

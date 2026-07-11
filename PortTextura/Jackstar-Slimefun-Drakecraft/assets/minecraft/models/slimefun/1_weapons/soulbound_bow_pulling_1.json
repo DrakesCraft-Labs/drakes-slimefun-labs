@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "slimefun:item/1_weapons/soulbound_bow_pulling_1"
+    }
+}

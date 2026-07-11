@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/green_terracotta"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Food Composter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/food_composter"}},
+		{"when": {"text":"","extra":[{"text":"Food Composter","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/food_composter"}},
+		{"when": {"text":"","extra":[{"text":"Food Composter ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"(","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/food_composter_2"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/green_terracotta"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

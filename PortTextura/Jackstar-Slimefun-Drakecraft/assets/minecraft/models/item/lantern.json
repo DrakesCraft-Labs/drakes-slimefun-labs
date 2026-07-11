@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/lantern"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002221}, "model": "minecraft:slimefun/24_galactifun/machines/electrolyzer"}
+	]
+}

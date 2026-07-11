@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/wheat_seeds"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004908}, "model": "minecraft:slimefun/22_flower_power/flowering_seed"}
+	]
+}

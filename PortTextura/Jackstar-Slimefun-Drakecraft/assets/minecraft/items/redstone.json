@@ -1,0 +1,26 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/redstone"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Laserite Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/components/laserite_dust"}},
+		{"when": {"text":"","extra":[{"text":"[Redstone Dust] Oscillator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/oscillator_redstone"}},
+		{"when": {"text":"","extra":[{"text":"Redstone Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/redstone_powder"}},
+		{"when": {"text":"","extra":[{"text":"Ancient Debris Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/ancient_debris_powder"}},
+		{"when": {"text":"","extra":[{"text":"Blood","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/blood"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/redstone"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

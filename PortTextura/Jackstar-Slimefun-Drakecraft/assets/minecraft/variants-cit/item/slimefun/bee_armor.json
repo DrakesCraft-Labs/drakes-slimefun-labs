@@ -1,0 +1,8 @@
+{
+  "hook": "equippable",
+  "type": "custom_name",
+  "items": ["minecraft:golden_helmet", "minecraft:golden_leggings", "minecraft:golden_boots"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/slimefun/bee_armor/",
+  "assetGen": "equipment/humanoid"
+}

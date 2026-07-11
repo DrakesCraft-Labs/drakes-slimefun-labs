@@ -1,0 +1,43 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/blaze_powder"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:lore",
+	"cases": [
+		{"when": [{"text":"","extra":[{"text":"From the depths of the end...","obfuscated":false,"italic":true,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/ender_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Dirt","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/dirt_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Coal","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/coal_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Iron","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/iron_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Gold","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/gold_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Copper","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/copper_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Aluminum","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/aluminum_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Tin","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/tin_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Silver","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/silver_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Lead","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/lead_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Redstone","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/redstone_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Lapis","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/lapis_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Ender","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/ender_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Quartz","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/quartz_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Diamond","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/diamond_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Emerald","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/emerald_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Netherite","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/netherite_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Glowstone","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/glowstone_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Obsidian","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/obsidian_essence"}},
+		{"when": ["", {"text":"","extra":[{"text":"Slime","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}], "model": {"type": "minecraft:model", "model": "slimefun/18_exotic_garden/magical_plants/slime_essence"}}
+	],
+
+
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/blaze_powder"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,8 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "slimefun:item/2_useful_items/bandage"
+	},
+	"author": "Jackstar (DrakesCraft Labs)"
+}

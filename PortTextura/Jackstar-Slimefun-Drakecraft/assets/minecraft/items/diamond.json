@@ -1,0 +1,25 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/diamond"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Synthetic Diamond","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/synthetic_diamond"}},
+		{"when": {"text":"","extra":[{"text":"Diamond Anvil Cell","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/galactifun/diamond_anvil_cell"}},
+		{"when": {"text":"","extra":[{"text":"[Diamond] Oscillator","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/oscillator_diamond"}},
+		{"when": {"text":"","extra":[{"text":"Vein Miner Rune","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/vein_miner_rune"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/diamond"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

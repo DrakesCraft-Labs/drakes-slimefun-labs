@@ -1,0 +1,26 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/gold_nugget"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000800}, "model": "minecraft:slimefun/8_magical_items/magical_lump_i"},
+		{ "predicate": { "custom_model_data": 3000801}, "model": "minecraft:slimefun/8_magical_items/magical_lump_ii"},
+		{ "predicate": { "custom_model_data": 3000802}, "model": "minecraft:slimefun/8_magical_items/magical_lump_iii"},
+		{ "predicate": { "custom_model_data": 3000803}, "model": "minecraft:slimefun/8_magical_items/ender_lump_i"},
+		{ "predicate": { "custom_model_data": 3000804}, "model": "minecraft:slimefun/8_magical_items/ender_lump_ii"},
+		{ "predicate": { "custom_model_data": 3000805}, "model": "minecraft:slimefun/8_magical_items/ender_lump_iii"},
+
+		{ "predicate": { "custom_model_data": 3003900}, "model": "minecraft:slimefun/27_foxy_machines/magical_lump_iv"},
+		{ "predicate": { "custom_model_data": 3003901}, "model": "minecraft:slimefun/27_foxy_machines/magical_lump_v"},
+
+		{ "predicate": { "custom_model_data": 3006529}, "model": "minecraft:slimefun/23_slime_tinker/materials/aluminum_bronze_nugget"},
+		{ "predicate": { "custom_model_data": 3006533}, "model": "minecraft:slimefun/23_slime_tinker/materials/corinthian_bronze_nugget"},
+		{ "predicate": { "custom_model_data": 3006539}, "model": "minecraft:slimefun/23_slime_tinker/materials/brass_nugget"},
+		{ "predicate": { "custom_model_data": 3006541}, "model": "minecraft:slimefun/23_slime_tinker/materials/aluminum_brass_nugget"},
+		{ "predicate": { "custom_model_data": 3006571}, "model": "minecraft:slimefun/23_slime_tinker/materials/nice_nugget"},
+		{ "predicate": { "custom_model_data": 3006577}, "model": "minecraft:slimefun/23_slime_tinker/materials/anniversarium_nugget"}
+	]
+}

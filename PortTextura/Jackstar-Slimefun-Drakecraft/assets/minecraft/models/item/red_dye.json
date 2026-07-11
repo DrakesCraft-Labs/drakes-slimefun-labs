@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/red_dye"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3002128}, "model": "minecraft:slimefun/24_galactifun/components/laserite"}
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/sunflower"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Solar System"}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/universe/solar_system"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/sunflower"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/respawn_anchor"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Infinity Workbench","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/infinity_workbench"}},	
+		{"when": {"text":"","extra":[{"text":"Bottomless Fluffy Barrel","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/34_fluffy_machines/fluffy_barrel_bottomless"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/respawn_anchor"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

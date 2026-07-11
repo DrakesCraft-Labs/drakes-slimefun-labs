@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:block/wall_inventory",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"wall": "minecraft:block/polished_blackstone_bricks"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3006504}, "model": "minecraft:slimefun/23_slime_tinker/materials/seared_spout"}
+	]
+}

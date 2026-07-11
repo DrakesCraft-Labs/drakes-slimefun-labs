@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"all": "slimefun:item/27_foxy_machines/forcefield_engine"
+	}
+}

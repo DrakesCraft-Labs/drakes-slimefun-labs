@@ -1,0 +1,33 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/gunpowder"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Iron Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/iron_dust"}},
+		{"when": {"text":"","extra":[{"text":"Lead Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/5_resources/lead_dust"}},
+		{"when": {"text":"","extra":[{"text":"Essence of Afterlife","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/essence_of_afterlife"}},
+		{"when": {"text":"","extra":[{"text":"Sifted Ore","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/sifted_ore"}},
+		{"when": {"text":"","extra":[{"text":"Crushed Ore","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/crushed_ore"}},
+		{"when": {"text":"","extra":[{"text":"Pulverized Ore","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/pulverized_ore"}},
+		{"when": {"text":"","extra":[{"text":"Pure Ore Cluster","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/11_misc_items/pure_ore_cluster"}},
+		{"when": {"text":"","extra":[{"text":"Munpowder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/components/munpowder"}},
+		{"when": {"text":"","extra":[{"text":"Void Dust","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/29_infinity_expansion/materials/void_dust"}},
+		{"when": {"text":"","extra":[{"text":"Coal Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/coal_powder"}},
+		{"when": {"text":"","extra":[{"text":"Iron Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/iron_powder"}},
+		{"when": {"text":"","extra":[{"text":"Lapis Powder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"blue","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/lapis_powder"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/gunpowder"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

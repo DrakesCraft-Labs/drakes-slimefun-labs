@@ -1,0 +1,9 @@
+{
+	"parent": "minecraft:block/green_terracotta",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3005759}, "model": "minecraft:slimefun/28_energy_and_electricity/food_composter"},
+		{ "predicate": { "custom_model_data": 3005760}, "model": "minecraft:slimefun/28_energy_and_electricity/food_composter_2"}
+	]
+}

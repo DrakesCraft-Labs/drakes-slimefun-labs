@@ -1,0 +1,7 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/2_useful_items/portable_dustbin"
+	}
+}

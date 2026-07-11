@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/snow_block",
+	"author": "Jackstar (DrakesCraft Labs)",
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3003903}, "model": "minecraft:slimefun/27_foxy_machines/stabilized_blistering_block"}
+	]
+}

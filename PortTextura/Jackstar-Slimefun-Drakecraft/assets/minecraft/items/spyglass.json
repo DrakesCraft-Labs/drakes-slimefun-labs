@@ -1,0 +1,84 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:model",
+            "model": "minecraft:item/spyglass"
+          },
+          "when": [
+            "gui",
+            "ground",
+            "fixed",
+            "on_shelf"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:model",
+        "model": "minecraft:item/spyglass_in_hand"
+      },
+      "property": "minecraft:display_context"
+    },
+    "entries": [
+      {
+        "threshold": 0,
+        "model": {
+          "type": "minecraft:select",
+          "property": "minecraft:component",
+          "component": "minecraft:custom_name",
+          "cases": [
+            {
+              "when": {
+                "text": "",
+                "extra": [
+                  {
+                    "text": "Lookup >> None",
+                    "obfuscated": false,
+                    "italic": false,
+                    "underlined": false,
+                    "strikethrough": false,
+                    "color": "white",
+                    "bold": true
+                  }
+                ]
+              },
+              "model": {
+                "type": "minecraft:model",
+                "model": "minetorio/0_ui/ui_lookup"
+              }
+            }
+          ],
+          "fallback": {
+            "type": "minecraft:select",
+            "cases": [
+              {
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "minecraft:item/spyglass"
+                },
+                "when": [
+                  "gui",
+                  "ground",
+                  "fixed",
+                  "on_shelf"
+                ]
+              }
+            ],
+            "fallback": {
+              "type": "minecraft:model",
+              "model": "minecraft:item/spyglass_in_hand"
+            },
+            "property": "minecraft:display_context"
+          }
+        }
+      }
+    ]
+  },
+  "oversized_in_gui": true
+}

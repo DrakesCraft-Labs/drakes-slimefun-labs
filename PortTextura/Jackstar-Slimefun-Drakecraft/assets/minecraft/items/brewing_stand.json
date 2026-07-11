@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/brewing_stand"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Alchemic Station","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/25_potion_expansion/alchemic_station"}},
+		{"when": {"text":"","extra":[{"text":"Potion Mixer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/potion_mixer"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/brewing_stand"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,34 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/iron_sword"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000102}, "model": "minecraft:slimefun/1_weapons/sword_of_beheading"},
+
+		{ "predicate": { "custom_model_data": 3000600}, "model": "minecraft:slimefun/6_extragear/copper_sword"},
+		{ "predicate": { "custom_model_data": 3000605}, "model": "minecraft:slimefun/6_extragear/tin_sword"},
+		{ "predicate": { "custom_model_data": 3000610}, "model": "minecraft:slimefun/6_extragear/silver_sword"},
+		{ "predicate": { "custom_model_data": 3000615}, "model": "minecraft:slimefun/6_extragear/aluminum_sword"},
+		{ "predicate": { "custom_model_data": 3000620}, "model": "minecraft:slimefun/6_extragear/lead_sword"},
+		{ "predicate": { "custom_model_data": 3000625}, "model": "minecraft:slimefun/6_extragear/zinc_sword"},
+		{ "predicate": { "custom_model_data": 3000630}, "model": "minecraft:slimefun/6_extragear/magnesium_sword"},
+		{ "predicate": { "custom_model_data": 3000635}, "model": "minecraft:slimefun/6_extragear/steel_sword"},
+		{ "predicate": { "custom_model_data": 3000640}, "model": "minecraft:slimefun/6_extragear/bronze_sword"},
+		{ "predicate": { "custom_model_data": 3000641}, "model": "minecraft:slimefun/6_extragear/duralumin_sword"},
+		{ "predicate": { "custom_model_data": 3000642}, "model": "minecraft:slimefun/6_extragear/billon_sword"},
+		{ "predicate": { "custom_model_data": 3000643}, "model": "minecraft:slimefun/6_extragear/brass_sword"},
+		{ "predicate": { "custom_model_data": 3000644}, "model": "minecraft:slimefun/6_extragear/aluminum_brass_sword"},
+		{ "predicate": { "custom_model_data": 3000645}, "model": "minecraft:slimefun/6_extragear/aluminum_bronze_sword"},
+		{ "predicate": { "custom_model_data": 3000646}, "model": "minecraft:slimefun/6_extragear/corinthian_bronze_sword"},
+		{ "predicate": { "custom_model_data": 3000647}, "model": "minecraft:slimefun/6_extragear/solder_sword"},
+		{ "predicate": { "custom_model_data": 3000648}, "model": "minecraft:slimefun/6_extragear/damascus_steel_sword"},
+		{ "predicate": { "custom_model_data": 3000649}, "model": "minecraft:slimefun/6_extragear/hardened_sword"},
+		{ "predicate": { "custom_model_data": 3000650}, "model": "minecraft:slimefun/6_extragear/reinforced_sword"},
+		{ "predicate": { "custom_model_data": 3000651}, "model": "minecraft:slimefun/6_extragear/ferrosilicon_sword"},
+		{ "predicate": { "custom_model_data": 3000653}, "model": "minecraft:slimefun/6_extragear/nickel_sword"},
+		{ "predicate": { "custom_model_data": 3000654}, "model": "minecraft:slimefun/6_extragear/cobalt_sword"}
+	]
+}

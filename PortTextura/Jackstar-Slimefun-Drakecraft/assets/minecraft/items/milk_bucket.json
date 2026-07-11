@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/milk_bucket"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Milky Way"}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/universe/milky_way"}}
+
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/milk_bucket"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

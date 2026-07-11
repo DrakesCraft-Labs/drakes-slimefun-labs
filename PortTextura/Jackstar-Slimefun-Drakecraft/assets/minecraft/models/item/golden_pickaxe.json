@@ -1,0 +1,11 @@
+{
+	"parent": "minecraft:item/handheld",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/golden_pickaxe"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000315}, "model": "minecraft:slimefun/3_basic_machines/industrial_miner"}
+	]
+}

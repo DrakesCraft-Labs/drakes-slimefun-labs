@@ -1,0 +1,8 @@
+{
+  "hook": "equippable",
+  "type": "custom_name",
+  "items": ["minecraft:elytra"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/slimefun/soulbound_elytra/",
+  "assetGen": "equipment/elytra"
+}

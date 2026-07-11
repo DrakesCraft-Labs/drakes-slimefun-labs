@@ -1,0 +1,45 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/furnace"
+    },
+    "entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Smeltery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/smeltery"}},
+		{"when": {"text":"","extra":[{"text":"Smeltery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/smeltery"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"I","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_2"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_3"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"IV","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_4"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"V","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_5"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"VI","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_6"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"VII","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_7"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"VIII","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_8"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"IX","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_9"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"X","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_10"}},
+		{"when": {"text":"","extra":[{"text":"Enhanced Furnace - ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"XI","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/enhanced_furnace_11"}},
+		{"when": {"text":"","extra":[{"text":"Reinforced Furnace","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/reinforced_furnace"}},
+		{"when": {"text":"","extra":[{"text":"Carbonado Edged Furnace","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/3_basic_machines/carbonado_edged_furnace"}},
+		{"when": {"text":"","extra":[{"text":"Oxygen Sealer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/machines/oxygen_sealer"}},
+		{"when": {"text":"","extra":[{"text":"Electric Furnace","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_furnace"}},
+		{"when": {"text":"","extra":[{"text":"Electric Furnace ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_furnace_2"}},
+		{"when": {"text":"","extra":[{"text":"Electric Furnace ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_furnace_3"}},
+		{"when": {"text":"","extra":[{"text":"Electric Ore Grinder","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_ore_grinder"}},
+		{"when": {"text":"","extra":[{"text":"Electric Ore Grinder ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"(","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_ore_grinder_2"}},
+		{"when": {"text":"","extra":[{"text":"Electric Ore Grinder ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"(","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"},{"text":")","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_ore_grinder_3"}},
+		{"when": {"text":"","extra":[{"text":"Electric Ingot Pulverizer","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_ingot_pulverizer"}},
+		{"when": {"text":"","extra":[{"text":"Electric Smeltery","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_smeltery"}},
+		{"when": {"text":"","extra":[{"text":"Electric Smeltery ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/28_energy_and_electricity/electric_smeltery_2"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/furnace"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

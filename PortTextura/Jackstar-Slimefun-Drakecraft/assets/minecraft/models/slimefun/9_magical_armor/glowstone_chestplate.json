@@ -1,0 +1,8 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/9_magical_armor/glowstone_chestplate",
+		"layer1": "slimefun:item/9_magical_armor/glowstone_chestplate"
+	}
+}

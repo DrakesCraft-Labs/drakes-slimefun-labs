@@ -1,0 +1,34 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/gold_nugget"
+    },
+    "entries": [
+		{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Magical Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"I","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/magical_lump_i"}},
+		{"when": {"text":"","extra":[{"text":"Magical Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/magical_lump_ii"}},
+		{"when": {"text":"","extra":[{"text":"Magical Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/magical_lump_iii"}},
+		{"when": {"text":"","extra":[{"text":"Ender Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"I","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ender_lump_i"}},
+		{"when": {"text":"","extra":[{"text":"Ender Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"II","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ender_lump_ii"}},
+		{"when": {"text":"","extra":[{"text":"Ender Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"III","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/8_magical_items/ender_lump_iii"}},
+		{"when": {"text":"","extra":[{"text":"Magical Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"IV","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/magical_lump_iv"}},
+		{"when": {"text":"","extra":[{"text":"Magical Lump ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false},{"text":"- ","italic":false,"color":"gray"},{"text":"V","italic":false,"color":"yellow"}]}, "model": {"type": "minecraft:model", "model": "slimefun/27_foxy_machines/magical_lump_v"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Bronze Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_bronze_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Corinthian Bronze Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/corinthian_bronze_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Brass Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/brass_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Brass Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_brass_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Nice Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/nice_nugget"}},
+		{"when": {"text":"","extra":[{"text":"Anniversarium Nugget","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/anniversarium_nugget"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/gold_nugget"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

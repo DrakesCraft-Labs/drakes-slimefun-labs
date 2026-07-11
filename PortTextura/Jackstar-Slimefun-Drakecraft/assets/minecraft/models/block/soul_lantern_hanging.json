@@ -1,0 +1,8 @@
+{
+	"credit": "DrakesCraft Labs (Jackstar); basado en pack comunitario Racingsky",
+	"parent": "minecraft:block/template_hanging_lantern",
+	"textures": {
+		"particle": "block/soul_lantern",
+		"lantern": "block/soul_lantern"
+	}
+}

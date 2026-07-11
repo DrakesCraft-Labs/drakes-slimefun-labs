@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "item/name_tag"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000008}, "model": "minecraft:slimefun/0_ui/ui_search"},
+		
+		{ "predicate": { "custom_model_data": 3004111}, "model": "minecraft:slimefun/27_foxy_machines/remote_controller"}
+	]
+}

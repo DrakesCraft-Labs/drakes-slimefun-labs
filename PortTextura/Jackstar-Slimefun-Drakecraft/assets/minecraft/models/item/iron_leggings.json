@@ -1,0 +1,36 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+   		 "layer0": "minecraft:item/iron_leggings"
+	},
+	
+	"overrides": [
+		{"model": "minecraft:item/iron_leggings_quartz_trim", "predicate": {"trim_type": 0.1}},
+		{"model": "minecraft:item/iron_leggings_iron_darker_trim", "predicate": {"trim_type": 0.2}},
+		{"model": "minecraft:item/iron_leggings_netherite_trim", "predicate": {"trim_type": 0.3}},
+		{"model": "minecraft:item/iron_leggings_redstone_trim", "predicate": {"trim_type": 0.4}},
+		{"model": "minecraft:item/iron_leggings_copper_trim", "predicate": {"trim_type": 0.5}},
+		{"model": "minecraft:item/iron_leggings_gold_trim", "predicate": {"trim_type": 0.6}},
+		{"model": "minecraft:item/iron_leggings_emerald_trim", "predicate": {"trim_type": 0.7}},
+		{"model": "minecraft:item/iron_leggings_diamond_trim", "predicate": {"trim_type": 0.8}},
+		{"model": "minecraft:item/iron_leggings_lapis_trim", "predicate": {"trim_type": 0.9}},
+		{"model": "minecraft:item/iron_leggings_amethyst_trim", "predicate": {"trim_type": 1.0}},
+
+		{ "predicate": { "custom_model_data": 3000608}, "model": "minecraft:slimefun/6_extragear/tin_leggings"},
+		{ "predicate": { "custom_model_data": 3000613}, "model": "minecraft:slimefun/6_extragear/silver_leggings"},
+		{ "predicate": { "custom_model_data": 3000618}, "model": "minecraft:slimefun/6_extragear/aluminum_leggings"},
+		{ "predicate": { "custom_model_data": 3000623}, "model": "minecraft:slimefun/6_extragear/lead_leggings"},
+		{ "predicate": { "custom_model_data": 3000628}, "model": "minecraft:slimefun/6_extragear/zinc_leggings"},
+		{ "predicate": { "custom_model_data": 3000633}, "model": "minecraft:slimefun/6_extragear/magnesium_leggings"},
+		{ "predicate": { "custom_model_data": 3000638}, "model": "minecraft:slimefun/6_extragear/steel_leggings"},
+		{ "predicate": { "custom_model_data": 3000657}, "model": "minecraft:slimefun/6_extragear/cobalt_leggings"},
+
+		{ "predicate": { "custom_model_data": 3000918}, "model": "minecraft:slimefun/9_magical_armor/reinforced_slime_leggings"},
+
+		{ "predicate": { "custom_model_data": 3001202}, "model": "minecraft:slimefun/12_armor/damascus_steel_leggings"},
+		{ "predicate": { "custom_model_data": 3001206}, "model": "minecraft:slimefun/12_armor/reinforced_alloy_leggings"},
+
+		{ "predicate": { "custom_model_data": 3001905}, "model": "minecraft:slimefun/24_galactifun/equipment/space_suit_leggings"}
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/terracotta"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Mars Rock","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/blocks/mars_rock"}},
+		{"when": {"text":"","extra":[{"text":"Copper Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/copper_block_slimefun"}},
+		{"when": {"text":"","extra":[{"text":"Bronze Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/bronze_block"}},
+		{"when": {"text":"","extra":[{"text":"Aluminum Bronze Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/aluminum_bronze_block"}},
+		{"when": {"text":"","extra":[{"text":"Corinthian Bronze Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/corinthian_bronze_block"}},
+		{"when": {"text":"","extra":[{"text":"Redstone Alloy Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/redstone_alloy_block"}},
+		{"when": {"text":"","extra":[{"text":"Boomerite Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/boomerite_block"}},
+		{"when": {"text":"","extra":[{"text":"MagSteel Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/magsteel_block"}},
+		{"when": {"text":"","extra":[{"text":"Adamanitite Block","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#DBCEA9","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/23_slime_tinker/materials/adamantite_block"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/terracotta"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

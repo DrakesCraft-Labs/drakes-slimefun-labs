@@ -1,0 +1,12 @@
+{
+  	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",  	
+	"textures": {
+    		"layer0": "slimefun:item/spawn_egg_legacy_base",
+		"layer1": "slimefun:item/spawn_egg_legacy_overlay"
+},
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3004303}, "model": "minecraft:slimefun/27_foxy_machines/tropical_fish_scale"}
+	]
+}

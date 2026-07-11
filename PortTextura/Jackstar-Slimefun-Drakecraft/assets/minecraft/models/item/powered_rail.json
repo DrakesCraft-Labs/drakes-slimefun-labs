@@ -1,0 +1,18 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/powered_rail"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3001001}, "model": "minecraft:slimefun/10_technical_components/advanced_circuit_board"},
+
+		{ "predicate": { "custom_model_data": 3002118}, "model": "minecraft:slimefun/24_galactifun/components/diamond_circuit"},
+		{ "predicate": { "custom_model_data": 3002119}, "model": "minecraft:slimefun/24_galactifun/components/redstone_circuit"},
+		{ "predicate": { "custom_model_data": 3002120}, "model": "minecraft:slimefun/24_galactifun/components/lapis_circuit"},
+		{ "predicate": { "custom_model_data": 3002121}, "model": "minecraft:slimefun/24_galactifun/components/glowstone_circuit"},
+
+		{ "predicate": { "custom_model_data": 3004108}, "model": "minecraft:slimefun/27_foxy_machines/boosted_powered_rail"}
+	]
+}

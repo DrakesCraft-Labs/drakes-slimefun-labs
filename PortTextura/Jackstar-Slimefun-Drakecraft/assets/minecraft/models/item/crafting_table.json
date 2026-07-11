@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:block/crafting_table",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/crafting_table"
+	},
+	
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000301}, "model": "minecraft:slimefun/3_basic_machines/enhanced_crafting_table"},
+		{ "predicate": { "custom_model_data": 3000310}, "model": "minecraft:slimefun/3_basic_machines/magic_workbench"},
+
+		{ "predicate": { "custom_model_data": 3005712}, "model": "minecraft:slimefun/28_energy_and_electricity/charging_bench"}
+	]
+}

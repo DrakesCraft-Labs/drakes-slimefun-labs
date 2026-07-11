@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/copper_axe"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"Hammer"}, "model": {"type": "minecraft:model", "model": "jackstar/1_handheld/axes/hammer_copper"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/copper_axe"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

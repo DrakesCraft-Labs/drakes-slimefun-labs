@@ -1,0 +1,23 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/blue_stained_glass_pane"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:lore",
+	"cases": [
+		{"when": ["", {"text":"","extra":[{"text":"Right Click ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"yellow","bold":false},{"text":"to bind this Mirror","italic":false,"color":"gray"}]}, {"text":"","extra":[{"text":"to your current location.","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, "", {"text":"","extra":[{"text":"Place a bound mirror into an","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, {"text":"","extra":[{"text":"Item Frame and then click on","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, {"text":"","extra":[{"text":"that Item Frame to teleport.","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false}]}, {"text":"","extra":[{"text":"Teleports cost ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gray","bold":false},{"text":"1 Ender Pearl","italic":false,"color":"aqua"}]}], "model": {"type": "minecraft:model", "model": "slimefun/21_slimy_treetaps/magical_mirror"},
+							"": ""
+						}
+	],
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/blue_stained_glass_pane"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

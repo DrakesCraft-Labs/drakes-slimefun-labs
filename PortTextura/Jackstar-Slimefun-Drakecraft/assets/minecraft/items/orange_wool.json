@@ -1,0 +1,22 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/orange_wool"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Rainbow Wool ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_purple","bold":false},{"text":"(Halloween)","italic":false,"color":"gray"}]}, "model": {"type": "minecraft:model", "model": "slimefun/halloween/rainbow_wool_halloween"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/orange_wool"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

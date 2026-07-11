@@ -1,0 +1,28 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "minecraft:count",
+    "scale": 64,
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "minecraft:item/arrow"
+    },
+    "entries": [
+      {
+        "threshold": 0,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:item/arrow"
+        }
+      },
+      {
+        "threshold":64,
+        "model": {
+          "type": "minecraft:model",
+          "model": "jackstar/2_items/arrow_full"
+        }
+      }
+    ]
+  },
+  "oversized_in_gui": true
+}

@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/stone_pressure_plate"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"GPS Activation Device ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(Shared)","italic":false,"color":"dark_aqua"}]}, "model": {"type": "minecraft:model", "model": "slimefun/30_gps_based_machines/gps_activation_device_shared"}},
+		{"when": {"text":"","extra":[{"text":"GPS Activation Device ","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false},{"text":"(Personal)","italic":false,"color":"green"}]}, "model": {"type": "minecraft:model", "model": "slimefun/30_gps_based_machines/gps_activation_device_personal"}},
+		{"when": {"text":"","extra":[{"text":"Elevator Plate","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/30_gps_based_machines/elevator_plate"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/stone_pressure_plate"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}

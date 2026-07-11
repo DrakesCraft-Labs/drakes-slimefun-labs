@@ -1,0 +1,8 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/7_food/carrot_juice",
+		"layer1": "slimefun:item/7_food/carrot_juice"
+	}
+}

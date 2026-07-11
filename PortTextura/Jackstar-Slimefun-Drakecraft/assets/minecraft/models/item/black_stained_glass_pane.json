@@ -1,0 +1,13 @@
+{
+	"parent": "minecraft:item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "block/black_stained_glass"
+	},
+
+	"overrides": [
+		{ "predicate": { "custom_model_data": 3000001}, "model": "minecraft:jackstar/0_ui/ui_background"},
+		{ "predicate": { "custom_model_data": 3000011}, "model": "minecraft:slimefun/0_ui/ui_previous_inactive"},
+		{ "predicate": { "custom_model_data": 3000013}, "model": "minecraft:slimefun/0_ui/ui_next_inactive"}
+	]
+}

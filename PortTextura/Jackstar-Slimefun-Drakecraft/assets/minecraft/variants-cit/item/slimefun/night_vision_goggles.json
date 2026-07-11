@@ -1,0 +1,8 @@
+{
+  "hook": "equippable",
+  "type": "custom_name",
+  "items": ["minecraft:leather_helmet"],
+  "modelParent": "item/generated",
+  "modelPrefix": "item/slimefun/night_vision_goggles/",
+  "assetGen": "equipment/humanoid"
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "item/generated",
+	"author": "Jackstar (DrakesCraft Labs)",
+	"textures": {
+		"layer0": "slimefun:item/34_fluffy_machines/helicopter_hat",
+		"layer1": "slimefun:item/34_fluffy_machines/helicopter_hat"
+	}
+}

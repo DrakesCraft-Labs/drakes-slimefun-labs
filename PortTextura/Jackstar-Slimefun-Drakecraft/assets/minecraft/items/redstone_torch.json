@@ -1,0 +1,24 @@
+{
+	"model": {
+	"type": "minecraft:range_dispatch",
+	"property": "minecraft:custom_model_data",
+	"index": 0,
+	"fallback": {
+		"type": "minecraft:model",
+		"model": "minecraft:item/redstone_torch"},
+
+
+	"entries": [
+	{"threshold": 0, "model": {"type": "minecraft:select", "property": "minecraft:component", "component": "minecraft:custom_name",
+	"cases": [
+		{"when": {"text":"","extra":[{"text":"Bug Reports","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"dark_red","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/0_ui/ui_bug_report"}},
+		{"when": {"text":"","extra":[{"text":"Nose Cone","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"white","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/24_galactifun/galactifun/nose_cone"}},
+		{"when": {"text":"","extra":[{"text":"GPS Marker Tool","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"aqua","bold":false}]}, "model": {"type": "minecraft:model", "model": "slimefun/30_gps_based_machines/gps_marker_tool"}}
+	],
+
+
+	"fallback": {"type": "minecraft:model","model": "minecraft:item/redstone_torch"}}}
+    ]
+  },
+  "oversized_in_gui": true
+}
