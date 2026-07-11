@@ -156,15 +156,22 @@ Si eres un desarrollador nuevo (¡hola Chagui!) y quieres empezar a modificar y 
    - Esto guardará los JARs base en tu caché local (`.m2`).
    - Luego, en tu IDE, dale al botón de "Reload All Maven Projects" y "Reload All Gradle Projects". ¡Todo lo rojo debería desaparecer!
 
-3. **Cómo Compilar todo lo Principal (Maven):**
-   Si tocaste código dentro de `sources/slimefun-core` o `sources/dough-core`, el comando exacto para compilar tu código y empaquetar los JARs sin ejecutar los tests (que suelen tardar mucho) es:
+3. **Cómo Compilar TODO el Proyecto (Maven):**
+   Si quieres compilar todo el reactor de golpe (Core + Addons Maven), el comando exacto sin ejecutar los tests (que suelen tardar mucho) es:
    ```powershell
    mvn -f pom.xml -DskipTests package
    ```
    *Esto generará los JARs listos para usar en las carpetas `target/` de cada subproyecto.*
 
-4. **Cómo Compilar los Addons Comunitarios (Gradle):**
-   Si tocaste código dentro de un addon específico en `sources/community-addons/NombreDelAddon`, debes entrar a esa carpeta y usar el wrapper de Gradle:
+4. **Cómo Compilar un SOLO Addon de Maven (Ahorrar tiempo):**
+   Si solo tocaste código dentro de un addon específico (ej. `sources/batch-2-expansion/Cultivation_Updated`), no necesitas compilar todo el repositorio de nuevo. Usa el parámetro `-pl` (project list) y `-am` (also make) para compilar solo ese addon y sus dependencias:
+   ```powershell
+   mvn clean package -pl sources/batch-2-expansion/Cultivation_Updated -am -DskipTests
+   ```
+   *(Sustituye la ruta por la del addon que estés modificando).*
+
+5. **Cómo Compilar los Addons de Gradle:**
+   Si el addon que modificaste usa Gradle en lugar de Maven, debes entrar a esa carpeta y usar el wrapper:
    ```powershell
    cd sources/community-addons/NombreDelAddon
    .\gradlew.bat shadowJar --no-daemon
