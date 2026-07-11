@@ -251,7 +251,7 @@ public final class ResearchSetup {
         register("auto_drier", 243, "A Dry Day", 15, SlimefunItems.AUTO_DRIER);
         register("diet_cookie", 244, "Diet Cookie", 3, SlimefunItems.DIET_COOKIE);
         register("storm_staff", 245, "Storm Staff", 30, SlimefunItems.STAFF_STORM);
-        register("soulbound_rune", 246, "Soulbound Rune", 60, SlimefunItems.SOULBOUND_RUNE);
+        // register("soulbound_rune", 246, "Soulbound Rune", 60, SlimefunItems.SOULBOUND_RUNE);
         register("geo_miner", 247, "GEO-Miner", 24, SlimefunItems.GEO_MINER);
         register("lightning_rune", 248, "Lightning Rune", 24, SlimefunItems.LIGHTNING_RUNE);
         register("totem_of_undying", 249, "Totem of Undying", 36, "TOTEM_OF_UNDYING");
