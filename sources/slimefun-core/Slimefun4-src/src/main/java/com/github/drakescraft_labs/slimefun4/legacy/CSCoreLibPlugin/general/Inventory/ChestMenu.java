@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.lang.reflect.Method;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  * An old remnant of CS-CoreLib.
@@ -19,6 +19,8 @@ import org.bukkit.inventory.meta.ItemMeta;
  * Don't look at the code, it will be gone soon, don't worry.
  */
 public class ChestMenu {
+
+    private static final Method AS_CRAFT_COPY = findCraftCopyMethod();
 
     private boolean clickable;
     private boolean emptyClickable;
@@ -35,19 +37,25 @@ public class ChestMenu {
      * inserting them into a live Inventory. Purpur 1.21.11 rejects custom
      * subclasses such as SlimefunItemStack in CraftInventory#setItem.
      */
+    private static Method findCraftCopyMethod() {
+        try {
+            Class<?> craftItemStack = Class.forName("org.bukkit.craftbukkit.inventory.CraftItemStack");
+            return craftItemStack.getMethod("asCraftCopy", ItemStack.class);
+        } catch (ReflectiveOperationException exception) {
+            throw new ExceptionInInitializerError(exception);
+        }
+    }
+
     private ItemStack sanitizeInventoryItem(ItemStack item) {
-        if (item == null || item.getClass() == ItemStack.class || item.getClass().getName().equals("org.bukkit.craftbukkit.inventory.CraftItemStack")) {
+        if (item == null || item.getClass().getName().equals("org.bukkit.craftbukkit.inventory.CraftItemStack")) {
             return item;
         }
 
-        ItemStack copy = new ItemStack(item.getType(), item.getAmount());
-        ItemMeta meta = item.getItemMeta();
-
-        if (meta != null) {
-            copy.setItemMeta(meta.clone());
+        try {
+            return (ItemStack) AS_CRAFT_COPY.invoke(null, item);
+        } catch (ReflectiveOperationException exception) {
+            throw new IllegalStateException("Could not convert ItemStack to CraftItemStack", exception);
         }
-
-        return copy;
     }
 
     /**
