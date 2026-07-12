@@ -17,6 +17,7 @@ import dev.sefiraat.cultivation.api.slimefun.plant.PlantTheme;
 import dev.sefiraat.cultivation.api.utils.LevelType;
 import dev.sefiraat.cultivation.api.utils.StatisticUtils;
 import dev.sefiraat.cultivation.implementation.utils.Keys;
+import dev.sefiraat.cultivation.implementation.utils.CultivationDisplayCleanup;
 import dev.drake.sefilib.entity.display.DisplayInteractable;
 import dev.drake.sefilib.misc.ParticleUtils;
 import dev.drake.sefilib.string.Theme;
@@ -152,6 +153,7 @@ public abstract class CultivationPlant extends CultivationFloraItem<CultivationP
         ItemStack itemToDrop = getDroppedItemStack(location);
         removeCropped(location);
         removePlant(location);
+        CultivationDisplayCleanup.removeOrphans(location);
         location.getWorld().dropItem(location.clone().add(0.5, 0.5, 0.5), itemToDrop);
         removeLevelProfile(location);
         event.setDropItems(false);

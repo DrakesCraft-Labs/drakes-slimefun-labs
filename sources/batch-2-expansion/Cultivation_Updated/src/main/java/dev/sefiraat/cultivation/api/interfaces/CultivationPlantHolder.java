@@ -46,14 +46,18 @@ public interface CultivationPlantHolder {
     default void addItemsToDisplay(@Nonnull Location location, @Nonnull ItemStack itemStack) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayGroupGenerators.addItemsToPlant(group, itemStack);
+            if (group != null) {
+                DisplayGroupGenerators.addItemsToPlant(group, itemStack);
+            }
         }
     }
 
     default void removeItems(@Nonnull Location location) {
         if (hasDisplayPlant(location)) {
             DisplayGroup group = getPlantDisplayGroup(location);
-            DisplayGroupGenerators.removeItemsFromPlant(group);
+            if (group != null) {
+                DisplayGroupGenerators.removeItemsFromPlant(group);
+            }
         }
     }
 
@@ -63,7 +67,11 @@ public interface CultivationPlantHolder {
         if (uuid == null) {
             return null;
         }
-        return UUID.fromString(uuid);
+        try {
+            return UUID.fromString(uuid);
+        } catch (IllegalArgumentException ignored) {
+            return null;
+        }
     }
 
     @Nullable
