@@ -12,9 +12,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
@@ -64,6 +66,8 @@ public class BlockStorage {
     private final Map<Location, Config> storage = new ConcurrentHashMap<>();
     private final Map<Location, BlockMenu> inventories = new ConcurrentHashMap<>();
     private final Map<String, Config> blocksCache = new ConcurrentHashMap<>();
+    private final Map<Location, LoadedBlockSource> blockSources = new HashMap<>();
+    private final Set<LoadedBlockSource> compactedSources = new HashSet<>();
 
     private static int chunkChanges = 0;
     private static boolean universalInventoriesLoaded = false;
@@ -176,6 +180,7 @@ public class BlockStorage {
                     done++;
                 }
             }
+            compactDuplicateFiles();
         } finally {
             long time = (System.currentTimeMillis() - start);
             Slimefun.logger().log(Level.INFO, "Loading Blocks... 100% (FINISHED - {0}ms)", time);
@@ -209,9 +214,11 @@ public class BlockStorage {
                      * strategy: the Config with more keys (i.e. more stored state) is kept.
                      * The loser is written to a recovery log so an admin can inspect it.
                      */
-                    resolveDuplicateBlock(l, blockInfo, existing);
+                    resolveDuplicateBlock(l, file, cfg, key, blockInfo, existing);
                     return;
                 }
+
+                blockSources.put(l, new LoadedBlockSource(file, cfg, key));
 
                 String fileName = file.getName().replace(".sfb", "");
 
@@ -232,7 +239,7 @@ public class BlockStorage {
      * @param incoming  the newly-parsed block data that was NOT yet stored
      * @param resident  the block data already present in {@link #storage}
      */
-    private void resolveDuplicateBlock(Location l, Config incoming, Config resident) {
+    private void resolveDuplicateBlock(Location l, File incomingFile, FileConfiguration incomingFileConfig, String incomingKey, Config incoming, Config resident) {
         String incomingId = incoming.getString("id");
         String residentId = resident.getString("id");
 
@@ -250,6 +257,14 @@ public class BlockStorage {
 
         if (replaceResident) {
             storage.put(l, incoming);
+            LoadedBlockSource previousSource = blockSources.put(l, new LoadedBlockSource(incomingFile, incomingFileConfig, incomingKey));
+            if (previousSource != null) {
+                previousSource.configuration().set(previousSource.key(), null);
+                compactedSources.add(previousSource);
+            }
+        } else {
+            incomingFileConfig.set(incomingKey, null);
+            compactedSources.add(new LoadedBlockSource(incomingFile, incomingFileConfig, incomingKey));
         }
 
         // Always warn so it shows up in DrakesCraft Monitor's WARN summary
@@ -265,6 +280,49 @@ public class BlockStorage {
 
         // Persist the losing entry to a recovery log for admin inspection
         writeDuplicateRecoveryLog(l, loserId, loser, winnerId);
+    }
+
+    private void compactDuplicateFiles() {
+        Set<FileConfiguration> configurations = new HashSet<>();
+        for (LoadedBlockSource source : compactedSources) {
+            configurations.add(source.configuration());
+        }
+
+        for (FileConfiguration configuration : configurations) {
+            if (!(configuration instanceof YamlConfiguration yaml)) {
+                continue;
+            }
+
+            File file = compactedSources.stream()
+                    .filter(source -> source.configuration() == configuration)
+                    .findFirst()
+                    .map(LoadedBlockSource::file)
+                    .orElse(null);
+            if (file == null) {
+                continue;
+            }
+
+            File temporary = new File(file.getParentFile(), file.getName() + ".compact.tmp");
+            try {
+                yaml.save(temporary);
+                try {
+                    Files.move(temporary.toPath(), file.toPath(), StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException atomicMoveFailure) {
+                    Files.move(temporary.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                }
+                Slimefun.logger().log(Level.INFO, "[DuplicateBlock] Compacted stale entries in {0}", file.getName());
+            } catch (IOException ex) {
+                Slimefun.logger().log(Level.SEVERE, ex, () -> "Could not compact duplicate BlockStorage file " + file.getName());
+            } finally {
+                if (temporary.exists() && !temporary.delete()) {
+                    Slimefun.logger().log(Level.WARNING, "Could not remove temporary duplicate file {0}", temporary.getName());
+                }
+            }
+        }
+        compactedSources.clear();
+    }
+
+    private record LoadedBlockSource(File file, FileConfiguration configuration, String key) {
     }
 
     /**
@@ -404,8 +462,8 @@ public class BlockStorage {
         Iterator<Map.Entry<String, Config>> blockIt = blocksCache.entrySet().iterator();
         while (blockIt.hasNext() && remaining > 0) {
             Map.Entry<String, Config> entry = blockIt.next();
-            blockIt.remove();
             Config cfg = entry.getValue();
+            boolean persisted = false;
 
             if (cfg.getKeys().isEmpty()) {
                 File file = cfg.getFile();
@@ -413,21 +471,42 @@ public class BlockStorage {
                 if (file.exists()) {
                     try {
                         Files.delete(file.toPath());
+                        persisted = true;
                     } catch (IOException e) {
                         Slimefun.logger().log(Level.WARNING, e, () -> "Could not delete file \"" + file.getName() + '"');
                     }
+                } else {
+                    persisted = true;
                 }
             } else {
                 File tmpFile = new File(cfg.getFile().getParentFile(), cfg.getFile().getName() + ".tmp");
-                cfg.save(tmpFile);
 
                 try {
-                    Files.move(tmpFile.toPath(), cfg.getFile().toPath(), StandardCopyOption.ATOMIC_MOVE);
+                    cfg.getFile().getParentFile().mkdirs();
+                    cfg.save(tmpFile);
+                    try {
+                        Files.move(tmpFile.toPath(), cfg.getFile().toPath(), StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+                    } catch (IOException atomicMoveFailure) {
+                        // Some filesystems do not support atomic replacement.
+                        Files.move(tmpFile.toPath(), cfg.getFile().toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    }
+                    persisted = true;
                 } catch (IOException x) {
-                    Slimefun.logger().log(Level.SEVERE, x, () -> "An Error occurred while copying a temporary File for Slimefun " + Slimefun.getVersion());
+                    Slimefun.logger().log(Level.SEVERE, x, () -> "Could not persist BlockStorage entry for Slimefun " + Slimefun.getVersion());
+                } finally {
+                    if (tmpFile.exists() && !tmpFile.delete()) {
+                        Slimefun.logger().log(Level.WARNING, "Could not remove temporary BlockStorage file \"{0}\"", tmpFile.getName());
+                    }
                 }
             }
-            remaining--;
+
+            // Keep failed entries queued so a later save can retry them.
+            if (persisted) {
+                blockIt.remove();
+                remaining--;
+            } else {
+                break;
+            }
         }
 
         Iterator<Map.Entry<Location, BlockMenu>> invIt = inventories.entrySet().iterator();
