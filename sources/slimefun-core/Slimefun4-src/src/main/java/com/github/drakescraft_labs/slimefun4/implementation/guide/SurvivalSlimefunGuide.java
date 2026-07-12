@@ -46,6 +46,7 @@ import com.github.drakescraft_labs.slimefun4.core.guide.options.SlimefunGuideSet
 import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlock;
 import com.github.drakescraft_labs.slimefun4.core.multiblocks.MultiBlockMachine;
 import com.github.drakescraft_labs.slimefun4.core.services.sounds.SoundEffect;
+import com.github.drakescraft_labs.slimefun4.core.services.CheatPolicy;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.tasks.AsyncRecipeChoiceTask;
 import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
@@ -307,6 +308,8 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                     } else if (pl.hasPermission("slimefun.cheat.items")) {
                         if (sfitem instanceof MultiBlockMachine) {
                             Slimefun.getLocalization().sendMessage(pl, "guide.cheat.no-multiblocks");
+                        } else if (!CheatPolicy.canClaim(pl, sfitem)) {
+                            CheatPolicy.deny(pl);
                         } else {
                             ItemStack clonedItem = sfitem.getItem().clone();
 

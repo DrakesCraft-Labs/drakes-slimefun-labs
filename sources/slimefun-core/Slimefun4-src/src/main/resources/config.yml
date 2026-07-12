@@ -26,6 +26,46 @@ options:
   backup-data: true
   drop-block-creative: true
 
+# Defense-in-depth for the temporary SFMaster cheat permission.
+sfmaster-guard:
+  enabled: true
+  limited-permission: "odysseia.sfmaster.active"
+  bypass-permission: "slimefun.cheat.items.bypass"
+  blocked-addons:
+    - "SUPREME"
+    - "INFINITYEXPANSION"
+  blocked-id-prefixes:
+    - "SUPREME_"
+    - "INFINITY_"
+  blocked-id-fragments:
+    - "_SWORD"
+    - "_PICKAXE"
+    - "_AXE"
+    - "_SHOVEL"
+    - "_HOE"
+    - "_HELMET"
+    - "_CHESTPLATE"
+    - "_LEGGINGS"
+    - "_BOOTS"
+    - "_ARMOR"
+    - "_BOW"
+    - "_CROSSBOW"
+    - "_TRIDENT"
+    - "_STAFF"
+    - "_HAMMER"
+    - "_DRILL"
+    - "_MULTITOOL"
+    - "_SHIELD"
+    - "_ELYTRA"
+  blocked-materials:
+    - "DIAMOND"
+    - "DIAMOND_BLOCK"
+    - "EMERALD"
+    - "EMERALD_BLOCK"
+    - "NETHERITE_INGOT"
+    - "NETHERITE_BLOCK"
+    - "ANCIENT_DEBRIS"
+
 guide:
   show-vanilla-recipes: true
   receive-on-first-join: true
