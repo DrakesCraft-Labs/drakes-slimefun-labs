@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
+import org.bukkit.inventory.ItemStack;
 
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
@@ -26,7 +27,10 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
  */
 public class MiddleClickListener implements Listener {
 
+    private final Slimefun plugin;
+
     public MiddleClickListener(@Nonnull Slimefun plugin) {
+        this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
@@ -73,9 +77,22 @@ public class MiddleClickListener implements Listener {
                 }
             }
 
-            // Give the item, doing it like this will not alter any other cases.
-            e.setCursor(sfItem.getItem().clone());
+            // Cancel the vanilla creative transaction before setting the SF item.
+            // Otherwise the client can replace the custom stack with its vanilla block.
+            ItemStack safeStack = createSafeStack(sfItem);
+            if (SlimefunItem.getByItem(safeStack) == null) {
+                e.setCancelled(true);
+                plugin.getLogger().warning("Blocked creative middle-click without Slimefun identity: " + sfItem.getId());
+                return;
+            }
+
+            e.setCancelled(true);
+            e.getView().setCursor(safeStack);
         }
+    }
+
+    private ItemStack createSafeStack(SlimefunItem sfItem) {
+        return new com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack(sfItem.getId(), sfItem.getItem());
     }
 
     @ParametersAreNonnullByDefault
