@@ -655,9 +655,15 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
 
     @ParametersAreNonnullByDefault
     private void displayRecipes(Player p, PlayerProfile profile, ChestMenu menu, RecipeDisplayItem sfItem, int page) {
-        List<ItemStack> recipes = sfItem.getDisplayRecipes();
+        final List<ItemStack> recipes;
+        try {
+            recipes = sfItem.getDisplayRecipes();
+        } catch (RuntimeException | LinkageError ex) {
+            displayBrokenRecipe(p, menu, sfItem, ex);
+            return;
+        }
 
-        if (!recipes.isEmpty()) {
+        if (recipes != null && !recipes.isEmpty()) {
             menu.addItem(53, null);
 
             if (page == 0) {
@@ -708,29 +714,58 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
         }
     }
 
-    private void addDisplayRecipe(ChestMenu menu, PlayerProfile profile, List<ItemStack> recipes, int slot, int i, int page) {
-        if ((i + (page * 18)) < recipes.size()) {
-            ItemStack displayItem = recipes.get(i + (page * 18));
-
-            /*
-             * We want to clone this item to avoid corrupting the original
-             * but we wanna make sure no stupid addon creator sneaked some nulls in here
-             */
-            if (displayItem != null) {
-                displayItem = displayItem.clone();
-            }
-
-            menu.replaceExistingItem(slot, displayItem);
-
-            menu.addMenuClickHandler(slot, (pl, s, itemstack, action) -> {
-                if (itemstack != null && itemstack.getType() != org.bukkit.Material.AIR) {
-                    displayItem(profile, itemstack, 0, true);
-                }
-                return false;
-            });
-        } else {
+    /** Keeps a malformed addon recipe from breaking the guide for the whole player session. */
+    @ParametersAreNonnullByDefault
+    private void displayBrokenRecipe(Player p, ChestMenu menu, RecipeDisplayItem sfItem, Throwable error) {
+        for (int slot = 27; slot < 54; slot++) {
             menu.replaceExistingItem(slot, null);
             menu.addMenuClickHandler(slot, ChestMenuUtils.getEmptyClickHandler());
+        }
+
+        menu.replaceExistingItem(40, new CustomItemStack(
+            Material.BARRIER,
+            "&cRecipe unavailable",
+            "&7This item has an invalid recipe.",
+            "&7The rest of the guide remains usable."
+        ));
+        menu.addMenuClickHandler(40, ChestMenuUtils.getEmptyClickHandler());
+
+        Slimefun.logger().log(
+            Level.SEVERE,
+            "Recipe display failed for " + sfItem.getClass().getName() + " while viewed by " + p.getName(),
+            error
+        );
+    }
+
+    private void addDisplayRecipe(ChestMenu menu, PlayerProfile profile, List<ItemStack> recipes, int slot, int i, int page) {
+        try {
+            if ((i + (page * 18)) < recipes.size()) {
+                ItemStack displayItem = recipes.get(i + (page * 18));
+
+                /*
+                 * We want to clone this item to avoid corrupting the original
+                 * but we wanna make sure no stupid addon creator sneaked some nulls in here
+                 */
+                if (displayItem != null) {
+                    displayItem = displayItem.clone();
+                }
+
+                menu.replaceExistingItem(slot, displayItem);
+
+                menu.addMenuClickHandler(slot, (pl, s, itemstack, action) -> {
+                    if (itemstack != null && itemstack.getType() != org.bukkit.Material.AIR) {
+                        displayItem(profile, itemstack, 0, true);
+                    }
+                    return false;
+                });
+            } else {
+                menu.replaceExistingItem(slot, null);
+                menu.addMenuClickHandler(slot, ChestMenuUtils.getEmptyClickHandler());
+            }
+        } catch (RuntimeException | LinkageError ex) {
+            menu.replaceExistingItem(slot, null);
+            menu.addMenuClickHandler(slot, ChestMenuUtils.getEmptyClickHandler());
+            Slimefun.logger().log(Level.SEVERE, "Invalid item in a Slimefun display recipe at slot " + slot, ex);
         }
     }
 
