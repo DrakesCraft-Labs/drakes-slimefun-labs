@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 import javax.annotation.Nonnull;
@@ -68,6 +70,7 @@ import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.MenuClickHan
 public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
 
     private static final int MAX_ITEM_GROUPS = 36;
+    private static final Set<String> REPORTED_RECIPE_ERRORS = ConcurrentHashMap.newKeySet();
 
     private final int[] recipeSlots = { 3, 4, 5, 12, 13, 14, 21, 22, 23 };
     private final ItemStack item;
@@ -709,7 +712,7 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                     outputs++;
                 }
 
-                addDisplayRecipe(menu, profile, recipes, slot, i, page);
+                addDisplayRecipe(menu, profile, sfItem, recipes, slot, i, page);
             }
         }
     }
@@ -730,14 +733,10 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
         ));
         menu.addMenuClickHandler(40, ChestMenuUtils.getEmptyClickHandler());
 
-        Slimefun.logger().log(
-            Level.SEVERE,
-            "Recipe display failed for " + sfItem.getClass().getName() + " while viewed by " + p.getName(),
-            error
-        );
+        reportRecipeError(sfItem, "Recipe display failed while viewed by " + p.getName(), error);
     }
 
-    private void addDisplayRecipe(ChestMenu menu, PlayerProfile profile, List<ItemStack> recipes, int slot, int i, int page) {
+    private void addDisplayRecipe(ChestMenu menu, PlayerProfile profile, RecipeDisplayItem sfItem, List<ItemStack> recipes, int slot, int i, int page) {
         try {
             if ((i + (page * 18)) < recipes.size()) {
                 ItemStack displayItem = recipes.get(i + (page * 18));
@@ -765,7 +764,16 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
         } catch (RuntimeException | LinkageError ex) {
             menu.replaceExistingItem(slot, null);
             menu.addMenuClickHandler(slot, ChestMenuUtils.getEmptyClickHandler());
-            Slimefun.logger().log(Level.SEVERE, "Invalid item in a Slimefun display recipe at slot " + slot, ex);
+            reportRecipeError(sfItem, "Invalid item in display recipe slot " + slot, ex);
+        }
+    }
+
+    /** Records each broken recipe signature once to prevent player-triggered console floods. */
+    private static void reportRecipeError(RecipeDisplayItem item, String context, Throwable error) {
+        String message = error.getMessage() == null ? "" : error.getMessage();
+        String signature = item.getClass().getName() + '|' + error.getClass().getName() + '|' + message;
+        if (REPORTED_RECIPE_ERRORS.add(signature)) {
+            Slimefun.logger().log(Level.SEVERE, context + " for " + item.getClass().getName(), error);
         }
     }
 

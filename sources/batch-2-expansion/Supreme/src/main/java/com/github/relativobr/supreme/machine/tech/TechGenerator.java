@@ -40,7 +40,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.springframework.scheduling.annotation.Async;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,7 +50,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Async
 public class TechGenerator extends SimpleItemContainerMachine implements Radioactive {
 
   public static final SlimefunItemStack TECH_GENERATOR = new SupremeItemStack(
@@ -208,7 +206,8 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
       }
 
       public boolean isSynchronized() {
-        return false;
+        // BlockMenu and ItemStack metadata must only be mutated on the server thread.
+        return true;
       }
     });
   }
@@ -248,7 +247,9 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
           return;
         }
 
-        checkCloneOutput(inv, itemProduction.clone());
+        for (ItemStack output : pendingOutputs) {
+          inv.pushItem(output.clone(), this.getOutputSlots());
+        }
 
         processing.put(b, null);
         progressTime.put(b, 0);
@@ -318,40 +319,6 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
     ItemStack clone = template.clone();
     clone.setAmount(amount);
     pendingOutputs.add(clone);
-  }
-
-  private void checkCloneOutput(BlockMenu inv, ItemStack itemStack) {
-    itemStack.setAmount(Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-    inv.pushItem(itemStack, this.getOutputSlots());
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[1]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[2]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[3]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[4]), itemStack, inv);
-  }
-
-  private void buildSlotProcess(ItemStack input, ItemStack itemStack, BlockMenu inv) {
-    if (input != null && itemStack != null) {
-      SlimefunItem slimefunItem = SlimefunItem.getByItem(input);
-      if (slimefunItem instanceof MobTech) {
-        final MobTech mobTech = (MobTech) slimefunItem;
-        if (mobTech.getMobTechType() == MobTechType.ROBOTIC_CLONING
-            || mobTech.getMobTechType() == MobTechType.MUTATION_LUCK) {
-          int amount = Math.min(input.getAmount() * mobTech.getMobTechTier(),
-              Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-          itemStack.setAmount(amount);
-          inv.pushItem(itemStack, this.getOutputSlots());
-          if (mobTech.getMobTechTier() >= 4) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-          if (mobTech.getMobTechTier() >= 6) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-          if (mobTech.getMobTechTier() >= 9) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-        }
-      }
-    }
   }
 
   public int getProgressTime(Block b) {
@@ -491,12 +458,12 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
   @Nonnull
   @Override
   public List<ItemStack> getDisplayRecipes() {
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     for (AbstractItemRecipe recipe : this.getRecipeShow()) {
-      if (recipe != null) {
+      if (recipe != null && recipe.getFirstItemInput() != null && recipe.getFirstItemOutput() != null) {
         ItemStack itemStack = recipe.getFirstItemOutput().clone();
         itemStack.setAmount(Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-        displayRecipes.add(recipe.getFirstItemInput());
+        displayRecipes.add(recipe.getFirstItemInput().clone());
         displayRecipes.add(itemStack);
       }
     }

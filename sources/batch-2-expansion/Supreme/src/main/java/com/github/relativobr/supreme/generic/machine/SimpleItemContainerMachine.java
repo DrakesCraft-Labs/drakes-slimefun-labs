@@ -20,10 +20,12 @@ public class SimpleItemContainerMachine extends GenericMachine {
     @Nonnull
     @Override
     public List<ItemStack> getDisplayRecipes() {
-        List<ItemStack> displayRecipes = new ArrayList();
+        List<ItemStack> displayRecipes = new ArrayList<>();
         machineRecipes.forEach(recipe -> {
-            displayRecipes.add(recipe.getFirstItemInput());
-            displayRecipes.add(recipe.getFirstItemOutput());
+            if (recipe.getFirstItemInput() != null && recipe.getFirstItemOutput() != null) {
+                displayRecipes.add(recipe.getFirstItemInput().clone());
+                displayRecipes.add(recipe.getFirstItemOutput().clone());
+            }
         });
         return displayRecipes;
     }

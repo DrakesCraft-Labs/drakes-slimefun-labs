@@ -331,26 +331,40 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   protected boolean notHasSpaceOutput(BlockMenu inv, ItemStack[] result) {
-    int requiredSpace = result.length;
-    int availableSpace = 0;
+    List<ItemStack> simulatedSlots = new ArrayList<>(getOutputSlots().length);
     for (int slot : getOutputSlots()) {
       ItemStack itemInSlot = inv.getItemInSlot(slot);
-      if (itemInSlot == null) {
-        availableSpace++;
-      } else {
-        for (ItemStack stack : result) {
-          if (SlimefunUtils.isItemSimilar(itemInSlot, stack, false, false)
-              && itemInSlot.getAmount() < itemInSlot.getMaxStackSize()) {
-            availableSpace++;
-            break;
-          }
-        }
+      simulatedSlots.add(itemInSlot == null ? null : itemInSlot.clone());
+    }
+
+    for (ItemStack output : result) {
+      if (output == null || output.getType().isAir() || output.getAmount() <= 0) continue;
+
+      int remaining = output.getAmount();
+      for (ItemStack existing : simulatedSlots) {
+        if (existing == null || !SlimefunUtils.isItemSimilar(existing, output, false, false)) continue;
+
+        int capacity = existing.getMaxStackSize() - existing.getAmount();
+        if (capacity <= 0) continue;
+        int inserted = Math.min(capacity, remaining);
+        existing.setAmount(existing.getAmount() + inserted);
+        remaining -= inserted;
+        if (remaining == 0) break;
       }
-      if (availableSpace >= requiredSpace) {
-        return false;
+
+      while (remaining > 0) {
+        int emptySlot = simulatedSlots.indexOf(null);
+        if (emptySlot < 0) return true;
+
+        ItemStack inserted = output.clone();
+        int insertedAmount = Math.min(inserted.getMaxStackSize(), remaining);
+        inserted.setAmount(insertedAmount);
+        simulatedSlots.set(emptySlot, inserted);
+        remaining -= insertedAmount;
       }
     }
-    return true;
+
+    return false;
   }
 
   private void nextProcessing(Block b, BlockMenu inv) {

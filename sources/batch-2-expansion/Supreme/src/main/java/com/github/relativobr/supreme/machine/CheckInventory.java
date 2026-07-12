@@ -19,12 +19,12 @@ import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
 import com.github.drakescraft_labs.slimefun4.utils.LoreBuilder;
 import com.github.drakescraft_labs.slimefun4.utils.SlimefunUtils;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-import lombok.Getter;
-import lombok.Setter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.interfaces.InventoryBlock;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
@@ -32,7 +32,6 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -42,9 +41,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
-import org.springframework.scheduling.annotation.Async;
 
-@Async
 public class CheckInventory extends SlimefunItem implements InventoryBlock {
 
   public static final SlimefunItemStack CHECK_INVENTORY = new SlimefunItemStack("SUPREME_CHECK_INVENTORY",
@@ -66,11 +63,7 @@ public class CheckInventory extends SlimefunItem implements InventoryBlock {
   private static int MAIN_SLOT = 13;
   private static int[] BORDER_SLOT = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
       24, 25, 26};
-  private int countDelayTick = 0;
-
-  @Getter
-  @Setter
-  private static boolean light = false;
+  private final Map<Block, Integer> delayTicks = new HashMap<>();
 
   @ParametersAreNonnullByDefault
   public CheckInventory(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
@@ -111,18 +104,19 @@ public class CheckInventory extends SlimefunItem implements InventoryBlock {
 
       @Override
       public boolean isSynchronized() {
-        return false;
+        return true;
       }
 
     });
   }
 
   private void tick(Block b) {
-    if (countDelayTick < 8) {
-      countDelayTick++;
+    int delay = delayTicks.getOrDefault(b, 0);
+    if (delay < 8) {
+      delayTicks.put(b, delay + 1);
       return;
     }
-    countDelayTick = 0;
+    delayTicks.put(b, 0);
     if (!BlockStorage.hasInventory(b) || !(b.getBlockData() instanceof Lightable)) {
       BlockStorage.clearBlockInfo(b);
       return;
@@ -130,9 +124,7 @@ public class CheckInventory extends SlimefunItem implements InventoryBlock {
     BlockMenu inv = BlockStorage.getInventory(b);
     final ItemStack itemStack = inv.getItemInSlot(MAIN_SLOT);
     if (itemStack == null) {
-      if (isLight()) {
-        changeLightable(b, false);
-      }
+      changeLightable(b, false);
       return;
     }
 
@@ -147,25 +139,23 @@ public class CheckInventory extends SlimefunItem implements InventoryBlock {
 
   public static void checkItemInInventory(@Nonnull ItemStack itemStack, @Nonnull Block block, Block blockTarget) {
     if (blockTarget != null) {
-      Bukkit.getScheduler().scheduleSyncDelayedTask(Supreme.inst(), (Runnable) () -> {
-        final BlockState targetState = blockTarget.getState();
-        if (targetState instanceof InventoryHolder) {
-          final Inventory targetInv = ((InventoryHolder) targetState).getInventory();
-          final int amountMatch = Arrays.stream(targetInv.getContents()).filter(Objects::nonNull)
-              .filter(itemInv -> (SlimefunUtils.isItemSimilar(itemStack, itemInv, false, false)))
-              .mapToInt(ItemStack::getAmount).sum();
-          changeLightable(block, itemStack.getAmount() <= amountMatch);
-        } else {
-          changeLightable(block, false);
-        }
-      }, 1);
+      final BlockState targetState = blockTarget.getState();
+      if (targetState instanceof InventoryHolder) {
+        final Inventory targetInv = ((InventoryHolder) targetState).getInventory();
+        final int amountMatch = Arrays.stream(targetInv.getContents()).filter(Objects::nonNull)
+            .filter(itemInv -> (SlimefunUtils.isItemSimilar(itemStack, itemInv, false, false)))
+            .mapToInt(ItemStack::getAmount).sum();
+        changeLightable(block, itemStack.getAmount() <= amountMatch);
+      } else {
+        changeLightable(block, false);
+      }
+    } else {
+      changeLightable(block, false);
     }
   }
 
   private static void changeLightable(Block b, boolean status) {
-    setLight(status);
-    if (b.getBlockData() instanceof Lightable) {
-      Lightable lightable = (Lightable) b.getBlockData();
+    if (b.getBlockData() instanceof Lightable lightable && lightable.isLit() != status) {
       lightable.setLit(status);
       b.setBlockData(lightable);
     }
@@ -197,6 +187,7 @@ public class CheckInventory extends SlimefunItem implements InventoryBlock {
   protected BlockBreakHandler onBlockBreak() {
     return new SimpleBlockBreakHandler() {
       public void onBlockBreak(Block b) {
+        delayTicks.remove(b);
         BlockMenu inv = BlockStorage.getInventory(b);
         if (inv != null) {
           inv.dropItems(b.getLocation(), getInputSlots());
