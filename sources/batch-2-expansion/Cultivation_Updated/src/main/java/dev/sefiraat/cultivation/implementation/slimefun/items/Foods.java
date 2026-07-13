@@ -787,7 +787,7 @@ public final class Foods {
     }
 
     private static void simplePlayerEffect(@Nonnull Player player, int healing) {
-        AttributeInstance health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        AttributeInstance health = player.getAttribute(Attribute.MAX_HEALTH);
         if (health == null) {
             return;
         }

@@ -23,7 +23,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.CauldronLevelChangeEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-import utils.Constants;
 import utils.ItemStackComparator;
 import utils.Utils;
 
@@ -228,7 +227,8 @@ public class ExperienceCauldron extends SlimefunItem implements Listener {
     }
 
     private static boolean useNewCauldrons() {
-        return Constants.SERVER_VERSION.contains("1.17") || Constants.SERVER_VERSION.contains("1.18") || Constants.SERVER_VERSION.contains("1.19") || Constants.SERVER_VERSION.contains("1.20");
+        // Capability detection keeps future Minecraft versions on the modern cauldron path.
+        return Material.getMaterial("WATER_CAULDRON") != null;
     }
 
     /**

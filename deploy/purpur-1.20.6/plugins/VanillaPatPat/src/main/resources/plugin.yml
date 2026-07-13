@@ -1,7 +1,0 @@
-name: VanillaPatPat
-version: '1.0.0'
-main: dev.synapseos.patpat.VanillaPatPat
-api-version: '1.20'
-prefix: PatPat
-author: SynapseOS
-description: A fully server-side port of the PatPat mechanic!

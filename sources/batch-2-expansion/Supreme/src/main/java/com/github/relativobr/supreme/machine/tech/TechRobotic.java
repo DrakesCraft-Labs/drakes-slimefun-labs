@@ -192,6 +192,10 @@ public class TechRobotic extends SimpleItemContainerMachine implements Radioacti
     } else {
 
       if (this.getProgressTime(b) <= 0) {
+        if (notHasSpaceOutput(inv, new ItemStack[]{itemProcess})) {
+          invalidProgressBar(inv, "&cOutput full");
+          return;
+        }
 
         inv.pushItem(itemProcess.clone(), this.getOutputSlots());
 
@@ -211,6 +215,12 @@ public class TechRobotic extends SimpleItemContainerMachine implements Radioacti
 
   public int getProgressTime(Block b) {
     return progressTime.get(b) != null ? progressTime.get(b) : (getTimeProcess() * 2);
+  }
+
+  @Override
+  protected void onMachineRemoved(Block b) {
+    processing.remove(b);
+    progressTime.remove(b);
   }
 
   private void processTicks(Block b, BlockMenu inv, ItemStack result) {

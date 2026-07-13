@@ -52,13 +52,19 @@ public abstract class PersistentStorage<K extends Comparable<K>, V> {
 
     private void commitLoad(K key) {
         try {
+            if (key == null) {
+                return;
+            }
+
             byte[] bytes = peristentData.get(key);
             if (bytes == null) {
                 return;
             }
 
             Map.Entry<String, V> pair = deserialize(key, bytes);
-            assert pair != null;
+            if (pair == null || pair.getKey() == null || pair.getValue() == null) {
+                return;
+            }
             String id = pair.getKey();
             V value = pair.getValue();
 
@@ -210,8 +216,8 @@ public abstract class PersistentStorage<K extends Comparable<K>, V> {
      * The data referenced by the K can be null.
      * Do not call on the main thread.
      */
-    public void load(K key) {
-        if (!scheduledForDeletion.contains(key)) {
+    public void load(@Nullable K key) {
+        if (key != null && !scheduledForDeletion.contains(key)) {
             loadQueue.add(key);
         }
     }

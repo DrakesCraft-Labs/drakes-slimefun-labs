@@ -65,9 +65,9 @@ public class NanoBlade extends SimpleSlimefunItem<ItemUseHandler> implements Rec
 
             PersistentDataAPI.setBoolean(nanoBladeMeta, Constants.NANO_BLADE_ENABLED, enabled);
 
-            nanoBladeMeta.removeAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE);
-            nanoBladeMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE,
-                new AttributeModifier(UUID.randomUUID(), Attribute.GENERIC_ATTACK_DAMAGE.getKey().getKey(), damage,
+            nanoBladeMeta.removeAttributeModifier(Attribute.ATTACK_DAMAGE);
+            nanoBladeMeta.addAttributeModifier(Attribute.ATTACK_DAMAGE,
+                new AttributeModifier(UUID.randomUUID(), Attribute.ATTACK_DAMAGE.getKey().getKey(), damage,
                     AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND
                 )
             );

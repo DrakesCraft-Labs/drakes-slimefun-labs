@@ -17,11 +17,14 @@ import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Server;
 import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Display;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.TextDisplay;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import dev.drake.dough.blocks.BlockPosition;
@@ -68,6 +71,8 @@ public class HologramsService {
      */
     private final Map<BlockPosition, Hologram> cache = new HashMap<>();
 
+    private BukkitTask purgeTask;
+
     /**
      * This constructs a new {@link HologramsService}.
      * 
@@ -86,7 +91,7 @@ public class HologramsService {
      * purge-task.
      */
     public void start() {
-        plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, this::purge, PURGE_RATE, PURGE_RATE);
+        purgeTask = plugin.getServer().getScheduler().runTaskTimer(plugin, this::purge, PURGE_RATE, PURGE_RATE);
     }
 
     /**
@@ -109,6 +114,7 @@ public class HologramsService {
             Hologram hologram = iterator.next();
 
             if (hologram.hasExpired()) {
+                hologram.remove();
                 iterator.remove();
             }
         }
@@ -116,13 +122,13 @@ public class HologramsService {
 
     /**
      * This returns the {@link Hologram} associated with the given {@link Location}.
-     * If createIfNoneExists is set to true a new {@link ArmorStand} will be spawned
+         * If createIfNoneExists is set to true a new {@link TextDisplay} will be spawned
      * if no existing one could be found.
      * 
      * @param loc
      *            The {@link Location}
      * @param createIfNoneExists
-     *            Whether to create a new {@link ArmorStand} if none was found
+         *            Whether to create a new {@link TextDisplay} if none was found
      * 
      * @return The existing (or newly created) hologram
      */
@@ -142,7 +148,7 @@ public class HologramsService {
         Collection<Entity> holograms = loc.getWorld().getNearbyEntities(loc, RADIUS, RADIUS, RADIUS, this::isHologram);
 
         for (Entity n : holograms) {
-            if (n instanceof ArmorStand) {
+            if (n instanceof ArmorStand || n instanceof TextDisplay) {
                 PersistentDataContainer container = n.getPersistentDataContainer();
 
                 /*
@@ -161,11 +167,11 @@ public class HologramsService {
         }
 
         if (hologram == null && createIfNoneExists) {
-            // Spawn a new ArmorStand
-            ArmorStand armorstand = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
-            PersistentDataContainer container = armorstand.getPersistentDataContainer();
+            // TextDisplay is cheaper than an ArmorStand on modern Paper.
+            TextDisplay display = (TextDisplay) loc.getWorld().spawnEntity(loc, EntityType.TEXT_DISPLAY);
+            PersistentDataContainer container = display.getPersistentDataContainer();
 
-            return getAsHologram(position, armorstand, container);
+            return getAsHologram(position, display, container);
         } else {
             return hologram;
         }
@@ -182,7 +188,7 @@ public class HologramsService {
     }
 
     /**
-     * This checks if a given {@link Entity} is an {@link ArmorStand}
+         * This checks if a given {@link Entity} is a supported display entity
      * and whether it has the correct attributes to be considered a {@link Hologram}.
      * 
      * @param n
@@ -191,7 +197,9 @@ public class HologramsService {
      * @return Whether this could be a hologram
      */
     private boolean isHologram(@Nonnull Entity n) {
-        if (n instanceof ArmorStand armorStand) {
+        if (n instanceof TextDisplay) {
+            return true;
+        } else if (n instanceof ArmorStand armorStand) {
             // The absolute minimum requirements to count as a hologram
             return !armorStand.isVisible() && armorStand.isSilent() && !armorStand.hasGravity();
         } else {
@@ -200,8 +208,7 @@ public class HologramsService {
     }
 
     /**
-     * This will cast the {@link Entity} to an {@link ArmorStand} and it will apply
-     * all necessary attributes to the {@link ArmorStand}, then return a {@link Hologram}.
+         * This configures a modern TextDisplay or legacy ArmorStand.
      * 
      * @param position
      *            The {@link BlockPosition} of this hologram
@@ -214,7 +221,13 @@ public class HologramsService {
      */
     @Nullable
     private Hologram getAsHologram(@Nonnull BlockPosition position, @Nonnull Entity entity, @Nonnull PersistentDataContainer container) {
-        if (entity instanceof ArmorStand armorStand) {
+        if (entity instanceof TextDisplay display) {
+            display.setBillboard(Display.Billboard.CENTER);
+            display.setSeeThrough(false);
+            display.setShadowed(false);
+            display.setDefaultBackground(false);
+            display.setPersistent(true);
+        } else if (entity instanceof ArmorStand armorStand) {
             armorStand.setVisible(false);
             armorStand.setInvulnerable(true);
             armorStand.setSilent(true);
@@ -222,19 +235,19 @@ public class HologramsService {
             armorStand.setAI(false);
             armorStand.setGravity(false);
             armorStand.setRemoveWhenFarAway(false);
+            armorStand.setPersistent(true);
 
-            // Set a persistent tag to re-identify the correct hologram later
-            container.set(persistentDataKey, PersistentDataType.LONG, position.getPosition());
-
-            // Store in cache for faster access
-            Hologram hologram = new Hologram(armorStand.getUniqueId());
-            cache.put(position, hologram);
-
-            return hologram;
         } else {
             // This should never be reached
             return null;
         }
+
+        // Set a persistent tag to re-identify the correct hologram later.
+        container.set(persistentDataKey, PersistentDataType.LONG, position.getPosition());
+
+        Hologram hologram = new Hologram(entity.getUniqueId());
+        cache.put(position, hologram);
+        return hologram;
     }
 
     /**
@@ -319,6 +332,19 @@ public class HologramsService {
         Validate.notNull(loc, "Location must not be null");
 
         updateHologram(loc, hologram -> hologram.setLabel(label));
+    }
+
+    /** Stops the purge task and removes only Slimefun-owned holograms. */
+    public void shutdown() {
+        if (purgeTask != null) {
+            purgeTask.cancel();
+            purgeTask = null;
+        }
+
+        for (Hologram hologram : cache.values()) {
+            hologram.remove();
+        }
+        cache.clear();
     }
 
 }

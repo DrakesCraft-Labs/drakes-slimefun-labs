@@ -1,9 +1,0 @@
-name: EnderCore
-version: '0.2.0'
-main: net.endkind.enderCore.platform.papermc.EnderCore
-api-version: '1.20'
-prefix: EnderCore
-load: STARTUP
-authors: [ Endkind Ender ]
-description: EnderCore is a central plugin that provides essential functions and resources for other plugins.
-website: https://www.endkind.net

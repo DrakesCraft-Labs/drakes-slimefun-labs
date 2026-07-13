@@ -17,7 +17,7 @@ public class HealingPotion extends AbstractRelic {
     public HealingPotion(ItemGroup itemGroup, SlimefunItemStack item, double dropChance, int piglinRewardAmount, int defaultDropSize) {
         super(itemGroup, item, Rarity.COMMON, dropChance, piglinRewardAmount, defaultDropSize);
         addItemHandler((OffHandRightClickHandler) (event, player, offHand) -> {
-            double currentMaxHealth = Objects.requireNonNull(player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue();
+            double currentMaxHealth = Objects.requireNonNull(player.getAttribute(Attribute.MAX_HEALTH)).getValue();
             if (player.getHealth() <= currentMaxHealth - 2){
                 offHand.subtract();
                 player.setHealth(player.getHealth() + 2);

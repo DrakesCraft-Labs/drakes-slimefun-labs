@@ -40,7 +40,7 @@ public final class ReapersSurprise implements Surprise {
     public void activate(Random random, Player p, Location l) {
         for (int i = 0; i < 4; i++) {
             Zombie zombie = (Zombie) l.getWorld().spawnEntity(l, EntityType.ZOMBIE);
-            zombie.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(120D);
+            zombie.getAttribute(Attribute.MAX_HEALTH).setBaseValue(120D);
             zombie.setHealth(120D);
 
             zombie.getEquipment().setHelmet(PlayerHead.getItemStack(PlayerSkin.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTkzN2FmMjYzMzI2ZTJiNDA5MDQyNzFiODMxYzNiMTc2ZWEyMWYwMTg2YmZhZjRlMTZlZWUxZTI4OWRkYWQ4In19fQ==")));

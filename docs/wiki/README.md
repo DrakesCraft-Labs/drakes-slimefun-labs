@@ -18,7 +18,6 @@ Esta carpeta es el **índice operativo** del monorepo: enlaza guías ya existent
 | Tablero org (Project 1) | [docs/PROJECT_BOARD_SYNC.md](../PROJECT_BOARD_SYNC.md) |
 | Auto-updater + despliegue en servidor | [Runtime: DrakesLabs auto-updater](runtime-drakes-autoupdate.md) |
 | Resource Pack: Pipeline de texturas | [Runtime: Resource Pack (pack.drakescraft.cl)](runtime-resourcepack.md) |
-| Aircraft: YAML de vehículos y revisión en disco | [Runtime: Aircraft (YAML)](runtime-aircraft-yaml.md) |
 
 ---
 
@@ -62,7 +61,7 @@ Política del repo en GitHub: **solo dos ramas largas** en el remoto:
 
 **Stable branch:** `1.21-latin` · **Paper 1.21.x** · **Java 21**.
 
-This folder is the **lab wiki hub**: it links canonical docs under `docs/` and adds runtime notes (see `runtime-drakes-autoupdate.md`, `runtime-aircraft-yaml.md`). Prefer a thin **GitHub Wiki** that points here instead of duplicating content.
+This folder is the **lab wiki hub**: it links canonical docs under `docs/` and adds runtime notes. Prefer a thin **GitHub Wiki** that points here instead of duplicating content.
 
 | Need | Doc |
 |------|-----|
@@ -73,6 +72,5 @@ This folder is the **lab wiki hub**: it links canonical docs under `docs/` and a
 | Scripts | [scripts/README.md](../../scripts/README.md) |
 | Auto-updater + deploy | [Runtime: DrakesLabs auto-updater](runtime-drakes-autoupdate.md) |
 | Resource Pack: Texture pipeline | [Runtime: Resource Pack (pack.drakescraft.cl)](runtime-resourcepack.md) |
-| Aircraft vehicle YAML | [Runtime: Aircraft (YAML)](runtime-aircraft-yaml.md) |
 
 **Do not cross-merge** `1.21-latin` ↔ `26.X-ToTheStars` (repo policy).

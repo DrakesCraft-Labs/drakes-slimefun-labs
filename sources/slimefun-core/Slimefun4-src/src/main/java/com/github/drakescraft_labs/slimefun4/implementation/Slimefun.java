@@ -409,6 +409,7 @@ public class Slimefun extends JavaPlugin implements SlimefunAddon {
 
         // Detiene timers de auto-save async antes del volcado síncrono (evita carreras)
         Bukkit.getScheduler().cancelTasks(this);
+        hologramsService.shutdown();
 
         // Finishes all started movements/removals of block data
         try {

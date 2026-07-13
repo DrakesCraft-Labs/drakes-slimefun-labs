@@ -10,9 +10,11 @@ import javax.annotation.Nullable;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.TextDisplay;
+import org.bukkit.entity.Entity;
 
 /**
- * This represents an {@link ArmorStand} that can expire and be renamed.
+ * This represents a display entity that can expire and be renamed.
  * 
  * @author TheBusyBiscuit
  *
@@ -25,7 +27,7 @@ class Hologram {
     private static final long EXPIRES_AFTER = TimeUnit.MINUTES.toMillis(10);
 
     /**
-     * The {@link UUID} of the {@link ArmorStand}.
+     * The {@link UUID} of the display entity.
      */
     private final UUID uniqueId;
 
@@ -51,20 +53,20 @@ class Hologram {
     }
 
     /**
-     * This returns the corresponding {@link ArmorStand}
+     * This returns the corresponding display entity
      * and also updates the "lastAccess" timestamp.
      * <p>
      * If the {@link ArmorStand} was removed, it will return null.
      * 
-     * @return The {@link ArmorStand} or null.
+     * @return The display entity or null.
      */
     @Nullable
-    ArmorStand getArmorStand() {
+    Entity getEntity() {
         Entity n = Bukkit.getEntity(uniqueId);
 
-        if (n instanceof ArmorStand armorStand && n.isValid()) {
+        if ((n instanceof ArmorStand || n instanceof TextDisplay) && n.isValid()) {
             this.lastAccess = System.currentTimeMillis();
-            return armorStand;
+            return n;
         } else {
             this.lastAccess = 0;
             return null;
@@ -77,7 +79,7 @@ class Hologram {
      * @return Whether the {@link ArmorStand} despawned
      */
     boolean hasDespawned() {
-        return getArmorStand() == null;
+        return getEntity() == null;
     }
 
     /**
@@ -106,15 +108,23 @@ class Hologram {
             this.lastAccess = System.currentTimeMillis();
         } else {
             this.label = label;
-            ArmorStand entity = getArmorStand();
+            Entity entity = getEntity();
 
             if (entity != null) {
                 if (label != null) {
-                    entity.setCustomNameVisible(true);
-                    entity.setCustomName(label);
+                    if (entity instanceof TextDisplay display) {
+                        display.setText(label);
+                    } else if (entity instanceof ArmorStand armorStand) {
+                        armorStand.setCustomNameVisible(true);
+                        armorStand.setCustomName(label);
+                    }
                 } else {
-                    entity.setCustomNameVisible(false);
-                    entity.setCustomName(null);
+                    if (entity instanceof TextDisplay display) {
+                        display.setText("");
+                    } else if (entity instanceof ArmorStand armorStand) {
+                        armorStand.setCustomNameVisible(false);
+                        armorStand.setCustomName(null);
+                    }
                 }
             }
         }
@@ -124,11 +134,11 @@ class Hologram {
      * This will remove the {@link ArmorStand} and expire this {@link Hologram}.
      */
     void remove() {
-        ArmorStand armorstand = getArmorStand();
+        Entity entity = getEntity();
 
-        if (armorstand != null) {
+        if (entity != null) {
             lastAccess = 0;
-            armorstand.remove();
+            entity.remove();
         }
     }
 

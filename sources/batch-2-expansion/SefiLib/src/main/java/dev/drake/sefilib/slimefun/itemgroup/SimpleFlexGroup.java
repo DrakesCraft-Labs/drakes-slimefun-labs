@@ -111,12 +111,12 @@ public class SimpleFlexGroup extends FlexItemGroup {
             final int slot = 9 + i;
             if (menuItem.getItemGroup() != null) {
                 final ItemGroup itemGroup = menuItem.getItemGroup();
-                menu.replaceExistingItem(slot, itemGroup.getItem(player));
+                menu.replaceExistingItem(slot, toMenuItem(itemGroup.getItem(player)));
                 menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) ->
                     openPage(profile, itemGroup, mode, 1, page)
                 );
             } else if (menuItem.getItem() != null && menuItem.getClickHandler() != null) {
-                menu.replaceExistingItem(slot, menuItem.getItem());
+                menu.replaceExistingItem(slot, toMenuItem(menuItem.getItem()));
                 menu.addMenuClickHandler(slot, menuItem.getClickHandler());
             }
         }
@@ -219,5 +219,13 @@ public class SimpleFlexGroup extends FlexItemGroup {
 
             return false;
         });
+    }
+
+    /**
+     * Convierte SlimefunItemStack y otras subclases a ItemStack Bukkit plano
+     * antes de mandarlos al ChestMenu legacy.
+     */
+    private ItemStack toMenuItem(ItemStack itemStack) {
+        return itemStack == null ? null : new ItemStack(itemStack);
     }
 }

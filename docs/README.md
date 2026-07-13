@@ -15,14 +15,14 @@ La linea **Paper 26.x** se trabaja en la rama **[`26.X-ToTheStars`](https://gith
 
 ## Wiki del laboratorio
 
-- **Índice wiki (mapa + runtime updater / Aircraft):** [wiki/README.md](wiki/README.md).
+- **Índice wiki (mapa + runtime updater):** [wiki/README.md](wiki/README.md).
 - La **Wiki de GitHub** del repo (si existe) debe enlazar a `docs/wiki/` y a este `docs/README.md` para una sola fuente de verdad.
 
 ## Dónde empezar
 
 | Objetivo | Documento |
 |----------|-------------|
-| **Wiki (mapa, updater, Aircraft YAML)** | [wiki/README.md](wiki/README.md) |
+| **Wiki (mapa y updater)** | [wiki/README.md](wiki/README.md) |
 | Vision general del proyecto, reactor, scripts y direccion tecnica | [README raiz](../README.md) |
 | Matriz auditada por módulo (no editar a mano) | [es/PLUGIN_MATRIX.md](es/PLUGIN_MATRIX.md) |
 | Qué queda a nivel build / historial técnico | [es/pending-modules.md](es/pending-modules.md) |

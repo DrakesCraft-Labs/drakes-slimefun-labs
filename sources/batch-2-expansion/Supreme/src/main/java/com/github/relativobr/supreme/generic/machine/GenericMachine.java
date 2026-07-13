@@ -21,11 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
@@ -321,7 +319,9 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   protected Map<ItemStack, Integer> getConsumedItems(Block b) {
-    return consumedItemsMap.get(b);
+    // Older persisted machine states can survive without this cache entry.
+    // Recreate it instead of crashing on block break or partial processing.
+    return consumedItemsMap.computeIfAbsent(b, ignored -> new HashMap<>());
   }
 
   protected boolean isProcessing(Block b) {
@@ -329,26 +329,40 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   protected boolean notHasSpaceOutput(BlockMenu inv, ItemStack[] result) {
-    int requiredSpace = result.length;
-    int availableSpace = 0;
+    List<ItemStack> simulatedSlots = new ArrayList<>(getOutputSlots().length);
     for (int slot : getOutputSlots()) {
       ItemStack itemInSlot = inv.getItemInSlot(slot);
-      if (itemInSlot == null) {
-        availableSpace++;
-      } else {
-        for (ItemStack stack : result) {
-          if (SlimefunUtils.isItemSimilar(itemInSlot, stack, false, false)
-              && itemInSlot.getAmount() < itemInSlot.getMaxStackSize()) {
-            availableSpace++;
-            break;
-          }
-        }
+      simulatedSlots.add(itemInSlot == null ? null : itemInSlot.clone());
+    }
+
+    for (ItemStack output : result) {
+      if (output == null || output.getType().isAir() || output.getAmount() <= 0) continue;
+
+      int remaining = output.getAmount();
+      for (ItemStack existing : simulatedSlots) {
+        if (existing == null || !SlimefunUtils.isItemSimilar(existing, output, false, false)) continue;
+
+        int capacity = existing.getMaxStackSize() - existing.getAmount();
+        if (capacity <= 0) continue;
+        int inserted = Math.min(capacity, remaining);
+        existing.setAmount(existing.getAmount() + inserted);
+        remaining -= inserted;
+        if (remaining == 0) break;
       }
-      if (availableSpace >= requiredSpace) {
-        return false;
+
+      while (remaining > 0) {
+        int emptySlot = simulatedSlots.indexOf(null);
+        if (emptySlot < 0) return true;
+
+        ItemStack inserted = output.clone();
+        int insertedAmount = Math.min(inserted.getMaxStackSize(), remaining);
+        inserted.setAmount(insertedAmount);
+        simulatedSlots.set(emptySlot, inserted);
+        remaining -= insertedAmount;
       }
     }
-    return true;
+
+    return false;
   }
 
   private void nextProcessing(Block b, BlockMenu inv) {
@@ -457,15 +471,10 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   private boolean consumptionRecipe(Block b, BlockMenu inv) {
-    Map<ItemStack, Integer> requiredItems = new HashMap<>();
-    for (ItemStack item : getProcessing(b).getInput()) {
-      requiredItems.merge(item.clone(), item.getAmount(), Integer::sum);
-    }
-
     boolean consumeFailure = false;
-    for (Map.Entry<ItemStack, Integer> entry : requiredItems.entrySet()) {
-      ItemStack requiredItem = entry.getKey();
-      int requiredAmount = entry.getValue();
+    for (RequiredIngredient ingredient : aggregateIngredients(getProcessing(b).getInput())) {
+      ItemStack requiredItem = ingredient.item();
+      int requiredAmount = ingredient.amount();
       int foundAmount = 0;
 
       for (Map.Entry<ItemStack, Integer> consumedEntry : getConsumedItems(b).entrySet()) {
@@ -501,19 +510,50 @@ public class GenericMachine extends AContainer implements NotHopperable, RecipeD
   }
 
   private boolean matchingRecipe(ItemStack[] recipe, BlockMenu inv) {
-    Set<ItemStack> uniqueItems = new HashSet<>(Arrays.asList(recipe));
-    return uniqueItems.stream().allMatch(item -> isItemPresentInSlots(item, inv));
-  }
-
-  private boolean isItemPresentInSlots(ItemStack item, BlockMenu inv) {
-    for (int slot : this.getInputSlots()) {
-      ItemStack itemInSlot = inv.getItemInSlot(slot);
-      if (itemInSlot != null && SlimefunUtils.isItemSimilar(itemInSlot, item, false, false)) {
-        return true;
+    for (RequiredIngredient ingredient : aggregateIngredients(recipe)) {
+      int available = 0;
+      for (int slot : getInputSlots()) {
+        ItemStack itemInSlot = inv.getItemInSlot(slot);
+        if (itemInSlot != null
+            && SlimefunUtils.isItemSimilar(itemInSlot, ingredient.item(), false, false)) {
+          available += itemInSlot.getAmount();
+        }
+      }
+      if (available < ingredient.amount()) {
+        return false;
       }
     }
-    return false;
+    return true;
   }
+
+  /** Groups recipe requirements by Slimefun identity instead of mutable stack amount. */
+  private List<RequiredIngredient> aggregateIngredients(ItemStack[] recipe) {
+    List<RequiredIngredient> ingredients = new ArrayList<>();
+    for (ItemStack item : recipe) {
+      if (item == null || item.getType().isAir() || item.getAmount() <= 0) {
+        continue;
+      }
+      int matchingIndex = -1;
+      for (int i = 0; i < ingredients.size(); i++) {
+        if (SlimefunUtils.isItemSimilar(ingredients.get(i).item(), item, false, false)) {
+          matchingIndex = i;
+          break;
+        }
+      }
+      if (matchingIndex < 0) {
+        ItemStack identity = item.clone();
+        identity.setAmount(1);
+        ingredients.add(new RequiredIngredient(identity, item.getAmount()));
+      } else {
+        RequiredIngredient current = ingredients.get(matchingIndex);
+        ingredients.set(matchingIndex,
+            new RequiredIngredient(current.item(), current.amount() + item.getAmount()));
+      }
+    }
+    return ingredients;
+  }
+
+  private record RequiredIngredient(ItemStack item, int amount) {}
 
   private ItemStack getDisplayOrInfo(ItemStack itemStack, String name) {
     return new CustomItemStack(itemStack != null ? itemStack : new ItemStack(Material.BLACK_STAINED_GLASS_PANE), name);

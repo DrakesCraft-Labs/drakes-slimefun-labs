@@ -196,7 +196,7 @@ public class EnderLeash extends BaseSTBItem {
         conf.set("ageLock", target.getAgeLock());
         conf.set("name", target.getCustomName() == null ? "" : target.getCustomName());
         conf.set("nameVisible", target.isCustomNameVisible());
-        conf.set("maxHealth", target.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+        conf.set("maxHealth", target.getAttribute(Attribute.MAX_HEALTH).getValue());
         conf.set("health", target.getHealth());
         conf.set("captureTime", System.currentTimeMillis());
 
@@ -259,7 +259,7 @@ public class EnderLeash extends BaseSTBItem {
         entity.setAgeLock(conf.getBoolean("ageLock"));
         entity.setCustomName(conf.getString("name"));
         entity.setCustomNameVisible(conf.getBoolean("nameVisible"));
-        entity.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(conf.getDouble("maxHealth"));
+        entity.getAttribute(Attribute.MAX_HEALTH).setBaseValue(conf.getDouble("maxHealth"));
         entity.setHealth(conf.getDouble("health"));
 
         if (entity instanceof Tameable) {

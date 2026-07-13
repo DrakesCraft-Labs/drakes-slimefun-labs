@@ -42,7 +42,7 @@ public class DirtyChestMenu extends ChestMenu {
     }
 
     public void markDirty() {
-        changes++;
+        changes = 1;
     }
 
     public boolean isDirty() {
@@ -50,7 +50,7 @@ public class DirtyChestMenu extends ChestMenu {
     }
 
     public int getUnsavedChanges() {
-        return changes;
+        return isDirty() ? 1 : 0;
     }
 
     @Override

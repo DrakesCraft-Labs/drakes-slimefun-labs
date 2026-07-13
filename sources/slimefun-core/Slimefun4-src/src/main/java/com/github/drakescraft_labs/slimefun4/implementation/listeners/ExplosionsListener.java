@@ -45,7 +45,7 @@ public class ExplosionsListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEntityExplode(EntityExplodeEvent e) {
-        removeResistantBlocks(e.blockList().iterator());
+        removeResistantBlocks(e.blockList().iterator(), e.getEntity().getType() == EntityType.WIND_CHARGE);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -61,13 +61,20 @@ public class ExplosionsListener implements Listener {
     }
 
     private void removeResistantBlocks(@Nonnull Iterator<Block> blocks) {
+        removeResistantBlocks(blocks, false);
+    }
+
+    private void removeResistantBlocks(@Nonnull Iterator<Block> blocks, boolean windCharge) {
         while (blocks.hasNext()) {
             Block block = blocks.next();
             SlimefunItem item = BlockStorage.check(block);
 
             if (item != null) {
                 blocks.remove();
-                removeResistantBlock(block, item);
+                // Wind Charges must never damage registered Slimefun blocks.
+                if (!windCharge) {
+                    removeResistantBlock(block, item);
+                }
             }
         }
     }

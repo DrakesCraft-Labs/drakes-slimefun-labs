@@ -33,6 +33,9 @@ public class AutoSavingService implements Listener {
 
     private int interval;
     private Slimefun plugin;
+    private int dynamicIntervalSeconds;
+    private int dynamicThreshold;
+    private int dynamicBatchSize;
 
     /**
      * This method starts the {@link AutoSavingService} with the given interval.
@@ -45,9 +48,15 @@ public class AutoSavingService implements Listener {
     public void start(@Nonnull Slimefun plugin, int interval) {
         this.interval = interval;
         this.plugin = plugin;
+        this.dynamicIntervalSeconds = Math.max(0, plugin.getConfig().getInt("performance.dynamic-block-autosave.interval-seconds", 30));
+        this.dynamicThreshold = Math.max(1, plugin.getConfig().getInt("performance.dynamic-block-autosave.threshold", 2048));
+        this.dynamicBatchSize = Math.max(1, plugin.getConfig().getInt("performance.dynamic-block-autosave.batch-size", 500));
 
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllPlayers, 2000L, interval * 60L * 20L);
         plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveAllBlocks, 2000L, interval * 60L * 20L);
+        if (dynamicIntervalSeconds > 0) {
+            plugin.getServer().getScheduler().runTaskTimerAsynchronously(plugin, this::saveDirtyBlocksBatch, dynamicIntervalSeconds * 20L, dynamicIntervalSeconds * 20L);
+        }
 
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
@@ -138,6 +147,33 @@ public class AutoSavingService implements Listener {
     }
 
     /**
+     * This drains large BlockStorage queues in small batches. It avoids letting
+     * dirty block data pile up for the full periodic auto-save interval while
+     * also avoiding one huge disk I/O spike when busy Slimefun worlds are active.
+     */
+    private void saveDirtyBlocksBatch() {
+        for (World world : Bukkit.getWorlds()) {
+            try {
+                BlockStorage storage = BlockStorage.getStorage(world);
+
+                if (storage == null) {
+                    continue;
+                }
+
+                storage.computeChanges();
+                int queued = storage.getChanges();
+
+                if (queued >= dynamicThreshold) {
+                    Slimefun.logger().log(Level.FINE, "Dynamic block auto-save: draining up to {0} of {1} queued change(s) for world \"{2}\".", new Object[] { dynamicBatchSize, queued, world.getName() });
+                    storage.save(dynamicBatchSize);
+                }
+            } catch (Throwable t) {
+                Slimefun.logger().log(Level.SEVERE, "Error draining dynamic block auto-save for world " + world.getName(), t);
+            }
+        }
+    }
+
+    /**
      * Listen to WorldSaveEvent to automatically write BlockStorage data to disk.
      * This ensures that Slimefun data is aligned with Minecraft world saves,
      * preventing rollback exploits and desync issues.
@@ -223,8 +259,11 @@ public class AutoSavingService implements Listener {
 
             if (storage != null) {
                 try {
-                    // save() ya hace computeChanges() y no escribe si no hay cambios
-                    storage.save();
+                    int passes = storage.flushUntilClean(5);
+                    storage.computeChanges();
+                    if (storage.getChanges() > 0) {
+                        Slimefun.logger().log(Level.SEVERE, "Slimefun: quedaron {0} cambios sin persistir en el mundo '{1}' tras {2} intentos.", new Object[] { storage.getChanges(), world.getName(), passes });
+                    }
                     worlds++;
                 } catch (Throwable t) {
                     Slimefun.logger().log(Level.SEVERE, "Error al guardar BlockStorage para el mundo '" + world.getName() + "' en el apagado", t);

@@ -67,7 +67,7 @@ public class Alien<T extends Mob> {
         PersistentDataAPI.setString(mob, this.alienManager.key(), this.id);
         this.alienManager.addAlien(mob.getUniqueId());
 
-        Objects.requireNonNull(mob.getAttribute(Attribute.GENERIC_MAX_HEALTH)).setBaseValue(this.maxHealth);
+        Objects.requireNonNull(mob.getAttribute(Attribute.MAX_HEALTH)).setBaseValue(this.maxHealth);
         mob.setHealth(this.maxHealth);
         mob.setCustomName(this.name);
         mob.setCustomNameVisible(true);

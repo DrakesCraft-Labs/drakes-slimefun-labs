@@ -140,8 +140,12 @@ public class PoweredKitchenMachineSimple extends KitchenRecipeMachineSimple impl
                     }
 
                     ItemStack result = testRecipe(id);
-                    if (result == null || !menu.fits(result, OUTPUT_SLOT)) {
+                    if (result == null) {
                         p.sendMessage(Theme.ERROR.apply("No matching recipe."));
+                        return false;
+                    }
+                    if (!menu.fits(result, OUTPUT_SLOT)) {
+                        p.sendMessage(Theme.ERROR.apply("Not enough output space."));
                         return false;
                     }
 
@@ -155,7 +159,7 @@ public class PoweredKitchenMachineSimple extends KitchenRecipeMachineSimple impl
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return Machines.GARDEN_CLOCHE.canUse(player, false)
+                return PoweredKitchenMachineSimple.this.canUse(player, false)
                     && dev.sefiraat.cultivation.api.utils.ProtectionCompat.hasPermission(player, block.getLocation(), "INTERACT_BLOCK");
             }
 

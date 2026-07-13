@@ -80,7 +80,7 @@ public class MysteryStick10 extends AbstractStick {
             victim.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 80, 2, false, true, false));
             victim.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 80, 2, false, true, false));
 
-            int playerDefaultHealth = (int) Objects.requireNonNull(player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue();
+            int playerDefaultHealth = (int) Objects.requireNonNull(player.getAttribute(Attribute.MAX_HEALTH)).getValue();
             
             if(player.getHealth() < playerDefaultHealth - 2) {
                 player.setHealth(player.getHealth() + 2);

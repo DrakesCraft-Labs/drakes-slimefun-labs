@@ -1,6 +1,0 @@
-version: 1
-
-prefix:
-  name: 'EnderCore'
-  color: '#6400d4'
-  useArrow: true

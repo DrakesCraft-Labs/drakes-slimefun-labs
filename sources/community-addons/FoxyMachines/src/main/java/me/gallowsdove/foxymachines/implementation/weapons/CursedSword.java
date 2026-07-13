@@ -37,7 +37,7 @@ public class CursedSword extends OnHitWeapon {
     public void onHit(EntityDamageByEntityEvent event, HumanEntity humanoid, LivingEntity entity) {
         // Life Steal I
         double health = humanoid.getHealth() + 1.25D;
-        double maxHealth = humanoid.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+        double maxHealth = humanoid.getAttribute(Attribute.MAX_HEALTH).getValue();
         humanoid.setHealth(Math.min(health, maxHealth));
 
         // Armor Penetration I

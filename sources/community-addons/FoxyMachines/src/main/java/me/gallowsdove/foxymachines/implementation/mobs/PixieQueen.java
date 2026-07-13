@@ -47,7 +47,7 @@ public class PixieQueen extends CustomBoss {
 
         spawned.setGlowing(true);
 
-        spawned.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(28);
+        spawned.getAttribute(Attribute.ATTACK_DAMAGE).setBaseValue(28);
         spawned.getPersistentDataContainer().set(PATTERN_KEY, PersistentDataType.SHORT, AttackPattern.CHARGE);
     }
 

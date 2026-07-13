@@ -106,13 +106,17 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
                         itemStacks[i] = menu.getItemInSlot(INPUT_SLOTS[i]);
                     }
                     ItemStack result = testRecipe(itemStacks);
+                    if (result == null) {
+                        p.sendMessage(Theme.ERROR.apply("No matching recipe."));
+                        return false;
+                    }
                     SlimefunItem slimefunItem = SlimefunItem.getByItem(result);
                     if (slimefunItem != null && slimefunItem.isDisabled()) {
                         p.sendMessage(Theme.ERROR.apply("This recipe is disabled."));
                         return false;
                     }
-                    if (result == null || !menu.fits(result, OUTPUT_SLOT)) {
-                        p.sendMessage(Theme.ERROR.apply("No matching recipe."));
+                    if (!menu.fits(result, OUTPUT_SLOT)) {
+                        p.sendMessage(Theme.ERROR.apply("Not enough output space."));
                         return false;
                     }
 
@@ -135,7 +139,7 @@ public class CraftingKitchenMachine extends KitchenRecipeMachineComplex {
 
             @Override
             public boolean canOpen(@Nonnull Block block, @Nonnull Player player) {
-                return Machines.GARDEN_CLOCHE.canUse(player, false)
+                return CraftingKitchenMachine.this.canUse(player, false)
                     && dev.sefiraat.cultivation.api.utils.ProtectionCompat.hasPermission(player, block.getLocation(), "INTERACT_BLOCK");
             }
 

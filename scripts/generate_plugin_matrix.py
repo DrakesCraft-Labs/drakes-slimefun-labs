@@ -35,13 +35,7 @@ GATE_5_GRADLE_OK = {
 LOCAL_BUILD_CUT = "2026-04-24"
 
 # Observaciones especificas por modulo (sobrescribe el texto generico de classify).
-MAVEN_MODULE_OBSERVATION_OVERRIDES: dict[str, tuple[str, str, str]] = {
-    "sources/repos-to-port/Aircraft-dev": (
-        "Listo (CI)",
-        "CI Monorepo · maven_full_reactor",
-        "`mvn -B compile -DskipTests -fae` cubre el reactor Maven completo; en runtime los YAML de vehiculos van en `plugins/Aircraft/vehicles/` (empaquetados en el jar). El fork Drake usa `vehicles/.schema_revision` para volcar defaults cuando cambia el formato (MetaLib exige vectores como listas de tres numeros, etc.). Smoke en servidor recomendado.",
-    ),
-}
+MAVEN_MODULE_OBSERVATION_OVERRIDES: dict[str, tuple[str, str, str]] = {}
 
 # Gradle reactor (settings.gradle.kts)
 GRADLE_MODULES = {

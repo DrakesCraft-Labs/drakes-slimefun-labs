@@ -205,6 +205,10 @@ public class TechMutation extends SimpleItemContainerMachine implements Radioact
       if (this.getProgressTime(b) <= 0) {
 
         if (UtilMachine.getRandomInt() <= (itemProcessing.getChance() * getUpgradeLuck())) {
+          if (notHasSpaceOutput(inv, new ItemStack[]{(ItemStack) itemProcessing.getOutput()})) {
+            invalidProgressBar(inv, "&cOutput full");
+            return;
+          }
           inv.pushItem(((ItemStack) itemProcessing.getOutput()).clone(), this.getOutputSlots());
           invalidProgressBar(inv, Material.BLACK_STAINED_GLASS_PANE, " Success! ");
         } else {
@@ -226,6 +230,12 @@ public class TechMutation extends SimpleItemContainerMachine implements Radioact
 
   public int getProgressTime(Block b) {
     return progressTime.get(b) != null ? progressTime.get(b) : (getTimeProcess() * 2);
+  }
+
+  @Override
+  protected void onMachineRemoved(Block b) {
+    processing.remove(b);
+    progressTime.remove(b);
   }
 
   private void processTicks(Block b, BlockMenu inv, ItemStack result) {

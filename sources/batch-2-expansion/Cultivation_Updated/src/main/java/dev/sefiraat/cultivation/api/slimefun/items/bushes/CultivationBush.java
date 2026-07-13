@@ -9,11 +9,13 @@ import dev.sefiraat.cultivation.api.slimefun.groups.CultivationGroups;
 import dev.sefiraat.cultivation.api.slimefun.items.CultivationFloraItem;
 import dev.sefiraat.cultivation.api.slimefun.plant.Growth;
 import dev.sefiraat.cultivation.implementation.slimefun.tools.TrimmingTool;
+import dev.sefiraat.cultivation.implementation.utils.CultivationDisplayCleanup;
 import dev.drake.sefilib.entity.display.DisplayInteractable;
 import com.github.drakescraft_labs.slimefun4.api.SlimefunAddon;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -55,7 +57,9 @@ public abstract class CultivationBush extends CultivationFloraItem<CultivationBu
 
     @OverridingMethodsMustInvokeSuper
     protected void onBreak(@NotNull BlockBreakEvent event) {
-        removeBush(event.getBlock().getLocation());
+        Location location = event.getBlock().getLocation();
+        removeBush(location);
+        CultivationDisplayCleanup.removeOrphans(location);
     }
 
     @Override

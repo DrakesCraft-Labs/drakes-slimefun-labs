@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'PortTextura/Jackstar-Slimefun-Drakecraft/**'
+      - 'scripts/release/build_resourcepack_variants.py'
+      - '.github/workflows/resourcepack-release.yml'
   workflow_dispatch:
     inputs:
       reason:
@@ -28,13 +30,18 @@ jobs:
           echo "tag=resourcepack-$(date +'%Y%m%d')-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
           echo "name=Resource Pack $(date +'%Y-%m-%d') (${GITHUB_SHA::7})" >> $GITHUB_OUTPUT
 
+      - name: Generar variante SF-only
+        run: |
+          python3 scripts/release/build_resourcepack_variants.py \
+            PortTextura/Jackstar-Slimefun-Drakecraft
+
       - name: Crear ZIP compatible con Minecraft
         # pack.mcmeta debe estar en la raíz del ZIP, no dentro de una subcarpeta
         run: |
-          cd PortTextura/Jackstar-Slimefun-Drakecraft
-          zip -r ../../Jackstar-Slimefun-Drakecraft.zip . \
+          cd PortTextura/build/Jackstar-Slimefun-Drakecraft-sf-only
+          zip -r ../../../Jackstar-Slimefun-Drakecraft.zip . \
             --exclude "*.git*" --exclude "README.md" --exclude "item-models.yml"
-          cd ../..
+          cd ../../..
           echo "SHA256: $(sha256sum Jackstar-Slimefun-Drakecraft.zip | cut -d' ' -f1)"
 
       - name: Crear GitHub Release
@@ -53,6 +60,9 @@ jobs:
             resource-pack=https://pack.drakescraft.cl/latest.zip
             resource-pack-sha1=<SHA1 — ver abajo>
             ```
+
+            ### Asset publicado
+            - `Jackstar-Slimefun-Drakecraft.zip`: variante `sf-only`, sin texturas vanilla recoloreadas.
 
             > Generado automáticamente al detectar cambios en `PortTextura/`.
           files: Jackstar-Slimefun-Drakecraft.zip

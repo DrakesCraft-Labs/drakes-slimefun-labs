@@ -40,7 +40,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.springframework.scheduling.annotation.Async;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,7 +50,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-@Async
 public class TechGenerator extends SimpleItemContainerMachine implements Radioactive {
 
   public static final SlimefunItemStack TECH_GENERATOR = new SupremeItemStack(
@@ -213,7 +211,8 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
       }
 
       public boolean isSynchronized() {
-        return false;
+        // BlockMenu and ItemStack metadata must only be mutated on the server thread.
+        return true;
       }
     });
   }
@@ -247,8 +246,15 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
     } else {
 
       if (this.getProgressTime(b) <= 0) {
+        final List<ItemStack> pendingOutputs = collectPendingOutputs(inv, itemProduction);
+        if (notHasSpaceOutput(inv, pendingOutputs.toArray(new ItemStack[0]))) {
+          invalidStatus(inv, "&cOutput full");
+          return;
+        }
 
-        checkCloneOutput(inv, itemProduction.clone());
+        for (ItemStack output : pendingOutputs) {
+          inv.pushItem(output.clone(), this.getOutputSlots());
+        }
 
         processing.put(b, null);
         progressTime.put(b, 0);
@@ -271,42 +277,63 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
     }
   }
 
-  private void checkCloneOutput(BlockMenu inv, ItemStack itemStack) {
-    itemStack.setAmount(Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-    inv.pushItem(itemStack, this.getOutputSlots());
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[1]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[2]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[3]), itemStack, inv);
-    buildSlotProcess(inv.getItemInSlot(getInputSlots()[4]), itemStack, inv);
+  private List<ItemStack> collectPendingOutputs(BlockMenu inv, ItemStack itemStack) {
+    final List<ItemStack> pendingOutputs = new ArrayList<>();
+    addPendingOutput(pendingOutputs, itemStack, Supreme.getSupremeOptions().getMaxAmountTechGenerator());
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[1]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[2]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[3]), itemStack, pendingOutputs);
+    addPendingOutputFromMobTech(inv.getItemInSlot(getInputSlots()[4]), itemStack, pendingOutputs);
+    return pendingOutputs;
   }
 
-  private void buildSlotProcess(ItemStack input, ItemStack itemStack, BlockMenu inv) {
-    if (input != null && itemStack != null) {
-      SlimefunItem slimefunItem = SlimefunItem.getByItem(input);
-      if (slimefunItem instanceof MobTech) {
-        final MobTech mobTech = (MobTech) slimefunItem;
-        if (mobTech.getMobTechType() == MobTechType.ROBOTIC_CLONING
-            || mobTech.getMobTechType() == MobTechType.MUTATION_LUCK) {
-          int amount = Math.min(input.getAmount() * mobTech.getMobTechTier(),
-              Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-          itemStack.setAmount(amount);
-          inv.pushItem(itemStack, this.getOutputSlots());
-          if (mobTech.getMobTechTier() >= 4) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-          if (mobTech.getMobTechTier() >= 6) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-          if (mobTech.getMobTechTier() >= 9) {
-            inv.pushItem(itemStack, this.getOutputSlots());
-          }
-        }
-      }
+  private void addPendingOutputFromMobTech(ItemStack input, ItemStack itemStack, List<ItemStack> pendingOutputs) {
+    if (input == null || itemStack == null) {
+      return;
     }
+
+    SlimefunItem slimefunItem = SlimefunItem.getByItem(input);
+    if (!(slimefunItem instanceof MobTech mobTech)) {
+      return;
+    }
+
+    if (mobTech.getMobTechType() != MobTechType.ROBOTIC_CLONING
+        && mobTech.getMobTechType() != MobTechType.MUTATION_LUCK) {
+      return;
+    }
+
+    int amount = Math.min(input.getAmount() * mobTech.getMobTechTier(),
+        Supreme.getSupremeOptions().getMaxAmountTechGenerator());
+    addPendingOutput(pendingOutputs, itemStack, amount);
+    if (mobTech.getMobTechTier() >= 4) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+    if (mobTech.getMobTechTier() >= 6) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+    if (mobTech.getMobTechTier() >= 9) {
+      addPendingOutput(pendingOutputs, itemStack, amount);
+    }
+  }
+
+  private void addPendingOutput(List<ItemStack> pendingOutputs, ItemStack template, int amount) {
+    if (template == null || amount <= 0) {
+      return;
+    }
+
+    ItemStack clone = template.clone();
+    clone.setAmount(amount);
+    pendingOutputs.add(clone);
   }
 
   public int getProgressTime(Block b) {
     return progressTime.get(b) != null ? progressTime.get(b) : (getTimeProcess() * 2);
+  }
+
+  @Override
+  protected void onMachineRemoved(Block b) {
+    processing.remove(b);
+    progressTime.remove(b);
   }
 
   private void processTicks(Block b, BlockMenu inv, ItemStack result) {
@@ -436,12 +463,12 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
   @Nonnull
   @Override
   public List<ItemStack> getDisplayRecipes() {
-    List<ItemStack> displayRecipes = new ArrayList();
+    List<ItemStack> displayRecipes = new ArrayList<>();
     for (AbstractItemRecipe recipe : this.getRecipeShow()) {
-      if (recipe != null) {
+      if (recipe != null && recipe.getFirstItemInput() != null && recipe.getFirstItemOutput() != null) {
         ItemStack itemStack = recipe.getFirstItemOutput().clone();
         itemStack.setAmount(Supreme.getSupremeOptions().getMaxAmountTechGenerator());
-        displayRecipes.add(recipe.getFirstItemInput());
+        displayRecipes.add(recipe.getFirstItemInput().clone());
         displayRecipes.add(itemStack);
       }
     }
