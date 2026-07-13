@@ -325,8 +325,8 @@ public class ItemSetup {
 
             @Override
             protected boolean canCatch(Location l) {
-                return switch (l.getBlock().getBiome()) {
-                    case RIVER, BEACH, OCEAN, COLD_OCEAN, DEEP_OCEAN, WARM_OCEAN, FROZEN_OCEAN, LUKEWARM_OCEAN, DEEP_COLD_OCEAN, DEEP_FROZEN_OCEAN, DEEP_LUKEWARM_OCEAN -> true;
+                return switch (l.getBlock().getBiome().getKey().getKey()) {
+                    case "river", "beach", "ocean", "cold_ocean", "deep_ocean", "warm_ocean", "frozen_ocean", "lukewarm_ocean", "deep_cold_ocean", "deep_frozen_ocean", "deep_lukewarm_ocean" -> true;
                     default -> false;
                 };
             }
