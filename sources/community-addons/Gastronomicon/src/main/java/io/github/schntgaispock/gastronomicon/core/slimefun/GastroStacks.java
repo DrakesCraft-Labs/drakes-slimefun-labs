@@ -9,7 +9,6 @@ import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedItemFl
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 
@@ -40,8 +39,7 @@ public class GastroStacks {
     public static final ItemStack WATER_BOTTLE = new ItemStack(Material.POTION);
     static {
         final PotionMeta meta = (PotionMeta) WATER_BOTTLE.getItemMeta();
-        final PotionData data = new PotionData(PotionType.WATER);
-        meta.setBasePotionData(data);
+        meta.setBasePotionType(PotionType.WATER);
         WATER_BOTTLE.setItemMeta(meta);
     }
 
@@ -956,7 +954,7 @@ public class GastroStacks {
         "Peanut Butter");
     static {
         final PotionMeta meta = (PotionMeta) PEANUT_BUTTER.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.THICK));
+        meta.setBasePotionType(PotionType.THICK);
         meta.setColor(Color.fromRGB(0xbf7715));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         PEANUT_BUTTER.setItemMeta(meta);
@@ -998,7 +996,7 @@ public class GastroStacks {
         "Ketchup");
     static {
         final PotionMeta meta = (PotionMeta) KETCHUP.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.RED);
         KETCHUP.setItemMeta(meta);
@@ -1035,7 +1033,7 @@ public class GastroStacks {
         "Soy Sauce");
     static {
         final PotionMeta meta = (PotionMeta) SOY_SAUCE.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.MUNDANE));
+        meta.setBasePotionType(PotionType.MUNDANE);
         meta.setColor(Color.fromRGB(0x1d0a03));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         SOY_SAUCE.setItemMeta(meta);
@@ -2074,7 +2072,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) BUBBLE_MILK_TEA.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.MAROON);
         BUBBLE_MILK_TEA.setItemMeta(meta);
@@ -2088,7 +2086,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) CANTALOUPE_BUBBLE_TEA.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         CANTALOUPE_BUBBLE_TEA.setItemMeta(meta);
@@ -2102,7 +2100,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) HONEYDEW_MELON_BUBBLE_TEA.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.GREEN);
         HONEYDEW_MELON_BUBBLE_TEA.setItemMeta(meta);
@@ -2116,7 +2114,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) APPLE_BUBBLE_TEA.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.LIME);
         APPLE_BUBBLE_TEA.setItemMeta(meta);
@@ -2136,7 +2134,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RED_WINE.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.MAROON);
         RED_WINE.setItemMeta(meta);
@@ -2154,7 +2152,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) BEER.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         BEER.setItemMeta(meta);
@@ -2172,7 +2170,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) APPLE_CIDER.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.YELLOW);
         APPLE_CIDER.setItemMeta(meta);
@@ -2190,7 +2188,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RICE_WINE.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.WHITE);
         RICE_WINE.setItemMeta(meta);
@@ -2208,7 +2206,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) VODKA.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.WHITE);
         VODKA.setItemMeta(meta);
@@ -2226,7 +2224,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) RUM.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.RED);
         RUM.setItemMeta(meta);
@@ -2244,7 +2242,7 @@ public class GastroStacks {
         .build();
     static {
         final PotionMeta meta = (PotionMeta) WHISKEY.getItemMeta();
-        meta.setBasePotionData(new PotionData(PotionType.WATER));
+        meta.setBasePotionType(PotionType.WATER);
         meta.addItemFlags(VersionedItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         meta.setColor(Color.ORANGE);
         WHISKEY.setItemMeta(meta);
