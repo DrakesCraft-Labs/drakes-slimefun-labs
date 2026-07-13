@@ -16,7 +16,7 @@ Automatización para **Drakes Slimefun Labs**: porteo Paper 1.21.1, coherencia M
 | Smoke (perfiles, Paper, logs) | [smoke/README.md](smoke/README.md) |
 | Guía smoke EN/ES | [../docs/en/smoke-test-guide.md](../docs/en/smoke-test-guide.md) · [../docs/es/smoke-test-guide.md](../docs/es/smoke-test-guide.md) |
 | Actions y limpieza en GitHub | [../docs/github-maintenance.md](../docs/github-maintenance.md) |
-| Wiki (updater, Aircraft YAML, despliegue) | [../docs/wiki/README.md](../docs/wiki/README.md) |
+| Wiki (updater y despliegue) | [../docs/wiki/README.md](../docs/wiki/README.md) |
 
 ## Herramientas principales
 

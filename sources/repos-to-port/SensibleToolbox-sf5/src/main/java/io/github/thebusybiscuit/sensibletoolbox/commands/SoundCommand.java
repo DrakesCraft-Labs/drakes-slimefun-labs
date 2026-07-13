@@ -1,7 +1,11 @@
 package io.github.thebusybiscuit.sensibletoolbox.commands;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
+import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
 import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -27,7 +31,11 @@ public class SoundCommand extends AbstractCommand {
         }
 
         try {
-            Sound sound = Sound.valueOf(args[0].toUpperCase());
+            String soundKey = args[0].toLowerCase(Locale.ROOT).replace('_', '.');
+            Sound sound = Registry.SOUNDS.get(NamespacedKey.minecraft(soundKey));
+            if (sound == null) {
+                throw new IllegalArgumentException("Unknown sound: " + args[0]);
+            }
             float volume = args.length > 1 ? Float.parseFloat(args[1]) : 1.0F;
             float pitch = args.length > 2 ? Float.parseFloat(args[2]) : 1.0F;
             ((Player) sender).playSound(((Player) sender).getLocation(), sound, volume, pitch);
@@ -40,7 +48,10 @@ public class SoundCommand extends AbstractCommand {
     @Override
     public List<String> onTabComplete(Plugin plugin, CommandSender sender, String[] args) {
         if (args.length == 1) {
-            return getEnumCompletions(sender, Sound.class, args[0]);
+            List<String> sounds = Registry.SOUNDS.stream()
+                    .map(sound -> sound.getKey().getKey().replace('.', '_').toUpperCase(Locale.ROOT))
+                    .collect(Collectors.toList());
+            return filterPrefix(sender, sounds, args[0]);
         } else {
             return noCompletions(sender);
         }

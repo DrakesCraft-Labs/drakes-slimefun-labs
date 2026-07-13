@@ -18,7 +18,7 @@
     <name>KinematicCore (DrakesCraft Labs, Paper 1.21.11)</name>
     <description>
         Upstream: https://github.com/metamechanists/KinematicCore (MIT).
-        Port: Paper API 1.21.11, Java 21, plugin api-version 1.21 for Aircraft and MetaMechanists stack.
+        Port: Paper API 1.21.11, Java 21, plugin api-version 1.21 for the MetaMechanists stack.
     </description>
 
     <properties>

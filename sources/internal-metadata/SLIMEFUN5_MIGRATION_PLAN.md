@@ -71,7 +71,6 @@ Se inicio la separacion gradual de addons inestables a repos individuales dentro
 - `https://github.com/DrakesCraft-Labs/SensibleToolbox-drake`
 - `https://github.com/DrakesCraft-Labs/Galactifun2-drake`
 - `https://github.com/DrakesCraft-Labs/DynaTech-drake`
-- `https://github.com/DrakesCraft-Labs/Aircraft-drake`
 - `https://github.com/DrakesCraft-Labs/SlimeTinker-drake`
 - `https://github.com/DrakesCraft-Labs/ChestTerminal-drake`
 - `https://github.com/DrakesCraft-Labs/SaneCrafting-drake`

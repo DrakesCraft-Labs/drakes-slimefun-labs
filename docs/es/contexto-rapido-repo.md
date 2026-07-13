@@ -24,7 +24,7 @@ Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + 
 
 | Tema | Dónde |
 |------|--------|
-| Wiki (mapa, updater, Aircraft) | `docs/wiki/README.md` |
+| Wiki (mapa y updater) | `docs/wiki/README.md` |
 | Qué queda “lab vs juego” | `docs/es/pending-modules.md`, `README.md` |
 | Smoke Paper + ProtocolLib | `scripts/smoke/README.md` |
 | Releases (assets JAR) | `docs/github-maintenance.md` |
@@ -46,5 +46,5 @@ Servidor referencia Chile: https://drakescraft.cl — pulido juego: comunidad + 
 - [Tomorrow handoff](tomorrow-handoff.md)
 
 <!-- DRAKES-STATUS:BEGIN -->
-> **2026-04-27** — Incluye wiki en `docs/wiki/` (updater, despliegue, Aircraft YAML).
+> **2026-04-27** — Incluye wiki en `docs/wiki/` (updater y despliegue).
 <!-- DRAKES-STATUS:END -->
