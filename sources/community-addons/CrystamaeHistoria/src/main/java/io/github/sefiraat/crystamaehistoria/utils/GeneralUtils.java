@@ -251,7 +251,7 @@ public final class GeneralUtils {
      */
     @ParametersAreNonnullByDefault
     public static void healEntity(LivingEntity livingEntity, double healAmount) {
-        AttributeInstance attribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        AttributeInstance attribute = livingEntity.getAttribute(Attribute.MAX_HEALTH);
         if (attribute != null) {
             livingEntity.setHealth(Math.min(attribute.getValue(), livingEntity.getHealth() + healAmount));
         }

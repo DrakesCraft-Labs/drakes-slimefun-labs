@@ -48,7 +48,7 @@ public class InfinityBandage extends SimpleSlimefunItem<ItemUseHandler> implemen
 
             int exp = Utils.getTotalExperience(p);
             double health = p.getHealth();
-            double maxHealth = p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+            double maxHealth = p.getAttribute(Attribute.MAX_HEALTH).getValue();
 
             // Check if player has enough exp
             if (exp < EXP_PER_CONSUME) {

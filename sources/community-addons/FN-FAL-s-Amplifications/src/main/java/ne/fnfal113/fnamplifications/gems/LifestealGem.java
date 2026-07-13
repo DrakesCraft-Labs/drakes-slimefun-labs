@@ -55,7 +55,7 @@ public class LifestealGem extends AbstractGem implements OnDamageHandler, GemUpg
 
         if(ThreadLocalRandom.current().nextInt(100) < getChance() / getTier(itemStack, this.getId())) {
             Bukkit.getScheduler().runTaskLater(FNAmplifications.getInstance(), () -> { // delay getting the actual hp of the damager
-                int playerDefaultHealth = (int) Objects.requireNonNull(player.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue();
+                int playerDefaultHealth = (int) Objects.requireNonNull(player.getAttribute(Attribute.MAX_HEALTH)).getValue();
                 
                 if(player.getHealth() <= playerDefaultHealth - 2 && livingEntity.getHealth() > 2 && !livingEntity.isDead()) {
                     player.setHealth(player.getHealth() + 2);

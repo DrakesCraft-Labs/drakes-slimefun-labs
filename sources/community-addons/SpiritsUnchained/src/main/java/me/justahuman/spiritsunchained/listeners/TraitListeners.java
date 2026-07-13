@@ -131,7 +131,7 @@ public class TraitListeners implements Listener {
         }
 
         final Entity attacker = event instanceof EntityDamageByEntityEvent otherEvent ? otherEvent.getDamager() : null;
-        final AttributeInstance attributeInstance = entity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        final AttributeInstance attributeInstance = entity.getAttribute(Attribute.MAX_HEALTH);
         final double finalHealth = entity.getHealth() - event.getFinalDamage();
         final double maxHealth = attributeInstance != null ? attributeInstance.getValue() : 1;
         final double finalHealthPercentage = finalHealth / maxHealth;

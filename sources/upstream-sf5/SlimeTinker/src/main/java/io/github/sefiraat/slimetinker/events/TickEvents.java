@@ -179,7 +179,7 @@ public final class TickEvents {
     public static void bindWarpedRoot(EventFriend friend) {
         int rnd = ThreadLocalRandom.current().nextInt(1, 5);
         if (rnd == 1) {
-            friend.getPlayer().setHealth(Math.min(friend.getPlayer().getHealth() + 1, friend.getPlayer().getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
+            friend.getPlayer().setHealth(Math.min(friend.getPlayer().getHealth() + 1, friend.getPlayer().getAttribute(Attribute.MAX_HEALTH).getValue()));
         }
     }
 
@@ -536,7 +536,7 @@ public final class TickEvents {
     public static void gambesonWarpedRoots(EventFriend friend) {
         if (GeneralUtils.testChance(1, 4)) {
             Player p = friend.getPlayer();
-            double maxHealth = p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+            double maxHealth = p.getAttribute(Attribute.MAX_HEALTH).getValue();
             friend.getPlayer().setHealth(Math.min(p.getHealth() + 1, maxHealth));
         }
     }
@@ -700,7 +700,7 @@ public final class TickEvents {
     public static void plateStardust(EventFriend friend) {
         Player p = friend.getPlayer();
         if (!GeneralUtils.day(p.getWorld()) && GeneralUtils.testChance(5, 100)) {
-            p.setHealth(Math.min(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue(), p.getHealth() + 1));
+            p.setHealth(Math.min(p.getAttribute(Attribute.MAX_HEALTH).getValue(), p.getHealth() + 1));
         }
     }
 

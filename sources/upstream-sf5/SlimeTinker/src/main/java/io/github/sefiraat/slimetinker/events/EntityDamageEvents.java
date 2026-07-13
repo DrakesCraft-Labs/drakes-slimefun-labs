@@ -152,7 +152,7 @@ public final class EntityDamageEvents {
         }
         int rnd = ThreadLocalRandom.current().nextInt(1, 4);
         if (rnd == 1) {
-            p.setHealth(Math.min(p.getHealth() + 1, p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
+            p.setHealth(Math.min(p.getHealth() + 1, p.getAttribute(Attribute.MAX_HEALTH).getValue()));
         }
     }
 
@@ -401,7 +401,7 @@ public final class EntityDamageEvents {
         if (friend.getDamagedEntity() instanceof LivingEntity) {
             friend.setCancelEvent(true);
             LivingEntity l = (LivingEntity) friend.getDamagedEntity();
-            l.setHealth(Math.min(l.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue(), l.getHealth() + friend.getInitialDamage()));
+            l.setHealth(Math.min(l.getAttribute(Attribute.MAX_HEALTH).getValue(), l.getHealth() + friend.getInitialDamage()));
         }
 
     }

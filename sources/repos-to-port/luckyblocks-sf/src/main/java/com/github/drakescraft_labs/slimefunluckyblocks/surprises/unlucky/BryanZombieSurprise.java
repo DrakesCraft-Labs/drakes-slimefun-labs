@@ -36,7 +36,7 @@ public final class BryanZombieSurprise implements Surprise {
     @Override
     public void activate(Random random, Player p, Location l) {
         Zombie zombie = (Zombie) l.getWorld().spawnEntity(l, EntityType.ZOMBIE);
-        zombie.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(60D);
+        zombie.getAttribute(Attribute.MAX_HEALTH).setBaseValue(60D);
         zombie.setHealth(60D);
         zombie.getEquipment().setItemInMainHand(axe.clone());
         zombie.getEquipment().setItemInMainHandDropChance(0F);

@@ -57,7 +57,7 @@ public class BerserkGem extends AbstractGem implements OnDamageHandler, GemUpgra
         int tier = getTier(itemStack, this.getId());
 
         if(ThreadLocalRandom.current().nextInt(100) < getChance() / tier) {
-            double playerDefaultHealth = Objects.requireNonNull(damager.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue();
+            double playerDefaultHealth = Objects.requireNonNull(damager.getAttribute(Attribute.MAX_HEALTH)).getValue();
             double playerCurrentHealth = damager.getHealth();
 
             if(playerCurrentHealth <= 0 || playerDefaultHealth <= 0) return;

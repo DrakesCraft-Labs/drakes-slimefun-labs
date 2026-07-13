@@ -87,12 +87,12 @@ public class AttributeCharms extends SimpleSlimefunItem<ItemUseHandler> implemen
 
     public enum Charm {
 
-        MOVEMENT_SPEED(Attribute.GENERIC_MOVEMENT_SPEED, 0.01, 0.2, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
-        ATTACK_SPEED(Attribute.GENERIC_ATTACK_SPEED, 0.1, 0.5, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
-        FLY_SPEED(Attribute.GENERIC_FLYING_SPEED, 0.01, 1, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
-        DAMAGE(Attribute.GENERIC_ATTACK_DAMAGE, 0.01, 1, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
-        MAX_HEALTH(Attribute.GENERIC_MAX_HEALTH, 1, 5, AttributeModifier.Operation.ADD_NUMBER),
-        KNOCKBACK_RESISTANCE(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1, 0.5, AttributeModifier.Operation.ADD_NUMBER);
+        MOVEMENT_SPEED(Attribute.MOVEMENT_SPEED, 0.01, 0.2, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
+        ATTACK_SPEED(Attribute.ATTACK_SPEED, 0.1, 0.5, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
+        FLY_SPEED(Attribute.FLYING_SPEED, 0.01, 1, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
+        DAMAGE(Attribute.ATTACK_DAMAGE, 0.01, 1, AttributeModifier.Operation.MULTIPLY_SCALAR_1),
+        MAX_HEALTH(Attribute.MAX_HEALTH, 1, 5, AttributeModifier.Operation.ADD_NUMBER),
+        KNOCKBACK_RESISTANCE(Attribute.KNOCKBACK_RESISTANCE, 0.1, 0.5, AttributeModifier.Operation.ADD_NUMBER);
 
         private final Attribute attribute;
         private final double minLvl;
