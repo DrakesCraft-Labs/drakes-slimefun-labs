@@ -56,7 +56,6 @@
     <modules>
         <!-- Base Stack -->
         <module>sources/dough-core</module>
-        <module>sources/slimefun-core/Slimefun4-src</module>
         <module>sources/batch-2-expansion/SefiLib</module>
         <module>sources/batch-2-expansion/InfinityLib</module>
         <module>sources/drakes-labs-autoupdate</module>
@@ -97,7 +96,6 @@
         <module>sources/batch-2-expansion/LiteXpansion</module>
         <module>sources/batch-2-expansion/SlimeTinker</module>
         <module>sources/batch-2-expansion/SMG</module>
-        <module>sources/batch-2-expansion/Supreme</module>
         <module>sources/batch-2-expansion/TranscEndence</module>
         <module>sources/batch-2-expansion/Slimefun-Disc</module>
         <module>sources/community-addons/AlchimiaVitae</module>
@@ -227,9 +225,9 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>com.github.seeseemelk</groupId>
-                <artifactId>MockBukkit-v1.21</artifactId>
-                <version>3.133.2</version>
+                <groupId>org.mockbukkit.mockbukkit</groupId>
+                <artifactId>mockbukkit-v1.21</artifactId>
+                <version>4.83.1</version>
                 <scope>test</scope>
             </dependency>
 
@@ -335,8 +333,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.seeseemelk</groupId>
-            <artifactId>MockBukkit-v1.21</artifactId>
+            <groupId>org.mockbukkit.mockbukkit</groupId>
+            <artifactId>mockbukkit-v1.21</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -482,3 +480,4 @@
         </repository>
     </repositories>
 </project>
+
