@@ -259,8 +259,11 @@ public class AutoSavingService implements Listener {
 
             if (storage != null) {
                 try {
-                    // save() ya hace computeChanges() y no escribe si no hay cambios
-                    storage.save();
+                    int passes = storage.flushUntilClean(5);
+                    storage.computeChanges();
+                    if (storage.getChanges() > 0) {
+                        Slimefun.logger().log(Level.SEVERE, "Slimefun: quedaron {0} cambios sin persistir en el mundo '{1}' tras {2} intentos.", new Object[] { storage.getChanges(), world.getName(), passes });
+                    }
                     worlds++;
                 } catch (Throwable t) {
                     Slimefun.logger().log(Level.SEVERE, "Error al guardar BlockStorage para el mundo '" + world.getName() + "' en el apagado", t);

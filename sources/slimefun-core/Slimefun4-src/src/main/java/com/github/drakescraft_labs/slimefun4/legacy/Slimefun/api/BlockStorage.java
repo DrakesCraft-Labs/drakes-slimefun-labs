@@ -427,7 +427,7 @@ public class BlockStorage {
         }
     }
 
-    public void computeChanges() {
+    public synchronized void computeChanges() {
         changes = blocksCache.size();
 
         Map<Location, BlockMenu> inventories2 = new HashMap<>(inventories);
@@ -441,8 +441,26 @@ public class BlockStorage {
         }
     }
 
-    public int getChanges() {
+    public synchronized int getChanges() {
         return changes;
+    }
+
+    /**
+     * Flushes pending block and inventory data repeatedly, allowing transient
+     * write failures or late dirty marks to be retried before shutdown.
+     *
+     * @param maxPasses maximum number of complete persistence passes
+     * @return the number of passes attempted
+     */
+    public synchronized int flushUntilClean(int maxPasses) {
+        return com.github.drakescraft_labs.slimefun4.core.services.PersistenceDrain.drain(
+            maxPasses,
+            () -> {
+                computeChanges();
+                return getChanges();
+            },
+            this::save
+        );
     }
 
     public synchronized void save() {
