@@ -25,8 +25,8 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.implementation.items.backpacks.Cooler;
 import com.github.drakescraft_labs.slimefun4.implementation.items.food.Juice;
 import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 class TestCoolerListener {
 

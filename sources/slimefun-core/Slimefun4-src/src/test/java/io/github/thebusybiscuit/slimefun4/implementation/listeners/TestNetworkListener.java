@@ -18,8 +18,8 @@ import com.github.drakescraft_labs.slimefun4.api.network.Network;
 import com.github.drakescraft_labs.slimefun4.core.networks.NetworkManager;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 class TestNetworkListener {
 

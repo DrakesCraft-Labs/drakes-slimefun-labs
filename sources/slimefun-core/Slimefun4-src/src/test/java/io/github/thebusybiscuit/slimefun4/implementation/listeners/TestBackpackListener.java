@@ -38,9 +38,9 @@ import com.github.drakescraft_labs.slimefun4.implementation.items.backpacks.Slim
 import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.entity.ItemEntityMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.entity.ItemEntityMock;
 
 class TestBackpackListener {
 

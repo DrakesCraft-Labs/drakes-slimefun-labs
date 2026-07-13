@@ -19,7 +19,7 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 import com.github.drakescraft_labs.slimefun4.test.mocks.MockItemHandler;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.MockBukkit;
 
 class TestItemHandlers {
 

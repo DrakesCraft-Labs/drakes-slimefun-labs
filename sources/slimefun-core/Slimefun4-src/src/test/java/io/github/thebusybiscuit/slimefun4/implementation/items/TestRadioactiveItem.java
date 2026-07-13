@@ -16,7 +16,7 @@ import com.github.drakescraft_labs.slimefun4.core.attributes.Radioactivity;
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.MockBukkit;
 
 class TestRadioactiveItem {
 

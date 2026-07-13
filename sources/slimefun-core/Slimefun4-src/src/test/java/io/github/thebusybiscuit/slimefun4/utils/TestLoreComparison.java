@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.MockBukkit;
 
 class TestLoreComparison {
 

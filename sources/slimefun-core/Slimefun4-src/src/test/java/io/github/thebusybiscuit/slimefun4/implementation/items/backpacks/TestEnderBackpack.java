@@ -15,8 +15,8 @@ import com.github.drakescraft_labs.slimefun4.implementation.Slimefun;
 import com.github.drakescraft_labs.slimefun4.test.TestUtilities;
 import com.github.drakescraft_labs.slimefun4.test.presets.SlimefunItemTest;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
 
 class TestEnderBackpack implements SlimefunItemTest<EnderBackpack> {
 

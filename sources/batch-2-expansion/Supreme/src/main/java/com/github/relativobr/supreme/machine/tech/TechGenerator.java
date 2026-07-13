@@ -79,7 +79,7 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
   }
 
   public static void addRecipesToProcess(ItemStack input, ItemStack output) {
-    receitasParaProduzir.add(new AbstractItemRecipe(input, output));
+    receitasParaProduzir.add(new AbstractItemRecipe(copyForMenu(input), copyForMenu(output)));
   }
 
   public static void preSetup(Supreme plugin, SlimefunItemStack item, Material input,
@@ -101,23 +101,28 @@ public class TechGenerator extends SimpleItemContainerMachine implements Radioac
       ItemStack input1, ItemStack input2,
       ItemStack output) {
     new UnplaceableBlock(ItemGroups.CARDS_CATEGORY, item, RecipeType.ENHANCED_CRAFTING_TABLE,
-        new ItemStack[]{new ItemStack(input1), new ItemStack(input2), new ItemStack(input1),
-            new ItemStack(input2),
-            getCardTier(tierCard), new ItemStack(input2), new ItemStack(input1),
-            new ItemStack(input2),
-            new ItemStack(input1)}).register(plugin);
+        new ItemStack[]{copyForMenu(input1), copyForMenu(input2), copyForMenu(input1),
+            copyForMenu(input2),
+            getCardTier(tierCard), copyForMenu(input2), copyForMenu(input1),
+            copyForMenu(input2),
+            copyForMenu(input1)}).register(plugin);
     TechGenerator.addRecipesToProcess(item, output);
   }
 
   @Nonnull
   private static ItemStack getCardTier(int tierCard) {
     if (tierCard >= 3) {
-      return SupremeComponents.CENTER_CARD_ULTIMATE;
+      return copyForMenu(SupremeComponents.CENTER_CARD_ULTIMATE);
     } else if (tierCard == 2) {
-      return SupremeComponents.CENTER_CARD_ADVANCED;
+      return copyForMenu(SupremeComponents.CENTER_CARD_ADVANCED);
     } else {
-      return SupremeComponents.CENTER_CARD_SIMPLE;
+      return copyForMenu(SupremeComponents.CENTER_CARD_SIMPLE);
     }
+  }
+
+  // Paper 1.21.11 guide menus reject SlimefunItemStack subclasses in raw inventory slots.
+  private static ItemStack copyForMenu(ItemStack item) {
+    return item == null ? null : new ItemStack(item);
   }
 
   private static void invalidStatus(BlockMenu menu, String txt) {

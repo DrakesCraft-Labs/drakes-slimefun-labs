@@ -1,0 +1,184 @@
+{
+  "values": [
+    {
+      "key": "minecraft:announceAdvancements"
+    },
+    {
+      "key": "minecraft:commandBlockOutput"
+    },
+    {
+      "key": "minecraft:disablePlayerMovementCheck"
+    },
+    {
+      "key": "minecraft:disableElytraMovementCheck"
+    },
+    {
+      "key": "minecraft:doDaylightCycle"
+    },
+    {
+      "key": "minecraft:doEntityDrops"
+    },
+    {
+      "key": "minecraft:doFireTick"
+    },
+    {
+      "key": "minecraft:doLimitedCrafting"
+    },
+    {
+      "key": "minecraft:projectilesCanBreakBlocks"
+    },
+    {
+      "key": "minecraft:doMobLoot"
+    },
+    {
+      "key": "minecraft:doMobSpawning"
+    },
+    {
+      "key": "minecraft:doTileDrops"
+    },
+    {
+      "key": "minecraft:doWeatherCycle"
+    },
+    {
+      "key": "minecraft:keepInventory"
+    },
+    {
+      "key": "minecraft:logAdminCommands"
+    },
+    {
+      "key": "minecraft:mobGriefing"
+    },
+    {
+      "key": "minecraft:naturalRegeneration"
+    },
+    {
+      "key": "minecraft:reducedDebugInfo"
+    },
+    {
+      "key": "minecraft:sendCommandFeedback"
+    },
+    {
+      "key": "minecraft:showDeathMessages"
+    },
+    {
+      "key": "minecraft:spectatorsGenerateChunks"
+    },
+    {
+      "key": "minecraft:disableRaids"
+    },
+    {
+      "key": "minecraft:doInsomnia"
+    },
+    {
+      "key": "minecraft:doImmediateRespawn"
+    },
+    {
+      "key": "minecraft:drowningDamage"
+    },
+    {
+      "key": "minecraft:fallDamage"
+    },
+    {
+      "key": "minecraft:fireDamage"
+    },
+    {
+      "key": "minecraft:freezeDamage"
+    },
+    {
+      "key": "minecraft:doPatrolSpawning"
+    },
+    {
+      "key": "minecraft:doTraderSpawning"
+    },
+    {
+      "key": "minecraft:doWardenSpawning"
+    },
+    {
+      "key": "minecraft:forgiveDeadPlayers"
+    },
+    {
+      "key": "minecraft:universalAnger"
+    },
+    {
+      "key": "minecraft:blockExplosionDropDecay"
+    },
+    {
+      "key": "minecraft:mobExplosionDropDecay"
+    },
+    {
+      "key": "minecraft:tntExplosionDropDecay"
+    },
+    {
+      "key": "minecraft:waterSourceConversion"
+    },
+    {
+      "key": "minecraft:lavaSourceConversion"
+    },
+    {
+      "key": "minecraft:globalSoundEvents"
+    },
+    {
+      "key": "minecraft:doVinesSpread"
+    },
+    {
+      "key": "minecraft:enderPearlsVanishOnDeath"
+    },
+    {
+      "key": "minecraft:allowFireTicksAwayFromPlayer"
+    },
+    {
+      "key": "minecraft:tntExplodes"
+    },
+    {
+      "key": "minecraft:locatorBar"
+    },
+    {
+      "key": "minecraft:pvp"
+    },
+    {
+      "key": "minecraft:spawnMonsters"
+    },
+    {
+      "key": "minecraft:allowEnteringNetherUsingPortals"
+    },
+    {
+      "key": "minecraft:commandBlocksEnabled"
+    },
+    {
+      "key": "minecraft:spawnerBlocksEnabled"
+    },
+    {
+      "key": "minecraft:randomTickSpeed"
+    },
+    {
+      "key": "minecraft:spawnRadius"
+    },
+    {
+      "key": "minecraft:maxEntityCramming"
+    },
+    {
+      "key": "minecraft:maxCommandChainLength"
+    },
+    {
+      "key": "minecraft:maxCommandForkCount"
+    },
+    {
+      "key": "minecraft:commandModificationBlockLimit"
+    },
+    {
+      "key": "minecraft:playersSleepingPercentage"
+    },
+    {
+      "key": "minecraft:snowAccumulationHeight"
+    },
+    {
+      "key": "minecraft:playersNetherPortalDefaultDelay"
+    },
+    {
+      "key": "minecraft:playersNetherPortalCreativeDelay"
+    },
+    {
+      "key": "minecraft:minecartMaxSpeed"
+    }
+  ]
+}

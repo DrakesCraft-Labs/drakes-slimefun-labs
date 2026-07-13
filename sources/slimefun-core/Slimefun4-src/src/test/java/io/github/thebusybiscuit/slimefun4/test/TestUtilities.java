@@ -26,8 +26,8 @@ import org.bukkit.plugin.Plugin;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.block.BlockMock;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.block.BlockMock;
 import dev.drake.dough.items.CustomItemStack;
 import com.github.drakescraft_labs.slimefun4.api.events.SlimefunBlockPlaceEvent;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;

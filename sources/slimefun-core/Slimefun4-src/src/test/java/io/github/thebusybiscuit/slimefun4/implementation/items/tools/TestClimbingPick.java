@@ -28,10 +28,10 @@ import com.github.drakescraft_labs.slimefun4.test.presets.SlimefunItemTest;
 import com.github.drakescraft_labs.slimefun4.utils.compatibility.VersionedEnchantment;
 import com.github.drakescraft_labs.slimefun4.utils.tags.SlimefunTag;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.block.BlockMock;
-import be.seeseemelk.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.block.BlockMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 
 class TestClimbingPick implements SlimefunItemTest<ClimbingPick> {
 

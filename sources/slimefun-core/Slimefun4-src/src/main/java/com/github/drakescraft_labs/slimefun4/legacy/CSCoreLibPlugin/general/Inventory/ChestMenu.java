@@ -226,9 +226,8 @@ public class ChestMenu {
         this.inv = Bukkit.createInventory(null, ((int) Math.ceil(this.items.size() / 9F)) * 9, title);
         for (int i = 0; i < this.items.size(); i++) {
             ItemStack item = this.items.get(i);
-            if (item != null && (item instanceof com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack 
-                || item.getClass().getName().contains("SlimefunItemStack") 
-                || item.getClass().getName().contains("SupremeItemStack"))) {
+            if (item != null && item.getClass() != ItemStack.class
+                && !item.getClass().getName().contains("CraftItemStack")) {
                 item = new ItemStack(item);
             }
             this.inv.setItem(i, item);
@@ -242,9 +241,8 @@ public class ChestMenu {
             this.inv = Bukkit.createInventory(null, ((int) Math.ceil(this.items.size() / 9F)) * 9, title);
         for (int i = 0; i < this.items.size(); i++) {
             ItemStack item = this.items.get(i);
-            if (item != null && (item instanceof com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack 
-                || item.getClass().getName().contains("SlimefunItemStack") 
-                || item.getClass().getName().contains("SupremeItemStack"))) {
+            if (item != null && item.getClass() != ItemStack.class
+                && !item.getClass().getName().contains("CraftItemStack")) {
                 item = new ItemStack(item);
             }
             this.inv.setItem(i, item);
