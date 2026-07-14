@@ -311,6 +311,20 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                                 clonedItem.setAmount(clonedItem.getMaxStackSize());
                             }
 
+                            org.bukkit.inventory.meta.ItemMeta meta = clonedItem.getItemMeta();
+                            if (meta != null) {
+                                org.bukkit.NamespacedKey key = org.bukkit.NamespacedKey.fromString("odysseia:sfmaster_item");
+                                if (key != null) {
+                                    meta.getPersistentDataContainer().set(key, org.bukkit.persistence.PersistentDataType.BYTE, (byte) 1);
+                                }
+                                java.util.List<String> lore = meta.hasLore() ? meta.getLore() : new java.util.ArrayList<>();
+                                lore.add("");
+                                lore.add("§4[!] §cÍtem generado por SFMaster");
+                                lore.add("§cNo puede ser comerciado, almacenado ni soltado.");
+                                meta.setLore(lore);
+                                clonedItem.setItemMeta(meta);
+                            }
+
                             pl.getInventory().addItem(clonedItem);
                         }
                     } else {
