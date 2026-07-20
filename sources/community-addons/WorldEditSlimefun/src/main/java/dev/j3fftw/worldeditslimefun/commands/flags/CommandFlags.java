@@ -170,7 +170,7 @@ public class CommandFlags {
                 World world = context.getPlayer().getWorld();
                 for (Material material : Utils.MATERIALS.values()) {
                     String name = material.name();
-                    if (material.isEnabledByFeature(world) && name.startsWith(current)) {
+                    if (world.isEnabled(material) && name.startsWith(current)) {
                         inputs.add(base + name);
                     }
                 }
@@ -186,7 +186,7 @@ public class CommandFlags {
             }
 
             for (Material material : Utils.MATERIALS.values()) {
-                if (material.isEnabledByFeature(world)) {
+                if (world.isEnabled(material)) {
                     inputs.add(input + material.name() + ",");
                 }
             }

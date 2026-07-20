@@ -47,7 +47,7 @@ public class HungerRefillModule extends BeaconModule implements PlayerModule {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
         meta.addPattern(new Pattern(DyeColor.BROWN, PatternType.FLOWER));
         meta.addPattern(new Pattern(DyeColor.GREEN, PatternType.STRIPE_MIDDLE));
-        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         return stack;
     }

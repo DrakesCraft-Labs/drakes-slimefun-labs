@@ -46,7 +46,7 @@ public class InvincibilityModule extends BeaconModule implements PlayerModule {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
         meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.RHOMBUS));
         meta.addPattern(new Pattern(DyeColor.WHITE, PatternType.SKULL));
-        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         return stack;
     }

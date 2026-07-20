@@ -70,7 +70,7 @@ public class ItemSetup {
 
         ArrayNetworkBlock cable = new ArrayNetworkBlock(ItemGroups.CORONALIS_GROUP, Items.CORONALIS_COAXIAL_CABLE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_WIRE,
-                new ItemStack(Material.CHAIN), SlimefunItems.SILICON, new ItemStack(Material.CHAIN),
+                new ItemStack(Material.IRON_CHAIN), SlimefunItems.SILICON, new ItemStack(Material.IRON_CHAIN),
                 SlimefunItems.COPPER_WIRE, SlimefunItems.COPPER_INGOT, SlimefunItems.COPPER_WIRE
         });
         cable.setResearch(arrayInfrastructure);

@@ -57,7 +57,7 @@ public class ExperienceModule extends BeaconModule implements PlayerModule, List
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
         meta.addPattern(new Pattern(DyeColor.GREEN, PatternType.RHOMBUS));
         meta.addPattern(new Pattern(DyeColor.LIME, PatternType.CIRCLE));
-        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         return stack;
     }
