@@ -76,6 +76,15 @@ jobs:
           jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/protection/Interaction.class$'
           jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/commons/lang/Validate.class$'
 
+      - name: Publicar Slimefun core verificado
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: Slimefun-core-${{ github.sha }}
+          path: slimefun-core/target/Slimefun-*.jar
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Verificar que las librerias internas no dupliquen Dough
         run: |
           for DIR in sources/batch-2-expansion/SefiLib sources/batch-2-expansion/InfinityLib; do
