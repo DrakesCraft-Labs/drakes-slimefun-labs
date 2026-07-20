@@ -4,7 +4,7 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
-version = "11.0-Drake-1.21.1-SNAPSHOT"
+version = "11.0-Drake-1.21.11-SNAPSHOT"
 
 repositories {
     mavenLocal()
@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("com.github.drakescraft_labs:slimefun-core:11.0-Drake-1.21.11-SNAPSHOT")
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     compileOnly("org.projectlombok:lombok:1.18.34")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
@@ -28,7 +28,7 @@ java.sourceCompatibility = JavaVersion.VERSION_21
 
 tasks.shadowJar {
     relocate("io.github.mooy1.infinitylib", "com.github.drakescraft_labs.galactifun.infinitylib")
-    archiveFileName.set("Galactifun-11.0-Drake-1.21.1-SNAPSHOT.jar")
+    archiveFileName.set("Galactifun-11.0-Drake-1.21.11-SNAPSHOT.jar")
 }
 
 bukkit {
