@@ -12,7 +12,6 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
@@ -28,7 +27,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.UUID;
 
 /**
  * This {@link SlimefunItem} transfers items from the facing
@@ -61,7 +59,6 @@ public class EnderChestExtractionNode extends SlimefunItem {
     }
 
     private void tick(@Nonnull Block b) {
-        ItemStack transferItemStack;
         BlockFace face;
 
         if (b.getRelative(BlockFace.NORTH).getType() == material) {
@@ -85,62 +82,20 @@ public class EnderChestExtractionNode extends SlimefunItem {
         BlockState state = PaperLib.getBlockState(b.getRelative(face), false).getState();
 
         if (state instanceof InventoryHolder) {
-            Player p = Bukkit.getOfflinePlayer(UUID.fromString(BlockStorage.getLocationInfo(b.getLocation(), "owner"))).getPlayer();
+            Player p = EnderChestNodeUtils.getOnlineOwner(b);
 
-            // Ender chest null check necessary because Bukkit yes.
-            if (p != null) {
-
-                boolean enderValid = false;
-                boolean containerValid = false;
-                int enderIndex = -1;
-                int containerIndex = -1;
-
-                Inventory enderInv = p.getEnderChest();
-
-                for (int i = 0; i < enderInv.getSize(); i++) {
-
-                    ItemStack enderItem = enderInv.getItem(i);
-
-                    // Ignore null items
-                    if (enderItem == null) {
-                        continue;
-                    }
-
-                    // Prevent putting shulkers in shulkers
-                    if (state instanceof ShulkerBox && !Tag.SHULKER_BOXES.isTagged(enderItem.getType())) {
-                        continue;
-                    }
-
-                    SlimefunItem sfEnderItem = SlimefunItem.getByItem(enderItem);
-
-                    // Ignore Talismen
-                    if (sfEnderItem instanceof Talisman) {
-                        continue;
-                    }
-
-                    enderIndex = i;
-                    enderValid = true;
-                    break;
-                }
-
-                Inventory containerInv = ((InventoryHolder) state).getInventory();
-
-                for (int i = 0; i < containerInv.getSize(); i++) {
-
-                    if (containerInv.getItem(i) == null) {
-                        containerIndex = i;
-                        containerValid = true;
-                        break;
-                    }
-                }
-
-                if (enderValid && containerValid) {
-                    transferItemStack = enderInv.getItem(enderIndex);
-                    enderInv.setItem(enderIndex, null);
-
-                    containerInv.setItem(containerIndex, transferItemStack);
-                }
+            if (p == null || !Utils.canOpen(b.getRelative(face), p)) {
+                return;
             }
+
+            Inventory containerInv = ((InventoryHolder) state).getInventory();
+            EnderChestNodeUtils.moveFirstMatching(p.getEnderChest(), containerInv, enderItem -> {
+                if (state instanceof ShulkerBox && Tag.SHULKER_BOXES.isTagged(enderItem.getType())) {
+                    return false;
+                }
+
+                return !(SlimefunItem.getByItem(enderItem) instanceof Talisman);
+            });
         }
     }
 

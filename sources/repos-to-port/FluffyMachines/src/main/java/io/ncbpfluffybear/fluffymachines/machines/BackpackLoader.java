@@ -112,7 +112,7 @@ public class BackpackLoader extends SlimefunItem implements EnergyNetComponent {
             }
 
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

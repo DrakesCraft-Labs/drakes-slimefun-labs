@@ -195,7 +195,7 @@ public class AutoTableSaw extends SlimefunItem implements EnergyNetComponent {
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

@@ -259,7 +259,7 @@ public class AutoCraftingTable extends SlimefunItem implements EnergyNetComponen
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

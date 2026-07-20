@@ -11,7 +11,6 @@ import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -25,7 +24,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.UUID;
 
 /**
  * This {@link SlimefunItem} transfers items to the facing
@@ -59,7 +57,6 @@ public class EnderChestInsertionNode extends SlimefunItem {
     }
 
     private void tick(@Nonnull Block b) {
-        ItemStack transferItemStack;
         BlockFace face;
 
         if (b.getRelative(BlockFace.NORTH).getType() == material) {
@@ -82,46 +79,15 @@ public class EnderChestInsertionNode extends SlimefunItem {
 
         BlockState state = PaperLib.getBlockState(b.getRelative(face), false).getState();
 
-        if (b.getRelative(face).getState() instanceof InventoryHolder) {
-            Player p = Bukkit.getOfflinePlayer(UUID.fromString(BlockStorage.getLocationInfo(b.getLocation(), "owner"))).getPlayer();
+        if (state instanceof InventoryHolder) {
+            Player p = EnderChestNodeUtils.getOnlineOwner(b);
 
-            // Ender chest null check necessary because Bukkit yes.
-            if (p != null) {
-
-                boolean enderValid = false;
-                boolean containerValid = false;
-                int enderIndex = -1;
-                int containerIndex = -1;
-
-                Inventory containerInv = ((InventoryHolder) state).getInventory();
-
-                for (int i = 0; i < containerInv.getSize(); i++) {
-
-                    if (containerInv.getItem(i) != null) {
-                        containerIndex = i;
-                        containerValid = true;
-                        break;
-                    }
-                }
-
-                Inventory enderInv = p.getEnderChest();
-
-                for (int i = 0; i < enderInv.getSize(); i++) {
-
-                    if (enderInv.getItem(i) == null) {
-                        enderIndex = i;
-                        enderValid = true;
-                        break;
-                    }
-                }
-
-                if (enderValid && containerValid) {
-                    transferItemStack = containerInv.getItem(containerIndex);
-                    containerInv.setItem(containerIndex, null);
-
-                    enderInv.setItem(enderIndex, transferItemStack);
-                }
+            if (p == null || !Utils.canOpen(b.getRelative(face), p)) {
+                return;
             }
+
+            Inventory containerInv = ((InventoryHolder) state).getInventory();
+            EnderChestNodeUtils.moveFirstMatching(containerInv, p.getEnderChest(), item -> true);
         }
     }
 
