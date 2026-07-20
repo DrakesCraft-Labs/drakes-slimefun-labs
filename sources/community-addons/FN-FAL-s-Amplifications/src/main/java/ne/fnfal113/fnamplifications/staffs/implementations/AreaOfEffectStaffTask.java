@@ -41,7 +41,7 @@ public class AreaOfEffectStaffTask {
     public void spawnCloud() {
         AreaEffectCloud effectCloud = (AreaEffectCloud) getPlayer().getWorld().spawnEntity(getTargetBlock().getLocation().add(0.5, 1, 0.5), EntityType.AREA_EFFECT_CLOUD);
         
-        effectCloud.setParticle(getParticle());
+        effectCloud.setParticle(resolveCloudParticle(getParticle()));
         effectCloud.setDuration(getDurationInTicks());
         effectCloud.setRadius(getRadius());
         effectCloud.setCustomName(getCloudName());
@@ -77,6 +77,15 @@ public class AreaOfEffectStaffTask {
 
     public Particle getParticle() {
         return particle;
+    }
+
+    /**
+     * Area effect clouds cannot carry particle data. Paper 1.21.11 rejects
+     * data-backed particles (for example particles requiring a Color), so use
+     * a safe visual instead of letting a staff interaction fail repeatedly.
+     */
+    private static Particle resolveCloudParticle(Particle requestedParticle) {
+        return requestedParticle.getDataType() == Void.class ? requestedParticle : Particle.CLOUD;
     }
 
     public NamespacedKey getStorageKey() {

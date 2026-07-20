@@ -65,6 +65,8 @@ public class BlockRotatorTask {
         BlockData blockData = block.getBlockData();
 
         if(player.isSneaking()) {
+            // Paper 1.21.11 removed Tag.TALL_FLOWERS; Tag.FLOWERS covers both
+            // flower variants and keeps multi-block plants out of rotation.
             if(Tag.DOORS.isTagged(block.getType()) || Tag.FLOWERS.isTagged(block.getType())){
                 return;
             }
