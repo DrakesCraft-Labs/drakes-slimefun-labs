@@ -44,7 +44,7 @@ public class PsychokinesisGem extends AbstractGem implements OnProjectileDamageH
         if(event.isCancelled()) return;
 
         if(ThreadLocalRandom.current().nextInt(100) < getChance() / getTier(itemStack, this.getId())) {
-            shooter.getWorld().spawnParticle(Particle.FLASH, entity.getLocation(), 2);
+            shooter.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, entity.getLocation(), 2);
             
             entity.teleport(shooter);
             
