@@ -13,7 +13,6 @@ on:
     paths-ignore:
       - "**.md"
       - "docs/**"
-      - ".github/**"
       - ".gitignore"
       - "PortTextura/**"
   pull_request:
@@ -21,7 +20,6 @@ on:
     paths-ignore:
       - "**.md"
       - "docs/**"
-      - ".github/**"
       - ".gitignore"
       - "PortTextura/**"
   workflow_dispatch:
@@ -63,7 +61,7 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
-          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -118,8 +116,8 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
-          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
-          mvn -B -ntp -DskipTests -f sources/repos-to-port/InfinityExpansion/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/repos-to-port/InfinityExpansion/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -187,8 +185,8 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
-          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
-          mvn -B -ntp -DskipTests -f sources/repos-to-port/InfinityExpansion/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/repos-to-port/InfinityExpansion/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
