@@ -60,6 +60,7 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          bash scripts/ci/install-slimefun-legacy-alias.sh
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
           mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
         env:
@@ -115,6 +116,7 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          bash scripts/ci/install-slimefun-legacy-alias.sh
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
           mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
           mvn -B -ntp -Dmaven.test.skip=true -f sources/drakes-labs-autoupdate/pom.xml install
@@ -185,6 +187,7 @@ jobs:
           mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
           mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
           mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          bash scripts/ci/install-slimefun-legacy-alias.sh
           mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
           mvn -B -ntp -Dmaven.test.skip=true -f sources/batch-2-expansion/InfinityLib/pom.xml install
           mvn -B -ntp -Dmaven.test.skip=true -f sources/drakes-labs-autoupdate/pom.xml install
