@@ -1,0 +1,77 @@
+name: Release addons criticos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sources/repos-to-port/FluffyMachines/**'
+      - 'sources/community-addons/DankTech2/**'
+      - 'sources/repos-to-port/ExtraUtils/**'
+      - 'sources/drakes-labs-autoupdate/**'
+      - 'sources/dough-core/**'
+      - 'scripts/ci/install-slimefun-legacy-alias.sh'
+      - '.github/workflows/release-critical-addons.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: critical-addons-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: FluffyMachines y DankTech2
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Checkout Slimefun core
+        uses: actions/checkout@v6
+        with:
+          repository: DrakesCraft-Labs/Slimefun4-Drake
+          path: slimefun-core
+          ref: main
+
+      - name: Java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Instalar stack Drake
+        run: |
+          mvn -B -ntp -N -DskipTests install
+          mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
+          mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          bash scripts/ci/install-slimefun-legacy-alias.sh
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/drakes-labs-autoupdate/pom.xml install
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/repos-to-port/ExtraUtils/pom.xml install
+
+      - name: Compilar addons corregidos
+        run: |
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/repos-to-port/FluffyMachines/pom.xml clean package
+          mvn -B -ntp -Dmaven.test.skip=true -f sources/community-addons/DankTech2/pom.xml clean package
+
+      - name: Verificar JARs
+        run: |
+          FLUFFY='sources/repos-to-port/FluffyMachines/target/FluffyMachines-drake v1.0.0.jar'
+          DANK='sources/community-addons/DankTech2/target/DankTech2-drake-v1.0.1.jar'
+          test -f "$FLUFFY"
+          test -f "$DANK"
+          jar tf "$FLUFFY" | grep -q '^io/ncbpfluffybear/fluffymachines/'
+          jar tf "$DANK" | grep -q '^io/github/sefiraat/danktech2/listeners/PackListener.class$'
+          mkdir -p dist/critical-addons
+          cp "$FLUFFY" dist/critical-addons/
+          cp "$DANK" dist/critical-addons/
+
+      - name: Publicar JARs
+        uses: actions/upload-artifact@v7
+        with:
+          name: addons-criticos-${{ github.sha }}
+          path: dist/critical-addons/
+          if-no-files-found: error
