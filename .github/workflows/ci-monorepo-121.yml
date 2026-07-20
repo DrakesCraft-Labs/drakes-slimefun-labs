@@ -41,6 +41,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Checkout Slimefun core
+        uses: actions/checkout@v6
+        with:
+          repository: DrakesCraft-Labs/Slimefun4-Drake
+          path: slimefun-core
+          ref: main
+
       - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
@@ -50,15 +57,19 @@ jobs:
 
       - name: Empaquetar stack base (Dough + Slimefun + libs internas)
         run: |
-          mvn -B clean package -DskipTests \
-            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/internal-metadata/patches/commons-lang-drake-patched \
-            -am
+          # Slimefun vive en su repositorio propio, pero conserva el padre Drake.
+          mvn -B -ntp -N -DskipTests install
+          mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
+          mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verificar API Dough/commons legacy expuesta por Slimefun
         run: |
-          JAR="$(find sources/slimefun-core/Slimefun4-src/target -maxdepth 1 -type f -name 'Slimefun-*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
+          JAR="$(find slimefun-core/target -maxdepth 1 -type f -name 'Slimefun-*.jar' ! -name 'original-*' ! -name '*-sources.jar' | head -n 1)"
           test -n "$JAR"
           jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/collections/Pair.class$'
           jar tf "$JAR" | grep -q '^com/github/drakescraft_labs/slimefun4/libraries/dough/items/CustomItemStack.class$'
@@ -82,6 +93,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Checkout Slimefun core
+        uses: actions/checkout@v6
+        with:
+          repository: DrakesCraft-Labs/Slimefun4-Drake
+          path: slimefun-core
+          ref: main
+
       - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
@@ -95,9 +113,13 @@ jobs:
       # SlimefunTranslation usa mavenLocal(); este runner no hereda el .m2 del job fundación.
       - name: Publicar API Slimefun/Dough en .m2 (antes del Gradle aislado de SlimefunTranslation)
         run: |
-          mvn -B clean install -DskipTests \
-            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
-            -am
+          mvn -B -ntp -N -DskipTests install
+          mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
+          mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/repos-to-port/InfinityExpansion/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -144,6 +166,13 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Checkout Slimefun core
+        uses: actions/checkout@v6
+        with:
+          repository: DrakesCraft-Labs/Slimefun4-Drake
+          path: slimefun-core
+          ref: main
+
       - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
@@ -153,9 +182,13 @@ jobs:
 
       - name: Publicar artefactos Maven para el reactor Gradle
         run: |
-          mvn -B clean install -DskipTests \
-            -pl sources/dough-core,sources/slimefun-core/Slimefun4-src,sources/batch-2-expansion/SefiLib,sources/batch-2-expansion/InfinityLib,sources/repos-to-port/InfinityExpansion \
-            -am
+          mvn -B -ntp -N -DskipTests install
+          mvn -B -ntp -DskipTests -f sources/internal-metadata/patches/commons-lang-drake-patched/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/dough-core/pom.xml install
+          mvn -B -ntp -DskipTests -Dslimefun.drake.version=11.0-Drake-1.21.11-SNAPSHOT -f slimefun-core/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/SefiLib/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/batch-2-expansion/InfinityLib/pom.xml install
+          mvn -B -ntp -DskipTests -f sources/repos-to-port/InfinityExpansion/pom.xml install
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
