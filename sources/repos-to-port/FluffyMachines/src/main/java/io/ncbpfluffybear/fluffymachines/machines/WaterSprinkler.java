@@ -1,6 +1,7 @@
 package io.ncbpfluffybear.fluffymachines.machines;
 
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
+import com.github.drakescraft_labs.slimefun4.api.items.settings.IntRangeSetting;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.accelerators.AbstractGrowthAccelerator;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.accelerators.CropGrowthAccelerator;
 import com.github.drakescraft_labs.slimefun4.utils.ChestMenuUtils;
@@ -19,6 +20,8 @@ import org.bukkit.block.data.BlockData;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import java.util.EnumSet;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -34,7 +37,22 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
     public static final int ENERGY_CONSUMPTION = 16;
     public static final int CAPACITY = 128;
     private static final int RADIUS = 2;
+    private static final int DIAMETER = RADIUS * 2 + 1;
+    private static final int AREA = DIAMETER * DIAMETER;
     private static final int PROGRESS_SLOT = 4;
+    private static final Set<Material> AGEABLE_CROPS = EnumSet.of(
+        Material.WHEAT,
+        Material.CARROTS,
+        Material.POTATOES,
+        Material.BEETROOTS,
+        Material.NETHER_WART,
+        Material.COCOA,
+        Material.SWEET_BERRY_BUSH,
+        Material.CAVE_VINES,
+        Material.CAVE_VINES_PLANT,
+        Material.PITCHER_CROP,
+        Material.TORCHFLOWER_CROP
+    );
     private static final CustomItemStack noWaterItem = new CustomItemStack(Material.BUCKET,
         "&cNo water found",
         "",
@@ -44,6 +62,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
         "&bWater detected"
     );
     private final ItemSetting<Boolean> particles = new ItemSetting<>(this, "particles", true);
+    private final ItemSetting<Integer> blocksPerCycle = new IntRangeSetting(this, "blocks-per-cycle", 1, 4, AREA);
 
     public WaterSprinkler(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
@@ -56,7 +75,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
                 blockMenuPreset.addItem(PROGRESS_SLOT, noWaterItem);
             });
 
-        addItemSetting(successChance, particles);
+        addItemSetting(successChance, particles, blocksPerCycle);
     }
 
     public int getEnergyConsumption() {
@@ -102,28 +121,47 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
             return;
         }
 
-        if (getCharge(b.getLocation()) >= getEnergyConsumption()) {
-            for (int x = -getRadius(); x <= getRadius(); x++) {
-                for (int z = -getRadius(); z <= getRadius(); z++) {
-                    final Block block = b.getRelative(x, 0, z);
+        int availableCharge = getCharge(b.getLocation());
+        if (availableCharge < getEnergyConsumption()) {
+            return;
+        }
 
-                    if (particles.getValue()) {
-                        block.getWorld().spawnParticle(Particle.SPLASH, block.getLocation().add(0.5D, 0.5D,
-                            0.5D), 4, 0.1F, 0.1F, 0.1F);
-                    }
+        int[] indexes = WaterSprinklerScanPlan.indexes(
+            b.getWorld().getFullTime(),
+            getTickInterval(),
+            b.getX(),
+            b.getY(),
+            b.getZ(),
+            AREA,
+            blocksPerCycle.getValue()
+        );
 
-                    BlockData blockData = block.getBlockData();
+        for (int index : indexes) {
+            int x = index / DIAMETER - getRadius();
+            int z = index % DIAMETER - getRadius();
+            Block crop = b.getRelative(x, 0, z);
+            Material type = crop.getType();
 
-                    if (blockData instanceof Ageable) {
-                        grow(block);
-                        removeCharge(b.getLocation(), getEnergyConsumption());
-                    }
-                }
+            if (type != Material.SUGAR_CANE && !AGEABLE_CROPS.contains(type)) {
+                continue;
             }
+
+            if (availableCharge < getEnergyConsumption()) {
+                return;
+            }
+
+            if (particles.getValue()) {
+                crop.getWorld().spawnParticle(Particle.SPLASH, crop.getLocation().add(0.5D, 0.5D, 0.5D),
+                    1, 0.1F, 0.1F, 0.1F);
+            }
+
+            grow(crop, type == Material.SUGAR_CANE ? null : crop.getBlockData());
+            removeCharge(b.getLocation(), getEnergyConsumption());
+            availableCharge -= getEnergyConsumption();
         }
     }
 
-    private void grow(@Nonnull Block crop) {
+    private void grow(@Nonnull Block crop, BlockData blockData) {
 
         final double random = ThreadLocalRandom.current().nextDouble();
         if (successChance.getValue() >= random) {
@@ -137,15 +175,14 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
                         return;
                     }
                 }
-            } else {
-                final Ageable ageable = (Ageable) crop.getBlockData();
+            } else if (blockData instanceof Ageable ageable) {
                 if (ageable.getAge() < ageable.getMaximumAge()) {
 
                     ageable.setAge(ageable.getAge() + 1);
                     crop.setBlockData(ageable);
 
                     crop.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, crop.getLocation().add(0.5D, 0.5D, 0.5D),
-                        4, 0.1F, 0.1F, 0.1F);
+                        2, 0.1F, 0.1F, 0.1F);
                 }
             }
         }
