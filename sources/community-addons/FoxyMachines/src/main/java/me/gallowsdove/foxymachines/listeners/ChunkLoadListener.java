@@ -9,6 +9,7 @@ import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
+import org.bukkit.event.world.ChunkUnloadEvent;
 
 import javax.annotation.Nonnull;
 import java.util.HashSet;
@@ -36,5 +37,10 @@ public class ChunkLoadListener implements Listener {
                 GhostBlock.BLOCK_CACHE.add(entity.getUniqueId());
             }
         }
+    }
+
+    @EventHandler
+    public void onChunkUnload(@Nonnull ChunkUnloadEvent e) {
+        SCANNED_CHUNKS.remove(new ChunkPosition(e.getChunk()));
     }
 }
