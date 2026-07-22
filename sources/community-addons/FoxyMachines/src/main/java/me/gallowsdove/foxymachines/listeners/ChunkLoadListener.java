@@ -20,6 +20,10 @@ public class ChunkLoadListener implements Listener {
 
     @EventHandler
     public void onChunkLoad(@Nonnull ChunkLoadEvent e) {
+        if (e.isNewChunk()) {
+            return;
+        }
+
         Chunk chunk = e.getChunk();
         ChunkPosition chunkPosition = new ChunkPosition(chunk);
         if (SCANNED_CHUNKS.contains(chunkPosition)) {
