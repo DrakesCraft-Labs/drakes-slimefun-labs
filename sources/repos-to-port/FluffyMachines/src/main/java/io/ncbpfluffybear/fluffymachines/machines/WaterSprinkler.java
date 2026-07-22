@@ -128,7 +128,6 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
 
         int[] indexes = WaterSprinklerScanPlan.indexes(
             b.getWorld().getFullTime(),
-            getTickInterval(),
             b.getX(),
             b.getY(),
             b.getZ(),

@@ -14,13 +14,11 @@ class WaterSprinklerScanPlanTest {
     void coversCompleteAreaWithoutOversizedBatches() {
         int area = 25;
         int budget = 4;
-        int interval = 8;
         Set<Integer> visited = new HashSet<>();
 
         for (int cycle = 0; cycle < 7; cycle++) {
             int[] indexes = WaterSprinklerScanPlan.indexes(
-                (long) cycle * interval,
-                interval,
+                (long) cycle * 20,
                 12,
                 64,
                 -20,
@@ -39,8 +37,8 @@ class WaterSprinklerScanPlanTest {
     }
 
     @Test
-    void clampsInvalidBudgetAndInterval() {
-        assertEquals(1, WaterSprinklerScanPlan.indexes(0, 0, 0, 0, 0, 25, 0).length);
-        assertEquals(25, WaterSprinklerScanPlan.indexes(0, 1, 0, 0, 0, 25, 100).length);
+    void clampsInvalidBudget() {
+        assertEquals(1, WaterSprinklerScanPlan.indexes(0, 0, 0, 0, 25, 0).length);
+        assertEquals(25, WaterSprinklerScanPlan.indexes(0, 0, 0, 0, 25, 100).length);
     }
 }
