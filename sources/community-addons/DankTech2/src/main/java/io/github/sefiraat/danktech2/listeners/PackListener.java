@@ -130,6 +130,17 @@ public class PackListener implements Listener {
         int selectedSlot = DataTypeMethods.getSelectedSlot(heldItem);
         int amount = dankPackInstance.getAmount(selectedSlot);
         ItemStack stackToPlace = dankPackInstance.getItem(selectedSlot);
+
+        if (stackToPlace == null || amount <= 0) {
+            player.spigot().sendMessage(
+                ChatMessageType.ACTION_BAR,
+                TextComponent.fromLegacyText(MessageFormat.format(
+                    "{0}The selected slot is empty.",
+                    ThemeType.ERROR.getColor()))
+            );
+            return;
+        }
+
         if (amount <= 1) {
             player.spigot().sendMessage(
                 ChatMessageType.ACTION_BAR,

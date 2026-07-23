@@ -170,7 +170,7 @@ public class CommandFlags {
                 World world = context.getPlayer().getWorld();
                 for (Material material : Utils.MATERIALS.values()) {
                     String name = material.name();
-                    if (material.isEnabledByFeature(world) && name.startsWith(current)) {
+                    if (isEnabledItem(material, world) && name.startsWith(current)) {
                         inputs.add(base + name);
                     }
                 }
@@ -186,11 +186,16 @@ public class CommandFlags {
             }
 
             for (Material material : Utils.MATERIALS.values()) {
-                if (material.isEnabledByFeature(world)) {
+                if (isEnabledItem(material, world)) {
                     inputs.add(input + material.name() + ",");
                 }
             }
             return inputs;
+        }
+
+        /** Keeps suggestions limited to item-capable materials enabled in the player's world. */
+        private boolean isEnabledItem(Material material, World world) {
+            return material.isItem() && material.asItemType().isEnabledByFeature(world);
         }
 
         @Override

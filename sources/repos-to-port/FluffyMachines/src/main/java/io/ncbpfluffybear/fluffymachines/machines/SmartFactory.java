@@ -207,7 +207,7 @@ public class SmartFactory extends SlimefunItem implements EnergyNetComponent, Re
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }
@@ -263,7 +263,12 @@ public class SmartFactory extends SlimefunItem implements EnergyNetComponent, Re
 
         HashMap<Integer, Integer> ingredientSlots = new HashMap<>();
 
-        for (ItemStack[] variation : ITEM_RECIPES.get(key)) {
+        List<ItemStack[]> variations = ITEM_RECIPES.get(key);
+        if (variations == null) {
+            return null;
+        }
+
+        for (ItemStack[] variation : variations) {
             boolean validVariation = true;
             for (ItemStack recipeItem : variation) {
                 boolean exists = false;
@@ -272,17 +277,18 @@ public class SmartFactory extends SlimefunItem implements EnergyNetComponent, Re
                     ItemStack slotItem = inv.getItemInSlot(slot);
 
                     // Match item and amount
+                    int alreadyReserved = ingredientSlots.getOrDefault(slot, 0);
                     if (slotItem != null && SlimefunUtils.isItemSimilar(recipeItem, slotItem, true, false)) {
                         if (recipeItem.getType() == Material.COAL) {
-                            if (slotItem.getAmount() < recipeItem.getAmount()) {
+                            if (slotItem.getAmount() < alreadyReserved + recipeItem.getAmount()) {
                                 continue; // Don't leave 1 for coal
                             }
-                        } else if (slotItem.getAmount() < recipeItem.getAmount() + 1) {
+                        } else if (slotItem.getAmount() < alreadyReserved + recipeItem.getAmount() + 1) {
                             continue; // Make sure misc items have 1 item left
                         }
 
                         exists = true;
-                        ingredientSlots.put(slot, recipeItem.getAmount()); // Save slots and amounts of ingredients
+                        ingredientSlots.merge(slot, recipeItem.getAmount(), Integer::sum);
                         break;
                     }
                 }
@@ -461,6 +467,10 @@ public class SmartFactory extends SlimefunItem implements EnergyNetComponent, Re
 
     public static List<SlimefunItemStack> getAcceptedItems() {
         return ACCEPTED_ITEMS;
+    }
+
+    public static boolean isAcceptedItem(@Nonnull SlimefunItem item) {
+        return ACCEPTED_ITEMS.stream().anyMatch(accepted -> accepted.getItemId().equals(item.getId()));
     }
 
     @Nonnull

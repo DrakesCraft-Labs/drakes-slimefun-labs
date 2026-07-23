@@ -230,7 +230,7 @@ public class AutoCrafter extends SlimefunItem implements EnergyNetComponent {
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

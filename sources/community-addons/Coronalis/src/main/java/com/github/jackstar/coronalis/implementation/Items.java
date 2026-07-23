@@ -58,7 +58,7 @@ public final class Items {
 
     public static final SlimefunItemStack CORONALIS_COAXIAL_CABLE = new SlimefunItemStack(
             "CORONALIS_COAXIAL_CABLE",
-            Material.CHAIN,
+            Material.IRON_CHAIN,
             "&8Cable Coaxial de Fase",
             "&7Bloque conductor para enlazar consolas,",
             "&7núcleos SU y radiotelescopios Coronalis.",

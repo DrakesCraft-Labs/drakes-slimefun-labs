@@ -57,7 +57,7 @@ public class LuckModule extends BeaconModule implements PlayerModule {
     private static @NotNull SlimefunItemStack getBanner(final @NotNull SlimefunItemStack stack) {
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
         meta.addPattern(new Pattern(DyeColor.LIME, PatternType.FLOWER));
-        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         return stack;
     }

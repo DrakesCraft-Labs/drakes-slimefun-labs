@@ -160,7 +160,7 @@ public class AdvancedAutoDisenchanter extends SlimefunItem implements EnergyNetC
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

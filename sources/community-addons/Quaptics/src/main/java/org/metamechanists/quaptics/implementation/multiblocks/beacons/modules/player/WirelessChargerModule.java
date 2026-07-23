@@ -53,7 +53,7 @@ public class WirelessChargerModule extends BeaconModule implements PlayerModule 
         final BannerMeta meta = (BannerMeta) stack.getItemMeta();
         meta.addPattern(new Pattern(DyeColor.LIGHT_BLUE, PatternType.CIRCLE));
         meta.addPattern(new Pattern(DyeColor.CYAN, PatternType.FLOWER));
-        meta.addItemFlags(ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         return stack;
     }

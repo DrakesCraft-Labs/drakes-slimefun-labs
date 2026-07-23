@@ -265,7 +265,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
 
             @Override
             public boolean isSynchronized() {
-                return false;
+                return true;
             }
         });
     }

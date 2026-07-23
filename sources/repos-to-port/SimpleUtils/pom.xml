@@ -83,6 +83,10 @@
         <dependency>
             <groupId>org.mockbukkit.mockbukkit</groupId>
             <artifactId>mockbukkit-v1.21</artifactId>
+<<<<<<< HEAD
+=======
+            <version>4.83.1</version>
+>>>>>>> 030e9fa16c31d70259d5890c5c92e38af9cd0a58
             <scope>test</scope>
         </dependency>
     </dependencies>
