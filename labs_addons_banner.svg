@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" width="920" height="300">
+  <defs>
+    <linearGradient id="labsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#021B13" />
+      <stop offset="50%" stop-color="#043825" />
+      <stop offset="100%" stop-color="#01100B" />
+    </linearGradient>
+
+    <linearGradient id="neonEmerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="50%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#6EE7B7" />
+    </linearGradient>
+
+    <filter id="labsGlow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes labsPulse {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.7)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 30px rgba(110, 231, 183, 1)); }
+    }
+    @keyframes lineMove {
+      0% { stroke-dashoffset: 200; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .bg-labs { fill: url(#labsBg); }
+    .title-labs { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 42px; fill: url(#neonEmerald); animation: labsPulse 3.5s infinite ease-in-out; }
+    .sub-labs { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; fill: #A7F3D0; letter-spacing: 3px; }
+    .wire-labs { stroke: url(#neonEmerald); stroke-width: 2; fill: none; stroke-dasharray: 14 7; animation: lineMove 14s linear infinite; opacity: 0.5; }
+    .badge-labs { fill: #064E3B; stroke: #10B981; stroke-width: 1.5; rx: 6px; }
+    .btext-labs { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; fill: #34D399; }
+  </style>
+
+  <rect class="bg-labs" width="920" height="300" rx="14" stroke="#10B981" stroke-width="1.5" />
+  <path class="wire-labs" d="M 50,40 H 870 M 50,260 H 870 M 100,0 V 300 M 820,0 V 300 M 50,150 H 870" />
+
+  <g transform="translate(460, 95)">
+    <polygon points="0,-42 34,-20 34,20 0,42 -34,20 -34,-20" fill="#064E3B" stroke="url(#neonEmerald)" stroke-width="3" filter="url(#labsGlow)" />
+    <circle cx="0" cy="0" r="10" fill="#6EE7B7" />
+  </g>
+
+  <text x="460" y="185" text-anchor="middle" class="title-labs">DRAKES SLIMEFUN LABS</text>
+  <text x="460" y="215" text-anchor="middle" class="sub-labs">UNIFIED 44 ADDONS MATRIX · RUST FFM HYBRID ENGINE ACCELERATED</text>
+
+  <g transform="translate(230, 245)">
+    <rect x="0" y="0" width="145" height="30" class="badge-labs" />
+    <text x="12" y="20" class="btext-labs">44 ADDONS MATRIX</text>
+
+    <rect x="165" y="0" width="150" height="30" class="badge-labs" stroke="#FF4500" />
+    <text x="177" y="20" class="btext-labs" fill="#FF7300">RUST FFM HYBRID</text>
+
+    <rect x="335" y="0" width="135" height="30" class="badge-labs" stroke="#34D399" />
+    <text x="347" y="20" class="btext-labs" fill="#34D399">PAPER 1.21.11</text>
+  </g>
+</svg>

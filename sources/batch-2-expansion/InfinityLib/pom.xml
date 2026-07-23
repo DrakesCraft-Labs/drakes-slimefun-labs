@@ -48,8 +48,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.seeseemelk</groupId>
-            <artifactId>MockBukkit-v1.21</artifactId>
+            <groupId>org.mockbukkit.mockbukkit</groupId>
+            <artifactId>mockbukkit-v1.21</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
