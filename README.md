@@ -1,6 +1,6 @@
 <div align="center">
 
-![Drakes Slimefun Labs Banner](./labs_addons_banner.svg)
+  <img src="https://raw.githubusercontent.com/DrakesCraft-Labs/drakes-slimefun-labs/main/labs_addons_banner.svg" alt="drakes-slimefun-labs Banner" width="920" />
 
 # 🧪 Drakes Slimefun Labs
 
