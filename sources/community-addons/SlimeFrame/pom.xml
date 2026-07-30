@@ -112,10 +112,10 @@
                             <pattern>org.apache.commons.lang3</pattern>
                             <shadedPattern>me.voper.slimeframe.shaded.lang3</shadedPattern>
                         </relocation>
-                        <!-- Relocate old commons-lang path (used by shaded ACF) to same lang3 impl -->
+                        <!-- Keep ACF's legacy Commons Lang ABI separate from Commons Lang 3. -->
                         <relocation>
                             <pattern>org.apache.commons.lang</pattern>
-                            <shadedPattern>me.voper.slimeframe.shaded.lang3</shadedPattern>
+                            <shadedPattern>me.voper.slimeframe.shaded.lang2</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
@@ -194,6 +194,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- ACF still invokes the Commons Lang 2 void-returning ABI. -->
+        <dependency>
+            <groupId>com.github.drakescraft_labs</groupId>
+            <artifactId>commons-lang-drake-patched</artifactId>
+            <version>2.6.1-DRAKE-PATCHED</version>
         </dependency>
 
         <dependency>

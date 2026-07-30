@@ -23,6 +23,11 @@ public final class Validate {
         return org.apache.commons.lang3.Validate.notNull(object);
     }
 
+    /** Preserve the void-returning Commons Lang 2 ABI used by ACF. */
+    public static void notNull(Object object, String message) {
+        org.apache.commons.lang3.Validate.notNull(object, message);
+    }
+
     public static <T> T notNull(T object, String message, Object... values) {
         return org.apache.commons.lang3.Validate.notNull(object, message, values);
     }
