@@ -34,6 +34,11 @@ public class ResetVillagerCommand implements CommandExecutor {
             Player p = (Player) sender;
             int commandNumber;
 
+            if (args.length != 1) {
+                p.sendMessage(ChatColors.color("&cUsage: /resetvillager <code>"));
+                return true;
+            }
+
             // Try to parse command number, if it's not a number set it to -1
             if (numPattern.matcher(args[0]).matches()) {
                 commandNumber = Integer.parseInt(args[0]);
