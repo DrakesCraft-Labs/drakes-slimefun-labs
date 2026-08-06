@@ -120,7 +120,7 @@ public class FnMysteryStickAltar extends MultiBlockMachine {
 
             Bukkit.getScheduler().runTaskLater(FNAmplifications.getInstance(), () -> {
                 b.getWorld().playEffect(b.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
-                b.getWorld().spawnParticle(Particle.FLASH, b.getLocation().add(0.4, 0.45, 0.5), 2, 0.1, 0.1, 0.1, 0.1);
+                b.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, b.getLocation().add(0.4, 0.45, 0.5), 2, 0.1, 0.1, 0.1, 0.1);
                 b.getWorld().spawnParticle(Particle.CLOUD, b.getLocation().add(0.4, 0.45, 0.5), 2, 0.1, 0.1, 0.1, 0.1);
                 b.getWorld().playSound(b.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 
@@ -131,7 +131,7 @@ public class FnMysteryStickAltar extends MultiBlockMachine {
 
                     Bukkit.getScheduler().runTaskLater(FNAmplifications.getInstance(), () -> {
                         b.getWorld().playEffect(b.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
-                        b.getWorld().spawnParticle(Particle.FLASH, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
+                        b.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
                         b.getWorld().spawnParticle(Particle.CLOUD, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
                         b.getWorld().playSound(b.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 

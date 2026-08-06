@@ -133,7 +133,7 @@ public class FnGemAltar extends MultiBlockMachine {
 
                     Bukkit.getScheduler().runTaskLater(FNAmplifications.getInstance(), () -> {
                         b.getWorld().playEffect(b.getLocation().add(0.5, 0.7, 0.5), Effect.SMOKE, 1);
-                        b.getWorld().spawnParticle(Particle.FLASH, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
+                        b.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
                         b.getWorld().spawnParticle(Particle.CLOUD, b.getLocation().add(0.35, 0.4, 0.4), 2, 0.1, 0.1, 0.1, 0.1);
                         b.getWorld().playSound(b.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 1);
 
