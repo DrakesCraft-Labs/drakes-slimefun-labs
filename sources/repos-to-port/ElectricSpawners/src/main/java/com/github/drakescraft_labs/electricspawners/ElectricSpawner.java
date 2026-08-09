@@ -120,7 +120,10 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             return;
         }
 
-        if (BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals("false")) {
+        // Older spawners predate the enabled marker. Treat them as disabled until
+        // the owner explicitly activates them instead of crashing their ticker.
+        String enabled = BlockStorage.getLocationInfo(b.getLocation(), "enabled");
+        if (!"true".equals(enabled)) {
             return;
         }
 

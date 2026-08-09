@@ -61,9 +61,11 @@ public class AlchemicStation extends MultiBlockMachine {
                 if (SlimefunUtils.canPlayerUseItem(player, recipe.getOutput(), true)) {
                     ItemUtils.consumeItem(inv.getItem(INGREDIENT_SLOT), true);
                     startAnimation(recipe, inv, block, glassBlocks);
+                } else {
+                    player.sendMessage("§cDebes investigar esta pocion en la guia de Slimefun antes de prepararla.");
                 }
             } else {
-                Slimefun.getLocalization().sendMessage(player, "machines.pattern-not-found", true);
+                player.sendMessage("§cReceta no valida: usa el polvo propio de Potion Expansion y pociones mundanas en el dispensador.");
             }
         }
     }
