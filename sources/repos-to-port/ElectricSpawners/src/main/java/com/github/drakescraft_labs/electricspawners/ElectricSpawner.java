@@ -67,7 +67,8 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
             @Override
             public void newInstance(BlockMenu menu, Block b) {
-                if (!BlockStorage.hasBlockInfo(b) || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals("false")) {
+                String enabled = BlockStorage.getLocationInfo(b.getLocation(), "enabled");
+                if ("false".equals(enabled)) {
                     menu.replaceExistingItem(4, new CustomItemStack(Material.GUNPOWDER, "&7Enabled: &4\u2718", "", "&e> Click to enable this Machine"));
                     menu.addMenuClickHandler(4, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", "true");
@@ -86,7 +87,8 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
             @Override
             public boolean canOpen(Block b, Player p) {
-                return BlockStorage.getLocationInfo(b.getLocation(), "owner").equals(p.getUniqueId().toString()) || p.hasPermission("slimefun.cargo.bypass");
+                return p.getUniqueId().toString().equals(BlockStorage.getLocationInfo(b.getLocation(), "owner"))
+                        || p.hasPermission("slimefun.cargo.bypass");
             }
 
             @Override
@@ -105,7 +107,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             public void onPlayerPlace(BlockPlaceEvent e) {
                 Block b = e.getBlock();
                 Player p = e.getPlayer();
-                BlockStorage.addBlockInfo(b, "enabled", "false");
+                BlockStorage.addBlockInfo(b, "enabled", "true");
                 BlockStorage.addBlockInfo(b, "owner", p.getUniqueId().toString());
             }
         };
@@ -120,9 +122,13 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             return;
         }
 
-        // Older spawners predate the enabled marker. Treat them as disabled until
-        // the owner explicitly activates them instead of crashing their ticker.
+        // Spawners created before the toggle existed have no marker. Migrate them
+        // to enabled so a restart cannot silently turn an established farm off.
         String enabled = BlockStorage.getLocationInfo(b.getLocation(), "enabled");
+        if (enabled == null) {
+            BlockStorage.addBlockInfo(b, "enabled", "true");
+            enabled = "true";
+        }
         if (!"true".equals(enabled)) {
             return;
         }
@@ -136,7 +142,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             if (n.getType().equals(this.entity)) {
                 count++;
 
-                if (count > 6) {
+                if (count >= 6) {
                     return;
                 }
             }
