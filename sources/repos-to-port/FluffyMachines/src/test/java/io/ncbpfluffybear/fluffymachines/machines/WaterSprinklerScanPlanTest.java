@@ -41,4 +41,5 @@ class WaterSprinklerScanPlanTest {
         assertEquals(1, WaterSprinklerScanPlan.indexes(0, 0, 0, 0, 25, 0).length);
         assertEquals(25, WaterSprinklerScanPlan.indexes(0, 0, 0, 0, 25, 100).length);
     }
+
 }

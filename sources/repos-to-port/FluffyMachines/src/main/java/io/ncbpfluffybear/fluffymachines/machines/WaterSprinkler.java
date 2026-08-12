@@ -138,12 +138,11 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
         for (int index : indexes) {
             int x = index / DIAMETER - getRadius();
             int z = index % DIAMETER - getRadius();
-            Block crop = b.getRelative(x, 0, z);
-            Material type = crop.getType();
-
-            if (type != Material.SUGAR_CANE && !AGEABLE_CROPS.contains(type)) {
+            Block crop = findCrop(b, x, z);
+            if (crop == null) {
                 continue;
             }
+            Material type = crop.getType();
 
             if (availableCharge < getEnergyConsumption()) {
                 return;
@@ -158,6 +157,26 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
             removeCharge(b.getLocation(), getEnergyConsumption());
             availableCharge -= getEnergyConsumption();
         }
+    }
+
+    /**
+     * Finds a supported crop without forcing every farm to place the machine at one exact Y.
+     * Existing farms commonly put the sprinkler over the water source, one block above or below
+     * the crop hitbox. The old same-level-only lookup detected water and energy but never found
+     * those crops, making the GUI look healthy while the machine did no work.
+     */
+    private Block findCrop(Block sprinkler, int x, int z) {
+        for (int y : new int[] {0, -1, 1}) {
+            Block candidate = sprinkler.getRelative(x, y, z);
+            if (isSupportedCrop(candidate.getType())) {
+                return candidate;
+            }
+        }
+        return null;
+    }
+
+    static boolean isSupportedCrop(Material material) {
+        return material == Material.SUGAR_CANE || AGEABLE_CROPS.contains(material);
     }
 
     private void grow(@Nonnull Block crop, BlockData blockData) {
