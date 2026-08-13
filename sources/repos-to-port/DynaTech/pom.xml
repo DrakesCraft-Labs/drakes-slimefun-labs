@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>Gastronomicon-drake</artifactId>
-            <version>1.1.3</version>
+            <version>${gastronomicon.version}</version>
             <scope>provided</scope>
         </dependency>
     
