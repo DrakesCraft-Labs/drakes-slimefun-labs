@@ -52,6 +52,7 @@
         <plexus-utils.version>4.0.3</plexus-utils.version>
         <maven-shade.plexus-utils.version>3.6.1</maven-shade.plexus-utils.version>
         <maven.shade.plugin.version>3.6.2</maven.shade.plugin.version>
+        <httpcore5.version>5.4.3</httpcore5.version>
     </properties>
 
     <modules>
@@ -199,6 +200,16 @@
             </dependency>
 
             <!-- Common Libs -->
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5-h2</artifactId>
+                <version>${httpcore5.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
