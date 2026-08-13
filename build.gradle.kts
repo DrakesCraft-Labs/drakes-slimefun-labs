@@ -35,16 +35,16 @@ subprojects {
                 "commons-io" to "commons-io" -> useVersion("2.16.1")
                 "org.apache.commons" to "commons-lang3" -> useVersion("3.20.0")
                 "com.fasterxml.jackson.core" to "jackson-core" -> useVersion("2.18.6")
-                "org.apache.logging.log4j" to "log4j-api" -> useVersion("2.25.4")
-                "org.apache.logging.log4j" to "log4j-core" -> useVersion("2.25.4")
+                "org.apache.logging.log4j" to "log4j-api" -> useVersion("2.26.1")
+                "org.apache.logging.log4j" to "log4j-core" -> useVersion("2.26.1")
             }
         }
     }
 
     dependencies {
         // Todas las dependencias comunes se gestionan aquí
-        val paperVersion = "1.21.1-R0.1-SNAPSHOT"
-        val slimefunVersion = "11.0-Drake-1.21.1-SNAPSHOT"
+        val paperVersion = "1.21.11-R0.1-SNAPSHOT"
+        val slimefunVersion = "11.0-Drake-1.21.11-SNAPSHOT"
 
         compileOnly("io.papermc.paper:paper-api:$paperVersion")
         compileOnly("com.github.drakescraft_labs:slimefun-core:$slimefunVersion")
