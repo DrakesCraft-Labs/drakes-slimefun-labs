@@ -22,6 +22,8 @@ import org.bukkit.inventory.ItemStack;
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
 import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -34,6 +36,20 @@ import java.util.concurrent.ThreadLocalRandom;
 public class WaterSprinkler extends AbstractGrowthAccelerator {
 
     public final ItemSetting<Double> successChance = new ItemSetting<>(this, "success-chance", 0.5);
+
+    /**
+     * Cada cuantos minutos riega, y cuando lo hace lo hace del todo.
+     *
+     * Antes subia un nivel de crecimiento con un 50% de probabilidad por ciclo, lo que en la
+     * practica se notaba tan poco que los jugadores lo daban por roto. Ahora la maquina espera y
+     * luego madura los cultivos de golpe: se entiende de un vistazo lo que hace, y sigue teniendo
+     * un coste real en tiempo y energia.
+     */
+    public final ItemSetting<Integer> intervaloMinutos =
+        new IntRangeSetting(this, "intervalo-minutos", 1, 15, 120);
+
+    /** Cuando rego por ultima vez cada aspersor, por ubicacion. */
+    private static final Map<String, Long> ultimoRiego = new ConcurrentHashMap<>();
     public static final int ENERGY_CONSUMPTION = 16;
     public static final int CAPACITY = 128;
     private static final int RADIUS = 2;
@@ -126,14 +142,24 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
             return;
         }
 
-        int[] indexes = WaterSprinklerScanPlan.indexes(
-            b.getWorld().getFullTime(),
-            b.getX(),
-            b.getY(),
-            b.getZ(),
-            AREA,
-            blocksPerCycle.getValue()
-        );
+        // Solo riega cuando toca. El resto del tiempo la maquina esta encendida y consumiendo,
+        // pero sin hacer nada visible: es el coste de esperar.
+        final String clave = b.getWorld().getName() + ":" + b.getX() + ":" + b.getY() + ":" + b.getZ();
+        final long ahora = System.currentTimeMillis();
+        final long periodo = intervaloMinutos.getValue() * 60_000L;
+        final Long previo = ultimoRiego.get(clave);
+        if (previo != null && ahora - previo < periodo) {
+            return;
+        }
+        ultimoRiego.put(clave, ahora);
+
+        // Cuando toca regar se riega el area entera, no un trozo. El reparto por ciclos existia
+        // para no hacer todo el trabajo en un solo tick cuando el aspersor actuaba constantemente;
+        // ahora actua una vez cada cuarto de hora, asi que puede permitirse la pasada completa.
+        int[] indexes = new int[AREA];
+        for (int i = 0; i < AREA; i++) {
+            indexes[i] = i;
+        }
 
         for (int index : indexes) {
             int x = index / DIAMETER - getRadius();
@@ -181,8 +207,9 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
 
     private void grow(@Nonnull Block crop, BlockData blockData) {
 
-        final double random = ThreadLocalRandom.current().nextDouble();
-        if (successChance.getValue() >= random) {
+        // Sin tirada de suerte: cuando le toca regar, riega. La probabilidad estaba encima del
+        // incremento de un solo nivel y hacia que el efecto fuera practicamente invisible.
+        {
             if (crop.getType() == Material.SUGAR_CANE) {
                 for (int i = 1; i < 3; i++) {
                     final Block above = crop.getRelative(BlockFace.UP, i);
@@ -196,7 +223,8 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
             } else if (blockData instanceof Ageable ageable) {
                 if (ageable.getAge() < ageable.getMaximumAge()) {
 
-                    ageable.setAge(ageable.getAge() + 1);
+                    // Al maximo de una vez, no un nivel.
+                    ageable.setAge(ageable.getMaximumAge());
                     crop.setBlockData(ageable);
 
                     crop.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, crop.getLocation().add(0.5D, 0.5D, 0.5D),
