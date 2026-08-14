@@ -91,7 +91,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
                 blockMenuPreset.addItem(PROGRESS_SLOT, noWaterItem);
             });
 
-        addItemSetting(successChance, particles, blocksPerCycle);
+        addItemSetting(successChance, particles, blocksPerCycle, intervaloMinutos);
     }
 
     public int getEnergyConsumption() {
