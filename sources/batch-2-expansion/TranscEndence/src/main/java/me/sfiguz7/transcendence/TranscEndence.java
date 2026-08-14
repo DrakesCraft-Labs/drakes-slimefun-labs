@@ -26,6 +26,7 @@ import me.sfiguz7.transcendence.implementation.items.multiblocks.NanobotCrafter;
 import me.sfiguz7.transcendence.implementation.listeners.DaxiAnimationArmorStandHeadListener;
 import me.sfiguz7.transcendence.implementation.listeners.DaxiDeathListener;
 import me.sfiguz7.transcendence.implementation.listeners.DaxiEffectModificationListener;
+import me.sfiguz7.transcendence.implementation.listeners.DaxiWorldListener;
 import me.sfiguz7.transcendence.implementation.listeners.TranscEndenceGuideListener;
 import me.sfiguz7.transcendence.implementation.listeners.UnstableIngotDropListener;
 import me.sfiguz7.transcendence.implementation.listeners.UnstableListener;
@@ -75,6 +76,7 @@ public class TranscEndence extends JavaPlugin implements SlimefunAddon {
         new UnstableListener(this);
         new DaxiDeathListener(this);
         new DaxiEffectModificationListener(this);
+        new DaxiWorldListener(this);
         new DaxiAnimationArmorStandHeadListener(this);
         new UnstableIngotDropListener(this);
         new TranscEndenceGuideListener(cfg.getBoolean("options.give-guide-on-first-join"));
@@ -89,7 +91,7 @@ public class TranscEndence extends JavaPlugin implements SlimefunAddon {
             );
         }
         // Recurrent refresh task (only really needed for absorption)
-        getServer().getScheduler().runTaskTimerAsynchronously(
+        getServer().getScheduler().runTaskTimer(
             this,
             new RecurrentRefreshTask(),
             0L,

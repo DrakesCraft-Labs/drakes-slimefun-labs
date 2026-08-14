@@ -91,7 +91,7 @@ public class FnGemUpgrader extends MultiBlockMachine {
             }
         }
 
-        if(!SlimefunUtils.isItemSimilar(inv.getContents()[4], FNAmpItems.FN_GEM_FINE_JASPER_CRAFTING, true, false)) return true;
+        if(!SlimefunUtils.isItemSimilar(inv.getContents()[4], FNAmpItems.FN_GEM_FINE_JASPER_CRAFTING, true, false)) return false;
 
         for(int i : slot) {
             if(i == 4) continue;

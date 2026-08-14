@@ -12,12 +12,11 @@ public class RecurrentRefreshTask implements Runnable {
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.isValid() && !p.isDead()) {
                 if (TranscEndence.getRegistry().getToggledPlayers().contains(p.getUniqueId())) {
-                    return;
+                    continue;
                 }
-                Bukkit.getScheduler().runTask(TranscEndence.getInstance(), () -> Daxi.reapplyEffects(p));
+                Daxi.reapplyEffects(p);
             }
         }
     }
 
 }
-

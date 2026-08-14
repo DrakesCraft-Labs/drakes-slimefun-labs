@@ -22,19 +22,21 @@ public class DaxiEffectModificationListener implements Listener {
     @EventHandler(priority = HIGHEST, ignoreCancelled = true)
     public void onEffectModificationEvent(EntityPotionEffectEvent e) {
         if (e.getEntity() instanceof Player) {
+            final Player p = (Player) e.getEntity();
+            if (!Daxi.isAllowedWorld(p.getWorld().getName())) {
+                return;
+            }
             final PotionEffect newEffect = e.getNewEffect();
             if (newEffect != null) {
                 final Daxi.Type daxiType = getEffectDaxiType(e.getModifiedType());
                 if (daxiType != null
                     && newEffect.getAmplifier() != daxiType.getTypeEffectLevel()) {
-                    final Player p = (Player) e.getEntity();
                     if (TranscEndence.getRegistry().getToggledPlayers().contains(p.getUniqueId())) {
                         return;
                     }
                     Bukkit.getScheduler().runTask(TranscEndence.getInstance(), () -> Daxi.reapplyEffects(p));
                 }
             } else {
-                final Player p = (Player) e.getEntity();
                 Bukkit.getScheduler().runTask(TranscEndence.getInstance(), () -> Daxi.reapplyEffects(p));
             }
         }
@@ -44,4 +46,3 @@ public class DaxiEffectModificationListener implements Listener {
         return TranscEndence.getRegistry().getDaxiEffectsMap().getOrDefault(type, null);
     }
 }
-

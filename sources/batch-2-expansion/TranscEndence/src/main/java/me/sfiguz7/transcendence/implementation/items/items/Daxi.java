@@ -6,6 +6,7 @@ import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.core.handlers.ItemUseHandler;
 
 import me.sfiguz7.transcendence.TranscEndence;
+import me.sfiguz7.transcendence.implementation.utils.DaxiWorldPolicy;
 import me.sfiguz7.transcendence.lists.TEItems;
 import me.sfiguz7.transcendence.lists.TERecipeType;
 import org.bukkit.ChatColor;
@@ -24,6 +25,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -50,6 +52,14 @@ public class Daxi extends SlimefunItem {
 
     private void onItemRightClick(PlayerRightClickEvent event) {
         Player p = event.getPlayer();
+        if (!isAllowedWorld(p.getWorld().getName())) {
+            p.sendMessage(ChatColor.RED + CONFIG.getString(
+                "options.daxi-disabled-world",
+                "Daxi effects are disabled in this modality. Your progress remains saved."
+            ));
+            event.cancel();
+            return;
+        }
         UUID uuid = p.getUniqueId();
         Map<UUID, Set<Daxi.Type>> activePlayers = TranscEndence.getRegistry().getDaxiEffectPlayers();
 
@@ -157,6 +167,11 @@ public class Daxi extends SlimefunItem {
     }
 
     public static void reapplyEffects(Player p) {
+        if (!isAllowedWorld(p.getWorld().getName())) {
+            removeEffects(p);
+            return;
+        }
+
         final Map<UUID, Set<Daxi.Type>> activePlayers = TranscEndence.getRegistry().getDaxiEffectPlayers();
         final UUID uuid = p.getUniqueId();
         final Set<Daxi.Type> types = activePlayers.get(uuid);
@@ -165,6 +180,35 @@ public class Daxi extends SlimefunItem {
                 Daxi.applyEffect(p, type);
             }
         }
+    }
+
+    /** Removes only the permanent potion effects managed by Daxi. */
+    public static void removeEffects(Player p) {
+        for (Type type : Type.values()) {
+            p.removePotionEffect(type.effect);
+        }
+    }
+
+    /** Keeps Daxi progression while isolating its effects from other modalities. */
+    public static boolean isAllowedWorld(String worldName) {
+        if (!CONFIG.getBoolean("world-restrictions.enabled", true)) {
+            return true;
+        }
+
+        List<String> blockedWorlds = CONFIG.getStringList("world-restrictions.blocked-worlds");
+        if (blockedWorlds.isEmpty()) {
+            blockedWorlds = List.of("clasico", "clasico_nether", "clasico_the_end", "bskyblock_world", "oneblock_world");
+        }
+        List<String> blockedPrefixes = CONFIG.getStringList("world-restrictions.blocked-world-prefixes");
+        if (blockedPrefixes.isEmpty()) {
+            blockedPrefixes = List.of("bskyblock_", "oneblock_");
+        }
+
+        return DaxiWorldPolicy.isAllowed(
+            worldName,
+            blockedWorlds,
+            blockedPrefixes
+        );
     }
 
     public enum Type {

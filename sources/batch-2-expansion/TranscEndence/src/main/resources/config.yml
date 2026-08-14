@@ -15,6 +15,7 @@ options:
   daxi-message-saturation: "You won't need food for a while."
   daxi-message-regeneration: "You've acquired permanent self-healing."
   already-have-daxi-effect: "You already have this Daxi effect!"
+  daxi-disabled-world: "Daxi effects are disabled in this modality. Your progress remains saved."
   droppable-unstable-ingots: true
   unstable-ingots-message-undroppable: "Unstable Ingots are undroppable!"
 
@@ -24,6 +25,18 @@ daxi-effects:
   fortitude-level: 4
   saturation-level: 1
   regeneration-level: 2
+
+world-restrictions:
+  enabled: true
+  blocked-worlds:
+    - clasico
+    - clasico_nether
+    - clasico_the_end
+    - bskyblock_world
+    - oneblock_world
+  blocked-world-prefixes:
+    - bskyblock_
+    - oneblock_
 
 guide:
   recieve-on-first-join: true
