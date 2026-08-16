@@ -262,6 +262,13 @@ public final class FluffyItemSetup {
         }).register(plugin);
 
         // Machines
+        new SlimefunItem(machines, FluffyItems.WATER_SPRINKLER_CHUNK_UPGRADE,
+                RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+                SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.REINFORCED_PLATE, SlimefunItems.SYNTHETIC_SAPPHIRE,
+                new ItemStack(Material.WATER_BUCKET), new ItemStack(Material.HEART_OF_THE_SEA), new ItemStack(Material.WATER_BUCKET),
+                SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.MEDIUM_CAPACITOR, SlimefunItems.ELECTRIC_MOTOR
+        }).register(plugin);
+
         new WaterSprinkler(machines, FluffyItems.WATER_SPRINKER,
                 RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 new ItemStack(Material.IRON_INGOT), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.IRON_INGOT),

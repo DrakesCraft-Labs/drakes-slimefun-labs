@@ -9,6 +9,7 @@ import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
@@ -18,6 +19,8 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.inventory.ItemStack;
+
+import io.ncbpfluffybear.fluffymachines.utils.FluffyItems;
 
 import javax.annotation.Nonnull;
 import java.util.EnumSet;
@@ -50,12 +53,14 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
 
     /** Cuando rego por ultima vez cada aspersor, por ubicacion. */
     private static final Map<String, Long> ultimoRiego = new ConcurrentHashMap<>();
-    public static final int ENERGY_CONSUMPTION = 16;
-    public static final int CAPACITY = 128;
+    public static final int ENERGY_CONSUMPTION = 64;
+    public static final int CHUNK_ENERGY_CONSUMPTION = 256;
+    public static final int CAPACITY = 512;
     private static final int RADIUS = 3;
     private static final int DIAMETER = RADIUS * 2 + 1;
     private static final int AREA = DIAMETER * DIAMETER;
     private static final int PROGRESS_SLOT = 4;
+    private static final int UPGRADE_SLOT = 2;
     private static final Set<Material> AGEABLE_CROPS = EnumSet.of(
         Material.WHEAT,
         Material.CARROTS,
@@ -88,6 +93,8 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
                 for (int i = 0; i < 9; i++)
                     blockMenuPreset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
 
+                // El modulo permanece dentro y se devuelve al romper la maquina.
+                blockMenuPreset.addItem(UPGRADE_SLOT, null);
                 blockMenuPreset.addItem(PROGRESS_SLOT, noWaterItem);
             });
 
@@ -109,7 +116,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
 
     @Override
     public int[] getInputSlots() {
-        return new int[0];
+        return new int[] {UPGRADE_SLOT};
     }
 
     @Override
@@ -137,8 +144,9 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
             return;
         }
 
-        int availableCharge = getCharge(b.getLocation());
-        if (availableCharge < getEnergyConsumption()) {
+        final boolean chunkUpgrade = hasChunkUpgrade(inv);
+        final int activationCost = chunkUpgrade ? CHUNK_ENERGY_CONSUMPTION : getEnergyConsumption();
+        if (getCharge(b.getLocation()) < activationCost) {
             return;
         }
 
@@ -153,35 +161,40 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
         }
         ultimoRiego.put(clave, ahora);
 
-        // Cuando toca regar se riega el area entera, no un trozo. El reparto por ciclos existia
-        // para no hacer todo el trabajo en un solo tick cuando el aspersor actuaba constantemente;
-        // ahora actua una vez cada siete minutos, asi que puede permitirse la pasada completa.
-        int[] indexes = new int[AREA];
-        for (int i = 0; i < AREA; i++) {
-            indexes[i] = i;
+        final int minX = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getX(), RADIUS);
+        final int maxX = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getX(), RADIUS);
+        final int minZ = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getZ(), RADIUS);
+        final int maxZ = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getZ(), RADIUS);
+
+        // Una carga por barrido evita que el buffer limite el riego a ocho cultivos.
+        removeCharge(b.getLocation(), activationCost);
+        if (particles.getValue()) {
+            spawnWaterSweep(b, minX, maxX, minZ, maxZ);
         }
 
-        for (int index : indexes) {
-            int x = index / DIAMETER - getRadius();
-            int z = index % DIAMETER - getRadius();
-            Block crop = findCrop(b, x, z);
-            if (crop == null) {
-                continue;
+        for (int x = minX; x <= maxX; x++) {
+            for (int z = minZ; z <= maxZ; z++) {
+                Block crop = findCrop(b, x, z);
+                if (crop != null) {
+                    Material type = crop.getType();
+                    grow(crop, type == Material.SUGAR_CANE ? null : crop.getBlockData());
+                }
             }
-            Material type = crop.getType();
+        }
+    }
 
-            if (availableCharge < getEnergyConsumption()) {
-                return;
+    private boolean hasChunkUpgrade(BlockMenu menu) {
+        SlimefunItem item = SlimefunItem.getByItem(menu.getItemInSlot(UPGRADE_SLOT));
+        return item != null && item.getId().equals(FluffyItems.WATER_SPRINKLER_CHUNK_UPGRADE.getItemId());
+    }
+
+    /** Dibuja una cuadricula ligera que muestra el alcance real de la activacion. */
+    private void spawnWaterSweep(Block sprinkler, int minX, int maxX, int minZ, int maxZ) {
+        for (int x = minX; x <= maxX; x += 2) {
+            for (int z = minZ; z <= maxZ; z += 2) {
+                sprinkler.getWorld().spawnParticle(Particle.SPLASH,
+                    sprinkler.getLocation().add(x + 0.5D, 0.8D, z + 0.5D), 2, 0.2D, 0.15D, 0.2D, 0.02D);
             }
-
-            if (particles.getValue()) {
-                crop.getWorld().spawnParticle(Particle.SPLASH, crop.getLocation().add(0.5D, 0.5D, 0.5D),
-                    1, 0.1F, 0.1F, 0.1F);
-            }
-
-            grow(crop, type == Material.SUGAR_CANE ? null : crop.getBlockData());
-            removeCharge(b.getLocation(), getEnergyConsumption());
-            availableCharge -= getEnergyConsumption();
         }
     }
 

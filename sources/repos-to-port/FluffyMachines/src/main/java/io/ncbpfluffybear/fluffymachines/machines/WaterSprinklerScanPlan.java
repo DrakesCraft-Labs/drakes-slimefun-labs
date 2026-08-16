@@ -26,4 +26,12 @@ final class WaterSprinklerScanPlan {
 
         return indexes;
     }
+
+    static int scanMin(boolean chunkUpgrade, int blockCoordinate, int baseRadius) {
+        return chunkUpgrade ? -(blockCoordinate & 15) : -baseRadius;
+    }
+
+    static int scanMax(boolean chunkUpgrade, int blockCoordinate, int baseRadius) {
+        return chunkUpgrade ? 15 - (blockCoordinate & 15) : baseRadius;
+    }
 }

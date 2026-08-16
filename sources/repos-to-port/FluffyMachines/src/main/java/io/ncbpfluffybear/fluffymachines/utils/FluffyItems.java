@@ -184,8 +184,20 @@ public class FluffyItems {
             "",
             "&7Sprinkly sprinkly",
             "",
+            "&7Riega un area &b7x7 &7cada 7 minutos",
+            "&7Acepta el modulo de chunk en su interfaz",
+            "",
             LoreBuilderDynamic.powerBuffer(WaterSprinkler.CAPACITY),
-            LoreBuilderDynamic.powerPerTick(WaterSprinkler.ENERGY_CONSUMPTION) + " per crop"
+            "&8> &eEnergia: &7" + WaterSprinkler.ENERGY_CONSUMPTION + " J por riego"
+    );
+    public static final SlimefunItemStack WATER_SPRINKLER_CHUNK_UPGRADE = new SlimefunItemStack(
+            "WATER_SPRINKLER_CHUNK_UPGRADE",
+            Material.HEART_OF_THE_SEA,
+            "&bModulo de Riego por Chunk",
+            "",
+            "&7Colocalo dentro de un &bWater Sprinkler",
+            "&7para ampliar su alcance al chunk completo.",
+            "&7El modulo no se consume."
     );
     public static final SlimefunItemStack GENERATOR_CORE = new SlimefunItemStack("GENERATOR_CORE",
             Material.BLAST_FURNACE,
