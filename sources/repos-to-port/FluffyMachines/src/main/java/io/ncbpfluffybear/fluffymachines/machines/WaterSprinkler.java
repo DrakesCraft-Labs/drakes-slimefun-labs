@@ -46,13 +46,13 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
      * un coste real en tiempo y energia.
      */
     public final ItemSetting<Integer> intervaloMinutos =
-        new IntRangeSetting(this, "intervalo-minutos", 1, 15, 120);
+        new IntRangeSetting(this, "intervalo-minutos", 1, 7, 120);
 
     /** Cuando rego por ultima vez cada aspersor, por ubicacion. */
     private static final Map<String, Long> ultimoRiego = new ConcurrentHashMap<>();
     public static final int ENERGY_CONSUMPTION = 16;
     public static final int CAPACITY = 128;
-    private static final int RADIUS = 2;
+    private static final int RADIUS = 3;
     private static final int DIAMETER = RADIUS * 2 + 1;
     private static final int AREA = DIAMETER * DIAMETER;
     private static final int PROGRESS_SLOT = 4;
@@ -155,7 +155,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
 
         // Cuando toca regar se riega el area entera, no un trozo. El reparto por ciclos existia
         // para no hacer todo el trabajo en un solo tick cuando el aspersor actuaba constantemente;
-        // ahora actua una vez cada cuarto de hora, asi que puede permitirse la pasada completa.
+        // ahora actua una vez cada siete minutos, asi que puede permitirse la pasada completa.
         int[] indexes = new int[AREA];
         for (int i = 0; i < AREA; i++) {
             indexes[i] = i;
