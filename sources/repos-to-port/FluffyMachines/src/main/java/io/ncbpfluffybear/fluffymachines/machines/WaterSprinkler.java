@@ -1,5 +1,6 @@
 package io.ncbpfluffybear.fluffymachines.machines;
 
+import io.ncbpfluffybear.fluffymachines.FluffyMachines;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemSetting;
 import com.github.drakescraft_labs.slimefun4.api.items.settings.IntRangeSetting;
 import com.github.drakescraft_labs.slimefun4.implementation.items.electric.machines.accelerators.AbstractGrowthAccelerator;
@@ -46,13 +47,13 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
      * un coste real en tiempo y energia.
      */
     public final ItemSetting<Integer> intervaloMinutos =
-        new IntRangeSetting(this, "intervalo-minutos", 1, 15, 120);
+        new IntRangeSetting(this, "intervalo-minutos", 1, FluffyMachines.getWaterSprinklerInterval(), 120);
 
     /** Cuando rego por ultima vez cada aspersor, por ubicacion. */
     private static final Map<String, Long> ultimoRiego = new ConcurrentHashMap<>();
-    public static final int ENERGY_CONSUMPTION = 16;
-    public static final int CAPACITY = 128;
-    private static final int RADIUS = 2;
+    public static final int ENERGY_CONSUMPTION = FluffyMachines.getWaterSprinklerEnergyConsumption();
+    public static final int CAPACITY = FluffyMachines.getWaterSprinklerCapacity();
+    private static final int RADIUS = FluffyMachines.getWaterSprinklerRadius();
     private static final int DIAMETER = RADIUS * 2 + 1;
     private static final int AREA = DIAMETER * DIAMETER;
     private static final int PROGRESS_SLOT = 4;
@@ -77,7 +78,8 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
     private static final CustomItemStack waterFoundItem = new CustomItemStack(Material.WATER_BUCKET,
         "&bWater detected"
     );
-    private final ItemSetting<Boolean> particles = new ItemSetting<>(this, "particles", true);
+    private final ItemSetting<Boolean> particles =
+        new ItemSetting<>(this, "particles", FluffyMachines.isWaterSprinklerParticles());
     private final ItemSetting<Integer> blocksPerCycle = new IntRangeSetting(this, "blocks-per-cycle", 1, 4, AREA);
 
     public WaterSprinkler(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {

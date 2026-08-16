@@ -48,6 +48,32 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
     public static final HashMap<ItemStack, List<Pair<ItemStack, List<RecipeChoice>>>> shapelessVanillaRecipes =
             new HashMap<>();
 
+    private static int waterSprinklerInterval = 7;
+    private static int waterSprinklerRadius = 3;
+    private static int waterSprinklerCapacity = 1024;
+    private static int waterSprinklerEnergyConsumption = 16;
+    private static boolean waterSprinklerParticles = true;
+
+    public static int getWaterSprinklerInterval() {
+        return waterSprinklerInterval;
+    }
+
+    public static int getWaterSprinklerRadius() {
+        return waterSprinklerRadius;
+    }
+
+    public static int getWaterSprinklerCapacity() {
+        return waterSprinklerCapacity;
+    }
+
+    public static int getWaterSprinklerEnergyConsumption() {
+        return waterSprinklerEnergyConsumption;
+    }
+
+    public static boolean isWaterSprinklerParticles() {
+        return waterSprinklerParticles;
+    }
+
     @SneakyThrows
     @Override
     public void onEnable() {
@@ -56,6 +82,12 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         instance = this;
         // Read something from your config.yml
         Config cfg = new Config(this);
+
+        waterSprinklerInterval = cfg.getInt("water-sprinkler.interval-minutes");
+        waterSprinklerRadius = cfg.getInt("water-sprinkler.radius");
+        waterSprinklerCapacity = cfg.getInt("water-sprinkler.capacity");
+        waterSprinklerEnergyConsumption = cfg.getInt("water-sprinkler.energy-consumption");
+        waterSprinklerParticles = cfg.getBoolean("water-sprinkler.particles");
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Dev - ")) {
             new BlobBuildUpdater(this, getFile(), "FluffyMachines", "Dev").start();

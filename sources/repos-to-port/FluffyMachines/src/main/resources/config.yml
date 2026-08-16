@@ -1,3 +1,16 @@
 options:
   auto-update: true
   ignore-outdated-warning: false
+
+# Configuracion del Water Sprinkler
+water-sprinkler:
+  # Cada cuantos minutos riega toda el area (1 - 120)
+  interval-minutes: 7
+  # Radio de efecto en bloques (2 = 5x5, 3 = 7x7, ...)
+  radius: 3
+  # Energia que puede almacenar la maquina
+  capacity: 1024
+  # Energia consumida por planta regada
+  energy-consumption: 16
+  # Si se muestran particulas al regar
+  particles: true
