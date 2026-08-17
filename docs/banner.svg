@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" width="920" height="300">
+  <defs>
+    <linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <linearGradient id="colorG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#00FF66" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <filter id="glowF">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseA {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.7)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 30px rgba(56, 189, 248, 1)); }
+    }
+    .bg-a { fill: url(#bgG); }
+    .title-a { font-family: 'Outfit', 'Segoe UI', sans-serif; font-weight: 900; font-size: 42px; fill: url(#colorG); animation: pulseA 3.5s infinite ease-in-out; }
+    .sub-a { font-family: 'Inter', 'Segoe UI', sans-serif; font-weight: 700; font-size: 14px; fill: #94A3B8; letter-spacing: 3px; }
+    .badge-a { fill: #0F172A; stroke: #00FF66; stroke-width: 1.5; rx: 6px; }
+    .btext-a { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; fill: #00FF66; }
+  </style>
+
+  <rect class="bg-a" width="920" height="300" rx="14" stroke="#00FF66" stroke-width="1.5" />
+
+  <g transform="translate(460, 95)">
+    <polygon points="0,-42 34,-20 34,20 0,42 -34,20 -34,-20" fill="#0F172A" stroke="url(#colorG)" stroke-width="3" filter="url(#glowF)" />
+    <circle cx="0" cy="0" r="10" fill="#00FF66" />
+  </g>
+
+  <text x="460" y="185" text-anchor="middle" class="title-a">DRAKES-SLIMEFUN-LABS</text>
+  <text x="460" y="215" text-anchor="middle" class="sub-a">SLIMEFUN4 ADDON · RUST FFM HYBRID ACCELERATED</text>
+
+  <g transform="translate(230, 245)">
+    <rect x="0" y="0" width="145" height="30" class="badge-a" />
+    <text x="12" y="20" class="btext-a">DRAKES LABS</text>
+
+    <rect x="165" y="0" width="150" height="30" class="badge-a" stroke="#FF4500" />
+    <text x="177" y="20" class="btext-a" fill="#FF7300">RUST FFM HYBRID</text>
+
+    <rect x="335" y="0" width="135" height="30" class="badge-a" stroke="#38BDF8" />
+    <text x="347" y="20" class="btext-a" fill="#38BDF8">PAPER 1.21.11</text>
+  </g>
+</svg>
