@@ -1,0 +1,196 @@
+# Publicacion a Modrinth para un addon de DrakesCraft.
+#
+# QUE HACE
+#   - Compila el addon y publica el jar en Modrinth.
+#   - Solo publica cambios que valen la pena: se salta versiones por cambios menores (< umbral de
+#     lineas en src/) salvo que sean urgentes.
+#   - Un hotfix se publica siempre: se detecta por palabra clave en el commit ([URGENT], [HOTFIX],
+#     "fix: dupe", "fix: crash").
+#   - Convierte el banner .svg a .png para la galeria de Modrinth (Modrinth no renderiza SVG).
+#   - Usa el README.md del repo como descripcion del proyecto en Modrinth.
+#
+# SEGURIDAD -- POR QUE NO SE DISPARA EN PULL REQUESTS
+#   El MODRINTH_TOKEN es un secreto. Un workflow que corre en `pull_request` desde un fork puede
+#   ser modificado por quien abre el PR y filtrar el token. Por eso la publicacion solo corre en
+#   `push` a main y en disparo manual (`workflow_dispatch`), nunca en PRs. Los PRs solo compilan,
+#   sin acceso al secreto.
+#
+# COMO SE CONFIGURA UN REPO PARA USAR ESTO
+#   1. Secreto de organizacion MODRINTH_TOKEN (ya creado).
+#   2. Variable del repo MODRINTH_PROJECT_ID = el id o slug del proyecto en Modrinth.
+#      Si falta, el workflow compila y avisa, pero NO publica (evita subir a un proyecto vacio).
+#   3. Para probar sin publicar de verdad: Actions -> este workflow -> Run workflow -> dry_run = true.
+
+name: Publicar en Modrinth
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - 'build.gradle'
+      - 'README.md'
+      - 'docs/**'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Compilar y preparar todo pero NO publicar en Modrinth'
+        type: boolean
+        default: true
+      force:
+        description: 'Publicar aunque el cambio sea menor'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: modrinth-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Decide si este cambio merece una version nueva en Modrinth.
+  # ---------------------------------------------------------------------------
+  decidir:
+    runs-on: ubuntu-latest
+    outputs:
+      publicar: ${{ steps.evaluar.outputs.publicar }}
+      motivo: ${{ steps.evaluar.outputs.motivo }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # necesitamos el commit anterior para medir el diff
+
+      - id: evaluar
+        env:
+          UMBRAL_LINEAS: '5'
+        run: |
+          set -euo pipefail
+
+          # El disparo manual manda: si se pidio force, se publica.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            echo "publicar=true"  >> "$GITHUB_OUTPUT"
+            echo "motivo=disparo manual con force"  >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          MENSAJE="$(git log -1 --pretty=%B || true)"
+
+          # Un hotfix se publica siempre, sin importar el tamano del cambio.
+          if echo "$MENSAJE" | grep -qiE '\[URGENT\]|\[HOTFIX\]|fix: *dupe|fix: *crash|dupe|exploit'; then
+            echo "publicar=true"  >> "$GITHUB_OUTPUT"
+            echo "motivo=hotfix detectado en el mensaje del commit"  >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Cambio normal: se mide cuantas lineas de codigo cambiaron (src/ y build).
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            LINEAS="$(git diff --numstat HEAD~1 HEAD -- 'src/**' pom.xml build.gradle \
+                      | awk '{ s += $1 + $2 } END { print s + 0 }')"
+          else
+            LINEAS=9999  # primer commit: publicar
+          fi
+
+          echo "Lineas de codigo cambiadas: $LINEAS (umbral $UMBRAL_LINEAS)"
+          if [ "$LINEAS" -ge "${UMBRAL_LINEAS}" ]; then
+            echo "publicar=true"  >> "$GITHUB_OUTPUT"
+            echo "motivo=cambio de $LINEAS lineas (>= $UMBRAL_LINEAS)"  >> "$GITHUB_OUTPUT"
+          else
+            echo "publicar=false" >> "$GITHUB_OUTPUT"
+            echo "motivo=cambio menor de $LINEAS lineas; no se satura Modrinth"  >> "$GITHUB_OUTPUT"
+          fi
+
+  # ---------------------------------------------------------------------------
+  # Compila y, si procede, publica.
+  # ---------------------------------------------------------------------------
+  publicar:
+    needs: decidir
+    if: needs.decidir.outputs.publicar == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preparar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar
+        run: mvn -B -ntp package -DskipTests
+
+      - name: Localizar el jar
+        id: jar
+        run: |
+          set -euo pipefail
+          RUTA="$(find target -maxdepth 1 -name '*.jar' \
+                  ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' \
+                  | head -n1)"
+          if [ -z "$RUTA" ]; then echo "No se encontro el jar compilado"; exit 1; fi
+          echo "ruta=$RUTA" >> "$GITHUB_OUTPUT"
+
+      - name: Convertir el banner SVG a PNG para Modrinth
+        run: |
+          set -euo pipefail
+          # Modrinth no renderiza SVG en la galeria; se genera un PNG a partir del banner si existe.
+          SVG="$(find docs assets . -maxdepth 2 -name 'banner.svg' 2>/dev/null | head -n1 || true)"
+          if [ -n "$SVG" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin
+            mkdir -p .modrinth
+            rsvg-convert -w 1280 -o .modrinth/banner.png "$SVG"
+            echo "Banner convertido: $SVG -> .modrinth/banner.png"
+          else
+            echo "Sin banner.svg; se omite la conversion."
+          fi
+
+      - name: Comprobar que hay proyecto de Modrinth configurado
+        id: cfg
+        env:
+          MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+        run: |
+          if [ -z "${MODRINTH_PROJECT_ID:-}" ]; then
+            echo "listo=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::MODRINTH_PROJECT_ID no esta definido; se compilo pero no se publica."
+          else
+            echo "listo=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publicar en Modrinth
+        # Se salta en dry_run y si no hay proyecto configurado.
+        if: >-
+          steps.cfg.outputs.listo == 'true' &&
+          !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: ${{ vars.MODRINTH_PROJECT_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files: ${{ steps.jar.outputs.ruta }}
+          name: ${{ github.event.repository.name }} ${{ github.sha }}
+          version-type: release
+          loaders: |
+            paper
+            purpur
+            spigot
+          game-versions: |
+            1.21.x
+          # La descripcion del proyecto se mantiene sincronizada con el README del repo.
+          modrinth-description-mode: replace
+          modrinth-description-file: README.md
+          changelog: ${{ needs.decidir.outputs.motivo }}
+          # No fallar si algun campo opcional falta.
+          modrinth-featured: false
+
+      - name: Resumen
+        if: always()
+        run: |
+          echo "### Publicacion en Modrinth" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Motivo: ${{ needs.decidir.outputs.motivo }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Jar: ${{ steps.jar.outputs.ruta }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Proyecto configurado: ${{ steps.cfg.outputs.listo }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "- **dry_run: no se publico nada**" >> "$GITHUB_STEP_SUMMARY"
+          fi
