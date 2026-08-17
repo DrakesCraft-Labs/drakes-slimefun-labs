@@ -6,7 +6,7 @@
 #     lineas en src/) salvo que sean urgentes.
 #   - Un hotfix se publica siempre: se detecta por palabra clave en el commit ([URGENT], [HOTFIX],
 #     "fix: dupe", "fix: crash").
-#   - Convierte el banner .svg a .png para la galeria de Modrinth (Modrinth no renderiza SVG).
+#   - Convierte el banner .svg ANIMADO a .gif para la galeria (Modrinth no renderiza SVG).
 #   - Usa el README.md del repo como descripcion del proyecto en Modrinth.
 #
 # SEGURIDAD -- POR QUE NO SE DISPARA EN PULL REQUESTS
@@ -17,8 +17,8 @@
 #
 # COMO SE CONFIGURA UN REPO PARA USAR ESTO
 #   1. Secreto de organizacion MODRINTH_TOKEN (ya creado).
-#   2. Variable del repo MODRINTH_PROJECT_ID = el id o slug del proyecto en Modrinth.
-#      Si falta, el workflow compila y avisa, pero NO publica (evita subir a un proyecto vacio).
+#   2. Nada mas. Si el proyecto no existe en Modrinth, el workflow lo CREA como borrador
+#      usando el nombre del repo y su README, y publica en el. Se revisa y se hace publico a mano.
 #   3. Para probar sin publicar de verdad: Actions -> este workflow -> Run workflow -> dry_run = true.
 
 name: Publicar en Modrinth
