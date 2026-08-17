@@ -154,26 +154,23 @@ jobs:
             echo "Sin banner.svg; se omite la conversion."
           fi
 
-      - name: Comprobar que hay proyecto de Modrinth configurado
+      - name: Asegurar que el proyecto existe en Modrinth (lo crea si falta)
         id: cfg
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
         env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
-        run: |
-          if [ -z "${MODRINTH_PROJECT_ID:-}" ]; then
-            echo "listo=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::MODRINTH_PROJECT_ID no esta definido; se compilo pero no se publica."
-          else
-            echo "listo=true" >> "$GITHUB_OUTPUT"
-          fi
+          PROJECT_SLUG: ${{ github.event.repository.name }}
+          PROJECT_NAME: ${{ github.event.repository.name }}
+          PROJECT_SUMMARY: ${{ github.event.repository.description }}
+        run: node .github/scripts/modrinth-ensure-project.mjs
 
       - name: Publicar en Modrinth
-        # Se salta en dry_run y si no hay proyecto configurado.
-        if: >-
-          steps.cfg.outputs.listo == 'true' &&
-          !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
+        # Se salta solo en dry_run: si el proyecto no existia, el paso anterior ya lo creo.
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
         uses: Kir-Antipov/mc-publish@v3.3
         with:
-          modrinth-id: ${{ vars.MODRINTH_PROJECT_ID }}
+          modrinth-id: ${{ steps.cfg.outputs.project_id }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           files: ${{ steps.jar.outputs.ruta }}
           name: ${{ github.event.repository.name }} ${{ github.sha }}
@@ -197,7 +194,7 @@ jobs:
           echo "### Publicacion en Modrinth" >> "$GITHUB_STEP_SUMMARY"
           echo "- Motivo: ${{ needs.decidir.outputs.motivo }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Jar: ${{ steps.jar.outputs.ruta }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Proyecto configurado: ${{ steps.cfg.outputs.listo }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Proyecto Modrinth: ${{ steps.cfg.outputs.project_slug }}" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
             echo "- **dry_run: no se publico nada**" >> "$GITHUB_STEP_SUMMARY"
           fi
