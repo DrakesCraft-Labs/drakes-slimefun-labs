@@ -133,16 +133,23 @@ jobs:
           if [ -z "$RUTA" ]; then echo "No se encontro el jar compilado"; exit 1; fi
           echo "ruta=$RUTA" >> "$GITHUB_OUTPUT"
 
-      - name: Convertir el banner SVG a PNG para Modrinth
+      - name: Preparar Node para la conversion del banner
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Convertir el banner SVG animado a GIF para Modrinth
         run: |
           set -euo pipefail
-          # Modrinth no renderiza SVG en la galeria; se genera un PNG a partir del banner si existe.
+          # Los banners son SVG ANIMADOS y Modrinth no renderiza SVG en su galeria. Un PNG perderia
+          # la animacion, asi que se rasteriza a GIF capturando fotogramas de un ciclo con Chromium.
           SVG="$(find docs assets . -maxdepth 2 -name 'banner.svg' 2>/dev/null | head -n1 || true)"
           if [ -n "$SVG" ]; then
-            sudo apt-get update -qq && sudo apt-get install -y -qq librsvg2-bin
+            sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick
+            npm install --no-save puppeteer@23
             mkdir -p .modrinth
-            rsvg-convert -w 1280 -o .modrinth/banner.png "$SVG"
-            echo "Banner convertido: $SVG -> .modrinth/banner.png"
+            node .github/scripts/svg-to-gif.mjs "$SVG" .modrinth/banner.gif
+            echo "Banner convertido: $SVG -> .modrinth/banner.gif"
           else
             echo "Sin banner.svg; se omite la conversion."
           fi
