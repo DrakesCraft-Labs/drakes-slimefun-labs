@@ -169,6 +169,9 @@ jobs:
           PROJECT_SLUG: ${{ github.event.repository.name }}
           PROJECT_NAME: ${{ github.event.repository.name }}
           PROJECT_SUMMARY: ${{ github.event.repository.description }}
+          # Vacio = se envia a la cola de revision de Modrinth. Poner "true" lo deja en borrador.
+          MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
+          PROJECT_LICENSE: ${{ vars.MODRINTH_LICENSE }}
         run: node .github/scripts/modrinth-ensure-project.mjs
 
       - name: Publicar en Modrinth
