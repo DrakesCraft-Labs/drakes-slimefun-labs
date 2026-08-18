@@ -126,3 +126,22 @@ if (process.env.GITHUB_OUTPUT) {
   appendFileSync(process.env.GITHUB_OUTPUT, `project_slug=${proyecto.slug}\n`);
 }
 console.log(`Proyecto en uso: ${proyecto.slug} (${proyecto.id})`);
+
+// --- Icono del proyecto -----------------------------------------------------------------
+// mc-publish sube el jar pero no toca el icono, y Modrinth muestra un cubo gris por defecto en
+// el buscador. El icono se genera una sola vez y vive en el repo (docs/icon.svg); aqui solo se
+// sube si el proyecto aun no tiene ninguno, para no pisar uno cambiado a mano desde la web.
+try {
+  const rutaIcono = 'docs/icon.svg';
+  if (existsSync(rutaIcono) && !proyecto.icon_url) {
+    const svg = readFileSync(rutaIcono);
+    const r = await fetch(`${V2}/project/${proyecto.id}/icon?ext=svg`, {
+      method: 'PATCH',
+      headers: { ...cabeceras, 'Content-Type': 'image/svg+xml' },
+      body: svg,
+    });
+    console.log(r.ok ? 'Icono subido.' : `No se pudo subir el icono (HTTP ${r.status}).`);
+  }
+} catch (e) {
+  console.error('Fallo al subir el icono:', e.message);
+}
