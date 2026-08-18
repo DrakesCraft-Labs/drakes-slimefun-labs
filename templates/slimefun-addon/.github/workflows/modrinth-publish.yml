@@ -132,6 +132,12 @@ jobs:
                   | head -n1)"
           if [ -z "$RUTA" ]; then echo "No se encontro el jar compilado"; exit 1; fi
           echo "ruta=$RUTA" >> "$GITHUB_OUTPUT"
+          # Modrinth exige un numero de version para cada fichero que se sube. Se toma la del
+          # pom y, si no se puede leer, se cae al sha corto del commit para no bloquear la subida.
+          VER="$(mvn -q -ntp help:evaluate -Dexpression=project.version -DforceStdout 2>/dev/null | tail -n1 | tr -d '[:space:]')"
+          case "$VER" in ''|*ERROR*|*'$'*) VER="0.0.0-${GITHUB_SHA::7}";; esac
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "Version detectada: $VER"
 
       - name: Preparar Node para la conversion del banner
         uses: actions/setup-node@v4
@@ -173,7 +179,8 @@ jobs:
           modrinth-id: ${{ steps.cfg.outputs.project_id }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           files: ${{ steps.jar.outputs.ruta }}
-          name: ${{ github.event.repository.name }} ${{ github.sha }}
+          version: ${{ steps.jar.outputs.version }}
+          name: ${{ github.event.repository.name }} ${{ steps.jar.outputs.version }}
           version-type: release
           loaders: |
             paper
