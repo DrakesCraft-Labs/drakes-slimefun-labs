@@ -140,8 +140,35 @@ try {
       headers: { ...cabeceras, 'Content-Type': 'image/svg+xml' },
       body: svg,
     });
-    console.log(r.ok ? 'Icono subido.' : `No se pudo subir el icono (HTTP ${r.status}).`);
+    if (r.ok) {
+      console.log('Icono subido.');
+    } else {
+      // Modrinth rechaza algunos SVG en el icono. Se deja constancia del motivo en vez de un
+      // codigo suelto, para saber si hay que pasar a PNG.
+      console.error(`No se pudo subir el icono (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
+    }
   }
 } catch (e) {
   console.error('Fallo al subir el icono:', e.message);
+}
+
+// --- Descripcion larga ------------------------------------------------------------------
+// mc-publish v3.3 no admite modrinth-description-*: avisa de "Unexpected input" y no la toca,
+// asi que la pagina se quedaba con la descripcion de la creacion. Se sincroniza aqui con el
+// README, que es lo que el jugador lee en Modrinth.
+try {
+  if (existsSync('README.md')) {
+    const cuerpo = readFileSync('README.md', 'utf8');
+    if (cuerpo.trim() && cuerpo !== proyecto.body) {
+      const r = await fetch(`${V2}/project/${proyecto.id}`, {
+        method: 'PATCH',
+        headers: { ...cabeceras, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ body: cuerpo }),
+      });
+      console.log(r.ok ? 'Descripcion sincronizada con el README.'
+                       : `No se pudo actualizar la descripcion (HTTP ${r.status}).`);
+    }
+  }
+} catch (e) {
+  console.error('Fallo al sincronizar la descripcion:', e.message);
 }

@@ -191,9 +191,6 @@ jobs:
             spigot
           game-versions: |
             1.21.x
-          # La descripcion del proyecto se mantiene sincronizada con el README del repo.
-          modrinth-description-mode: replace
-          modrinth-description-file: README.md
           changelog: ${{ needs.decidir.outputs.motivo }}
           # No fallar si algun campo opcional falta.
           modrinth-featured: false
