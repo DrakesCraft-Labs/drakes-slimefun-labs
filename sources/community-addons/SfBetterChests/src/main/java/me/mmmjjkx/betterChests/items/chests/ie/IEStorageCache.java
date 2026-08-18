@@ -392,6 +392,9 @@ public final class IEStorageCache {
     }
 
     boolean matches(ItemStack item) {
+        if (item == null || item.getType() == Material.AIR || this.material == null) {
+            return false;
+        }
         return item.getType() == this.material
                 && item.hasItemMeta() == (this.meta != null)
                 && (this.meta == null || this.meta.equals(item.getItemMeta()));

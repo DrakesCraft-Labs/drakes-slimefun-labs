@@ -87,7 +87,10 @@ if (!proyecto) {
     project_type: 'mod',
     is_draft: true, // borrador: nada se hace publico sin revision humana
     license_id: 'GPL-3.0-only',
-￼  };
+    // La API v2 lo exige aunque se cree vacio: el jar se sube despues como version
+    // propia, no en la creacion del proyecto.
+    initial_versions: [],
+  };
 
   const form = new FormData();
   form.append('data', JSON.stringify(datos));
