@@ -85,9 +85,10 @@ if (!proyecto) {
     client_side: 'unsupported',
     server_side: 'required',
     project_type: 'mod',
-    // MODRINTH_DRAFT=true deja el proyecto en borrador; por defecto se envia a la cola de
-    // revision de Modrinth, que es el paso previo a que sea publico.
-    is_draft: process.env.MODRINTH_DRAFT === 'true',
+    // Siempre se crea como borrador: Modrinth rechaza un proyecto enviado a revision que aun
+    // no tenga ninguna version ("Project submitted for review with no initial versions"). El
+    // envio a revision lo hace el paso posterior, ya con el jar subido.
+    is_draft: true,
     license_id: process.env.PROJECT_LICENSE || 'GPL-3.0-only',
     // La API v2 lo exige aunque se cree vacio: el jar se sube despues como version
     // propia, no en la creacion del proyecto.

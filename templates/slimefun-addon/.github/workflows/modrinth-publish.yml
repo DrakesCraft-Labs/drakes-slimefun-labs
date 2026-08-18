@@ -198,6 +198,16 @@ jobs:
           # No fallar si algun campo opcional falta.
           modrinth-featured: false
 
+      - name: Enviar el proyecto a revision de Modrinth
+        # Solo tiene sentido tras subir la version: Modrinth rechaza un proyecto en revision
+        # que no tenga ninguna. Por eso va despues de publicar y no en la creacion.
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ steps.cfg.outputs.project_id }}
+          MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
+        run: node .github/scripts/modrinth-submit-review.mjs
+
       - name: Resumen
         if: always()
         run: |
