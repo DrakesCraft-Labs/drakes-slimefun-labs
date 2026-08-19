@@ -100,7 +100,7 @@ jobs:
                   | head -n1)"
           if [ -z "$RUTA" ]; then echo "No se encontro el jar compilado"; exit 1; fi
           echo "ruta=$RUTA" >> "$GITHUB_OUTPUT"
-          VER="0.0.0-${{GITHUB_SHA::7}}"
+          VER="0.0.0-${GITHUB_SHA:0:7}"
           if [ -f pom.xml ]; then
             POM_VER="$(mvn -q -ntp help:evaluate -Dexpression=project.version -DforceStdout 2>/dev/null | tail -n1 | tr -d '[:space:]' || true)"
             case "$POM_VER" in ''|*ERROR*|*'$'*) ;; *) VER="$POM_VER";; esac
