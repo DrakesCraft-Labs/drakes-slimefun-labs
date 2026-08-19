@@ -95,9 +95,12 @@ jobs:
         id: jar
         run: |
           set -euo pipefail
-          RUTA="$(find target build/libs -maxdepth 2 -name '*.jar' \
-                  ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' 2>/dev/null \
-                  | head -n1)"
+          RUTA=""
+          if [ -d target ]; then
+            RUTA="$(find target -maxdepth 2 -name '*.jar' ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | head -n1 || true)"
+          elif [ -d build/libs ]; then
+            RUTA="$(find build/libs -maxdepth 2 -name '*.jar' ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | head -n1 || true)"
+          fi
           if [ -z "$RUTA" ]; then echo "No se encontro el jar compilado"; exit 1; fi
           echo "ruta=$RUTA" >> "$GITHUB_OUTPUT"
           VER="0.0.0-${GITHUB_SHA:0:7}"
