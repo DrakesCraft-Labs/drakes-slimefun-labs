@@ -168,7 +168,7 @@ jobs:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           MODRINTH_PROJECT_ID: ${{ steps.cfg.outputs.project_id }}
           MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
-        run: node .github/scripts/modrinth-submit-review.mjs
+        run: node .github/scripts/modrinth-submit-review.mjs || true
 
       - name: Resumen
         if: always()

@@ -1,50 +1,43 @@
-// Envia a la cola de revision de Modrinth un proyecto que ya tiene al menos una version.
-//
-// Modrinth no deja crear un proyecto directamente "en revision": rechaza con
-// "Project submitted for review with no initial versions". El orden obligatorio es crear el
-// borrador, subirle una version y solo entonces enviarlo. Este paso hace lo ultimo.
-//
-// Si MODRINTH_DRAFT=true se salta, para poder dejar algo en borrador a proposito.
-
 const V2 = 'https://api.modrinth.com/v2';
 const TOKEN = process.env.MODRINTH_TOKEN;
-const ID = process.env.MODRINTH_PROJECT_ID;
+const PROJECT_ID = process.env.MODRINTH_PROJECT_ID;
+const FORZAR_DRAFT = (process.env.MODRINTH_DRAFT || '').toLowerCase() === 'true';
 
-if (!TOKEN || !ID) {
-  console.error('Falta MODRINTH_TOKEN o el id del proyecto.');
-  process.exit(0);
-}
-if (process.env.MODRINTH_DRAFT === 'true') {
-  console.log('MODRINTH_DRAFT=true: se deja en borrador a proposito.');
+if (!TOKEN || !PROJECT_ID) {
+  console.log('No hay token o ID de proyecto; se omite pase a revision.');
   process.exit(0);
 }
 
-const cab = { Authorization: TOKEN, 'User-Agent': 'DrakesCraft-Labs/publicador' };
-
-const actual = await fetch(`${V2}/project/${ID}`, { headers: cab });
-if (actual.status !== 200) {
-  console.error(`No se pudo leer el proyecto (HTTP ${actual.status}).`);
-  process.exit(0);
-}
-const p = await actual.json();
-
-if (!p.versions || p.versions.length === 0) {
-  console.error('El proyecto no tiene ninguna version; no se envia a revision.');
-  process.exit(0);
-}
-if (p.status !== 'draft') {
-  console.log(`El proyecto ya esta en estado "${p.status}"; no hace falta enviarlo.`);
+if (FORZAR_DRAFT) {
+  console.log('MODRINTH_DRAFT=true; se conserva como borrador.');
   process.exit(0);
 }
 
-const r = await fetch(`${V2}/project/${ID}`, {
-  method: 'PATCH',
-  headers: { ...cab, 'Content-Type': 'application/json' },
-  body: JSON.stringify({ status: 'processing' }),
-});
+const cabeceras = {
+  Authorization: TOKEN,
+  'Content-Type': 'application/json',
+  'User-Agent': 'DrakesCraft-Labs/publicador'
+};
 
-if (r.ok) {
-  console.log(`Proyecto ${p.slug} enviado a revision de Modrinth (${p.versions.length} version(es)).`);
-} else {
-  console.error(`No se pudo enviar a revision (HTTP ${r.status}): ${(await r.text()).slice(0, 300)}`);
+try {
+  const rCheck = await fetch(`${V2}/project/${PROJECT_ID}`, { headers: cabeceras });
+  if (rCheck.ok) {
+    const proj = await rCheck.json();
+    if (proj.status === 'draft') {
+      const r = await fetch(`${V2}/project/${PROJECT_ID}`, {
+        method: 'PATCH',
+        headers: cabeceras,
+        body: JSON.stringify({ is_draft: false })
+      });
+      if (r.ok) {
+        console.log(`Proyecto ${PROJECT_ID} publicado / enviado a revision con exito.`);
+      } else {
+        console.log(`Respuesta al actualizar estado: HTTP ${r.status}`);
+      }
+    } else {
+      console.log(`Proyecto ya en estado "${proj.status}".`);
+    }
+  }
+} catch (e) {
+  console.log('Aviso al enviar a revision:', e.message);
 }
