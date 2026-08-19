@@ -3,7 +3,7 @@ name: Publicar en Modrinth
 
 on:
   push:
-    branches: [main]
+    branches: [main, master, 1.21-latin, fix/drakes-loans]
     paths:
       - 'src/**'
       - 'pom.xml'
@@ -59,8 +59,7 @@ jobs:
           fi
 
           if git rev-parse HEAD~1 >/dev/null 2>&1; then
-            LINEAS="$(git diff --numstat HEAD~1 HEAD -- 'src/**' pom.xml build.gradle build.gradle.kts \
-                      | awk '{ s += $1 + $2 } END { print s + 0 }')"
+            LINEAS="$(git diff --numstat HEAD~1 HEAD -- 'src/**' pom.xml build.gradle build.gradle.kts 2>/dev/null                       | awk '{ s += $1 + $2 } END { print s + 0 }')"
           else
             LINEAS=9999
           fi
@@ -86,10 +85,21 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-          cache: gradle
 
       - name: Compilar
-        run: if [ -f gradlew ]; then chmod +x gradlew && ./gradlew build -x test; else gradle build -x test; fi
+        run: |
+          set -euo pipefail
+          if [ -f pom.xml ]; then
+            mvn -B -ntp package -DskipTests
+          elif [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew build -x test --no-daemon
+          elif [ -f build.gradle ] || [ -f build.gradle.kts ]; then
+            gradle build -x test --no-daemon
+          else
+            echo "No se encontro build descriptor (pom.xml ni build.gradle)"
+            exit 1
+          fi
 
       - name: Localizar el jar
         id: jar
@@ -120,14 +130,14 @@ jobs:
         run: |
           set -euo pipefail
           SVG="$(find docs assets . -maxdepth 2 -name 'banner.svg' -o -name '*banner*.svg' 2>/dev/null | head -n1 || true)"
-          if [ -n "$SVG" ]; then
+          if [ -n "$SVG" ] && [ -f .github/scripts/svg-to-gif.mjs ]; then
             sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick
             npm install --no-save puppeteer@23
             mkdir -p .modrinth
             node .github/scripts/svg-to-gif.mjs "$SVG" .modrinth/banner.gif || true
             echo "Banner convertido: $SVG -> .modrinth/banner.gif"
           else
-            echo "Sin banner.svg; se omite la conversion."
+            echo "Sin banner o script; se omite la conversion."
           fi
 
       - name: Asegurar que el proyecto existe en Modrinth
@@ -141,7 +151,13 @@ jobs:
           PROJECT_SUMMARY: ${{ github.event.repository.description }}
           MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
           PROJECT_LICENSE: ${{ vars.MODRINTH_LICENSE }}
-        run: node .github/scripts/modrinth-ensure-project.mjs
+        run: |
+          if [ -f .github/scripts/modrinth-ensure-project.mjs ]; then
+            node .github/scripts/modrinth-ensure-project.mjs
+          else
+            echo "No existe modrinth-ensure-project.mjs"
+            exit 1
+          fi
 
       - name: Publicar en Modrinth
         if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
@@ -168,7 +184,10 @@ jobs:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           MODRINTH_PROJECT_ID: ${{ steps.cfg.outputs.project_id }}
           MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
-        run: node .github/scripts/modrinth-submit-review.mjs || true
+        run: |
+          if [ -f .github/scripts/modrinth-submit-review.mjs ]; then
+            node .github/scripts/modrinth-submit-review.mjs || true
+          fi
 
       - name: Resumen
         if: always()
