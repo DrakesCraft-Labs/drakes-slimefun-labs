@@ -1,14 +1,3 @@
-// Se asegura de que el proyecto exista en Modrinth, DENTRO DE LA ORGANIZACION, y devuelve su id.
-//
-// Modrinth crea todo proyecto bajo el usuario del token: no hay forma de crearlo directamente en
-// una organizacion. El proyecto se crea y despues se traslada a la organizacion con el endpoint
-// de organizaciones de la API v3. Sin ese segundo paso los addons acaban colgando del perfil
-// personal en vez de la organizacion, que es justo lo que hay que evitar.
-//
-// La organizacion se toma de la variable MODRINTH_ORG del repo o de la organizacion del usuario
-// del token si solo tiene una. El token llega por variable de entorno desde el secreto de la
-// organizacion de GitHub: nunca se imprime ni se escribe en disco.
-
 import { appendFileSync, existsSync, readFileSync } from 'fs';
 
 const V2 = 'https://api.modrinth.com/v2';
@@ -31,14 +20,12 @@ async function pedir(url, opciones = {}) {
   return r;
 }
 
-/** El proyecto si existe, o null. */
 async function buscarProyecto(idOslug) {
   if (!idOslug) return null;
   const r = await pedir(`${V2}/project/${encodeURIComponent(idOslug)}`);
   return r.status === 200 ? await r.json() : null;
 }
 
-/** La organizacion donde deben vivir los proyectos, o null si no se puede determinar. */
 async function resolverOrganizacion() {
   if (ORG_PEDIDA) {
     const r = await pedir(`${V3}/organization/${encodeURIComponent(ORG_PEDIDA)}`);
@@ -46,7 +33,6 @@ async function resolverOrganizacion() {
     console.error(`La organizacion "${ORG_PEDIDA}" no existe o el token no la ve.`);
     return null;
   }
-  // Sin variable: si el usuario del token pertenece a una sola organizacion, se usa esa.
   const usuario = await pedir(`${V3}/user`);
   if (usuario.status !== 200) return null;
   const yo = await usuario.json();
@@ -54,17 +40,12 @@ async function resolverOrganizacion() {
   if (orgs.status !== 200) return null;
   const lista = await orgs.json();
   if (Array.isArray(lista) && lista.length === 1) return lista[0];
-  if (Array.isArray(lista) && lista.length > 1) {
-    console.error(`El usuario pertenece a ${lista.length} organizaciones: define MODRINTH_ORG.`);
-  }
   return null;
 }
 
 const organizacion = await resolverOrganizacion();
 if (organizacion) {
   console.log(`Organizacion destino: ${organizacion.name || organizacion.slug} (${organizacion.id})`);
-} else {
-  console.log('Sin organizacion resuelta; el proyecto quedara bajo el usuario del token.');
 }
 
 let proyecto = (await buscarProyecto(process.env.MODRINTH_PROJECT_ID)) || (await buscarProyecto(SLUG));
@@ -85,13 +66,8 @@ if (!proyecto) {
     client_side: 'unsupported',
     server_side: 'required',
     project_type: 'mod',
-    // Siempre se crea como borrador: Modrinth rechaza un proyecto enviado a revision que aun
-    // no tenga ninguna version ("Project submitted for review with no initial versions"). El
-    // envio a revision lo hace el paso posterior, ya con el jar subido.
     is_draft: true,
     license_id: process.env.PROJECT_LICENSE || 'GPL-3.0-only',
-    // La API v2 lo exige aunque se cree vacio: el jar se sube despues como version
-    // propia, no en la creacion del proyecto.
     initial_versions: [],
   };
 
@@ -107,7 +83,7 @@ if (!proyecto) {
   console.log(`Proyecto creado como BORRADOR: ${proyecto.slug} (${proyecto.id})`);
 }
 
-// Trasladarlo a la organizacion si aun no pertenece a ella.
+// Trasladar a la organizacion si procede
 if (organizacion && proyecto.organization !== organizacion.id) {
   const r = await pedir(`${V3}/organization/${organizacion.id}/projects`, {
     method: 'POST',
@@ -116,8 +92,6 @@ if (organizacion && proyecto.organization !== organizacion.id) {
   });
   if (r.ok) {
     console.log(`Proyecto trasladado a la organizacion ${organizacion.slug}.`);
-  } else {
-    console.error(`No se pudo trasladar a la organizacion (HTTP ${r.status}): ${(await r.text()).slice(0, 300)}`);
   }
 }
 
@@ -127,24 +101,22 @@ if (process.env.GITHUB_OUTPUT) {
 }
 console.log(`Proyecto en uso: ${proyecto.slug} (${proyecto.id})`);
 
-// --- Icono del proyecto -----------------------------------------------------------------
-// mc-publish sube el jar pero no toca el icono, y Modrinth muestra un cubo gris por defecto en
-// el buscador. El icono se genera una sola vez y vive en el repo (docs/icon.svg); aqui solo se
-// sube si el proyecto aun no tiene ninguno, para no pisar uno cambiado a mano desde la web.
+// --- Icono del proyecto (PNG obligatorio para Modrinth) -------------------------------
 try {
-  const rutaIcono = 'docs/icon.svg';
-  if (existsSync(rutaIcono) && !proyecto.icon_url) {
-    const svg = readFileSync(rutaIcono);
-    const r = await fetch(`${V2}/project/${proyecto.id}/icon?ext=svg`, {
+  let rutaIcono = null;
+  if (existsSync('docs/icon.png')) rutaIcono = 'docs/icon.png';
+  else if (existsSync('icon.png')) rutaIcono = 'icon.png';
+
+  if (rutaIcono) {
+    const png = readFileSync(rutaIcono);
+    const r = await fetch(`${V2}/project/${proyecto.id}/icon?ext=png`, {
       method: 'PATCH',
-      headers: { ...cabeceras, 'Content-Type': 'image/svg+xml' },
-      body: svg,
+      headers: { ...cabeceras, 'Content-Type': 'image/png' },
+      body: png,
     });
     if (r.ok) {
-      console.log('Icono subido.');
+      console.log(`Icono PNG subido con exito (${rutaIcono}).`);
     } else {
-      // Modrinth rechaza algunos SVG en el icono. Se deja constancia del motivo en vez de un
-      // codigo suelto, para saber si hay que pasar a PNG.
       console.error(`No se pudo subir el icono (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
     }
   }
@@ -152,21 +124,44 @@ try {
   console.error('Fallo al subir el icono:', e.message);
 }
 
-// --- Descripcion larga ------------------------------------------------------------------
-// mc-publish v3.3 no admite modrinth-description-*: avisa de "Unexpected input" y no la toca,
-// asi que la pagina se quedaba con la descripcion de la creacion. Se sincroniza aqui con el
-// README, que es lo que el jugador lee en Modrinth.
+// --- Galeria / Banner (GIF o PNG) ------------------------------------------------------
+try {
+  let rutaBanner = null;
+  let extBanner = 'png';
+  if (existsSync('.modrinth/banner.gif')) {
+    rutaBanner = '.modrinth/banner.gif';
+    extBanner = 'gif';
+  } else if (existsSync('docs/banner.png')) {
+    rutaBanner = 'docs/banner.png';
+    extBanner = 'png';
+  }
+
+  if (rutaBanner && (!proyecto.gallery || proyecto.gallery.length === 0)) {
+    const bannerBytes = readFileSync(rutaBanner);
+    const r = await fetch(`${V2}/project/${proyecto.id}/gallery?ext=${extBanner}&featured=true&title=Banner`, {
+      method: 'POST',
+      headers: { ...cabeceras, 'Content-Type': extBanner === 'gif' ? 'image/gif' : 'image/png' },
+      body: bannerBytes,
+    });
+    if (r.ok) {
+      console.log(`Banner subido a la galeria (${rutaBanner}).`);
+    }
+  }
+} catch (e) {
+  console.error('Fallo al subir banner a la galeria:', e.message);
+}
+
+// --- Descripcion larga (README saneado) -------------------------------------------------
 try {
   if (existsSync('README.md')) {
-    const cuerpo = readFileSync('README.md', 'utf8');
+    let cuerpo = readFileSync('README.md', 'utf8');
     if (cuerpo.trim() && cuerpo !== proyecto.body) {
       const r = await fetch(`${V2}/project/${proyecto.id}`, {
         method: 'PATCH',
         headers: { ...cabeceras, 'Content-Type': 'application/json' },
         body: JSON.stringify({ body: cuerpo }),
       });
-      console.log(r.ok ? 'Descripcion sincronizada con el README.'
-                       : `No se pudo actualizar la descripcion (HTTP ${r.status}).`);
+      console.log(r.ok ? 'Descripcion sincronizada con el README.' : `Fallo al sincronizar descripcion (HTTP ${r.status}).`);
     }
   }
 } catch (e) {
