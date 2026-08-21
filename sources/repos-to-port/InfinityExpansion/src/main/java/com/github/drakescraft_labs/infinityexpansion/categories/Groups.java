@@ -29,8 +29,13 @@ public final class Groups {
             new CustomItemStack(Material.BEACON, "&bMob Simulation"));
     public static final ItemGroup INFINITY_MATERIALS = new SubGroup("infinity_materials",
             new CustomItemStack(Material.NETHERITE_BLOCK, "&bInfinity &aMaterials"));
+    // El nombre que ve el jugador en la guia. Se cambia SOLO aqui y no en plugin.yml a
+    // proposito: seis plugins declaran "InfinityExpansion" en su plugin.yml (NetworksV6,
+    // DynaTech, CrystamaeHistoria, SlimeTinker y dos mas) y el sfmaster-guard de Slimefun lo
+    // referencia como INFINITYEXPANSION. Renombrar el identificador tecnico romperia esas
+    // dependencias sin darle nada al jugador que no le de esta linea.
     public static final ItemGroup MAIN_CATEGORY = new MultiGroup("main",
-            new CustomItemStack(Material.NETHER_STAR, "&bInfinity &7Expansion"), 3,
+            new CustomItemStack(Material.NETHER_STAR, "&5Multiverse &7Expansion"), 3,
             MAIN_MATERIALS, BASIC_MACHINES, ADVANCED_MACHINES, STORAGE, MOB_SIMULATION, INFINITY_MATERIALS, INFINITY);
     public static final ItemGroup INFINITY_CHEAT = new SubGroup("infinity_cheat",
             new CustomItemStack(Material.RESPAWN_ANCHOR, "&bInfinity &7Recipes &c- INCORRECT RECIPES"));

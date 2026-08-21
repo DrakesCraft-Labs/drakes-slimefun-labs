@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import com.github.drakescraft_labs.infinityexpansion.utils.Util;
 import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Materials;
 import dev.drake.infinitylib.machines.AbstractMachineBlock;
@@ -43,7 +44,9 @@ public final class VoidHarvester extends AbstractMachineBlock implements RecipeD
 
     @Override
     protected boolean process(@Nonnull Block b, @Nonnull BlockMenu inv) {
-        int progress = Integer.parseInt(getProgress(b));
+        // Mismo motivo que en InfinityReactor: getProgress puede devolver null --el propio
+        // codigo lo contempla mas abajo-- y parsearlo a ciegas mataba el tick de la maquina.
+        int progress = Util.getIntData("progress", b.getLocation());
 
         if (progress >= TIME) { //reached full progress
 

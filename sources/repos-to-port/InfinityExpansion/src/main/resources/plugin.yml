@@ -1,6 +1,6 @@
 name: InfinityExpansion
 author: Mooy1
-description: more slimefun content
+description: Multiverse Expansion - maquinas, generadores y contenido de endgame para DrakesCraft
 main: com.github.drakescraft_labs.infinityexpansion.InfinityExpansion
 website: https://github.com/Mooy1/InfinityExpansion
 depend: [Slimefun]

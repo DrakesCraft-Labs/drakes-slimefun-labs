@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import com.github.drakescraft_labs.infinityexpansion.utils.Util;
 import com.github.drakescraft_labs.infinityexpansion.items.materials.Materials;
 import dev.drake.infinitylib.common.StackUtils;
 import dev.drake.infinitylib.machines.MenuBlock;
@@ -104,7 +105,12 @@ public final class InfinityReactor extends MenuBlock implements EnergyNetProvide
     public int getGeneratedOutput(@Nonnull Location l, @Nonnull Config config) {
         BlockMenu inv = BlockStorage.getInventory(l);
 
-        int progress = Integer.parseInt(BlockStorage.getLocationInfo(l, "progress"));
+        // getIntData en vez de parseInt directo: si "progress" falta, lo repone a 0 en vez de
+        // lanzar. Importa mas de lo que parece, porque getGeneratedOutput corre dentro de
+        // EnergyNet.tickAllGenerators: una NumberFormatException aqui aborta el tick de la RED
+        // ELECTRICA COMPLETA, y todas las maquinas conectadas se quedan sin corriente ese ciclo.
+        // Visto en error-reports/2026-08-18-17-52.err (INFINITY_REACTOR en world 4961,-52,-5950).
+        int progress = Util.getIntData("progress", l);
         ItemStack infinityInput = inv.getItemInSlot(INPUT_SLOTS[0]);
         ItemStack voidInput = inv.getItemInSlot(INPUT_SLOTS[1]);
 
