@@ -12,6 +12,8 @@ import com.github.drakescraft_labs.infinityexpansion.InfinityExpansion;
 import com.github.drakescraft_labs.infinityexpansion.categories.Groups;
 import com.github.drakescraft_labs.infinityexpansion.items.blocks.InfinityWorkbench;
 import com.github.drakescraft_labs.infinityexpansion.items.machines.VoidHarvester;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.HardenedGlass;
+import com.github.drakescraft_labs.slimefun4.implementation.items.blocks.WitherProofBlock;
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
@@ -78,6 +80,28 @@ public final class Materials {
             "&8Void Ingot",
             "&7&oThe emptiness of the cosmos",
             "&7&oin the palm of your hand"
+    );
+
+    /*
+     * Bloque y cristal del vacio, portados de InfinityExpansion2. El bloque comprime nueve
+     * lingotes y es a prueba de wither; el cristal hereda de HardenedGlass, o sea que aguanta
+     * explosiones. Sirven de material de construccion de alto nivel, que es justo lo que le
+     * faltaba a la rama del vacio: hasta ahora el lingote no llevaba a ningun sitio salvo a
+     * mas maquinas.
+     */
+    public static final SlimefunItemStack VOID_BLOCK = new SlimefunItemStack(
+            "VOID_BLOCK",
+            Material.NETHERITE_BLOCK,
+            "&8Void Block",
+            "&7Nueve lingotes del vacio comprimidos",
+            "&7A prueba de wither"
+    );
+    public static final SlimefunItemStack VOID_GLASS = new SlimefunItemStack(
+            "VOID_GLASS",
+            Material.GLASS,
+            "&8Void Glass",
+            "&7Cristal reforzado con esencia del vacio",
+            "&7A prueba de explosiones"
     );
     public static final SlimefunItemStack COBBLE_1 = new SlimefunItemStack(
             "COMPRESSED_COBBLESTONE_1",
@@ -316,6 +340,25 @@ public final class Materials {
                 VOID_DUST, VOID_DUST, VOID_DUST,
                 VOID_DUST, VOID_DUST, VOID_DUST
         });
+
+        // Bloque del vacio: nueve lingotes dentro, y la receta inversa para recuperarlos.
+        new WitherProofBlock(Groups.INFINITY_MATERIALS, VOID_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                VOID_INGOT, VOID_INGOT, VOID_INGOT,
+                VOID_INGOT, VOID_INGOT, VOID_INGOT,
+                VOID_INGOT, VOID_INGOT, VOID_INGOT
+        }).register(InfinityExpansion.instance());
+        RecipeType.ENHANCED_CRAFTING_TABLE.register(new ItemStack[] {
+                VOID_BLOCK, null, null,
+                null, null, null,
+                null, null, null
+        }, new SlimefunItemStack(VOID_INGOT, 9));
+
+        // Cristal del vacio: sale de a 16, como en el original.
+        new HardenedGlass(Groups.INFINITY_MATERIALS, VOID_GLASS, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), VOID_BLOCK, new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS)
+        }, new SlimefunItemStack(VOID_GLASS, 16)).register(InfinityExpansion.instance());
         registerSmeltery(INFINITE_INGOT, EARTH_SINGULARITY, MYTHRIL, FORTUNE_SINGULARITY, MAGIC_SINGULARITY, VOID_INGOT, METAL_SINGULARITY);
         registerSmeltery(FORTUNE_SINGULARITY, GOLD_SINGULARITY, DIAMOND_SINGULARITY, EMERALD_SINGULARITY, NETHERITE_SINGULARITY, ADAMANTITE);
         registerSmeltery(MAGIC_SINGULARITY, REDSTONE_SINGULARITY, LAPIS_SINGULARITY, QUARTZ_SINGULARITY, MAGNESIUM_SINGULARITY, MAGNONIUM);

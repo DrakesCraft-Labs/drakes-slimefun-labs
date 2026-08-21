@@ -94,6 +94,40 @@ public final class Machines {
             MachineLore.speed(25),
             MachineLore.energyPerSecond(1800)
     );
+
+    /*
+     * Invernadero de flores. Portado de InfinityExpansion2 (GuizhanCraft), que lo tiene como
+     * FLOWER_GROWER_1..4; aqui se mantiene la nomenclatura de este addon --BASIC/ADVANCED/
+     * INFINITY-- para que encaje con las otras dos maquinas de cultivo y con las recetas que
+     * ya conoce el jugador.
+     */
+    public static final SlimefunItemStack BASIC_FLOWER = new SlimefunItemStack(
+            "BASIC_FLOWER_GROWER",
+            Material.FLOWER_POT,
+            "&9Basic &dFlower Grower",
+            "&7Automatically grows and harvests flowers",
+            "",
+            MachineLore.speed(1),
+            MachineLore.energyPerSecond(24)
+    );
+    public static final SlimefunItemStack ADVANCED_FLOWER = new SlimefunItemStack(
+            "ADVANCED_FLOWER_GROWER",
+            Material.DECORATED_POT,
+            "&cAdvanced &dFlower Grower",
+            "&7Automatically grows and harvests flowers",
+            "",
+            MachineLore.speed(5),
+            MachineLore.energyPerSecond(120)
+    );
+    public static final SlimefunItemStack INFINITY_FLOWER = new SlimefunItemStack(
+            "INFINITY_FLOWER_GROWER",
+            Material.CHORUS_FLOWER,
+            "&bInfinity &dFlower Grower",
+            "&7Automatically grows and harvests flowers",
+            "",
+            MachineLore.speed(25),
+            MachineLore.energyPerSecond(1200)
+    );
     private static final int BEDROCK_ENERGY = 10_000;
     public static final SlimefunItemStack POWERED_BEDROCK = new SlimefunItemStack(
             "POWERED_BEDROCK",
@@ -417,6 +451,63 @@ public final class Machines {
                 Materials.MACHINE_PLATE, new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), new ItemStack(Material.PODZOL), Materials.MACHINE_PLATE,
                 Materials.MACHINE_PLATE, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CORE, Materials.INFINITE_CORE, Materials.INFINITE_CIRCUIT, Materials.MACHINE_PLATE
         }).recipes(trees).ticksPerOutput(24).energyPerTick(1800).register(plugin);
+
+        /*
+         * Invernadero de flores, portado de InfinityExpansion2. Cada planta se replica por
+         * cuatro, igual que en el original. Reutiliza GrowingMachine tal cual: la maquina ya
+         * era generica sobre un mapa Material -> salidas, asi que anadir la familia no ha
+         * necesitado tocar su logica.
+         */
+        EnumMap<Material, ItemStack[]> flores = new EnumMap<>(Material.class);
+        flores.put(Material.SHORT_GRASS, new ItemStack[] { new ItemStack(Material.SHORT_GRASS, 4) });
+        flores.put(Material.FERN, new ItemStack[] { new ItemStack(Material.FERN, 4) });
+        flores.put(Material.DEAD_BUSH, new ItemStack[] { new ItemStack(Material.DEAD_BUSH, 4) });
+        flores.put(Material.DANDELION, new ItemStack[] { new ItemStack(Material.DANDELION, 4) });
+        flores.put(Material.POPPY, new ItemStack[] { new ItemStack(Material.POPPY, 4) });
+        flores.put(Material.BLUE_ORCHID, new ItemStack[] { new ItemStack(Material.BLUE_ORCHID, 4) });
+        flores.put(Material.ALLIUM, new ItemStack[] { new ItemStack(Material.ALLIUM, 4) });
+        flores.put(Material.AZURE_BLUET, new ItemStack[] { new ItemStack(Material.AZURE_BLUET, 4) });
+        flores.put(Material.RED_TULIP, new ItemStack[] { new ItemStack(Material.RED_TULIP, 4) });
+        flores.put(Material.ORANGE_TULIP, new ItemStack[] { new ItemStack(Material.ORANGE_TULIP, 4) });
+        flores.put(Material.WHITE_TULIP, new ItemStack[] { new ItemStack(Material.WHITE_TULIP, 4) });
+        flores.put(Material.PINK_TULIP, new ItemStack[] { new ItemStack(Material.PINK_TULIP, 4) });
+        flores.put(Material.OXEYE_DAISY, new ItemStack[] { new ItemStack(Material.OXEYE_DAISY, 4) });
+        flores.put(Material.CORNFLOWER, new ItemStack[] { new ItemStack(Material.CORNFLOWER, 4) });
+        flores.put(Material.LILY_OF_THE_VALLEY, new ItemStack[] { new ItemStack(Material.LILY_OF_THE_VALLEY, 4) });
+        flores.put(Material.WITHER_ROSE, new ItemStack[] { new ItemStack(Material.WITHER_ROSE, 4) });
+        flores.put(Material.PINK_PETALS, new ItemStack[] { new ItemStack(Material.PINK_PETALS, 4) });
+        flores.put(Material.SPORE_BLOSSOM, new ItemStack[] { new ItemStack(Material.SPORE_BLOSSOM, 4) });
+        flores.put(Material.WEEPING_VINES, new ItemStack[] { new ItemStack(Material.WEEPING_VINES, 4) });
+        flores.put(Material.TWISTING_VINES, new ItemStack[] { new ItemStack(Material.TWISTING_VINES, 4) });
+        flores.put(Material.VINE, new ItemStack[] { new ItemStack(Material.VINE, 4) });
+        flores.put(Material.TALL_GRASS, new ItemStack[] { new ItemStack(Material.TALL_GRASS, 4) });
+        flores.put(Material.LARGE_FERN, new ItemStack[] { new ItemStack(Material.LARGE_FERN, 4) });
+        flores.put(Material.SUNFLOWER, new ItemStack[] { new ItemStack(Material.SUNFLOWER, 4) });
+        flores.put(Material.LILAC, new ItemStack[] { new ItemStack(Material.LILAC, 4) });
+        flores.put(Material.ROSE_BUSH, new ItemStack[] { new ItemStack(Material.ROSE_BUSH, 4) });
+        flores.put(Material.PEONY, new ItemStack[] { new ItemStack(Material.PEONY, 4) });
+        flores.put(Material.CHORUS_FLOWER, new ItemStack[] { new ItemStack(Material.CHORUS_FLOWER, 4) });
+        flores.put(Material.GLOW_LICHEN, new ItemStack[] { new ItemStack(Material.GLOW_LICHEN, 4) });
+        flores.put(Material.LILY_PAD, new ItemStack[] { new ItemStack(Material.LILY_PAD, 4) });
+
+        new GrowingMachine(Groups.BASIC_MACHINES, BASIC_FLOWER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
+                Materials.MAGSTEEL, new ItemStack(Material.FLOWER_POT), Materials.MAGSTEEL,
+                Materials.MACHINE_CIRCUIT, BASIC_GROWER, Materials.MACHINE_CIRCUIT
+        }).recipes(flores).ticksPerOutput(600).energyPerTick(24).register(plugin);
+        new GrowingMachine(Groups.ADVANCED_MACHINES, ADVANCED_FLOWER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
+                Materials.MAGNONIUM, BASIC_FLOWER, Materials.MAGNONIUM,
+                Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
+        }).recipes(flores).ticksPerOutput(120).energyPerTick(120).register(plugin);
+        new GrowingMachine(Groups.INFINITY_CHEAT, INFINITY_FLOWER, InfinityWorkbench.TYPE, new ItemStack[] {
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), new ItemStack(Material.FLOWER_POT), null, null, new ItemStack(Material.FLOWER_POT), new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), ADVANCED_FLOWER, null, null, ADVANCED_FLOWER, new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), new ItemStack(Material.FLOWER_POT), null, null, new ItemStack(Material.FLOWER_POT), new ItemStack(Material.GLASS),
+                Materials.MACHINE_PLATE, new ItemStack(Material.MOSS_BLOCK), new ItemStack(Material.MOSS_BLOCK), new ItemStack(Material.MOSS_BLOCK), new ItemStack(Material.MOSS_BLOCK), Materials.MACHINE_PLATE,
+                Materials.MACHINE_PLATE, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CORE, Materials.INFINITE_CORE, Materials.INFINITE_CIRCUIT, Materials.MACHINE_PLATE
+        }).recipes(flores).ticksPerOutput(24).energyPerTick(1200).register(plugin);
 
         new MachineBlock(Groups.ADVANCED_MACHINES, EXTREME_FREEZER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2, SlimefunItems.FREEZER_2,
