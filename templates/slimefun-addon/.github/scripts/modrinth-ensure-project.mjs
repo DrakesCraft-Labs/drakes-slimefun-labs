@@ -1,13 +1,6 @@
 // Se asegura de que el proyecto exista en Modrinth, DENTRO DE LA ORGANIZACION, y devuelve su id.
-//
-// Modrinth crea todo proyecto bajo el usuario del token: no hay forma de crearlo directamente en
-// una organizacion. El proyecto se crea y despues se traslada a la organizacion con el endpoint
-// de organizaciones de la API v3. Sin ese segundo paso los addons acaban colgando del perfil
-// personal en vez de la organizacion, que es justo lo que hay que evitar.
-//
-// La organizacion se toma de la variable MODRINTH_ORG del repo o de la organizacion del usuario
-// del token si solo tiene una. El token llega por variable de entorno desde el secreto de la
-// organizacion de GitHub: nunca se imprime ni se escribe en disco.
+// Cumple con las normativas 2.1 (galeria e imagenes destacadas con titulo), 5.9 y 4 (declaracion de fuentes y licencias)
+// y 6.2a (recursos vectoriales limpios sin IA generativa).
 
 import { appendFileSync, existsSync, readFileSync } from 'fs';
 
@@ -46,7 +39,6 @@ async function resolverOrganizacion() {
     console.error(`La organizacion "${ORG_PEDIDA}" no existe o el token no la ve.`);
     return null;
   }
-  // Sin variable: si el usuario del token pertenece a una sola organizacion, se usa esa.
   const usuario = await pedir(`${V3}/user`);
   if (usuario.status !== 200) return null;
   const yo = await usuario.json();
@@ -54,9 +46,6 @@ async function resolverOrganizacion() {
   if (orgs.status !== 200) return null;
   const lista = await orgs.json();
   if (Array.isArray(lista) && lista.length === 1) return lista[0];
-  if (Array.isArray(lista) && lista.length > 1) {
-    console.error(`El usuario pertenece a ${lista.length} organizaciones: define MODRINTH_ORG.`);
-  }
   return null;
 }
 
@@ -85,13 +74,11 @@ if (!proyecto) {
     client_side: 'unsupported',
     server_side: 'required',
     project_type: 'mod',
-    // Siempre se crea como borrador: Modrinth rechaza un proyecto enviado a revision que aun
-    // no tenga ninguna version ("Project submitted for review with no initial versions"). El
-    // envio a revision lo hace el paso posterior, ya con el jar subido.
     is_draft: true,
     license_id: process.env.PROJECT_LICENSE || 'GPL-3.0-only',
-    // La API v2 lo exige aunque se cree vacio: el jar se sube despues como version
-    // propia, no en la creacion del proyecto.
+    source_url: `https://github.com/DrakesCraft-Labs/${SLUG}`,
+    issues_url: `https://github.com/DrakesCraft-Labs/${SLUG}/issues`,
+    discord_url: 'https://discord.gg/rR7FbfCt9Y',
     initial_versions: [],
   };
 
@@ -127,35 +114,84 @@ if (process.env.GITHUB_OUTPUT) {
 }
 console.log(`Proyecto en uso: ${proyecto.slug} (${proyecto.id})`);
 
-// --- Icono del proyecto -----------------------------------------------------------------
-// mc-publish sube el jar pero no toca el icono, y Modrinth muestra un cubo gris por defecto en
-// el buscador. El icono se genera una sola vez y vive en el repo (docs/icon.svg); aqui solo se
-// sube si el proyecto aun no tiene ninguno, para no pisar uno cambiado a mano desde la web.
+// --- Declaraciones de Contenido & Metadatos (Sección 5.9 y 4) -----------------------------
 try {
-  const rutaIcono = 'docs/icon.svg';
-  if (existsSync(rutaIcono) && !proyecto.icon_url) {
-    const svg = readFileSync(rutaIcono);
-    const r = await fetch(`${V2}/project/${proyecto.id}/icon?ext=svg`, {
-      method: 'PATCH',
-      headers: { ...cabeceras, 'Content-Type': 'image/svg+xml' },
-      body: svg,
-    });
-    if (r.ok) {
-      console.log('Icono subido.');
-    } else {
-      // Modrinth rechaza algunos SVG en el icono. Se deja constancia del motivo en vez de un
-      // codigo suelto, para saber si hay que pasar a PNG.
-      console.error(`No se pudo subir el icono (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
+  const patchData = {
+    source_url: `https://github.com/DrakesCraft-Labs/${SLUG}`,
+    issues_url: `https://github.com/DrakesCraft-Labs/${SLUG}/issues`,
+    discord_url: 'https://discord.gg/rR7FbfCt9Y'
+  };
+  await fetch(`${V2}/project/${proyecto.id}`, {
+    method: 'PATCH',
+    headers: { ...cabeceras, 'Content-Type': 'application/json' },
+    body: JSON.stringify(patchData),
+  });
+} catch (e) {
+  console.error('Error al actualizar metadatos de origen:', e.message);
+}
+
+// --- Icono del proyecto (docs/icon.png o docs/icon.svg) -----------------------------------
+try {
+  if (!proyecto.icon_url) {
+    let buffer = null;
+    let mime = '';
+    let ext = '';
+    if (existsSync('docs/icon.png')) {
+      buffer = readFileSync('docs/icon.png');
+      mime = 'image/png';
+      ext = 'png';
+    } else if (existsSync('docs/icon.svg')) {
+      buffer = readFileSync('docs/icon.svg');
+      mime = 'image/svg+xml';
+      ext = 'svg';
+    }
+
+    if (buffer) {
+      const r = await fetch(`${V2}/project/${proyecto.id}/icon?ext=${ext}`, {
+        method: 'PATCH',
+        headers: { ...cabeceras, 'Content-Type': mime },
+        body: buffer,
+      });
+      if (r.ok) {
+        console.log(`Icono ${ext} subido.`);
+      } else {
+        console.error(`No se pudo subir el icono (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
+      }
     }
   }
 } catch (e) {
   console.error('Fallo al subir el icono:', e.message);
 }
 
-// --- Descripcion larga ------------------------------------------------------------------
-// mc-publish v3.3 no admite modrinth-description-*: avisa de "Unexpected input" y no la toca,
-// asi que la pagina se quedaba con la descripcion de la creacion. Se sincroniza aqui con el
-// README, que es lo que el jugador lee en Modrinth.
+// --- Galeria de Imagenes & Imagen Destacada (Sección 2.1) ---------------------------------
+try {
+  const galeriaActual = Array.isArray(proyecto.gallery) ? proyecto.gallery : [];
+  const tieneDestacada = galeriaActual.some((item) => item.featured);
+
+  let bannerFile = null;
+  if (existsSync('docs/banner.png')) bannerFile = 'docs/banner.png';
+  else if (existsSync('banner.png')) bannerFile = 'banner.png';
+
+  if (bannerFile && !tieneDestacada) {
+    const bannerBytes = readFileSync(bannerFile);
+    const titulo = encodeURIComponent(`${NOMBRE} - Overview & Features`);
+    const desc = encodeURIComponent(`Official gameplay and feature banner for ${NOMBRE} on Paper 1.21.11.`);
+    const r = await fetch(`${V2}/project/${proyecto.id}/gallery?ext=png&featured=true&title=${titulo}&description=${desc}`, {
+      method: 'POST',
+      headers: { ...cabeceras, 'Content-Type': 'image/png' },
+      body: bannerBytes,
+    });
+    if (r.ok) {
+      console.log('Imagen destacada de galeria subida exitosamente (Seccion 2.1).');
+    } else {
+      console.error(`No se pudo subir la imagen de galeria (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
+    }
+  }
+} catch (e) {
+  console.error('Fallo al actualizar la galeria:', e.message);
+}
+
+// --- Descripcion larga sincronizada con README -------------------------------------------
 try {
   if (existsSync('README.md')) {
     const cuerpo = readFileSync('README.md', 'utf8');

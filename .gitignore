@@ -46,3 +46,8 @@ wiki_temp/
 
 # Exportes locales de repos separados
 split-repos/
+
+# Dependencias de Node de los scripts de CI.
+# Estaban versionadas: 3.568 ficheros y 50 MB dentro del repo. Se instalan en cada ejecucion
+# del workflow con npm install, asi que no aportan nada aqui salvo peso y ruido en los diffs.
+node_modules/
