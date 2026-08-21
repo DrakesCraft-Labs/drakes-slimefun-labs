@@ -56,8 +56,22 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
     public static final int ENERGY_CONSUMPTION = 64;
     public static final int CHUNK_ENERGY_CONSUMPTION = 256;
     public static final int CAPACITY = 512;
-    private static final int RADIUS = 3;
-    private static final int DIAMETER = RADIUS * 2 + 1;
+    /**
+     * Radio de riego, en bloques a cada lado.
+     *
+     * Lo pidio Chagui en su rama Warter-Sprinkler-modifications-chagui68, donde lo resolvia con
+     * un campo estatico leido del config.yml del plugin. Se hace aqui como ItemSetting por dos
+     * razones: encaja con los otros cuatro ajustes de esta misma maquina --se toca en Items.yml y
+     * se recarga sin reiniciar-- y evita el problema de aquel enfoque, que inicializaba un
+     * `static final` desde un getter y por tanto se fijaba al cargar la clase, antes incluso de
+     * que el config estuviera leido.
+     */
+    public final ItemSetting<Integer> radio = new IntRangeSetting(this, "radio", 1, 3, MAX_RADIUS);
+
+    /** Tope del radio. AREA se calcula sobre el, no sobre el valor actual, porque el maximo de
+     *  blocks-per-cycle no puede encogerse por debajo de lo que un jugador ya tenga guardado. */
+    private static final int MAX_RADIUS = 8;
+    private static final int DIAMETER = MAX_RADIUS * 2 + 1;
     private static final int AREA = DIAMETER * DIAMETER;
     private static final int PROGRESS_SLOT = 4;
     private static final int UPGRADE_SLOT = 2;
@@ -98,7 +112,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
                 blockMenuPreset.addItem(PROGRESS_SLOT, noWaterItem);
             });
 
-        addItemSetting(successChance, particles, blocksPerCycle, intervaloMinutos);
+        addItemSetting(successChance, particles, blocksPerCycle, intervaloMinutos, radio);
     }
 
     public int getEnergyConsumption() {
@@ -111,7 +125,7 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
     }
 
     public int getRadius() {
-        return RADIUS;
+        return radio.getValue();
     }
 
     @Override
@@ -161,10 +175,10 @@ public class WaterSprinkler extends AbstractGrowthAccelerator {
         }
         ultimoRiego.put(clave, ahora);
 
-        final int minX = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getX(), RADIUS);
-        final int maxX = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getX(), RADIUS);
-        final int minZ = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getZ(), RADIUS);
-        final int maxZ = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getZ(), RADIUS);
+        final int minX = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getX(), getRadius());
+        final int maxX = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getX(), getRadius());
+        final int minZ = WaterSprinklerScanPlan.scanMin(chunkUpgrade, b.getZ(), getRadius());
+        final int maxZ = WaterSprinklerScanPlan.scanMax(chunkUpgrade, b.getZ(), getRadius());
 
         // Una carga por barrido evita que el buffer limite el riego a ocho cultivos.
         removeCharge(b.getLocation(), activationCost);
