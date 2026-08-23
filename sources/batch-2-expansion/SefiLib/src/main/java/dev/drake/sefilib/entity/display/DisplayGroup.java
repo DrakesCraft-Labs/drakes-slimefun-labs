@@ -98,15 +98,24 @@ public class DisplayGroup {
     public Display removeDisplay(@Nonnull String name) {
         final Display display = this.displays.remove(name);
         if (display == null) {
-            return display;
+            return null;
         }
         final List<String> childList = getChildList();
         final List<String> childNames = getChildNames();
         if (childList == null || childNames == null) {
             throw new IllegalArgumentException("This display doesn't appear to have a group");
         }
-        childList.add(display.getUniqueId().toString());
-        childNames.add(name);
+
+        // Keep both persisted lists aligned while removing the display. The old
+        // implementation appended the same UUID/name again, leaving stale visual
+        // harvest entities behind and corrupting the group after every harvest.
+        final String displayUuid = display.getUniqueId().toString();
+        for (int i = Math.min(childList.size(), childNames.size()) - 1; i >= 0; i--) {
+            if (displayUuid.equals(childList.get(i)) || name.equals(childNames.get(i))) {
+                childList.remove(i);
+                childNames.remove(i);
+            }
+        }
         applyLists(childList, childNames);
         return display;
     }
