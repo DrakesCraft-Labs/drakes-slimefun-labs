@@ -72,10 +72,26 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
     }
 
     default void apply(T entity, JsonObject json) {
+        /*
+         * Un item sin datos guardados llega aqui con json == null y reventaba con un
+         * NullPointerException que subia hasta el ItemUseHandler del Pocket Chicken.
+         * Pasa con cualquier ejemplar creado sin capturar un mob de verdad -- por
+         * ejemplo los que salen de `/sf cheat` en el Laboratorio -- y el jugador solo
+         * veia el mensaje generico de "ha causado un error".
+         *
+         * Sin datos no hay nada que aplicar: la criatura sale con sus valores por
+         * defecto, que es exactamente lo razonable.
+         */
+        if (json == null) {
+            return;
+        }
+
         // We need to apply Attributes before the health.
         JsonObject attributes = json.getAsJsonObject("_attributes");
 
-        for (Map.Entry<String, JsonElement> entry : attributes.entrySet()) {
+        for (Map.Entry<String, JsonElement> entry : attributes == null
+                ? java.util.Collections.<String, JsonElement>emptyMap().entrySet()
+                : attributes.entrySet()) {
             Attribute attribute = null;
             try {
                 attribute = Attribute.valueOf(entry.getKey());
@@ -119,9 +135,17 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
             }
         }
 
-        entity.setHealth(json.get("_health").getAsDouble());
-        entity.setAbsorptionAmount(json.get("_absorption").getAsDouble());
-        entity.setRemoveWhenFarAway(json.get("_removeWhenFarAway").getAsBoolean());
+        // Un json a medias es tan posible como uno ausente: cada campo se aplica
+        // solo si esta, en vez de dar por hecho que el item se guardo entero.
+        if (json.has("_health")) {
+            entity.setHealth(json.get("_health").getAsDouble());
+        }
+        if (json.has("_absorption")) {
+            entity.setAbsorptionAmount(json.get("_absorption").getAsDouble());
+        }
+        if (json.has("_removeWhenFarAway")) {
+            entity.setRemoveWhenFarAway(json.get("_removeWhenFarAway").getAsBoolean());
+        }
 
         if (!json.get("_customName").isJsonNull()) {
             entity.setCustomName(json.get("_customName").getAsString());
