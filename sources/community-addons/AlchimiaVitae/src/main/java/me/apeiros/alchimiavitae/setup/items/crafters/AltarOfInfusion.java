@@ -457,6 +457,8 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
 
                 new SlimefunItemStack("AV_TOTEM_BATTERY_INFUSION", Material.TOTEM_OF_UNDYING, "&6&lTotem Battery",
                         "&6Stores up to 8 Totems of Undying which will resurrect you",
+                        "&eThe infused chestplate must be &6worn &eto protect you",
+                        "&eNew batteries start empty and must be charged",
                         "&eStore a totem by &7&lShift-Right-Clicking &ewhile holding",
                         "&eone and while an infused chestplate is worn")),
         // }}}
@@ -577,7 +579,8 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             if (this != TOTEM_BATTERY)
                 return -1;
 
-            return pdc.get(this.key(), PersistentDataType.INTEGER);
+            Integer storedTotems = pdc.get(this.key(), PersistentDataType.INTEGER);
+            return storedTotems == null ? 0 : Math.max(0, storedTotems);
         }
 
         // Set the number of totems stored
@@ -594,4 +597,3 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
     // }}}
 
 }
-

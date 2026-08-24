@@ -8,6 +8,7 @@ import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -137,7 +138,12 @@ public class TotemListener implements Listener {
     // }}}
 
     // {{{ Handler to resurrect player (fires on damage)
-    @EventHandler(ignoreCancelled = true)
+    /*
+     * Run after normal damage modifiers. Several combat addons raise the final
+     * damage during their own listeners; evaluating at NORMAL could therefore
+     * classify the hit as non-fatal before another plugin made it lethal.
+     */
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onDamage(EntityDamageEvent e) {
         // Make sure the damaged entity is a player
         if (!(e.getEntity() instanceof Player))
@@ -185,7 +191,7 @@ public class TotemListener implements Listener {
         // Decrease the number of totems in the chestplate
         totems--;
         Infusion.TOTEM_BATTERY.setTotems(pdc, totems);
-        p.getInventory().getChestplate().setItemMeta(meta);
+        chestplate.setItemMeta(meta);
 
         // Set health to half a heart, add absorption, and add potion effects
         p.setHealth(1);
