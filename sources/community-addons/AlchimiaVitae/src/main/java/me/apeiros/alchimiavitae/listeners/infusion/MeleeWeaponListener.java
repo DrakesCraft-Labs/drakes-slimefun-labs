@@ -69,14 +69,19 @@ public class MeleeWeaponListener implements Listener {
             // Damage armor
             if (victim instanceof Player victimPlayer) {
                 for (ItemStack armor : victimPlayer.getInventory().getArmorContents()) {
-                    // Make sure the worn item is damageable
-                    if (!(armor.getItemMeta() instanceof Damageable))
+                    // Empty armor slots are represented as null and must be ignored.
+                    if (armor == null || armor.getType().isAir())
                         continue;
 
-                    Damageable d = (Damageable) armor.getItemMeta();
+                    ItemMeta armorMeta = armor.getItemMeta();
+                    if (!(armorMeta instanceof Damageable damageable))
+                        continue;
 
-                    // 1-5 damage
-                    d.setDamage(d.getDamage() + rand.nextInt(1, 6));
+                    // Persist 1-5 durability damage without exceeding the material limit.
+                    int maximumDamage = armor.getType().getMaxDurability();
+                    int newDamage = Math.min(maximumDamage, damageable.getDamage() + rand.nextInt(1, 6));
+                    damageable.setDamage(newDamage);
+                    armor.setItemMeta(armorMeta);
                 }
             }
 
