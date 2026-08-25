@@ -63,7 +63,15 @@ public class ChunkEater extends AbstractMachine {
         int progress = PROGRESS_MAP.getOrDefault(blockPosition, 0);
         PeekingIterator<Block> iterator = ITERATOR_MAP.get(blockPosition);
 
-        if (!iterator.hasNext()) {
+        // Static machine state is cleared on server start while existing BlockMenus can tick immediately.
+        // Rebuild it from persistent BlockStorage before touching the iterator.
+        if (iterator == null && !restoreRuntimeState(b, blockPosition)) {
+            menu.replaceExistingItem(getStatusSlot(), MachineUtils.FINISHED);
+            return false;
+        }
+
+        iterator = ITERATOR_MAP.get(blockPosition);
+        if (ChunkEaterState.isMissingOrExhausted(iterator)) {
             menu.replaceExistingItem(getStatusSlot(), MachineUtils.FINISHED);
             return false;
         }
@@ -132,12 +140,31 @@ public class ChunkEater extends AbstractMachine {
             }
         }
 
-        String locationInfo = BlockStorage.getLocationInfo(b.getLocation(), "owner");
-        if (locationInfo == null) return;
-
         final BlockPosition blockPosition = new BlockPosition(b);
-        OWNERS_MAP.put(blockPosition, UUID.fromString(locationInfo));
+        restoreRuntimeState(b, blockPosition);
 
+    }
+
+    /**
+     * Restores volatile state for a persisted machine after startup or a delayed menu load.
+     *
+     * @return {@code true} when the machine owner was recoverable from BlockStorage
+     */
+    private boolean restoreRuntimeState(Block b, BlockPosition blockPosition) {
+        String locationInfo = BlockStorage.getLocationInfo(b.getLocation(), "owner");
+        if (locationInfo == null) {
+            return false;
+        }
+
+        final UUID owner;
+        try {
+            owner = UUID.fromString(locationInfo);
+        } catch (IllegalArgumentException ignored) {
+            return false;
+        }
+
+        OWNERS_MAP.put(blockPosition, owner);
+        Chunk chunk = b.getChunk();
         Location corner1 = new Location(chunk.getWorld(), chunk.getX() << 4, b.getY() - 1, chunk.getZ() << 4);
         Location corner2 = corner1.clone().add(15, 0, 15);
         corner2.setY(-64);
@@ -150,7 +177,7 @@ public class ChunkEater extends AbstractMachine {
                 .toList();
 
         ITERATOR_MAP.put(blockPosition, Iterators.peekingIterator(new ArrayList<>(blockList).iterator()));
-
+        return true;
     }
 
     protected boolean canBreak(BlockPosition bp, Block block) {
