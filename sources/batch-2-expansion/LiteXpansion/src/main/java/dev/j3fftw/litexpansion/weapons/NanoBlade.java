@@ -47,17 +47,23 @@ public class NanoBlade extends SimpleSlimefunItem<ItemUseHandler> implements Rec
     public ItemUseHandler getItemHandler() {
         return event -> {
             final ItemMeta nanoBladeMeta = event.getItem().getItemMeta();
-            final Enchantment enchantment = Enchantment.getByKey(Constants.GLOW_ENCHANT);
-            boolean enabled = !nanoBladeMeta.removeEnchant(enchantment);
+            /*
+             * El estado real vive en el PDC (NANO_BLADE_ENABLED, mas abajo). El encantamiento
+             * propio solo daba el brillo, y desde 1.21 Paper ya no permite registrarlo por la
+             * API antigua: Enchantment.getByKey devuelve null y cualquier uso directo lanza
+             * "Enchantment cannot be null". Por eso se lee el PDC y se alterna sobre el.
+             */
+            boolean enabled = !Utils.getOptionalBoolean(nanoBladeMeta, Constants.NANO_BLADE_ENABLED).orElse(false);
 
             int damage;
 
             if (enabled && getItemCharge(event.getItem()) > getRemovedChargePerTick()) {
-                nanoBladeMeta.addEnchant(enchantment, 1, false);
+                aplicarBrillo(nanoBladeMeta, true);
                 nanoBladeMeta.setDisplayName(ChatColor.DARK_GREEN + "Nano Blade" + ChatColor.GREEN + " (On)");
 
                 damage = 13; // Base is 7 so 7 + 13 = 20
             } else {
+                aplicarBrillo(nanoBladeMeta, false);
                 nanoBladeMeta.setDisplayName(ChatColor.DARK_GREEN + "Nano Blade" + ChatColor.RED + " (Off)");
 
                 damage = -3; // Base is 7 so 7 - 3 = 4
@@ -89,7 +95,36 @@ public class NanoBlade extends SimpleSlimefunItem<ItemUseHandler> implements Rec
     @Override
     public boolean isEnabled(@Nonnull ItemMeta meta) {
         final Optional<Boolean> opt = Utils.getOptionalBoolean(meta, Constants.NANO_BLADE_ENABLED);
+        if (opt.isPresent() && opt.get()) {
+            return true;
+        }
 
-        return (opt.isPresent() && opt.get()) || meta.hasEnchant(Enchantment.getByKey(Constants.GLOW_ENCHANT));
+        /*
+         * Respaldo para hojas antiguas, anteriores a que el estado se guardara en el PDC.
+         * getByKey devuelve null en 1.21 y hasEnchant(null) lanza IllegalArgumentException,
+         * que es lo que inundaba la consola desde el ticker de PassiveElectricRemoval.
+         */
+        final Enchantment glow = Enchantment.getByKey(Constants.GLOW_ENCHANT);
+        return glow != null && meta.hasEnchant(glow);
+    }
+
+    /**
+     * Marca visualmente la hoja encendida.
+     *
+     * <p>Se prefiere el brillo nativo de 1.20.5+; si el encantamiento propio todavia
+     * existe se mantiene por compatibilidad con hojas ya fabricadas.
+     */
+    private static void aplicarBrillo(@Nonnull ItemMeta meta, boolean encendida) {
+        meta.setEnchantmentGlintOverride(encendida ? Boolean.TRUE : null);
+
+        final Enchantment glow = Enchantment.getByKey(Constants.GLOW_ENCHANT);
+        if (glow == null) {
+            return;
+        }
+        if (encendida) {
+            meta.addEnchant(glow, 1, false);
+        } else {
+            meta.removeEnchant(glow);
+        }
     }
 }
