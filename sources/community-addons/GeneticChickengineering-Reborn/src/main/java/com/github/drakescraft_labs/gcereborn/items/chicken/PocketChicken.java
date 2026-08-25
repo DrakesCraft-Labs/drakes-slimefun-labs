@@ -55,7 +55,14 @@ public class PocketChicken extends SimpleSlimefunItem<ItemUseHandler> implements
 
             ItemMeta meta = e.getItem().getItemMeta();
             JsonObject json = PersistentDataAPI.get(meta, Keys.POCKET_CHICKEN_ADAPTER, ADAPTER);
-            ADAPTER.apply(entity, json);
+            // Un Pocket Chicken sin datos guardados devuelve null aqui: pasa con los que se
+            // entregan por comando o vienen de una version anterior del item. Aplicarlo tal cual
+            // reventaba despues de haber soltado ya la gallina y antes de consumir el item, de
+            // modo que cada click derecho regalaba una gallina y no gastaba nada. Sin datos se
+            // deja la gallina por defecto, que es lo mismo que ya se hacia con el ADN.
+            if (json != null) {
+                ADAPTER.apply(entity, json);
+            }
             int[] dnaState = PersistentDataAPI.getIntArray(meta, Keys.POCKET_CHICKEN_DNA);
             DNA dna;
             if (dnaState != null) {
@@ -95,7 +102,7 @@ public class PocketChicken extends SimpleSlimefunItem<ItemUseHandler> implements
 
             if (GeneticChickengineering.getConfigService().isDisplayResources() && dna.isKnown()) {
                 String name = ChatColor.WHITE + "(" + ChickenTypes.getDisplayName(dna.getTyping()) + ")";
-                if (json != null && !json.get("_customName").isJsonNull()) {
+                if (json != null && json.has("_customName") && !json.get("_customName").isJsonNull()) {
                     name = json.get("_customName").getAsString() + " " + name;
                 }
                 entity.setCustomName(name);

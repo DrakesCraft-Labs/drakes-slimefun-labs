@@ -58,6 +58,9 @@ public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
             return;
         }
 
+        // Se lee clave a clave en vez de asumir que estan todas: un item guardado por una version
+        // anterior del addon no tiene las que se anadieron despues, y json.get devuelve null para
+        // esas, con lo que el getAs* revienta y deja la entidad a medio configurar.
         if (json.has("_age")) {
             entity.setAge(json.get("_age").getAsInt());
         }
