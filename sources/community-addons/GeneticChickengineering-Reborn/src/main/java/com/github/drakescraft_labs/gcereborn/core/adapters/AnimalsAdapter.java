@@ -49,10 +49,27 @@ public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
     public void apply(T entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
 
-        entity.setAge(json.get("_age").getAsInt());
-        entity.setLoveModeTicks(json.get("_loveModeTicks").getAsInt());
-        entity.setAgeLock(json.get("_ageLock").getAsBoolean());
-        entity.setBreed(json.get("_breedable").getAsBoolean());
+        /*
+         * Los Pocket Chickens obtenidos directamente del catálogo de pruebas no
+         * contienen un espécimen serializado. MobAdapter ya deja la entidad en
+         * valores vanilla cuando json es nulo; no debemos volver a accederlo aquí.
+         */
+        if (json == null) {
+            return;
+        }
+
+        if (json.has("_age")) {
+            entity.setAge(json.get("_age").getAsInt());
+        }
+        if (json.has("_loveModeTicks")) {
+            entity.setLoveModeTicks(json.get("_loveModeTicks").getAsInt());
+        }
+        if (json.has("_ageLock")) {
+            entity.setAgeLock(json.get("_ageLock").getAsBoolean());
+        }
+        if (json.has("_breedable")) {
+            entity.setBreed(json.get("_breedable").getAsBoolean());
+        }
     }
 
     @Override
