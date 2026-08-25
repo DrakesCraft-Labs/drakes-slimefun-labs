@@ -195,7 +195,9 @@ public class CrystamaeHistoria extends AbstractAddon {
         }
 
         spellMemory.clearAll();
-        configManager.saveAll();
+        // AbstractAddon#getConfig is no longer available in some shutdown orders.
+        // Save player research directly so an unavailable base addon cannot lose it.
+        configManager.savePlayerStats();
         instance = null;
     }
 

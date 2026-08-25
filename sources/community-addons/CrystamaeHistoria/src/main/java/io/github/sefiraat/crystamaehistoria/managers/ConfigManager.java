@@ -99,15 +99,31 @@ public class ConfigManager {
     public void saveAll() {
         CrystamaeHistoria.getInstance().getLogger().info("Crystamae saving data.");
         CrystamaeHistoria.getInstance().getConfig().save();
-        saveResearches();
+        savePlayerStats();
     }
 
-    private void saveResearches() {
+    /**
+     * Persists player research independently from the addon base configuration.
+     *
+     * <p>The addon base is already unavailable during some shutdown orders, while
+     * player statistics still need to be written to avoid losing research progress.</p>
+     */
+    public void savePlayerStats() {
         File file = new File(CrystamaeHistoria.getInstance().getDataFolder(), "player_stats.yml");
+        savePlayerStats(playerStats, file, CrystamaeHistoria.getInstance().getLogger());
+    }
+
+    /**
+     * Writes a player-statistics configuration and reports failures without
+     * interrupting the caller's remaining shutdown work.
+     */
+    static boolean savePlayerStats(FileConfiguration playerStats, File file, java.util.logging.Logger logger) {
         try {
             playerStats.save(file);
+            return true;
         } catch (IOException exception) {
-            exception.printStackTrace();
+            logger.warning("No se pudo guardar player_stats.yml: " + exception.getMessage());
+            return false;
         }
     }
 }
