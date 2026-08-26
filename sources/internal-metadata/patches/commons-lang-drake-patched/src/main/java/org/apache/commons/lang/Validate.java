@@ -19,33 +19,60 @@ public final class Validate {
         org.apache.commons.lang3.Validate.isTrue(expression, message, values);
     }
 
+    /**
+     * Commons Lang 3's notNull/notEmpty throw NullPointerException on a null
+     * argument; legacy Commons Lang 2 always threw IllegalArgumentException.
+     * Callers (including this addon's own tests) still expect the 2.x
+     * contract, so the null checks below are done here instead of delegating
+     * straight to lang3.
+     */
     public static <T> T notNull(T object) {
-        return org.apache.commons.lang3.Validate.notNull(object);
+        if (object == null) {
+            throw new IllegalArgumentException("The validated object is null");
+        }
+        return object;
     }
 
     /** Preserve the void-returning Commons Lang 2 ABI used by ACF. */
     public static void notNull(Object object, String message) {
-        org.apache.commons.lang3.Validate.notNull(object, message);
+        if (object == null) {
+            throw new IllegalArgumentException(message);
+        }
     }
 
     public static <T> T notNull(T object, String message, Object... values) {
-        return org.apache.commons.lang3.Validate.notNull(object, message, values);
+        if (object == null) {
+            throw new IllegalArgumentException(String.format(message, values));
+        }
+        return object;
     }
 
     public static <T> T[] notEmpty(T[] array, String message, Object... values) {
-        return org.apache.commons.lang3.Validate.notEmpty(array, message, values);
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException(String.format(message, values));
+        }
+        return array;
     }
 
     public static <T extends Collection<?>> T notEmpty(T collection, String message, Object... values) {
-        return org.apache.commons.lang3.Validate.notEmpty(collection, message, values);
+        if (collection == null || collection.isEmpty()) {
+            throw new IllegalArgumentException(String.format(message, values));
+        }
+        return collection;
     }
 
     public static <T extends Map<?, ?>> T notEmpty(T map, String message, Object... values) {
-        return org.apache.commons.lang3.Validate.notEmpty(map, message, values);
+        if (map == null || map.isEmpty()) {
+            throw new IllegalArgumentException(String.format(message, values));
+        }
+        return map;
     }
 
     public static <T extends CharSequence> T notEmpty(T chars, String message, Object... values) {
-        return org.apache.commons.lang3.Validate.notEmpty(chars, message, values);
+        if (chars == null || chars.length() == 0) {
+            throw new IllegalArgumentException(String.format(message, values));
+        }
+        return chars;
     }
 
     public static <T> T[] noNullElements(T[] array, String message, Object... values) {
