@@ -376,13 +376,25 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
     @Nullable
     public static ItemStack harvestPlant(@Nonnull Block block) {
         SlimefunItem item = BlockStorage.check(block);
-
+        // Fallback robusto si check falla por timing (ensenar el id directo)
+        if (item == null) {
+            String id = BlockStorage.checkID(block);
+            if (id != null) item = SlimefunItem.getById(id);
+        }
         if (item == null) {
             return null;
         }
 
         for (Berry berry : getBerries()) {
             if (item.getId().equalsIgnoreCase(berry.getID())) {
+                // Resolver el item brote de forma robusta (evita NPE que deja vanilla)
+                SlimefunItem bushItem = SlimefunItem.getById(berry.toBush());
+                ItemStack bushStack = bushItem != null ? bushItem.getItem() : getItem(berry.toBush());
+                if (bushStack == null) {
+                    ExoticGarden.getInstance().getLogger().warning("[ExoticGarden] No se encontró brote para " + berry.getID() + " -> " + berry.toBush() + " - se deja como vanilla, revisa registro");
+                    return berry.getItem().clone();
+                }
+
                 switch (berry.getType()) {
                     case ORE_PLANT:
                     case DOUBLE_PLANT:
@@ -394,18 +406,44 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
                             plant = block.getRelative(BlockFace.DOWN);
                         }
 
+                        // Limpiar arriba primero, luego abajo, y asegurar store después de setType
                         BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
                         block.getWorld().playEffect(block.getLocation(), Effect.STEP_SOUND, Material.OAK_LEAVES);
                         block.setType(Material.AIR);
+                        // Asegurar que no quede info fantasma arriba
+                        BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
 
-                        plant.setType(Material.OAK_SAPLING);
+                        // Resetear planta base a brote OAK_SAPLING con BlockStorage correcto
                         BlockStorage.deleteLocationInfoUnsafely(plant.getLocation(), false);
-                        BlockStorage.store(plant, getItem(berry.toBush()));
+                        plant.setType(Material.OAK_SAPLING);
+                        // Doble limpieza para evitar race con BlockStorage async
+                        BlockStorage.deleteLocationInfoUnsafely(plant.getLocation(), false);
+                        BlockStorage.store(plant, bushStack);
+                        // Verificación defensiva: si BlockStorage no quedó, reintentar en siguiente tick
+                        if (BlockStorage.check(plant) == null) {
+                            Block finalPlant = plant;
+                            ItemStack finalBush = bushStack.clone();
+                            ExoticGarden.getInstance().getServer().getScheduler().runTask(ExoticGarden.getInstance(), () -> {
+                                BlockStorage.deleteLocationInfoUnsafely(finalPlant.getLocation(), false);
+                                finalPlant.setType(Material.OAK_SAPLING);
+                                BlockStorage.store(finalPlant, finalBush);
+                            });
+                        }
                         return berry.getItem().clone();
                     default:
+                        BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
                         block.setType(Material.OAK_SAPLING);
                         BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
-                        BlockStorage.store(block, getItem(berry.toBush()));
+                        BlockStorage.store(block, bushStack);
+                        if (BlockStorage.check(block) == null) {
+                            Block finalBlock = block;
+                            ItemStack finalBush2 = bushStack.clone();
+                            ExoticGarden.getInstance().getServer().getScheduler().runTask(ExoticGarden.getInstance(), () -> {
+                                BlockStorage.deleteLocationInfoUnsafely(finalBlock.getLocation(), false);
+                                finalBlock.setType(Material.OAK_SAPLING);
+                                BlockStorage.store(finalBlock, finalBush2);
+                            });
+                        }
                         return berry.getItem().clone();
                 }
             }
