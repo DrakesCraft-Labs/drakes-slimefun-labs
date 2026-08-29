@@ -14,7 +14,7 @@
 
     <groupId>com.github.drakescraft_labs</groupId>
     <artifactId>ExoticGarden-drake</artifactId>
-    <version>1.1</version>
+    <version>${slimefun.drake.version}</version>
 
     <properties>
         <maven.deploy.skip>false</maven.deploy.skip>
