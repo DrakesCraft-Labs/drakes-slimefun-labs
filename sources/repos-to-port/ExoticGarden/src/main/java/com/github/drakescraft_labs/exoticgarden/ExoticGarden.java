@@ -376,10 +376,42 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
     @Nullable
     public static ItemStack harvestPlant(@Nonnull Block block) {
         SlimefunItem item = BlockStorage.check(block);
+        Block originalBlock = block;
         // Fallback robusto si check falla por timing (ensenar el id directo)
         if (item == null) {
             String id = BlockStorage.checkID(block);
             if (id != null) item = SlimefunItem.getById(id);
+        }
+        // Si sigue sin item, probar bloque adyacente (cosecha desde hoja vs cabeza)
+        Block adjacent = null;
+        if (item == null) {
+            Material t = block.getType();
+            if (Tag.LEAVES.isTagged(t)) {
+                adjacent = block.getRelative(BlockFace.UP);
+            } else if (t == Material.PLAYER_HEAD || t == Material.PLAYER_WALL_HEAD) {
+                adjacent = block.getRelative(BlockFace.DOWN);
+            } else if (t == Material.OAK_SAPLING) {
+                // brote sin crecer, no debería cosechar, pero por si acaso
+                adjacent = block.getRelative(BlockFace.UP);
+            }
+            if (adjacent != null && adjacent.getType() != Material.AIR) {
+                SlimefunItem adjItem = BlockStorage.check(adjacent);
+                if (adjItem == null) {
+                    String adjId = BlockStorage.checkID(adjacent);
+                    if (adjId != null) adjItem = SlimefunItem.getById(adjId);
+                }
+                if (adjItem != null) {
+                    // Para ORE_PLANT/DOUBLE_PLANT la info puede estar en el otro bloque de los 2
+                    for (Berry b : getBerries()) {
+                        if (adjItem.getId().equalsIgnoreCase(b.getID()) && (b.getType() == PlantType.ORE_PLANT || b.getType() == PlantType.DOUBLE_PLANT)) {
+                            item = adjItem;
+                            // Normalizar block para que apunte al bloque con esencia (el adyacente)
+                            // Dejamos originalBlock para referencia, pero item ya es el correcto
+                            break;
+                        }
+                    }
+                }
+            }
         }
         if (item == null) {
             return null;
