@@ -63,7 +63,12 @@
         <module>sources/batch-2-expansion/InfinityLib</module>
         <module>sources/drakes-labs-autoupdate</module>
 
-        <!-- Batch 1: Repos to Port (26 modules) -->
+        <!--
+            Compatibilidad de fuentes portadas (29 módulos).
+            Los repositorios que ya fueron extraídos tienen su fuente canónica
+            documentada en docs/CANONICAL_SOURCES.md. Se conservan aquí para que
+            el reactor histórico siga pudiendo resolver sus dependencias.
+        -->
         <module>sources/repos-to-port/KinematicCore</module>
         <module>sources/repos-to-port/ColoredEnderChests</module>
         <module>sources/repos-to-port/DyedBackpacks</module>
