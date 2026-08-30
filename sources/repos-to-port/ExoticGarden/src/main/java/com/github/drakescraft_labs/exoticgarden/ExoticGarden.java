@@ -376,7 +376,6 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
     @Nullable
     public static ItemStack harvestPlant(@Nonnull Block block) {
         SlimefunItem item = BlockStorage.check(block);
-        Block originalBlock = block;
         // Fallback robusto si check falla por timing (ensenar el id directo)
         if (item == null) {
             String id = BlockStorage.checkID(block);
@@ -405,8 +404,11 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
                     for (Berry b : getBerries()) {
                         if (adjItem.getId().equalsIgnoreCase(b.getID()) && (b.getType() == PlantType.ORE_PLANT || b.getType() == PlantType.DOUBLE_PLANT)) {
                             item = adjItem;
-                            // Normalizar block para que apunte al bloque con esencia (el adyacente)
-                            // Dejamos originalBlock para referencia, pero item ya es el correcto
+                            // Si se hizo clic en las hojas sin datos, cosechamos desde la cabeza.
+                            // Asi el switch de ORE_PLANT limpia la cabeza y restaura el brote base.
+                            if (Tag.LEAVES.isTagged(block.getType())) {
+                                block = adjacent;
+                            }
                             break;
                         }
                     }

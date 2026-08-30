@@ -254,27 +254,6 @@ public class PlantsListener implements Listener {
                 }
             }
 
-            // Fallback defensivo: si es un *_PLANT o *_BUSH de ExoticGarden no reconocido por tipo,
-            // pero sí es BonemealableItem, evitar que se convierta en roble vanilla manteniéndolo como brote
-            if (!e.isCancelled()) {
-                // No se encontró berry/tree, pero cancelamos de todos modos si es planta exotic para no generar roble
-                // Esto cubre casos de rebrand o id con diferente capitalización no contemplado arriba
-                String id = item.getId();
-                if (id.endsWith("_PLANT") || id.endsWith("_BUSH") || id.endsWith("_SAPLING")) {
-                    for (Berry b : ExoticGarden.getBerries()) {
-                        if (id.equalsIgnoreCase(b.toBush()) || id.equalsIgnoreCase(b.getID())) {
-                            e.setCancelled(true);
-                            break;
-                        }
-                    }
-                    for (Tree t : ExoticGarden.getTrees()) {
-                        if (id.equalsIgnoreCase(t.getSapling())) {
-                            e.setCancelled(true);
-                            break;
-                        }
-                    }
-                }
-            }
         }
     }
 
