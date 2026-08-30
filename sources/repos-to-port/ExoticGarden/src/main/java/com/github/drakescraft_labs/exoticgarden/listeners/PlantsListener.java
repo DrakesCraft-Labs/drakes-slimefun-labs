@@ -47,6 +47,8 @@ import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerHead;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.skins.PlayerSkin;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
+import io.papermc.lib.PaperLib;
+
 public class PlantsListener implements Listener {
 
     private final Config cfg;
@@ -59,8 +61,61 @@ public class PlantsListener implements Listener {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onGrow(StructureGrowEvent e) {
+        if (e.isCancelled()) return;
+
+        // No intervenir si el mundo no está habilitado para Slimefun
+        if (Slimefun.getWorldSettingsService() != null && !Slimefun.getWorldSettingsService().isWorldEnabled(e.getLocation().getWorld())) {
+            return;
+        }
+
+        // Compatibilidad Paper: si el chunk aún no está generado, deferir sin dejar que crezca árbol vanilla
+        try {
+            if (PaperLib.isPaper() && !PaperLib.isChunkGenerated(e.getLocation())) {
+                // Cancelamos preventivamente el crecimiento vanilla de OAK_SAPLING
+                // y reintentamos en el tick siguiente cuando el chunk/BlockStorage esté disponible
+                Block block = e.getLocation().getBlock();
+                String tentativeId = BlockStorage.checkID(block);
+                boolean isExoticSapling = false;
+                if (tentativeId != null) {
+                    for (Berry b : ExoticGarden.getBerries()) {
+                        if (tentativeId.equalsIgnoreCase(b.toBush())) { isExoticSapling = true; break; }
+                    }
+                    if (!isExoticSapling) {
+                        for (Tree t : ExoticGarden.getTrees()) {
+                            if (tentativeId.equalsIgnoreCase(t.getSapling())) { isExoticSapling = true; break; }
+                        }
+                    }
+                } else if (block.getType() == Material.OAK_SAPLING) {
+                    // Fallback: si es OAK_SAPLING sin datos aún, lo dejamos pasar para no romper vanilla
+                    // pero si luego se detecta como Exotic, el siguiente tick lo corregirá
+                }
+                if (isExoticSapling) {
+                    e.setCancelled(true);
+                    PaperLib.getChunkAtAsync(e.getLocation()).thenRun(() -> plugin.getServer().getScheduler().runTask(plugin, () -> {
+                        // Revalidar que el bloque siga siendo el mismo sapling
+                        if (block.getType() != Material.OAK_SAPLING) return;
+                        SlimefunItem item = BlockStorage.check(block);
+                        if (item == null) {
+                            String id2 = BlockStorage.checkID(block);
+                            if (id2 != null) item = SlimefunItem.getById(id2);
+                        }
+                        if (item != null) {
+                            // Simular StructureGrowEvent de forma síncrona reutilizando growStructure
+                            // Creamos un evento sintético solo para reutilizar la lógica de cancelación/transformación
+                            StructureGrowEvent synthetic = new StructureGrowEvent(block.getLocation(), e.getSpecies(), e.isFromBonemeal(), e.getPlayer(), e.getBlocks());
+                            growStructure(synthetic);
+                            // No propagamos el sintético, solo aplicamos la transformación
+                        }
+                    }));
+                    return;
+                }
+            }
+        } catch (NoClassDefFoundError | Exception ignored) {
+            // PaperLib no disponible, fallback a manejo síncrono
+        }
+
         if (!e.getLocation().getChunk().isLoaded()) {
             e.getLocation().getChunk().load();
         }
@@ -119,10 +174,20 @@ public class PlantsListener implements Listener {
     }
 
     private void growStructure(StructureGrowEvent e) {
+        // Fallback robusto: si BlockStorage.check falla por timing, probar checkID
         SlimefunItem item = BlockStorage.check(e.getLocation().getBlock());
+        if (item == null) {
+            String id = BlockStorage.checkID(e.getLocation().getBlock());
+            if (id != null) {
+                item = SlimefunItem.getById(id);
+            }
+        }
 
         if (item != null) {
+            // Cancelamos siempre el crecimiento vanilla para cualquier planta ExoticGarden
             e.setCancelled(true);
+
+            // 1) Árboles frutales -> schematic (mantener comportamiento existente)
             for (Tree tree : ExoticGarden.getTrees()) {
                 if (item.getId().equalsIgnoreCase(tree.getSapling())) {
                     BlockStorage.clearBlockInfo(e.getLocation());
@@ -131,6 +196,7 @@ public class PlantsListener implements Listener {
                 }
             }
 
+            // 2) Berries / Plantas (incluido ORE_PLANT para esencia)
             for (Berry berry : ExoticGarden.getBerries()) {
                 if (item.getId().equalsIgnoreCase(berry.toBush())) {
                     switch (berry.getType()) {
@@ -140,8 +206,12 @@ public class PlantsListener implements Listener {
                     case ORE_PLANT:
                     case DOUBLE_PLANT:
                         Block blockAbove = e.getLocation().getBlock().getRelative(BlockFace.UP);
-                        item = BlockStorage.check(blockAbove);
-                        if (item != null) return;
+                        SlimefunItem above = BlockStorage.check(blockAbove);
+                        if (above == null) {
+                            String aboveId = BlockStorage.checkID(blockAbove);
+                            if (aboveId != null) above = SlimefunItem.getById(aboveId);
+                        }
+                        if (above != null) return;
 
                         if (!Tag.SAPLINGS.isTagged(blockAbove.getType()) && !Tag.LEAVES.isTagged(blockAbove.getType())) {
                             switch (blockAbove.getType()) {
@@ -150,10 +220,13 @@ public class PlantsListener implements Listener {
                             case SNOW:
                                 break;
                             default:
+                                // Espacio bloqueado: mantenemos como brote (sapling) para seguir produciendo al liberar espacio
+                                // No transformamos pero ya cancelamos el árbol vanilla
                                 return;
                             }
                         }
 
+                        // Guardamos la esencia en ambos bloques ANTES de cambiar tipo visual
                         BlockStorage.store(blockAbove, berry.getItem());
                         e.getLocation().getBlock().setType(Material.OAK_LEAVES);
                         blockAbove.setType(Material.PLAYER_HEAD);
@@ -173,10 +246,33 @@ public class PlantsListener implements Listener {
                         break;
                     }
 
+                    // El bloque base pasa a almacenar la esencia/fruta, permitiendo cosecha y retorno a brote
                     BlockStorage.deleteLocationInfoUnsafely(e.getLocation(), false);
                     BlockStorage.store(e.getLocation().getBlock(), berry.getItem());
                     e.getWorld().playEffect(e.getLocation(), Effect.STEP_SOUND, Material.OAK_LEAVES);
                     break;
+                }
+            }
+
+            // Fallback defensivo: si es un *_PLANT o *_BUSH de ExoticGarden no reconocido por tipo,
+            // pero sí es BonemealableItem, evitar que se convierta en roble vanilla manteniéndolo como brote
+            if (!e.isCancelled()) {
+                // No se encontró berry/tree, pero cancelamos de todos modos si es planta exotic para no generar roble
+                // Esto cubre casos de rebrand o id con diferente capitalización no contemplado arriba
+                String id = item.getId();
+                if (id.endsWith("_PLANT") || id.endsWith("_BUSH") || id.endsWith("_SAPLING")) {
+                    for (Berry b : ExoticGarden.getBerries()) {
+                        if (id.equalsIgnoreCase(b.toBush()) || id.equalsIgnoreCase(b.getID())) {
+                            e.setCancelled(true);
+                            break;
+                        }
+                    }
+                    for (Tree t : ExoticGarden.getTrees()) {
+                        if (id.equalsIgnoreCase(t.getSapling())) {
+                            e.setCancelled(true);
+                            break;
+                        }
+                    }
                 }
             }
         }

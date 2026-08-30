@@ -24,7 +24,21 @@ final class EnderChestNodeUtils {
         }
 
         try {
-            return Bukkit.getPlayer(UUID.fromString(owner));
+            Player player = Bukkit.getPlayer(UUID.fromString(owner));
+            if (player == null) {
+                return null;
+            }
+
+            // El ender chest esta separado por mundo, de modo que getEnderChest() devuelve el
+            // del mundo donde esta el jugador y no el del mundo donde esta el nodo. Sin esta
+            // comprobacion un nodo colocado en una modalidad vacia el ender chest de otra, y
+            // basta con que el dueno se pase al Laboratorio --donde los items son gratis-- para
+            // convertir la maquina en un puente entre modalidades.
+            if (!player.getWorld().equals(node.getWorld())) {
+                return null;
+            }
+
+            return player;
         } catch (IllegalArgumentException ignored) {
             return null;
         }

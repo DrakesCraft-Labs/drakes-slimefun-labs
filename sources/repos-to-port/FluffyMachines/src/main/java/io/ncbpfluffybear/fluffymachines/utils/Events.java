@@ -146,7 +146,7 @@ public class Events implements Listener {
                     p.teleport(destination.add(0.5, 1, 0.5));
 
                     p.playSound(p.getLocation(), Sound.ITEM_CHORUS_FRUIT_TELEPORT, 0.5F, 0.5F);
-                    p.spawnParticle(Particle.DRAGON_BREATH, p.getLocation(), 10);
+                    spawnWarpParticles(p, p.getLocation());
 
                 } else {
                     Utils.send(p, "&cMissing destination Warp Pad!");
@@ -154,6 +154,10 @@ public class Events implements Listener {
                 }
             }
         }
+    }
+
+    static void spawnWarpParticles(Player player, Location location) {
+        player.spawnParticle(Particle.DRAGON_BREATH, location, 10, 1.0F);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
