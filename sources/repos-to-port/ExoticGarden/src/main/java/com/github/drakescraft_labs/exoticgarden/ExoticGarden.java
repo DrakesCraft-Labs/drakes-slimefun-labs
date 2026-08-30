@@ -375,6 +375,14 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
 
     @Nullable
     public static ItemStack harvestPlant(@Nonnull Block block) {
+        /*
+         * Contrato de cosecha: devuelve el fruto y deja el bloque base como brote
+         * registrado en BlockStorage. Las plantas maduras pueden guardar su ID en
+         * la cabeza aunque el jugador pulse las hojas; por eso se normaliza el
+         * bloque antes de modificar el mundo. No eliminar esta normalización: sin
+         * ella se limpia/restaura el bloque equivocado y el cultivo se convierte
+         * en una planta vanilla o se pierde al siguiente reinicio.
+         */
         SlimefunItem item = BlockStorage.check(block);
         // Fallback robusto si check falla por timing (ensenar el id directo)
         if (item == null) {
