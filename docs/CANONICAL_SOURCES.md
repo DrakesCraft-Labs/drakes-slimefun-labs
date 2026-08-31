@@ -1,72 +1,92 @@
-# Fuentes canónicas y saneamiento del monorepo
+# Canonical addon repositories and migration inventory
 
-Actualizado: 2026-08-30
+Updated: 2026-08-30
 
-## Regla operativa
+## Operational rule
 
-Los repositorios individuales de DrakesCraft son la fuente canónica de los
-plugins que ya fueron extraídos. Las copias ubicadas en
-`sources/repos-to-port/` permanecen sólo como compatibilidad de compilación e
-historial: no se deben usar para iniciar cambios nuevos ni para publicar JARs.
+This monorepo is a legacy source archive. No migrated addon version, build,
+release, or production fix is canonical here. Work only in the standalone
+repository under the DrakesCraft-Labs organization.
 
-El reactor Maven todavía los enumera porque retirarlos sin migrar todas sus
-dependencias internas haría que compilaciones históricas dejaran de resolver
-artefactos. Esta política evita esa ruptura sin volver a crear dos fuentes de
-verdad.
+The retained directories under `sources/` preserve history and are not deleted
+because they remain useful for archaeology and regression comparison. The root
+Maven and Gradle projects intentionally include zero addon modules.
 
-## Plugins extraídos: repositorio individual canónico
+## Standalone repositories registered so far
 
-| Copia de compatibilidad en este monorepo | Repositorio canónico |
+| Archived module | Canonical repository |
 | --- | --- |
-| `ChestTerminal-sf5` | `ChestTerminal-drake` |
-| `ColoredEnderChests` | `ColoredEnderChests-drake` |
-| `DynaTech` | `DynaTech-drake` |
-| `ElectricSpawners` | `ElectricSpawners-drake` |
-| `ExtraGear` | `ExtraGear-drake` |
-| `ExtraHeads` | `ExtraHeads-drake` |
-| `GlobalWarming` | `GlobalWarming` |
-| `HardcoreSlimefun` | `HardcoreSlimefun` |
-| `HotbarPets` | `HotbarPets-drake` |
-| `KinematicCore` | `KinematicCore-drake` |
-| `luckyblocks-sf` | `luckyblocks-sf-drake` |
-| `MobCapturer` | `MobCapturer-drake` |
-| `PrivateStorage` | `PrivateStorage` |
-| `SensibleToolbox-sf5` | `SensibleToolbox-drake` |
-| `SimpleUtils` | `SimpleUtils-drake` |
-| `SlimeChem` | `SlimeChem-drake` |
-| `SlimefunOreChunks` | `SlimefunOreChunks` |
-| `SlimyRepair` | `SlimyRepair-drake` |
-| `SlimyTreeTaps` | `SlimyTreeTaps-drake` |
+| dough-core | dough-core |
+| drakes-labs-autoupdate | drakes-labs-autoupdate |
+| DyedBackpacks | DyedBackpacks-drake |
+| EcoPower | EcoPower-drake |
+| ExoticGarden | ExoticGarden-drake |
+| ExtraUtils | ExtraUtils-drake |
+| FluffyMachines | FluffyMachines-drake |
+| InfinityExpansion | InfinityExpansion-drake |
+| SFCalc | SFCalc-drake |
+| SFMobDrops | SFMobDrops-drake |
+| SoulJars | SoulJars-drake |
+| SoundMuffler | SoundMuffler-drake |
+| SMG | SMG-drake |
+| TranscEndence | TranscEndence-drake |
+| Slimefun-Disc | Slimefun-Disc-drake |
+| Element-Manipulation | Element-Manipulation-drake |
+| ExtraTools | ExtraTools-drake |
+| FN-FAL-s-Amplifications | FN-FAL-s-Amplifications-drake |
+| Liquid | Liquid-drake |
+| RykenSlimeCustomizer-EN | RykenSlimeCustomizer-EN-drake |
+| Coronalis | Coronalis-drake |
+| AdvancedTech | AdvancedTech-drake |
+| Better-Nuclear-Generator | Better-Nuclear-Generator-drake |
+| Geyser-Slimefun-Heads | Geyser-Slimefun-Heads-drake |
+| SlimeHUD | SlimeHUD-drake |
+| SmallSpace | SmallSpace-drake |
+| WorldEditSlimefun | WorldEditSlimefun-drake |
 
-Las diferencias de árbol entre cada copia y su repositorio canónico son
-esperadas: incluyen migraciones de build, CI, documentación y parches ya
-publicados. No se deben sincronizar mediante copias masivas.
+All repository names in this table resolve below:
 
-## Plugins que siguen siendo canónicos del monorepo
+`https://github.com/DrakesCraft-Labs/<repository>`
 
-| Módulo | Versión publicable declarada |
-| --- | --- |
-| `DyedBackpacks` | `1.20.6-Drake-SNAPSHOT` |
-| `EcoPower` | `1.20.6-Drake-SNAPSHOT` |
-| `ExoticGarden` | `1.3` |
-| `ExtraUtils` | `1.20.6-Drake-SNAPSHOT` |
-| `FluffyMachines` | `1.0.0` |
-| `InfinityExpansion` | `1.20.6-Drake-SNAPSHOT` |
-| `SFCalc` | `1.21-Drake-v1` |
-| `SFMobDrops` | `1.20.6-Drake-SNAPSHOT` |
-| `SoulJars` | `1.21-Drake-v1` |
-| `SoundMuffler` | `11.0-Drake` |
+## Remaining archive inventory
 
-## Revisión de cambios de Chagui
+There are **52 source modules still awaiting deliberate extraction**. They are
+recorded as `pending` in [migration/addons.json](../migration/addons.json),
+instead of being presented as already migrated. A pending module must receive:
 
-La serie reciente integrada en `main` modifica únicamente:
+1. its own repository and local versioning;
+2. a build that works without the legacy parent;
+3. CI and a concise README;
+4. source-history import or a documented clean baseline; and
+5. a validated artifact before it can replace a production build.
 
-* `ExoticGarden`: commits `e4db9428` a `a7eece05`. La lógica fue revisada y
-  corregida después en `91c13401`; su versión de publicación queda en `1.3`.
-* `FluffyMachines`: commit `8b3e3703`. No posee repositorio individual local,
-  por lo que el monorepo sigue siendo su fuente canónica.
+Until then, pending modules are archive-only. This is intentional: it prevents
+the old reactor from silently applying a shared version or publishing a JAR.
 
-No se hallaron modificaciones recientes de Chagui dentro de los 19 módulos
-extraídos que deban trasladarse a un repositorio individual. Cualquier cambio
-futuro en ellos se hace en el repositorio de la segunda columna y se integra al
-monorepo sólo mediante una migración explícita y revisada.
+## Repositories repaired in this pass
+
+These repositories were previously listed as canonical but contained only
+documentation and automation. Their source trees have now been migrated and
+pushed:
+
+- MobCapturer-drake
+- SimpleUtils-drake
+- LiteXpansion-drake
+- FlowerPower-drake
+- SlimeFrame-drake
+
+## Previously extracted repositories
+
+ChestTerminal-drake, ColoredEnderChests-drake, DynaTech-drake,
+ElectricSpawners-drake, ExtraGear-drake, ExtraHeads-drake, GlobalWarming,
+HardcoreSlimefun, HotbarPets-drake, KinematicCore-drake,
+luckyblocks-sf-drake, PrivateStorage, SensibleToolbox-drake,
+SlimeChem-drake, SlimefunOreChunks, SlimyRepair-drake and
+SlimyTreeTaps-drake remain canonical in their standalone repositories.
+
+## Versioning
+
+Each standalone repository declares and advances its own project version. The
+legacy root version `2026.08` identifies only the archive marker and must never
+be inherited by an addon. Deployment artifacts must be traceable to a commit in
+the corresponding standalone repository.

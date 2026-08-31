@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "generated": "2026-08-30",
+  "monorepo": "DrakesCraft-Labs/drakes-slimefun-labs",
+  "status": "legacy",
+  "sourceModules": 84,
+  "migratedModules": 32,
+  "pendingModules": 52,
+  "policy": "Standalone repositories are canonical. Every unlisted archived source module remains migration-pending and read-only until extracted, independently built, and registered here.",
+  "migrated": [
+    {
+      "archivedPath": "sources/dough-core",
+      "repository": "https://github.com/DrakesCraft-Labs/dough-core"
+    },
+    {
+      "archivedPath": "sources/drakes-labs-autoupdate",
+      "repository": "https://github.com/DrakesCraft-Labs/drakes-labs-autoupdate"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/DyedBackpacks",
+      "repository": "https://github.com/DrakesCraft-Labs/DyedBackpacks-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/EcoPower",
+      "repository": "https://github.com/DrakesCraft-Labs/EcoPower-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/ExoticGarden",
+      "repository": "https://github.com/DrakesCraft-Labs/ExoticGarden-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/ExtraUtils",
+      "repository": "https://github.com/DrakesCraft-Labs/ExtraUtils-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/FluffyMachines",
+      "repository": "https://github.com/DrakesCraft-Labs/FluffyMachines-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/InfinityExpansion",
+      "repository": "https://github.com/DrakesCraft-Labs/InfinityExpansion-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/SFCalc",
+      "repository": "https://github.com/DrakesCraft-Labs/SFCalc-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/SFMobDrops",
+      "repository": "https://github.com/DrakesCraft-Labs/SFMobDrops-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/SoulJars",
+      "repository": "https://github.com/DrakesCraft-Labs/SoulJars-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/SoundMuffler",
+      "repository": "https://github.com/DrakesCraft-Labs/SoundMuffler-drake"
+    },
+    {
+      "archivedPath": "sources/batch-2-expansion/SMG",
+      "repository": "https://github.com/DrakesCraft-Labs/SMG-drake"
+    },
+    {
+      "archivedPath": "sources/batch-2-expansion/TranscEndence",
+      "repository": "https://github.com/DrakesCraft-Labs/TranscEndence-drake"
+    },
+    {
+      "archivedPath": "sources/batch-2-expansion/Slimefun-Disc",
+      "repository": "https://github.com/DrakesCraft-Labs/Slimefun-Disc-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/Element-Manipulation",
+      "repository": "https://github.com/DrakesCraft-Labs/Element-Manipulation-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/ExtraTools",
+      "repository": "https://github.com/DrakesCraft-Labs/ExtraTools-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/FN-FAL-s-Amplifications",
+      "repository": "https://github.com/DrakesCraft-Labs/FN-FAL-s-Amplifications-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/Liquid",
+      "repository": "https://github.com/DrakesCraft-Labs/Liquid-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/RykenSlimeCustomizer-EN",
+      "repository": "https://github.com/DrakesCraft-Labs/RykenSlimeCustomizer-EN-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/Coronalis",
+      "repository": "https://github.com/DrakesCraft-Labs/Coronalis-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/AdvancedTech",
+      "repository": "https://github.com/DrakesCraft-Labs/AdvancedTech-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/Better-Nuclear-Generator",
+      "repository": "https://github.com/DrakesCraft-Labs/Better-Nuclear-Generator-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/Geyser-Slimefun-Heads",
+      "repository": "https://github.com/DrakesCraft-Labs/Geyser-Slimefun-Heads-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/SlimeHUD",
+      "repository": "https://github.com/DrakesCraft-Labs/SlimeHUD-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/SmallSpace",
+      "repository": "https://github.com/DrakesCraft-Labs/SmallSpace-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/WorldEditSlimefun",
+      "repository": "https://github.com/DrakesCraft-Labs/WorldEditSlimefun-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/MobCapturer",
+      "repository": "https://github.com/DrakesCraft-Labs/MobCapturer-drake"
+    },
+    {
+      "archivedPath": "sources/repos-to-port/SimpleUtils",
+      "repository": "https://github.com/DrakesCraft-Labs/SimpleUtils-drake"
+    },
+    {
+      "archivedPath": "sources/batch-2-expansion/LiteXpansion",
+      "repository": "https://github.com/DrakesCraft-Labs/LiteXpansion-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/FlowerPower",
+      "repository": "https://github.com/DrakesCraft-Labs/FlowerPower-drake"
+    },
+    {
+      "archivedPath": "sources/community-addons/SlimeFrame",
+      "repository": "https://github.com/DrakesCraft-Labs/SlimeFrame-drake"
+    }
+  ]
+}
