@@ -36,7 +36,7 @@ jobs:
       publicar: ${{ steps.evaluar.outputs.publicar }}
       motivo: ${{ steps.evaluar.outputs.motivo }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 2
 
@@ -78,10 +78,10 @@ jobs:
     if: needs.decidir.outputs.publicar == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Preparar Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '21'
@@ -122,7 +122,7 @@ jobs:
           echo "Version detectada: $VER"
 
       - name: Preparar Node para la conversion del banner
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '20'
 
