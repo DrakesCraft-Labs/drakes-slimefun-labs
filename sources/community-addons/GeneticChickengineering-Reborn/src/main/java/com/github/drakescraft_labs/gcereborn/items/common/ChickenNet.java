@@ -39,8 +39,11 @@ public class ChickenNet extends SimpleSlimefunItem<EntityInteractHandler> implem
                 return;
             }
             Chicken chicken = (Chicken) e.getRightClicked();
+            boolean allowed = hasPermissionCompat(e.getPlayer(), chicken.getLocation(), "INTERACT_ENTITY")
+                    || hasPermissionCompat(e.getPlayer(), chicken.getLocation(), "INTERACT_BLOCK")
+                    || e.getPlayer().hasPermission("slimefun.inventory.bypass");
 
-            if (!hasPermissionCompat(e.getPlayer(), chicken.getLocation(), "INTERACT_ENTITY")) {
+            if (!allowed) {
                 GeneticChickengineering.getLocalization().sendMessage(e.getPlayer(), "no-permission");
                 return;
             }

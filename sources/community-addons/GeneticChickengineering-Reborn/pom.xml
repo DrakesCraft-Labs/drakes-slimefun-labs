@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.drakescraft_labs</groupId>
-        <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
+        <artifactId>drakes-slimefun-labs-legacy</artifactId>
+        <version>2026.08</version>
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
