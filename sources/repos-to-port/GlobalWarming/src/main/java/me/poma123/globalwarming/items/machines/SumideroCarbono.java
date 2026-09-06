@@ -6,7 +6,6 @@
  *  com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
  *  com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
  *  com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem
- *  com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems
  *  com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer
  *  org.bukkit.Material
  *  org.bukkit.NamespacedKey
@@ -19,7 +18,6 @@ import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.core.attributes.RecipeDisplayItem;
-import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.SlimefunItem.abstractItems.AContainer;
 import me.poma123.globalwarming.GlobalWarmingPlugin;
 import me.poma123.globalwarming.Items;
@@ -28,30 +26,25 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-public abstract class AirCompressor
+public abstract class SumideroCarbono
 extends AContainer
 implements RecipeDisplayItem {
-    public static final RecipeType RECIPE_TYPE = new RecipeType(new NamespacedKey((Plugin)GlobalWarmingPlugin.getInstance(), "air_compressor"), (ItemStack)Items.AIR_COMPRESSOR);
+    public static final RecipeType RECIPE_TYPE = new RecipeType(new NamespacedKey((Plugin)GlobalWarmingPlugin.getInstance(), "sumidero_carbono"), (ItemStack)Items.SUMIDERO_CARBONO);
 
-    protected AirCompressor(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    protected SumideroCarbono(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
     }
 
     protected void registerDefaultRecipes() {
-        this.addRecipe(5, (ItemStack)Items.EMPTY_CANISTER, new ItemStack[]{Items.CO2_CANISTER});
-        this.addRecipe(5, (ItemStack)Items.CO2_CANISTER, new ItemStack[]{SlimefunItems.CARBON, Items.EMPTY_CANISTER});
-    }
-
-    private void addRecipe(int seconds, ItemStack input, ItemStack[] output) {
-        this.registerRecipe(seconds, new ItemStack[]{input}, output);
+        this.registerRecipe(12, new ItemStack[]{Items.CO2_CANISTER}, new ItemStack[]{Items.EMPTY_CANISTER});
     }
 
     public String getMachineIdentifier() {
-        return "AIR_COMPRESSOR";
+        return "GW_SUMIDERO_CARBONO";
     }
 
     public ItemStack getProgressBar() {
-        return new ItemStack(Material.HOPPER);
+        return new ItemStack(Material.IRON_SHOVEL);
     }
 }
 

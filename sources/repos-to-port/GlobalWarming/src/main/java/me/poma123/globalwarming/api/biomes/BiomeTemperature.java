@@ -1,37 +1,35 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.annotation.Nonnull
+ *  org.apache.commons.lang.Validate
+ */
 package me.poma123.globalwarming.api.biomes;
 
 import javax.annotation.Nonnull;
+import org.apache.commons.lang.Validate;
 
-import org.apache.commons.lang3.Validate;
-
-/**
- * This data type holds biome temperature data for our
- * {@link com.github.drakescraft_labs.slimefun4.utils.biomes.BiomeMap} file
- *
- * @author poma123
- *
- */
 public class BiomeTemperature {
-
     private final double temperature;
     private final double maxTemperatureDropAtNight;
 
     @Nonnull
     public BiomeTemperature(@Nonnull double temperature, @Nonnull double maxTemperatureDropAtNight) {
-        Validate.notNull(temperature, "The temperature value should not be null!");
-        Validate.notNull(maxTemperatureDropAtNight, "The maxTemperatureDropAtNight value should not be null!");
-
+        Validate.notNull((Object)temperature, (String)"The temperature value should not be null!");
+        Validate.notNull((Object)maxTemperatureDropAtNight, (String)"The maxTemperatureDropAtNight value should not be null!");
         this.temperature = temperature;
         this.maxTemperatureDropAtNight = maxTemperatureDropAtNight;
     }
 
     @Nonnull
     public double getTemperature() {
-        return temperature;
+        return this.temperature;
     }
 
     @Nonnull
     public double getMaxTemperatureDropAtNight() {
-        return maxTemperatureDropAtNight;
+        return this.maxTemperatureDropAtNight;
     }
 }
+

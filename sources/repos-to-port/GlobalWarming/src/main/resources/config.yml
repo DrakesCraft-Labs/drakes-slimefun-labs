@@ -1,33 +1,50 @@
-options:
-  auto-update: true
+# GlobalWarming - contaminacion y temperatura
+#
+# LOS EFECTOS QUE HACEN DANO VIENEN APAGADOS A PROPOSITO.
+#
+# Los valores del autor encendian incendios forestales a 10 bloques por segundo por encima de
+# 40 grados, derretian el hielo, y prendian fuego o ralentizaban al jugador con un 80% de
+# probabilidad. En un servidor con construcciones eso arrasa terreno ajeno.
+#
+# Lo que SI funciona de serie es el seguimiento: las maquinas contaminan, la temperatura sube y
+# se puede consultar con el termometro. Enciende los mecanismos de uno en uno, y avisa antes.
 
+options:
+  auto-update: false
 worlds:
 - disabled_world
-
 world-filter-type: blacklist
-
 mechanics:
+  # Incendios forestales
   FOREST_FIRES:
-    enabled: true
+    enabled: false
+    # Probabilidad (0-1)
     chance: 0.3
+    # Bloques que arden por segundo
     fire-per-second: 10
+    # Temperatura minima para que salte (grados Celsius)
     min-temperature-in-celsius: 40.0
+  # Deshielo
   ICE_MELTING:
-    enabled: true
+    enabled: false
     chance: 0.5
+    # Bloques de hielo que se derriten por segundo
     melt-per-second: 10
     min-temperature-in-celsius: 2.0
+  # Ralentiza al jugador
   SLOWNESS:
-    enabled: true
+    enabled: false
     chance: 0.8
+  # Prende fuego al jugador
   BURN:
-    enabled: true
+    enabled: false
     chance: 0.8
-
+# Investigacion necesaria para que los mecanismos afecten al jugador
 needed-research-for-player-mechanics: ENERGY_REGULATOR
-
 pollution:
+  # Lo que ENSUCIA
   production:
+    # Contaminacion por material metido en una maquina
     machine-recipe-input-items:
       CHARCOAL: 0.0025
       COAL: 0.005
@@ -43,17 +60,64 @@ pollution:
       BLISTERING_INGOT: 0.025
       BLISTERING_INGOT_2: 0.027
       BLISTERING_INGOT_3: 0.03
+    # Contaminacion por maquina en funcionamiento
     machines:
       COAL_GENERATOR: 0.001
       COAL_GENERATOR_2: 0.0015
       NUCLEAR_REACTOR: 0.03
       COMBUSTION_REACTOR: 0.015
+    # Contaminacion por criar animales
     animal-breed: 0.005
+  # Lo que LIMPIA
   absorption:
+    # Maquinas que absorben contaminacion, por cada operacion completada.
+    #
+    # El Sumidero de Carbono es el unico con una cifra que se nota, y a proposito: es la maquina
+    # pensada para limpiar, tarda 12 segundos por ciclo y consume Bombonas de CO2, que a su vez
+    # hay que fabricar con carbono en el Compresor de Aire. A 0.5 por ciclo son 2,5 puntos por
+    # minuto: se ve moverse el Medidor de Calidad del Aire, pero limpiar un mundo muy sucio sigue
+    # siendo un proyecto de varias horas o de varias maquinas.
+    #
+    # Antes de esto la contaminacion solo subia. Los valores que habia (0.005 por arbol) eran
+    # decorativos: con los 1.370 puntos acumulados en el mundo de Slimefun habrian hecho falta
+    # mas de 270.000 arboles, y los jugadores lo notaron.
     machines:
       AIR_COMPRESSOR: 0.05
-    tree-growth: 0.005
-
+      GW_SUMIDERO_CARBONO: 0.5
+    # Cada arbol que crece. Se sube de 0.005 a 0.02 para que reforestar cuente algo, sin que
+    # llegue a competir con la maquina: plantar sigue siendo el gesto lento.
+    tree-growth: 0.02
 temperature-options:
+  # Cuanto sube la temperatura por punto de contaminacion
   pollution-multiply: 0.002
+  # Cuanto baja durante una tormenta
   temperature-drop-during-storms: 8
+
+# ─────────────────────────────────────────────────────────────────────────────
+#  Fenomenos climaticos
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# El clima cambia el MUNDO, no al jugador. Ningun evento hace daño, ni pone efectos de pocion,
+# ni obliga a buscar refugio, ni castiga por estar AFK. Lo que hacen es mover la temperatura
+# ambiente y el cielo, para que de vez en cuando pase algo y se note.
+#
+# Lo unico que coloca bloques es la nevada, y solo capas de nieve sobre suelo natural con aire
+# encima: nunca sustituye nada construido, y se derrite sola.
+eventos-climaticos:
+  enabled: true
+  # Cada cuanto se tira el dado, en segundos.
+  intervalo-sorteo-segundos: 600
+  # Probabilidad (0-1) de que en ese sorteo empiece algo.
+  probabilidad: 0.35
+  # Cuanto dura, en segundos. Se elige al azar entre los dos.
+  duracion-minima-segundos: 240
+  duracion-maxima-segundos: 600
+  # Si se avisa por chat al empezar y al terminar.
+  anunciar: true
+  # Que fenomenos pueden salir.
+  tipos:
+    ola-de-calor: true
+    ola-de-frio: true
+    nevada: true
+    tormenta: true
+    bochorno: true

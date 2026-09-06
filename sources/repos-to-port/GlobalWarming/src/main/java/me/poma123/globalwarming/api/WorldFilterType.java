@@ -1,26 +1,26 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  javax.annotation.ParametersAreNonnullByDefault
+ */
 package me.poma123.globalwarming.api;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-/**
- * This enum holds the two states of the
- * configurable world filter.
- *
- * @author poma123
- */
 public enum WorldFilterType {
-
     WHITELIST("whitelist"),
     BLACKLIST("blacklist");
 
     private final String name;
 
     @ParametersAreNonnullByDefault
-    WorldFilterType(String name) {
+    private WorldFilterType(String name) {
         this.name = name;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 }
+

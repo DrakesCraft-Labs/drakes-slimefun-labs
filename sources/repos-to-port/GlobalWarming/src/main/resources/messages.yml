@@ -1,18 +1,53 @@
-# Available values: CELSIUS, FAHRENHEIT, KELVIN
+# Unidad de temperatura. Valores: CELSIUS, FAHRENHEIT, KELVIN
 temperature-scale: CELSIUS
 messages:
-  climate-change: '&c[GlobalWarming] &eThe global temperature rising value is now: %value%'
-  breaking-news: '&c[GlobalWarming] &e&nBreaking news:&3 %news%'
+  climate-change: '&c[Calentamiento Global] &eLa temperatura global ha subido: %value%'
+  breaking-news: '&c[Calentamiento Global] &e&nÚltima hora:&3 %news%'
+
+  # Los titulares salen de donde esta la gente que juega aqui, no de Washington.
+  # Reparto segun las metricas del servidor (157 jugadores con pais conocido):
+  #   Chile 33 · Argentina 16 · Mexico 15 · EEUU 11 · Colombia 8 · Uruguay 7 · Peru 6
+  #   Espana 4 · Bolivia, Honduras, Venezuela, Ecuador, Guatemala 3 · resto, cola larga.
+  #
+  # Cada titular usa un fenomeno que de verdad ocurre en ese sitio: aluviones en el norte de
+  # Chile, sudestada en el Rio de la Plata, huaicos en Peru, DANA en Espana. Inventar desastres
+  # genericos habria quedado igual de lejos que lo de Washington.
   news:
-  - 'People rescued from flooded homes by boat.'
-  - 'Tornadoes caught on camera across two counties.'
-  - 'Texas storm: "Never seen a light show like that"'
-  - 'Flooding in Venice and deadly storms across Italy.'
-  - 'Dramatic storms across Wales are captured on camera.'
-  - 'Lighting storms struck Washington DC as the city was under a flash flood warning.'
-  - 'Forest fires in Chernobyl exclusion zone bring a hike in radiation.'
-  - 'Satellite images show expanding fire at South American tri-border area.'
-  - 'Activists are protesting against coal mining.'
-  - 'Several countries started building more EcoPower generators to reduce emission.'
-  - 'Venice floods close city to cruise ships for six days.'
-  - 'Nether star reactor explodes in Zambia due to overheating. Africa is experiencing continent-wide withering.'
+  # --- Chile ---
+  - 'Un aluvión corta la ruta en el norte y deja pueblos aislados por horas.'
+  - 'Ola de calor en la zona central: se baten registros de temperatura por tercer día seguido.'
+  - 'Marejadas anormales obligan a cerrar los puertos de la costa.'
+  - 'Los incendios forestales del sur avanzan sin control y ya se ven desde la carretera.'
+  - 'La sequía deja el embalse más bajo de lo que nadie recuerda.'
+  # --- Argentina ---
+  - 'Una sudestada inunda el conurbano y los vecinos sacan las lanchas.'
+  - 'Cae granizo del tamaño de una pelota de golf y arruina la cosecha en Mendoza.'
+  - 'La ola de calor obliga a cortar la luz por zonas en Buenos Aires.'
+  - 'La bajante del río deja los barcos varados en el puerto.'
+  # --- Mexico ---
+  - 'Un huracán categoría 4 se acerca a la costa y ordenan evacuar la zona baja.'
+  - 'La sequía en el norte deja las presas por debajo del 20%.'
+  - 'Las lluvias desbordan el río y el agua llega hasta los techos en Tabasco.'
+  # --- Colombia ---
+  - 'Un deslizamiento sepulta la vía y deja incomunicada a media región.'
+  - 'El río se desborda por tercera vez este mes y ya no hay dónde poner a la gente.'
+  # --- Uruguay ---
+  - 'La sequía obliga a mezclar agua salada en la red de Montevideo.'
+  # --- Peru ---
+  - 'Los huaicos arrasan con la carretera central y aíslan la sierra.'
+  - 'El Niño costero calienta el mar y la pesca desaparece de un día para otro.'
+  # --- resto de Latinoamerica ---
+  - 'Los incendios de la Chiquitanía llevan semanas ardiendo y el humo tapa el cielo en Bolivia.'
+  - 'Dos huracanes seguidos golpean Centroamérica y no da tiempo a reconstruir.'
+  - 'La lluvia no para en Venezuela y los deslizamientos dejan barrios enteros incomunicados.'
+  - 'Ecuador declara emergencia por las inundaciones en la costa.'
+  - 'La Amazonía registra su peor sequía: los ríos se pueden cruzar caminando.'
+  - 'Paraguay bate su récord de calor y suspenden las clases.'
+  # --- Espana y resto ---
+  - 'Una DANA descarga en horas la lluvia de un año entero sobre el Mediterráneo.'
+  - 'España encadena su tercera ola de calor del verano.'
+  - 'Un tornado atraviesa el medio oeste de Estados Unidos y las cámaras lo captan entero.'
+  # --- las de siempre, que siguen funcionando ---
+  - 'Marchas en varias ciudades contra la extracción de carbón.'
+  - 'Varios países empiezan a construir generadores más limpios para reducir emisiones.'
+  - 'Un reactor de estrella del Nether revienta por sobrecalentamiento: todo el continente con efecto Wither.'

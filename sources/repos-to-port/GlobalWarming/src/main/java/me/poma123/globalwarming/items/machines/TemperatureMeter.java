@@ -1,14 +1,33 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.github.drakescraft_labs.slimefun4.api.items.ItemGroup
+ *  com.github.drakescraft_labs.slimefun4.api.items.ItemHandler
+ *  com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem
+ *  com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack
+ *  com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType
+ *  com.github.drakescraft_labs.slimefun4.core.attributes.HologramOwner
+ *  com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler
+ *  com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler
+ *  com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler
+ *  com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler
+ *  com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker
+ *  com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage
+ *  com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors
+ *  javax.annotation.Nonnull
+ *  javax.annotation.ParametersAreNonnullByDefault
+ *  me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
+ *  org.bukkit.Location
+ *  org.bukkit.block.Block
+ *  org.bukkit.entity.Player
+ *  org.bukkit.event.block.BlockPlaceEvent
+ *  org.bukkit.inventory.ItemStack
+ */
 package me.poma123.globalwarming.items.machines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.inventory.ItemStack;
-
 import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
+import com.github.drakescraft_labs.slimefun4.api.items.ItemHandler;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItem;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
@@ -17,15 +36,22 @@ import com.github.drakescraft_labs.slimefun4.core.handlers.BlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockPlaceHandler;
 import com.github.drakescraft_labs.slimefun4.core.handlers.BlockUseHandler;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
-import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
 import com.github.drakescraft_labs.slimefun4.legacy.Objects.handlers.BlockTicker;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
-
+import com.github.drakescraft_labs.slimefun4.libraries.dough.common.ChatColors;
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.poma123.globalwarming.api.TemperatureType;
+import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.ItemStack;
 
-public abstract class TemperatureMeter extends SlimefunItem implements HologramOwner {
-
+public abstract class TemperatureMeter
+extends SlimefunItem
+implements HologramOwner {
     @ParametersAreNonnullByDefault
     protected TemperatureMeter(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
@@ -33,24 +59,22 @@ public abstract class TemperatureMeter extends SlimefunItem implements HologramO
 
     @Nonnull
     private BlockBreakHandler onBreak() {
-        return new SimpleBlockBreakHandler() {
+        return new SimpleBlockBreakHandler(){
 
-            @Override
             public void onBlockBreak(@Nonnull Block b) {
-                removeHologram(b);
+                TemperatureMeter.this.removeHologram(b);
             }
         };
     }
 
     @Nonnull
     private BlockPlaceHandler onPlace() {
-        return new BlockPlaceHandler(false) {
+        return new BlockPlaceHandler(false){
 
-            @Override
             public void onPlayerPlace(BlockPlaceEvent e) {
                 Block b = e.getBlockPlaced();
-                BlockStorage.addBlockInfo(b,"type", TemperatureType.CELSIUS.name());
-                updateHologram(b, "&7Measuring...");
+                BlockStorage.addBlockInfo((Block)b, (String)"type", (String)TemperatureType.CELSIUS.name());
+                TemperatureMeter.this.updateHologram(b, "&7Midiendo...");
             }
         };
     }
@@ -59,44 +83,32 @@ public abstract class TemperatureMeter extends SlimefunItem implements HologramO
     private BlockUseHandler onRightClick() {
         return e -> {
             Player p = e.getPlayer();
-            Block b = e.getClickedBlock().get();
-
-            TemperatureType saved = TemperatureType.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "type"));
-
-            if (saved == TemperatureType.CELSIUS) {
-                saved = TemperatureType.FAHRENHEIT;
-            } else if (saved == TemperatureType.FAHRENHEIT) {
-                saved = TemperatureType.KELVIN;
-            } else {
-                saved = TemperatureType.CELSIUS;
-            }
-
-            BlockStorage.addBlockInfo(b, "type", saved.name());
-            p.sendMessage(ChatColors.color("&7Temperature type: &e" + saved.getName()));
-
+            Block b = (Block)e.getClickedBlock().get();
+            TemperatureType saved = TemperatureType.valueOf(BlockStorage.getLocationInfo((Location)b.getLocation(), (String)"type"));
+            saved = saved == TemperatureType.CELSIUS ? TemperatureType.FAHRENHEIT : (saved == TemperatureType.FAHRENHEIT ? TemperatureType.KELVIN : TemperatureType.CELSIUS);
+            BlockStorage.addBlockInfo((Block)b, (String)"type", (String)saved.name());
+            p.sendMessage(ChatColors.color((String)("&7Unidad: &e" + saved.getName())));
             e.cancel();
         };
     }
 
-    @Override
     public void preRegister() {
-        addItemHandler(onBreak());
-        addItemHandler(onPlace());
-        addItemHandler(onRightClick());
-        addItemHandler(new BlockTicker() {
+        this.addItemHandler(new ItemHandler[]{this.onBreak()});
+        this.addItemHandler(new ItemHandler[]{this.onPlace()});
+        this.addItemHandler(new ItemHandler[]{this.onRightClick()});
+        this.addItemHandler(new ItemHandler[]{new BlockTicker(){
 
-            @Override
             public boolean isSynchronized() {
                 return false;
             }
 
-            @Override
             public void tick(Block b, SlimefunItem item, Config data) {
                 TemperatureMeter.this.tick(b);
             }
-        });
+        }});
     }
 
     public void tick(@Nonnull Block b) {
     }
 }
+

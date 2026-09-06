@@ -3,37 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.github.drakescraft_labs</groupId>
-        <artifactId>drakes-slimefun-labs</artifactId>
-        <version>11-SNAPSHOT</version>
-        <relativePath>../../../pom.xml</relativePath>
-    </parent>
-
-    <groupId>com.github.drakescraft_labs</groupId>
-    <artifactId>GlobalWarming-drake</artifactId>
-    <version>${slimefun.drake.version}</version>
+    <groupId>me.poma123</groupId>
+    <artifactId>GlobalWarming</artifactId>
+    <version>UNOFFICIAL</version>
 
     <properties>
-        <maven.deploy.skip>false</maven.deploy.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
 
         <!-- Spigot properties -->
-        <spigot.version>1.16.4</spigot.version>
+        <spigot.version>1.17.1</spigot.version>
         <spigot.javadocs>https://hub.spigotmc.org/javadocs/spigot/</spigot.javadocs>
-
-        <!-- Default settings for sonarcloud.io -->
-        <sonar.projectKey>poma123_GlobalWarming</sonar.projectKey>
-        <sonar.organization>poma123</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.log.level>DEBUG</sonar.log.level>
     </properties>
 
     <repositories>
         <repository>
-            <id>papermc-repo</id>
+            <id>drakescraft-labs-maven</id>
+            <url>https://drakescraft-labs.github.io/maven-repo/</url>
+        </repository>
+
+        <repository>
+            <id>paper-repo</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
 
@@ -57,14 +48,14 @@
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
         <defaultGoal>clean package</defaultGoal>
 
-        <finalName>${project.name} v${project.version}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
 
         <plugins>
             <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.15.0</version>
+                <version>3.10.1</version>
                 <configuration>
                     <excludes>
                         <!-- package info files are only important for Javadocs -->
@@ -78,7 +69,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -92,15 +83,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.6.2</version>
+                <version>3.6.1</version>
 
                 <configuration>
-
+                    <minimizeJar>true</minimizeJar>
                     <!-- Shade dependencies into the output jar -->
                     <relocations>
+                        
                         <relocation>
-                            <pattern>org.bstats</pattern>
-                            <shadedPattern>me.poma123.globalwarming.bstats</shadedPattern>
+                            <pattern>net.guizhanss.guizhanlib</pattern>
+                            <shadedPattern>me.poma123.globalwarming.guizhanlib</shadedPattern>
                         </relocation>
                     </relocations>
 
@@ -110,6 +102,7 @@
                             <artifact>*:*</artifact>
                             <excludes>
                                 <exclude>META-INF/*</exclude>
+                                <exclude>minecraft.*</exclude>
                             </excludes>
                         </filter>
                     </filters>
@@ -151,46 +144,33 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>drakes-labs-autoupdate</artifactId>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
+            <version>1.21.11-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
-                <dependency>
+        <dependency>
             <groupId>com.github.drakescraft_labs</groupId>
             <artifactId>slimefun-core</artifactId>
-            <version>${slimefun.drake.version}</version>
+            <version>11.0-Drake-1.21.11-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.bstats</groupId>
-            <artifactId>bstats-bukkit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    
-        <dependency>
-            <groupId>com.github.drakescraft_labs</groupId>
-            <artifactId>dough-core</artifactId>
-            <version>${dough.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
             <scope>provided</scope>
         </dependency>
+
+        
     </dependencies>
 </project>
-
-

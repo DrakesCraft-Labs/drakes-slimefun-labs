@@ -1,51 +1,56 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  com.github.drakescraft_labs.slimefun4.api.geo.GEOResource
+ *  javax.annotation.Nonnull
+ *  org.bukkit.NamespacedKey
+ *  org.bukkit.World$Environment
+ *  org.bukkit.block.Biome
+ *  org.bukkit.inventory.ItemStack
+ *  org.bukkit.plugin.Plugin
+ */
 package me.poma123.globalwarming.items;
 
+import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
 import java.util.concurrent.ThreadLocalRandom;
-
 import javax.annotation.Nonnull;
-
+import me.poma123.globalwarming.GlobalWarmingPlugin;
+import me.poma123.globalwarming.Items;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
-import com.github.drakescraft_labs.slimefun4.api.geo.GEOResource;
+public class CinnabariteResource
+implements GEOResource {
+    private final NamespacedKey key = new NamespacedKey((Plugin)GlobalWarmingPlugin.getInstance(), "cinnabarite");
 
-import me.poma123.globalwarming.GlobalWarmingPlugin;
-import me.poma123.globalwarming.Items;
-
-public class CinnabariteResource implements GEOResource {
-    private final NamespacedKey key = new NamespacedKey(GlobalWarmingPlugin.getInstance(), "cinnabarite");
-
-    @Override
     public int getDefaultSupply(World.Environment environment, Biome biome) {
         return ThreadLocalRandom.current().nextInt(2) + 2;
     }
 
-    @Override
     public NamespacedKey getKey() {
-        return key;
+        return this.key;
     }
 
-    @Override
     public int getMaxDeviation() {
         return 1;
     }
 
     @Nonnull
-    @Override
     public String getName() {
-        return "Cinnabarite";
+        return "Cinabrio";
     }
 
     @Nonnull
-    @Override
     public ItemStack getItem() {
         return Items.CINNABARITE.clone();
     }
 
-    @Override
     public boolean isObtainableFromGEOMiner() {
         return true;
     }
 }
+
