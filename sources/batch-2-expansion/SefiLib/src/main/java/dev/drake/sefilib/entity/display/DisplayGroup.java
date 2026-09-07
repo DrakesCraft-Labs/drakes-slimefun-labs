@@ -52,15 +52,45 @@ public class DisplayGroup {
             throw new IllegalStateException("This display's memory has been borked");
         }
 
+        // Prune entries whose entity is gone before rebuilding the map. Groups written by
+        // older builds accumulated tens of thousands of stale UUIDs (the previous
+        // removeDisplay appended instead of removing), and every construction resolved
+        // each one through Bukkit.getEntity on the server thread.
+        boolean pruned = false;
+        for (int i = childList.size() - 1; i >= 0; i--) {
+            final Entity entity = resolveChild(childList.get(i));
+            if (entity == null) {
+                childList.remove(i);
+                childNames.remove(i);
+                pruned = true;
+            }
+        }
+        if (pruned) {
+            applyLists(childList, childNames);
+        }
+
         for (int i = 0; i < childList.size(); i++) {
-            final String s = childList.get(i);
-            final UUID uuid = UUID.fromString(s);
-            final Entity entity = Bukkit.getEntity(uuid);
-            if (entity == null || entity.isDead() || !(entity instanceof Display display)) {
+            final Entity entity = resolveChild(childList.get(i));
+            if (!(entity instanceof Display display)) {
                 continue;
             }
             this.displays.put(childNames.get(i), display);
         }
+    }
+
+    @Nullable
+    private static Entity resolveChild(@Nonnull String rawUuid) {
+        final UUID uuid;
+        try {
+            uuid = UUID.fromString(rawUuid);
+        } catch (IllegalArgumentException exception) {
+            return null;
+        }
+        final Entity entity = Bukkit.getEntity(uuid);
+        if (entity == null || entity.isDead() || !(entity instanceof Display)) {
+            return null;
+        }
+        return entity;
     }
 
     @Nonnull
@@ -81,11 +111,25 @@ public class DisplayGroup {
     }
 
     public void addDisplay(@Nonnull String name, @Nonnull Display display) {
-        // todo stop duplicate naming
         final List<String> childList = getChildList();
         final List<String> childNames = getChildNames();
         if (childList == null || childNames == null) {
             throw new IllegalArgumentException("This display doesn't appear to have a group");
+        }
+        // A name identifies one slot of the group, so re-registering it replaces the
+        // previous child instead of appending a second entry under the same name.
+        // Callers that re-add on every growth tick would otherwise grow both lists
+        // without bound and leave the old display entity orphaned in the world.
+        for (int i = Math.min(childList.size(), childNames.size()) - 1; i >= 0; i--) {
+            if (!name.equals(childNames.get(i))) {
+                continue;
+            }
+            final Entity previous = resolveChild(childList.get(i));
+            if (previous != null && !previous.getUniqueId().equals(display.getUniqueId())) {
+                previous.remove();
+            }
+            childList.remove(i);
+            childNames.remove(i);
         }
         childList.add(display.getUniqueId().toString());
         childNames.add(name);
