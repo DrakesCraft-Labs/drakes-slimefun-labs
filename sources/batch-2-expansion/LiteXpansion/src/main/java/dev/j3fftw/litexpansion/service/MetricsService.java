@@ -62,7 +62,7 @@ public class MetricsService {
         }));
 
         metrics.addCustomChart(new SimplePie("nerf_addons", () ->
-            LiteXpansion.getInstance().getConfig().getBoolean("options.nerf-other-addons", true) ? "true" : "false"));
+            LiteXpansion.getInstance().getConfig().getBoolean("options.nerf-other-addons", false) ? "true" : "false"));
     }
 
     @Nullable

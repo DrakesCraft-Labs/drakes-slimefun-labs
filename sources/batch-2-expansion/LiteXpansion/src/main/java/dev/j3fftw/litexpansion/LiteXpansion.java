@@ -34,7 +34,8 @@ public class LiteXpansion extends JavaPlugin implements SlimefunAddon {
 
         setInstance(this);
 
-        if (!new File(getDataFolder(), "config.yml").exists()) {
+        File configFile = new File(getDataFolder(), "config.yml");
+        if (!configFile.exists() || configFile.length() == 0) {
             saveDefaultConfig();
         }
 
@@ -46,7 +47,7 @@ public class LiteXpansion extends JavaPlugin implements SlimefunAddon {
         }
 
 
-        if (getConfig().getBoolean("options.nerf-other-addons", true)) {
+        if (getConfig().getBoolean("options.nerf-other-addons", false)) {
             getServer().getScheduler().runTask(this, this::nerfCrap);
         }
 
@@ -90,19 +91,7 @@ public class LiteXpansion extends JavaPlugin implements SlimefunAddon {
         // Galactifun
         Reflections.setField(SlimefunItem.getById("FUSION_REACTOR"), "energyProducedPerTick", 8_192);
 
-        // SupremeExpansion - just no...
-        Reflections.setField(SlimefunItem.getById("SUPREME_SUPREME_GENERATOR"), "energy", 20_000);
-        Reflections.setField(SlimefunItem.getById("SUPREME_THORNIUM_GENERATOR"), "energy", 10_000);
-        Reflections.setField(SlimefunItem.getById("SUPREME_LUMIUM_GENERATOR"), "energy", 5_000);
-        Reflections.setField(SlimefunItem.getById("SUPREME_BASIC_LUMIUM_GENERATOR"), "energy", 500);
-        Reflections.setField(SlimefunItem.getById("SUPREME_LUX_GENERATOR"), "energy", 2_500);
-        Reflections.setField(SlimefunItem.getById("SUPREME_BASIC_LUX_GENERATOR"), "energy", 250);
-        Reflections.setField(SlimefunItem.getById("SUPREME_AQUA_GENERATOR"), "energy", 2_500);
-        Reflections.setField(SlimefunItem.getById("SUPREME_BASIC_AQUA_GENERATOR"), "energy", 250);
-        Reflections.setField(SlimefunItem.getById("SUPREME_VENUS_GENERATOR"), "energy", 2_500);
-        Reflections.setField(SlimefunItem.getById("SUPREME_BASIC_VENUS_GENERATOR"), "energy", 250);
-        Reflections.setField(SlimefunItem.getById("SUPREME_IGNIS_GENERATOR"), "energy", 2_500);
-        Reflections.setField(SlimefunItem.getById("SUPREME_BASIC_IGNIS_GENERATOR"), "energy", 250);
+        // SupremeExpansion: nerfs eliminados para preservar generación original en DrakesCraft (Ticket #420)
     }
 
     private void setupResearches() {
