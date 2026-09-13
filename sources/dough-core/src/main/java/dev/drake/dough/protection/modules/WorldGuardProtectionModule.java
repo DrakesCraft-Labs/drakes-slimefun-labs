@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
@@ -51,7 +52,7 @@ public class WorldGuardProtectionModule implements ProtectionModule {
     public boolean hasPermission(OfflinePlayer p, Location l, Interaction action) {
         com.sk89q.worldedit.util.Location loc = BukkitAdapter.adapt(l);
         com.sk89q.worldedit.world.World world = BukkitAdapter.adapt(l.getWorld());
-        LocalPlayer player = worldguard.wrapOfflinePlayer(p);
+        LocalPlayer player = (p instanceof Player online) ? worldguard.wrapPlayer(online) : worldguard.wrapOfflinePlayer(p);
 
         /*
          * if (platform.getSessionManager().hasBypass(player, world)) {
@@ -59,13 +60,13 @@ public class WorldGuardProtectionModule implements ProtectionModule {
          * }
          */
 
-        if (action.getType() != ActionType.BLOCK) {
+        if (action == Interaction.ATTACK_PLAYER) {
             Set<ProtectedRegion> regions = container.get(world).getApplicableRegions(BlockVector3.at(l.getX(), l.getY(), l.getZ())).getRegions();
 
             if (regions.isEmpty()) {
                 return true;
             } else {
-                return container.createQuery().testState(loc, player, convert(action));
+                return container.createQuery().testState(loc, player, Flags.PVP);
             }
         } else {
             return container.createQuery().testBuild(loc, player, convert(action));
