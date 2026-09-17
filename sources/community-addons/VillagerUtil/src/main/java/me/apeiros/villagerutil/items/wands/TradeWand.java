@@ -65,7 +65,7 @@ public class TradeWand extends SlimefunItem implements Listener {
                 Inventory inv = p.getInventory();
 
                 // Check for permission
-                if (!Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY)) {
+                if ((!Slimefun.getProtectionManager().hasPermission(p, (v != null ? v.getLocation() : p.getLocation()), Interaction.INTERACT_ENTITY) && !Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY))) {
                     p.sendMessage(ChatColors.color("&cYou don't have permission!"));
                     v.shakeHead();
                     return;
@@ -150,7 +150,7 @@ public class TradeWand extends SlimefunItem implements Listener {
             boolean useTokens = VillagerUtil.useTokens();
 
             // Check for permission
-            if (!Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY)) {
+            if ((!Slimefun.getProtectionManager().hasPermission(p, (v != null ? v.getLocation() : p.getLocation()), Interaction.INTERACT_ENTITY) && !Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY))) {
                 p.sendMessage(ChatColors.color("&cYou don't have permission!"));
                 v.shakeHead();
                 return;

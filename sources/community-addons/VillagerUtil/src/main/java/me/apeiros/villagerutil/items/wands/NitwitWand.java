@@ -53,7 +53,7 @@ public class NitwitWand extends SlimefunItem {
                 Inventory inv = p.getInventory();
 
                 // Check for permission
-                if (!Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY)) {
+                if ((!Slimefun.getProtectionManager().hasPermission(p, (en != null ? en.getLocation() : p.getLocation()), Interaction.INTERACT_ENTITY) && !Slimefun.getProtectionManager().hasPermission(p, p.getLocation(), Interaction.INTERACT_ENTITY))) {
                     p.sendMessage(ChatColors.color("&cYou don't have permission!"));
                     v.shakeHead();
                     return;
