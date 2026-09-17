@@ -53,7 +53,7 @@ recipes:
 
 items:
   POCKET_CHICKEN:
-    name: "&bGallina de Bolsillo"
+    name: "&bPocket Chicken (Gallina de Bolsillo)"
     lore:
       - "&7Haz clic derecho en un bloque"
       - "&7para liberar la gallina al mundo."
