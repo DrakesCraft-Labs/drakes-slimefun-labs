@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -26,9 +27,9 @@ import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPrese
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
 import com.github.drakescraft_labs.gcereborn.items.GCEItems;
+import com.github.drakescraft_labs.gcereborn.items.chicken.ExpandedChickenSpecies;
 import com.github.drakescraft_labs.gcereborn.utils.ChickenUtils;
 import com.github.drakescraft_labs.gcereborn.utils.PocketChickenData;
-import com.github.drakescraft_labs.gcereborn.items.chicken.ChickenTypes;
 import com.github.drakescraft_labs.gcereborn.utils.GuiItems;
 import com.github.drakescraft_labs.gcereborn.utils.SimpleProfiler;
 
@@ -99,6 +100,10 @@ public class ExcitationChamber extends AbstractMachine {
                 if (data == null || !data.isAdult()) {
                     processor.endOperation(b);
                     inv.replaceExistingItem(INFO_SLOT, GuiItems.BLACK_PANE);
+                } else if (data.getExpandedSpecies() != null && data.getExpandedSpecies().isRadioactive()) {
+                    if (GeneticChickengineering.getConfigService().isParticlesEnabled() && Math.random() < 0.3) {
+                        b.getWorld().spawnParticle(Particle.WARPED_SPORE, b.getLocation().add(0.5, 0.8, 0.5), 3, 0.2, 0.2, 0.2, 0.02);
+                    }
                 }
             }
         } finally {
@@ -119,8 +124,6 @@ public class ExcitationChamber extends AbstractMachine {
                     continue;
                 }
 
-                // Set the progress bar to always be the resource, since players
-                // can abort the recipe if they know the egg is coming
                 ItemStack resourceIcon = data.getResource();
 
                 ItemStack chickResource;
@@ -130,20 +133,7 @@ public class ExcitationChamber extends AbstractMachine {
                     chickResource = resourceIcon.clone();
                 }
 
-                /* Speed calculation
-                 * All recipes have a base speed of 14 (by default)
-                 * All recipes add 1 second/DNA tier
-                 * All recipes subtract 2 seconds/DNA strength (dominant pairs)
-                 *         | normal    | boosted
-                 *  Tier 0 | 2-14 sec  | 1-7 sec
-                 *  Tier 1 | 5-15 sec  | 2-7 sec
-                 *  Tier 2 | 8-16 sec  | 4-8 sec
-                 *  Tier 3 | 11-17 sec | 5-8 sec
-                 *  Tier 4 | 14-18 sec | 7-9 sec
-                 *  Tier 5 | 17-19 sec | 8-9 sec
-                 *  Tier 6 | 20 sec    | 10 sec
-                 */
-                int speed = (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed();
+                int speed = Math.max(1, (config.getResourceBaseTime() + data.getResourceTier() - 2 * data.getDNAStrength()) / getSpeed());
                 MachineRecipe recipe = new MachineRecipe(
                     config.isTest() ? 1 : speed,
                     new ItemStack[] {chicken},

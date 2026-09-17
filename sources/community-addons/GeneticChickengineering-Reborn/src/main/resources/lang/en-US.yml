@@ -19,6 +19,8 @@ console:
 categories:
   ICON:
     name: "&eGenetic Chickengineering"
+  BIOTECH_ICON:
+    name: "&bAvian Biotechnology & Industrial Poultry"
   DIRECTORY_ICON:
     name: "&eGCE Chicken Directory"
 
@@ -33,6 +35,21 @@ recipes:
     lore:
       - "&fObtained from a &bPocket Chicken,"
       - "&fin an &eExcitation Chamber."
+  bio_cloning:
+    name: "&aBio-Cloning Vat"
+    lore:
+      - "&fCloned from an adult &bPocket Chicken,"
+      - "&fusing &aNutrient Gel."
+  mutagenic_splicing:
+    name: "&dMutagenic Splicer"
+    lore:
+      - "&fTransmuted using a &dMutagenic Serum"
+      - "&fand the desired catalyst material."
+  industrial_roost:
+    name: "&6Industrial Roost"
+    lore:
+      - "&fHigh-throughput multi-chicken roost,"
+      - "&fcompacting production into a single block."
 
 items:
   POCKET_CHICKEN:
@@ -70,10 +87,15 @@ items:
     lore:
       - "&7Enables chickens to produce resources"
       - "&7much faster."
+  EXCITATION_CHAMBER_4:
+    name: "&5Quantum Excitation Chamber"
+    lore:
+      - "&7Produces resources at quantum speed."
+      - "&7Speed: &d25x"
   PRIVATE_COOP:
     name: "&ePrivate Coop"
     lore:
-      - "&7Can store chickens."
+      - "&7Can store and breed chickens."
   RESTORATION_CHAMBER:
     name: "&eRestoration Chamber"
     lore:
@@ -82,7 +104,47 @@ items:
     name: "&eGrowth Chamber"
     lore:
       - "&7Can raise baby chickens"
-      - "&7with wheat seeds."
+      - "&7with seeds or rapid growth feed."
+  BIO_CLONING_VAT:
+    name: "&aBio-Cloning Vat"
+    lore:
+      - "&7Duplicates adult chickens with Nutrient Gel."
+      - "&7Preserves 100% of genotype and strain."
+  MUTAGENIC_SPLICER:
+    name: "&dMutagenic Splicer"
+    lore:
+      - "&7Transmutes chickens into advanced Slimefun"
+      - "&7alloys, nuclear, and cosmic strains."
+  INDUSTRIAL_ROOST:
+    name: "&6Industrial Roost"
+    lore:
+      - "&7Houses up to 4 adult chickens of the same type."
+      - "&7Multiplies yields and reduces server lag."
+  MUTAGENIC_SERUM:
+    name: "&dMutagenic Serum"
+    lore:
+      - "&7Highly reactive mutagenic reagent."
+      - "&7Used in the &eMutagenic Splicer&7."
+  NUTRIENT_GEL:
+    name: "&aNutrient Gel"
+    lore:
+      - "&7Rich nutrient substrate for mitosis."
+      - "&7Used in the &eBio-Cloning Vat&7."
+  RAPID_GROWTH_FEED:
+    name: "&eRapid Growth Feed"
+    lore:
+      - "&7Feed enriched with growth hormones."
+      - "&eReduces maturation time to only 10 seconds&7."
+  FORTIFIED_VITA_FEED:
+    name: "&bFortified Vita-Feed"
+    lore:
+      - "&7Fortifying vitamin poultry feed."
+      - "&aGrants immunity to strain and pain damage&7."
+  EXCITATION_CATALYST:
+    name: "&6Excitation Catalyst"
+    lore:
+      - "&7Resonance ionic catalyst."
+      - "&6+35% chance for double resource drop&7."
 
 lores:
   right-click-to-use: "&eRight Click&7 to use"

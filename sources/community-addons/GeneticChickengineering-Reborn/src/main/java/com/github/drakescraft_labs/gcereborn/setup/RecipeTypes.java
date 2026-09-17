@@ -18,4 +18,16 @@ public final class RecipeTypes {
         "from_chicken",
         GCEItems.EXCITATION_CHAMBER
     );
+    public static final RecipeType BIO_CLONING = GeneticChickengineering.getLocalization().getRecipeType(
+        "bio_cloning",
+        GCEItems.BIO_CLONING_VAT
+    );
+    public static final RecipeType MUTAGENIC_SPLICING = GeneticChickengineering.getLocalization().getRecipeType(
+        "mutagenic_splicing",
+        GCEItems.MUTAGENIC_SPLICER
+    );
+    public static final RecipeType INDUSTRIAL_ROOST = GeneticChickengineering.getLocalization().getRecipeType(
+        "industrial_roost",
+        GCEItems.INDUSTRIAL_ROOST
+    );
 }

@@ -1,0 +1,239 @@
+console:
+  paper-only: "¡Este plugin requiere Paper para funcionar! Por favor usa Paper o un fork en lugar de Spigot."
+  load:
+    language: "Idioma cargado: {0}"
+    items: "Cargando objetos..."
+    researches: "Cargando investigaciones..."
+    commands-fail: "¡No se pudieron inicializar los comandos! Por favor reportalo al desarrollador."
+    database: "Cargando base de datos..."
+    chickens: "Registradas {0} gallinas geneticas."
+    integrations: "Cargando integraciones..."
+    integration: "Detectado {0}, iniciando integracion..."
+  database:
+    connect-fail: "¡No se pudo conectar a la base de datos!"
+    connected: "¡Conectado a la base de datos!"
+    not-connected: "¡La base de datos no esta conectada! Abortando operacion."
+    exception: "¡Ocurrio una excepcion SQLException al ejecutar las consultas!"
+    cleanup: "Se eliminaron {0} registros antiguos de gallinas. ¿Habran muerto?"
+
+categories:
+  ICON:
+    name: "&eIngenieria Genetica Aviar"
+  BIOTECH_ICON:
+    name: "&bBiotecnologia y Avicultura Industrial"
+  DIRECTORY_ICON:
+    name: "&eDirectorio de Gallinas GCE"
+
+recipes:
+  from_net:
+    name: "&aRed para Gallinas"
+    lore:
+      - "&fCaptura una gallina con la &aRed para Gallinas,"
+      - "&fo criala en un &eGallinero Privado."
+  from_chicken:
+    name: "&eCamara de Excitacion"
+    lore:
+      - "&fObtenido de una &bGallina de Bolsillo,"
+      - "&fen una &eCamara de Excitacion."
+  bio_cloning:
+    name: "&aCuba de Bioclonacion"
+    lore:
+      - "&fClonada a partir de una &bGallina de Bolsillo &fadulta,"
+      - "&futilizando &aGel Nutritivo."
+  mutagenic_splicing:
+    name: "&dEmpalmador Mutagenico"
+    lore:
+      - "&fTransmutada usando un &dSuero Mutagenico"
+      - "&fy el material catalizador deseado."
+  industrial_roost:
+    name: "&6Gallinero Industrial"
+    lore:
+      - "&fGallinero multiranura de alto rendimiento,"
+      - "&fcompacta la produccion en un solo bloque."
+
+items:
+  POCKET_CHICKEN:
+    name: "&bGallina de Bolsillo"
+    lore:
+      - "&7Haz clic derecho en un bloque"
+      - "&7para liberar la gallina al mundo."
+  CHICKEN_NET:
+    name: "&aRed para Gallinas"
+    lore:
+      - "&7Permite capturar gallinas en formato portatil."
+  WATER_EGG:
+    name: "&9Huevo de Agua"
+    lore:
+      - "&7Contiene agua pura condensada."
+  LAVA_EGG:
+    name: "&cHuevo de Lava"
+    lore:
+      - "&7Contiene magma ardiente comprimido."
+  GENETIC_SEQUENCER:
+    name: "&eSecuenciador Genetico"
+    lore:
+      - "&7Determina el genotipo y fenotipo de la gallina."
+  EXCITATION_CHAMBER:
+    name: "&eCamara de Excitacion"
+    lore:
+      - "&7Estimula electricamente a las gallinas para producir recursos."
+  EXCITATION_CHAMBER_2:
+    name: "&eCamara de Excitacion Potenciada"
+    lore:
+      - "&7Genera recursos a mayor velocidad."
+  EXCITATION_CHAMBER_3:
+    name: "&eCamara de Excitacion Suprema"
+    lore:
+      - "&7Genera recursos a velocidad extrema."
+  EXCITATION_CHAMBER_4:
+    name: "&5Camara de Excitacion Cuantica"
+    lore:
+      - "&7Genera recursos a velocidad cuantica desfasada."
+      - "&7Velocidad de procesamiento: &d25x"
+  PRIVATE_COOP:
+    name: "&eGallinero Privado"
+    lore:
+      - "&7Permite cruzar y criar dos gallinas adultas."
+  RESTORATION_CHAMBER:
+    name: "&eCamara de Restauracion"
+    lore:
+      - "&7Cura y revitaliza gallinas fatigadas o heridas."
+  GROWTH_CHAMBER:
+    name: "&eCamara de Crecimiento"
+    lore:
+      - "&7Acelera el crecimiento de crias de gallina"
+      - "&7utilizando semillas o piensos enriquecidos."
+  BIO_CLONING_VAT:
+    name: "&aCuba de Bioclonacion"
+    lore:
+      - "&7Duplica ejemplares adultos con Gel Nutritivo."
+      - "&7Conserva al 100% el genoma y la cepa original."
+  MUTAGENIC_SPLICER:
+    name: "&dEmpalmador Mutagenico"
+    lore:
+      - "&7Ingenieria genetica de precision."
+      - "&7Permite mutar gallinas a aleaciones y cepas cosmicas."
+  INDUSTRIAL_ROOST:
+    name: "&6Gallinero Industrial"
+    lore:
+      - "&7Aloja hasta 4 gallinas adultas del mismo tipo."
+      - "&7Multiplica la cosecha y reduce el lag en el servidor."
+  MUTAGENIC_SERUM:
+    name: "&dSuero Mutagenico"
+    lore:
+      - "&7Reactivo mutagenico altamente inestable."
+      - "&7Utilizado en el &eEmpalmador Mutagenico&7."
+  NUTRIENT_GEL:
+    name: "&aGel Nutritivo"
+    lore:
+      - "&7Sustrato biologico para mitosis acelerada."
+      - "&7Utilizado en la &eCuba de Bioclonacion&7."
+  RAPID_GROWTH_FEED:
+    name: "&ePienso de Crecimiento Rapido"
+    lore:
+      - "&7Pienso enriquecido con bioestimulantes."
+      - "&eReduce la incubacion a solo 10 segundos&7."
+  FORTIFIED_VITA_FEED:
+    name: "&bPienso Vitaminico Fortificante"
+    lore:
+      - "&7Pienso protector vitaminado."
+      - "&aProtege a las aves del desgaste y dano por fatiga&7."
+  EXCITATION_CATALYST:
+    name: "&6Catalizador de Hiperexitacion"
+    lore:
+      - "&7Catalizador ionico de resonancia de vacio."
+      - "&6+35% probabilidad de obtener cosecha doble&7."
+
+lores:
+  right-click-to-use: "&eClic Derecho&7 para usar"
+  chicken:
+    health: "&7Salud: &e{0}"
+    name: "&7Nombre: &e{0}"
+    on-fire: "&7En llamas: &e\u2713"
+    baby: "&7Cria: &e\u2713"
+    status:
+      line: "&7Estado: &e{0}"
+      healthy: "&aSaludable"
+      exhausted: "&4Exhausta"
+      fatigued: "&eFatigada"
+    dna: "&7ADN: &e{0}"
+    type: "&7Tipo: &e{0} &eGallina"
+
+products:
+  FEATHER: "Pluma"
+  BONE: "Hueso"
+  COBBLESTONE: "Adoquin"
+  DIRT: "Tierra"
+  FLINT: "Pedernal"
+  SAND: "Arena"
+  WATER: "Agua"
+  COAL: "Carbon"
+  STRING: "Hilo"
+  LEATHER: "Cuero"
+  SUGAR: "Azucar"
+  SPONGE: "Esponja"
+  DIORITE: "Diorita"
+  ANDESITE: "Andesita"
+  GRAVEL: "Grava"
+  ICE: "Hielo"
+  GRANITE: "Granito"
+  CLAY: "Arcilla"
+  OAK_LOG: "Tronco de Roble"
+  GUNPOWDER: "Polvora"
+  KELP: "Algas"
+  SLIME_BALL: "Bola de Slime"
+  GOLD: "Oro"
+  NETHERRACK: "Netherrack"
+  GLASS: "Cristal"
+  LAPIS: "Lapislazuli"
+  IRON: "Hierro"
+  IRON_DUST: "Polvo de Hierro"
+  GOLD_DUST: "Polvo de Oro"
+  SILVER_DUST: "Polvo de Plata"
+  ZINC_DUST: "Polvo de Zinc"
+  CAKE: "Pastel"
+  OBSIDIAN: "Obsidiana"
+  COPPER_DUST: "Polvo de Cobre"
+  MAGNESIUM_DUST: "Polvo de Magnesio"
+  LAVA: "Lava"
+  TIN_DUST: "Polvo de Estano"
+  SNOWBALL: "Bola de Nieve"
+  REDSTONE: "Redstone"
+  CACTUS: "Cactus"
+  ALUMINUM_DUST: "Polvo de Aluminio"
+  LEAD_DUST: "Polvo de Plomo"
+  BLACKSTONE: "Piedra Negra"
+  SOUL_SOIL: "Tierra de Almas"
+  BLAZE_ROD: "Vara de Blaze"
+  GHAST_TEAR: "Lagrima de Ghast"
+  SULFATE: "Sulfato"
+  SHROOMLIGHT: "Hongo Brillante"
+  QUARTZ: "Cuarzo"
+  BASALT: "Basalto"
+  CRYING_OBSIDIAN: "Obsidiana Llorosa"
+  SOUL_SAND: "Arena de Almas"
+  ENDER_PEARL: "Perla de Ender"
+  NETHER_WART: "Verruga del Nether"
+  PHANTOM_MEMBRANE: "Membrana de Fantasma"
+  MAGMA_CREAM: "Crema de Magma"
+  GLOWSTONE_DUST: "Polvo de Piedra Luminosa"
+  DIAMOND: "Diamante"
+  END_STONE: "Piedra del End"
+  PRISMARINE_CRYSTALS: "Cristales de Prismarina"
+  PRISMARINE_SHARD: "Fragmento de Prismarina"
+  EXPERIENCE: "Experiencia"
+  EMERALD: "Esmeralda"
+  NETHERITE: "Netherite"
+
+commands:
+  calcchance:
+    description: "&fCalcula la probabilidad de obtener una gallina con el ADN objetivo a partir de 2 progenitores."
+  makechicken:
+    description: "&fGenera un item de gallina con el ADN indicado."
+
+messages:
+  no-permission: "&c¡No tienes permisos para ejecutar esta accion!"
+  no-console: "&c¡Debes ser un jugador para ejecutar este comando!"
+  usage: "&bUso: &e{0}"
+  invalid-dna-notation: "&cNotacion de ADN no valida: {0}"
+  chance-result: "&eHay un &b{0}% &ede probabilidad de que el progenitor 1 ({1}) y el progenitor 2 ({2}) tengan la cria ({3})."

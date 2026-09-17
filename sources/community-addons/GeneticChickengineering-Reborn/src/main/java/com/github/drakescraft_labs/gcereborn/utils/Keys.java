@@ -17,6 +17,8 @@ public final class Keys {
     public static final NamespacedKey CHICKEN_DNA = get("chicken_dna");
     public static final NamespacedKey POCKET_CHICKEN_DNA = get("gce_pocket_chicken_dna");
     public static final NamespacedKey POCKET_CHICKEN_ADAPTER = get("gce_pocket_chicken_adapter");
+    public static final NamespacedKey EXPANDED_SPECIES = get("gce_expanded_species");
+    public static final NamespacedKey CATALYST_BOOST = get("gce_catalyst_boost");
 
     public static final String METADATA = "gce_pocket_chicken_dna";
 

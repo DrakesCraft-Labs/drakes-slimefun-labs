@@ -6,52 +6,55 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
-import com.google.common.base.Preconditions;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Chicken;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.github.drakescraft_labs.slimefun4.api.items.ItemGroup;
 import com.github.drakescraft_labs.slimefun4.api.items.SlimefunItemStack;
+import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
+import com.github.drakescraft_labs.slimefun4.core.guide.SlimefunGuide;
+import com.github.drakescraft_labs.slimefun4.implementation.items.SimpleSlimefunItem;
 import com.github.drakescraft_labs.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import com.github.drakescraft_labs.slimefun4.libraries.dough.items.CustomItemStack;
+import com.github.drakescraft_labs.slimefun4.utils.ChatUtils;
 
 import com.github.drakescraft_labs.gcereborn.GeneticChickengineering;
+import com.github.drakescraft_labs.gcereborn.core.adapters.AnimalsAdapter;
 import com.github.drakescraft_labs.gcereborn.core.genetics.DNA;
 import com.github.drakescraft_labs.gcereborn.items.GCEItems;
 import com.github.drakescraft_labs.gcereborn.items.chicken.ChickenTypes;
+import com.github.drakescraft_labs.gcereborn.items.chicken.ExpandedChickenSpecies;
 import com.github.drakescraft_labs.gcereborn.items.chicken.PocketChicken;
 import com.github.drakescraft_labs.gcereborn.setup.Groups;
 import com.github.drakescraft_labs.gcereborn.setup.RecipeTypes;
-import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 
 import lombok.experimental.UtilityClass;
+import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 
-/**
- * Utility class for {@link PocketChicken}.
- */
 @UtilityClass
 public final class ChickenUtils {
 
-    /**
-     * Determine whether an {@link ItemStack} is a {@link PocketChicken}.
-     *
-     * @param item The {@link ItemStack} to check.
-     * @return Whether the {@link ItemStack} is a {@link PocketChicken}.
-     */
-    public boolean isPocketChicken(@Nullable ItemStack item) {
+    public static boolean isPocketChicken(@Nullable ItemStack item) {
         return item != null && !item.getType().isAir() && item.hasItemMeta() && PersistentDataAPI.hasIntArray(item.getItemMeta(), Keys.POCKET_CHICKEN_DNA);
     }
 
-    /**
-     * Get a json object representing a chicken.
-     *
-     * @return A json object representing a baby chicken.
-     */
+    public static boolean isPocketChicken(@Nullable Chicken chicken) {
+        if (chicken == null) {
+            return false;
+        }
+        if (PersistentDataAPI.hasString(chicken, Keys.CHICKEN_DNA)) {
+            String dnaStr = PersistentDataAPI.getString(chicken, Keys.CHICKEN_DNA);
+            return DNA.isValidSequence(dnaStr);
+        }
+        return false;
+    }
+
     @Nonnull
     public static JsonObject getChickenJson(boolean isBaby) {
         JsonObject json = new JsonObject();
@@ -75,16 +78,10 @@ public final class ChickenUtils {
         json.addProperty("_loveModeTicks", 0);
         json.add("_attributes", new JsonObject());
         json.add("_effects", new JsonObject());
-        json.add("_scoreboardTags", new JsonArray());
+        json.add("_scoreboardTags", new com.google.gson.JsonArray());
         return json;
     }
 
-    /**
-     * Captures a {@link Chicken} and returns a pocket chicken item.
-     *
-     * @param chicken The {@link Chicken} to capture.
-     * @return The pocket chicken item.
-     */
     @Nonnull
     public static ItemStack capture(@Nonnull Chicken chicken) {
         GeneticChickengineering.getIntegrationService().captureChicken(chicken);
@@ -92,14 +89,10 @@ public final class ChickenUtils {
         ItemStack item = GCEItems.POCKET_CHICKEN.clone();
 
         DNA dna;
-        String uuid = chicken.getUniqueId().toString();
-
         if (PersistentDataAPI.hasString(chicken, Keys.CHICKEN_DNA)) {
             String dnaStr = PersistentDataAPI.getString(chicken, Keys.CHICKEN_DNA);
-            GeneticChickengineering.debug("captured chicken has data in pdc: {0}", dnaStr);
             dna = new DNA(dnaStr);
         } else {
-            GeneticChickengineering.debug("captured chicken has no DNA information");
             dna = new DNA();
         }
 
@@ -124,51 +117,47 @@ public final class ChickenUtils {
         return item;
     }
 
-    /**
-     * Try to breed two chicken.
-     *
-     * @param chick1 The first chicken.
-     * @param chick2 The second chicken.
-     * @return The resulting baby chicken, or null if breeding failed.
-     */
     @Nullable
-    @ParametersAreNonnullByDefault
-    public static ItemStack breed(ItemStack chick1, ItemStack chick2) {
-        Preconditions.checkArgument(chick1 != null, "chick1 cannot be null");
-        Preconditions.checkArgument(chick2 != null, "chick2 cannot be null");
+    public static ItemStack breed(@Nonnull ItemStack c1, @Nonnull ItemStack c2) {
+        ItemMeta c1m = c1.getItemMeta();
+        ItemMeta c2m = c2.getItemMeta();
 
-        ItemMeta c1m = chick1.getItemMeta();
-        ItemMeta c2m = chick2.getItemMeta();
         if (PersistentDataAPI.hasIntArray(c1m, Keys.POCKET_CHICKEN_DNA) && PersistentDataAPI.hasIntArray(c2m, Keys.POCKET_CHICKEN_DNA)) {
             DNA c1d = new DNA(PersistentDataAPI.getIntArray(c1m, Keys.POCKET_CHICKEN_DNA));
             DNA c2d = new DNA(PersistentDataAPI.getIntArray(c2m, Keys.POCKET_CHICKEN_DNA));
-            return fromDNA(new DNA(c1d.split(), c2d.split()), true);
+
+            DNA babyDNA = new DNA(c1d.split(), c2d.split());
+            ItemStack baby = fromDNA(babyDNA, true);
+            
+            // If both parents are the same expanded species, child inherits it!
+            if (PersistentDataAPI.hasString(c1m, Keys.EXPANDED_SPECIES) &&
+                PersistentDataAPI.hasString(c2m, Keys.EXPANDED_SPECIES)) {
+                String s1 = PersistentDataAPI.getString(c1m, Keys.EXPANDED_SPECIES);
+                String s2 = PersistentDataAPI.getString(c2m, Keys.EXPANDED_SPECIES);
+                if (s1 != null && s1.equals(s2)) {
+                    ExpandedChickenSpecies exp = ExpandedChickenSpecies.getById(s1);
+                    if (exp != null) {
+                        setExpandedPocketChicken(baby, getChickenJson(true), babyDNA, exp);
+                    }
+                }
+            }
+            return baby;
         }
         return null;
     }
 
-    /**
-     * Creates a display item for the given product in the dictionary.
-     *
-     * @param typing The type of chicken.
-     */
     public static void createProductDisplay(int typing) {
         ItemStack fake = GCEItems.POCKET_CHICKEN.clone();
         DNA dna = new DNA(typing);
         String productRawName = ChickenTypes.getName(typing);
         setPocketChicken(fake, null, dna);
 
-        // Use the chicken's resource as the icon
         String itemIDType = productRawName.replace(" ", "_").toUpperCase();
         SlimefunItemStack displayItem = new SlimefunItemStack("GCE_" + itemIDType + "_CHICKEN_ICON", ChickenTypes.getProduct(typing));
-        // Since these will be "Pocket Chickens", they will spawn chickens when cheated into a player's inventory
-        // We set the DNA on the icon so that it will spawn a chicken of the correct type
         ItemMeta meta = displayItem.getItemMeta();
         PersistentDataAPI.setIntArray(meta, Keys.POCKET_CHICKEN_DNA, dna.getState());
         displayItem.setItemMeta(meta);
 
-        // Register the display
-        // @formatter:off
         new PocketChicken(
             Groups.DICTIONARY,
             displayItem,
@@ -179,20 +168,41 @@ public final class ChickenUtils {
                 null, null, null
             }
         ).register(GeneticChickengineering.getInstance());
-        // @formatter:on
     }
 
-    /**
-     * Create a fresh new chicken based on the DNA.
-     *
-     * @param dna    The DNA to use.
-     * @param isBaby Whether the chicken is a baby.
-     * @return The new chicken item.
-     */
+    public static void createExpandedProductDisplay(@Nonnull ExpandedChickenSpecies species) {
+        DNA dna = new DNA(0); // pure genotype
+        ItemStack fake = GCEItems.POCKET_CHICKEN.clone();
+        JsonObject fakeJson = getChickenJson(false);
+        setExpandedPocketChicken(fake, fakeJson, dna, species);
+
+        SlimefunItemStack displayItem = new SlimefunItemStack("GCE_" + species.getId() + "_ICON", species.getProduct());
+        ItemMeta meta = displayItem.getItemMeta();
+        meta.setDisplayName(species.getCategory().getTagEs() + " " + ChatColor.WHITE + species.getDisplayNameEs());
+        meta.setLore(List.of(
+            ChatColor.GRAY + "Clasificacion: " + species.getCategory().getTagEs(),
+            ChatColor.GRAY + "Nivel (Tier): " + ChatColor.LIGHT_PURPLE + "Tier " + species.getTier(),
+            ChatColor.GRAY + "Catalizador: " + ChatColor.YELLOW + species.getCatalyst().getType().name(),
+            "",
+            ChatColor.GOLD + "\u21E8 Obtenible en el Empalmador Mutagenico"
+        ));
+        displayItem.setItemMeta(meta);
+
+        new PocketChicken(
+            Groups.DICTIONARY,
+            displayItem,
+            RecipeTypes.MUTAGENIC_SPLICING,
+            new ItemStack[] {
+                GCEItems.MUTAGENIC_SERUM, species.getCatalyst(), null,
+                null, fake, null,
+                null, null, null
+            }
+        ).register(GeneticChickengineering.getInstance());
+    }
+
     @Nonnull
     public static ItemStack fromDNA(@Nonnull DNA dna, boolean isBaby) {
         JsonObject json = getChickenJson(isBaby);
-
         ItemStack item = GCEItems.POCKET_CHICKEN.clone();
         setPocketChicken(item, json, dna);
         return item;
@@ -204,13 +214,6 @@ public final class ChickenUtils {
         return new DNA(PersistentDataAPI.getIntArray(meta, Keys.POCKET_CHICKEN_DNA));
     }
 
-    /**
-     * Returns a number which reflects the number of homozygous dominant alleles in a chicken.
-     * This is used to give a boosted rate to resource production from chickens which are "pure".
-     *
-     * @param chicken The chicken {@link ItemStack}.
-     * @return The DNA strength.
-     */
     public static int getDNAStrength(@Nonnull ItemStack chicken) {
         DNA dna = getDNA(chicken);
         int[] state = dna.getState();
@@ -224,7 +227,7 @@ public final class ChickenUtils {
     }
 
     @Nonnull
-    private static List<String> getLore(@Nullable JsonObject json, @Nonnull DNA dna) {
+    private static List<String> getLore(@Nullable JsonObject json, @Nonnull DNA dna, @Nullable ExpandedChickenSpecies species) {
         List<String> lore = new LinkedList<>();
         var localization = GeneticChickengineering.getLocalization();
         if (json != null) {
@@ -242,7 +245,16 @@ public final class ChickenUtils {
                 lore.add(localization.getString("lores.chicken.status.line", status));
             }
         }
-        if (dna.isKnown()) {
+        if (species != null) {
+            lore.add(ChatColor.DARK_GRAY + "--------------------");
+            lore.add(species.getCategory().getTagEs() + " " + ChatColor.YELLOW + species.getDisplayNameEs());
+            lore.add(ChatColor.GRAY + "Rango: " + ChatColor.LIGHT_PURPLE + "Tier " + species.getTier());
+            lore.add(ChatColor.GRAY + "Producto: " + ChatColor.WHITE + species.getProduct().getType().name());
+            if (species.isRadioactive()) {
+                lore.add(ChatColor.RED + "\u2622 \u00A1Emite radiacion activa! Usar proteccion.");
+            }
+            lore.add(ChatColor.DARK_GRAY + "--------------------");
+        } else if (dna.isKnown()) {
             lore.add(localization.getString("lores.chicken.dna", dna));
             lore.add(localization.getString("lores.chicken.type", ChickenTypes.getDisplayName(dna.getTyping())));
         }
@@ -252,11 +264,26 @@ public final class ChickenUtils {
     public static void setPocketChicken(@Nonnull ItemStack item, @Nullable JsonObject json, @Nonnull DNA dna) {
         ItemMeta meta = item.getItemMeta();
         PersistentDataAPI.setIntArray(meta, Keys.POCKET_CHICKEN_DNA, dna.getState());
+        ExpandedChickenSpecies species = null;
+        if (PersistentDataAPI.hasString(meta, Keys.EXPANDED_SPECIES)) {
+            species = ExpandedChickenSpecies.getById(PersistentDataAPI.getString(meta, Keys.EXPANDED_SPECIES));
+        }
         if (json != null) {
             PersistentDataAPI.set(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER, json);
         }
-        meta.setLore(getLore(json, dna));
+        meta.setLore(getLore(json, dna, species));
+        item.setItemMeta(meta);
+    }
 
+    public static void setExpandedPocketChicken(@Nonnull ItemStack item, @Nullable JsonObject json, @Nonnull DNA dna, @Nonnull ExpandedChickenSpecies species) {
+        ItemMeta meta = item.getItemMeta();
+        PersistentDataAPI.setIntArray(meta, Keys.POCKET_CHICKEN_DNA, dna.getState());
+        PersistentDataAPI.setString(meta, Keys.EXPANDED_SPECIES, species.getId());
+        if (json != null) {
+            PersistentDataAPI.set(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER, json);
+        }
+        meta.setDisplayName(species.getCategory().getTagEs() + " " + ChatColor.WHITE + species.getDisplayNameEs());
+        meta.setLore(getLore(json, dna, species));
         item.setItemMeta(meta);
     }
 
@@ -266,10 +293,10 @@ public final class ChickenUtils {
         }
         ItemMeta meta = chicken.getItemMeta();
         JsonObject json = PersistentDataAPI.get(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER);
-        if (json != null) {
+        if (json != null && json.has("_health")) {
             return json.get("_health").getAsDouble();
         }
-        return 0d;
+        return 4d;
     }
 
     public boolean survivesPain(@Nullable ItemStack chicken) {
@@ -286,13 +313,10 @@ public final class ChickenUtils {
         }
         ItemMeta meta = chicken.getItemMeta();
         JsonObject json = PersistentDataAPI.get(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER);
-        if (json != null) {
+        if (json != null && json.has("_health")) {
             double oldHealth = json.get("_health").getAsDouble();
             double newHealth = Math.max(0d, Math.min(oldHealth - damage, 4d));
             json.addProperty("_health", newHealth);
-            // Update the persistent data for health. Only recompute and set
-            // the lore when explicitly enabled in config to avoid expensive
-            // MessageFormat/localization calls in hot paths.
             PersistentDataAPI.set(meta, Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER, json);
             if (GeneticChickengineering.getConfigService().isLiveLoreEnabled()) {
                 setPocketChicken(chicken, json, getDNA(chicken));
@@ -319,73 +343,59 @@ public final class ChickenUtils {
 
     @Nonnull
     public ItemStack getResource(@Nonnull ItemStack chicken) {
+        PocketChickenData data = PocketChickenData.fromItem(chicken);
+        if (data != null) {
+            return data.getResource();
+        }
         DNA dna = getDNA(chicken);
         return ChickenTypes.getProduct(dna.getTyping());
     }
 
-    /**
-     * Returns the number of homozygous recessive genes in the chicken
-     * which represents the difficulty of obtaining this chicken
-     *
-     * @param chicken The chicken {@link ItemStack}.
-     * @return The DNA tier.
-     */
     public int getResourceTier(@Nonnull ItemStack chicken) {
+        PocketChickenData data = PocketChickenData.fromItem(chicken);
+        if (data != null) {
+            return data.getResourceTier();
+        }
         DNA dna = getDNA(chicken);
         return dna.getTier();
     }
 
     public boolean isFood(@Nullable ItemStack item) {
-        if (item == null || item.getType().isAir() || item.hasItemMeta()) {
+        if (item == null || item.getType().isAir()) {
+            return false;
+        }
+        if (item.isSimilar(GCEItems.RAPID_GROWTH_FEED) || item.isSimilar(GCEItems.FORTIFIED_VITA_FEED)) {
+            return true;
+        }
+        if (item.hasItemMeta()) {
             return false;
         }
         Material type = item.getType();
         if (type == Material.WHEAT_SEEDS || type == Material.BEETROOT_SEEDS || type == Material.MELON_SEEDS || type == Material.PUMPKIN_SEEDS) {
             return true;
         }
-
         if (MinecraftVersionUtil.isAtLeast(19, 4) && type == Material.TORCHFLOWER_SEEDS) {
             return true;
         }
-
         if (MinecraftVersionUtil.isAtLeast(20) && type == Material.PITCHER_POD) {
             return true;
         }
-
         return false;
     }
 
-    /**
-     * Determines whether the chicken is an adult.
-     *
-     * @param chicken The chicken {@link ItemStack}.
-     * @return Whether the chicken is an adult.
-     */
     public boolean isAdult(@Nonnull ItemStack chicken) {
         JsonObject json = PersistentDataAPI.get(chicken.getItemMeta(), Keys.POCKET_CHICKEN_ADAPTER, PocketChicken.ADAPTER);
-        if (json != null) {
+        if (json != null && json.has("baby")) {
             return !json.get("baby").getAsBoolean();
         }
-        return false;
+        return true;
     }
 
-    /**
-     * Determines whether the DNA of chicken is known.
-     *
-     * @param chicken The chicken {@link ItemStack}.
-     * @return Whether the DNA is known.
-     */
     public boolean isLearned(@Nonnull ItemStack chicken) {
         DNA dna = getDNA(chicken);
         return dna.isKnown();
     }
 
-    /**
-     * Learn the DNA of a chicken. This returns a new {@link ItemStack} with known DNA.
-     *
-     * @param chicken The chicken {@link ItemStack}.
-     * @return The new chicken {@link ItemStack}.
-     */
     @Nonnull
     public ItemStack learnDNA(@Nonnull ItemStack chicken) {
         ItemStack item = chicken.clone();

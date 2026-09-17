@@ -1,7 +1,5 @@
 package com.github.drakescraft_labs.gcereborn;
 
-
-import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
@@ -27,11 +25,9 @@ import com.github.drakescraft_labs.gcereborn.utils.SimpleProfiler;
 import net.guizhanss.guizhanlib.slimefun.addon.AbstractAddon;
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 
-import org.bstats.bukkit.Metrics;
-
 public class GeneticChickengineering extends AbstractAddon {
 
-    private static final String DEFAULT_LANG = "en-US";
+    private static final String DEFAULT_LANG = "es-ES";
 
     private ConfigurationService configService;
     private LocalizationService localization;
@@ -39,7 +35,7 @@ public class GeneticChickengineering extends AbstractAddon {
     private boolean debugEnabled = false;
 
     public GeneticChickengineering() {
-        super("ybw0014", "GeneticChickengineering-Reborn", "master", "options.auto-update");
+        super("DrakesCraft-Labs", "GeneticChickengineering-Reborn-drake", "main", "options.auto-update");
     }
 
     @Nonnull
@@ -88,8 +84,11 @@ public class GeneticChickengineering extends AbstractAddon {
         String lang = configService.getLang();
         localization = new LocalizationService(this);
         localization.addLanguage(lang);
-        if (!lang.equals(DEFAULT_LANG)) {
-            localization.addLanguage(DEFAULT_LANG);
+        if (!lang.equals("es-ES")) {
+            localization.addLanguage("es-ES");
+        }
+        if (!lang.equals("en-US")) {
+            localization.addLanguage("en-US");
         }
         localization.setIdPrefix("GCE_");
         log(Level.INFO, localization.getString("console.load.language"), lang);
@@ -109,8 +108,6 @@ public class GeneticChickengineering extends AbstractAddon {
         log(Level.INFO, localization.getString("console.load.researches"));
         Researches.setup();
 
-        // listeners
-
         // commands
         if (configService.isCommandsEnabled()) {
             PluginCommand command = getCommand("geneticchickengineering");
@@ -128,9 +125,6 @@ public class GeneticChickengineering extends AbstractAddon {
         if (configService.isProfilerEnabled()) {
             SimpleProfiler.startReporter(this);
         }
-
-        // metrics
-        setupMetrics();
     }
 
     @Override
@@ -138,24 +132,8 @@ public class GeneticChickengineering extends AbstractAddon {
         // do nothing
     }
 
-    private void setupMetrics() {
-
-    }
-
     @Override
     protected void autoUpdate() {
-        if (getPluginVersion().startsWith("Dev")) {
-            new BlobBuildUpdater(this, getFile(), getGithubRepo()).start();
-        } else if (getPluginVersion().startsWith("Build")) {
-            try {
-                // use updater in lib plugin
-                Class<?> clazz = Class.forName("net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater");
-                Method updaterStart = clazz.getDeclaredMethod("start", Plugin.class, File.class, String.class, String.class, String.class);
-                updaterStart.invoke(null, this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch());
-            } catch (Exception ignored) {
-                // use updater in lib
-                new GuizhanBuildsUpdater(this, getFile(), getGithubUser(), getGithubRepo(), getGithubBranch()).start();
-            }
-        }
+        // Handled by DrakesCraft ecosystem
     }
 }

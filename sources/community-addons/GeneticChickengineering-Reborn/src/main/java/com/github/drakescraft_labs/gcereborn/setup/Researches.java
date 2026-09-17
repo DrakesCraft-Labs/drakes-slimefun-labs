@@ -18,6 +18,13 @@ public final class Researches {
         13
     );
 
+    public static final Research BIOTECHNOLOGY = new Research(
+        Keys.get("genetic_chickengineering_biotech"),
+        29842,
+        "Avian Biotechnology",
+        24
+    );
+
     public static void setup() {
         MAIN.addItems(
             GCEItems.POCKET_CHICKEN,
@@ -33,7 +40,19 @@ public final class Researches {
         if (GeneticChickengineering.getConfigService().isPainEnabled()) {
             MAIN.addItems(GCEItems.RESTORATION_CHAMBER);
         }
-
         MAIN.register();
+
+        BIOTECHNOLOGY.addItems(
+            GCEItems.BIO_CLONING_VAT,
+            GCEItems.MUTAGENIC_SPLICER,
+            GCEItems.INDUSTRIAL_ROOST,
+            GCEItems.EXCITATION_CHAMBER_4,
+            GCEItems.MUTAGENIC_SERUM,
+            GCEItems.NUTRIENT_GEL,
+            GCEItems.RAPID_GROWTH_FEED,
+            GCEItems.FORTIFIED_VITA_FEED,
+            GCEItems.EXCITATION_CATALYST
+        );
+        BIOTECHNOLOGY.register();
     }
 }

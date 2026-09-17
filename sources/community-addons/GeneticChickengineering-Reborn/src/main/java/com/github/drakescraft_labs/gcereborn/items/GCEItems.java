@@ -22,9 +22,22 @@ public final class GCEItems {
     public static final SlimefunItemStack EXCITATION_CHAMBER;
     public static final SlimefunItemStack EXCITATION_CHAMBER_2;
     public static final SlimefunItemStack EXCITATION_CHAMBER_3;
+    public static final SlimefunItemStack EXCITATION_CHAMBER_4;
     public static final SlimefunItemStack PRIVATE_COOP;
     public static final SlimefunItemStack RESTORATION_CHAMBER;
     public static final SlimefunItemStack GROWTH_CHAMBER;
+
+    // === NUEVA MAQUINARIA BIOTECNOLÓGICA ===
+    public static final SlimefunItemStack BIO_CLONING_VAT;
+    public static final SlimefunItemStack MUTAGENIC_SPLICER;
+    public static final SlimefunItemStack INDUSTRIAL_ROOST;
+
+    // === NUEVOS CONSUMIBLES, PIENSOS Y CATALIZADORES ===
+    public static final SlimefunItemStack MUTAGENIC_SERUM;
+    public static final SlimefunItemStack NUTRIENT_GEL;
+    public static final SlimefunItemStack RAPID_GROWTH_FEED;
+    public static final SlimefunItemStack FORTIFIED_VITA_FEED;
+    public static final SlimefunItemStack EXCITATION_CATALYST;
 
     private static final String LORE_RIGHT_CLICK_TO_USE;
 
@@ -82,6 +95,13 @@ public final class GCEItems {
             LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
             LoreBuilder.powerPerSecond(100)
         );
+        EXCITATION_CHAMBER_4 = GeneticChickengineering.getLocalization().getItem(
+            "EXCITATION_CHAMBER_4",
+            Material.RESPAWN_ANCHOR,
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            LoreBuilder.powerPerSecond(250)
+        );
         PRIVATE_COOP = GeneticChickengineering.getLocalization().getItem(
             "PRIVATE_COOP",
             Material.BEEHIVE,
@@ -102,6 +122,64 @@ public final class GCEItems {
             "",
             LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
             LoreBuilder.powerPerSecond(20)
+        );
+
+        BIO_CLONING_VAT = GeneticChickengineering.getLocalization().getItem(
+            "BIO_CLONING_VAT",
+            Material.BREWING_STAND,
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            LoreBuilder.powerPerSecond(120)
+        );
+        MUTAGENIC_SPLICER = GeneticChickengineering.getLocalization().getItem(
+            "MUTAGENIC_SPLICER",
+            Material.ENCHANTING_TABLE,
+            "",
+            LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
+            LoreBuilder.powerPerSecond(150)
+        );
+        INDUSTRIAL_ROOST = GeneticChickengineering.getLocalization().getItem(
+            "INDUSTRIAL_ROOST",
+            Material.BARREL,
+            "",
+            LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
+            LoreBuilder.powerPerSecond(30)
+        );
+
+        MUTAGENIC_SERUM = GeneticChickengineering.getLocalization().getItem(
+            "MUTAGENIC_SERUM",
+            Material.DRAGON_BREATH,
+            "",
+            "&7Reactivo biológico altamente reactivo.",
+            "&7Utilizado en el &eEmpalmador Mutagénico&7."
+        );
+        NUTRIENT_GEL = GeneticChickengineering.getLocalization().getItem(
+            "NUTRIENT_GEL",
+            Material.SLIME_BALL,
+            "",
+            "&7Sustrato rico en nutrientes para mitosis acelerada.",
+            "&7Utilizado en la &eCuba de Bioclonación&7."
+        );
+        RAPID_GROWTH_FEED = GeneticChickengineering.getLocalization().getItem(
+            "RAPID_GROWTH_FEED",
+            Material.WHEAT_SEEDS,
+            "",
+            "&7Pienso enriquecido con hormonas de crecimiento.",
+            "&eReduce el tiempo de cría a solo 10 segundos&7."
+        );
+        FORTIFIED_VITA_FEED = GeneticChickengineering.getLocalization().getItem(
+            "FORTIFIED_VITA_FEED",
+            Material.PUMPKIN_SEEDS,
+            "",
+            "&7Pienso fortificante vitaminado.",
+            "&aOtorga inmunidad al daño por sobreesfuerzo&7."
+        );
+        EXCITATION_CATALYST = GeneticChickengineering.getLocalization().getItem(
+            "EXCITATION_CATALYST",
+            Material.GLOWSTONE_DUST,
+            "",
+            "&7Catalizador iónico de resonancia.",
+            "&6+35% probabilidad de obtener cosecha doble&7."
         );
         // @formatter:on
     }

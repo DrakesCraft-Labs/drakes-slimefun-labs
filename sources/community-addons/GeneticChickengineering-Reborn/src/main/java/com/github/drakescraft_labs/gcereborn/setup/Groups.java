@@ -21,6 +21,14 @@ public final class Groups {
         )
     );
 
+    public static final ItemGroup BIOTECH = new ItemGroup(
+        Keys.get("genetic_chickengineering_biotech"),
+        GeneticChickengineering.getLocalization().getItemGroupItem(
+            "BIOTECH_ICON",
+            Material.RESPAWN_ANCHOR
+        )
+    );
+
     public static final ItemGroup DICTIONARY = new ItemGroup(
         Keys.get("genetic_chickengineering_chickens"),
         GeneticChickengineering.getLocalization().getItemGroupItem(
