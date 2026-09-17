@@ -29,12 +29,14 @@ public final class InfinityMatrix extends SimpleSlimefunItem<ItemUseHandler> imp
 
     private static void disableFlight(Player p) {
         p.sendMessage(ChatColor.RED + "Infinity Flight Disabled!");
+        p.setFlying(false);
         p.setAllowFlight(false);
     }
 
     private static void enableFlight(Player p) {
         p.sendMessage(ChatColor.GREEN + "Infinity Flight Enabled!");
         p.setAllowFlight(true);
+        p.setFlying(true);
     }
 
     @Nonnull
@@ -57,11 +59,12 @@ public final class InfinityMatrix extends SimpleSlimefunItem<ItemUseHandler> imp
 
             while (iterator.hasNext()) {
                 String line = iterator.next();
+                String stripped = ChatColor.stripColor(line).trim();
 
-                if (ChatColor.stripColor(line).contains("UUID: ")) {
-                    String uuid = ChatColor.stripColor(line).substring(6);
+                if (stripped.toUpperCase().startsWith("UUID:")) {
+                    String uuid = stripped.substring(5).trim();
 
-                    if (!p.getUniqueId().toString().equals(uuid)) {
+                    if (!p.getUniqueId().toString().equalsIgnoreCase(uuid)) {
                         p.sendMessage(ChatColor.YELLOW + "You do not own this matrix!");
                         return;
                     }
@@ -72,9 +75,8 @@ public final class InfinityMatrix extends SimpleSlimefunItem<ItemUseHandler> imp
                         item.setItemMeta(meta);
                         p.sendMessage(ChatColor.GOLD + "Ownership removed!");
                         disableFlight(p);
-
                     }
-                    else if (p.getAllowFlight()) {
+                    else if (p.isFlying() || p.getAllowFlight()) {
                         disableFlight(p);
                     }
                     else {
