@@ -4,6 +4,8 @@ import javax.annotation.Nonnull;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionType;
 
 import com.github.drakescraft_labs.slimefun4.api.recipes.RecipeType;
 import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
@@ -80,13 +82,20 @@ public final class Items {
             }
         ).register(plugin);
 
+        ItemStack waterBottle = new ItemStack(Material.POTION);
+        PotionMeta waterMeta = (PotionMeta) waterBottle.getItemMeta();
+        if (waterMeta != null) {
+            waterMeta.setBasePotionType(PotionType.WATER);
+            waterBottle.setItemMeta(waterMeta);
+        }
+
         new SlimefunItem(
             Groups.BIOTECH,
             GCEItems.NUTRIENT_GEL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
                 new ItemStack(Material.WHEAT), new ItemStack(Material.SUGAR), new ItemStack(Material.WHEAT),
-                new ItemStack(Material.SLIME_BALL), new ItemStack(Material.POTION), new ItemStack(Material.SLIME_BALL),
+                new ItemStack(Material.SLIME_BALL), waterBottle, new ItemStack(Material.SLIME_BALL),
                 new ItemStack(Material.BONE_MEAL), new ItemStack(Material.EGG), new ItemStack(Material.BONE_MEAL)
             }
         ).register(plugin);
