@@ -249,6 +249,19 @@ public final class Machines {
             MachineLore.speed(1),
             MachineLore.energyPerSecond(240)
     );
+    /**
+     * Generador renovable de podzol para cerrar la cadena de materiales de los
+     * Tree Growers sin depender de biomas o de recolección manual.
+     */
+    public static final SlimefunItemStack PODZOL_GENERATOR = new SlimefunItemStack(
+            "PODZOL_GENERATOR",
+            Material.PODZOL,
+            "&cPodzol Generator",
+            "&7Generates podzol from energy",
+            "",
+            MachineLore.speed(1),
+            MachineLore.energyPerSecond(120)
+    );
     public static final SlimefunItemStack SINGULARITY_CONSTRUCTOR = new SlimefunItemStack(
             "SINGULARITY_CONSTRUCTOR",
             Material.QUARTZ_BRICKS,
@@ -359,6 +372,11 @@ public final class Machines {
                 new ItemStack(Material.WATER_BUCKET), Materials.COBBLE_3, new ItemStack(Material.LAVA_BUCKET),
                 Materials.MACHINE_CIRCUIT, BASIC_COBBLE, Materials.MACHINE_CIRCUIT
         }).material(Material.COBBLESTONE).speed(4).energyPerTick(75).register(plugin);
+        new MaterialGenerator(Groups.ADVANCED_MACHINES, PODZOL_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS, SlimefunItems.HARDENED_GLASS,
+                Materials.MAGNONIUM, ADVANCED_COBBLE, Materials.MAGNONIUM,
+                Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
+        }).material(Material.PODZOL).speed(1).energyPerTick(120).register(plugin);
         new MaterialGenerator(Groups.INFINITY_CHEAT, INFINITY_COBBLE, InfinityWorkbench.TYPE, new ItemStack[] {
                 Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, ADVANCED_COBBLE, ADVANCED_COBBLE, ADVANCED_COBBLE, ADVANCED_COBBLE, Materials.VOID_INGOT,
