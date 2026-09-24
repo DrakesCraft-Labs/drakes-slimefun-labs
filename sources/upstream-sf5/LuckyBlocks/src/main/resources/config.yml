@@ -26,7 +26,9 @@ custom:
     lucklevel: LUCKY
     items:
       '1':
-        slimefun_item: 'BIRTHDAY_CAKE'
+        # This is intentionally a vanilla item: BIRTHDAY_CAKE is not a registered
+        # Slimefun ID and is parsed even while this example remains disabled.
+        type: CAKE
         amount: 1
   ExampleSurprise3:
     enabled: false
