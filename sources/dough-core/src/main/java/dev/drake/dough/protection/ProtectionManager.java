@@ -17,6 +17,7 @@ import org.bukkit.plugin.PluginManager;
 
 import dev.drake.dough.common.DoughLogger;
 import dev.drake.dough.protection.loggers.CoreProtectLogger;
+import dev.drake.dough.protection.modules.BentoBoxProtectionModule;
 import dev.drake.dough.protection.modules.WorldGuardProtectionModule;
 
 /**
@@ -46,6 +47,7 @@ public final class ProtectionManager {
         PluginManager pm = plugin.getServer().getPluginManager();
 
         registerModule(pm, "WorldGuard", worldGuard -> new WorldGuardProtectionModule(worldGuard));
+        registerModule(pm, "BentoBox", bentoBox -> new BentoBoxProtectionModule(bentoBox));
     }
 
     @ParametersAreNonnullByDefault
