@@ -58,7 +58,10 @@ public class AlchemicStation extends MultiBlockMachine {
             AlchemicRecipe recipe = checkRecipe(inv);
 
             if (recipe != null) {
-                if (SlimefunUtils.canPlayerUseItem(player, recipe.getOutput(), true)) {
+                // En Laboratorio (modo creativo/prueba) se permite preparar sin research previa:
+                // los testers como StoneAgeKing pueden probar pociones sin trabar la investigacion.
+                boolean creativeBypass = player.getGameMode() == org.bukkit.GameMode.CREATIVE;
+                if (creativeBypass || SlimefunUtils.canPlayerUseItem(player, recipe.getOutput(), true)) {
                     ItemUtils.consumeItem(inv.getItem(INGREDIENT_SLOT), true);
                     startAnimation(recipe, inv, block, glassBlocks);
                 } else {
