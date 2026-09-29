@@ -65,7 +65,7 @@ public class AlchemicStation extends MultiBlockMachine {
                     player.sendMessage("§cDebes investigar esta pocion en la guia de Slimefun antes de prepararla.");
                 }
             } else {
-                player.sendMessage("§cReceta no valida: usa el polvo propio de Potion Expansion y pociones mundanas en el dispensador.");
+                player.sendMessage("§cReceta no valida: pon el polvo de Potion Expansion en el slot central y 3 pociones §emundanas o de agua§c en el dispensador. Investiga la pocion en §e/sf§c primero.");
             }
         }
     }
@@ -157,8 +157,24 @@ public class AlchemicStation extends MultiBlockMachine {
     private boolean isInputPotionValid(@Nonnull AlchemicRecipe recipe, @Nullable ItemStack item) {
         if (item != null && item.getType() == Material.POTION && item.hasItemMeta()) {
             PotionMeta meta = (PotionMeta) item.getItemMeta();
-            return meta.getBasePotionType() == recipe.getInputPotion();
+            return sameBase(meta.getBasePotionType(), recipe.getInputPotion());
         }
         return false;
+    }
+
+    /**
+     * Compara la base de dos pociones tratando WATER y MUNDANE como equivalentes.
+     * Los jugadores usan botella de agua o pocion mundana indistintamente como base
+     * "vacia"; exigir MUNDANE exacto provocaba el falso "receta no valida".
+     */
+    private static boolean sameBase(@Nullable org.bukkit.potion.PotionType a, @Nullable org.bukkit.potion.PotionType b) {
+        if (a == b) {
+            return true;
+        }
+        return isBlankBase(a) && isBlankBase(b);
+    }
+
+    private static boolean isBlankBase(@Nullable org.bukkit.potion.PotionType t) {
+        return t == org.bukkit.potion.PotionType.WATER || t == org.bukkit.potion.PotionType.MUNDANE;
     }
 }
