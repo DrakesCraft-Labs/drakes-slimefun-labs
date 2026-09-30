@@ -1,5 +1,6 @@
 package com.github.drakescraft_labs.coloredenderchests;
 
+import java.util.UUID;
 import java.util.stream.IntStream;
 
 import org.bukkit.Material;
@@ -19,10 +20,17 @@ import com.github.drakescraft_labs.slimefun4.implementation.SlimefunItems;
 import com.github.drakescraft_labs.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import com.github.drakescraft_labs.slimefun4.utils.ColoredMaterial;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.BlockMenuPreset;
+import com.github.drakescraft_labs.slimefun4.legacy.api.inventory.DirtyChestMenu;
 import com.github.drakescraft_labs.slimefun4.legacy.api.item_transport.ItemTransportFlow;
 
 public class ColoredEnderChest extends SlimefunItem {
+
+    private final int size;
+    private final int c1;
+    private final int c2;
+    private final int c3;
 
     public ColoredEnderChest(ColoredEnderChests plugin, int size, int c1, int c2, int c3) {
         // @formatter:off
@@ -39,6 +47,11 @@ public class ColoredEnderChest extends SlimefunItem {
                 }
         );
         // @formatter:on
+
+        this.size = size;
+        this.c1 = c1;
+        this.c2 = c2;
+        this.c3 = c3;
 
         int[] slots = IntStream.range(0, size).toArray();
 
@@ -61,39 +74,70 @@ public class ColoredEnderChest extends SlimefunItem {
             }
 
             @Override
-            public boolean canOpen(Block b, Player p) {
-                String data = BlockStorage.getLocationInfo(b.getLocation(), "yaw");
-                int yaw = 0;
-
-                if (data != null) {
-                    yaw = Integer.parseInt(data);
-                } else if (b.getType() == Material.ENDER_CHEST) {
-                    EnderChest chest = (EnderChest) b.getBlockData();
-
-                    switch (chest.getFacing()) {
-                        case NORTH:
-                            yaw = 180;
-                            break;
-                        case SOUTH:
-                            yaw = 0;
-                            break;
-                        case WEST:
-                            yaw = 90;
-                            break;
-                        case EAST:
-                            yaw = -90;
-                            break;
-                        default:
-                            break;
-                    }
-
-                    BlockStorage.addBlockInfo(b, "yaw", String.valueOf(yaw));
+            public int[] getSlotsAccessedByItemTransport(DirtyChestMenu menu, ItemTransportFlow flow, ItemStack item) {
+                if (menu instanceof BlockMenu bm && PrivateEnderStorage.isPrivate(bm.getBlock())) {
+                    return new int[0];
                 }
+                return slots;
+            }
 
-                ColorIndicator.updateIndicator(b, c1, c2, c3, yaw + 45);
+            @Override
+            public boolean canOpen(Block b, Player p) {
+                int yaw = getFacingYaw(b);
+                BlockStorage.addBlockInfo(b, "yaw", String.valueOf(yaw));
+
+                boolean isPriv = PrivateEnderStorage.isPrivate(b);
+                ColorIndicator.updateIndicator(b, c1, c2, c3, yaw + 45, isPriv);
+
+                if (isPriv) {
+                    UUID owner = PrivateEnderStorage.getOwner(b);
+                    if (owner != null && !p.getUniqueId().equals(owner) && !p.hasPermission("slimefun.inventory.bypass")) {
+                        return false;
+                    }
+                }
                 return true;
             }
         };
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getC1() {
+        return c1;
+    }
+
+    public int getC2() {
+        return c2;
+    }
+
+    public int getC3() {
+        return c3;
+    }
+
+    public static int getFacingYaw(Block b) {
+        String data = BlockStorage.getLocationInfo(b.getLocation(), "yaw");
+        if (data != null && !data.isEmpty()) {
+            try {
+                return Integer.parseInt(data);
+            } catch (NumberFormatException ignored) {}
+        }
+        if (b.getType() == Material.ENDER_CHEST && b.getBlockData() instanceof EnderChest chest) {
+            switch (chest.getFacing()) {
+                case NORTH:
+                    return 180;
+                case SOUTH:
+                    return 0;
+                case WEST:
+                    return 90;
+                case EAST:
+                    return -90;
+                default:
+                    return 0;
+            }
+        }
+        return 0;
     }
 
     private BlockBreakHandler onBlockBreak() {
@@ -111,29 +155,9 @@ public class ColoredEnderChest extends SlimefunItem {
 
             @Override
             public void onPlayerPlace(BlockPlaceEvent e) {
-                int yaw = 0;
-
-                EnderChest chest = (EnderChest) e.getBlock().getBlockData();
-
-                switch (chest.getFacing()) {
-                    case NORTH:
-                        yaw = 180;
-                        break;
-                    case SOUTH:
-                        yaw = 0;
-                        break;
-                    case WEST:
-                        yaw = 90;
-                        break;
-                    case EAST:
-                        yaw = -90;
-                        break;
-                    default:
-                        break;
-                }
-
+                int yaw = getFacingYaw(e.getBlock());
                 BlockStorage.addBlockInfo(e.getBlock(), "yaw", String.valueOf(yaw));
-                ColorIndicator.updateIndicator(e.getBlock(), c1, c2, c3, yaw + 45);
+                ColorIndicator.updateIndicator(e.getBlock(), c1, c2, c3, yaw + 45, false);
             }
         };
     }
@@ -142,5 +166,4 @@ public class ColoredEnderChest extends SlimefunItem {
         SlimefunItem enderChest = SlimefunItem.getById("COLORED_ENDER_CHEST_SMALL_" + c1 + "_" + c2 + "_" + c3);
         return enderChest != null ? enderChest.getItem() : null;
     }
-
 }
