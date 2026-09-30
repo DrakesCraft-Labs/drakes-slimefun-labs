@@ -75,8 +75,14 @@ public class ColoredEnderChest extends SlimefunItem {
 
             @Override
             public int[] getSlotsAccessedByItemTransport(DirtyChestMenu menu, ItemTransportFlow flow, ItemStack item) {
-                if (menu instanceof BlockMenu bm && PrivateEnderStorage.isPrivate(bm.getBlock())) {
-                    return new int[0];
+                if (menu instanceof BlockMenu bm) {
+                    if (PrivateEnderStorage.isPrivate(bm.getBlock())) {
+                        return new int[0];
+                    }
+                    String modality = PrivateEnderStorage.resolveModality(bm.getBlock().getWorld());
+                    if (!"survival".equalsIgnoreCase(modality)) {
+                        return new int[0];
+                    }
                 }
                 return slots;
             }
@@ -94,6 +100,10 @@ public class ColoredEnderChest extends SlimefunItem {
                     if (owner != null && !p.getUniqueId().equals(owner) && !p.hasPermission("slimefun.inventory.bypass")) {
                         return false;
                     }
+                }
+                String modality = PrivateEnderStorage.resolveModality(b.getWorld());
+                if (!"survival".equalsIgnoreCase(modality)) {
+                    return false;
                 }
                 return true;
             }

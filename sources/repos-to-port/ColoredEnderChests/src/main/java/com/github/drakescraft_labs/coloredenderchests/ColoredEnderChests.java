@@ -184,11 +184,20 @@ public class ColoredEnderChests extends JavaPlugin implements SlimefunAddon, Lis
             event.setCancelled(true);
             UUID owner = PrivateEnderStorage.getOwner(b);
             if (owner != null && (owner.equals(player.getUniqueId()) || player.hasPermission("slimefun.inventory.bypass"))) {
-                privateStorage.openPrivateChest(player, owner, size, c1, c2, c3);
+                privateStorage.openPrivateChest(player, b.getWorld(), owner, size, c1, c2, c3);
             } else {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c[ColoredEnderChests] Este cofre es privado de &e" + PrivateEnderStorage.getOwnerName(b) + "&c!"));
                 player.playSound(b.getLocation(), Sound.BLOCK_CHEST_LOCKED, 1.0f, 0.5f);
             }
+            return;
+        }
+
+        // Intercept public chests in non-survival modalities (e.g. bskyblock, aoneblock)
+        // to strictly isolate island inventories from Survival's global inventory.
+        String modality = PrivateEnderStorage.resolveModality(b.getWorld());
+        if (!"survival".equalsIgnoreCase(modality)) {
+            event.setCancelled(true);
+            privateStorage.openScopedPublicChest(player, b.getWorld(), size, c1, c2, c3);
         }
     }
 

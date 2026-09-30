@@ -2,6 +2,7 @@ package com.github.drakescraft_labs.coloredenderchests;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,6 +12,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -24,8 +26,14 @@ import org.bukkit.inventory.ItemStack;
 import com.github.drakescraft_labs.slimefun4.legacy.api.BlockStorage;
 
 /**
- * Handles private per-player storage for Colored Ender Chests locked with a Diamond.
- * Prevents players from copying color combinations and stealing other players' chests.
+ * Handles per-player private storage and modality-scoped storage for Colored Ender Chests.
+ * 
+ * SRE Architecture Canon:
+ * 1. Cross-Dimension within Modality:
+ *    - Overworld, Nether, and The End within Survival share the same storage.
+ * 2. Cross-Modality Isolation:
+ *    - Survival, BSkyBlock, AOneBlock, CaveBlock have strictly isolated storage namespaces.
+ *    - No items can cross between modalities.
  */
 public class PrivateEnderStorage implements Listener {
 
@@ -33,14 +41,16 @@ public class PrivateEnderStorage implements Listener {
     private final File dataFolder;
 
     private static class OpenContext {
-        final UUID owner;
+        final String modality;
+        final UUID owner; // null if public
         final int size;
         final int c1;
         final int c2;
         final int c3;
         final File file;
 
-        OpenContext(UUID owner, int size, int c1, int c2, int c3, File file) {
+        OpenContext(String modality, UUID owner, int size, int c1, int c2, int c3, File file) {
+            this.modality = modality;
             this.owner = owner;
             this.size = size;
             this.c1 = c1;
@@ -54,11 +64,44 @@ public class PrivateEnderStorage implements Listener {
 
     public PrivateEnderStorage(ColoredEnderChests plugin) {
         this.plugin = plugin;
-        this.dataFolder = new File(plugin.getDataFolder(), "private-chests");
+        this.dataFolder = new File(plugin.getDataFolder(), "storage");
         if (!dataFolder.exists()) {
             dataFolder.mkdirs();
         }
         Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    /**
+     * Resolves the logical modality of a given world.
+     * Dimensions of the same modality (e.g. world_nether -> world) map to the same modality.
+     */
+    public static String resolveModality(World world) {
+        if (world == null) return "survival";
+        String name = world.getName().toLowerCase(Locale.ROOT);
+
+        if (name.startsWith("bskyblock") || name.startsWith("skyblock")) {
+            return "bskyblock";
+        }
+        if (name.startsWith("aoneblock") || name.startsWith("oneblock")) {
+            return "aoneblock";
+        }
+        if (name.startsWith("caveblock") || name.startsWith("acid")) {
+            return "caveblock";
+        }
+        if (name.startsWith("laboratorio") || name.startsWith("creative")) {
+            return "laboratorio";
+        }
+
+        for (String suffix : new String[] { "_the_end", "_the_nether", "_nether", "_end" }) {
+            if (name.endsWith(suffix)) {
+                String base = name.substring(0, name.length() - suffix.length());
+                if (base.equals("world")) return "survival";
+                return base;
+            }
+        }
+
+        if (name.equals("world")) return "survival";
+        return name;
     }
 
     public static boolean isPrivate(Block b) {
@@ -93,16 +136,17 @@ public class PrivateEnderStorage implements Listener {
         BlockStorage.addBlockInfo(b, "is_private", "false");
     }
 
-    public void openPrivateChest(Player player, UUID owner, int size, int c1, int c2, int c3) {
-        File userDir = new File(dataFolder, owner.toString());
-        if (!userDir.exists()) {
-            userDir.mkdirs();
+    public void openPrivateChest(Player player, World world, UUID owner, int size, int c1, int c2, int c3) {
+        String modality = resolveModality(world);
+        File modDir = new File(new File(dataFolder, modality), "private/" + owner.toString());
+        if (!modDir.exists()) {
+            modDir.mkdirs();
         }
 
         String fileName = (size == 27 ? "small" : "big") + "_" + c1 + "_" + c2 + "_" + c3 + ".yml";
-        File file = new File(userDir, fileName);
+        File file = new File(modDir, fileName);
 
-        String title = ChatColor.translateAlternateColorCodes('&', "&5&lPrivate Ender Chest &7(" + (size == 27 ? "Small" : "Big") + ") #" + c1 + "-" + c2 + "-" + c3);
+        String title = ChatColor.translateAlternateColorCodes('&', "&5&lPrivate Ender Chest &7(" + (size == 27 ? "Small" : "Big") + ") &8[" + modality.toUpperCase(Locale.ROOT) + "] &7#" + c1 + "-" + c2 + "-" + c3);
         Inventory inv = Bukkit.createInventory(player, size, title);
 
         if (file.exists()) {
@@ -117,7 +161,39 @@ public class PrivateEnderStorage implements Listener {
             }
         }
 
-        openViewers.put(player.getUniqueId(), new OpenContext(owner, size, c1, c2, c3, file));
+        openViewers.put(player.getUniqueId(), new OpenContext(modality, owner, size, c1, c2, c3, file));
+        player.openInventory(inv);
+        try {
+            player.playSound(player.getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, 1.8F, 1.6F);
+        } catch (Throwable ignored) {}
+    }
+
+    public void openScopedPublicChest(Player player, World world, int size, int c1, int c2, int c3) {
+        String modality = resolveModality(world);
+        File modDir = new File(new File(dataFolder, modality), "public");
+        if (!modDir.exists()) {
+            modDir.mkdirs();
+        }
+
+        String fileName = (size == 27 ? "small" : "big") + "_" + c1 + "_" + c2 + "_" + c3 + ".yml";
+        File file = new File(modDir, fileName);
+
+        String title = ChatColor.translateAlternateColorCodes('&', "&e&lEnder Chest &7(" + (size == 27 ? "Small" : "Big") + ") &8[" + modality.toUpperCase(Locale.ROOT) + "] &7#" + c1 + "-" + c2 + "-" + c3);
+        Inventory inv = Bukkit.createInventory(player, size, title);
+
+        if (file.exists()) {
+            YamlConfiguration yaml = YamlConfiguration.loadConfiguration(file);
+            for (int i = 0; i < size; i++) {
+                if (yaml.contains("slot." + i)) {
+                    ItemStack is = yaml.getItemStack("slot." + i);
+                    if (is != null) {
+                        inv.setItem(i, is);
+                    }
+                }
+            }
+        }
+
+        openViewers.put(player.getUniqueId(), new OpenContext(modality, null, size, c1, c2, c3, file));
         player.openInventory(inv);
         try {
             player.playSound(player.getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, 1.8F, 1.6F);
@@ -143,7 +219,7 @@ public class PrivateEnderStorage implements Listener {
         try {
             yaml.save(ctx.file);
         } catch (IOException e) {
-            plugin.getLogger().log(Level.SEVERE, "Could not save private ender chest for " + ctx.owner, e);
+            plugin.getLogger().log(Level.SEVERE, "Could not save ender chest in modality " + ctx.modality, e);
         }
 
         try {
